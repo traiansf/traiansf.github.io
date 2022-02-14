@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Traian Florin Șerbănuță" />
+  <title>IMP</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">IMP</h1>
+  <p class="subtitle">an imperative concurrent language</p>
+  <p class="author">
+Traian Florin Șerbănuță
+  </p>
+  <p class="institute">
+Runtime Verification
+  </p>
+</div>
+<div id="arithmetic-and-boolean-expressions-syntax" class="slide section level1">
+<h1>Arithmetic and Boolean Expressions Syntax</h1>
+<p>Regular arithmetic. Things to notice</p>
+<ul>
+<li>Syntax definition formalism
+<ul>
+<li>brackets, priorities, grouping</li>
+</ul></li>
+<li>Evaluation strategies and <code>Val</code>ues
+<ul>
+<li>strictness, partial strictness (e.g., for short-circuited ops)</li>
+</ul></li>
+</ul>
+<pre class="k"><code>module EXP-SYNTAX
+  imports DOMAINS-SYNTAX
+
+
+  syntax Val ::= Int | Bool
+
+  syntax Exp ::= Val
+               | &quot;(&quot; Exp &quot;)&quot; [bracket]
+               &gt; left:
+                 Exp &quot;*&quot; Exp [left, seqstrict]
+               | Exp &quot;/&quot; Exp [left, seqstrict]
+               &gt; left:
+                 Exp &quot;+&quot; Exp [left, seqstrict]
+               | Exp &quot;-&quot; Exp [left, seqstrict]
+               &gt; non-assoc:
+                 Exp &quot;==&quot; Exp [seqstrict]
+               | Exp &quot;!=&quot; Exp [seqstrict]
+               | Exp &quot;&gt;=&quot; Exp [seqstrict]
+               | Exp &quot;&lt;=&quot; Exp [seqstrict]
+               &gt; right:
+                 Exp &quot;&amp;&amp;&quot; Exp [seqstrict(1)]
+               | Exp &quot;||&quot; Exp [seqstrict(1)]
+               | &quot;!&quot; Exp      [seqstrict]
+endmodule</code></pre>
+</div>
+<div id="arithmetic-and-boolean-expressions-semantics" class="slide section level1">
+<h1>Arithmetic and Boolean Expressions semantics</h1>
+<p>Things to notice:</p>
+<ul>
+<li><p>Evaluations strategies require defining <code>KResult</code>s</p></li>
+<li><p>Rules assume arguments have been evaluated</p></li>
+<li><p>Type inference for variables (to the most general possible sort)</p></li>
+</ul>
+<pre class="k"><code>module EXP
+  imports EXP-SYNTAX
+  imports DOMAINS 
+
+  syntax KResult ::= Int | Bool
+  
+  rule I1 + I2 =&gt; I1 +Int I2
+  rule I1 - I2 =&gt; I1 -Int I2
+  rule I1 * I2 =&gt; I1 *Int I2
+  rule I1 / I2 =&gt; I1 /Int I2
+
+  rule I1 == I2 =&gt; I1 ==Int I2
+  rule I1 != I2 =&gt; I1 =/=Int I2
+  rule I1 &gt;= I2 =&gt; I1 &gt;=Int I2
+  rule I1 &lt;= I2 =&gt; I1 &lt;=Int I2
+
+  rule false &amp;&amp; _ =&gt; false
+  rule true &amp;&amp; B2 =&gt; B2
+
+  rule true || _ =&gt; true
+  rule false || B2 =&gt; B2
+
+  rule ! true =&gt; false
+  rule ! false =&gt; true
+endmodule</code></pre>
+</div>
+<div id="statements" class="slide section level1">
+<h1>Statements</h1>
+<p>Basic imperative statements. Things to notice:</p>
+<ul>
+<li><p>statement sequencing desugars to computation sequencing</p>
+<ul>
+<li><code>.K</code> for the empty computation</li>
+<li><code>~&gt;</code> for sequencing computation tasks</li>
+</ul></li>
+<li><p>While semantics through unrolling</p></li>
+</ul>
+<pre class="k"><code>module STMT-SYNTAX
+  imports EXP-SYNTAX
+
+  syntax Stmt ::= &quot;{&quot; &quot;}&quot;
+                | &quot;{&quot; Stmt &quot;}&quot;                      [bracket]
+                &gt; left:
+                  &quot;if&quot; &quot;(&quot; Exp &quot;)&quot; Stmt &quot;else&quot; Stmt [seqstrict(1)]
+                | &quot;while&quot; &quot;(&quot; Exp &quot;)&quot; Stmt
+                &gt; Stmt Stmt                         [right]
+endmodule
+
+module STMT
+  imports EXP
+  imports STMT-SYNTAX
+
+  rule {} =&gt; .K
+
+  rule if (true) Then else _ =&gt; Then
+  rule if (false) _ else Else =&gt; Else
+
+  rule while (Cond) Body =&gt;
+       if (Cond) {
+         Body
+         while (Cond) Body
+       } else {}
+
+  rule S1:Stmt S2:Stmt =&gt; S1 ~&gt; S2
+endmodule
+</code></pre>
+</div>
+<div id="introducing-configurations" class="slide section level1">
+<h1>Introducing configurations</h1>
+<p>So far we could specify everything without requiring execution context. But no longer.</p>
+<p>Things to notice:</p>
+<ul>
+<li>XML-like cell syntax</li>
+<li>A special cell <code>k</code> for computations</li>
+<li>contents of the cell specify the default values e.g., when starting execution</li>
+<li>A special variable <code>$PGM</code> used to initialize <code>k</code> cell with the input program</li>
+</ul>
+<pre class="k"><code>module IMP-CONFIGURATION
+  imports STMT-SYNTAX
+  imports DOMAINS
+
+  configuration
+    &lt;threads&gt;
+      &lt;thread multiplicity=&quot;*&quot; type=&quot;Set&quot;&gt;
+        &lt;k&gt; $PGM:Stmt &lt;/k&gt;
+        &lt;id&gt; -1 &lt;/id&gt;
+      &lt;/thread&gt;
+    &lt;/threads&gt;
+    &lt;terminated&gt; .Set &lt;/terminated&gt;
+    &lt;mem&gt; .Map &lt;/mem&gt;
+
+endmodule</code></pre>
+</div>
+<div id="simple-memory-model" class="slide section level1">
+<h1>Simple memory model</h1>
+<p>Things to notice:</p>
+<ul>
+<li>using typing annotations to prevent rule from applying too early</li>
+</ul>
+<pre class="k"><code>module MEMORY-SYNTAX
+  imports EXP-SYNTAX
+
+  syntax Exp ::= Id
+
+  syntax Stmt ::= Id &quot;=&quot; Exp &quot;;&quot; [seqstrict(2)]
+endmodule
+
+module MEMORY
+  imports MEMORY-SYNTAX
+  imports IMP-CONFIGURATION
+  imports EXP
+
+  rule &lt;k&gt; X:Id =&gt; V ...&lt;/k&gt; &lt;mem&gt;... X |-&gt; V ...&lt;/mem&gt;
+  rule &lt;k&gt; X = V:Val ; =&gt; .K ...&lt;/k&gt; &lt;mem&gt; Mem =&gt; Mem [X &lt;- V] &lt;/mem&gt;
+endmodule</code></pre>
+</div>
+<div id="threads" class="slide section level1">
+<h1>Threads</h1>
+<pre class="k"><code>module THREADS-SYNTAX
+  imports STMT-SYNTAX
+  syntax Exp ::= spawn(Stmt)
+
+  syntax Stmt ::= &quot;join&quot; &quot;(&quot; Exp &quot;)&quot; &quot;;&quot; [seqstrict]
+endmodule
+
+module THREADS
+  imports THREADS-SYNTAX
+  imports IMP-CONFIGURATION
+
+  rule &lt;thread&gt;... &lt;k&gt; spawn(S) =&gt; !Id:Int ...&lt;/k&gt; ...&lt;/thread&gt;
+       (.Bag =&gt; &lt;thread&gt;... &lt;id&gt; !Id &lt;/id&gt; &lt;k&gt; S &lt;/k&gt; ...&lt;/thread&gt;)
+
+  rule (&lt;thread&gt;... &lt;k&gt; .K &lt;/k&gt; &lt;id&gt; Id &lt;/id&gt; ...&lt;/thread&gt; =&gt; .Bag)
+       &lt;terminated&gt;... .Set =&gt; SetItem(Id) ...&lt;/terminated&gt;
+
+  rule &lt;k&gt; join(I:Int); =&gt; .K ...&lt;/k&gt; &lt;terminated&gt;... SetItem(I) ...&lt;/terminated&gt;
+endmodule</code></pre>
+</div>
+<div id="putting-everything-together" class="slide section level1">
+<h1>Putting everything together</h1>
+<pre class="k"><code>module IMP-SYNTAX
+  imports EXP-SYNTAX
+  imports STMT-SYNTAX
+  imports MEMORY-SYNTAX
+  imports THREADS-SYNTAX
+endmodule
+
+module IMP
+  imports EXP
+  imports STMT
+  imports MEMORY
+  imports THREADS
+endmodule</code></pre>
+</div>
+</body>
+</html>

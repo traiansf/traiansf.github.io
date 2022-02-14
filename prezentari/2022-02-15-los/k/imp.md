@@ -1,3 +1,9 @@
+---
+title: IMP
+subtitle: an imperative concurrent language
+author: Traian Florin Șerbănuță
+institute: Runtime Verification
+---
 
 
 # Arithmetic and Boolean Expressions Syntax
@@ -32,9 +38,9 @@ module EXP-SYNTAX
                | Exp ">=" Exp [seqstrict]
                | Exp "<=" Exp [seqstrict]
                > right:
-                 Exp "&&" Exp [strict(1)]
-               | Exp "||" Exp [strict(1)]
-               | "!" Exp      [strict]
+                 Exp "&&" Exp [seqstrict(1)]
+               | Exp "||" Exp [seqstrict(1)]
+               | "!" Exp      [seqstrict]
 endmodule
 ```
 
@@ -95,7 +101,7 @@ module STMT-SYNTAX
   syntax Stmt ::= "{" "}"
                 | "{" Stmt "}"                      [bracket]
                 > left:
-                  "if" "(" Exp ")" Stmt "else" Stmt [strict(1)]
+                  "if" "(" Exp ")" Stmt "else" Stmt [seqstrict(1)]
                 | "while" "(" Exp ")" Stmt
                 > Stmt Stmt                         [right]
 endmodule
@@ -135,9 +141,16 @@ Things to notice:
 ```k
 module IMP-CONFIGURATION
   imports STMT-SYNTAX
+  imports DOMAINS
 
   configuration
-    <k> $PGM:Stmt </k>
+    <threads>
+      <thread multiplicity="*" type="Set">
+        <k> $PGM:Stmt </k>
+        <id> -1 </id>
+      </thread>
+    </threads>
+    <terminated> .Set </terminated>
     <mem> .Map </mem>
 
 endmodule
@@ -158,9 +171,7 @@ module MEMORY-SYNTAX
 
   syntax Exp ::= Id
 
-  syntax Ids ::= List{Id,","}
-
-  syntax Stmt ::= Id "=" Exp ";" [strict(2)]
+  syntax Stmt ::= Id "=" Exp ";" [seqstrict(2)]
 endmodule
 
 module MEMORY
@@ -173,6 +184,30 @@ module MEMORY
 endmodule
 ```
 
+# Threads
+
+```k
+module THREADS-SYNTAX
+  imports STMT-SYNTAX
+  syntax Exp ::= spawn(Stmt)
+
+  syntax Stmt ::= "join" "(" Exp ")" ";" [seqstrict]
+endmodule
+
+module THREADS
+  imports THREADS-SYNTAX
+  imports IMP-CONFIGURATION
+
+  rule <thread>... <k> spawn(S) => !Id:Int ...</k> ...</thread>
+       (.Bag => <thread>... <id> !Id </id> <k> S </k> ...</thread>)
+
+  rule (<thread>... <k> .K </k> <id> Id </id> ...</thread> => .Bag)
+       <terminated>... .Set => SetItem(Id) ...</terminated>
+
+  rule <k> join(I:Int); => .K ...</k> <terminated>... SetItem(I) ...</terminated>
+endmodule
+```
+
 # Putting everything together
 
 ```k
@@ -180,11 +215,13 @@ module IMP-SYNTAX
   imports EXP-SYNTAX
   imports STMT-SYNTAX
   imports MEMORY-SYNTAX
+  imports THREADS-SYNTAX
 endmodule
 
 module IMP
   imports EXP
   imports STMT
   imports MEMORY
+  imports THREADS
 endmodule
 ```

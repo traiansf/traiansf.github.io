@@ -14,7 +14,7 @@ claim
     n   |-> (N:Int => 0)
     sum |-> (S:Int => S +Int ((N +Int 1) *Int N /Int 2))
   ...</mem>
-requires N >=Int 0
+  requires N >=Int 0
 
 endmodule
 
@@ -38,7 +38,7 @@ claim
     n   |-> 0
     sum |-> ((N +Int 1) *Int N /Int 2)
   </mem>
-requires N >=Int 0
+  requires N >=Int 0
 endmodule
 
 

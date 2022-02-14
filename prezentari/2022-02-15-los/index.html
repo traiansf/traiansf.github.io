@@ -62,12 +62,20 @@ Runtime Verification
 </ul></li>
 <li><a href="#semantics-based-interpreters">Semantics-based interpreters</a>
 <ul>
+<li><a href="#demo-1">Demo 1</a></li>
 <li><a href="#a-recipe-for-success">A recipe for success</a></li>
 <li><a href="#an-executable-formal-semantics-of-c-with-applications">An executable formal semantics of C with applications</a></li>
 <li><a href="#defining-the-undefinedness-of-c">Defining the undefinedness of C</a></li>
 <li><a href="#other-research-surrounding-the-c-semantics">Other research surrounding the C semantics</a></li>
+<li><a href="#k-java-a-complete-semantics-of-java">K-Java: A complete semantics of Java</a></li>
+<li><a href="#kjs-a-complete-formal-semantics-of-javascript">KJS: A complete formal semantics of JavaScript</a></li>
+<li><a href="#a-complete-formal-semantics-of-x86-64-user-level-instruction-set-architecture">A Complete Formal Semantics of X86-64 User-Level Instruction Set Architecture</a></li>
 </ul></li>
-<li><a href="#program-verification-via-reachability-logic">Program verification via reachability logic</a></li>
+<li><a href="#program-verification-via-reachability-logic">Program verification via reachability logic</a>
+<ul>
+<li><a href="#a-language-independent-logic-for-reasoning-about-program-executions">A language-independent logic for reasoning about program executions</a></li>
+<li><a href="#demo-2">Demo 2</a></li>
+</ul></li>
 <li><a href="#conclusions">Conclusions</a>
 <ul>
 <li><a href="#references">References</a></li>
@@ -124,6 +132,10 @@ Runtime Verification
 <div id="semantics-based-interpreters" class="title-slide slide section level1">
 <h1>Semantics-based interpreters</h1>
 
+</div>
+<div id="demo-1" class="slide section level2">
+<h1>Demo 1</h1>
+<p><a href="k">imp.k</a></p>
 </div>
 <div id="a-recipe-for-success" class="slide section level2">
 <h1>A recipe for success</h1>
@@ -185,12 +197,66 @@ Runtime Verification
 <ul>
 <li><p>Test-case reduction for C compiler bugs <span class="citation">(Regehr et al. 2012)</span></p></li>
 <li><p>All of the above, and some more in Chucky Ellison’s PhD thesis <span class="citation">(Ellison 2012)</span></p></li>
+<li><p>RV-Match <span class="citation">(Guth et al. 2016)</span></p>
+<ul>
+<li>added possibility to link against native libraries</li>
+<li>Error recovery and implementation-defined behavior.</li>
+<li>Also detecting some security and best practice violations.</li>
+</ul></li>
+</ul>
+</div>
+<div id="k-java-a-complete-semantics-of-java" class="slide section level2">
+<h1>K-Java: A complete semantics of Java</h1>
+<ul>
+<li><p>Presented at POPL’15 <span class="citation">(Bogdanas and Roșu 2015)</span></p></li>
+<li><p>formalized Java 1.4 (without the Java Memory Model)</p></li>
+<li><p>developed a comprehensive test-suite for Java</p></li>
+</ul>
+</div>
+<div id="kjs-a-complete-formal-semantics-of-javascript" class="slide section level2">
+<h1>KJS: A complete formal semantics of JavaScript</h1>
+<ul>
+<li><p>presented at PLDI’15 <span class="citation">(Park, Stefănescu, and Roșu 2015)</span></p></li>
+<li><p>formalized ECMAScript 5.1</p></li>
+<li><p>passed entire conformance suite</p></li>
+<li><p>wrote tests for uncovered rules</p>
+<ul>
+<li>and found bugs in all major browsers (Chrome V8, Safari WebKit, Firefox SpiderMonkey)</li>
+</ul></li>
+</ul>
+</div>
+<div id="a-complete-formal-semantics-of-x86-64-user-level-instruction-set-architecture" class="slide section level2">
+<h1>A Complete Formal Semantics of X86-64 User-Level Instruction Set Architecture</h1>
+<ul>
+<li><p>presented at PLDI’19 <span class="citation">(Dasgupta et al. 2019)</span></p></li>
+<li><p>formalized all non-deprecated, sequential user-level instruction of x86-64</p></li>
+<li><p>extensively tested</p></li>
+<li><p>found bugs in the reference manual and other semantics</p></li>
 </ul>
 </div>
 
 <div id="program-verification-via-reachability-logic" class="title-slide slide section level1">
 <h1>Program verification via reachability logic</h1>
 
+</div>
+<div id="a-language-independent-logic-for-reasoning-about-program-executions" class="slide section level2">
+<h1>A language-independent logic for reasoning about program executions</h1>
+<ul>
+<li>Initially called matching logic <span class="citation">(Rosu and Schulte 2009; Roșu and Ștefănescu 2011)</span></li>
+<li>Then matching logic reachability <span class="citation">(Roșu and Ștefănescu 2012c, 2012b, 2012a)</span></li>
+<li>Finally settled to reachability logic <span class="citation">(Roșu et al. 2013; Ștefănescu et al. 2014, 2016)</span></li>
+<li>A set of proof rules which allow to prove things like
+<ul>
+<li>given a set of axiom comprising the K definition of a language</li>
+<li>starting from a given symbolic configuation</li>
+<li>all execution paths lead to a final symbolic state</li>
+</ul></li>
+<li>A detailed account of all these in Andrei Ștefănescu’s PhD thesis <span class="citation">(Ștefănescu 2016)</span></li>
+</ul>
+</div>
+<div id="demo-2" class="slide section level2">
+<h1>Demo 2</h1>
+<p><a href="k">imp.k</a></p>
 </div>
 
 <div id="conclusions" class="title-slide slide section level1">
@@ -200,6 +266,12 @@ Runtime Verification
 <div id="references" class="slide section level2 unnumbered">
 <h1 class="unnumbered">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-java" class="csl-entry">
+Bogdanas, Denis, and Grigore Roșu. 2015. <span>“K-Java: A Complete Semantics of Java.”</span> In <em>Proceedings of the 42nd Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages</em>, 445–56. <a href="https://fsl.cs.illinois.edu/publications/bogdanas-rosu-2015-popl.html">https://fsl.cs.illinois.edu/publications/bogdanas-rosu-2015-popl.html</a>.
+</div>
+<div id="ref-x86" class="csl-entry">
+Dasgupta, Sandeep, Daejun Park, Theodoros Kasampalis, Vikram S. Adve, and Grigore Roșu. 2019. <span>“A Complete Formal Semantics of X86-64 User-Level Instruction Set Architecture.”</span> In <em>PLDI’19</em>, 1133–48. ACM. <a href="https://daejunpark.github.io/x86.pdf">https://daejunpark.github.io/x86.pdf</a>.
+</div>
 <div id="ref-c-ellison" class="csl-entry">
 Ellison, Chucky. 2012. <span>“A Formal Semantics of <span>C</span> with Applications.”</span> PhD thesis, University of Illinois. <a href="http://hdl.handle.net/2142/34297">http://hdl.handle.net/2142/34297</a>.
 </div>
@@ -209,23 +281,56 @@ Ellison, Chucky, and Grigore Rosu. 2012. <span>“An Executable Formal Semantics
 <div id="ref-c-undef-1" class="csl-entry">
 Ellison, Chucky, and Grigore Roșu. 2012. <span>“Defining the Undefinedness of <span>C</span>.”</span> University of Illinois. <a href="http://hdl.handle.net/2142/30780">http://hdl.handle.net/2142/30780</a>.
 </div>
+<div id="ref-c-rv" class="csl-entry">
+Guth, Dwight, Chris Hathhorn, Manasvi Saxena, and Grigore Rosu. 2016. <span>“RV-Match: Practical Semantics-Based Program Analysis.”</span> In <em>CAV’16</em>, 9779:447–53. LNCS. Springer. <a href="https://fsl.cs.illinois.edu/publications/guth-hathhorn-saxena-rosu-2016-cav.html">https://fsl.cs.illinois.edu/publications/guth-hathhorn-saxena-rosu-2016-cav.html</a>.
+</div>
 <div id="ref-c-undef-2" class="csl-entry">
 Hathhorn, Chris, Chucky Ellison, and Grigore Roșu. 2015. <span>“Defining the Undefinedness of <span>C</span>.”</span> In <em>Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation</em>, 50:336–45. ACM SIGPLAN Notices 6. ACM New York, NY, USA. <a href="https://fsl.cs.illinois.edu/publications/hathhorn-ellison-rosu-2015-pldi.html">https://fsl.cs.illinois.edu/publications/hathhorn-ellison-rosu-2015-pldi.html</a>.
+</div>
+<div id="ref-js" class="csl-entry">
+Park, Daejun, Andrei Stefănescu, and Grigore Roșu. 2015. <span>“KJS: A Complete Formal Semantics of JavaScript.”</span> In <em>Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation</em>, 346–56. <a href="https://fsl.cs.illinois.edu/publications/park-stefanescu-rosu-2015-pldi.html">https://fsl.cs.illinois.edu/publications/park-stefanescu-rosu-2015-pldi.html</a>.
 </div>
 <div id="ref-c-testing" class="csl-entry">
 Regehr, John, Yang Chen, Pascal Cuoq, Eric Eide, Chucky Ellison, and Xuejun Yang. 2012. <span>“Test-Case Reduction for c Compiler Bugs.”</span> In <em>PLDI’12</em>, 47:335–46. ACM SIGPLAN Notices 6. <a href="https://fsl.cs.illinois.edu/publications/regehr-chen-cuoq-eide-ellison-yang-pldi-2012.html">https://fsl.cs.illinois.edu/publications/regehr-chen-cuoq-eide-ellison-yang-pldi-2012.html</a>.
 </div>
+<div id="ref-rl-tr" class="csl-entry">
+Rosu, Grigore, and Wolfram Schulte. 2009. <span>“Matching Logic — Extended Report.”</span> University of Illinois at Urbana-Champaign. <a href="http://hdl.handle.net/2142/10790">http://hdl.handle.net/2142/10790</a>.
+</div>
 <div id="ref-k-tr" class="csl-entry">
-Roșu, Grigore. 2003. <span>“Cs322 Fall 2003: Programming Language Design -Lecture Notes-.”</span> University of Illinois. <a href="http://hdl.handle.net/2142/11385">http://hdl.handle.net/2142/11385</a>.
+Roșu, Grigore. 2003. <span>“<span>CS</span>322 <span>Fall</span> 2003: <span>P</span>rogramming Language Design -Lecture Notes-.”</span> University of Illinois. <a href="http://hdl.handle.net/2142/11385">http://hdl.handle.net/2142/11385</a>.
 </div>
 <div id="ref-k-jlap" class="csl-entry">
 Roșu, Grigore, and Traian Florin Șerbănuță. 2010. <span>“An Overview of the k Semantic Framework.”</span> <em>The Journal of Logic and Algebraic Programming</em> 79 (6): 397–434. <a href="http://hdl.handle.net/2142/14865">http://hdl.handle.net/2142/14865</a>.
 </div>
+<div id="ref-rl-icse" class="csl-entry">
+Roșu, Grigore, and Andrei Ștefănescu. 2011. <span>“Matching Logic: A New Program Verification Approach (NIER Track).”</span> In <em>ICSE’11</em>, 868–71. ACM. <a href="https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2011-icse.html">https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2011-icse.html</a>.
+</div>
+<div id="ref-rl-oopsla" class="csl-entry">
+———. 2012a. <span>“Checking Reachability Using Matching Logic.”</span> In <em>OOPSLA’12</em>, 555–74. ACM. <a href="https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2012-oopsla.html">https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2012-oopsla.html</a>.
+</div>
+<div id="ref-rl-fm" class="csl-entry">
+———. 2012b. <span>“From Hoare Logic to Matching Logic Reachability.”</span> In <em>FM’12</em>, 7436:387–402. LNCS. Springer. <a href="https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2012-fm.html">https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2012-fm.html</a>.
+</div>
+<div id="ref-rl-icalp" class="csl-entry">
+———. 2012c. <span>“Towards a Unified Theory of Operational and Axiomatic Semantics.”</span> In <em>ICALP’12</em>, 7392:351–63. LNCS. Springer. <a href="https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2012-icalp.html">https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2012-icalp.html</a>.
+</div>
+<div id="ref-rl-lics" class="csl-entry">
+Roșu, Grigore, Andrei Ștefănescu, Ștefan Ciobâcă, and Brandon M. Moore. 2013. <span>“One-Path Reachability Logic.”</span> In <em>LICS’13</em>, 358–67. IEEE. <a href="https://fsl.cs.illinois.edu/publications/rosu-stefanescu-ciobaca-moore-2013-lics.html">https://fsl.cs.illinois.edu/publications/rosu-stefanescu-ciobaca-moore-2013-lics.html</a>.
+</div>
 <div id="ref-k-serbanuta" class="csl-entry">
-Șerbănuță, Traian Florin. 2010. <span>“A Rewriting Approach to Concurrent Programming Language Design and Semantics.”</span> PhD thesis, University of Illinois. <a href="http://hdl.handle.net/2142/34297">http://hdl.handle.net/2142/34297</a>.
+Șerbănuță, Traian Florin. 2010. <span>“A Rewriting Approach to Concurrent Programming Language Design and Semantics.”</span> PhD thesis, University of Illinois. <a href="http://hdl.handle.net/2142/18252">http://hdl.handle.net/2142/18252</a>.
 </div>
 <div id="ref-k-os" class="csl-entry">
 Șerbănuță, Traian Florin, Grigore Roșu, and José Meseguer. 2007. <span>“A Rewriting Logic Approach to Operational Semantics.”</span> In <em>SOS’06</em>, 192:125–41. 1. Elsevier. <a href="http://hdl.handle.net/2142/11265">http://hdl.handle.net/2142/11265</a>.
+</div>
+<div id="ref-rl-stefanescu" class="csl-entry">
+Ștefănescu, Andrei. 2016. <span>“Toward Language-Independent Program Verification.”</span> PhD thesis, University of Illinois. <a href="http://hdl.handle.net/2142/92779">http://hdl.handle.net/2142/92779</a>.
+</div>
+<div id="ref-rl-rta" class="csl-entry">
+Ștefănescu, Andrei, Ștefan Ciobâcă, Radu Mereuță, Brandon M. Moore, Traian Florin Șerbănuță, and Grigore Roșu. 2014. <span>“All-Path Reachability Logic.”</span> In <em>RTA-TLCA’14</em>, 8560:425–40. LNCS. Springer. <a href="https://fsl.cs.illinois.edu/publications/stefanescu-ciobaca-mereuta-moore-serbanuta-rosu-2014-rta.html">https://fsl.cs.illinois.edu/publications/stefanescu-ciobaca-mereuta-moore-serbanuta-rosu-2014-rta.html</a>.
+</div>
+<div id="ref-rl-oopsla-2" class="csl-entry">
+Ștefănescu, Andrei, Daejun Park, Shijiao Yuwen, Yilong Li, and Grigore Roșu. 2016. <span>“Semantics-Based Program Verifiers for All Languages.”</span> In <em>OOPSLA’16</em>, 74–91. ACM. <a href="https://fsl.cs.illinois.edu/publications/stefanescu-park-yuwen-li-rosu-2016-oopsla.html">https://fsl.cs.illinois.edu/publications/stefanescu-park-yuwen-li-rosu-2016-oopsla.html</a>.
 </div>
 </div>
 </div>

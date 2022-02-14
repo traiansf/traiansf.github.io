@@ -50,6 +50,10 @@ bibliography: k.bib
 
 # Semantics-based interpreters
 
+## Demo 1
+
+[imp.k](k)
+
 ## A recipe for success
 
 - Find a language not yet formally specified
@@ -104,8 +108,60 @@ bibliography: k.bib
 
 - All of the above, and some more in Chucky Ellison's PhD thesis [@c-ellison]
 
+- RV-Match [@c-rv]
+
+  - added possibility to link against native libraries
+  - Error recovery and implementation-defined behavior.
+  - Also detecting some security and best practice violations.
+
+## K-Java: A complete semantics of Java
+
+- Presented at POPL'15 [@java]
+
+- formalized Java 1.4 (without the Java Memory Model)
+
+- developed a comprehensive test-suite for Java
+
+## KJS: A complete formal semantics of JavaScript
+
+- presented at PLDI'15 [@js]
+
+- formalized ECMAScript 5.1
+
+- passed entire conformance suite
+
+- wrote tests for uncovered rules
+
+  - and found bugs in all major browsers  (Chrome V8, Safari WebKit, Firefox SpiderMonkey)
+
+
+## A Complete Formal Semantics of X86-64 User-Level Instruction Set Architecture
+
+- presented at PLDI'19 [@x86]
+
+- formalized all non-deprecated, sequential user-level instruction of x86-64
+
+- extensively tested
+
+- found bugs in the reference manual and other semantics
+
 
 # Program verification via reachability logic
+
+## A language-independent logic for reasoning about program executions
+
+- Initially called matching logic [@rl-tr; @rl-icse]
+- Then matching logic reachability [@rl-icalp; @rl-fm; @rl-oopsla]
+- Finally settled to reachability logic [@rl-lics; @rl-rta; @rl-oopsla-2]
+- A set of proof rules which allow to prove things like
+  - given a set of axiom comprising the K definition of a language
+  - starting from a given symbolic configuation
+  - all execution paths lead to a final symbolic state
+- A detailed account of all these in Andrei Ștefănescu's PhD thesis [@rl-stefanescu]
+
+## Demo 2
+
+[imp.k](k)
 
 
 # Conclusions
