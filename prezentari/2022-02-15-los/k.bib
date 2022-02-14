@@ -1,3 +1,4 @@
+% C Semantics
 @inproceedings{c-def,
   title={An executable formal semantics of {C} with applications},
   author={Ellison, Chucky and Rosu, Grigore},
@@ -13,7 +14,7 @@
 
 
 @techreport{c-undef-1,
-  author   = {Chucky Ellison and Grigore Ro\c{s}u},
+  author   = {Chucky Ellison and Grigore Roșu},
   title    = {Defining the Undefinedness of {C}},
   institution = {University of Illinois},
   month       = {April},
@@ -23,7 +24,7 @@
 
 @inproceedings{c-undef-2,
   title={Defining the undefinedness of {C}},
-  author={Hathhorn, Chris and Ellison, Chucky and Ro{\c{s}}u, Grigore},
+  author={Hathhorn, Chris and Ellison, Chucky and Ro{ș}u, Grigore},
   booktitle={Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation},
   series={ACM SIGPLAN Notices},
   volume = {50},
@@ -68,7 +69,7 @@
 
 @inproceedings{java,
   title={K-Java: A complete semantics of Java},
-  author={Bogdanas, Denis and Ro{\c{s}}u, Grigore},
+  author={Bogdanas, Denis and Ro{ș}u, Grigore},
   booktitle={Proceedings of the 42nd Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages},
   pages={445--456},
   year={2015}
@@ -76,7 +77,7 @@
 
 @inproceedings{js,
   title={KJS: A complete formal semantics of JavaScript},
-  author={Park, Daejun and Stef{\u{a}}nescu, Andrei and Ro{\c{s}}u, Grigore},
+  author={Park, Daejun and Stef{ă}nescu, Andrei and Ro{ș}u, Grigore},
   booktitle={Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation},
   pages={346--356},
   year={2015}
@@ -84,7 +85,7 @@
 
 
 @inproceedings{x86,
-author = {Dasgupta, Sandeep and Park, Daejun and Kasampalis, Theodoros and Adve, Vikram S. and Ro\c{s}u, Grigore},
+author = {Dasgupta, Sandeep and Park, Daejun and Kasampalis, Theodoros and Adve, Vikram S. and Roșu, Grigore},
 title = {A Complete Formal Semantics of X86-64 User-Level Instruction Set Architecture},
 year = {2019},
 isbn = {9781450367127},
@@ -99,4 +100,150 @@ numpages = {16},
 keywords = {ISA specification, x86-64, Formal Semantics},
 location = {Phoenix, AZ, USA},
 series = {PLDI 2019}
+}
+
+
+% Reachability Logic
+
+@techreport{rl-tr,
+  author    = {Grigore Rosu and Wolfram Schulte},
+  institution = {University of Illinois at Urbana-Champaign},
+  title     = {Matching Logic --- Extended Report},
+  month     = jan,
+  year      = {2009},
+  url      = {http://hdl.handle.net/2142/10790}
+}
+
+
+@inproceedings{rl-icse,
+  author    = {Grigore Roșu and Andrei Ștefănescu},
+  title     = {Matching Logic: A New Program Verification Approach (NIER Track)},
+  booktitle = {ICSE'11},
+  pages     = {868-871},
+  year      = {2011},
+  publisher = {ACM},
+  url = {https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2011-icse.html}
+}
+
+@inproceedings{rl-icalp,
+  author    = {Grigore Roșu and Andrei Ștefănescu},
+  title     = {Towards a Unified Theory of Operational and Axiomatic Semantics},
+  booktitle = {ICALP'12},
+  pages     = {351-363},
+  volume    = {7392},
+  series    = {LNCS},
+  year      = {2012},
+  publisher = {Springer},
+  url = {https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2012-icalp.html}
+}
+
+@inproceedings{rl-fm,
+  author    = {Grigore Roșu and Andrei Ștefănescu},
+  title     = {From Hoare Logic to Matching Logic Reachability},
+  booktitle = {FM'12},
+  pages     = {387-402},
+  volume    = {7436},
+  series    = {LNCS},
+  year      = {2012},
+  publisher = {Springer},
+  url = {https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2012-fm.html}
+}
+
+@inproceedings{rl-oopsla,
+  author    = {Grigore Roșu and Andrei Ștefănescu},
+  title     = {Checking Reachability using Matching Logic},
+  booktitle = {OOPSLA'12},
+  pages     = {555-574},
+  year      = {2012},
+  publisher = {ACM},
+  url = {https://fsl.cs.illinois.edu/publications/rosu-stefanescu-2012-oopsla.html},
+}
+
+@inproceedings{rl-lics,
+  author    = {Grigore Roșu and Andrei Ștefănescu and Ștefan
+               Ciobâcă and Brandon M. Moore},
+  title     = {One-Path Reachability Logic},
+  booktitle = {LICS'13},
+  pages     = {358-367},
+  year      = {2013},
+  publisher = {IEEE},
+  url = {https://fsl.cs.illinois.edu/publications/rosu-stefanescu-ciobaca-moore-2013-lics.html}
+}
+
+@inproceedings{rl-rta,
+  author    = {Andrei Ștefănescu and Ștefan Ciobâcă and
+               Radu Mereuță and Brandon M. Moore and
+               Traian Florin Șerbănuță and Grigore Roșu},
+  title     = {All-Path Reachability Logic},
+  booktitle = {RTA-TLCA'14},
+  pages     = {425-440},
+  year      = {2014},
+  series    = {LNCS},
+  volume    = {8560},
+  publisher = {Springer},
+  url = {https://fsl.cs.illinois.edu/publications/stefanescu-ciobaca-mereuta-moore-serbanuta-rosu-2014-rta.html}
+}
+
+@inproceedings{rl-oopsla-2,
+  author   = {Andrei Ștefănescu and Daejun Park and Shijiao Yuwen and
+              Yilong Li and Roșu, Grigore},
+  title    = {Semantics-Based Program Verifiers for All Languages},
+  booktitle = {OOPSLA'16},
+  pages     = {74-91},
+  year      = {2016},
+  publisher = {ACM},
+  url       = {https://fsl.cs.illinois.edu/publications/stefanescu-park-yuwen-li-rosu-2016-oopsla.html}
+}
+
+@phdthesis{rl-stefanescu,
+  author    = {Andrei Ștefănescu},
+  title     = {Toward language-independent program verification},
+  school    = {University of Illinois},
+  year      = {2016},
+  month     = {August},
+  url       = {http://hdl.handle.net/2142/92779},
+}
+
+@techreport{k-tr,
+  author   = {Grigore Roșu},
+  title    = {CS322 Fall 2003: Programming Language Design -Lecture Notes-},
+  institution = {University of Illinois},
+  month       = {December},
+  year        = {2003},
+  url         = {http://hdl.handle.net/2142/11385},
+}
+
+@inproceedings{k-os,
+  title={A rewriting logic approach to operational semantics},
+  author={Șerbănuță, Traian Florin and Roșu, Grigore and Meseguer, Jos{\'e}},
+  booktitle={SOS'06},
+  journal={Electronic Notes in Theoretical Computer Science},
+  volume={192},
+  number={1},
+  pages={125--141},
+  year={2007},
+  publisher={Elsevier},
+  url={http://hdl.handle.net/2142/11265}
+}
+
+
+@article{k-jlap,
+  title={An overview of the K semantic framework},
+  author={Roșu, Grigore and Șerbănuță, Traian Florin},
+  journal={The Journal of Logic and Algebraic Programming},
+  volume={79},
+  number={6},
+  pages={397--434},
+  year={2010},
+  publisher={Elsevier},
+  url = {http://hdl.handle.net/2142/14865}
+}
+
+@phdthesis{k-serbanuta,
+  author    = {Traian Florin Șerbănuță},
+  title     = {A rewriting approach to concurrent programming language design and semantics},
+  school    = {University of Illinois},
+  year      = {2010},
+  month     = {December},
+  url       = {http://hdl.handle.net/2142/34297},
 }

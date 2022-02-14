@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Traian Florin Șerbănuță" />
+  <title>Specifying and verifying concurrent programs using the K framework</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Specifying and verifying concurrent programs using the K framework</h1>
+  <p class="subtitle">current status and open problems</p>
+  <p class="author">
+Traian Florin Șerbănuță
+  </p>
+  <p class="institute">
+Runtime Verification
+  </p>
+</div>
+<div class="slide" id="TOC">
+<ul>
+<li><a href="#a-history-of-k">A history of K</a>
+<ul>
+<li><a href="#a-way-to-teach-programming-language-design">A way to teach programming language design</a></li>
+<li><a href="#learning-from-existing-formalisms">Learning from existing formalisms</a></li>
+<li><a href="#the-k-framework-1.0">The K Framework 1.0</a></li>
+</ul></li>
+<li><a href="#semantics-based-interpreters">Semantics-based interpreters</a>
+<ul>
+<li><a href="#a-recipe-for-success">A recipe for success</a></li>
+<li><a href="#an-executable-formal-semantics-of-c-with-applications">An executable formal semantics of C with applications</a></li>
+<li><a href="#defining-the-undefinedness-of-c">Defining the undefinedness of C</a></li>
+<li><a href="#other-research-surrounding-the-c-semantics">Other research surrounding the C semantics</a></li>
+</ul></li>
+<li><a href="#program-verification-via-reachability-logic">Program verification via reachability logic</a></li>
+<li><a href="#conclusions">Conclusions</a>
+<ul>
+<li><a href="#references">References</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="a-history-of-k" class="title-slide slide section level1">
+<h1>A history of K</h1>
+
+</div>
+<div id="a-way-to-teach-programming-language-design" class="slide section level2">
+<h1>A way to teach programming language design</h1>
+<h3 id="cs322-fall-2003-programming-language-design--lecture-notes--k-tr">CS322 Fall 2003: Programming Language Design -Lecture Notes- <span class="citation">(Roșu 2003)</span></h3>
+<ul>
+<li><p>Specifying program executions using rewriting</p></li>
+<li><p>Using the idea of continuations</p></li>
+<li><p>Using the Maude language and rewrite engine</p>
+<ul>
+<li>interpreters and reachability analysis for free</li>
+</ul></li>
+<li><p>using configurations to compartimentalize the complexity</p>
+<ul>
+<li>relying on Maude’s A/C rewriting to reduce rule size</li>
+</ul></li>
+</ul>
+</div>
+<div id="learning-from-existing-formalisms" class="slide section level2">
+<h1>Learning from existing formalisms</h1>
+<h3 id="a-rewriting-logic-approach-to-operational-semantics-k-os">A rewriting logic approach to operational semantics <span class="citation">(Șerbănuță, Roșu, and Meseguer 2007)</span></h3>
+<ul>
+<li><p>A good survey of operational-semantics-based tools</p></li>
+<li><p>Also a good opportunity to learn from existing formalisms</p>
+<ul>
+<li>heating/cooling from the Chemical Abstract Machine</li>
+<li>configuration abstraction from the Modular SOS</li>
+</ul></li>
+</ul>
+</div>
+<div id="the-k-framework-1.0" class="slide section level2">
+<h1>The K Framework 1.0</h1>
+<h3 id="an-overview-of-the-k-semantic-framework-k-jlap">An Overview of the K Semantic Framework <span class="citation">(Roșu and Șerbănuță 2010)</span></h3>
+<h3 id="a-rewriting-approach-to-concurrent-programming-language-design-and-semantics-k-serbanuta">A rewriting approach to concurrent programming language design and semantics <span class="citation">(Șerbănuță 2010)</span></h3>
+<ul>
+<li>Notation optimizations to make specifications
+<ul>
+<li>more modular</li>
+<li>mode concise (less error prone, easier to read)</li>
+<li>less tedious to write</li>
+</ul></li>
+<li>A compilation process into Maude</li>
+</ul>
+</div>
+
+<div id="semantics-based-interpreters" class="title-slide slide section level1">
+<h1>Semantics-based interpreters</h1>
+
+</div>
+<div id="a-recipe-for-success" class="slide section level2">
+<h1>A recipe for success</h1>
+<ul>
+<li><p>Find a language not yet formally specified</p>
+<ul>
+<li>with a good informal specification (standard/reference manual)</li>
+<li>hopefully with a comprehensive test suite</li>
+</ul></li>
+<li><p>Follow a test-driven development process</p>
+<ul>
+<li>attempt to define the whole standard and check for coverage</li>
+<li>cover all tests (abiding to the standard)</li>
+<li>develop tests to cover previously uncovered rules
+<ul>
+<li>find bugs in compilers using those tests</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="an-executable-formal-semantics-of-c-with-applications" class="slide section level2">
+<h1>An executable formal semantics of C with applications</h1>
+<ul>
+<li><p>Presented at POPL’12 <span class="citation">(Ellison and Rosu 2012)</span></p></li>
+<li><p>The (positive) semantics of the C programming language</p>
+<ul>
+<li><p>closely following ISO/IEC 9899:2011 (C11 standard)</p></li>
+<li><p>focusing on corectly defined programs</p></li>
+</ul></li>
+<li><p>Quantitative data</p>
+<ul>
+<li><p>Definition size: ~6k lines</p></li>
+<li><p>configuration containing ~80 cells</p></li>
+<li><p>1200 semantics rules (500 rules for declarations and types!)</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="defining-the-undefinedness-of-c" class="slide section level2">
+<h1>Defining the undefinedness of C</h1>
+<ul>
+<li><p>Presented at PLDI’15 <span class="citation">(Hathhorn, Ellison, and Roșu 2015)</span></p>
+<ul>
+<li>based on earlier work <span class="citation">(by Ellison and Roșu 2012)</span></li>
+</ul></li>
+<li><p>The (negative) semantics of the C language</p>
+<ul>
+<li>reporting undefined behavior by pointing to the relevant section in the standard</li>
+</ul></li>
+<li><p>Quantitative data</p>
+<ul>
+<li>Separate translation semantics and execution semantics</li>
+<li>execution configuration containing ~100 cells</li>
+<li>2155 semantics rules</li>
+</ul></li>
+</ul>
+</div>
+<div id="other-research-surrounding-the-c-semantics" class="slide section level2">
+<h1>Other research surrounding the C semantics</h1>
+<ul>
+<li><p>Test-case reduction for C compiler bugs <span class="citation">(Regehr et al. 2012)</span></p></li>
+<li><p>All of the above, and some more in Chucky Ellison’s PhD thesis <span class="citation">(Ellison 2012)</span></p></li>
+</ul>
+</div>
+
+<div id="program-verification-via-reachability-logic" class="title-slide slide section level1">
+<h1>Program verification via reachability logic</h1>
+
+</div>
+
+<div id="conclusions" class="title-slide slide section level1">
+<h1>Conclusions</h1>
+
+</div>
+<div id="references" class="slide section level2 unnumbered">
+<h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-c-ellison" class="csl-entry">
+Ellison, Chucky. 2012. <span>“A Formal Semantics of <span>C</span> with Applications.”</span> PhD thesis, University of Illinois. <a href="http://hdl.handle.net/2142/34297">http://hdl.handle.net/2142/34297</a>.
+</div>
+<div id="ref-c-def" class="csl-entry">
+Ellison, Chucky, and Grigore Rosu. 2012. <span>“An Executable Formal Semantics of <span>C</span> with Applications.”</span> In <em>POPL’12</em>, 47:533–44. ACM SIGPLAN Notices 1. ACM New York, NY, USA. <a href="https://fsl.cs.illinois.edu/publications/ellison-rosu-2012-popl.html">https://fsl.cs.illinois.edu/publications/ellison-rosu-2012-popl.html</a>.
+</div>
+<div id="ref-c-undef-1" class="csl-entry">
+Ellison, Chucky, and Grigore Roșu. 2012. <span>“Defining the Undefinedness of <span>C</span>.”</span> University of Illinois. <a href="http://hdl.handle.net/2142/30780">http://hdl.handle.net/2142/30780</a>.
+</div>
+<div id="ref-c-undef-2" class="csl-entry">
+Hathhorn, Chris, Chucky Ellison, and Grigore Roșu. 2015. <span>“Defining the Undefinedness of <span>C</span>.”</span> In <em>Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation</em>, 50:336–45. ACM SIGPLAN Notices 6. ACM New York, NY, USA. <a href="https://fsl.cs.illinois.edu/publications/hathhorn-ellison-rosu-2015-pldi.html">https://fsl.cs.illinois.edu/publications/hathhorn-ellison-rosu-2015-pldi.html</a>.
+</div>
+<div id="ref-c-testing" class="csl-entry">
+Regehr, John, Yang Chen, Pascal Cuoq, Eric Eide, Chucky Ellison, and Xuejun Yang. 2012. <span>“Test-Case Reduction for c Compiler Bugs.”</span> In <em>PLDI’12</em>, 47:335–46. ACM SIGPLAN Notices 6. <a href="https://fsl.cs.illinois.edu/publications/regehr-chen-cuoq-eide-ellison-yang-pldi-2012.html">https://fsl.cs.illinois.edu/publications/regehr-chen-cuoq-eide-ellison-yang-pldi-2012.html</a>.
+</div>
+<div id="ref-k-tr" class="csl-entry">
+Roșu, Grigore. 2003. <span>“Cs322 Fall 2003: Programming Language Design -Lecture Notes-.”</span> University of Illinois. <a href="http://hdl.handle.net/2142/11385">http://hdl.handle.net/2142/11385</a>.
+</div>
+<div id="ref-k-jlap" class="csl-entry">
+Roșu, Grigore, and Traian Florin Șerbănuță. 2010. <span>“An Overview of the k Semantic Framework.”</span> <em>The Journal of Logic and Algebraic Programming</em> 79 (6): 397–434. <a href="http://hdl.handle.net/2142/14865">http://hdl.handle.net/2142/14865</a>.
+</div>
+<div id="ref-k-serbanuta" class="csl-entry">
+Șerbănuță, Traian Florin. 2010. <span>“A Rewriting Approach to Concurrent Programming Language Design and Semantics.”</span> PhD thesis, University of Illinois. <a href="http://hdl.handle.net/2142/34297">http://hdl.handle.net/2142/34297</a>.
+</div>
+<div id="ref-k-os" class="csl-entry">
+Șerbănuță, Traian Florin, Grigore Roșu, and José Meseguer. 2007. <span>“A Rewriting Logic Approach to Operational Semantics.”</span> In <em>SOS’06</em>, 192:125–41. 1. Elsevier. <a href="http://hdl.handle.net/2142/11265">http://hdl.handle.net/2142/11265</a>.
+</div>
+</div>
+</div>
+</body>
+</html>
