@@ -187,9 +187,9 @@ bibliography: k.bib
 
 ### [imp-relaxed.md](k/imp-relaxed.html)
 
-## Conclusions
+# Conclusions
 
-### Working pretty well
+## What works pretty well
 
 - K is quite good for specifying execution behaviors for most languages in-use
 
@@ -201,11 +201,11 @@ bibliography: k.bib
 
 - All of the above are language-independent
 
-### To be improved
+## Potential future research
 
 - Symbolic execution and verification are not optimized for nondeterminism/cooncurrency
 
-  - Research is needed to adapt/reuse existing space-reduction techniques
+- Research is needed to adapt/reuse existing space-reduction techniques
 
   - Hopefully in a language-idependent way
 
