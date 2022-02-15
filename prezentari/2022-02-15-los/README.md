@@ -27,7 +27,7 @@ bibliography: k.bib
 
 ## Learning from existing formalisms
 
-###  A rewriting logic approach to operational semantics [@k-os]
+### A rewriting logic approach to operational semantics [@k-os]
 
 - A good survey of operational-semantics-based tools
 
@@ -39,6 +39,7 @@ bibliography: k.bib
 ## The K Framework 1.0
 
 ### An Overview of the K Semantic Framework [@k-jlap]
+
 ### A rewriting approach to concurrent programming language design and semantics [@k-serbanuta]
 
 - Notation optimizations to make specifications
@@ -92,7 +93,6 @@ bibliography: k.bib
 
   - 1200 semantics rules (500 rules for declarations and types!)
 
-
 ## Defining the undefinedness of C
 
 - Presented at PLDI'15 [@c-undef-2]
@@ -140,7 +140,6 @@ bibliography: k.bib
 
   - and found bugs in all major browsers  (Chrome V8, Safari WebKit, Firefox SpiderMonkey)
 
-
 ## A Complete Formal Semantics of X86-64 User-Level Instruction Set Architecture
 
 - presented at PLDI'19 [@x86]
@@ -150,7 +149,6 @@ bibliography: k.bib
 - extensively tested
 
 - found bugs in the reference manual and other semantics
-
 
 # Program verification via reachability logic
 
@@ -167,15 +165,48 @@ bibliography: k.bib
 
 ## Demo 2
 
-### [imp-symbolic.k](k/imp-symbolic.k)
+### Proofs using [imp-symbolic.k](k/imp-symbolic.k)
 
 - [max-spec.k](k/max-spec.k)
 
 - [sum-spec.k](k/sum-spec.k)
 
+- [sum-odds-spec.k](k/sum-odds-spec.k)
 
+## EVM semantics and smart-contract verification
 
+- KEVM: A Complete Semantics of the Ethereum Virtual Machine [@kevm]
 
-# Conclusions
+- Smart contract verification based using KEVM
+
+# Specifying concurrent features
+
+## Demo 3
+
+### [imp-threaded.md](k/imp-threaded.html)
+
+### [imp-relaxed.md](k/imp-relaxed.html)
+
+## Conclusions
+
+### Working pretty well
+
+- K is quite good for specifying execution behaviors for most languages in-use
+
+- Can be used as an interpretor
+
+- Can be used for symbolic execution reachability analysis, and verification
+
+  - provided the amount of non-determinism is reduced
+
+- All of the above are language-independent
+
+### To be improved
+
+- Symbolic execution and verification are not optimized for nondeterminism/cooncurrency
+
+  - Research is needed to adapt/reuse existing space-reduction techniques
+
+  - Hopefully in a language-idependent way
 
 ## References

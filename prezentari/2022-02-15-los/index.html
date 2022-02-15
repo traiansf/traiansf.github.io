@@ -75,9 +75,12 @@ Runtime Verification
 <ul>
 <li><a href="#a-language-independent-logic-for-reasoning-about-program-executions">A language-independent logic for reasoning about program executions</a></li>
 <li><a href="#demo-2">Demo 2</a></li>
+<li><a href="#evm-semantics-and-smart-contract-verification">EVM semantics and smart-contract verification</a></li>
 </ul></li>
-<li><a href="#conclusions">Conclusions</a>
+<li><a href="#specifying-concurrent-features">Specifying concurrent features</a>
 <ul>
+<li><a href="#demo-3">Demo 3</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
 <li><a href="#references">References</a></li>
 </ul></li>
 </ul>
@@ -263,16 +266,50 @@ Runtime Verification
 </div>
 <div id="demo-2" class="slide section level2">
 <h1>Demo 2</h1>
-<h3 id="imp-symbolic.k-1"><a href="k/imp-symbolic.k">imp-symbolic.k</a></h3>
+<h3 id="proofs-using-imp-symbolic.k">Proofs using <a href="k/imp-symbolic.k">imp-symbolic.k</a></h3>
 <ul>
 <li><p><a href="k/max-spec.k">max-spec.k</a></p></li>
 <li><p><a href="k/sum-spec.k">sum-spec.k</a></p></li>
+<li><p><a href="k/sum-odds-spec.k">sum-odds-spec.k</a></p></li>
+</ul>
+</div>
+<div id="evm-semantics-and-smart-contract-verification" class="slide section level2">
+<h1>EVM semantics and smart-contract verification</h1>
+<ul>
+<li><p>KEVM: A Complete Semantics of the Ethereum Virtual Machine <span class="citation">(Hildenbrandt et al. 2018)</span></p></li>
+<li><p>Smart contract verification based using KEVM</p></li>
 </ul>
 </div>
 
-<div id="conclusions" class="title-slide slide section level1">
-<h1>Conclusions</h1>
+<div id="specifying-concurrent-features" class="title-slide slide section level1">
+<h1>Specifying concurrent features</h1>
 
+</div>
+<div id="demo-3" class="slide section level2">
+<h1>Demo 3</h1>
+<h3 id="imp-threaded.md"><a href="k/imp-threaded.html">imp-threaded.md</a></h3>
+<h3 id="imp-relaxed.md"><a href="k/imp-relaxed.html">imp-relaxed.md</a></h3>
+</div>
+<div id="conclusions" class="slide section level2">
+<h1>Conclusions</h1>
+<h3 id="working-pretty-well">Working pretty well</h3>
+<ul>
+<li><p>K is quite good for specifying execution behaviors for most languages in-use</p></li>
+<li><p>Can be used as an interpretor</p></li>
+<li><p>Can be used for symbolic execution reachability analysis, and verification</p>
+<ul>
+<li>provided the amount of non-determinism is reduced</li>
+</ul></li>
+<li><p>All of the above are language-independent</p></li>
+</ul>
+<h3 id="to-be-improved">To be improved</h3>
+<ul>
+<li><p>Symbolic execution and verification are not optimized for nondeterminism/cooncurrency</p>
+<ul>
+<li><p>Research is needed to adapt/reuse existing space-reduction techniques</p></li>
+<li><p>Hopefully in a language-idependent way</p></li>
+</ul></li>
+</ul>
 </div>
 <div id="references" class="slide section level2 unnumbered">
 <h1 class="unnumbered">References</h1>
@@ -297,6 +334,9 @@ Guth, Dwight, Chris Hathhorn, Manasvi Saxena, and Grigore Rosu. 2016. <span>“R
 </div>
 <div id="ref-c-undef-2" class="csl-entry">
 Hathhorn, Chris, Chucky Ellison, and Grigore Roșu. 2015. <span>“Defining the Undefinedness of <span>C</span>.”</span> In <em>Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation</em>, 50:336–45. ACM SIGPLAN Notices 6. ACM New York, NY, USA. <a href="https://fsl.cs.illinois.edu/publications/hathhorn-ellison-rosu-2015-pldi.html">https://fsl.cs.illinois.edu/publications/hathhorn-ellison-rosu-2015-pldi.html</a>.
+</div>
+<div id="ref-kevm" class="csl-entry">
+Hildenbrandt, Everett, Manasvi Saxena, Xiaoran Zhu, Nishant Rodrigues, Philip Daian, Dwight Guth, Brandon Moore, et al. 2018. <span>“KEVM: A Complete Semantics of the Ethereum Virtual Machine.”</span> In <em>CSF’18</em>, 204–17. IEEE. <a href="https://fsl.cs.illinois.edu/publications/hildenbrandt-saxena-zhu-rodrigues-daian-guth-moore-zhang-park-rosu-2018-csf.html">https://fsl.cs.illinois.edu/publications/hildenbrandt-saxena-zhu-rodrigues-daian-guth-moore-zhang-park-rosu-2018-csf.html</a>.
 </div>
 <div id="ref-js" class="csl-entry">
 Park, Daejun, Andrei Stefănescu, and Grigore Roșu. 2015. <span>“KJS: A Complete Formal Semantics of JavaScript.”</span> In <em>Proceedings of the 36th ACM SIGPLAN Conference on Programming Language Design and Implementation</em>, 346–56. <a href="https://fsl.cs.illinois.edu/publications/park-stefanescu-rosu-2015-pldi.html">https://fsl.cs.illinois.edu/publications/park-stefanescu-rosu-2015-pldi.html</a>.
