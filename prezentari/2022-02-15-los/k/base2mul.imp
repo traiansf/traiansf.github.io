@@ -1,0 +1,10 @@
+x = 5;
+y = 7;
+z = 0;
+while (!(x <= 0)) {
+  q = x/2;
+  r = q+q + 1;
+  if (r <= x) { z = z+y; } else {}
+  x = q;
+  y = y+y;
+}

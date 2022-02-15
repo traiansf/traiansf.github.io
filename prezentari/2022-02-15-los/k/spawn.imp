@@ -1,6 +1,7 @@
 x = 0;
-t1 = spawn(x = 1;);
-t2 = spawn(x = 2;);
+y = 2;
+t1 = spawn(x = y + 1;);
+t2 = spawn(x = y + 2;);
 join(t1);
 join(t2);
-x = 3;
+y = 3;

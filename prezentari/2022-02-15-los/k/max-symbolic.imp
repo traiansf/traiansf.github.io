@@ -1,0 +1,6 @@
+x = ?Int;
+y = ?Int;
+z = ?Int;
+max = x;
+if (max <= y) {max = y;} else {}
+if (max <= z) {max = z;} else {}

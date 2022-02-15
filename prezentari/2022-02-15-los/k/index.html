@@ -161,13 +161,7 @@ endmodule
   imports DOMAINS
 
   configuration
-    &lt;threads&gt;
-      &lt;thread multiplicity=&quot;*&quot; type=&quot;Set&quot;&gt;
-        &lt;k&gt; $PGM:Stmt &lt;/k&gt;
-        &lt;id&gt; -1 &lt;/id&gt;
-      &lt;/thread&gt;
-    &lt;/threads&gt;
-    &lt;terminated&gt; .Set &lt;/terminated&gt;
+    &lt;k&gt; $PGM:Stmt &lt;/k&gt;
     &lt;mem&gt; .Map &lt;/mem&gt;
 
 endmodule</code></pre>
@@ -195,42 +189,18 @@ module MEMORY
   rule &lt;k&gt; X = V:Val ; =&gt; .K ...&lt;/k&gt; &lt;mem&gt; Mem =&gt; Mem [X &lt;- V] &lt;/mem&gt;
 endmodule</code></pre>
 </div>
-<div id="threads" class="slide section level1">
-<h1>Threads</h1>
-<pre class="k"><code>module THREADS-SYNTAX
-  imports STMT-SYNTAX
-  syntax Exp ::= spawn(Stmt)
-
-  syntax Stmt ::= &quot;join&quot; &quot;(&quot; Exp &quot;)&quot; &quot;;&quot; [seqstrict]
-endmodule
-
-module THREADS
-  imports THREADS-SYNTAX
-  imports IMP-CONFIGURATION
-
-  rule &lt;thread&gt;... &lt;k&gt; spawn(S) =&gt; !Id:Int ...&lt;/k&gt; ...&lt;/thread&gt;
-       (.Bag =&gt; &lt;thread&gt;... &lt;id&gt; !Id &lt;/id&gt; &lt;k&gt; S &lt;/k&gt; ...&lt;/thread&gt;)
-
-  rule (&lt;thread&gt;... &lt;k&gt; .K &lt;/k&gt; &lt;id&gt; Id &lt;/id&gt; ...&lt;/thread&gt; =&gt; .Bag)
-       &lt;terminated&gt;... .Set =&gt; SetItem(Id) ...&lt;/terminated&gt;
-
-  rule &lt;k&gt; join(I:Int); =&gt; .K ...&lt;/k&gt; &lt;terminated&gt;... SetItem(I) ...&lt;/terminated&gt;
-endmodule</code></pre>
-</div>
 <div id="putting-everything-together" class="slide section level1">
 <h1>Putting everything together</h1>
 <pre class="k"><code>module IMP-SYNTAX
   imports EXP-SYNTAX
   imports STMT-SYNTAX
   imports MEMORY-SYNTAX
-  imports THREADS-SYNTAX
 endmodule
 
 module IMP
   imports EXP
   imports STMT
   imports MEMORY
-  imports THREADS
 endmodule</code></pre>
 </div>
 </body>

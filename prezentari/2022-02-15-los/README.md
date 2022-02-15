@@ -52,7 +52,13 @@ bibliography: k.bib
 
 ## Demo 1
 
-[imp.k](k)
+### [imp.md](k)
+
+- [sum.imp](k/sum.imp)
+
+### [imp-symbolic.k](k/imp-symbolic.k)
+
+- [max-symbolic.imp](k/max-symbolic.imp)
 
 ## A recipe for success
 
@@ -161,7 +167,13 @@ bibliography: k.bib
 
 ## Demo 2
 
-[imp.k](k)
+### [imp-symbolic.k](k/imp-symbolic.k)
+
+- [max-spec.k](k/max-spec.k)
+
+- [sum-spec.k](k/sum-spec.k)
+
+
 
 
 # Conclusions

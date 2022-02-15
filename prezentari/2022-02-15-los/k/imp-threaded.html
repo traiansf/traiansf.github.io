@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>imp-threaded</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide section level1">
+
+<pre class="k"><code>require &quot;imp.md&quot;</code></pre>
+</div>
+<div id="multithreaded-configuration" class="slide section level1">
+<h1>Multithreaded configuration</h1>
+<pre class="k"><code>module IMP-THREADED-CONFIGURATION
+  imports STMT-SYNTAX
+  imports DOMAINS
+
+  configuration
+    &lt;threads&gt;
+      &lt;thread multiplicity=&quot;*&quot; type=&quot;Set&quot;&gt;
+        &lt;k&gt; $PGM:Stmt &lt;/k&gt;
+        &lt;id&gt; -1 &lt;/id&gt;
+      &lt;/thread&gt;
+    &lt;/threads&gt;
+    &lt;terminated&gt; .Set &lt;/terminated&gt;
+    &lt;mem&gt; .Map &lt;/mem&gt;
+    &lt;wbuf&gt; .List &lt;/wbuf&gt;
+endmodule</code></pre>
+<pre class="k"><code>module THREADED-SEQ-MEMORY
+  imports MEMORY-SYNTAX
+  imports IMP-THREADED-CONFIGURATION
+  imports EXP
+
+  rule &lt;k&gt; X:Id =&gt; V ...&lt;/k&gt; &lt;mem&gt;... X |-&gt; V ...&lt;/mem&gt;
+  rule &lt;k&gt; X = V:Val ; =&gt; .K ...&lt;/k&gt; &lt;mem&gt; Mem =&gt; Mem [X &lt;- V] &lt;/mem&gt;
+endmodule</code></pre>
+</div>
+<div id="threads" class="slide section level1">
+<h1>Threads</h1>
+<pre class="k"><code>module THREADS-SYNTAX
+  imports STMT-SYNTAX
+  syntax Exp ::= spawn(Stmt)
+
+  syntax Stmt ::= &quot;join&quot; &quot;(&quot; Exp &quot;)&quot; &quot;;&quot; [seqstrict]
+endmodule
+
+module THREADS
+  imports THREADS-SYNTAX
+  imports IMP-THREADED-CONFIGURATION
+
+  rule &lt;k&gt; spawn(S) =&gt; !Id:Int ...&lt;/k&gt;
+       (.Bag =&gt; &lt;thread&gt;... &lt;id&gt; !Id &lt;/id&gt; &lt;k&gt; S &lt;/k&gt; ...&lt;/thread&gt;)
+
+  rule (&lt;thread&gt;... &lt;k&gt; .K &lt;/k&gt; &lt;id&gt; Id &lt;/id&gt; ...&lt;/thread&gt; =&gt; .Bag)
+       &lt;terminated&gt;... .Set =&gt; SetItem(Id) ...&lt;/terminated&gt;
+
+  rule &lt;k&gt; join(I:Int); =&gt; .K ...&lt;/k&gt; &lt;terminated&gt;... SetItem(I) ...&lt;/terminated&gt;
+endmodule</code></pre>
+</div>
+<div id="putting-everything-together" class="slide section level1">
+<h1>Putting everything together</h1>
+<pre class="k"><code>module IMP-THREADED-SYNTAX
+  imports IMP-SYNTAX
+  imports THREADS-SYNTAX
+endmodule
+
+module IMP-THREADED
+  imports EXP
+  imports STMT
+  imports THREADED-SEQ-MEMORY
+  imports THREADS
+endmodule</code></pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>imp-relaxed</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide section level1">
+
+<pre class="k"><code>require &quot;imp-threaded.md&quot;</code></pre>
+</div>
+<div id="a-more-relaxed-memory-model" class="slide section level1">
+<h1>A (more) relaxed memory model</h1>
+<pre class="k"><code>module THREADED-RELAXED-MEMORY
+  imports MEMORY-SYNTAX
+  imports IMP-THREADED-CONFIGURATION
+  imports EXP
+
+  syntax KItem ::= write(Id, Val)
+
+  rule &lt;k&gt; X:Id =&gt; latestWrite(X, Buf ListItem(write(X,V))) ...&lt;/k&gt;
+       &lt;wbuf&gt; Buf &lt;/wbuf&gt;
+       &lt;mem&gt;... X |-&gt; V ...&lt;/mem&gt;
+
+  rule &lt;k&gt; X = V:Val ; =&gt; .K ...&lt;/k&gt;
+       &lt;wbuf&gt;... .List =&gt; ListItem(write(X, V)) &lt;/wbuf&gt;
+
+  rule &lt;wbuf&gt; ListItem(write(X, V)) =&gt; .List ...&lt;/wbuf&gt;
+       &lt;mem&gt; Mem =&gt; Mem [X &lt;- V] &lt;/mem&gt;
+
+
+  syntax KItem ::= latestWrite(Id, List) [function]
+
+  rule latestWrite(X, ListItem(write(X, V)) _) =&gt; V
+  rule latestWrite(_, (ListItem(_) =&gt; .List) _) [owise]
+
+  rule latestWrite(_, .List) =&gt; 0
+endmodule</code></pre>
+</div>
+<div id="memory-fences" class="slide section level1">
+<h1>Memory Fences</h1>
+<pre class="k"><code>module MEMORY-FENCE-SYNTAX
+  syntax Stmt ::= &quot;fence&quot; &quot;;&quot;
+endmodule</code></pre>
+<pre class="k"><code>module MEMORY-FENCE
+  rule &lt;k&gt; fence ; =&gt; .K ...&lt;/k&gt; &lt;wbuf&gt; .List &lt;/wbuf&gt;
+endmodule</code></pre>
+</div>
+<div id="putting-everything-together" class="slide section level1">
+<h1>Putting everything together</h1>
+<pre class="k"><code>module IMP-RELAXED-SYNTAX
+  imports IMP-THREADED-SYNTAX
+  imports MEMORY-FENCE-SYNTAX
+endmodule
+
+module IMP-RELAXED
+  imports EXP
+  imports STMT
+  imports THREADED-RELAXED-MEMORY
+  imports THREADS
+endmodule</code></pre>
+</div>
+</body>
+</html>
