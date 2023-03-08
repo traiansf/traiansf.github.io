@@ -1,0 +1,43 @@
+exit
+konfig
+select 37
+step
+konfig
+select 36
+konfig
+select 35
+konfig
+select 32
+konfig
+select 15
+konfig
+select 14
+konfig
+step 10
+konfig
+step 10
+konfig
+step 10
+konfig
+select 11
+step
+konfig
+step
+konfig
+select 12
+konfig
+select 11
+konfig
+step 10
+kstep
+konfig
+kconfig
+step
+kclaim
+load kast.kscript
+exit
+q
+quit
+kclaim
+load kast.kscript
+claim

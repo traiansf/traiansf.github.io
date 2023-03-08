@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Traian Florin Șerbănuță" />
+  <title>Implementing reachability logic in the K Framework</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Implementing reachability logic in the K
+Framework</h1>
+  <p class="author">
+Traian Florin Șerbănuță
+  </p>
+  <p class="institute">
+Runtime Verification
+  </p>
+  <p class="date">March 9, 2023, Logic Seminar, FMI@UniBuc</p>
+</div>
+<div class="slide" id="TOC">
+<ul>
+<li><a href="#thanks-and-credits" id="toc-thanks-and-credits">Thanks and
+Credits</a></li>
+<li><a href="#why-k" id="toc-why-k">Why K?</a>
+<ul>
+<li><a href="#k-is-a-language-independent-framework"
+id="toc-k-is-a-language-independent-framework">K is a
+language-independent framework</a></li>
+<li><a href="#advantages-of-k" id="toc-advantages-of-k">Advantages of
+K</a></li>
+<li><a href="#a-basic-k-definition" id="toc-a-basic-k-definition">A
+basic K definition</a></li>
+<li><a href="#demo-imp.k" id="toc-demo-imp.k">Demo: imp.k</a></li>
+</ul></li>
+<li><a href="#why-reachability-logic"
+id="toc-why-reachability-logic">Why Reachability Logic?</a>
+<ul>
+<li><a href="#reachability-logic-is-simple"
+id="toc-reachability-logic-is-simple">Reachability Logic is
+simple</a></li>
+<li><a href="#prepost-condition.-partial-correctness"
+id="toc-prepost-condition.-partial-correctness">Pre/Post condition.
+Partial correctness</a></li>
+<li><a href="#proving-reachability-claims"
+id="toc-proving-reachability-claims">Proving reachability
+claims</a></li>
+<li><a href="#the-rl-proof-system-i" id="toc-the-rl-proof-system-i">The
+RL proof system (I)</a></li>
+<li><a href="#the-rl-proof-system-ii"
+id="toc-the-rl-proof-system-ii">The RL proof system (II)</a></li>
+</ul></li>
+<li><a href="#demo-looking-into-how-a-claim-is-proven"
+id="toc-demo-looking-into-how-a-claim-is-proven">Demo: looking into how
+a claim is proven</a>
+<ul>
+<li><a href="#loop-summarization-invariant-claim"
+id="toc-loop-summarization-invariant-claim">Loop summarization
+(invariant) claim</a></li>
+<li><a href="#after-one-step-of-symbolic-execution"
+id="toc-after-one-step-of-symbolic-execution">After one step of symbolic
+execution</a></li>
+<li><a href="#after-9-more-steps" id="toc-after-9-more-steps">After 9
+more steps</a></li>
+<li><a href="#the-branch-where-the-condition-is-false-is-proven"
+id="toc-the-branch-where-the-condition-is-false-is-proven">The branch
+where the condition is <em>false</em> is proven</a></li>
+<li><a href="#the-branch-where-the-condition-is-true"
+id="toc-the-branch-where-the-condition-is-true">The branch where the
+condition is <em>true</em></a></li>
+<li><a href="#then-after-31-more-steps"
+id="toc-then-after-31-more-steps">Then, after 31 more steps</a></li>
+<li><a href="#coinductively-apply-the-claim-to-discharge-path"
+id="toc-coinductively-apply-the-claim-to-discharge-path">Coinductively
+apply the claim to discharge path</a></li>
+</ul></li>
+<li><a href="#implementation-concerns"
+id="toc-implementation-concerns">Implementation concerns</a>
+<ul>
+<li><a href="#algorithm-sketch" id="toc-algorithm-sketch">Algorithm
+sketch</a></li>
+<li><a href="#removing-conclusion-from-the-hypothesis"
+id="toc-removing-conclusion-from-the-hypothesis">Removing conclusion
+from the hypothesis</a></li>
+<li><a href="#advancing-the-proof-using-one-of-the-original-claims"
+id="toc-advancing-the-proof-using-one-of-the-original-claims">Advancing
+the proof using one of the original claims</a></li>
+<li><a href="#advancing-a-step-on-all-paths"
+id="toc-advancing-a-step-on-all-paths">Advancing a step on all
+paths</a></li>
+<li><a href="#final-considerations-and-conclusion"
+id="toc-final-considerations-and-conclusion">Final considerations and
+conclusion</a></li>
+<li><a href="#thank-you" id="toc-thank-you">Thank you</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="thanks-and-credits" class="slide section level2">
+<h1>Thanks and Credits</h1>
+<ul>
+<li>Grigore Roșu
+<ul>
+<li>for K, Reachability Logic, Matching Logic</li>
+</ul></li>
+<li>Andrei Ștefănescu
+<ul>
+<li>for the first implementation of Reachability Logic</li>
+</ul></li>
+<li>Brandon Moore and Ștefan Ciobâcă
+<ul>
+<li>for the formalization of Reachability Logic in Coq</li>
+</ul></li>
+<li>the Haskell Backend team at RV
+<ul>
+<li>esp. to Ana Pantilie for letting me “borrow” her sildes and
+demos</li>
+</ul></li>
+<li>Dorel Lucanu and Andrei Arusoaie
+<ul>
+<li>for their work on formalizing parts of the things described
+here</li>
+</ul></li>
+<li>Xiaohong Chen and Virgil Șerbănuță
+<ul>
+<li>for the particular algorithm described here</li>
+</ul></li>
+</ul>
+</div>
+<div id="why-k" class="title-slide slide section level1">
+<h1>Why K?</h1>
+
+</div>
+<div id="k-is-a-language-independent-framework"
+class="slide section level2">
+<h1>K is a language-independent framework</h1>
+<p><img src="Images/KPromise.png" style="height:80.0%" /></p>
+</div>
+<div id="advantages-of-k" class="slide section level2">
+<h1>Advantages of K</h1>
+<ul>
+<li>K semantics are operational
+<ul>
+<li>the interpretor <em>is</em> the definition</li>
+<li>the definition can be tested</li>
+</ul></li>
+<li>K semantics are minimalistic
+<ul>
+<li>write as little as possible to describe behavior</li>
+<li>usually a syntax definition and 1-2 rules for construct</li>
+</ul></li>
+<li>K was designed to empower software engineers to specify
+languages</li>
+<li>K has been succesfully used to tackle large real lanugages</li>
+<li>K is grounded in a logic (Matching Logic)
+<ul>
+<li>language definitions are theories consisting of axioms</li>
+<li>execution and reasoning rules are language independent</li>
+</ul></li>
+</ul>
+</div>
+<div id="a-basic-k-definition" class="slide section level2">
+<h1>A basic K definition</h1>
+<h3 id="basic-ingredients">Basic Ingredients</h3>
+<ul>
+<li><p>Syntax for the language constructs</p>
+<ul>
+<li>with <em>strictness</em> annotations for evaluation</li>
+</ul>
+<pre class="k"><code>syntax Stmt ::= Id &quot;=&quot; AExp &quot;;&quot;  [strict(2)]</code></pre></li>
+<li><p>Structure and initialization of the running configuration</p>
+<pre class="k"><code>configuration &lt;T color=&quot;yellow&quot;&gt;
+              &lt;k color=&quot;green&quot;&gt; $PGM:Pgm &lt;/k&gt;
+              &lt;state color=&quot;red&quot;&gt; .Map &lt;/state&gt;
+              &lt;/T&gt;</code></pre></li>
+<li><p>Rules tell how an immediate execution step should occur</p>
+<pre class="k"><code>rule &lt;k&gt; X:Id =&gt; I ...&lt;/k&gt;
+     &lt;state&gt;... X |-&gt; I ...&lt;/state&gt;</code></pre></li>
+<li><p>possibly structural axioms defining helping functions</p></li>
+</ul>
+</div>
+<div id="demo-imp.k" class="slide section level2" frameoptions="final">
+<h1>Demo: imp.k</h1>
+</div>
+
+<div id="why-reachability-logic"
+class="title-slide slide section level1">
+<h1>Why Reachability Logic?</h1>
+
+</div>
+<div id="reachability-logic-is-simple" class="slide section level2">
+<h1>Reachability Logic is simple</h1>
+<h3 id="it-is-a-just-an-extension-of-the-k-operational-semantics">It is
+a just an extension of the K operational semantics</h3>
+<pre class="k"><code>  claim &lt;k&gt;
+          if (a &lt;= b) { max = b; } else { max = a; }
+          =&gt; .K
+        &lt;/k&gt;
+        &lt;state&gt;
+          a   |-&gt; A:Int
+          b   |-&gt; B:Int
+          max |-&gt; (_ =&gt; ?M:Int)
+        &lt;/state&gt;
+    ensures
+      (A &gt;=Int B andBool ?M ==Int A)
+      orBool (B &gt;=Int A andBool ?M ==Int B)</code></pre>
+</div>
+<div id="prepost-condition.-partial-correctness"
+class="slide section level2">
+<h1>Pre/Post condition. Partial correctness</h1>
+<ul>
+<li><p>Starting from a state matching</p>
+<pre class="k"><code>&lt;k&gt; if (a &lt;= b) { max = b; } else { max = a; } &lt;/k&gt;
+&lt;state&gt; a |-&gt; A:Int  b |-&gt; B:Int  max |-&gt; _ &lt;/state&gt;</code></pre>
+<ul>
+<li>with no precondition</li>
+</ul></li>
+<li><p><em>any</em> <em>terminating</em> execution will eventually reach
+a state matching</p>
+<pre class="k"><code>&lt;k&gt; .K &lt;/k&gt;
+&lt;state&gt; a |-&gt; A:Int  b |-&gt; B:Int  max |-&gt; ?M:Int &lt;/state&gt;</code></pre>
+<ul>
+<li><p>for some <code>?M</code>, satisfying the postcondition</p>
+<pre class="k"><code>(A &gt;=Int B andBool ?M ==Int A) orBool (B &gt;=Int A andBool ?M ==Int B)</code></pre></li>
+</ul></li>
+</ul>
+</div>
+<div id="proving-reachability-claims" class="slide section level2">
+<h1>Proving reachability claims</h1>
+<h3
+id="mostly-doing-symbolic-execution-of-the-program-from-the-given-state">Mostly
+doing symbolic execution of the program from the given state</h3>
+<ul>
+<li>until the target state is reached on all possible paths</li>
+<li>computing the strongest postcondition (Floyd/forward Hoare,
+Dijkstra)</li>
+<li>checking that the strongest postcondition implies the
+<em>ensures</em> condition</li>
+</ul>
+<h3 id="handling-loops">Handling loops</h3>
+<ul>
+<li>Using additional claims to summarize loops and recursive behavior
+<ul>
+<li>resembling invariant annotations in Hoare Logic</li>
+</ul></li>
+<li>Using claims to prove themeselves in a coinductive fashion
+<ul>
+<li>hence proving only <em>partial</em> correctness</li>
+</ul></li>
+</ul>
+</div>
+<div id="the-rl-proof-system-i" class="slide section level2">
+<h1>The RL proof system (I)</h1>
+<p><embed src="Images/rl-up.pdf" /></p>
+</div>
+<div id="the-rl-proof-system-ii" class="slide section level2">
+<h1>The RL proof system (II)</h1>
+<p><embed src="Images/rl-down.pdf" /></p>
+</div>
+
+<div id="demo-looking-into-how-a-claim-is-proven"
+class="title-slide slide section level1">
+<h1>Demo: looking into how a claim is proven</h1>
+
+</div>
+<div id="loop-summarization-invariant-claim"
+class="slide section level2">
+<h1>Loop summarization (invariant) claim</h1>
+<pre class="k"><code>claim
+    &lt;k&gt;
+      while (!(n &lt;= 0)) {
+        sum = sum + n;
+        n = n + -1;
+      }
+    =&gt;
+      .K
+    ...&lt;/k&gt;
+  &lt;state&gt;
+      n   |-&gt; (N:Int =&gt; 0)
+      sum |-&gt; (S:Int =&gt; S +Int ((N +Int 1) *Int N /Int 2))
+  &lt;/state&gt;
+requires N &gt;=Int 0</code></pre>
+</div>
+<div id="after-one-step-of-symbolic-execution"
+class="slide section level2">
+<h1>After one step of symbolic execution</h1>
+<pre class="k"><code>  &lt;T&gt;
+    &lt;k&gt;
+      if ( ! n &lt;= 0 ) { { sum = sum + n ; n = n + -1 ; }
+        while ( ! n &lt;= 0 ) { sum = sum + n ; n = n + -1 ; } 
+      } else { } ~&gt; _DotVar2:K
+    &lt;/k&gt;
+    &lt;state&gt;
+      n |-&gt; N:Int
+      sum |-&gt; S:Int
+    &lt;/state&gt;
+  &lt;/T&gt;
+#And
+    true #Equals N:Int &gt;=Int 0</code></pre>
+</div>
+<div id="after-9-more-steps" class="slide section level2">
+<h1>After 9 more steps</h1>
+<pre class="k"><code>  &lt;T&gt;
+    &lt;k&gt;
+      if ( notBool N:Int &lt;=Int 0 ) { { sum = sum + n ; n = n + -1 ; }
+        while ( ! n &lt;= 0 ) { sum = sum + n ; n = n + -1 ; } 
+      } else { } ~&gt; _DotVar2:K
+    &lt;/k&gt;
+    &lt;state&gt;
+      n |-&gt; N:Int
+      sum |-&gt; S:Int
+    &lt;/state&gt;
+  &lt;/T&gt;
+#And
+    true #Equals N:Int &gt;=Int 0</code></pre>
+<ul>
+<li>separate rules for if whether the condition is <em>true</em> or
+<em>false</em></li>
+<li>the symbolic execution needs to branch</li>
+</ul>
+</div>
+<div id="the-branch-where-the-condition-is-false-is-proven"
+class="slide section level2">
+<h1>The branch where the condition is <em>false</em> is proven</h1>
+<ul>
+<li>after one extra step</li>
+</ul>
+<pre class="k"><code>  &lt;T&gt;
+    &lt;k&gt; _DotVar2:K &lt;/k&gt;
+    &lt;state&gt; n |-&gt; N:Int sum |-&gt; S:Int &lt;/state&gt;
+  &lt;/T&gt;
+#And
+    true #Equals N:Int &lt;=Int 0 #And true #Equals N:Int &gt;=Int 0</code></pre>
+<ul>
+<li><p>matches the final state; and the strongest postcondition</p>
+<pre class="k"><code>true #Equals N:Int &lt;=Int 0 #And true #Equals N:Int &gt;=Int 0</code></pre>
+<p>implies the condition generated by unification</p>
+<pre class="k"><code>N:Int #Equals 0 #And S:Int #Equals S +Int ((N +Int 1) *Int N /Int 2)</code></pre></li>
+</ul>
+</div>
+<div id="the-branch-where-the-condition-is-true"
+class="slide section level2">
+<h1>The branch where the condition is <em>true</em></h1>
+<pre class="k"><code>  &lt;T&gt;
+    &lt;k&gt;
+      { sum = sum + n ; n = n + -1 ; }
+      while ( ! n &lt;= 0 ) { sum = sum + n ; n = n + -1 ; } 
+      ~&gt; _DotVar2:K
+    &lt;/k&gt;
+    &lt;state&gt;
+      n |-&gt; N:Int
+      sum |-&gt; S:Int
+    &lt;/state&gt;
+  &lt;/T&gt;
+#And
+    false #Equals N:Int &lt;=Int 0
+#And
+    true #Equals N:Int &gt;=Int 0</code></pre>
+</div>
+<div id="then-after-31-more-steps" class="slide section level2">
+<h1>Then, after 31 more steps</h1>
+<pre class="k"><code>  &lt;T&gt;
+    &lt;k&gt;
+      while ( ! n &lt;= 0 ) { sum = sum + n ; n = n + -1 ; } ~&gt; _DotVar2:K
+    &lt;/k&gt;
+    &lt;state&gt;
+      n |-&gt; N:Int +Int -1
+      sum |-&gt; S:Int +Int N:Int
+    &lt;/state&gt;
+  &lt;/T&gt;
+#And false #Equals N:Int &lt;=Int 0 #And true #Equals N:Int &gt;=Int 0</code></pre>
+<ul>
+<li>we have an instance of the starting claim
+<ul>
+<li><p>with substitution</p>
+<pre class="k"><code>N&#39;:Int #Equals N:Int +Int -1 #And S&#39;:Int #Equals S:Int +Int N:Int</code></pre></li>
+<li><p>such that the above post-condition implies the precondition of
+the claim</p>
+<pre class="k"><code>true #Equals N&#39;:Int &gt;=Int 0</code></pre></li>
+</ul></li>
+</ul>
+</div>
+<div id="coinductively-apply-the-claim-to-discharge-path"
+class="slide section level2">
+<h1>Coinductively apply the claim to discharge path</h1>
+<pre class="k"><code>  &lt;T&gt;
+    &lt;k&gt; _DotVar2:K &lt;/k&gt;
+    &lt;state&gt;
+      n |-&gt; 0
+      sum |-&gt; S:Int +Int N:Int +Int N:Int *Int ( N:Int +Int -1 ) /Int 2
+    &lt;/state&gt;
+  &lt;/T&gt;
+#And false #Equals N:Int &lt;=Int 0
+#And true #Equals N:Int +Int -1 &gt;=Int 0
+#And true #Equals N:Int &gt;=Int 0</code></pre>
+<ul>
+<li>The configuration matches the final configuration
+<ul>
+<li><p>with the unifying substitution</p>
+<pre class="k"><code>S:Int +Int N:Int +Int N:Int *Int ( N:Int +Int -1 ) /Int 2
+  #Equals S +Int (N +Int 1) *Int N /Int 2</code></pre>
+<p>which is provable using integer arithmetic</p></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="implementation-concerns"
+class="title-slide slide section level1">
+<h1>Implementation concerns</h1>
+
+</div>
+<div id="algorithm-sketch" class="slide section level2">
+<h1>Algorithm sketch</h1>
+<p><em>Input:</em> set of claims to be proven together</p>
+<p><em>Output:</em> success or unprovable claim</p>
+<h3 id="while-there-are-claims-left-to-prove">While there are claims
+left to prove</h3>
+<ul>
+<li>select a claim <span
+class="math inline"><em>i</em> ∧ <em>r</em> ⇒ ∃<em>z</em>, <em>f</em> ∧ <em>e</em></span>
+<ul>
+<li>where <span class="math inline"><em>i</em>, <em>f</em></span> are
+terms; and <span class="math inline"><em>r</em>, <em>e</em></span> are
+predicates</li>
+</ul></li>
+<li>reduce <span class="math inline"><em>i</em></span> and <span
+class="math inline"><em>r</em></span> as much as possible using built-in
+and structural axioms</li>
+<li>remove part of the hypothesis for which the conclusion already
+holds</li>
+<li>if <span class="math inline"><em>r</em></span> is unsat, then remove
+claim (trivially true) and continue</li>
+<li>else try to advance using any of the original claims distinct from
+selected claim
+<ul>
+<li>if possible, replace goal with resulting derived goals</li>
+<li>else try to <em>advance claim a step on all paths</em>
+<ul>
+<li>if not stuck, replace goal with obtained derived goals</li>
+<li>if stuck, give up (cannot prove goal)</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="removing-conclusion-from-the-hypothesis"
+class="slide section level2">
+<h1>Removing conclusion from the hypothesis</h1>
+<p><em>Input:</em> a claim <span
+class="math inline"><em>i</em> ∧ <em>r</em> ⇒ ∃<em>z</em>, <em>f</em> ∧ <em>e</em></span></p>
+<p><em>Output:</em> a goal with strengthened <em>requires</em> ensuring
+the conclusion does not hold in the initial state</p>
+<ul>
+<li><span class="math inline"><em>i</em></span> and <span
+class="math inline"><em>f</em></span> unify with substitution <span
+class="math inline"><em>θ</em></span> and unification predicate <span
+class="math inline"><em>u</em><em>p</em></span></li>
+<li>and if <span
+class="math inline"><em>r</em> ∧ <em>θ</em>(<em>u</em><em>p</em>) ∧ <em>θ</em>(<em>e</em>)</span>
+is satisfiable</li>
+<li>replace <span class="math inline"><em>r</em></span> with <span
+class="math inline"><em>r</em> ∧ ¬<em>θ</em>(<em>u</em><em>p</em>) ∧ ¬<em>θ</em>(<em>e</em>)</span></li>
+<li>otherwise return the goal unchanged</li>
+</ul>
+</div>
+<div id="advancing-the-proof-using-one-of-the-original-claims"
+class="slide section level2">
+<h1>Advancing the proof using one of the original claims</h1>
+<p><em>Input:</em> a claim <span
+class="math inline"><em>i</em> ∧ <em>r</em> ⇒ ∃<em>z</em>, <em>f</em> ∧ <em>e</em></span></p>
+<p><em>Output:</em> a set of derived claims or <em>not possible</em></p>
+<ul>
+<li>For any of the original claims, say <span
+class="math inline"><em>o</em><em>i</em> ∧ <em>o</em><em>r</em> ⇒ ∃<em>o</em><em>z</em>, <em>o</em><em>f</em> ∧ <em>o</em><em>e</em></span>
+<ul>
+<li>distinct from the selected claim, such that</li>
+<li><span class="math inline"><em>o</em><em>i</em></span> and <span
+class="math inline"><em>i</em></span> unify with substitution <span
+class="math inline"><em>θ</em></span> and unification predicate <span
+class="math inline"><em>u</em><em>p</em></span></li>
+<li>and such that <span
+class="math inline"><em>r</em> ∧ <em>θ</em>(<em>u</em><em>p</em>)</span>
+implies <span
+class="math inline"><em>θ</em>(<em>o</em><em>r</em>)</span></li>
+<li>break from loop and return a set with two claims
+<ul>
+<li><span
+class="math inline"><em>θ</em>(<em>o</em><em>f</em>) ∧ <em>r</em> ∧ <em>θ</em>(<em>u</em><em>p</em>) ∧ <em>θ</em>(<em>o</em><em>e</em>) ⇒ ∃<em>z</em>, <em>f</em> ∧ <em>e</em></span>;
+and</li>
+<li>the residual <span
+class="math inline"><em>i</em> ∧ <em>r</em> ∧ (¬<em>θ</em>(<em>u</em><em>p</em>)∨<em>θ</em>(<em>u</em><em>p</em>)∧¬<em>θ</em>(<em>o</em><em>r</em>)) ⇒ ∃<em>z</em>, <em>f</em> ∧ <em>e</em></span></li>
+</ul></li>
+</ul></li>
+<li>else return <em>not possible</em></li>
+</ul>
+</div>
+<div id="advancing-a-step-on-all-paths" class="slide section level2">
+<h1>Advancing a step on all paths</h1>
+<p><em>Input:</em> a claim <span
+class="math inline"><em>i</em> ∧ <em>r</em> ⇒ ∃<em>z</em>, <em>f</em> ∧ <em>e</em></span></p>
+<p><em>Output:</em> - either a set <em>Der</em> of derived claims,
+initially empty; - or a satisfiable predicate <em>stuck</em> describing
+stuck configurations matching <span
+class="math inline"><em>i</em></span>, initially <span
+class="math inline"><em>r</em></span></p>
+<ul>
+<li>For each one step rules in the semantics
+<ul>
+<li>say of the form <span
+class="math inline"><em>o</em><em>i</em> ∧ <em>o</em><em>r</em>⇒<sup>1</sup><em>o</em><em>f</em> ∧ <em>o</em><em>e</em></span>,
+such that</li>
+<li><span class="math inline"><em>o</em><em>i</em></span> and <span
+class="math inline"><em>i</em></span> unify with substitution <span
+class="math inline"><em>θ</em></span> and unification predicate <span
+class="math inline"><em>u</em><em>p</em></span></li>
+<li>such that <span
+class="math inline"><em>r</em> ∧ <em>θ</em>(<em>u</em><em>p</em>)</span>
+implies <span
+class="math inline"><em>θ</em>(<em>o</em><em>r</em>)</span></li>
+<li><span
+class="math inline"><em>D</em><em>e</em><em>r</em> ← <em>D</em><em>e</em><em>r</em> ∪ {<em>θ</em>(<em>o</em><em>f</em>) ∧ <em>r</em> ∧ <em>θ</em>(<em>u</em><em>p</em>) ∧ <em>θ</em>(<em>o</em><em>e</em>) ⇒ ∃<em>z</em>, <em>f</em> ∧ <em>e</em>}</span></li>
+<li><span
+class="math inline"><em>s</em><em>t</em><em>u</em><em>c</em><em>k</em> ← <em>s</em><em>t</em><em>u</em><em>c</em><em>k</em> ∧ (¬<em>θ</em>(<em>u</em><em>p</em>)∨¬<em>θ</em>(<em>o</em><em>r</em>))</span></li>
+</ul></li>
+<li>Finally, if <em>stuck</em> is satisfiable, then return
+<em>stuck</em></li>
+<li>else return <em>Der</em></li>
+</ul>
+</div>
+<div id="final-considerations-and-conclusion"
+class="slide section level2">
+<h1>Final considerations and conclusion</h1>
+<ul>
+<li>Reachability Logic (Symbolic execution + Circular Coinduction) can
+be succesfully employed to prove partial correctness</li>
+<li>Implementing a <em>sound</em> verification algorithm for all-path
+reachability is challenging
+<ul>
+<li>one must always find the most general unifier, sometimes modulo
+structural axioms</li>
+<li>the specification must ensure coherence between execution and
+structural axioms</li>
+</ul></li>
+<li>to certify proofs one must first be able to certify the above.</li>
+</ul>
+</div>
+<div id="thank-you" class="slide section level2" frameoptions="final">
+<h1>Thank you</h1>
+</div>
+</body>
+</html>
