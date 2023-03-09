@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Traian Florin Șerbănuță" />
+  <title>Recursive types for free! in Haskell</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Recursive types for free! in Haskell</h1>
+  <p class="author">
+Traian Florin Șerbănuță
+  </p>
+  <p class="institute">
+University of Bucharest and Runtime Verification
+  </p>
+</div>
+<div class="slide" id="TOC">
+<ul>
+<li><a href="#ghc-language-extensions-used"
+id="toc-ghc-language-extensions-used">GHC language extensions
+used</a></li>
+<li><a href="#definitions-of-f-algebras-and-f-coalgebras"
+id="toc-definitions-of-f-algebras-and-f-coalgebras">Definitions of
+f-algebras and f-coalgebras</a></li>
+<li><a href="#definition-of-f-coalgebras"
+id="toc-definition-of-f-coalgebras">Definition of f-coalgebras</a></li>
+<li><a href="#least-fixpoints-as-weak-initial-algebras"
+id="toc-least-fixpoints-as-weak-initial-algebras">Least-fixpoints as
+(weak) initial algebras</a></li>
+<li><a href="#least-fixpoints-as-weak-initial-algebras-1"
+id="toc-least-fixpoints-as-weak-initial-algebras-1">Least-fixpoints as
+(weak) initial algebras</a></li>
+<li><a href="#morphism-condition-for-fold-algebra"
+id="toc-morphism-condition-for-fold-algebra">Morphism condition for
+<code>fold algebra</code></a></li>
+<li><a href="#natural-numbers-as-a-least-fix-point"
+id="toc-natural-numbers-as-a-least-fix-point">Natural numbers as a least
+fix point</a></li>
+<li><a href="#lists-as-a-least-fix-point"
+id="toc-lists-as-a-least-fix-point">Lists as a least fix point</a></li>
+<li><a href="#when-is-the-least-fix-point-actually-initial"
+id="toc-when-is-the-least-fix-point-actually-initial">When is the least
+fix point actually initial?</a></li>
+<li><a href="#initiallity-consequences"
+id="toc-initiallity-consequences">Initiallity consequences</a></li>
+<li><a href="#greatest-fix-points-as-weak-final-co-algebras"
+id="toc-greatest-fix-points-as-weak-final-co-algebras">Greatest fix
+points as (weak) final co-algebras</a></li>
+<li><a href="#when-is-the-greatest-fix-point-actually-final"
+id="toc-when-is-the-greatest-fix-point-actually-final">When is the
+greatest fix point actually final?</a></li>
+<li><a href="#streams-as-a-greatest-fix-point"
+id="toc-streams-as-a-greatest-fix-point">Streams as a greatest fix
+point</a></li>
+<li><a href="#introducing-the-recursion-schemes-fix-construction"
+id="toc-introducing-the-recursion-schemes-fix-construction">Introducing
+the recursion schemes <code>Fix</code> construction</a></li>
+<li><a href="#relating-fix-with-lfix-and-gfix"
+id="toc-relating-fix-with-lfix-and-gfix">Relating <code>Fix</code> with
+<code>LFix</code> and <code>GFix</code></a></li>
+<li><a href="#read-more" id="toc-read-more">Read More</a></li>
+</ul>
+</div>
+<div id="ghc-language-extensions-used" class="slide section level2">
+<h1>GHC language extensions used</h1>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE DeriveFunctor             #-}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE ExistentialQuantification #-}</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE ExplicitForAll            #-}</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE GADTs                     #-}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE Rank2Types                #-}</span></span></code></pre></div>
+</div>
+<div id="definitions-of-f-algebras-and-f-coalgebras"
+class="slide section level2">
+<h1>Definitions of f-algebras and f-coalgebras</h1>
+<p>An F-algebra is a pair <code>(X,k)</code> consisting of an object
+<code>X</code> and an arrow <code>k : F X -&gt; X</code>.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Algebra</span> f x <span class="ot">=</span> f x <span class="ot">-&gt;</span> x</span></code></pre></div>
+<p>A morphism between <code>(X,k)</code> and <code>(X',k')</code> is
+given by an arrow <code>h : X -&gt; X'</code> such that the following
+diagram commutes.</p>
+<pre><code>                         k
+                 F X ----------&gt; X
+                  |              |
+                  |              |
+(1)           F h |              | h
+                  |              |
+                  v              v
+                 F X&#39; ---------&gt; X&#39;
+                         k&#39;</code></pre>
+<p>These form a category.</p>
+</div>
+<div id="definition-of-f-coalgebras" class="slide section level2">
+<h1>Definition of f-coalgebras</h1>
+<p>An F-coalgebra is a pair <code>(X,k)</code> consisting of an object
+<code>X</code> and an arrow <code>k : X -&gt; F X</code>.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">CoAlgebra</span> f x <span class="ot">=</span> x <span class="ot">-&gt;</span> f x</span></code></pre></div>
+<p>A morphism between <code>(X,k)</code> and <code>(X',k')</code> is
+given by an arrow <code>h : X -&gt; X'</code> such that the following
+diagram commutes.</p>
+<pre><code>                       k
+                X ----------&gt; F X
+                |              |
+                |              |
+              h |              | F h
+                |              |
+                v              v
+                X&#39; ---------&gt; F X&#39;
+                       k&#39;</code></pre>
+<p>These form a category.</p>
+</div>
+<div id="least-fixpoints-as-weak-initial-algebras"
+class="slide section level2">
+<h1>Least-fixpoints as (weak) initial algebras</h1>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">newtype</span> <span class="dt">LFix</span> f <span class="ot">=</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">LFix</span> {<span class="ot"> unLFix ::</span> (<span class="kw">forall</span> x <span class="op">.</span> <span class="dt">Algebra</span> f x <span class="ot">-&gt;</span> x) }</span></code></pre></div>
+<ul>
+<li><p><code>LFix f</code> embodies the idea of a type for terms
+associated to <code>f</code>.</p></li>
+<li><p>A term can be (uniquely) evaluated in any algebra.</p></li>
+<li><p>A term gives, for an algebra, a value for the term in the
+algebra.</p></li>
+<li><p>Whence the type for a term: <code
+class="sourceCode haskell"><span class="kw">forall</span> x <span class="op">.</span> <span class="dt">Algebra</span> f x <span class="ot">-&gt;</span> x</code></p></li>
+</ul>
+</div>
+<div id="least-fixpoints-as-weak-initial-algebras-1"
+class="slide section level2">
+<h1>Least-fixpoints as (weak) initial algebras</h1>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">newtype</span> <span class="dt">LFix</span> f <span class="ot">=</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">LFix</span> {<span class="ot"> unLFix ::</span> (<span class="kw">forall</span> x <span class="op">.</span> <span class="dt">Algebra</span> f x <span class="ot">-&gt;</span> x) }</span></code></pre></div>
+<pre><code>                          wInitialAlg
+               f (LFix f) ----------&gt; LFix f
+                    |                   |
+                    |                   |
+fmap (fold algebra) |                   | fold algebra
+                    |                   |
+                    v                   v
+                   f a ---------------&gt; a
+                            algebra</code></pre>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ot">fold ::</span> <span class="dt">Algebra</span> f a <span class="ot">-&gt;</span> <span class="dt">LFix</span> f <span class="ot">-&gt;</span> a</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fold algebra term <span class="ot">=</span> unLFix term algebra</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ot">weakInitialAlgebra ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">Algebra</span> f (<span class="dt">LFix</span> f)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>weakInitialAlgebra s <span class="ot">=</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">LFix</span> ( \alg <span class="ot">-&gt;</span> alg (<span class="fu">fmap</span> (fold alg) s) )</span></code></pre></div>
+</div>
+<div id="morphism-condition-for-fold-algebra"
+class="slide section level2">
+<h1>Morphism condition for <code>fold algebra</code></h1>
+<pre><code>                          wInitialAlg
+               f (LFix f) ----------&gt; LFix f
+                    |                   |
+                    |                   |
+fmap (fold algebra) |                   | fold algebra
+                    |                   |
+                    v                   v
+                   f a ---------------&gt; a
+                            algebra
+
+(fold algebra . weakInitialAlgebra) fterm
+== fold algebra (weakInitialAlgebra fterm)
+== unLFix (LFix (\alg -&gt; alg (fmap (fold alg) fterm)))
+    algebra
+== algebra (fmap (fold algebra) fterm)
+== (algebra . fmap (fold algebra)) fterm</code></pre>
+</div>
+<div id="natural-numbers-as-a-least-fix-point"
+class="slide section level2">
+<h1>Natural numbers as a least fix point</h1>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">NatF</span> x <span class="ot">=</span> <span class="dt">Zero</span> <span class="op">|</span> <span class="dt">Succ</span> x  <span class="kw">deriving</span> <span class="dt">Functor</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Nat</span> <span class="ot">=</span> <span class="dt">LFix</span> <span class="dt">NatF</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ot">zero ::</span> <span class="dt">Nat</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>zero <span class="ot">=</span> weakInitialAlgebra <span class="dt">Zero</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ot">successor ::</span> <span class="dt">Nat</span> <span class="ot">-&gt;</span> <span class="dt">Nat</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>successor n <span class="ot">=</span> weakInitialAlgebra (<span class="dt">Succ</span> n)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ot">one ::</span> <span class="dt">Nat</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>one <span class="ot">=</span> successor zero</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ot">integral ::</span> <span class="dt">Integral</span> n <span class="ot">=&gt;</span> <span class="dt">Algebra</span> <span class="dt">NatF</span> n</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>integral <span class="dt">Zero</span>     <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>integral (<span class="dt">Succ</span> x) <span class="ot">=</span> x <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ot">natToIntegral ::</span> <span class="dt">Integral</span> n <span class="ot">=&gt;</span> <span class="dt">Nat</span> <span class="ot">-&gt;</span> n</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>natToIntegral <span class="ot">=</span> fold integral</span></code></pre></div>
+</div>
+<div id="lists-as-a-least-fix-point" class="slide section level2">
+<h1>Lists as a least fix point</h1>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">ListF</span> a x <span class="ot">=</span> <span class="dt">Nil</span> <span class="op">|</span> <span class="dt">LCons</span> a x  <span class="kw">deriving</span> <span class="dt">Functor</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">List</span> a <span class="ot">=</span> <span class="dt">LFix</span> (<span class="dt">ListF</span> a)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ot">nil ::</span> <span class="dt">List</span> a</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>nil <span class="ot">=</span> weakInitialAlgebra <span class="dt">Nil</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ot">cons ::</span> a <span class="ot">-&gt;</span> <span class="dt">List</span> a <span class="ot">-&gt;</span> <span class="dt">List</span> a</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>cons a l <span class="ot">=</span> weakInitialAlgebra (<span class="dt">LCons</span> a l)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ot">list ::</span> <span class="dt">Algebra</span> (<span class="dt">ListF</span> a) [a]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>list <span class="dt">Nil</span>         <span class="ot">=</span> []</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>list (<span class="dt">LCons</span> a l) <span class="ot">=</span> a<span class="op">:</span>l</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ot">toList ::</span> <span class="dt">List</span> a <span class="ot">-&gt;</span> [a]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>toList <span class="ot">=</span> fold list</span></code></pre></div>
+</div>
+<div id="when-is-the-least-fix-point-actually-initial"
+class="slide section level2">
+<h1>When is the least fix point actually initial?</h1>
+<pre><code>           alg                              fold alg
+   f X ----------&gt; X                LFix f ----------&gt; X
+    |              |                  |                |
+    |              |                  |                |
+f h |              | h   implies   id |                | h
+    |              |                  |                |
+    v              v                  v                v
+   f X&#39; ---------&gt; X&#39;               LFix f ----------&gt; X&#39;
+           alg&#39;                             fold alg&#39;
+
+h: (X,alg) -&gt; (X&#39;,alg&#39;)  implies  h . fold alg == fold alg&#39;</code></pre>
+<p>Additionally, <code>fold weakInitialAlgebra == id</code></p>
+</div>
+<div id="initiallity-consequences" class="slide section level2">
+<h1>Initiallity consequences</h1>
+<p>If <code>(LFix f, weakInitialAlgebra)</code> is initial, then
+<code>weakInitialAlgebra</code> is an isomorphism and its inverse
+is:</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ot">weakInitialAlgebraInv ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">CoAlgebra</span> f (<span class="dt">LFix</span> f)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>weakInitialAlgebraInv <span class="ot">=</span> fold (<span class="fu">fmap</span> weakInitialAlgebra)</span></code></pre></div>
+<pre><code>              f (LFix f) -------------&gt; LFix f
+                 |        wInitialAlg     |
+                 |                        |
+f wInitialAlgInv |                        | wInitialAlgInv
+                 |                        |
+                 v        f wInitialAlg   v
+            f (f (LFix f)) ----------&gt; f (LFix f)
+                 |                        |
+                 |                        |
+   f wInitialAlg |                        | wInitialAlg
+                 |                        |
+                 v        wInitialAlg     v
+             f (LFix f) --------------&gt; LFix f
+</code></pre>
+</div>
+<div id="greatest-fix-points-as-weak-final-co-algebras"
+class="slide section level2">
+<h1>Greatest fix points as (weak) final co-algebras</h1>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">GFix</span> f <span class="ot">=</span> <span class="kw">forall</span> x <span class="op">.</span> <span class="dt">GFix</span> (<span class="dt">CoAlgebra</span> f x, x)</span></code></pre></div>
+<pre><code>                     coalg
+              X -------------&gt; f X
+              |                 |
+              |                 |
+ unfold coalg |                 | f (unfold coalg)
+              |                 |
+              |                 |
+           GFix f ----------&gt; f (GFix f)
+                  wFinalCoalg</code></pre>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ot">unfold ::</span> <span class="dt">CoAlgebra</span> f a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">GFix</span> f</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>unfold coalg a <span class="ot">=</span> <span class="dt">GFix</span> (coalg, a)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ot">weakFinalCoAlgebra ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">CoAlgebra</span> f (<span class="dt">GFix</span> f)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>weakFinalCoAlgebra (<span class="dt">GFix</span> (coalg, a)) <span class="ot">=</span> <span class="fu">fmap</span> (unfold coalg) (coalg a)</span></code></pre></div>
+</div>
+<div id="when-is-the-greatest-fix-point-actually-final"
+class="slide section level2">
+<h1>When is the greatest fix point actually final?</h1>
+<pre><code>        alg                           unfold alg
+  X ----------&gt; f X                X -----------&gt; GFix f
+  |              |                 |                |
+  |              |                 |                |
+h |              | F h  implies  h |                | id
+  |              |                 |                |
+  v              v                 v                v
+  X&#39; ---------&gt; f X&#39;               X&#39; ----------&gt; GFix f
+        alg&#39;                          unfold alg&#39;</code></pre>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ot">weakFinalCoAlgebraInv ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">Algebra</span> f (<span class="dt">GFix</span> f)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>weakFinalCoAlgebraInv <span class="ot">=</span> unfold (<span class="fu">fmap</span> weakFinalCoAlgebra)</span></code></pre></div>
+</div>
+<div id="streams-as-a-greatest-fix-point" class="slide section level2">
+<h1>Streams as a greatest fix point</h1>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">StreamF</span> a x <span class="ot">=</span> <span class="dt">SCons</span> {<span class="ot"> headF ::</span> a,<span class="ot"> tailF ::</span> x }</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>   <span class="kw">deriving</span> <span class="dt">Functor</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Stream</span> a <span class="ot">=</span> <span class="dt">GFix</span> (<span class="dt">StreamF</span> a)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ot">headS ::</span> <span class="dt">Stream</span> a <span class="ot">-&gt;</span> a</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>headS <span class="ot">=</span> headF <span class="op">.</span> weakFinalCoAlgebra</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ot">tailS ::</span> <span class="dt">Stream</span> a <span class="ot">-&gt;</span> <span class="dt">Stream</span> a</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>tailS <span class="ot">=</span> tailF <span class="op">.</span> weakFinalCoAlgebra</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ot">stream ::</span> <span class="dt">CoAlgebra</span> (<span class="dt">StreamF</span> a) [a]</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>stream (a<span class="op">:</span>as) <span class="ot">=</span> <span class="dt">SCons</span> a as</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ot">toStream ::</span> [a] <span class="ot">-&gt;</span> <span class="dt">Stream</span> a</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>toStream <span class="ot">=</span> unfold stream</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">IStream</span> a <span class="ot">=</span> <span class="dt">LFix</span> (<span class="dt">StreamF</span> a)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ot">icons ::</span> a <span class="ot">-&gt;</span> <span class="dt">IStream</span> a <span class="ot">-&gt;</span> <span class="dt">IStream</span> a</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>icons a s <span class="ot">=</span> weakInitialAlgebra (<span class="dt">SCons</span> a s)</span></code></pre></div>
+</div>
+<div id="introducing-the-recursion-schemes-fix-construction"
+class="slide section level2">
+<h1>Introducing the recursion schemes <code>Fix</code> construction</h1>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">newtype</span> <span class="dt">Fix</span> f <span class="kw">where</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">Fix</span><span class="ot"> ::</span> f (<span class="dt">Fix</span> f) <span class="ot">-&gt;</span> <span class="dt">Fix</span> f  <span class="co">-- Fix is an f-algebra</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ot">unFix ::</span> <span class="dt">Fix</span> f <span class="ot">-&gt;</span> f (<span class="dt">Fix</span> f)  <span class="co">-- unFix is an f-coalgebra</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>unFix (<span class="dt">Fix</span> x) <span class="ot">=</span> x</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ot">cata ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">Algebra</span> f a <span class="ot">-&gt;</span> <span class="dt">Fix</span> f <span class="ot">-&gt;</span> a</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>cata alg <span class="ot">=</span> go</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    go <span class="ot">=</span> alg <span class="op">.</span> <span class="fu">fmap</span> go <span class="op">.</span> unFix</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ot">ana ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">CoAlgebra</span> f a <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Fix</span> f</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>ana coalg <span class="ot">=</span> go</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    go <span class="ot">=</span> <span class="dt">Fix</span> <span class="op">.</span> <span class="fu">fmap</span> go <span class="op">.</span> coalg</span></code></pre></div>
+</div>
+<div id="relating-fix-with-lfix-and-gfix" class="slide section level2">
+<h1>Relating <code>Fix</code> with <code>LFix</code> and
+<code>GFix</code></h1>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="ot">lFixToFix ::</span> <span class="dt">LFix</span> f <span class="ot">-&gt;</span> <span class="dt">Fix</span> f</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>lFixToFix <span class="ot">=</span> fold <span class="dt">Fix</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="ot">fixToLFix ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">Fix</span> f <span class="ot">-&gt;</span> <span class="dt">LFix</span> f</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>fixToLFix <span class="ot">=</span> cata weakInitialAlgebra</span></code></pre></div>
+<pre><code>fold Fix . cata weakInitialAlgebra
+= Fix . fmap (fold Fix . cata weakInitialAlgebra) . unFix</code></pre>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="ot">fixToGFix ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">Fix</span> f <span class="ot">-&gt;</span> <span class="dt">GFix</span> f</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>fixToGFix <span class="ot">=</span> unfold unFix</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ot">gFixToFix ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">GFix</span> f <span class="ot">-&gt;</span> <span class="dt">Fix</span> f</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>gFixToFix <span class="ot">=</span> ana weakFinalCoAlgebra</span></code></pre></div>
+</div>
+<div id="read-more" class="slide section level2">
+<h1>Read More</h1>
+<ul>
+<li><p>Philip Wadler (1990) <a
+href="http://homepages.inf.ed.ac.uk/wadler/papers/free-rectypes/free-rectypes.txt">Recursive
+types for free!</a></p></li>
+<li><p>Bartosz Milewski (2013) <a
+href="https://www.schoolofhaskell.com/user/bartosz/understanding-algebras">Understanding
+F-Algebras</a></p></li>
+<li><p>A formalization of the above in Coq <a href="Algebra.v">with
+actual proofs</a></p></li>
+</ul>
+</div>
+</body>
+</html>

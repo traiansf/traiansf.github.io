@@ -16,7 +16,7 @@ claim
     z |-> Z:Int
   ...</mem>
   ensures (?M <=Int X orBool ?M<=Int Y orBool ?M <=Int Z) andBool
-          (?M >=Int X andBool ?M >=Int Y andBool ?M >=Int Z)
+          (?M >Int X andBool ?M >=Int Y andBool ?M >=Int Z)
 endmodule
 
 

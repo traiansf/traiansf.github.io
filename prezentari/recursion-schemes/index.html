@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Traian Florin Șerbănuță" />
+  <title>(Introduction to) Recursion Schemes (in Haskell)</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">(Introduction to) Recursion Schemes (in
+Haskell)</h1>
+  <p class="author">
+Traian Florin Șerbănuță
+  </p>
+  <p class="institute">
+University of Bucharest and Runtime Verification
+  </p>
+</div>
+<div class="slide" id="TOC">
+<ul>
+<li><a href="#summary" id="toc-summary">Summary</a></li>
+<li><a href="#ghc-language-extensions-used"
+id="toc-ghc-language-extensions-used">GHC language extensions
+used</a></li>
+<li><a href="#basic-recursion-on-lists"
+id="toc-basic-recursion-on-lists">Basic recursion on lists</a>
+<ul>
+<li><a href="#definition-of-lists"
+id="toc-definition-of-lists">Definition of lists</a></li>
+<li><a href="#fold-reduce-bananas" id="toc-fold-reduce-bananas">Fold
+(reduce, bananas)</a></li>
+<li><a href="#fold-examples" id="toc-fold-examples">Fold
+examples</a></li>
+<li><a href="#unfold" id="toc-unfold">Unfold</a></li>
+<li><a href="#unfold-examples" id="toc-unfold-examples">Unfold
+examples</a></li>
+<li><a href="#refolds-combining-folds-and-unfolds"
+id="toc-refolds-combining-folds-and-unfolds">Refolds: Combining folds
+and unfolds</a></li>
+</ul></li>
+<li><a href="#algebras-initial-final-and-in-between"
+id="toc-algebras-initial-final-and-in-between">Algebras: initial, final,
+and in-between</a>
+<ul>
+<li><a href="#universal-algebra" id="toc-universal-algebra">Universal
+algebra</a></li>
+<li><a href="#signatures-as-algebraic-types"
+id="toc-signatures-as-algebraic-types">Signatures as algebraic
+types</a></li>
+<li><a href="#what-is-a-list-like-algebra"
+id="toc-what-is-a-list-like-algebra">What is a list-like
+algebra?</a></li>
+<li><a href="#folds-on-list-like-algebras-revisited"
+id="toc-folds-on-list-like-algebras-revisited">Folds on list-like
+algebras revisited</a></li>
+<li><a href="#folds-on-list-like-algebras"
+id="toc-folds-on-list-like-algebras">Folds on (list-like)
+algebras</a></li>
+<li><a href="#what-is-a-list-like-co-algebra"
+id="toc-what-is-a-list-like-co-algebra">What is a list-like
+co-algebra?</a></li>
+<li><a href="#folds-on-list-like-algebras-revisited-1"
+id="toc-folds-on-list-like-algebras-revisited-1">Folds on list-like
+algebras revisited</a></li>
+<li><a href="#unfolds-on-list-like-algebras"
+id="toc-unfolds-on-list-like-algebras">Unfolds on (list-like)
+algebras</a></li>
+</ul></li>
+<li><a
+href="#recursion-schemes-folds-and-unfolds-on-arbitrary-recursive-structures"
+id="toc-recursion-schemes-folds-and-unfolds-on-arbitrary-recursive-structures">Recursion
+schemes : folds and unfolds on arbitrary (recursive) structures</a>
+<ul>
+<li><a href="#f-algebras" id="toc-f-algebras">F-algebras</a></li>
+<li><a href="#base-functor-and-fix" id="toc-base-functor-and-fix">Base
+Functor and Fix</a></li>
+<li><a href="#generalized-folds" id="toc-generalized-folds">Generalized
+folds</a></li>
+<li><a href="#generalized-unfolds"
+id="toc-generalized-unfolds">Generalized unfolds</a></li>
+<li><a href="#generalized-refolds"
+id="toc-generalized-refolds">Generalized refolds</a></li>
+</ul></li>
+<li><a href="#examples" id="toc-examples">Examples</a>
+<ul>
+<li><a href="#fold" id="toc-fold">Fold</a></li>
+<li><a href="#unfold-1" id="toc-unfold-1">Unfold</a></li>
+<li><a href="#refold" id="toc-refold">Refold</a></li>
+</ul></li>
+<li><a href="#all-is-well-when-it-ends"
+id="toc-all-is-well-when-it-ends">All is well when it ends</a>
+<ul>
+<li><a href="#what-now" id="toc-what-now">What now?</a></li>
+<li><a href="#references-further-readings"
+id="toc-references-further-readings">References / Further
+readings</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="summary" class="slide section level2">
+<h1>Summary</h1>
+<ul>
+<li><p>Identify / recall basic recursion patterns on lists</p></li>
+<li><p>A little bit of universal algebra</p></li>
+<li><p>Generalize recursion to arbitrary datastructures</p></li>
+</ul>
+</div>
+<div id="ghc-language-extensions-used" class="slide section level2">
+<h1>GHC language extensions used</h1>
+<ul>
+<li>Automatic derivation of <code>Functor</code> instances:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE DeriveFunctor       #-}</span></span></code></pre></div>
+<ul>
+<li>Writing type signatures in where declarations:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE ScopedTypeVariables #-}</span></span></code></pre></div>
+<ul>
+<li>Declaring type families</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE TypeFamilies        #-}</span></span></code></pre></div>
+<ul>
+<li>Using non-type variable arguments in type constraints</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE FlexibleContexts    #-}</span></span></code></pre></div>
+</div>
+<div id="basic-recursion-on-lists"
+class="title-slide slide section level1">
+<h1>Basic recursion on lists</h1>
+
+</div>
+<div id="definition-of-lists" class="slide section level2">
+<h1>Definition of lists</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode hs"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> [a]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">=</span> []</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> a <span class="op">:</span> [a]</span></code></pre></div>
+<ul>
+<li><p>A constructive (initial) view</p>
+<p>A list of elements of type <code>a</code> is</p>
+<ul>
+<li>either empty (<code>[]</code>), <em>or</em></li>
+<li>constructed by adding an element to an existing list</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>[]<span class="ot"> ::</span> [a]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ot">(:) ::</span> a <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]</span></code></pre></div></li>
+<li><p>A destructive (final) view</p>
+<p>A (potentially infinite) list of elements of type <code>a</code> can
+<em>maybe</em> be decomposed into its <em>head</em> and its
+<em>tail</em>:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">uncons ::</span> [a] <span class="ot">-&gt;</span> <span class="dt">Maybe</span> (a, [a])</span></code></pre></div></li>
+</ul>
+</div>
+<div id="fold-reduce-bananas" class="slide section level2">
+<h1>Fold (reduce, bananas)</h1>
+<ul>
+<li><p>Definition</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode hs"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">foldr</span><span class="ot"> ::</span> (a <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> b</span></code></pre></div>
+<p>Right-associative fold of a list. Given</p>
+<ul>
+<li><code>f :: a -&gt; b -&gt; b</code>, a binary operator and</li>
+<li><code>z :: b</code>, a starting value</li>
+</ul>
+<p>reduce a list, from right to left, as follows:</p>
+<pre><code>  foldr f z (x1 : x2 : ... : xn : [])
+  == x1 `f` (x2 `f` ... (xn `f` z)...)</code></pre></li>
+<li><p>It matches the constructive view of the list</p>
+<ul>
+<li><code>(:) :: a -&gt; [a] -&gt; [a]</code> constructor for the
+list</li>
+<li><code>[] :: [a]</code></li>
+</ul>
+<p>we have that <code>foldr (:) [] l == l</code></p></li>
+</ul>
+</div>
+<div id="fold-examples" class="slide section level2">
+<h1>Fold examples</h1>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sumF,<span class="ot"> productF ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sumF <span class="ot">=</span> <span class="fu">foldr</span> (<span class="op">+</span>) <span class="dv">0</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>productF <span class="ot">=</span> <span class="fu">foldr</span> (<span class="op">*</span>) <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ot">mconcatF ::</span> <span class="dt">Monoid</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mconcatF <span class="ot">=</span> <span class="fu">foldr</span> (<span class="op">&lt;&gt;</span>) <span class="fu">mempty</span> <span class="co">-- for any monoid</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ot">mapF ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [b]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mapF f <span class="ot">=</span> <span class="fu">foldr</span> (\x xs <span class="ot">-&gt;</span> f x <span class="op">:</span> xs) []</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ot">lengthF ::</span> <span class="dt">Num</span> n <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> n</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>lengthF <span class="ot">=</span> <span class="fu">foldr</span> (\_ n <span class="ot">-&gt;</span> <span class="dv">1</span> <span class="op">+</span> n) <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ot">partitionF ::</span> (a <span class="ot">-&gt;</span> <span class="dt">Bool</span>) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> ([a], [a])</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>partitionF p <span class="ot">=</span> <span class="fu">foldr</span> op ([],[])</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> x <span class="ot">`op`</span> (ps, nps) <span class="op">|</span> p x       <span class="ot">=</span> (x<span class="op">:</span>ps, nps)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> (ps, x<span class="op">:</span>nps)</span></code></pre></div>
+</div>
+<div id="unfold" class="slide section level2">
+<h1>Unfold</h1>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ot">unfoldr ::</span> (b <span class="ot">-&gt;</span> <span class="dt">Maybe</span> (a, b)) <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> [a]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>unfoldr f b <span class="ot">=</span> <span class="kw">case</span> f b <span class="kw">of</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>   <span class="dt">Nothing</span>     <span class="ot">-&gt;</span> []</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>   <span class="dt">Just</span> (a,b&#39;) <span class="ot">-&gt;</span> a <span class="op">:</span> unfoldr f b&#39;</span></code></pre></div>
+<ul>
+<li><p>The <code>unfoldr</code> function is a <em>dual</em> to
+<code>foldr</code>:</p>
+<ul>
+<li><code>foldr</code> <em>reduces</em> a list to a summary value</li>
+<li><code>unfoldr</code> <em>builds</em> a list from a seed value.</li>
+</ul></li>
+<li><p>It macthes the destructive view on lists</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ot">uncons ::</span> [a] <span class="ot">-&gt;</span> <span class="dt">Maybe</span> (a,[a])</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>unfoldr uncons l <span class="op">==</span> l</span></code></pre></div></li>
+</ul>
+</div>
+<div id="unfold-examples" class="slide section level2">
+<h1>Unfold examples</h1>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ot">repeatU ::</span> a <span class="ot">-&gt;</span> [a]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>repeatU <span class="ot">=</span> unfoldr (\a <span class="ot">-&gt;</span> <span class="dt">Just</span> (a,a))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ot">replicateU ::</span> (<span class="dt">Num</span> n, <span class="dt">Ord</span> n) <span class="ot">=&gt;</span> n <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> [a]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>replicateU n a <span class="ot">=</span> unfoldr g n</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> g n <span class="ot">=</span> <span class="kw">if</span> n <span class="op">&lt;=</span> <span class="dv">0</span> <span class="kw">then</span> <span class="dt">Nothing</span> <span class="kw">else</span> <span class="dt">Just</span> (a, n<span class="op">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ot">iterateU ::</span> (a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> [a]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>iterateU f <span class="ot">=</span> unfoldr (\a <span class="ot">-&gt;</span> <span class="dt">Just</span> (a, f a))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ot">mapU ::</span> (a <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [b]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mapU f <span class="ot">=</span> unfoldr g</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> g []     <span class="ot">=</span> <span class="dt">Nothing</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        g (x<span class="op">:</span>xs) <span class="ot">=</span> <span class="dt">Just</span> (f x, xs)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ot">zipU ::</span> [a] <span class="ot">-&gt;</span> [b] <span class="ot">-&gt;</span> [(a,b)]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>zipU as bs <span class="ot">=</span> unfoldr g (as,bs)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> g ([],_) <span class="ot">=</span> <span class="dt">Nothing</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        g (_,[]) <span class="ot">=</span> <span class="dt">Nothing</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        g (a<span class="op">:</span>as, b<span class="op">:</span>bs) <span class="ot">=</span> <span class="dt">Just</span> ((a,b),(as,bs))</span></code></pre></div>
+</div>
+<div id="refolds-combining-folds-and-unfolds"
+class="slide section level2">
+<h1>Refolds: Combining folds and unfolds</h1>
+<p>A refold is an algorithm whose recursion is shaped like a list.</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ot">factorialR ::</span> (<span class="dt">Num</span> n, <span class="dt">Ord</span> n) <span class="ot">=&gt;</span> n <span class="ot">-&gt;</span> n</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>factorialR <span class="ot">=</span> <span class="fu">foldr</span> (<span class="op">*</span>) <span class="dv">1</span> <span class="op">.</span> unfoldr g</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> g n <span class="ot">=</span> <span class="kw">if</span> n <span class="op">&lt;=</span> <span class="dv">0</span> <span class="kw">then</span> <span class="dt">Nothing</span> <span class="kw">else</span> <span class="dt">Just</span> (n, n<span class="op">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ot">sumOfSquaresR ::</span> (<span class="dt">Num</span> n, <span class="dt">Ord</span> n) <span class="ot">=&gt;</span> n <span class="ot">-&gt;</span> n</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sumOfSquaresR <span class="ot">=</span> <span class="fu">foldr</span> (<span class="op">+</span>) <span class="dv">0</span> <span class="op">.</span> unfoldr g</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> g n <span class="ot">=</span> <span class="kw">if</span> n <span class="op">&lt;=</span> <span class="dv">0</span> <span class="kw">then</span> <span class="dt">Nothing</span> <span class="kw">else</span> <span class="dt">Just</span> (n<span class="op">*</span>n, n<span class="op">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="incremental">
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ot">filterR ::</span> <span class="kw">forall</span> a <span class="op">.</span> (a <span class="ot">-&gt;</span> <span class="dt">Bool</span>) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>filterR p <span class="ot">=</span> <span class="fu">foldr</span> f [] <span class="op">.</span> unfoldr g</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span><span class="ot"> g ::</span> [a] <span class="ot">-&gt;</span> <span class="dt">Maybe</span> (<span class="dt">Maybe</span> a, [a])</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        g [] <span class="ot">=</span> <span class="dt">Nothing</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        g (x<span class="op">:</span>xs)    <span class="op">|</span> p x       <span class="ot">=</span> <span class="dt">Just</span> (<span class="dt">Just</span> x, xs)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                    <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> <span class="dt">Just</span> (<span class="dt">Nothing</span>, xs)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="ot">        f ::</span> <span class="dt">Maybe</span> a <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> [a]</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>        f <span class="dt">Nothing</span>  xs <span class="ot">=</span> xs</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>        f (<span class="dt">Just</span> x) xs <span class="ot">=</span> x<span class="op">:</span>xs</span></code></pre></div>
+</div>
+</div>
+
+<div id="algebras-initial-final-and-in-between"
+class="title-slide slide section level1">
+<h1>Algebras: initial, final, and in-between</h1>
+
+</div>
+<div id="universal-algebra" class="slide section level2">
+<h1>Universal algebra</h1>
+<p>Universal algebra is the field of mathematics that studies algebraic
+structures themselves, not examples (“models”) of algebraic
+structures.</p>
+<p>For instance, rather than take particular groups as the object of
+study, in universal algebra one takes the class of groups as an object
+of study.</p>
+<p><strong>Ingredients</strong></p>
+<ul>
+<li>Signatures – describing the type of algebras under study
+<ul>
+<li>symbols for operations and their arities</li>
+<li>symbols for sorts, too, if multisorted</li>
+</ul></li>
+<li>Algebras - concrete models interpreting
+<ul>
+<li>sorts as sets</li>
+<li>operation symbols as functions</li>
+</ul></li>
+</ul>
+</div>
+<div id="signatures-as-algebraic-types" class="slide section level2">
+<h1>Signatures as algebraic types</h1>
+<p>A (non-recursive) type for list-like structures</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">ListF</span> a list</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="ot">=</span> <span class="dt">Nil</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="dt">Cons</span> a list</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">deriving</span> (<span class="dt">Functor</span>)</span></code></pre></div>
+<div class="incremental">
+<p>A way to view lists as the <em>canonical (initial)</em> structure for
+this type:</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ot">projectL ::</span> [a] <span class="ot">-&gt;</span> <span class="dt">ListF</span> a [a]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>projectL [] <span class="ot">=</span> <span class="dt">Nil</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>projectL (a<span class="op">:</span>as) <span class="ot">=</span> <span class="dt">Cons</span> a as</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="ot">embedL ::</span> <span class="dt">ListF</span> a [a] <span class="ot">-&gt;</span> [a]</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>embedL <span class="dt">Nil</span> <span class="ot">=</span> []</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>embedL (<span class="dt">Cons</span> a as) <span class="ot">=</span> a<span class="op">:</span>as</span></code></pre></div>
+<p>Note that <code>projectL</code>/<code>embedL</code> form an
+isomorphism.</p>
+</div>
+</div>
+<div id="what-is-a-list-like-algebra" class="slide section level2">
+<h1>What is a list-like algebra?</h1>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">ListF</span> a list <span class="ot">=</span> <span class="dt">Nil</span> <span class="op">|</span> <span class="dt">Cons</span> a list   <span class="kw">deriving</span> (<span class="dt">Functor</span>)</span></code></pre></div>
+<p>A list-like structure is given by a carrier type, and an
+interpretation of the list operations in it: <code
+class="sourceCode haskell"><span class="ot">algebra ::</span> <span class="dt">ListF</span> a carrier <span class="ot">-&gt;</span> carrier</code></p>
+<p><strong>Examples</strong></p>
+<ul>
+<li>lists themselves: <code
+class="sourceCode haskell"><span class="ot">embedL ::</span> <span class="dt">ListF</span> a [a] <span class="ot">-&gt;</span> [a]</code></li>
+<li>monoid operations</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ot">monoidAlg ::</span> <span class="dt">Monoid</span> a <span class="ot">=&gt;</span> <span class="dt">ListF</span> a a  <span class="ot">-&gt;</span> a</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>monoidAlg <span class="dt">Nil</span> <span class="ot">=</span> <span class="fu">mempty</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>monoidAlg (<span class="dt">Cons</span> a b) <span class="ot">=</span> a <span class="op">&lt;&gt;</span> b</span></code></pre></div>
+<ul>
+<li>and even ways for partitioning a list</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ot">partitionAlg ::</span> (a <span class="ot">-&gt;</span> <span class="dt">Bool</span>)<span class="ot">-&gt;</span> <span class="dt">ListF</span> a ([a],[a])<span class="ot">-&gt;</span>([a],[a])</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>partitionAlg _ <span class="dt">Nil</span> <span class="ot">=</span> ([],[])</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>partitionAlg p (<span class="dt">Cons</span> a (as,bs)) <span class="op">|</span> p a       <span class="ot">=</span> (a<span class="op">:</span>as,bs)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                                <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> (as,a<span class="op">:</span>bs)</span></code></pre></div>
+</div>
+<div id="folds-on-list-like-algebras-revisited"
+class="slide section level2">
+<h1>Folds on list-like algebras revisited</h1>
+<pre><code>                  embedL
+          ――――――――――――――――――――&gt;
+ListF a [a]                    [a]
+   |      &lt;―――――――――――――――――――― |
+   |             projectL       |
+   |                            |
+   | fmap (foldL bAlgebra)      | foldL bAlgebra
+   |                            |
+   |                            |
+   v                            v
+ListF a b ――――――――――――――――――――&gt; b
+                bAlgebra</code></pre>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>foldL bAlgebra<span class="op">.</span>embedL <span class="ot">=</span> bAlgebra<span class="op">.</span><span class="fu">fmap</span> (foldL bAlgebra)</span></code></pre></div>
+<div class="incremental">
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>foldL bAlgebra <span class="ot">=</span> bAlgebra<span class="op">.</span><span class="fu">fmap</span> (foldL bAlgebra)<span class="op">.</span>projectL</span></code></pre></div>
+</div>
+<div class="incremental">
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>foldL bAlgebra <span class="ot">=</span> go</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> go <span class="ot">=</span> bAlgebra <span class="op">.</span> <span class="fu">fmap</span> go <span class="op">.</span> projectL</span></code></pre></div>
+</div>
+</div>
+<div id="folds-on-list-like-algebras" class="slide section level2">
+<h1>Folds on (list-like) algebras</h1>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ot">foldL ::</span> (<span class="dt">ListF</span> a b <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> b</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>foldL algebra <span class="ot">=</span> go</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> go <span class="ot">=</span> algebra <span class="op">.</span> <span class="fu">fmap</span> go <span class="op">.</span> projectL</span></code></pre></div>
+<p><em>Note:</em> definition does not depend on the structure</p>
+<p><strong>Examples</strong></p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ot">mconcatAF ::</span> <span class="dt">Monoid</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mconcatAF <span class="ot">=</span> foldL monoidAlg</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ot">partitionAF ::</span> (a <span class="ot">-&gt;</span> <span class="dt">Bool</span>) <span class="ot">-&gt;</span> [a] <span class="ot">-&gt;</span> ([a],[a])</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>partitionAF p <span class="ot">=</span> foldL (partitionAlg p)</span></code></pre></div>
+</div>
+<div id="what-is-a-list-like-co-algebra" class="slide section level2">
+<h1>What is a list-like co-algebra?</h1>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">ListF</span> a list <span class="ot">=</span> <span class="dt">Nil</span> <span class="op">|</span> <span class="dt">Cons</span> a list   <span class="kw">deriving</span> (<span class="dt">Functor</span>)</span></code></pre></div>
+<p>A list-like co-structure is given by a carrier type, and a way to
+deconstruct an element into applications of operations: <code
+class="sourceCode haskell"><span class="ot">coalgebra ::</span> carrier <span class="ot">-&gt;</span> <span class="dt">ListF</span> a carrier</code></p>
+<p><strong>Examples</strong></p>
+<ul>
+<li><p>lists themselves: <code
+class="sourceCode haskell"><span class="ot">projectL ::</span> [a] <span class="ot">-&gt;</span> <span class="dt">ListF</span> a [a]</code></p></li>
+<li><p>iterate</p></li>
+</ul>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ot">iterateCoAlg ::</span> (a <span class="ot">-&gt;</span> a) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> <span class="dt">ListF</span> a a)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>iterateCoAlg f a <span class="ot">=</span> <span class="dt">Cons</span> a (f a)</span></code></pre></div>
+<ul>
+<li>and even zip</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ot">zipCoAlg ::</span> ([a], [b]) <span class="ot">-&gt;</span> <span class="dt">ListF</span> (a,b) ([a],[b])</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>zipCoAlg ([], _) <span class="ot">=</span> <span class="dt">Nil</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>zipCoAlg (_, []) <span class="ot">=</span> <span class="dt">Nil</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>zipCoAlg (a<span class="op">:</span>as, b<span class="op">:</span>bs) <span class="ot">=</span> <span class="dt">Cons</span> (a,b) (as,bs)</span></code></pre></div>
+</div>
+<div id="folds-on-list-like-algebras-revisited-1"
+class="slide section level2">
+<h1>Folds on list-like algebras revisited</h1>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>                    embedL</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>          ―――――――――――――――――――――――<span class="op">&gt;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="dt">ListF</span> a [a]                       [a]</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>   <span class="op">^</span>      <span class="op">&lt;</span>――――――――――――――――――――――― <span class="op">^</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>   <span class="op">|</span>               projectL        <span class="op">|</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>   <span class="op">|</span>                               <span class="op">|</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>   <span class="op">|</span> <span class="fu">fmap</span> (unfoldL bCoAlg)         <span class="op">|</span> unfoldL bCoAlg</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>   <span class="op">|</span>                               <span class="op">|</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>   <span class="op">|</span>                               <span class="op">|</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>   <span class="op">|</span>                               <span class="op">|</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="dt">ListF</span> a b <span class="op">&lt;</span>――――――――――――――――――――――― b</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>                   bCoAlg</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>projectL <span class="op">.</span> unfoldL bCoAlg <span class="ot">=</span> <span class="fu">fmap</span> (unfoldL bCoAlg) <span class="op">.</span> bCoAlg</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>unfoldL bCoAlg <span class="ot">=</span> embedL <span class="op">.</span> <span class="fu">fmap</span> (unfoldL bCoAlg) <span class="op">.</span> bCoAlg</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>unfoldL bCoAlg <span class="ot">=</span> go</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> go <span class="ot">=</span> embedL <span class="op">.</span> <span class="fu">fmap</span> go <span class="op">.</span> bCoAlg</span></code></pre></div>
+</div>
+<div id="unfolds-on-list-like-algebras" class="slide section level2">
+<h1>Unfolds on (list-like) algebras</h1>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ot">unfoldL ::</span> (b <span class="ot">-&gt;</span> <span class="dt">ListF</span> a b) <span class="ot">-&gt;</span> b <span class="ot">-&gt;</span> [a]</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>unfoldL bCoAlg <span class="ot">=</span> go</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> go <span class="ot">=</span> embedL <span class="op">.</span> <span class="fu">fmap</span> go <span class="op">.</span> bCoAlg</span></code></pre></div>
+<p><em>Note:</em> definition does not depend on the structure</p>
+<p><strong>Examples</strong></p>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>iterateCU <span class="ot">=</span> unfoldL <span class="op">.</span> iterateCoAlg</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- iterateCU f = unfoldL (iterateCoAlg f)</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>zipCU <span class="ot">=</span> <span class="fu">curry</span> (unfoldL zipCoAlg)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- zipCU as bs = unfoldL zipCoAlg (as,bs)</span></span></code></pre></div>
+</div>
+
+<div
+id="recursion-schemes-folds-and-unfolds-on-arbitrary-recursive-structures"
+class="title-slide slide section level1">
+<h1>Recursion schemes : folds and unfolds on arbitrary (recursive)
+structures</h1>
+
+</div>
+<div id="f-algebras" class="slide section level2">
+<h1>F-algebras</h1>
+<p>Given a Functor <code>f</code>, the type of F-(co)algebras induced by
+<code>f</code> is:</p>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Algebra</span>   f carrier <span class="ot">=</span> f carrier <span class="ot">-&gt;</span> carrier</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">CoAlgebra</span> f carrier <span class="ot">=</span> carrier   <span class="ot">-&gt;</span> f carrier</span></code></pre></div>
+<p><strong>Examples of such (base) functors</strong></p>
+<ul>
+<li>List-like structures</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">ListF</span> a carr <span class="ot">=</span> <span class="dt">Nil</span> <span class="op">|</span> <span class="dt">Cons</span> a carr   <span class="kw">deriving</span> <span class="dt">Functor</span></span></code></pre></div>
+<ul>
+<li>Binary tree-like structures</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">TreeF</span> a carrier <span class="ot">=</span> <span class="dt">Empty</span> <span class="op">|</span> <span class="dt">Node</span> a carrier carrier</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">deriving</span> <span class="dt">Functor</span></span></code></pre></div>
+<ul>
+<li>Arithmetic expression-like structures</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">ExpF</span> carrier   <span class="ot">=</span> <span class="dt">Num</span> <span class="dt">Int</span> <span class="op">|</span> <span class="dt">Var</span> <span class="dt">String</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>                    <span class="op">|</span> carrier <span class="op">:+:</span> carrier</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>                    <span class="op">|</span> carrier <span class="op">:*:</span> carrier</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">deriving</span> <span class="dt">Functor</span></span></code></pre></div>
+</div>
+<div id="base-functor-and-fix" class="slide section level2">
+<h1>Base Functor and Fix</h1>
+<p><strong>The Base functor</strong> helps us establish an initial
+F-algebra / final F-co-algebra for a type</p>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">Base</span><span class="ot"> t ::</span> <span class="op">*</span> <span class="ot">-&gt;</span> <span class="op">*</span></span></code></pre></div>
+<p>For example,</p>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">instance</span> <span class="dt">Base</span> [a] <span class="ot">=</span> <span class="dt">ListF</span> a</span></code></pre></div>
+<div class="incremental">
+<p><strong>Fixpoint constructions</strong> allow us to build initial
+F-algebras / final F-co-algebras for a (base) functor</p>
+<div class="sourceCode" id="cb53"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">newtype</span> <span class="dt">Fix</span> f <span class="ot">=</span> <span class="dt">Fix</span> {<span class="ot"> unfix ::</span> f (<span class="dt">Fix</span> f) }</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">instance</span> <span class="dt">Base</span> (<span class="dt">Fix</span> f) <span class="ot">=</span> f    <span class="co">-- the base functor of Fix f is f</span></span></code></pre></div>
+<p>For example,</p>
+<div class="sourceCode" id="cb54"><pre
+class="sourceCode hs"><code class="sourceCode haskell"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Fix</span> (<span class="dt">ListF</span> a) <span class="op">~=</span> <span class="dt">ListF</span> a (<span class="dt">Fix</span> (<span class="dt">ListF</span> a))  <span class="op">~~</span> [a]</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="dt">Fix</span> (<span class="dt">TreeF</span> a) <span class="co">-- binary trees with labeled nodes</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="dt">Fix</span> <span class="dt">ExpF</span> <span class="co">-- expressions with + and * over ints and vars</span></span></code></pre></div>
+</div>
+</div>
+<div id="generalized-folds" class="slide section level2">
+<h1>Generalized folds</h1>
+<div class="sourceCode" id="cb55"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> <span class="dt">Functor</span> (<span class="dt">Base</span> t) <span class="ot">=&gt;</span> <span class="dt">Recursive</span> t <span class="kw">where</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="ot">  project ::</span> t <span class="ot">-&gt;</span> <span class="dt">Base</span> t t</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="ot">  cata ::</span> (<span class="dt">Base</span> t a <span class="ot">-&gt;</span> a) <span class="co">-- ^ a (Base t)-algebra</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>       <span class="ot">-&gt;</span> t               <span class="co">-- ^ fixed point</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>       <span class="ot">-&gt;</span> a               <span class="co">-- ^ result</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  cata alg <span class="ot">=</span> go           <span class="co">-- a cata(morphism) is a fold</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">where</span> go <span class="ot">=</span> alg <span class="op">.</span> <span class="fu">fmap</span> go <span class="op">.</span> project</span></code></pre></div>
+<p><strong>Examples</strong></p>
+<div class="sourceCode" id="cb56"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> <span class="dt">Recursive</span> [a] <span class="kw">where</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  project [] <span class="ot">=</span> <span class="dt">Nil</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  project (x<span class="op">:</span>xs) <span class="ot">=</span> <span class="dt">Cons</span> x xs</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">Recursive</span> (<span class="dt">Fix</span> f) <span class="kw">where</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  project <span class="ot">=</span> unfix</span></code></pre></div>
+</div>
+<div id="generalized-unfolds" class="slide section level2">
+<h1>Generalized unfolds</h1>
+<div class="sourceCode" id="cb58"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> <span class="dt">Functor</span> (<span class="dt">Base</span> t) <span class="ot">=&gt;</span> <span class="dt">Corecursive</span> t <span class="kw">where</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="ot">  embed ::</span> <span class="dt">Base</span> t t <span class="ot">-&gt;</span> t</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  ana</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="ot">    ::</span> (a <span class="ot">-&gt;</span> <span class="dt">Base</span> t a) <span class="co">-- ^ a (Base t)-coalgebra</span></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    <span class="ot">-&gt;</span> a               <span class="co">-- ^ seed</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">-&gt;</span> t               <span class="co">-- ^ resulting fixed point</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>  ana coalg <span class="ot">=</span> go       <span class="co">-- an ana(morphism) is an unfold</span></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">where</span> go <span class="ot">=</span> embed <span class="op">.</span> <span class="fu">fmap</span> go <span class="op">.</span> coalg</span></code></pre></div>
+<p><strong>Examples</strong></p>
+<div class="sourceCode" id="cb59"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> <span class="dt">Corecursive</span> [a] <span class="kw">where</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  embed <span class="dt">Nil</span> <span class="ot">=</span> []</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  embed (<span class="dt">Cons</span> x xs) <span class="ot">=</span> x<span class="op">:</span>xs</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="kw">instance</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">Corecursive</span> (<span class="dt">Fix</span> f) <span class="kw">where</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>  embed <span class="ot">=</span> <span class="dt">Fix</span></span></code></pre></div>
+</div>
+<div id="generalized-refolds" class="slide section level2">
+<h1>Generalized refolds</h1>
+<pre><code>              bA
+f b ――――――――――――――――――――――&gt; b
+ ^                          ^ ^_____
+ |                          |       \____ cata bA
+ |                          |            \_____
+ |                          |                  \
+ | fmap (hylo bA aCoA)      | hylo bA aCoA    Fix f
+ |                          |                   ^
+ |                          |             _____/
+ |                          |      ______/
+ |                          | ____/      ana aCoA
+f a &lt;―――――――――――――――――――――― a
+             aCoA</code></pre>
+<div class="sourceCode" id="cb61"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="ot">hylo ::</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> (f b <span class="ot">-&gt;</span> b) <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> f a) <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> b</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>hylo bA aCoA <span class="ot">=</span> r         <span class="co">-- a hylo(morphism) is a refold</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> r <span class="ot">=</span> bA <span class="op">.</span> <span class="fu">fmap</span> r <span class="op">.</span> aCoA</span></code></pre></div>
+<p>In particular <code
+class="sourceCode haskell">hylo bA aCoA <span class="op">==</span> cata bA <span class="op">.</span> ana aCoA</code></p>
+</div>
+
+<div id="examples" class="title-slide slide section level1">
+<h1>Examples</h1>
+
+</div>
+<div id="fold" class="slide section level2">
+<h1>Fold</h1>
+<p>Build an interpreter without caring for recursion</p>
+<div class="sourceCode" id="cb62"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="ot">interp ::</span> [(<span class="dt">String</span>,<span class="dt">Int</span>)] <span class="ot">-&gt;</span> <span class="dt">Fix</span> <span class="dt">ExpF</span> <span class="ot">-&gt;</span> <span class="dt">Maybe</span> <span class="dt">Int</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>interp env <span class="ot">=</span> cata interpA</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span> </span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="ot">    interpA ::</span> <span class="dt">ExpF</span> (<span class="dt">Maybe</span> <span class="dt">Int</span>) <span class="ot">-&gt;</span> <span class="dt">Maybe</span> <span class="dt">Int</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>    interpA e <span class="ot">=</span> <span class="kw">case</span> e <span class="kw">of</span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Num</span> i <span class="ot">-&gt;</span> <span class="dt">Just</span> i</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Var</span> x <span class="ot">-&gt;</span> <span class="fu">lookup</span> x env</span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>      v1 <span class="op">:+:</span> v2 <span class="ot">-&gt;</span> <span class="fu">pure</span> (<span class="op">+</span>) <span class="op">&lt;*&gt;</span> v1 <span class="op">&lt;*&gt;</span> v2</span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>      v1 <span class="op">:*:</span> v2 <span class="ot">-&gt;</span> <span class="fu">pure</span> (<span class="op">*</span>) <span class="op">&lt;*&gt;</span> v1 <span class="op">&lt;*&gt;</span> v2</span></code></pre></div>
+</div>
+<div id="unfold-1" class="slide section level2">
+<h1>Unfold</h1>
+<p>Perfectly ballanced tree</p>
+<div class="sourceCode" id="cb63"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="ot">toBalancedTree ::</span> [a] <span class="ot">-&gt;</span> <span class="dt">Fix</span> (<span class="dt">TreeF</span> a)</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>toBalancedTree <span class="ot">=</span> ana toBalancedCoalg</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="ot">    toBalancedCoalg ::</span> [a] <span class="ot">-&gt;</span> <span class="dt">TreeF</span> a [a]</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>    toBalancedCoalg [] <span class="ot">=</span> <span class="dt">Empty</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>    toBalancedCoalg list <span class="ot">=</span> <span class="dt">Node</span> a begin end</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">where</span> </span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>        len <span class="ot">=</span> <span class="fu">length</span> list <span class="ot">`div`</span> <span class="dv">2</span></span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>        (begin, a<span class="op">:</span>end) <span class="ot">=</span> <span class="fu">splitAt</span> len list</span></code></pre></div>
+</div>
+<div id="refold" class="slide section level2">
+<h1>Refold</h1>
+<p>Quick-Sort uses a binary tree as an intermediary structure to split
+the list, then recombines results.</p>
+<div class="sourceCode" id="cb64"><pre
+class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="ot">qsort ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>qsort <span class="ot">=</span> hylo qSortAlg qSortCoalg</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="ot">    qSortCoalg ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> <span class="dt">TreeF</span> a [a]</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>    qSortCoalg []     <span class="ot">=</span> <span class="dt">Empty</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>    qSortCoalg (a<span class="op">:</span>as) <span class="ot">=</span> <span class="dt">Node</span> a lta gta</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">where</span> (lta, gta) <span class="ot">=</span> partitionAF (<span class="op">&lt;</span> a) as</span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="ot">    qSortAlg ::</span> <span class="dt">TreeF</span> a [a] <span class="ot">-&gt;</span> [a]</span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>    qSortAlg <span class="dt">Empty</span>            <span class="ot">=</span> []</span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>    qSortAlg (<span class="dt">Node</span> a lta gta) <span class="ot">=</span> lta <span class="op">++</span> a<span class="op">:</span>gta</span></code></pre></div>
+</div>
+
+<div id="all-is-well-when-it-ends"
+class="title-slide slide section level1">
+<h1>All is well when it ends</h1>
+
+</div>
+<div id="what-now" class="slide section level2">
+<h1>What now?</h1>
+<ul>
+<li>Go and implement everything as folds/unfolds/refolds! :-)
+<ul>
+<li>visitors</li>
+<li>transformers</li>
+<li>…</li>
+</ul></li>
+<li>Read some more about the other amazing recursion schemes
+<ul>
+<li><code>para</code>, <code>zigo</code>, <code>histo</code>,
+<code>apo</code>, <code>hoist</code>, <code>lambek</code>,
+<code>elgot</code>, …</li>
+<li>In this talk we barely scratched the surface</li>
+</ul></li>
+<li>What about mutually-recursive datatypes?</li>
+</ul>
+</div>
+<div id="references-further-readings" class="slide section level2">
+<h1>References / Further readings</h1>
+<ul>
+<li><p>Edward A. Kmett (2008) <a
+href="http://hackage.haskell.org/package/recursion-schemes">recursion-schemes:
+Representing common recursion patterns as higher-order
+functions</a></p></li>
+<li><p>Bartosz Milewski (2013) <a
+href="https://www.schoolofhaskell.com/user/bartosz/understanding-algebras">Understanding
+F-Algebras</a></p></li>
+<li><p>Erik Meijer, Maarten Fokkinga, Ross Paterson (1991) <a
+href="https://maartenfokkinga.github.io/utwente/mmf91m.pdf">Functional
+Programming with Bananas, Lenses, Envelopes and Barbed Wire</a></p></li>
+<li><p>Philip Wadler (1990) <a
+href="http://homepages.inf.ed.ac.uk/wadler/papers/free-rectypes/free-rectypes.txt">Recursive
+types for free!</a></p></li>
+<li><p>Daniel Fischer (2009) <a
+href="https://wiki.haskell.org/GHC/Indexed_types">GHC/Type
+families</a></p></li>
+<li><p>Edward A. Kmett (2009) <a
+href="http://ekmett.github.io/reader/2009/recursion-schemes/index.html">Recursion
+Schemes: A Field Guide</a></p></li>
+</ul>
+</div>
+</body>
+</html>
