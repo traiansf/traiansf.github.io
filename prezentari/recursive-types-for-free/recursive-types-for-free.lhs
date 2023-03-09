@@ -335,4 +335,6 @@ Read More
 
 * Bartosz Milewski (2013) [Understanding F-Algebras](https://www.schoolofhaskell.com/user/bartosz/understanding-algebras)
 
+* Bartosz Milewski (2017) [F-Algebras](https://bartoszmilewski.com/2017/02/28/f-algebras/)
+
 * A formalization of the above in Coq [with actual proofs](Algebra.v)
