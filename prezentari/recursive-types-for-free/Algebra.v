@@ -131,6 +131,9 @@ Definition Fix : Type := forall (x : Type) (alg :FAlgebra F x), x.
 
 Definition fold {a : Type} (alg : FAlgebra F a) (term : Fix) : a := term a alg.
 
+Definition WeakInitialAlgebra {a} (initial : FAlgebra F a) : Prop :=
+  forall b (alg : FAlgebra F b), exists f : a -> b, FMorphism F f initial alg.
+
 Definition weakInitialAlgebra : FAlgebra F Fix.
 Proof.
     intros s.
@@ -138,12 +141,11 @@ Proof.
     exact (alg (fmap (fold alg) s)).
 Defined.
 
-Lemma weakInitialMorphism
-    (a : Type)
-    (alg : FAlgebra F a)
-    : FMorphism F (fold alg) weakInitialAlgebra alg.
+Lemma weakInitialMorphism : WeakInitialAlgebra weakInitialAlgebra.
 Proof.
-    reflexivity.
+  intros a alg.
+  exists (fold alg).
+  reflexivity.
 Qed.
 
 End Fix.
@@ -162,18 +164,20 @@ Notation "'CoFix' F" := ({ x : Type & prod (x -> F x) x}) (at level 90).
 
 Definition unfold {a : Type} (coalg : a -> F a) (x : a) :  CoFix F := existT _ a (coalg, x).
 
-Definition weakFinalCoAlgebra : CoFix F -> F (CoFix F).
+Definition WeakFinalCoAlgebra {a} (final : FCoAlgebra F a) : Prop :=
+  forall b (alg : FCoAlgebra F b), exists f : b -> a, FCoMorphism F f alg final.
+
+Definition weakFinalCoAlgebra : FCoAlgebra F (CoFix F).
 Proof.
     intros (a, (coalg_a, x)).
     exact (fmap (unfold coalg_a) (coalg_a x)).
 Defined.
 
-Lemma weakFinalCoAlgebraMorphism
-    (a : Type)
-    (coalg : a -> F a)
-    :  coalg >> fmap (unfold coalg) = (unfold coalg) >> weakFinalCoAlgebra.
+Lemma weakFinalCoAlgebraMorphism : WeakFinalCoAlgebra weakFinalCoAlgebra.
 Proof.
-    reflexivity.
+  intros a coalg.
+  exists (unfold coalg).
+  reflexivity.
 Qed.
 
 End CoFixedPoint.

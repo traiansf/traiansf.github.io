@@ -44,6 +44,21 @@ module IMP
         <state>... X |-> I ...</state>
     [label(variable_lookup)]
 
+    /*
+                   | Id "=" AExp ";"            [strict(2)]
+    rule <k> X:Id = E:AExp ; => E:AExp ~> X:Id = [HOLE] ; ...</k>
+      requires notBool (isKResult(E))
+    rule <k> V:KResult ~> X:Id = [HOLE] ; => X = V ;  ...</k>
+   */
+
+/*
+    rule
+        <k> X:Id => 0 ...</k>
+        <state> State </state>
+      requires notBool (X in keys State)
+    [label(variable_lookup)]
+*/
+
     rule I1 / I2 => I1 /Int I2  requires I2 =/=Int 0
     rule I1 + I2 => I1 +Int I2
     rule - I1 => 0 -Int I1
@@ -61,10 +76,15 @@ module IMP
         <state>... X |-> (_ => I) ...</state>
     [label(variable_assignment)]
 
+/*  
+    syntax KItem ::= f(Stmt) [function]
+
+    rule f(S1:Stmt S2:Stmt) => S1
+*/ 
     rule S1:Stmt S2:Stmt => S1 ~> S2
 
-    rule if (true)  S else _ => S
-    rule if (false) _ else S => S
+    rule if (true)  S else _ => S [label(ifTrue)]
+    rule if (false) _ else S => S [label(ifElse)]
 
     rule while (B) S => if (B) {S while (B) S} else {}
 

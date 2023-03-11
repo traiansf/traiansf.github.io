@@ -17,6 +17,7 @@ claim
       sum |-> (S:Int => S +Int ((N +Int 1) *Int N /Int 2))
   </state>
 requires N >=Int 0
+[label(invariant)]
 
 claim
     <k>

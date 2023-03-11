@@ -1,5 +1,48 @@
 exit
 konfig
+exit
+load kast.kscript 
+exit
+graph graph pdf
+stepf 1000
+konfig
+kclaim
+prove 1
+claim 1
+proof 1
+stepf 1000
+kstepf 1000
+proof-status
+proof status
+exit
+graph graph pdf
+stepf 1000
+exit
+graph graph pdf
+stepf 1000
+exit
+:q
+krule
+select 34
+konfig
+kconfig
+select 33
+graph graph pdf
+stepf 1000
+graph graph pdf
+graph pdf
+help
+import Data.List ( union, delete, nub )
+konfig
+step 100
+konfig
+step
+config
+konfig
+load kast.kscript 
+help
+exit
+konfig
 select 37
 step
 konfig

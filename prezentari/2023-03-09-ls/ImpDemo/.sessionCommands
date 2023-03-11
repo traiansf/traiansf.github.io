@@ -1,21 +1,14 @@
-load kast.kscript
-kclaim
 step
-kconfig
-kstep
-step 10
+step
+step
+step
+step
+step 100
 select 11
+step 100
+select 34
+step
+select 35
 select 12
 step
 step
-select 11
-step 10
-step 10
-step 10
-select 14
-select 15
-select 32
-select 35
-select 36
-step
-select 37
