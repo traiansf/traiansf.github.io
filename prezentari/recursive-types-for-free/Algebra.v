@@ -180,6 +180,87 @@ End CoFixedPoint.
 
 Notation "'CoFix' F" := ({ x : Type & prod (x -> F x) x}) (at level 90).
 
+Section BoolF.
+
+Existing Instance coq_category.
+
+Inductive BoolF (a : Type) : Type :=
+| T : BoolF a
+| F : BoolF a.
+
+Definition fmapBoolF {a b} (f : a -> b) (x : BoolF a) : BoolF b :=
+  match x with
+  | T _ => T _
+  | F _ => F _
+  end.
+
+Program Instance boolf_functor : @Functor Type Type _ _ BoolF :=
+  { fmap := @fmapBoolF }.
+Next Obligation.
+    apply functional_extensionality_dep_good.
+    destruct x; reflexivity.
+Qed.
+Next Obligation.
+    apply functional_extensionality_dep_good.
+    destruct x; reflexivity.
+Qed.
+
+Definition Bool := Fix BoolF.
+
+Definition BoolC : FAlgebra BoolF (forall a, a -> a -> a) :=
+  fun b => match b with
+  | F _ => fun _ t f => f
+  | T _ => fun _ t f => t
+  end.
+
+Definition foldC {b} (B : FAlgebra BoolF b) : (forall a, a -> a -> a) -> b :=
+  fun f => f b (B (T _)) (B (F _)).
+
+Lemma foldC_morphism : forall b (B : FAlgebra BoolF b),
+  FMorphism BoolF (foldC B) BoolC B.
+Proof.
+  intros.
+  unfold FMorphism.
+  extensionality bl; cbn.
+  destruct bl; reflexivity.
+Qed.
+
+Definition boolF {a} := fold BoolF (a := a).
+
+Definition trueF : Bool := weakInitialAlgebra BoolF (T _).
+Definition trueC {a} : a -> a -> a := BoolC (T _) a.
+
+Lemma trueF_trueC : forall a (A :FAlgebra BoolF a),
+  trueF a A = trueC (A (T _)) (A (F _)).
+Proof.
+  reflexivity.
+Qed.
+
+Lemma trueC_trueF : forall a (t f : a),
+  trueC t f = trueF a (fun b => match b with | T _ => t | F _ => f end).
+Proof.
+  reflexivity.
+Qed.
+
+Definition falseF : Bool := weakInitialAlgebra BoolF (F _).
+Definition falseC {a} (t f : a) := f.
+
+Lemma falseF_falseC : forall a (A :FAlgebra BoolF a),
+  falseF a A = falseC (A (T _)) (A (F _)).
+Proof.
+  reflexivity.
+Qed.
+
+Lemma falseC_falseF : forall a (t f : a),
+  falseC t f = falseF a (fun b => match b with | T _ => t | F _ => f end).
+Proof.
+  reflexivity.
+Qed.
+
+Definition boolC {a} (t f : a) (b : a -> a -> a) := b t f.
+
+
+
 Section NatF.
 
 Existing Instance coq_category.
