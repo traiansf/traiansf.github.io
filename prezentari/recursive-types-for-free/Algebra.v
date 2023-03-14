@@ -6,16 +6,27 @@ Reserved Infix "~>" (at level 90, right associativity).
 Reserved Infix "<<" (at level 40, left associativity).
 Reserved Infix ">>" (at level 40, left associativity).
 
-Class Category FTrue (Tarr : FTrue -> FTrue -> Type) (Tid : forall a, Tarr a a) (Tcomp : forall a b c, Tarr b c -> Tarr a b -> Tarr a c) :=
-    { arrow (a : FTrue) (b : FTrue) : Type := Tarr a b where "a ~> b" := (arrow a b)
-    ; id (a : FTrue) : a ~> a := Tid a
+(** * Category theory
+
+  A category consists of A category consists of objects (of a base type <<T>>)
+  and [arrow]s that go between them.
+  Arrows [comp]ose with the composition being associative [comp_assoc],
+  and have [id]entities which act as unit for the composition
+  ([comp_id_left] and [comp_id_right]).
+*)
+Class Category T (Tarr : T -> T -> Type) (Tid : forall a, Tarr a a) (Tcomp : forall a b c, Tarr b c -> Tarr a b -> Tarr a c) :=
+    { arrow (a : T) (b : T) : Type := Tarr a b where "a ~> b" := (arrow a b)
+    ; id (a : T) : a ~> a := Tid a
     ; comp {a b c} (g : b ~> c) (f : a ~> b) : a ~> c := Tcomp a b c g f where "f >> g" := (comp g f)
     ; comp_id_left a b (f : a ~> b) : f >> id b = f
     ; comp_id_right a b (f : a ~> b) : id a >> f = f
     ; comp_assoc a b c d (f : a ~> b) (g : b ~> c) (h : c ~> d) : f >> g >> h = f >> (g >> h)
     }.
 
-(** Show that Coq's type system can be structured as a a category. *)
+(** ** Coq/Haskell type system as a category
+
+Let's show that Coq's type system can be structured as a category.
+*)
 
 Definition coq_arrow a b := a -> b.
 Definition coq_id a : a -> a := fun (x : a) => x.
@@ -32,11 +43,11 @@ Lemma coq_comp_assoc a b c d (f : a -> b) (g : b -> c) (h : c -> d)
 Proof. reflexivity. Qed.
 
 Definition coq_category : Category Type coq_arrow coq_id (@coq_comp) :=
-    {|
-      comp_id_left := coq_comp_id_left
-    ; comp_id_right := coq_comp_id_right
-    ; comp_assoc := coq_comp_assoc
-    |}.
+{|
+  comp_id_left := coq_comp_id_left
+; comp_id_right := coq_comp_id_right
+; comp_assoc := coq_comp_assoc
+|}.
 
 End Category.
 
@@ -44,60 +55,70 @@ Notation "a ~> b" := (arrow a b) (at level 90, right associativity).
 Notation "g << f" := (comp g f) (at level 40, left associativity).
 Notation "f >> g" := (comp g f) (at level 40, left associativity).
 
-(** A type transformation @FFalse : Type -> Type@ induces a subcategory of
-Coq's type system having as objects @FFalse a@ for each type @a@ and as morphisms
-the regular morphisms between them. It's easy to check that composition of
-such morphisms in the base @Type@ category are also morphisms in @FFalse Type@, and
-that the corresponding identities are also mofphisms in @FFalse Type@.
+(** ** Mappings between categories: functors
 
-We say that @FFalse@, together with a transformation @fmap@ translating
-morphisms @a -> b@ in @Type@ to morphisms @FFalse a -> FFalse b@ in @FFalse Type@ defines a
-_functor_ from @Type@ to @FFalse Type@ if @fmap@ obeys the functor laws:
-- translates identities to identities
-- commutes with composition
+*** Intuition: functors induced by type constructors (like in Haskell)
+
+A type transformation <<F : Type -> Type>> induces a subcategory of
+Coq's type system having as objects <<F a>> for each type <<a>> and as morphisms
+the regular morphisms between them. It's easy to check that composition of
+such morphisms in the base <<Type>> category are also morphisms in <<F Type>>, and
+that the corresponding identities are also mofphisms in <<F Type>>.
+
+We say that <<F>>, together with a transformation <<fmap>> translating
+morphisms <<a -> b>> in <<Type>> to morphisms <<F a -> F b>> in <<F Type>> defines a
+_functor_ from <<Type>> to <<F Type>> if <<fmap>> obeys the functor laws:
+
+- translates identities into identities
+- commutes with composition.
+
+*** Functors --- an abstract definition
+
+Below we give the more abstract definition of a <<Functor>> between two
+categories.
 *)
 
 Class Functor
     {C D}
     `{cat_c : Category C}
     `{cat_d : Category D}
-    (FFalse : C -> D)
-    (Fmap : forall a b, (a ~> b) -> FFalse a ~> FFalse b)
+    (F : C -> D)
+    (Fmap : forall a b, (a ~> b) -> F a ~> F b)
     :=
-    { fmap : forall {a b}, (a ~> b) -> FFalse a ~> FFalse b := Fmap
-    ; fmap_id : forall a, fmap (id a) = id (FFalse a)
+    { fmap : forall {a b}, (a ~> b) -> F a ~> F b := Fmap
+    ; fmap_id : forall a, fmap (id a) = id (F a)
     ; fmap_comp : forall a b c (f : a ~> b) (g : b ~> c),
         fmap (f >> g) = fmap f >> fmap g
     }.
 
+(** ** Monads *)
+
 Class Monad
   {C : Type } `{cat_c : Category C}
-  (FFalse : C -> C) (Fmap : forall a b, (a ~> b) -> FFalse a ~> FFalse b) `{!Functor FFalse Fmap}
-  (Mret : forall a, a ~> FFalse a) (Mbind : forall a b, (a ~> FFalse b) -> FFalse a ~> FFalse b)
+  (F : C -> C) (Fmap : forall a b, (a ~> b) -> F a ~> F b) `{!Functor F Fmap}
+  (Mret : forall a, a ~> F a) (Mbind : forall a b, (a ~> F b) -> F a ~> F b)
   :=
 {
-  ret {a} : a ~> FFalse a := @Mret a ;
-  bind {a b} : (a ~> FFalse b) -> FFalse a ~> FFalse b := @Mbind a b;
-  kleisli_comp {a b c} (kg : b ~> FFalse c) (kf : a ~> FFalse b) : a ~> FFalse c := kf >> bind kg ;
-  kleisli_category : Category C (fun a b => a ~> FFalse b) (@ret) (@kleisli_comp)
+  ret {a} : a ~> F a := @Mret a ;
+  bind {a b} : (a ~> F b) -> F a ~> F b := @Mbind a b;
+  kleisli_comp {a b c} (kg : b ~> F c) (kf : a ~> F b) : a ~> F c := kf >> bind kg ;
+  kleisli_category : Category C (fun a b => a ~> F b) (@ret) (@kleisli_comp)
 }.
-
 
 Notation "g <=< f" := (kleisli_comp g f) (at level 40, left associativity).
 Notation "f >=> g" := (kleisli_comp g f) (at level 40, left associativity).
-
 
 Section FAlgebra.
 
 Context
     {C : Type}
     `{Category C}
-    (FFalse : C -> C)
-    (Fmap : forall a b, (a ~> b) -> FFalse a ~> FFalse b)
-    `{!Functor FFalse Fmap}
+    (F : C -> C)
+    (Fmap : forall a b, (a ~> b) -> F a ~> F b)
+    `{!Functor F Fmap}
     .
 
-Definition FAlgebra (x : C) : Type := FFalse x ~> x. 
+Definition FAlgebra (x : C) : Type := F x ~> x. 
 
 Definition FMorphism
     {a b : C}
@@ -114,12 +135,12 @@ Section CoAlgebra.
 Context
     {C}
     `{Category C}
-    (FFalse : C -> C)
-    (Fmap : forall a b, (a ~> b) -> FFalse a ~> FFalse b)
-    `{!Functor FFalse Fmap}
+    (F : C -> C)
+    (Fmap : forall a b, (a ~> b) -> F a ~> F b)
+    `{!Functor F Fmap}
     .
 
-Definition FCoAlgebra (x : C) : Type := x ~> FFalse x. 
+Definition FCoAlgebra (x : C) : Type := x ~> F x. 
 
 Definition FCoMorphism
     {a b : C}
@@ -136,64 +157,26 @@ Section Fix.
 Existing Instance coq_category.
 
 Context
-    (FFalse : Type -> Type)
-    (Fmap : forall a b, (a ~> b) -> FFalse a ~> FFalse b)
-    `{!Functor FFalse Fmap}
+    (F : Type -> Type)
+    (Fmap : forall a b, (a ~> b) -> F a ~> F b)
+    `{!Functor F Fmap}
     .
 
-Definition Fix : Type := forall (x : Type) (alg :FAlgebra FFalse x), x.
-
-Definition fold {a : Type} (alg : FAlgebra FFalse a) (term : Fix) : a := term a alg.
-
 Definition WeakInitialAlgebra
-  {a} (initial : FAlgebra FFalse a) (f : forall b (alg : FAlgebra FFalse b), a -> b) : Prop :=
-  forall b (alg : FAlgebra FFalse b), FMorphism FFalse Fmap (f b alg) initial alg.
+  {a} (initial : FAlgebra F a) (f : forall b (alg : FAlgebra F b), a -> b) : Prop :=
+  forall b (alg : FAlgebra F b), FMorphism F Fmap (f b alg) initial alg.
 
-Definition weakInitialAlgebra : FAlgebra FFalse Fix.
-Proof.
-    intros s.
-    intros a alg.
-    exact (alg (fmap (fold alg) s)).
-Defined.
+Definition Fix : Type := forall (x : Type) (alg :FAlgebra F x), x.
 
-Lemma weakInitialMorphism : WeakInitialAlgebra weakInitialAlgebra (@fold).
+Definition foldF {a : Type} (alg : FAlgebra F a) (term : Fix) : a := term a alg.
+
+Definition FixAlgebra : FAlgebra F Fix :=
+  fun s a alg => (alg (fmap (foldF alg) s)).
+
+Lemma FixAlgebra_initial : WeakInitialAlgebra FixAlgebra (@foldF).
 Proof. intros a alg; reflexivity. Qed.
 
 End Fix.
-
-Section CoFixedPoint.
-
-Existing Instance coq_category.
-
-Context
-    (FFalse : Type -> Type)
-    (Fmap : forall a b, (a ~> b) -> FFalse a ~> FFalse b)
-    `{!Functor FFalse Fmap}
-    .
-
-Notation "'CoFix' FFalse" := ({ x : Type & prod (x -> FFalse x) x}) (at level 90).
-
-Definition unfold {a : Type} (coalg : a -> FFalse a) (x : a) :  CoFix FFalse := existT _ a (coalg, x).
-
-Definition WeakFinalCoAlgebra {a} (final : FCoAlgebra FFalse a) : Prop :=
-  forall b (alg : FCoAlgebra FFalse b), exists f : b -> a, FCoMorphism FFalse Fmap f alg final.
-
-Definition weakFinalCoAlgebra : FCoAlgebra FFalse (CoFix FFalse).
-Proof.
-    intros (a, (coalg_a, x)).
-    exact (fmap (unfold coalg_a) (coalg_a x)).
-Defined.
-
-Lemma weakFinalCoAlgebraMorphism : WeakFinalCoAlgebra weakFinalCoAlgebra.
-Proof.
-  intros a coalg.
-  exists (unfold coalg).
-  reflexivity.
-Qed.
-
-End CoFixedPoint.
-
-Notation "'CoFix' FFalse" := ({ x : Type & prod (x -> FFalse x) x}) (at level 90).
 
 Class Boolean (t : Type) (Btrue : t) (Bfalse : t) (Bbool : forall a, a -> a -> t -> a) : Prop :=
 {
@@ -243,9 +226,8 @@ Definition FBool_Boolean
 Proof.
   split; intros;
     specialize (Hinit a0 (fun bf => match bf with | FTrue _ => x | FFalse _ => y end));
-    unfold FMorphism in Hinit; cbn in Hinit;
+    unfold FMorphism, comp, coq_comp in Hinit; cbn in Hinit;
     [apply equal_f with (FTrue a) in Hinit | apply equal_f with (FFalse a) in Hinit]; cbn in Hinit;
-    unfold comp, coq_comp in Hinit;
     rewrite <- Hinit;
     f_equal;
     rewrite Hinit;
@@ -632,7 +614,7 @@ Class List (L : Type -> Type)
 {
   nil {a} : L a := Lnil a ;
   cons {a} : a -> L a -> L a := Lcons a ;
-  foldr {a b} : b -> (a -> b -> b) -> L a -> b ;
+  foldr {a b} : b -> (a -> b -> b) -> L a -> b := Lfoldr a b ;
   foldr_nil : forall a b n c, @foldr a b n c nil = n ; 
   foldr_cons : forall a b n c x l, @foldr a b n c (cons x l) = c x (foldr n c l); 
 }.
@@ -695,222 +677,102 @@ Definition FList_List
     f a b (fun bf : FList a b => match bf with | FNil _ _ => n | FCons _ _ x l => c x l end)))
   : List L (fun a => initial a (FNil _ _)) (fun a x l => initial a (FCons _ _ x l)) fold.
 Proof.
-  split; intros;
-    specialize (Hinit a b c (fun bf : FPair a b c => match bf with | MkFPair _ _ _ x0 y0 => f0 x0 y0 end));
+  split; intros; subst;
+    specialize (Hinit a b (fun bf : FList a b => match bf with | FNil _ _ => n | FCons _ _ x l => c x l end));
     unfold FMorphism, comp, coq_comp in Hinit; cbn in Hinit.
-  - apply equal_f with  (MkFPair a b (p a b) x y) in Hinit.
+  - apply equal_f with (FNil a (L a)) in Hinit.
+    assumption.
+  - apply equal_f with (FCons a (L a) x l) in Hinit.
     assumption.
 Qed.
 
-Definition listAlgebra : forall elt, FAlgebra (FList elt) (list elt)
-    := fun elt t =>
-        match t with
-        | FNil _ _ => []
-        | FCons _ _ e l => e :: l
-        end.
+Definition ListAlgebra : forall elt, FAlgebra (FList elt) (list elt) :=
+  fun elt t =>
+    match t with
+    | FNil _ _ => []
+    | FCons _ _ e l => e :: l
+    end.
 
-Definition List2list : List -> list elt := fold FList listAlgebra.
+Fixpoint listF {elt b} (B : FAlgebra (FList elt) b) (l : list elt) : b :=
+  match l with
+  | [] => B (FNil _ _)
+  | e :: l => B (FCons _ _ e (listF B l))
+  end.
 
-Definition list2List (l : list elt) : List.
+Lemma ListAlgebra_initial : forall elt, WeakInitialAlgebra (FList elt) (@fmapFList elt) (ListAlgebra elt) (@listF elt).
 Proof.
-    intros a alg.
-    induction l.
-    - exact (alg (FNil _)).
-    - exact (alg (FCons _ a0 IHl)).
-Defined.
-(*
-:=
-    fun a alg =>
-        alg (match n with
-            | 0 => FZero _
-            | S n => FSucc _ (nat2Nat n a alg)
-            end).
-*)            
-
-Lemma list2List2list : list2List >> List2list = id (list elt).
-Proof.
-    apply functional_extensionality_dep_good.
-    intro l.
-    induction l; simpl; [reflexivity|].
-    rewrite <- IHl at 2.
-    reflexivity.
+  intros elt b B.
+  unfold FMorphism.
+  extensionality bl; cbn.
+  destruct bl; reflexivity.
 Qed.
 
-Definition listFold {a} (alg : FAlgebra FList a) : list elt -> a := list2List >> fold FList alg.
+Definition list_foldr {elt a} : a -> (elt -> a -> a) -> list elt -> a :=
+  flip (@fold_right a elt).
 
-Definition FStream : Type := CoFix FList.
+Program Definition List_List
+  : List list (@Datatypes.nil) (@Datatypes.cons) (@list_foldr) :=
+  FList_List ListAlgebra (@listF) ListAlgebra_initial (@list_foldr) _.
+Next Obligation.
+  extensionality elt; extensionality a; extensionality n; extensionality c.
+  extensionality l; induction l; [reflexivity |].
+  cbn; rewrite IHl; reflexivity.
+Qed.
 
-CoInductive stream : Type :=
-| SNil : stream
-| SCons : elt -> stream -> stream.
+Definition CList (elt : Type) : Type := forall a, a -> (elt -> a -> a) -> a.
 
-Definition streamCoAlgebra : FCoAlgebra FList stream
-    := fun t =>
-        match t with
-        | SNil => FNil _
-        | SCons e s => FCons _ e s
-        end.
+Definition CListAlgebra : forall elt, FAlgebra (FList elt) (CList elt) :=
+  fun elt b => match b with
+  | FNil _ _ => fun _ n c => n
+  | FCons _ _ x l => fun a n c => c x (l a n c)
+  end.
 
-Definition stream2List : stream -> FStream := unfold FList streamCoAlgebra.
+Definition ClistF {elt b} (B : FAlgebra (FList elt) b) : CList elt -> b :=
+  fun f => f b (B (FNil _ _)) (fun x l => B (FCons _ _ x l)).
 
-CoFixpoint List2stream (s : FStream) : stream.
+Lemma CListAlgebra_initial : forall elt, WeakInitialAlgebra (FList elt) (@fmapFList elt) (CListAlgebra elt) (@ClistF elt).
 Proof.
-    destruct s as (a, coalg, x).
-    destruct (coalg x) eqn:co.
-    - exact SNil.
-    - exact (SCons e (List2stream (existT2 _ _ a coalg a0))).
-Defined.
+  intros elt b B.
+  unfold FMorphism.
+  extensionality bl; cbn.
+  destruct bl; reflexivity.
+Qed.
+
+Definition CList_Natural : List CList (fun a => fun a n c => n) (fun a => fun e l a n c => c e (l a n c)) (fun elt a n c l => l a n c) :=
+  FList_List CListAlgebra (@ClistF) CListAlgebra_initial (fun elt a n c l => l a n c) eq_refl.
 
 End FList.
 
-Section SortedSets.
+Section CoFixedPoint.
+
+Existing Instance coq_category.
 
 Context
-    (sorts : Type)                               (* "set" of all sorts *)
+    (F : Type -> Type)
+    (Fmap : forall a b, (a ~> b) -> F a ~> F b)
+    `{!Functor F Fmap}
     .
 
-Definition sortedSet : Type := sorts -> Type.
+Definition WeakFinalCoAlgebra {a} (final : FCoAlgebra F a) : Prop :=
+  forall b (alg : FCoAlgebra F b), exists f : b -> a, FCoMorphism F Fmap f alg final.
 
-End SortedSets.
+Notation "'CoFix' F" := ({ x : Type & prod (x -> F x) x}) (at level 90).
 
-Section SortedSetsCategory.
+Definition unfoldF {a : Type} (coalg : a -> F a) (x : a) :  CoFix F :=
+  existT _ a (coalg, x).
 
-Context
-    {S : Type}.
+Definition CoFixCoAlgebra : FCoAlgebra F (CoFix F) :=
+  fun x => match x with
+  | existT _ a (coalg_a, x) => fmap (unfoldF coalg_a) (coalg_a x)
+  end.
 
-Definition sorted_arrow
-    (A : sortedSet S)
-    (B : sortedSet S)
-    : Type
-    := forall (s : S), A s -> B s. 
-
-Definition sorted_id
-    (A : sortedSet S)
-    : sorted_arrow A A
-    := fun (s : S) => coq_id (A s).
-
-Definition sorted_comp
-    {A B C}
-    (g : sorted_arrow B C)
-    (f : sorted_arrow A B)
-    : sorted_arrow A C
-    := fun (s : S) => coq_comp (g s) (f s).
-
-Lemma sorted_comp_id_left a b (f : sorted_arrow a b) : sorted_comp (sorted_id b) f = f.
-Proof. reflexivity. Qed.
-
-Lemma sorted_comp_id_right a b (f : sorted_arrow a b) : sorted_comp f (sorted_id a) = f.
-Proof. reflexivity. Qed.
-
-Lemma sorted_comp_assoc a b c d (f : sorted_arrow a b) (g : sorted_arrow b c) (h : sorted_arrow c d)
-    : sorted_comp h (sorted_comp g f) = sorted_comp (sorted_comp h g) f.
-Proof. reflexivity. Qed.
-
-Definition sorted_category : Category (sortedSet S) :=
-    {| arrow := sorted_arrow
-    ; id := sorted_id
-    ; comp := @sorted_comp
-    ; comp_id_left := sorted_comp_id_left
-    ; comp_id_right := sorted_comp_id_right
-    ; comp_assoc := sorted_comp_assoc
-    |}.
-
-End SortedSetsCategory.
-
-Section SortedFixed.
-
-Context
-    {S : Type}
-    (S_sorted_category := @sorted_category S).
-
-Existing Instance S_sorted_category.
-
-Context
-    (FFalse : sortedSet S -> sortedSet S)
-    {fun_F : Functor FFalse}
-    {efun_F : EndoFunctor FFalse}
-    .
-
-Definition SortedFix := (fun (s : S) => forall (A : S -> Type) (alg : FAlgebra FFalse A) , A s) .
-
-Definition sortedFold {A : sortedSet S} (alg : FAlgebra FFalse A) {s : S} (term : SortedFix s) : A s := term A alg.
-
-(*
-Definition weakInitialSortedAlgebra : forall (s : S), FFalse (SortedFix FFalse) s -> (SortedFix FFalse) s.
+Lemma CoFixCoAlgebra_final : WeakFinalCoAlgebra CoFixCoAlgebra.
 Proof.
-    intros s.
-    intros FAs.
-    intros A alg.
-    pose (folded_alg := sortedFold alg).
-    pose (fm := @fmap _ _ _ _ FFalse _). unfold arrow in fm. simpl in fm.
-    unfold sorted_arrow in fm.
-    specialize (fm (fun s0 : S => forall A : S -> Type, FFalse A ~> A -> A s0) A).
-    specialize (fm folded_alg).
-Defined.
-
-Lemma weakInitialMorphism
-    (a : Type)
-    (alg : FAlgebra FFalse a)
-    : FMorphism FFalse (fold alg) weakInitialAlgebra alg.
-Proof.
-    reflexivity.
+  intros a coalg.
+  exists (unfoldF coalg).
+  reflexivity.
 Qed.
-*)
 
-End SortedFixed.
+End CoFixedPoint.
 
-Section ForestF.
-
-Existing Instance sorted_category.
-
-Inductive Sort :=
-| STree
-| SForest.
-
-Inductive ForestF (elt : Type) (A : Sort -> Type) : Sort -> Type :=
-| EmptyT : ForestF elt A STree
-| NodeT : elt -> A SForest -> ForestF elt A STree
-| NilF : ForestF elt A SForest
-| ConsF : A STree -> A SForest -> ForestF elt A SForest.
-
-Definition Forest (elt : Type) : Sort -> Type := SortedFix (ForestF elt).
-
-Definition emptyT (elt : Type) : Forest elt STree
-    := fun A alg_A => alg_A STree (EmptyT elt A).
-
-Definition nodeT {elt : Type} (x : elt) (children : Forest elt SForest) : Forest elt STree
-    := fun A alg_A => alg_A STree (NodeT _ _ x (children _ alg_A)).
-
-Definition nilF (elt : Type) : Forest elt SForest
-    :=  fun A alg_A => alg_A SForest (NilF elt A).
-
-Definition consF {elt : Type} (t : Forest elt STree) (f : Forest elt SForest) : Forest elt SForest
-    := fun A alg_A => alg_A SForest (ConsF _ _ (t _ alg_A) (f _ alg_A)).
-
-Definition singletonF (n : nat) : Forest nat STree := nodeT n (nilF _).
-
-Definition forest : Forest nat SForest
-    := consF
-      (nodeT 1 (consF (singletonF 2) (nilF _)))
-      (consF (nodeT 3 (consF (singletonF 4) (consF (singletonF 5) (nilF _)))) (nilF _)).
-
-Definition IntA (s : Sort) : Type :=
-    match s with
-    | STree => nat
-    | SForest => list nat
-    end.
-
-Definition alg_IntA : FAlgebra (ForestF nat) IntA.
-Proof.
-    intros s f.
-    dependent destruction f.
-    - exact 0.
-    - exact (fold_right (fun a b => a + b) n i).
-    - exact [].
-    - exact (i::i0).
-Defined. 
-
-Example ex1 : sortedFold (ForestF nat) alg_IntA forest = [3; 12].
-Proof. reflexivity. Qed.
-
-End ForestF.
+Notation "'CoFix' F" := ({ x : Type & prod (x -> F x) x}) (at level 90).
