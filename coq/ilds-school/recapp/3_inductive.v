@@ -4,10 +4,10 @@ Require Import List Lia PeanoNat Compare_dec Program.
 Import Nat ListNotations.
 
 (*decomposing the list  l in two parts: elements <= n, elements > n *)
-Fixpoint filter(n:nat)(l:list nat) : (list nat * list nat) :=
+Fixpoint partition(n:nat)(l:list nat) : (list nat * list nat) :=
   match l with
   | [] => ([],[])
-  | a :: l' =>   let(l1,l2) := filter n l' in
+  | a :: l' =>   let(l1,l2) := partition n l' in
                      match (le_lt_dec  a n) with
                      | left _ => (a::l1,l2)
                      |right _ => (l1, a::l2)
@@ -15,29 +15,29 @@ Fixpoint filter(n:nat)(l:list nat) : (list nat * list nat) :=
    end.                    
 
 (* a good practice is to write equality lemmas, to be used  for rewriting in subsequent proofs *)
-Lemma filter_fst_le_cons : forall a n l,  a <= n -> fst( filter n (a :: l))  = a :: (fst (filter n l)).
+Lemma partition_fst_le_cons : forall a n l,  a <= n -> fst( partition n (a :: l))  = a :: (fst (partition n l)).
 Admitted.
 
-Lemma filter_snd_le_no_cons : forall a n l,  a <= n -> snd( filter n (a:: l))  = snd (filter n l).
+Lemma partition_snd_le_no_cons : forall a n l,  a <= n -> snd( partition n (a:: l))  = snd (partition n l).
  Admitted.
 
-Lemma filter_fst_gt_no_cons : forall a n l,  a > n -> fst( filter n (a :: l))  = fst (filter n l).
+Lemma partition_fst_gt_no_cons : forall a n l,  a > n -> fst( partition n (a :: l))  = fst (partition n l).
 Admitted.
 
-Lemma filter_snd_gt_cons : forall a n l,  a > n -> snd( filter n (a :: l))  = a :: snd (filter n l).
+Lemma partition_snd_gt_cons : forall a n l,  a > n -> snd( partition n (a :: l))  = a :: snd (partition n l).
 Admitted.
 
-Lemma  filter_fst_le : forall l n m,  In m (fst (filter n l)) -> m <= n .
+Lemma  partition_fst_le : forall l n m,  In m (fst (partition n l)) -> m <= n .
 Admitted.
 
   
- Lemma filter_snd_gt : forall n m l,  In m (snd (filter n l)) -> n  < m .
+ Lemma partition_snd_gt : forall n m l,  In m (snd (partition n l)) -> n  < m .
  Admitted.
 
-Lemma  filter_left_shorter : forall l n, length( fst (filter n l))  < length (n::l).
+Lemma  partition_left_shorter : forall l n, length( fst (partition n l))  < length (n::l).
 Admitted.
 
-Lemma filter_right_shorter : forall l n, length( snd (filter  n l))  < length (n :: l).
+Lemma partition_right_shorter : forall l n, length( snd (partition  n l))  < length (n :: l).
 Admitted.
 
 (* an inductive relation defining sortedness of lists of naturals *)
@@ -71,30 +71,30 @@ Admitted.
 Admitted.
 
 
-Lemma nb_occ_filter_le_fst : forall l a n,  a <= n -> nb_occ a l =
-                                      nb_occ a (fst (filter n l)).
+Lemma nb_occ_partition_le_fst : forall l a n,  a <= n -> nb_occ a l =
+                                      nb_occ a (fst (partition n l)).
 Admitted.
 
-Lemma nb_occ_filter_le_snd : forall l a n,  a <= n -> nb_occ a (snd (filter n l)) = 0.
+Lemma nb_occ_partition_le_snd : forall l a n,  a <= n -> nb_occ a (snd (partition n l)) = 0.
 Admitted.
  
-Lemma nb_occ_filter_gt_fst : forall l a n,  a > n -> 
-                                            nb_occ a (fst (filter n l)) = 0.
+Lemma nb_occ_partition_gt_fst : forall l a n,  a > n -> 
+                                            nb_occ a (fst (partition n l)) = 0.
 Admitted.
 
 
 
-Lemma nb_occ_filter_gt_snd : forall l a n,  a > n -> nb_occ a l =
-                                      nb_occ a (snd (filter n l)).
+Lemma nb_occ_partition_gt_snd : forall l a n,  a > n -> nb_occ a l =
+                                      nb_occ a (snd (partition n l)).
 Admitted.
 
-  Lemma nb_occ_filter' : forall l a n , nb_occ a l =
-                                      nb_occ a (fst (filter n l))  + nb_occ a (snd (filter n l)).
+  Lemma nb_occ_partition' : forall l a n , nb_occ a l =
+                                      nb_occ a (fst (partition n l))  + nb_occ a (snd (partition n l)).
 Admitted.
 
 
-  Lemma nb_occ_filter : forall l a n , nb_occ a (n :: l) =
-                                       nb_occ a (fst (filter n l)) + (nb_occ a [n] + nb_occ a (snd (filter n l))).
+  Lemma nb_occ_partition : forall l a n , nb_occ a (n :: l) =
+                                       nb_occ a (fst (partition n l)) + (nb_occ a [n] + nb_occ a (snd (partition n l))).
   Admitted.
 
   (* a list is a permutation of another one if any given element has the same number of occurences in both lists *)
@@ -119,13 +119,13 @@ Admitted.
 
 Lemma sorted_concat : forall l l1 l2 n,
   sorted l1 -> sorted l2 ->
-    permut (fst (filter n l)) l1 ->
-    permut (snd (filter n l)) l2 ->
+    permut (fst (partition n l)) l1 ->
+    permut (snd (partition n l)) l2 ->
     sorted (l1 ++ [n] ++ l2).
 Admitted.
 
  Lemma permut_concat : forall l l1 l2 n,
-    permut (fst (filter n l)) l1 ->
-    permut (snd (filter n l)) l2 ->
+    permut (fst (partition n l)) l1 ->
+    permut (snd (partition n l)) l2 ->
     permut(n::l)  (l1 ++ [n] ++ l2).
  Admitted.
