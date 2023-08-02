@@ -1,5 +1,6 @@
 (* well-founded induction *)
-Require Import Omega.
+Require Import Nat Lia.
+Import Nat.
 
 (* standard functions in Coq have to be structurally recursive *)
 (* how do we overcome this limitation ?*)
@@ -50,13 +51,16 @@ forall x y, S x y -> R x y.
 
 
 Theorem subrel_wf : forall R S, well_founded R -> subRel S R -> well_founded S.
-  intros ; constructor.
+Proof.
+  intros * HR HSR.
+  constructor.
   revert a.
-apply (well_founded_ind H (fun a => forall y, S y a -> Acc S y)); intros.
-unfold subRel in H0.
-specialize (H0 _ _ H2).
-specialize(H1 _ H0).
-constructor. auto.
+  apply (well_founded_ind HR (fun a => forall y, S y a -> Acc S y)); intros x Hind a Ha.
+  constructor.
+  intros y Hy.
+  apply Hind with a; [| assumption].
+  apply HSR.
+  assumption.
 Qed.
 
 End Subrel.
