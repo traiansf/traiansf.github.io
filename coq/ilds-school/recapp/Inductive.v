@@ -130,13 +130,15 @@ Proof.
   destruct (eq_dec n a); [reflexivity | congruence].
 Qed.
 
-Lemma nb_occ_cons_neq : forall a n l,  a <> n -> nb_occ a (n :: l) = nb_occ a l.
+Lemma nb_occ_cons_neq :
+  forall a n l,  a <> n -> nb_occ a (n :: l) = nb_occ a l.
 Proof.
   intros; cbn.
   destruct (eq_dec n a); [congruence | reflexivity].
 Qed.
 
-Lemma nb_occ_app : forall n l1 l2,  nb_occ n (l1 ++ l2) = nb_occ n l1 + nb_occ n l2.
+Lemma nb_occ_app :
+  forall n l1 l2,  nb_occ n (l1 ++ l2) = nb_occ n l1 + nb_occ n l2.
 Proof.
   induction l1; [reflexivity |].
   intros; change ((a :: l1) ++ l2) with (a :: l1 ++ l2).
@@ -147,65 +149,163 @@ Proof.
     apply IHl1.
 Qed.
 
-Lemma nb_occ_In : forall n l, In n l <-> nb_occ n l > 0.
-Admitted.
+Lemma nb_occ_In :
+  forall n l, In n l <-> nb_occ n l > 0.
+Proof.
+  induction l.
+  - split; [inversion 1 | cbn; lia].
+  - destruct (eq_dec n a).
+    + rewrite nb_occ_cons by assumption.
+      subst.
+      split; [lia | constructor 1; reflexivity].
+    + rewrite nb_occ_cons_neq by assumption.
+      rewrite <- IHl.
+      split; [| right; assumption].
+      inversion 1; [contradict n0; congruence | assumption].
+Qed.      
 
+Lemma nb_occ_partition_le_fst :
+  forall l a n,  a <= n -> nb_occ a l = nb_occ a (fst (partition n l)).
+Proof.
+  intros.
+  induction l; [reflexivity |].
+  destruct (le_lt_dec a0 n).
+  - rewrite partition_fst_le_cons by assumption.
+    destruct (eq_dec a a0).
+    + rewrite !nb_occ_cons, IHl by assumption.
+      reflexivity.
+    + rewrite !nb_occ_cons_neq; assumption.
+  - rewrite partition_fst_gt_no_cons, nb_occ_cons_neq by lia.
+    assumption.
+Qed.
 
-Lemma nb_occ_partition_le_fst : forall l a n,  a <= n -> nb_occ a l =
-                                      nb_occ a (fst (partition n l)).
-Admitted.
-
-Lemma nb_occ_partition_le_snd : forall l a n,  a <= n -> nb_occ a (snd (partition n l)) = 0.
-Admitted.
+Lemma nb_occ_partition_le_snd :
+  forall l a n,  a <= n -> nb_occ a (snd (partition n l)) = 0.
+Proof.
+  intros.
+  induction l; [reflexivity |].
+  destruct (le_lt_dec a0 n).
+  - rewrite partition_snd_le_no_cons; assumption.
+  - rewrite partition_snd_gt_cons, nb_occ_cons_neq by lia.
+    assumption.
+Qed.
  
-Lemma nb_occ_partition_gt_fst : forall l a n,  a > n -> 
-                                            nb_occ a (fst (partition n l)) = 0.
-Admitted.
+Lemma nb_occ_partition_gt_fst :
+  forall l a n,  a > n -> nb_occ a (fst (partition n l)) = 0.
+Proof.
+  intros.
+  induction l; [reflexivity |].
+  destruct (le_lt_dec a0 n).
+  - rewrite partition_fst_le_cons by assumption.
+    rewrite nb_occ_cons_neq by lia.
+    assumption.
+  - rewrite partition_fst_gt_no_cons by lia.
+    assumption.
+Qed.
 
+Lemma nb_occ_partition_gt_snd :
+  forall l a n,  a > n -> nb_occ a l = nb_occ a (snd (partition n l)).
+Proof.
+  intros.
+  induction l; [reflexivity |].
+  destruct (le_lt_dec a0 n).
+  - rewrite partition_snd_le_no_cons by assumption.
+    rewrite nb_occ_cons_neq by lia.
+    assumption.
+  - rewrite partition_snd_gt_cons by lia.
+    destruct (eq_dec a a0).
+    + rewrite !nb_occ_cons, IHl by assumption.
+      reflexivity.
+    + rewrite !nb_occ_cons_neq by assumption.
+      assumption.
+Qed.
 
+Lemma nb_occ_partition' :
+  forall l a n,
+    nb_occ a l
+      =
+    nb_occ a (fst (partition n l)) + nb_occ a (snd (partition n l)).
+Proof.
+  intros.
+  destruct (le_lt_dec a n).
+  - rewrite (nb_occ_partition_le_fst l a n), (nb_occ_partition_le_snd l a n); lia.
+  - rewrite (nb_occ_partition_gt_fst l a n), (nb_occ_partition_gt_snd l a n); lia.
+Qed.
 
-Lemma nb_occ_partition_gt_snd : forall l a n,  a > n -> nb_occ a l =
-                                      nb_occ a (snd (partition n l)).
-Admitted.
+Lemma nb_occ_partition :
+  forall l a n ,
+    nb_occ a (n :: l)
+      =
+    nb_occ a (fst (partition n l)) + (nb_occ a [n] + nb_occ a (snd (partition n l))).
+Proof.
+  intros; cbn.
+  destruct (eq_dec n a).
+  - rewrite (nb_occ_partition' l a n); lia.
+  - rewrite (nb_occ_partition' l a n); lia.
+Qed.
 
-  Lemma nb_occ_partition' : forall l a n , nb_occ a l =
-                                      nb_occ a (fst (partition n l))  + nb_occ a (snd (partition n l)).
-Admitted.
-
-
-  Lemma nb_occ_partition : forall l a n , nb_occ a (n :: l) =
-                                       nb_occ a (fst (partition n l)) + (nb_occ a [n] + nb_occ a (snd (partition n l))).
-  Admitted.
-
-  (* a list is a permutation of another one if any given element has the same number of occurences in both lists *)
- Definition permut(l1 l2: list nat) := forall n, nb_occ n l1 = nb_occ n l2.
-
+(* a list is a permutation of another one if any given element has the same number of occurences in both lists *)
+Definition permut(l1 l2: list nat) := forall n, nb_occ n l1 = nb_occ n l2.
 
 Lemma permut_In : forall n l1 l2, In n l2 -> permut l1 l2 -> In n l1.
-Admitted.
+Proof.
+  intros * Hn Hperm.
+  apply nb_occ_In.
+  rewrite Hperm.
+  apply nb_occ_In.
+  assumption.
+Qed.
 
-
- Lemma permut_nil_nil : permut [] [].
-Admitted.
-
-
+Lemma permut_nil_nil : permut [] [].
+Proof. intro; reflexivity. Qed.
 
 Lemma sorted_concat' : forall l1 l2 n,
     sorted l1 -> sorted l2 ->
     (forall m, In m l1 -> m <= n) ->
     (forall m, In m l2 -> n <  m) ->
     sorted (l1 ++ [n] ++ l2).
-Admitted.
+Proof.
+  intros * Hl1 Hl2 Hl1n Hl2n.
+  apply sorted_app; [| apply sorted_app |].
+  - assumption.
+  - constructor.
+  - assumption.
+  - intros x y [-> | He]; [| inversion He].
+    intro Hy; apply Hl2n in Hy; lia.
+  - intros x y Hx [-> | Hy].
+    + apply Hl1n; assumption.
+    + apply Hl1n in Hx.
+      apply Hl2n in Hy.
+      lia.
+Qed.
 
 Lemma sorted_concat : forall l l1 l2 n,
   sorted l1 -> sorted l2 ->
     permut (fst (partition n l)) l1 ->
     permut (snd (partition n l)) l2 ->
     sorted (l1 ++ [n] ++ l2).
-Admitted.
+Proof.
+  intros * Hl1 Hl2 Hpl1 Hpl2.
+  apply sorted_concat'; [assumption | assumption |..].
+  - intros m Hm.
+    apply permut_In with (n := m) in Hpl1; [| assumption].
+    apply nb_occ_In in Hpl1.
+    destruct (le_lt_dec m n); [assumption |].
+    rewrite nb_occ_partition_gt_fst in Hpl1; lia.
+  - intros m Hm.
+    apply permut_In with (n := m) in Hpl2; [| assumption].
+    apply nb_occ_In in Hpl2.
+    destruct (le_lt_dec m n); [| assumption].
+    rewrite nb_occ_partition_le_snd in Hpl2; lia.
+Qed.
 
- Lemma permut_concat : forall l l1 l2 n,
-    permut (fst (partition n l)) l1 ->
-    permut (snd (partition n l)) l2 ->
-    permut(n::l)  (l1 ++ [n] ++ l2).
- Admitted.
+Lemma permut_concat : forall l l1 l2 n,
+   permut (fst (partition n l)) l1 ->
+   permut (snd (partition n l)) l2 ->
+   permut(n::l)  (l1 ++ [n] ++ l2).
+Proof.
+  intros * Hl1 Hl2 m.
+  rewrite !nb_occ_app, nb_occ_partition.
+  rewrite (Hl1 m), (Hl2 m).
+  reflexivity.
+Qed.

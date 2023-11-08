@@ -11,10 +11,18 @@
   <style type="text/css">
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
@@ -33,19 +41,6 @@ Runtime Verification; UniBuc
   </p>
   <p class="date">Logic Seminar, FMI@UniBuc</p>
 </div>
-<div id="credits" class="slide section level2">
-<h1>Credits</h1>
-<ul>
-<li>Grigore Roșu
-<ul>
-<li>for matching logic itself</li>
-</ul></li>
-<li>Laurențiu Leuștean
-<ul>
-<li>for the lecture notes on matching logic</li>
-</ul></li>
-</ul>
-</div>
 <div id="overview-of-the-talk" class="slide section level2">
 <h1>Overview of the talk</h1>
 <ul>
@@ -59,21 +54,25 @@ Runtime Verification; UniBuc
 </ul></li>
 </ul>
 </div>
-<div id="introduction-to-applicative-matching-logic" class="title-slide slide section level1">
+<div id="introduction-to-applicative-matching-logic"
+class="title-slide slide section level1">
 <h1>Introduction to (applicative) matching logic</h1>
 
 </div>
-<div id="what-is-applicative-matching-logic" class="slide section level2">
+<div id="what-is-applicative-matching-logic"
+class="slide section level2">
 <h1>What is (applicative) matching logic</h1>
 <h3 id="motivation">Motivation</h3>
 <ul>
-<li>Introduced to help with deductive verification of program executions in the <span class="math inline">𝕂</span> framework
+<li>Introduced to help with deductive verification of program executions
+in the <span class="math inline">𝕂</span> framework
 <ul>
 <li>for reasoning about the structure (e.g., memory, call stack, …)</li>
 </ul></li>
 <li>Gradually refined into a general-purpose logic
 <ul>
-<li>meant to serve as a mathematical basis for the entire <span class="math inline">𝕂</span> framework</li>
+<li>meant to serve as a mathematical basis for the entire <span
+class="math inline">𝕂</span> framework</li>
 </ul></li>
 </ul>
 <h3 id="features">Features</h3>
@@ -84,86 +83,339 @@ Runtime Verification; UniBuc
 </ul></li>
 <li>Supports fixpoints
 <ul>
-<li>allows to define and reason about reachability / program executions</li>
+<li>allows to define and reason about reachability / program
+executions</li>
 <li>allows defining inductive datatypes</li>
 </ul></li>
 </ul>
 </div>
 <div id="matching-logic-syntax" class="slide section level2">
 <h1>Matching logic syntax</h1>
-<p><span class="math display"><em>φ</em> : :=<em>x</em> ∣ <em>X</em> ∣ <em>φ</em> → <em>φ</em>′ ∣ ∃<em>x</em>.<em>φ</em> ∣ <em>μ</em><em>X</em>.<em>φ</em> ∣ <em>σ</em> ∣ <em>φ</em> <em>φ</em>′∣</span></p>
+<p><span
+class="math display"><em>φ</em> : :=<em>x</em> ∣ <em>X</em> ∣ <em>φ</em> → <em>φ</em>′ ∣ ∃<em>x</em>.<em>φ</em> ∣ <em>μ</em><em>X</em>.<em>φ</em> ∣ <em>σ</em> ∣ <em>φ</em> ⋅ <em>φ</em>′∣</span></p>
 <dl>
 <dt>Structural</dt>
-<dd>element variables (<span class="math inline"><em>x</em></span>); constant symbols (<span class="math inline"><em>σ</em></span>); application (<span class="math inline"><em>φ</em> <em>φ</em>′</span>)
+<dd>
+element variables (<span class="math inline"><em>x</em></span>);
+constant symbols (<span class="math inline"><em>σ</em></span>);
+application (<span class="math inline"><em>φ</em> ⋅ <em>φ</em>′</span>)
 </dd>
 <dt>Logical</dt>
-<dd>set variables (<span class="math inline"><em>X</em></span>); logical implication (<span class="math inline"><em>φ</em> → <em>φ</em>′</span>); existential cuantification (<span class="math inline">∃<em>x</em>.<em>φ</em></span>)
+<dd>
+set variables (<span class="math inline"><em>X</em></span>); logical
+implication (<span class="math inline"><em>φ</em> → <em>φ</em>′</span>);
+existential cuantification (<span
+class="math inline">∃<em>x</em>.<em>φ</em></span>)
 </dd>
 <dt>Fixpoints</dt>
-<dd>least fixpoint (<span class="math inline"><em>μ</em><em>X</em>.<em>φ</em></span>)
+<dd>
+least fixpoint (<span
+class="math inline"><em>μ</em><em>X</em>.<em>φ</em></span>)
 </dd>
 </dl>
 <h3 id="derived-connectives">Derived connectives</h3>
 <ul>
-<li>false (<span class="math inline">⊥ := <em>μ</em><em>X</em>.<em>X</em></span>); negation (<span class="math inline">¬<em>ϕ</em> := <em>ϕ</em> → ⊥</span>); true (<span class="math inline">⊤ := ¬⊥</span>)</li>
-<li>disjunction (<span class="math inline"><em>ϕ</em> ∨ <em>ϕ</em>′ := ¬<em>ϕ</em> → <em>ϕ</em>′</span>); conjunction (<span class="math inline"><em>ϕ</em> ∧ <em>ϕ</em>′ := ¬(¬<em>ϕ</em>∨¬<em>ϕ</em>′)</span>)</li>
-<li>universal cuantification (<span class="math inline">∀<em>x</em>.<em>ϕ</em> := ¬∃<em>x</em>.¬<em>ϕ</em></span>)</li>
+<li>false (<span
+class="math inline">⊥ := <em>μ</em><em>X</em>.<em>X</em></span>);
+negation (<span
+class="math inline">¬<em>ϕ</em> := <em>ϕ</em> → ⊥</span>); true (<span
+class="math inline">⊤ := ¬⊥</span>)</li>
+<li>disjunction (<span
+class="math inline"><em>ϕ</em> ∨ <em>ϕ</em>′ := ¬<em>ϕ</em> → <em>ϕ</em>′</span>);
+conjunction (<span
+class="math inline"><em>ϕ</em> ∧ <em>ϕ</em>′ := ¬(¬<em>ϕ</em>∨¬<em>ϕ</em>′)</span>)</li>
+<li>universal cuantification (<span
+class="math inline">∀<em>x</em>.<em>ϕ</em> := ¬∃<em>x</em>.¬<em>ϕ</em></span>)</li>
 </ul>
 </div>
 <div id="structures-and-valuations" class="slide section level2">
 <h1>Structures and Valuations</h1>
 <ul>
-<li>A <em>structure</em> <span class="math inline">𝒜</span> consists of a carrier set <span class="math inline"><em>A</em></span> and
+<li>A <em>structure</em> <span class="math inline">𝒜</span> consists of
+a carrier set <span class="math inline"><em>A</em></span> and
 <ul>
-<li>an interpretation <span class="math inline"><em>σ</em><sup>𝒜</sup> ⊆ <em>A</em></span> for any constant <span class="math inline"><em>σ</em></span></li>
-<li>an interpretation of the application as a function <span class="math inline">_ ⋆ _ : <em>A</em> × <em>A</em> → 2<sup><em>A</em></sup></span></li>
+<li>an interpretation <span
+class="math inline"><em>σ</em><sup>𝒜</sup> ⊆ <em>A</em></span> for any
+constant <span class="math inline"><em>σ</em></span></li>
+<li>an interpretation of the application as a function <span
+class="math inline">_ ⋆ _ : <em>A</em> × <em>A</em> → 2<sup><em>A</em></sup></span></li>
 </ul></li>
-<li>A <em>valuation</em> (of variables) into structure <span class="math inline">𝒜</span> consists of
+<li>A <em>valuation</em> (of variables) into structure <span
+class="math inline">𝒜</span> consists of
 <ul>
-<li>an interpretation of element variables as elements of <span class="math inline"><em>A</em></span></li>
-<li>an interpretation of set variables as subsets of <span class="math inline"><em>A</em></span></li>
+<li>an interpretation of element variables as elements of <span
+class="math inline"><em>A</em></span></li>
+<li>an interpretation of set variables as subsets of <span
+class="math inline"><em>A</em></span></li>
 </ul></li>
-<li>A valuation <span class="math inline"><em>e</em></span> into a structure <span class="math inline">𝒜</span> extends to a valuation of patterns
+<li>A valuation <span class="math inline"><em>e</em></span> into a
+structure <span class="math inline">𝒜</span> extends to a valuation of
+patterns
 <ul>
-<li><span class="math inline"><em>e</em><sup>+</sup>(<em>x</em>) = {<em>e</em>(<em>x</em>)}</span>; <span class="math inline"><em>e</em><sup>+</sup>(<em>X</em>) = <em>e</em>(<em>X</em>)</span>; <span class="math inline"><em>e</em><sup>+</sup>(<em>σ</em>) = <em>σ</em><sup>𝒜</sup></span></li>
-<li><span class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>→<em>ϕ</em>′) = <em>A</em> \ (<em>e</em><sup>+</sup>(<em>ϕ</em>)\<em>e</em><sup>+</sup>(<em>ϕ</em>′))</span>;</li>
-<li><span class="math inline"><em>e</em><sup>+</sup>(∃<em>x</em>.<em>ϕ</em>) = ⋃<sub><em>a</em> ∈ <em>A</em></sub>(<em>e</em><sub><em>x</em> ↦ <em>a</em></sub>)<sup>+</sup>(<em>ϕ</em>)</span> (collecting all witnesses)</li>
-<li><span class="math inline"><em>e</em><sup>+</sup>(<em>μ</em><em>X</em>.<em>ϕ</em>) = ⋂{<em>B</em> ⊆ <em>A</em> ∣ (<em>e</em><sub><em>X</em> ↦ <em>B</em></sub>)<sup>+</sup>(<em>ϕ</em>) ⊆ <em>B</em>}</span> (intersection of all pre-fixpoints)</li>
-<li><span class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em> <em>ϕ</em>′) = <em>e</em><sup>+</sup>(<em>ϕ</em>) ⋆ <em>e</em><sup>+</sup>(<em>ϕ</em>′) = ⋃<sub><em>a</em> ∈ <em>e</em><sup>+</sup>(<em>ϕ</em>), <em>b</em> ∈ <em>e</em><sup>+</sup>(<em>ϕ</em>′)</sub><em>a</em> ⋆ <em>b</em></span>.</li>
+<li><span
+class="math inline"><em>e</em><sup>+</sup>(<em>x</em>) = {<em>e</em>(<em>x</em>)}</span>;
+<span
+class="math inline"><em>e</em><sup>+</sup>(<em>X</em>) = <em>e</em>(<em>X</em>)</span>;
+<span
+class="math inline"><em>e</em><sup>+</sup>(<em>σ</em>) = <em>σ</em><sup>𝒜</sup></span></li>
+<li><span
+class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>→<em>ϕ</em>′) = <em>A</em> \ (<em>e</em><sup>+</sup>(<em>ϕ</em>)\<em>e</em><sup>+</sup>(<em>ϕ</em>′))</span>;</li>
+<li><span
+class="math inline"><em>e</em><sup>+</sup>(∃<em>x</em>.<em>ϕ</em>) = ⋃<sub><em>a</em> ∈ <em>A</em></sub>(<em>e</em><sub><em>x</em> ↦ <em>a</em></sub>)<sup>+</sup>(<em>ϕ</em>)</span>
+(collecting all witnesses)</li>
+<li><span
+class="math inline"><em>e</em><sup>+</sup>(<em>μ</em><em>X</em>.<em>ϕ</em>) = ⋂{<em>B</em> ⊆ <em>A</em> ∣ (<em>e</em><sub><em>X</em> ↦ <em>B</em></sub>)<sup>+</sup>(<em>ϕ</em>) ⊆ <em>B</em>}</span>
+(intersection of all pre-fixpoints)</li>
+<li><span
+class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>⋅<em>ϕ</em>′) = <em>e</em><sup>+</sup>(<em>ϕ</em>) ⋆ <em>e</em><sup>+</sup>(<em>ϕ</em>′) = ⋃<sub><em>a</em> ∈ <em>e</em><sup>+</sup>(<em>ϕ</em>), <em>b</em> ∈ <em>e</em><sup>+</sup>(<em>ϕ</em>′)</sub><em>a</em> ⋆ <em>b</em></span>.</li>
 </ul></li>
 </ul>
 </div>
 <div id="valuation-of-derived-connectives" class="slide section level2">
 <h1>Valuation of derived connectives</h1>
 <ul>
-<li><span class="math inline"><em>e</em><sup>+</sup>(⊥) = ∅</span> and <span class="math inline"><em>e</em><sup>+</sup>(⊤) = <em>A</em></span></li>
-<li><span class="math inline"><em>e</em><sup>+</sup>(¬<em>ϕ</em>) = (<em>e</em><sup>+</sup>(<em>ϕ</em>))<sup>∁</sup></span></li>
-<li><span class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>∨<em>ϕ</em>′) = <em>e</em><sup>+</sup>(<em>ϕ</em>) ∪ <em>e</em><sup>+</sup>(<em>ϕ</em>′)</span></li>
-<li><span class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>∧<em>ϕ</em>′) = <em>e</em><sup>+</sup>(<em>ϕ</em>) ∩ <em>e</em><sup>+</sup>(<em>ϕ</em>′)</span></li>
-<li><span class="math inline"><em>e</em><sup>+</sup>(∀<em>x</em>.<em>ϕ</em>) = ⋂<sub><em>a</em> ∈ <em>A</em></sub>(<em>e</em><sub><em>x</em> ↦ <em>a</em></sub>)<sup>+</sup>(<em>ϕ</em>)</span> (conjunction over all “instances”)</li>
+<li><span class="math inline"><em>e</em><sup>+</sup>(⊥) = ∅</span> and
+<span
+class="math inline"><em>e</em><sup>+</sup>(⊤) = <em>A</em></span></li>
+<li><span
+class="math inline"><em>e</em><sup>+</sup>(¬<em>ϕ</em>) = (<em>e</em><sup>+</sup>(<em>ϕ</em>))<sup>∁</sup></span></li>
+<li><span
+class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>∨<em>ϕ</em>′) = <em>e</em><sup>+</sup>(<em>ϕ</em>) ∪ <em>e</em><sup>+</sup>(<em>ϕ</em>′)</span></li>
+<li><span
+class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>∧<em>ϕ</em>′) = <em>e</em><sup>+</sup>(<em>ϕ</em>) ∩ <em>e</em><sup>+</sup>(<em>ϕ</em>′)</span></li>
+<li><span
+class="math inline"><em>e</em><sup>+</sup>(∀<em>x</em>.<em>ϕ</em>) = ⋂<sub><em>a</em> ∈ <em>A</em></sub>(<em>e</em><sub><em>x</em> ↦ <em>a</em></sub>)<sup>+</sup>(<em>ϕ</em>)</span>
+(conjunction over all “instances”)</li>
 </ul>
 </div>
 <div id="satisfaction" class="slide section level2">
 <h1>Satisfaction</h1>
 <ul>
-<li><p>valuation satisfaction: <span class="math inline">𝒜 ⊨ <em>ϕ</em>[<em>e</em>]</span> if <span class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>) = <em>A</em></span></p></li>
-<li><p>model satisfaction: <span class="math inline">𝒜 ⊨ <em>ϕ</em></span> if <span class="math inline">𝒜 ⊨ <em>ϕ</em>[<em>e</em>]</span> for every valuation <span class="math inline"><em>e</em></span></p></li>
-<li><p>validity: <span class="math inline"> ⊨ <em>ϕ</em></span> if <span class="math inline">𝒜 ⊨ <em>ϕ</em></span> for every structure <span class="math inline">𝒜</span></p></li>
-<li><p>global semantic consequence: <span class="math inline"><em>ϕ</em>⊨<sub><em>g</em></sub><em>ϕ</em>′</span> if for every <span class="math inline">𝒜</span>, <span class="math inline">𝒜 ⊨ <em>ϕ</em></span> implies <span class="math inline">𝒜 ⊨ <em>ϕ</em>′</span></p></li>
-<li><p>local semantic consequence: <span class="math inline"><em>ϕ</em>⊨<sub><em>l</em></sub><em>ϕ</em>′</span> if for every <span class="math inline">𝒜</span> and <span class="math inline"><em>e</em></span>, <span class="math inline">𝒜 ⊨ <em>ϕ</em>[<em>e</em>]</span> implies <span class="math inline">𝒜 ⊨ <em>ϕ</em>′[<em>e</em>]</span></p></li>
-<li><p>strong semantic consequence: <span class="math inline"><em>ϕ</em>⊨<sub><em>s</em></sub><em>ϕ</em>′</span> if for every <span class="math inline">𝒜</span> and <span class="math inline"><em>e</em></span>, <span class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>) ⊆ <em>e</em><sup>+</sup>(<em>ϕ</em>′)</span>.</p></li>
-<li><p>globally/locally/strongly logically equivalent: <span class="math inline"><em>ϕ</em>≡<sub>*</sub><em>ϕ</em>′</span> if <span class="math inline"><em>ϕ</em>⊨<sub>*</sub><em>ϕ</em>′</span> and <span class="math inline"><em>ϕ</em>′⊨<sub>*</sub><em>ϕ</em></span>, where <span class="math inline">*</span> is <span class="math inline"><em>g</em></span>, <span class="math inline"><em>l</em></span>, or <span class="math inline"><em>s</em></span></p></li>
+<li><p>valuation satisfaction: <span
+class="math inline">𝒜 ⊨ <em>ϕ</em>[<em>e</em>]</span> if <span
+class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>) = <em>A</em></span></p></li>
+<li><p>model satisfaction: <span
+class="math inline">𝒜 ⊨ <em>ϕ</em></span> if <span
+class="math inline">𝒜 ⊨ <em>ϕ</em>[<em>e</em>]</span> for every
+valuation <span class="math inline"><em>e</em></span></p></li>
+<li><p>validity: <span class="math inline"> ⊨ <em>ϕ</em></span> if <span
+class="math inline">𝒜 ⊨ <em>ϕ</em></span> for every structure <span
+class="math inline">𝒜</span></p></li>
+<li><p>global semantic consequence: <span
+class="math inline"><em>ϕ</em>⊨<sub><em>g</em></sub><em>ϕ</em>′</span>
+if for every <span class="math inline">𝒜</span>, <span
+class="math inline">𝒜 ⊨ <em>ϕ</em></span> implies <span
+class="math inline">𝒜 ⊨ <em>ϕ</em>′</span></p></li>
+<li><p>local semantic consequence: <span
+class="math inline"><em>ϕ</em>⊨<sub><em>l</em></sub><em>ϕ</em>′</span>
+if for every <span class="math inline">𝒜</span> and <span
+class="math inline"><em>e</em></span>, <span
+class="math inline">𝒜 ⊨ <em>ϕ</em>[<em>e</em>]</span> implies <span
+class="math inline">𝒜 ⊨ <em>ϕ</em>′[<em>e</em>]</span></p></li>
+<li><p>strong semantic consequence: <span
+class="math inline"><em>ϕ</em>⊨<sub><em>s</em></sub><em>ϕ</em>′</span>
+if for every <span class="math inline">𝒜</span> and <span
+class="math inline"><em>e</em></span>, <span
+class="math inline"><em>e</em><sup>+</sup>(<em>ϕ</em>) ⊆ <em>e</em><sup>+</sup>(<em>ϕ</em>′)</span>.</p></li>
+<li><p>globally/locally/strongly logically equivalent: <span
+class="math inline"><em>ϕ</em>≡<sub>*</sub><em>ϕ</em>′</span> if <span
+class="math inline"><em>ϕ</em>⊨<sub>*</sub><em>ϕ</em>′</span> and <span
+class="math inline"><em>ϕ</em>′⊨<sub>*</sub><em>ϕ</em></span>, where
+<span class="math inline">*</span> is <span
+class="math inline"><em>g</em></span>, <span
+class="math inline"><em>l</em></span>, or <span
+class="math inline"><em>s</em></span></p></li>
 </ul>
 </div>
-<div id="satisfaction-for-sets-of-patterns" class="slide section level2">
+<div id="satisfaction-for-sets-of-patterns"
+class="slide section level2">
 <h1>Satisfaction for sets of patterns</h1>
 <ul>
-<li>valuation satisfaction for sets of patterns: <span class="math inline">𝒜 ⊨ <em>Γ</em>[<em>e</em>]</span> if <span class="math inline">𝒜 ⊨ <em>ϕ</em>[<em>e</em>]</span> for every <span class="math inline"><em>ϕ</em> ∈ <em>Γ</em></span></li>
-<li>model satisfaction: <span class="math inline">𝒜 ⊨ <em>Γ</em></span> if <span class="math inline">𝒜 ⊨ <em>Γ</em>[<em>e</em>]</span> for every valuation <span class="math inline"><em>e</em></span></li>
-<li>validity: <span class="math inline"> ⊨ <em>Γ</em></span> if <span class="math inline">𝒜 ⊨ <em>Γ</em></span> for every structure <span class="math inline">𝒜</span></li>
-<li>global semantic consequence: <span class="math inline"><em>Γ</em>⊨<sub><em>g</em></sub><em>Δ</em></span> if for every <span class="math inline">𝒜</span>, <span class="math inline">𝒜 ⊨ <em>Γ</em></span> implies <span class="math inline">𝒜 ⊨ <em>Δ</em></span></li>
-<li>local semantic consequence: <span class="math inline"><em>Γ</em>⊨<sub><em>l</em></sub><em>Δ</em></span> if for every <span class="math inline">𝒜</span> and <span class="math inline"><em>e</em></span>, <span class="math inline">𝒜 ⊨ <em>Γ</em>[<em>e</em>]</span> implies <span class="math inline">𝒜 ⊨ <em>Δ</em>[<em>e</em>]</span></li>
-<li>strong semantic consequence: <span class="math inline"><em>Γ</em>⊨<sub><em>s</em></sub><em>Δ</em></span> if for every <span class="math inline">𝒜</span> and <span class="math inline"><em>e</em></span>, <span class="math inline">⋂<sub><em>γ</em> ∈ <em>Γ</em></sub><em>e</em><sup>+</sup>(<em>γ</em>) ⊆ <em>e</em><sup>+</sup>(<em>ϕ</em>)</span> for all <span class="math inline"><em>ϕ</em> ∈ <em>Δ</em></span>.</li>
+<li><p>valuation satisfaction for sets of patterns: <span
+class="math inline">𝒜 ⊨ <em>Γ</em>[<em>e</em>]</span> if <span
+class="math inline">𝒜 ⊨ <em>ϕ</em>[<em>e</em>]</span> for every <span
+class="math inline"><em>ϕ</em> ∈ <em>Γ</em></span></p></li>
+<li><p>model satisfaction: <span
+class="math inline">𝒜 ⊨ <em>Γ</em></span> if <span
+class="math inline">𝒜 ⊨ <em>Γ</em>[<em>e</em>]</span> for every
+valuation <span class="math inline"><em>e</em></span></p></li>
+<li><p>validity: <span class="math inline"> ⊨ <em>Γ</em></span> if <span
+class="math inline">𝒜 ⊨ <em>Γ</em></span> for every structure <span
+class="math inline">𝒜</span></p></li>
+<li><p>global semantic consequence: <span
+class="math inline"><em>Γ</em>⊨<sub><em>g</em></sub><em>Δ</em></span> if
+for every <span class="math inline">𝒜</span>, <span
+class="math inline">𝒜 ⊨ <em>Γ</em></span> implies <span
+class="math inline">𝒜 ⊨ <em>Δ</em></span></p></li>
+<li><p>local semantic consequence: <span
+class="math inline"><em>Γ</em>⊨<sub><em>l</em></sub><em>Δ</em></span> if
+for every <span class="math inline">𝒜</span> and <span
+class="math inline"><em>e</em></span>, <span
+class="math inline">𝒜 ⊨ <em>Γ</em>[<em>e</em>]</span> implies <span
+class="math inline">𝒜 ⊨ <em>Δ</em>[<em>e</em>]</span></p></li>
+<li><p>strong semantic consequence: <span
+class="math inline"><em>Γ</em>⊨<sub><em>s</em></sub><em>Δ</em></span> if
+for every <span class="math inline">𝒜</span> and <span
+class="math inline"><em>e</em></span>, <span
+class="math inline">⋂<sub><em>γ</em> ∈ <em>Γ</em></sub><em>e</em><sup>+</sup>(<em>γ</em>) ⊆ ⋂<sub><em>δ</em> ∈ <em>Δ</em></sub><em>e</em><sup>+</sup>(<em>δ</em>)</span></p></li>
+<li><p><span
+class="math inline"><em>Γ</em>⊨<sub>*</sub><em>ϕ</em></span> if <span
+class="math inline"><em>Γ</em>⊨<sub>*</sub>{<em>ϕ</em>}</span>.</p></li>
+<li><p><span class="math inline">⊨<sub><em>s</em></sub></span> is
+stronger than <span class="math inline">⊨<sub><em>l</em></sub></span>
+which is stronger than <span
+class="math inline">⊨<sub><em>g</em></sub></span></p></li>
+</ul>
+</div>
+<div id="free-variables-substitution-positive-and-negative-occurences"
+class="slide section level2">
+<h1>Free Variables, Substitution, Positive and Negative Occurences</h1>
+<ul>
+<li><em>Free variables</em> (<span
+class="math inline"><em>F</em><em>V</em>(<em>ϕ</em>)</span>) and
+<em>substitution</em> (<span
+class="math inline"><em>S</em><em>u</em><em>b</em><em>f</em><sub><em>χ</em></sub><sup><em>x</em></sup><em>ϕ</em></span>)
+are defined as usual, noting that <span class="math inline">∃</span> and
+<span class="math inline"><em>μ</em></span> bind their respective
+variables</li>
+<li>a free occurence of <span class="math inline"><em>X</em></span> in
+<span class="math inline"><em>ϕ</em></span> is
+<em>positive</em>/<em>negative</em> if it occurs in the left operand of
+an even/odd number of implication operators.</li>
+<li>An <em>applicative context</em> <strong><span
+class="math inline"><em>C</em></span></strong> is a pattern containing a
+unique occurence of a special set-variable <span
+class="math inline">□</span> with the property that on the path from
+<span class="math inline">□</span> to the top of the pattern there are
+only application operators.
+<ul>
+<li><span class="math inline"><em>C</em>[<em>ϕ</em>]</span> denotes the
+substitution of <span class="math inline">□</span> by <span
+class="math inline"><em>ϕ</em></span> in <span
+class="math inline"><em>C</em></span>.</li>
+</ul></li>
+</ul>
+</div>
+<div id="matching-logic-proof-system-axioms"
+class="slide section level2">
+<h1>Matching logic proof system (axioms)</h1>
+<p><img src="Images/ML-axioms.png" /></p>
+</div>
+<div id="matching-logic-proof-system-deduction-rules"
+class="slide section level2">
+<h1>Matching logic proof system (deduction rules)</h1>
+<p><img src="Images/ML-rules.png" /></p>
+</div>
+<div id="soundness" class="slide section level2">
+<h1>Soundness</h1>
+<dl>
+<dt>Global Soundness</dt>
+<dd>
+Let <span class="math inline">⊢</span> be the deduction induced by the
+proof system above. Then <span
+class="math inline"><em>Γ</em> ⊢ <em>ϕ</em></span> implies <span
+class="math inline"><em>Γ</em>⊨<sub><em>g</em></sub><em>ϕ</em></span>.
+</dd>
+<dt>Local Soundness</dt>
+<dd>
+Let <span class="math inline">⊢<sub><em>l</em></sub></span> be the
+deduction induced by the proof system above from which (<span
+class="math inline">∃</span>-QUANTIFIER RULE) and (SET VARIABLE
+SUBSTITUTION) were removed. Then <span
+class="math inline"><em>Γ</em>⊢<sub><em>l</em></sub><em>ϕ</em></span>
+implies <span
+class="math inline"><em>Γ</em>⊨<sub><em>l</em></sub><em>ϕ</em></span>.
+</dd>
+<dt>Strong Soundness</dt>
+<dd>
+Let <span class="math inline">⊢<sub><em>s</em></sub></span> be the
+deduction induced by the proof system for <span
+class="math inline">⊢<sub><em>l</em></sub></span> from which (FRAMING)
+and (KNASTER-TARSKI) were <em>additionally</em> removed. Then <span
+class="math inline"><em>Γ</em>⊢<sub><em>s</em></sub><em>ϕ</em></span>
+implies <span
+class="math inline"><em>Γ</em>⊨<sub><em>s</em></sub><em>ϕ</em></span>.
+</dd>
+</dl>
+</div>
+<div id="computer-based-formalizations-of-matching-logic"
+class="slide section level2">
+<h1>Computer-based formalizations of matching logic</h1>
+<ul>
+<li>University of Illinois
+<ul>
+<li>just syntax and deduction (in Metamath / Maude)</li>
+<li>interactive theorem prover for ML + propositional tautology
+verifier</li>
+</ul></li>
+<li>Eötvös Loránd University, Hungary
+<ul>
+<li>syntax, semantics, deduction, soundness (using Coq)</li>
+<li>an interactive theorem prover for ML (a proof mode, also in
+Coq)</li>
+</ul></li>
+<li>Institute of Logic and Data Science, Bucharest
+<ul>
+<li>syntax, semantics, deduction, soundness (using Lean)</li>
+<li>export ML proofs to Metamath</li>
+</ul></li>
+</ul>
+</div>
+<div id="matching-logic-in-lean-project" class="slide section level2">
+<h1>Matching Logic in Lean project</h1>
+<ul>
+<li><p>Institute of Logic and Data Science, Bucharest</p></li>
+<li><p>Phase I (completed)</p>
+<ul>
+<li>a detailed mathematical exposition of (applicative) matching
+logic</li>
+<li>syntax, semantics, deduction, soundness formalized using Lean</li>
+<li>export ML proofs from Lean to Metamath</li>
+</ul></li>
+<li><p>Phase II (not yet started?)</p>
+<ul>
+<li>build first-order matching logit on top of applicative matching
+logic</li>
+<li>import a K programming language specification</li>
+<li>certify a program execution</li>
+</ul></li>
+</ul>
+</div>
+<div id="my-matching-logic-in-coq-exercise"
+class="slide section level2">
+<h1>My matching logic in Coq exercise</h1>
+<p><a
+href="http://github.com/traiansf/aml-in-coq">http://github.com/traiansf/aml-in-coq</a></p>
+<ul>
+<li>Follow the mathematical exposition of (applicative) matching logic
+as close as possible</li>
+<li>went through it page by page and added definitions and lemmas to Coq
+<ul>
+<li>even specified and proved unique readability</li>
+<li>even specified and proved the set theory appendix <a
+href="https://github.com/traiansf/sets-in-coq">https://github.com/traiansf/sets-in-coq</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="credits-and-acknowledgements" class="slide section level2">
+<h1>Credits and Acknowledgements</h1>
+<ul>
+<li>Grigore Roșu
+<ul>
+<li>for matching logic itself</li>
+</ul></li>
+<li>Laurențiu Leuștean
+<ul>
+<li>for the lecture notes on matching logic used here</li>
+</ul></li>
+<li>Ioana Leuștean &amp; Natalia Ozunu
+<ul>
+<li>for making me see matching logic as a modal logic</li>
+</ul></li>
+<li>My team at Runtime Verification, Inc.
+<ul>
+<li>for providing suggestions on Coq technical issues</li>
+</ul></li>
 </ul>
 </div>
 

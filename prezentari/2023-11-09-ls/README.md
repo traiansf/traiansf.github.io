@@ -47,7 +47,7 @@ Structural
 : element variables ($x$); constant symbols ($\sigma$); application ($\varphi \cdot \varphi'$)
 
 Logical
-: set variables ($X$); logical implication ($\varphi \longrightarrow \varphi'$); existential cuantification ($\exists x . \varphi$)
+: set variables ($X$); logical implication ($\varphi \longrightarrow \varphi'$); existential quantification ($\exists x . \varphi$)
 
 Fixpoints
 : least fixpoint ($\mu X . \varphi$)
@@ -55,7 +55,7 @@ Fixpoints
 ### Derived connectives
 - false ($\bot := \mu X . X$); negation ($\neg \phi := \phi \longrightarrow \bot$); true ($\top := \neg \bot$)
 - disjunction ($\phi \vee \phi' := \neg \phi \longrightarrow \phi'$); conjunction ($\phi \wedge \phi' := \neg (\neg \phi \vee \neg \phi')$)
-- universal cuantification ($\forall x . \phi := \neg\exists x. \neg \phi$)
+- universal quantification ($\forall x . \phi := \neg\exists x. \neg \phi$)
 
 ## Structures and Valuations
 
@@ -117,7 +117,7 @@ Fixpoints
 - An _applicative context_ __$C$__ is a pattern containing a unique occurence of a special
   set-variable $\Box$ with the property that on the path from $\Box$ to the top
   of the pattern there are only application operators.
-  - __$C[\phi]$__ denotes the substitution of $\Box$ by $\phi$ in $C$.
+  - $C[\phi]$ denotes the substitution of $\Box$ by $\phi$ in $C$.
 
 ## Matching logic proof system (axioms)
 
@@ -153,8 +153,31 @@ Strong Soundness
   - an interactive theorem prover for ML (a proof mode, also in Coq)
 - Institute of Logic and Data Science, Bucharest
   - syntax, semantics, deduction, soundness (using Lean)
-  - export of ML proofs to Metamath
+  - export ML proofs to Metamath
 
+## Matching Logic in Lean project
+
+- Institute of Logic and Data Science, Bucharest
+
+- Phase I (completed)
+  - a detailed mathematical exposition of (applicative) matching logic
+  - syntax, semantics, deduction, soundness formalized using Lean
+  - export ML proofs from Lean to Metamath
+
+- Phase II (not yet started?)
+  - build first-order matching logit on top of applicative matching logic
+  - import a K programming language specification
+  - certify a program execution
+
+## My matching logic in Coq exercise
+
+[http://github.com/traiansf/aml-in-coq](http://github.com/traiansf/aml-in-coq)
+
+- Follow the mathematical exposition of (applicative) matching logic as close as possible
+- went through it page by page and added definitions and lemmas to Coq
+  - even specified and proved unique readability
+  - even specified and proved the set theory appendix
+    [https://github.com/traiansf/sets-in-coq](https://github.com/traiansf/sets-in-coq)
 
 ## Credits and Acknowledgements
 
@@ -164,5 +187,7 @@ Strong Soundness
   - for the lecture notes on matching logic used here
 - Ioana Leuștean & Natalia Ozunu
   - for making me see matching logic as a modal logic
+- My team at Runtime Verification, Inc.
+  - for providing suggestions on Coq technical issues
 
 # Thank you
