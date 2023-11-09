@@ -2,8 +2,8 @@
 title: Matching Logic in Coq
 author: Traian Florin Șerbănuță
 institute: Runtime Verification; UniBuc
-date: Logic Seminar, FMI@UniBuc
-theme: RV
+date: 2023-11-09, Logic Seminar, FMI@UniBuc
+theme: metropolis
 aspectratio: 169
 ---
 
