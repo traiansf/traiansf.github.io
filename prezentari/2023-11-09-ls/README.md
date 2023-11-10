@@ -3,7 +3,7 @@ title: Matching Logic in Coq
 author: Traian Florin Șerbănuță
 institute: Runtime Verification; UniBuc
 date: 2023-11-09, Logic Seminar, FMI@UniBuc
-theme: metropolis
+theme: RV
 aspectratio: 169
 ---
 
@@ -164,7 +164,7 @@ Strong Soundness
   - syntax, semantics, deduction, soundness formalized using Lean
   - export ML proofs from Lean to Metamath
 
-- Phase II (not yet started?)
+- Phase II
   - build first-order matching logit on top of applicative matching logic
   - import a K programming language specification
   - certify a program execution
