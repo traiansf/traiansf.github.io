@@ -1,0 +1,104 @@
+% This is the inner theme file of the Pi2 theme.
+% Based on the inner theme file for the Feather theme.
+% Copyright (c) 2014 by Lilyana Vaskova Vankova <lilqna.v@gmail.com>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerinnerthemePi2}[2014/04/08 v1.0.0 The Pi Squared Beamer Theme]
+
+\newcommand{\sectionBackground}[1]{%
+        \begin{tikzpicture}[overlay, remember picture]%
+                 \node [anchor=north west] at (current page.north west) {\includegraphics[width=\paperwidth]{Pi2Graphics/section_page}};%
+                 \node [anchor=north west] at (0, 2) {
+                  \begin{minipage}{.87\textwidth}
+                    #1
+                  \end{minipage}
+
+                 };%
+        \end{tikzpicture}
+
+%
+%        \begin{tikzpicture}[overlay, remember picture]%
+%                  \node [anchor=center] at (current page.center) {\includegraphics[height=1.75\paperheight]{Pi2Graphics/section-page}};%
+%                 \node [anchor=north west] at (current page.north west) {\includegraphics[width=7em]{Pi2Graphics/rv-logo}};%
+%        \end{tikzpicture}%
+}
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theme options, definitions and templates.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% beamer specific options
+
+               \mode<presentation> %refers to the first four modes (beamer,handout,second and trans). That is, to all modes except the article mode
+{
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% title page
+%% definitions for fonts of the different elements
+
+               \setbeamerfont{institute}{family=\rmfamily, size =  \footnotesize}
+               \setbeamerfont{title}{family=\sffamily,series=\bfseries,size =\LARGE}
+               \setbeamerfont{subtitle}{family=\sffamily,series=\bfseries,size = \large}
+               \setbeamerfont{author}{family=\sffamily,series=\mdseries, size = \normalsize}
+               \setbeamerfont{date}{family=\sffamily,series=\mdseries, size = \scriptsize}
+               \setbeamerfont{frametitle}{family=\sffamily,series=\mdseries,size = \large}
+
+
+%----------------------------------------------------------------------------------------------------------------------------------
+
+% add the Pi2 to the background of the titlepage and the final page
+
+               \setbeamertemplate{title page}
+   {
+        \begin{tikzpicture}[overlay, remember picture]%
+                 \node [anchor=north west] at (current page.north west) {\includegraphics[width=\paperwidth]{Pi2Graphics/title_page}};%
+        \end{tikzpicture}
+          %  \sectionBackground{
+                % {\usebeamerfont{institute}\insertinstitute}\vspace*{30pt}
+
+
+                \begin{center}
+                 {\centering\usebeamerfont{title}\usebeamercolor[fg]{frametitle}\inserttitle}
+
+                 {\centering\usebeamerfont{subtitle}\usebeamercolor[fg]{frametitle}\insertsubtitle}
+
+                 {\centering\usebeamerfont{author}\usebeamercolor[fg]{frametitle}\insertauthor}
+
+                 {\centering\usebeamerfont{date}\usebeamercolor[fg]{frametitle}\insertdate}
+                \end{center}
+          %  }
+   }
+
+
+\AtBeginSection[]{
+\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page, noframenumbering removes the numbering of this frame only
+           \sectionBackground{
+                   \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\secname
+                   }
+\end{frame}
+}
+% use numbers instead of a picture for the references
+                  \setbeamertemplate{bibliography }[text]
+
+}
+
+\mode<all>
