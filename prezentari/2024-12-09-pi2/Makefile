@@ -6,7 +6,7 @@ all: README.pdf
 	pandoc $< -o $@ -s -t beamer --toc-depth 2 --citeproc
 
 index.html: README.md Makefile
-	pandoc $< -o $@ -s -t slidy --toc-depth 2 --citeproc
+	pandoc $< -o $@ -s -t slidy --toc-depth 2 --citeproc --mathjax
 
 %.ipynb: %.md
 	pandoc $< -o $@

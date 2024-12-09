@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Traian Florin Șerbănuță (and Mihai Calancea, and Brandon Moore)" />
+  <title>Implementing a checker for propositional logic in Circom</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Implementing a checker for propositional logic in
+Circom</h1>
+  <p class="author">
+Traian Florin Șerbănuță (and Mihai Calancea, and Brandon Moore)
+  </p>
+  <p class="institute">
+Pi Squared Inc.
+  </p>
+  <p class="date">2023-11-09, Pi Squared Workshop at PT18</p>
+</div>
+<div id="overview-of-the-talk" class="slide section level2">
+<h1>Overview of the talk</h1>
+<ul>
+<li>Arithmetic circuits and R1CS constraints</li>
+<li>Designing R1CS constraint systems using Circom</li>
+<li>Randomized (non-deterministic) programming</li>
+<li>Current implementation of Propositional Logic in Circom
+<ul>
+<li>Hilbert proofs</li>
+<li>Arithmetization of terms/patterns/formulæ as Reed-Solomon
+polynomials</li>
+<li>Well-formedness checking</li>
+<li>Modus-ponens</li>
+<li>Axioms and instantiation of (meta)variables</li>
+</ul></li>
+</ul>
+</div>
+<div id="rank-1-constraint-systems"
+class="title-slide slide section level1">
+<h1>Rank-1 Constraint Systems</h1>
+
+</div>
+<div id="r1cs-formulations-programmer-style"
+class="slide section level2">
+<h1>R1CS Formulations (programmer style)</h1>
+<ul>
+<li>Constant values: only a constant value is allowed.</li>
+<li>Linear expression: an expression where only addition is used.
+<ul>
+<li>It can also be written using multiplication of variables by
+constants.</li>
+<li><span class="math inline">\(2*x + 3*y + 2\)</span> is allowed, as it
+is equivalent to <span class="math inline">\(x + x + y + y + y +
+2\)</span>.</li>
+</ul></li>
+<li>Quadratic expression: multiplication between two linear expressions
+and addition of a linear expression:
+<ul>
+<li><span class="math inline">\(A*B - C\)</span>, where <span
+class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>
+and <span class="math inline">\(C\)</span> are linear expressions.</li>
+<li>For instance, <span class="math inline">\((2*x + 3*y + 2) * (x+y) +
+6*x + y – 2\)</span>.</li>
+</ul></li>
+<li>Quadratic constraint: <span class="math inline">\(A*B - C =
+0\)</span>, where <span class="math inline">\(A\)</span>, <span
+class="math inline">\(B\)</span> and <span
+class="math inline">\(C\)</span> are linear expressions.</li>
+</ul>
+<p>Source: <span class="citation">(Documentation 2024)</span></p>
+</div>
+<div id="r1cs-formulations-mathematical-style"
+class="slide section level2">
+<h1>R1CS Formulations (mathematical style)</h1>
+<p>A <strong>system of rank-1 quadratic equations</strong> over <span
+class="math inline">\(\mathbb{F}\)</span> is a tuple <span
+class="math inline">\(\mathcal{S} = \left((a_j, b_j, c_j)_{j \in
+\overline{1, N_g}}, n\right)\)</span> where <span
+class="math inline">\(a_j, b_j, c_j \in \mathbb{F}^{1 + N_w}\)</span>
+and <span class="math inline">\(n\leq N_w\)</span></p>
+<ul>
+<li><span class="math inline">\(N_g\)</span> - the number of
+constraints</li>
+<li><span class="math inline">\(N_w\)</span> - the number of
+variables</li>
+<li><span class="math inline">\(n\)</span> - the input size</li>
+</ul>
+<p><span class="math inline">\(\mathcal{S}\)</span> is satisfiable with
+an input <span class="math inline">\(x \in \mathbb{F}^n\)</span> if
+there is a witness <span class="math inline">\(w \in
+\mathbb{F}^{N_w}\)</span> such that:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x = (w_1, \ldots, w_n)\)</span>,
+and</li>
+<li><span class="math inline">\(\langle a_j, (1, w) \rangle \cdot
+\langle b_j, (1, w)\rangle = \langle c_j, (1, w)\rangle\ for\ j\in
+\overline{1, N_g}\)</span>.</li>
+</ol>
+<p>Source <span class="citation">(Ben-Sasson et al. 2013; Gennaro et al.
+2012)</span></p>
+</div>
+<div id="arithmetic-circuits-to-r1cs" class="slide section level2">
+<h1>Arithmetic circuits to R1CS</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="Images/circuit.png" style="width:100.0%" /></p>
+</div><div class="column" style="width:50%;">
+<p>An arithmetic circuit.</p>
+<p>The value at each output wire of a multiplication gate is expressed
+in terms of the values of output wires of lower multiplication gates (or
+of input wires) <span class="citation">(Gennaro et al. 2012)</span>.</p>
+<hr />
+<p><span class="math inline">\((a_1 + 7a_2)\cdot (a_2 - 2a_3) =
+a_5\)</span></p>
+<p><span class="math inline">\((a_2 - 2a_3) \cdot a_4 = a_6\)</span></p>
+</div>
+</div>
+<h3 id="r1cs-n_g-2-n_w-6-n-4">R1CS: <span class="math inline">\(N_g = 2,
+N_w = 6, n = 4\)</span></h3>
+<p><span class="math inline">\((0, 1, 7, 0, 0, 0, 0), (0, 0, 1, -2, 0,
+0, 0), (0, 0, 0, 0, 0, 1, 0)\)</span></p>
+<p><span class="math inline">\((0, 0, 1, -2, 0, 0, 0), (0, 0, 0, 0, 1,
+0, 0), (0, 0, 0, 0, 0, 0, 1)\)</span></p>
+</div>
+
+<div id="programming-in-circom"
+class="title-slide slide section level1">
+<h1>Programming in Circom</h1>
+
+</div>
+<div id="circom" class="slide section level2">
+<h1>Circom</h1>
+<ul>
+<li>A JavaScript-like language with extra support for signals and
+constraints</li>
+<li>The compiler checks that signals are used and constrained
+appropriately
+<ul>
+<li>no non-quadratic constraints</li>
+<li>no conditionals based on signals</li>
+<li>no unbounded loops for signals</li>
+</ul></li>
+<li>One can use the regular language to compute the witness
+<ul>
+<li>conditional and unbounded loops are allowed</li>
+<li>one should constrain/check the witness using R1CS constraints</li>
+</ul></li>
+</ul>
+</div>
+<div id="signals" class="slide section level2">
+<h1>Signals</h1>
+<ul>
+<li><p>The “circuit” variables of the language</p></li>
+<li><p>Correspond to output wires of arithmetic circuit gates</p></li>
+<li><p>When assigned to, one should also generate the corresponding
+constraint(s)</p>
+<p>E.g.,
+<strong><code>a6 &lt;== (a2 - 2 * a3) * a4</code></strong></p></li>
+<li><p>However, we can also assign them directly and specify the
+constraint(s) separately</p>
+<ul>
+<li><p>especially if we want to assign them to non-quadratic
+expressions</p>
+<pre><code>b &lt;-- 1/a;
+a * b === 1;</code></pre></li>
+</ul></li>
+</ul>
+</div>
+<div id="compositionality-via-templates-iden3circomlib"
+class="slide section level2">
+<h1>Compositionality via templates <span class="citation">(Iden3
+2024)</span></h1>
+<div class="columns">
+<div class="column" style="width:33%;">
+<pre><code>template AND() {
+    signal input a;
+    signal input b;
+    signal output out;
+
+    out &lt;== a*b;
+}
+template OR() {
+    signal input a;
+    signal input b;
+    signal output out;
+
+    out &lt;== a + b - a*b;
+}</code></pre>
+</div><div class="column" style="width:66%;">
+<pre><code>template IsZero() {
+    signal input in_;
+    signal output out;
+    signal inv;
+
+    inv &lt;-- in_!=0 ? 1/in_ : 0;
+    out &lt;== -in_*inv +1;
+    in_*out === 0;
+}</code></pre>
+<ul>
+<li>if <code>in_</code> is <code>0</code>, then <code>out=1</code>
+uniquely satisfies both equations regardless of <code>inv</code></li>
+<li>if <code>in_</code> is not <code>0</code> then there exists
+<code>inv</code> s.t. <code>in_ * inv = 1</code> and <code>out=0</code>
+uniquely satisfies both equations</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="template-recursion" class="slide section level2">
+<h1>Template Recursion</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<pre><code>template MultiAND(n) {
+    signal input in[n];
+    signal output out;
+    component and1;
+    component and2;
+    component ands[2];
+    if (n==1) {
+        out &lt;== in[0];
+    } else if (n==2) {
+        and1 = AND();
+        and1.a &lt;== in[0];
+        and1.b &lt;== in[1];
+        out &lt;== and1.out;</code></pre>
+</div><div class="column" style="width:50%;">
+<pre><code>  } else {
+      and2 = AND();
+      var n1 = n\2;
+      var n2 = n-n\2;
+      ands[0] = MultiAND(n1);
+      ands[1] = MultiAND(n2);
+      var i;
+      for (i=0; i&lt;n1; i++)
+        ands[0].in[i] &lt;== in[i];
+      for (i=0; i&lt;n2; i++)
+        ands[1].in[i] &lt;== in[n1+i];
+      and2.a &lt;== ands[0].out;
+      and2.b &lt;== ands[1].out;
+      out &lt;== and2.out;
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="conditional" class="slide section level2">
+<h1>Conditional</h1>
+<pre><code>template If() {
+    signal input condition;
+    signal input t;
+    signal input e;
+    signal els &lt;== (1 - condition) * e;
+    signal output result &lt;== condition * t + els;
+}</code></pre>
+</div>
+<div id="conversion-to-bits" class="slide section level2">
+<h1>Conversion to bits</h1>
+<pre><code>// Converts felt into N-digit binary representation
+// Fails if N is too small
+template Num2Bits(N) {
+    signal input in;
+    signal output out[N];
+    var lc1=0;
+
+    var e2=1;
+    for (var i = 0; i&lt;N; i++) {
+        out[i] &lt;-- (in &gt;&gt; i) &amp; 1;
+        out[i] * (out[i] -1 ) === 0;
+        lc1 += out[i] * e2;
+        e2 = e2+e2
+    }
+    lc1 === in;
+}</code></pre>
+</div>
+<div id="other-functions-less-than-and-exponent"
+class="slide section level2">
+<h1>Other functions: Less than and exponent</h1>
+<div class="columns">
+<div class="column" style="width:40%;">
+<pre><code>template LessThan(n) {
+  assert(n &lt;= 252);
+  signal input in[2];
+  signal output out;
+
+  component n2b = Num2Bits(n+1);
+  n2b.in &lt;== in[0]+ (1&lt;&lt;n) - in[1];
+  out &lt;== 1-n2b.out[n];
+  // checks that no borrowing
+  // is needed for subtraction
+}</code></pre>
+</div><div class="column" style="width:60%;">
+<pre><code>// multiplies the elements in vector in selected
+// by bits which should be a vector of 0/1
+template ConditionalProduct(w) {
+  signal input in[w];
+  signal input bits[w];
+  signal output out;
+  signal aux[w];
+  var lc = 1;
+  for (var i=0; i&lt;w; i++) {
+    aux[i] &lt;== (1 - bits[i]) + bits[i] * in[i];
+  }
+  out &lt;== MultiAND(w)(aux);
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="exponentiation" class="slide section level2">
+<h1>Exponentiation</h1>
+<pre><code>// Compute b ^ e in O(N = log e) gates
+template BinaryExp(N) {
+    signal input b;
+    signal input e;
+    signal pb[N];
+    signal bits[N] &lt;== Num2Bits(N)(e);
+    signal output res;
+
+    for (var i = 0; i &lt; N; i++) {
+        pb[i] &lt;== i == 0 ? b : pb[i - 1] * pb[i - 1];
+    }
+
+    res &lt;== ConditionalProduct(N)(pb, bits);
+}</code></pre>
+</div>
+<div id="maximum-value-in-an-array" class="slide section level2">
+<h1>Maximum value in an array</h1>
+<div class="columns">
+<div class="column" style="width:40%;">
+<pre><code>function array_max(N, A) {
+    // returns the maximum value
+    // in the array A of size N
+    var m = 0;
+    for (var i = 0; i &lt; N; i ++) {
+        if (A[i] &gt; m) m = A[i];
+    }
+    return m;
+}</code></pre>
+<ul>
+<li>used to guess the maximum value as a witness</li>
+<li>no signals/constraints involved in <code>array_max</code></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<pre><code>template ArrayMax(N) {
+    signal input A[N];
+    signal output m &lt;-- array_max(N, A);
+    var m1 = m + 1;
+    signal checks[N+1], diffs[N+1];
+    diffs[0] &lt;== 1;
+    for (var i = 0; i &lt; N; i ++) {
+      checks[i] &lt;== LessThan(64)([A[i], m1]);
+      diffs[i+1] &lt;== diffs[i] * (A[i] - m);
+    }
+    checks[N] &lt;==  IsZero()(diffs[N]);
+    signal ok &lt;== MultiAND(N + 1)(checks);
+    ok === 1;
+}</code></pre>
+</div>
+</div>
+</div>
+
+<div id="propositional-logic" class="title-slide slide section level1">
+<h1>Propositional Logic</h1>
+
+</div>
+<div id="syntax" class="slide section level2">
+<h1>Syntax</h1>
+<div class="columns">
+<div class="column" style="width:70%;">
+<h3 id="formul">Formul</h3>
+<ul>
+<li><span class="math inline">\(\varphi ::= x \mid \bot \mid \varphi \to
+\varphi\)</span></li>
+<li><span class="math inline">\(x ::= \phi_0 \mid \phi_1 \mid \phi_2
+\mid \ldots\)</span></li>
+</ul>
+<h3 id="axioms-łukasiewiczs-third-axiom-system">Axioms (Łukasiewicz’s
+third axiom system)</h3>
+<ul>
+<li><strong><em>Prop1</em></strong>: <span
+class="math inline">\(\phi_0\to (\phi_1\to \phi_0)\)</span></li>
+<li><strong><em>Prop2</em></strong>: <span
+class="math inline">\((\phi_0\to (\phi_1\to \phi_2))\to ((\phi_0\to
+\phi_1)\to (\phi_0\to \phi_2))\)</span></li>
+<li><strong><em>Prop3</em></strong>: <span
+class="math inline">\(((\phi_0 \to \bot) \to (\phi_1 \to \bot))\to
+(\phi_1\to \phi_0)\)</span></li>
+</ul>
+<h3 id="deduction">Deduction</h3>
+<ul>
+<li><strong><em>ModusPonens</em></strong>: <span
+class="math inline">\(\displaystyle \frac{\varphi, \varphi \to
+\psi}{\psi}\)</span></li>
+</ul>
+<h3 id="instantiation">Instantiation</h3>
+<ul>
+<li><strong><em>Instantiate</em></strong>: Substituting variables with
+formul</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<h3 id="notations">Notations</h3>
+<ul>
+<li><span class="math inline">\(\neg \varphi ::= \varphi \to
+\bot\)</span></li>
+<li><span class="math inline">\(\varphi \wedge \psi ::= \neg(\varphi \to
+\neg \psi)\)</span></li>
+<li><span class="math inline">\(\varphi \vee \psi ::= \neg \varphi \to
+\psi\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="hilbert-proofs-for-phi_0-to-phi_0"
+class="slide section level2">
+<h1>Hilbert Proofs for <span class="math inline">\(\phi_0 \to
+\phi_0\)</span></h1>
+<h3 id="proofs-of-pattern-well-formedness">Proofs of pattern
+well-formedness:</h3>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\phi_0\)</span> by HMetaVar(0)</li>
+<li><span class="math inline">\((\phi_0 \to \phi_0)\)</span> by
+HImplies(1, 1)</li>
+</ol>
+<h3 id="propositional-logic-proof">Propositional Logic Proof:</h3>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(((\phi_0 \to ((\phi_0 \to \phi_0) \to
+\phi_0)) \to ((\phi_0 \to (\phi_0 \to \phi_0)) \to (\phi_0 \to
+\phi_0)))\)</span></p>
+<p>by Instantiate(Prop2, <span class="math inline">\([\phi_1 \mapsto
+(\phi_0 \to \phi_0), \phi_2 \mapsto \phi_0, \phi_0 \mapsto
+\phi_0]\)</span>)</p></li>
+<li><p><span class="math inline">\((\phi_0 \to ((\phi_0 \to \phi_0) \to
+\phi_0))\)</span> by Instantiate(Prop1, <span
+class="math inline">\([\phi_1 \mapsto (\phi_0 \to \phi_0), \phi_0
+\mapsto \phi_0, \phi_2 \mapsto \phi_2]\)</span>)</p></li>
+<li><p><span class="math inline">\(((\phi_0 \to (\phi_0 \to \phi_0)) \to
+(\phi_0 \to \phi_0))\)</span> by ModusPonens(1, 2)</p></li>
+<li><p><span class="math inline">\((\phi_0 \to (\phi_0 \to
+\phi_0))\)</span> by Instantiate(Prop1, <span
+class="math inline">\([\phi_1 \mapsto \phi_0, \phi_0 \mapsto \phi_0,
+\phi_2 \mapsto \phi_2]\)</span>)</p></li>
+<li><p><span class="math inline">\((\phi_0 \to \phi_0)\)</span> by
+ModusPonens(3, 4)</p></li>
+</ol>
+</div>
+<div id="arithmetization-of-formul" class="slide section level2">
+<h1>Arithmetization of formul</h1>
+<ul>
+<li><p>Running example: <span class="math inline">\(\phi_0 \vee \neg
+\phi_0\)</span></p></li>
+<li><p>Desugar notations: <span class="math inline">\((\phi_0 \to \bot)
+\to (\phi_0 \to \bot)\)</span></p></li>
+<li><p>Consider the prefix-form of the formula <span
+class="math inline">\(\to\to\phi_0\bot\to\phi_0\bot\)</span></p></li>
+<li><p>Associate numbers to each token</p>
+<ul>
+<li>say <span class="math inline">\(\to\)</span> is <span
+class="math inline">\(1\)</span></li>
+<li>say <span class="math inline">\(\bot\)</span> is <span
+class="math inline">\(2\)</span></li>
+<li>say variables are numbered consecutively from <span
+class="math inline">\(3\)</span>, i.e. <span
+class="math inline">\(\phi_0\)</span> is <span
+class="math inline">\(3\)</span></li>
+</ul>
+<p>Then we can associate to the formula the following vector of size
+<span class="math inline">\(7\)</span>:</p>
+<p><span class="math inline">\([1, 1, 3, 2, 1, 3, 2]\)</span></p></li>
+</ul>
+</div>
+<div id="reed-solomon-fingerprint" class="slide section level2">
+<h1>Reed-Solomon fingerprint</h1>
+<p>Given a vector <span class="math inline">\((v_i)_{i = \overline{1,
+M}}\)</span>, the Reed-Solomon polynomial associated to <span
+class="math inline">\(v\)</span> is <span
+class="math inline">\(\displaystyle p(x) = \sum_{i = 1}^M{x^{i-1} *
+v_i}\)</span>.</p>
+<p>The Reed-Solomon fingerprint of <span
+class="math inline">\(v\)</span> is the value of <span
+class="math inline">\(p\)</span> at a random (but fixed) point <span
+class="math inline">\(r\)</span>.</p>
+<pre><code>template Fingerprint(M) {
+    signal input r;
+    signal input pattern[M];
+    signal r_pow[M];
+    r_pow[0] &lt;== 1;
+    for (var i = 1; i &lt; M; i++) {
+        r_pow[i] &lt;== r_pow[i - 1] * r;
+    }
+    signal output fingerprint &lt;== EscalarProduct(M)(r_pow, pattern);
+}</code></pre>
+</div>
+<div id="arithmetization-of-formul-continued"
+class="slide section level2">
+<h1>Arithmetization of formul (continued)</h1>
+<ul>
+<li>We fix a randomly chosen number <span
+class="math inline">\(r\)</span></li>
+<li>We encode a formula <span class="math inline">\(\varphi\)</span> as
+a pair <span class="math inline">\(FP(\varphi) ::= (n, N)\)</span>
+where:
+<ul>
+<li><span class="math inline">\(n\)</span> is the length of <span
+class="math inline">\(\varphi\)</span> in its prefix representation</li>
+<li><span class="math inline">\(N\)</span> is the fingerprint obtained
+by evaluating at point <span class="math inline">\(r\)</span> the
+Reed-Solomon polynomial associated to the vector corresponding to <span
+class="math inline">\(\varphi\)</span></li>
+</ul></li>
+<li>E.g., assuming <span class="math inline">\(r = 10\)</span> and a
+large enough prime-field, <span class="math inline">\(FP(\phi_0 \vee
+\neg \phi_0) = (7, 1132132)\)</span></li>
+</ul>
+<h3 id="properties">Properties</h3>
+<ul>
+<li>Equality checking: <span class="math inline">\(\varphi =
+\psi\)</span> can be replaced by <span class="math inline">\(FP(\varphi)
+= FP(\psi)\)</span></li>
+<li>Concatenation
+<ul>
+<li>Assume <span class="math inline">\(FP(\varphi) = (n, N)\)</span> and
+<span class="math inline">\(FP(\psi) = (m, M)\)</span></li>
+<li>Then <span class="math inline">\(FP(\varphi \to \psi) = (n + m + 1,
+1 + r * (N + r ^ n * M))\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="checking-well-formedness" class="slide section level2">
+<h1>Checking Well-Formedness</h1>
+<p>As we saw before, we can consider a deduction system for
+well-formedness, where:</p>
+<ul>
+<li><strong>Bottom</strong> is an axiom</li>
+<li><strong>MetaVar</strong> is an axiom (parameterized by the index of
+the variable)</li>
+<li><strong>Implies</strong> is a deduction rule <span
+class="math inline">\(\displaystyle \frac{\varphi, \psi}{\varphi \to
+\psi}\)</span></li>
+</ul>
+<p>In a Hilbert proof using this system:</p>
+<ul>
+<li>we can consider that each step outputs a well-formed pattern</li>
+<li>We can thus consider Implies to (also) be parameterized by the
+previous indices (in the proof) where its hypotheses were
+established.</li>
+</ul>
+<h3 id="proofs-of-pattern-well-formedness-for-phi_0-to-phi_0">Proofs of
+pattern well-formedness for <span class="math inline">\(\phi_0 \to
+\phi_0\)</span>:</h3>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\phi_0\)</span> by HMetaVar(0)</li>
+<li><span class="math inline">\((\phi_0 \to \phi_0)\)</span> by
+HImplies(1, 1)</li>
+</ol>
+</div>
+<div id="arithmetization-of-well-formedness-proofs"
+class="slide section level2">
+<h1>Arithmetization of Well-Formedness proofs</h1>
+<ul>
+<li>To each proof step we associate
+<ul>
+<li>an identifier of the axiom/rule used</li>
+<li>a list of parameters (padded with zeros)</li>
+</ul></li>
+<li><strong>Bottom</strong>: identifier <span
+class="math inline">\(1\)</span>, no parameters</li>
+<li><strong>MetaVar</strong>: identifier <span
+class="math inline">\(2\)</span>, index of the variable</li>
+<li><strong>Implies</strong>: identifier <span
+class="math inline">\(3\)</span>, <span class="math inline">\((n, N,
+i)\)</span>, <span class="math inline">\((m, M, j)\)</span> where:
+<ul>
+<li><span class="math inline">\((n, N)\)</span> is the fingerprint of
+the formula at index <span class="math inline">\(i\)</span> in the
+proof</li>
+<li><span class="math inline">\((m, M)\)</span> is the fingerprint of
+the formula at index <span class="math inline">\(j\)</span> in the
+proof</li>
+</ul></li>
+<li><em>Note:</em> the conclusion of each step will be computed during
+checking</li>
+</ul>
+<h3
+id="arithmetization-of-the-proof-of-well-formedness-for-phi_0-to-phi_0">Arithmetization
+of the proof of well-formedness for <span class="math inline">\(\phi_0
+\to \phi_0\)</span>:</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\phi_0\)</span> by HMetaVar(0)</li>
+<li><span class="math inline">\((\phi_0 \to \phi_0)\)</span> by
+HImplies(1, 1)</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol style="list-style-type: decimal">
+<li>(2, 0, 0, 0, 0, 0, 0)</li>
+<li>(3, 1, 3, 1, 1, 3, 1)</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="the-checking-process" class="slide section level2">
+<h1>The checking process</h1>
+<p>Given a row (at index i) corresponding to arithmetization of a proof
+step:</p>
+<ul>
+<li>use first argument to determine which rule was used</li>
+<li>use the parameters to compute the FP (n, N) of the conclusion
+according to this rule</li>
+<li>emit <span class="math inline">\((n, N, i)\)</span> as a proved
+statement of well-formedness</li>
+<li>if rule has hypotheses (Implies)
+<ul>
+<li>emit <span class="math inline">\((n_h, N_h, i_h)\)</span> as a
+hypothesis of well-formedness</li>
+<li>check that <span class="math inline">\(i_h &lt; i\)</span> (to avoid
+cyclic proofs)</li>
+</ul></li>
+</ul>
+<p>Finally, check that all emitted hypotheses are included in all
+emitted proved statements.</p>
+<h3 id="example">Example</h3>
+<ol style="list-style-type: decimal">
+<li>(2, 0, 0, 0, 0, 0, 0) — a MetaVar rule with variable of index 0</li>
+</ol>
+<ul>
+<li>emit <span class="math inline">\((1, 3, 1)\)</span> as proved
+statement</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>(3, 1, 3, 1, 1, 3, 1) — an Implies rule with arguments <span
+class="math inline">\((1,3,1), (1,3,1)\)</span></li>
+</ol>
+<ul>
+<li>emit <span class="math inline">\((3, 133, 2)\)</span> as proved
+statement; emit <span class="math inline">\((1,3,1)\)</span> twice as
+hypotheses</li>
+</ul>
+<p>Finally, check that <span class="math inline">\([(1, 3, 1), (1, 3,
+1)]\)</span> is included in <span class="math inline">\([(1, 3, 1), (3,
+133, 2)]\)</span></p>
+</div>
+<div id="well-formedness-of-implication" class="slide section level2">
+<h1>Well-formedness of implication</h1>
+<pre><code>template WfBinaryConstructor(LogN, ConstructorId) {
+    signal input index, h_a, len_a, idx_a, h_b, len_b, idx_b;
+    signal input r; // evaluation point
+    signal r_pow_len_a &lt;== BinaryExp(LogN)(r, len_a);
+    signal r_pow_len_b &lt;== BinaryExp(LogN)(r, len_b);
+    var check_idx_a = CheckIndex(LogN)(idx_a, index);
+    var check_idx_b = CheckIndex(LogN)(idx_b, index);
+    signal ab &lt;== h_a + r_pow_len_a * h_b;
+    signal h_ab &lt;== ConstructorId + r * ab;
+    signal len_ab &lt;== len_a + len_b + 1;
+    signal output o1 &lt;== PatternAtIndexRelFp()(h_a, len_a, idx_a);
+    signal output o2 &lt;== PatternAtIndexRelFp()(h_b, len_b, idx_b);
+    signal output p &lt;== PatternAtIndexRelFp()(h_ab, len_ab, index);
+    signal output correctness &lt;== AND()(check_idx_a, check_idx_b);
+}</code></pre>
+</div>
+<div id="subset-argument" class="slide section level2">
+<h1>Subset argument</h1>
+<p>There are various subset arguments. Here we describe one based on
+logarithmic derivatives <span class="citation">(Haböck 2022)</span>.</p>
+<dl>
+<dt>Input</dt>
+<dd>
+two vectors <span class="math inline">\(A = (a_i)_{i \in \overline{1,
+n}}\)</span>, <span class="math inline">\(B = (b_j)_{j \in \overline{1,
+m}}\)</span>
+</dd>
+<dd>
+Simplifying assumption: <span class="math inline">\(A\)</span> is a set
+(no repetitions).
+</dd>
+<dt>Output</dt>
+<dd>
+whether all elements of <span class="math inline">\(B\)</span> are also
+in <span class="math inline">\(A\)</span>
+</dd>
+</dl>
+<ul>
+<li>Let <span class="math inline">\(M = (m_i)_{i = \overline{1,
+n}}\)</span> be the multiplicities of <span
+class="math inline">\(A\)</span> in <span
+class="math inline">\(B\)</span> <span class="math inline">\(m_i = |\{ j
+\in \overline{1, m} \mid b_j = a_i \}|\)</span>.</li>
+<li>Let <span class="math inline">\(p_A(X) = \sum_{i = 1}^n
+{\frac{m_i}{X - a_i}}\)</span></li>
+<li>Let <span class="math inline">\(p_B(X) = \sum_{j = 1}^m {\frac{1}{X
+- b_i}}\)</span></li>
+<li>Output whether <span class="math inline">\(p_A = p_B\)</span>
+<ul>
+<li>by evaluating <span class="math inline">\(p_A\)</span> and <span
+class="math inline">\(p_B\)</span> at a random point.</li>
+</ul></li>
+</ul>
+</div>
+<div id="checking-a-propositional-logic-proof"
+class="slide section level2">
+<h1>Checking a Propositional Logic Proof</h1>
+<ul>
+<li><strong>ModusPonens</strong> is a deduction rule <span
+class="math inline">\(\displaystyle \frac{\varphi, \varphi \to
+\psi}{\psi}\)</span></li>
+<li><strong>Instantiate</strong> allows substituting variables with
+formul in already proved terms</li>
+<li>we assume <code>1. Prop1; 2. Prop2; 3. Prop3</code> and shift the
+proof by the number of axioms</li>
+</ul>
+<p>In a Hilbert proof using this system:</p>
+<ul>
+<li>we can consider that each step outputs a well-formed pattern</li>
+<li>We can consider ModusPonens to (also) be parameterized by the
+previous indices (in the proof) where its hypotheses were
+established.</li>
+</ul>
+<h3 id="proofs-of-pattern-well-formedness-for-phi_0-to-phi_0-1">Proofs
+of pattern well-formedness for <span class="math inline">\(\phi_0 \to
+\phi_0\)</span>:</h3>
+<ol start="4" style="list-style-type: decimal">
+<li>Instantiate(2, <span class="math inline">\([\phi_1 \mapsto (\phi_0
+\to \phi_0), \phi_2 \mapsto \phi_0]\)</span>)</li>
+<li>Instantiate(1, <span class="math inline">\([\phi_1 \mapsto (\phi_0
+\to \phi_0)]\)</span>)</li>
+<li>ModusPonens(1, 2)</li>
+<li>Instantiate(1, <span class="math inline">\([\phi_1 \mapsto
+\phi_0]\)</span>)</li>
+<li>ModusPonens(3, 4)</li>
+</ol>
+</div>
+<div id="arithmetization-of-proofs" class="slide section level2">
+<h1>Arithmetization of proofs</h1>
+<ul>
+<li>Similar to well-formedness proofs</li>
+<li><strong>ModusPonens</strong>: identifier <span
+class="math inline">\(1\)</span>, <span class="math inline">\((n, N,
+i)\)</span>, <span class="math inline">\((m, M, j)\)</span> where:
+<ul>
+<li><span class="math inline">\((n, N)\)</span> is the fingerprint of
+formula <span class="math inline">\(\varphi\)</span> at index <span
+class="math inline">\(i\)</span> in the proof</li>
+<li><span class="math inline">\((m, M)\)</span> is the fingerprint of a
+formula <span class="math inline">\(\psi\)</span></li>
+<li>Formula <span class="math inline">\(\varphi \to \psi\)</span> is at
+index <span class="math inline">\(i\)</span> in the proof</li>
+</ul></li>
+<li><strong>Instantiate</strong>: identifier <span
+class="math inline">\(2\)</span>, <span class="math inline">\((n, N,
+i)\)</span>, <span class="math inline">\((m, M, 0)\)</span>, <span
+class="math inline">\(P\)</span>
+<ul>
+<li><span class="math inline">\((n, N)\)</span> is the fingerprint of
+the base pattern, at index <span class="math inline">\(i\)</span> in the
+proof</li>
+<li><span class="math inline">\((m, M)\)</span> is the fingerprint of
+the result pattern to be outputed</li>
+<li><span class="math inline">\(P\)</span> is a hash of the fingerprints
+of the instantiated formul</li>
+</ul></li>
+</ul>
+<h3
+id="arithmetization-of-the-pl-proof-for-phi_0-to-phi_0">Arithmetization
+of the PL proof for <span class="math inline">\(\phi_0 \to
+\phi_0\)</span>:</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol start="4" style="list-style-type: decimal">
+<li>Instantiate(2, <span class="math inline">\([\phi_1 \mapsto (\phi_0
+\to \phi_0), \phi_2 \mapsto \phi_0]\)</span>)</li>
+<li>Instantiate(1, <span class="math inline">\([\phi_1 \mapsto (\phi_0
+\to \phi_0)]\)</span>)</li>
+<li>ModusPonens(1, 2)</li>
+<li>Instantiate(1, <span class="math inline">\([\phi_1 \mapsto
+\phi_0]\)</span>)</li>
+<li>ModusPonens(3, 4)</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="4" style="list-style-type: decimal">
+<li>(2, 13, 11314…, 2, 17, 11311…, 0, H1)</li>
+<li>(2, 5, 13143, 1, 7, 1311333, 0, H2)</li>
+<li>(1, 7, 1311333, 5, 9, 113133133, 4, 0)</li>
+<li>(2, 5, 13143, 1, 5, 13133, 0, H3)</li>
+<li>(1, 5, 13133, 7, 3, 133, 6, 0)</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="the-checking-process-1" class="slide section level2">
+<h1>The checking process</h1>
+<p>Similar (largely) to checking the well-formedness proof:</p>
+<dl>
+<dt>ModusPonens</dt>
+<dd>
+we emit <span class="math inline">\(FP(\varphi)\)</span> with provided
+index as hypothesis
+</dd>
+<dd>
+we compute <span class="math inline">\(FP(\varphi \to \psi)\)</span> and
+emit it with provided index as hypothesis
+</dd>
+<dd>
+we emit <span class="math inline">\(FP(\psi)\)</span> with current index
+as proved statement
+</dd>
+<dd>
+we check that provided indices are smaller than current index
+</dd>
+<dt>Instantiate</dt>
+<dd>
+we emit base pattern with provided index as hypothesis
+</dd>
+<dd>
+we emit result pattern with current index as proved statement
+</dd>
+<dd>
+we emit an “instantiation hypothesis”
+</dd>
+<dd>
+we check that base pattern index is smaller than current index
+</dd>
+</dl>
+<p>Finally - check that all emitted hypotheses are included in all
+emitted proved statements. - axioms are pre-emitted - check that all
+emitted instantiate hypotheses are included in all emitted instantiate
+statements. - instantiate proofs will be detailed later.</p>
+</div>
+<div id="the-checking-process-example" class="slide section level2">
+<h1>The checking process: Example</h1>
+<ol start="4" style="list-style-type: decimal">
+<li>(2, 13, 113145113413, 2, 17, 11311333113133133, 0, H1) -
+Instantiate, <span class="math inline">\(2 &lt; 4\)</span>
+<ul>
+<li>emit (13, 113145113413, 2) as hypothesis</li>
+<li>emit (17, 11311333113133133, 4) as proved statement</li>
+</ul></li>
+<li>(2, 5, 13143, 1, 7, 1311333, 0, H2) - Instantiate, <span
+class="math inline">\(1 &lt; 5\)</span>
+<ul>
+<li>emit (5, 13143, 1) as hypothesis</li>
+<li>emit (7, 1311333, 5) as proved statement</li>
+</ul></li>
+<li>(1, 7, 1311333, 5, 9, 113133133, 4, 0) - ModusPonens, <span
+class="math inline">\(5 &lt; 6, 4 &lt; 6\)</span>
+<ul>
+<li>emit <span class="math inline">\((7, 1311333, 5)\)</span> and <span
+class="math inline">\((17, 11311333113133133, 4)\)</span> as
+hypotheses</li>
+<li>emit <span class="math inline">\((9, 113133133, 6)\)</span> as
+proved statement</li>
+</ul></li>
+<li>(2, 5, 13143, 1, 5, 13133, 0, H3) - Instantiate, <span
+class="math inline">\(1 &lt; 7\)</span>
+<ul>
+<li>emit <span class="math inline">\((5, 13143, 1)\)</span> as
+hypothesis</li>
+<li>emit <span class="math inline">\((5, 13133, 7)\)</span> as proved
+statement</li>
+</ul></li>
+<li>(1, 5, 13133, 7, 3, 133, 6, 0) - ModusPonens, <span
+class="math inline">\(7 &lt; 8, 6 &lt; 8\)</span>
+<ul>
+<li>emit <span class="math inline">\((5, 13133, 7)\)</span> and <span
+class="math inline">\((9, 113133133, 6)\)</span> as hypotheses</li>
+<li>emit <span class="math inline">\((3, 133, 8)\)</span> as proved
+statement</li>
+</ul></li>
+</ol>
+<p>For Instantiate we also emit a hash of all parameters (no indices) as
+instantiation hypothesis</p>
+<p>Finally, perform the subset checks</p>
+</div>
+<div id="circom-code-for-modusponens" class="slide section level2">
+<h1>Circom code for ModusPonens</h1>
+<pre><code>template ModusPonens(LogN) {
+    signal input h_a, len_a, idx_a, h_b, len_b, idx_ab;
+    signal input index,  r;
+    signal r_pow_len_a &lt;== BinaryExp(LogN)(r, len_a);
+    signal r_pow_len_b &lt;== BinaryExp(LogN)(r, len_b);
+    var check_idx_a = CheckIndex(LogN)(idx_a, index);
+    var check_idx_ab = CheckIndex(LogN)(idx_ab, index);
+    signal ab &lt;== h_a + r_pow_len_a * h_b;
+    signal h_ab &lt;== implies_id() + r * ab;
+    signal len_ab &lt;== len_a + len_b + 1;
+    signal output obligation1 &lt;== PatternAtIndexRelFp()(h_a, len_a, idx_a);
+    signal output obligation2 &lt;== PatternAtIndexRelFp()(h_ab, len_ab, idx_ab);
+    signal output proof &lt;== PatternAtIndexRelFp()(h_b, len_b, index);
+    signal output correctness &lt;== AND()(check_idx_a, check_idx_ab);
+}
+</code></pre>
+</div>
+<div id="computing-the-instantiation-relation"
+class="slide section level2">
+<h1>Computing the instantiation relation</h1>
+<dl>
+<dt>Input</dt>
+<dd>
+The base pattern, in arithmetic vectorial form
+</dd>
+<dd>
+Fingerprints of arguments, together with their indices in the
+well-formedness proof
+</dd>
+<dt>Output</dt>
+<dd>
+well-formedness obligations for all arguments
+</dd>
+<dd>
+a hash of the proof of instantiation
+</dd>
+</dl>
+<ul>
+<li>Use the fingerprints of arguments and their indices to emit
+well-formedness obligations</li>
+<li>Compute the result fingerprint of instantiation
+<ul>
+<li>traverse the base pattern computing the fingerprint and replacing
+variables with the fingerprint of corresponding argument</li>
+</ul></li>
+<li>compute a hash of base pattern (fingerprint), arguments fingerprints
+and result fingerprint
+<ul>
+<li>emit it as the proof of instantiation.</li>
+</ul></li>
+</ul>
+</div>
+<div id="references" class="slide section level2 unnumbered">
+<h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
+<div id="ref-ben2013snarks" class="csl-entry">
+Ben-Sasson, Eli, Alessandro Chiesa, Daniel Genkin, Eran Tromer, and
+Madars Virza. 2013. <span>“<span>SNARKs</span> for c: Verifying Program
+Executions Succinctly and in Zero Knowledge.”</span> Cryptology
+<span>ePrint</span> Archive, Paper 2013/507. <a
+href="https://eprint.iacr.org/2013/507">https://eprint.iacr.org/2013/507</a>.
+</div>
+<div id="ref-circom2constraints" class="csl-entry">
+Documentation, Circom 2. 2024. <span>“Constraint Generation.”</span>
+2024. <a
+href="https://web.archive.org/web/20241001065322/https://docs.circom.io/circom-language/constraint-generation/">https://web.archive.org/web/20241001065322/https://docs.circom.io/circom-language/constraint-generation/</a>.
+</div>
+<div id="ref-gennaro2012qap" class="csl-entry">
+Gennaro, Rosario, Craig Gentry, Bryan Parno, and Mariana Raykova. 2012.
+<span>“Quadratic Span Programs and Succinct <span>NIZKs</span> Without
+<span>PCPs</span>.”</span> Cryptology <span>ePrint</span> Archive, Paper
+2012/215. <a
+href="https://eprint.iacr.org/2012/215">https://eprint.iacr.org/2012/215</a>.
+</div>
+<div id="ref-subset_log" class="csl-entry">
+Haböck, Ulrich. 2022. <span>“Multivariate Lookups Based on Logarithmic
+Derivatives.”</span> Cryptology <span>ePrint</span> Archive, Paper
+2022/1530. <a
+href="https://eprint.iacr.org/2022/1530">https://eprint.iacr.org/2022/1530</a>.
+</div>
+<div id="ref-iden3circomlib" class="csl-entry">
+Iden3. 2024. <span>“CircomLib.”</span> 2024. <a
+href="https://github.com/iden3/circomlib">https://github.com/iden3/circomlib</a>.
+</div>
+</div>
+</div>
+</body>
+</html>

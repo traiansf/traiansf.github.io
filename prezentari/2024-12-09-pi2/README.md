@@ -50,7 +50,7 @@ $\mathcal{S}$ is satisfiable with an input $x \in \mathbb{F}^n$ if there is a
 witness $w \in \mathbb{F}^{N_w}$ such that:
 
 1. $x = (w_1, \ldots, w_n)$, and
-2. $\langle a_j, (1, w) \rangle \cdot \langle b_j, (1, w)\rangle = \langle c_j, (1, w)\rangle for all j\in \overline{1, N_g}$.
+2. $\langle a_j, (1, w) \rangle \cdot \langle b_j, (1, w)\rangle = \langle c_j, (1, w)\rangle\ for\ j\in \overline{1, N_g}$.
 
 Source [@ben2013snarks; @gennaro2012qap]
 
