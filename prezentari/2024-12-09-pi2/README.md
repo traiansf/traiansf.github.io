@@ -2,7 +2,7 @@
 title: Implementing a checker for propositional logic in Circom
 author: Traian Florin Șerbănuță (and Mihai Calancea, and Brandon Moore)
 institute: Pi Squared Inc.
-date: 2023-11-09, Pi Squared Workshop at PT18
+date: 2024-12-09, Pi Squared / ILDS meeting at PT18
 theme: Pi2
 aspectratio: 169
 fontsize: 10pt
@@ -540,9 +540,9 @@ In a Hilbert proof using this system:
 
 4. Instantiate(2, $[\phi_1 \mapsto (\phi_0 \to \phi_0), \phi_2 \mapsto \phi_0]$)
 5. Instantiate(1, $[\phi_1 \mapsto (\phi_0 \to \phi_0)]$)
-6. ModusPonens(1, 2)
+6. ModusPonens(4, 5)
 7. Instantiate(1, $[\phi_1 \mapsto \phi_0]$)
-8. ModusPonens(3, 4)
+8. ModusPonens(6, 7)
 
 ## Arithmetization of  proofs
 
@@ -563,9 +563,9 @@ In a Hilbert proof using this system:
 ::: {.column width="50%"}
 4. Instantiate(2, $[\phi_1 \mapsto (\phi_0 \to \phi_0), \phi_2 \mapsto \phi_0]$)
 5. Instantiate(1, $[\phi_1 \mapsto (\phi_0 \to \phi_0)]$)
-6. ModusPonens(1, 2)
+6. ModusPonens(4, 5)
 7. Instantiate(1, $[\phi_1 \mapsto \phi_0]$)
-8. ModusPonens(3, 4)
+8. ModusPonens(6, 7)
 :::
 ::: {.column width="50%"}
 4. (2, 13, 11314..., 2, 17, 11311..., 0, H1)
