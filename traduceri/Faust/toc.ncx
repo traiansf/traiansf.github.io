@@ -1,0 +1,963 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="eng">
+  <head>
+    <meta name="dtb:uid" content="f1c8ad78-71ee-496c-8155-af4f63e8fdd1"/>
+    <meta name="dtb:depth" content="4"/>
+    <meta name="dtb:generator" content="calibre (7.16.0)"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>Faust – tragedie</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="num_1" playOrder="0" class="chapter">
+      <navLabel>
+        <text>Cuprins</text>
+      </navLabel>
+      <content src="text/part0001.html#UGI0-99cb7a924f5f427897c13ee07ab9efdc"/>
+    </navPoint>
+    <navPoint id="num_2" playOrder="1" class="chapter">
+      <navLabel>
+        <text>Introducere</text>
+      </navLabel>
+      <content src="text/part0002.html#1T140-99cb7a924f5f427897c13ee07ab9efdc"/>
+    </navPoint>
+    <navPoint id="num_3" playOrder="2" class="chapter">
+      <navLabel>
+        <text>The Magician’s Nephew</text>
+      </navLabel>
+      <content src="text/part0003.html#2RHM0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      <navPoint id="num_4" playOrder="3" class="chapter">
+        <navLabel>
+          <text>Dedication</text>
+        </navLabel>
+        <content src="text/part0005.html#4OIQ0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_5" playOrder="4" class="chapter">
+        <navLabel>
+          <text>Contents</text>
+        </navLabel>
+        <content src="text/part0006.html#5N3C0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_6" playOrder="5" class="chapter">
+        <navLabel>
+          <text>Chapter One: The Wrong Door</text>
+        </navLabel>
+        <content src="text/part0007.html#6LJU0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_7" playOrder="6" class="chapter">
+        <navLabel>
+          <text>Chapter Two: Digory and His Uncle</text>
+        </navLabel>
+        <content src="text/part0008.html#7K4G0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_8" playOrder="7" class="chapter">
+        <navLabel>
+          <text>Chapter Three: The Wood Between the Worlds</text>
+        </navLabel>
+        <content src="text/part0009.html#8IL20-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_9" playOrder="8" class="chapter">
+        <navLabel>
+          <text>Chapter Four: The Bell and the Hammer</text>
+        </navLabel>
+        <content src="text/part0010.html#9H5K0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_10" playOrder="9" class="chapter">
+        <navLabel>
+          <text>Chapter Five: The Deplorable Word</text>
+        </navLabel>
+        <content src="text/part0011.html#AFM60-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_11" playOrder="10" class="chapter">
+        <navLabel>
+          <text>Chapter Six: The Beginning of Uncle Andrew’s Troubles</text>
+        </navLabel>
+        <content src="text/part0012.html#BE6O0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_12" playOrder="11" class="chapter">
+        <navLabel>
+          <text>Chapter Seven: What Happened at the Front Door</text>
+        </navLabel>
+        <content src="text/part0013.html#CCNA0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_13" playOrder="12" class="chapter">
+        <navLabel>
+          <text>Chapter Eight: The Fight at the Lamp-post</text>
+        </navLabel>
+        <content src="text/part0014.html#DB7S0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_14" playOrder="13" class="chapter">
+        <navLabel>
+          <text>Chapter Nine: The Founding of Narnia</text>
+        </navLabel>
+        <content src="text/part0015.html#E9OE0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_15" playOrder="14" class="chapter">
+        <navLabel>
+          <text>Chapter Ten: The First Joke and Other Matters</text>
+        </navLabel>
+        <content src="text/part0016.html#F8900-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_16" playOrder="15" class="chapter">
+        <navLabel>
+          <text>Chapter Eleven: Digory and His Uncle Are Both in Trouble</text>
+        </navLabel>
+        <content src="text/part0017.html#G6PI0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_17" playOrder="16" class="chapter">
+        <navLabel>
+          <text>Chapter Twelve: Strawberry’s Adventure</text>
+        </navLabel>
+        <content src="text/part0018.html#H5A40-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_18" playOrder="17" class="chapter">
+        <navLabel>
+          <text>Chapter Thirteen: An Unexpected Meeting</text>
+        </navLabel>
+        <content src="text/part0019.html#I3QM0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_19" playOrder="18" class="chapter">
+        <navLabel>
+          <text>Chapter Fourteen: The Planting of the Tree</text>
+        </navLabel>
+        <content src="text/part0020.html#J2B80-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_20" playOrder="19" class="chapter">
+        <navLabel>
+          <text>Chapter Fifteen: The End of This Story and the Beginning of All the Others</text>
+        </navLabel>
+        <content src="text/part0021.html#K0RQ0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="num_21" playOrder="20" class="chapter">
+      <navLabel>
+        <text>The Lion, the Witch and the Wardrobe</text>
+      </navLabel>
+      <content src="text/part0022.html#KVCC0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      <navPoint id="num_22" playOrder="21" class="chapter">
+        <navLabel>
+          <text>Dedication</text>
+        </navLabel>
+        <content src="text/part0024.html#MSDG0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_23" playOrder="22" class="chapter">
+        <navLabel>
+          <text>Contents</text>
+        </navLabel>
+        <content src="text/part0025.html#NQU20-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_24" playOrder="23" class="chapter">
+        <navLabel>
+          <text>Chapter One: Lucy Looks into a Wardrobe</text>
+        </navLabel>
+        <content src="text/part0026.html#OPEK0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_25" playOrder="24" class="chapter">
+        <navLabel>
+          <text>Chapter Two: What Lucy Found There</text>
+        </navLabel>
+        <content src="text/part0027.html#PNV60-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_26" playOrder="25" class="chapter">
+        <navLabel>
+          <text>Chapter Three: Edmund and the Wardrobe</text>
+        </navLabel>
+        <content src="text/part0028_split_000.html#QMFO0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_27" playOrder="26" class="chapter">
+        <navLabel>
+          <text>Chapter Four: Turkish Delight</text>
+        </navLabel>
+        <content src="text/part0029.html#RL0A0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_28" playOrder="27" class="chapter">
+        <navLabel>
+          <text>Chapter Five: Back on This Side of the Door</text>
+        </navLabel>
+        <content src="text/part0030.html#SJGS0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_29" playOrder="28" class="chapter">
+        <navLabel>
+          <text>Chapter Six: Into the Forest</text>
+        </navLabel>
+        <content src="text/part0031.html#TI1E0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_30" playOrder="29" class="chapter">
+        <navLabel>
+          <text>Chapter Seven: A Day with the Beavers</text>
+        </navLabel>
+        <content src="text/part0032_split_000.html#UGI00-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_31" playOrder="30" class="chapter">
+        <navLabel>
+          <text>Chapter Eight: What Happened after Dinner</text>
+        </navLabel>
+        <content src="text/part0033.html#VF2I0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_32" playOrder="31" class="chapter">
+        <navLabel>
+          <text>Chapter Nine: In the Witch’s House</text>
+        </navLabel>
+        <content src="text/part0034.html#10DJ40-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_33" playOrder="32" class="chapter">
+        <navLabel>
+          <text>Chapter Ten: The Spell Begins to Break</text>
+        </navLabel>
+        <content src="text/part0035.html#11C3M0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_34" playOrder="33" class="chapter">
+        <navLabel>
+          <text>Chapter Eleven: Aslan Is Nearer</text>
+        </navLabel>
+        <content src="text/part0036.html#12AK80-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_35" playOrder="34" class="chapter">
+        <navLabel>
+          <text>Chapter Twelve: Peter’s First Battle</text>
+        </navLabel>
+        <content src="text/part0037.html#1394Q0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_36" playOrder="35" class="chapter">
+        <navLabel>
+          <text>Chapter Thirteen: Deep Magic from the Dawn of Time</text>
+        </navLabel>
+        <content src="text/part0038.html#147LC0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_37" playOrder="36" class="chapter">
+        <navLabel>
+          <text>Chapter Fourteen: The Triumph of the Witch</text>
+        </navLabel>
+        <content src="text/part0039.html#1565U0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_38" playOrder="37" class="chapter">
+        <navLabel>
+          <text>Chapter Fifteen: Deeper Magic from Before the Dawn of Time</text>
+        </navLabel>
+        <content src="text/part0040.html#164MG0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_39" playOrder="38" class="chapter">
+        <navLabel>
+          <text>Chapter Sixteen: What Happened about the Statues</text>
+        </navLabel>
+        <content src="text/part0041.html#173720-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_40" playOrder="39" class="chapter">
+        <navLabel>
+          <text>Chapter Seventeen: The Hunting of the White Stag</text>
+        </navLabel>
+        <content src="text/part0042.html#181NK0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="num_41" playOrder="40" class="chapter">
+      <navLabel>
+        <text>The Horse and His Boy</text>
+      </navLabel>
+      <content src="text/part0043.html#190860-99cb7a924f5f427897c13ee07ab9efdc"/>
+      <navPoint id="num_42" playOrder="41" class="chapter">
+        <navLabel>
+          <text>Dedication</text>
+        </navLabel>
+        <content src="text/part0045.html#1AT9A0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_43" playOrder="42" class="chapter">
+        <navLabel>
+          <text>Contents</text>
+        </navLabel>
+        <content src="text/part0046.html#1BRPS0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_44" playOrder="1" class="chapter">
+        <navLabel>
+          <text>Chapter One: How Shasta Set Out on His Travels</text>
+        </navLabel>
+        <content src="text/part0047.html"/>
+      </navPoint>
+      <navPoint id="num_45" playOrder="2" class="chapter">
+        <navLabel>
+          <text>Chapter Two: A Wayside Adventure</text>
+        </navLabel>
+        <content src="text/part0048.html"/>
+      </navPoint>
+      <navPoint id="num_46" playOrder="3" class="chapter">
+        <navLabel>
+          <text>Chapter Three: At the Gates of Tashbaan</text>
+        </navLabel>
+        <content src="text/part0049.html"/>
+      </navPoint>
+      <navPoint id="num_47" playOrder="4" class="chapter">
+        <navLabel>
+          <text>Chapter Four: Shasta Falls In With the Narnians</text>
+        </navLabel>
+        <content src="text/part0050.html"/>
+      </navPoint>
+      <navPoint id="num_48" playOrder="5" class="chapter">
+        <navLabel>
+          <text>Chapter Five: Prince Corin</text>
+        </navLabel>
+        <content src="text/part0051.html"/>
+      </navPoint>
+      <navPoint id="num_49" playOrder="6" class="chapter">
+        <navLabel>
+          <text>Chapter Six: Shasta Among the Tombs</text>
+        </navLabel>
+        <content src="text/part0052.html"/>
+      </navPoint>
+      <navPoint id="num_50" playOrder="7" class="chapter">
+        <navLabel>
+          <text>Chapter Seven: Aravis in Tashbaan</text>
+        </navLabel>
+        <content src="text/part0053.html"/>
+      </navPoint>
+      <navPoint id="num_51" playOrder="8" class="chapter">
+        <navLabel>
+          <text>Chapter Eight: In the House of the Tisroc</text>
+        </navLabel>
+        <content src="text/part0054.html"/>
+      </navPoint>
+      <navPoint id="num_52" playOrder="9" class="chapter">
+        <navLabel>
+          <text>Chapter Nine: Across the Desert</text>
+        </navLabel>
+        <content src="text/part0055.html"/>
+      </navPoint>
+      <navPoint id="num_53" playOrder="10" class="chapter">
+        <navLabel>
+          <text>Chapter Ten: The Hermit of the Southern March</text>
+        </navLabel>
+        <content src="text/part0056.html"/>
+      </navPoint>
+      <navPoint id="num_54" playOrder="11" class="chapter">
+        <navLabel>
+          <text>Chapter Eleven: The Unwelcome Fellow Traveler</text>
+        </navLabel>
+        <content src="text/part0057.html"/>
+      </navPoint>
+      <navPoint id="num_55" playOrder="12" class="chapter">
+        <navLabel>
+          <text>Chapter Twelve: Shasta in Narnia</text>
+        </navLabel>
+        <content src="text/part0058.html"/>
+      </navPoint>
+      <navPoint id="num_56" playOrder="13" class="chapter">
+        <navLabel>
+          <text>Chapter Thirteen: The Fight at Anvard</text>
+        </navLabel>
+        <content src="text/part0059.html"/>
+      </navPoint>
+      <navPoint id="num_57" playOrder="14" class="chapter">
+        <navLabel>
+          <text>Chapter Fourteen: How Bree Became a Wiser Horse</text>
+        </navLabel>
+        <content src="text/part0060.html"/>
+      </navPoint>
+      <navPoint id="num_58" playOrder="15" class="chapter">
+        <navLabel>
+          <text>Chapter Fifteen: Rabadash the Ridiculous</text>
+        </navLabel>
+        <content src="text/part0061.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="num_59" playOrder="58" class="chapter">
+      <navLabel>
+        <text>Prince Caspian</text>
+      </navLabel>
+      <content src="text/part0062.html#1R42S0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      <navPoint id="num_60" playOrder="59" class="chapter">
+        <navLabel>
+          <text>Dedication</text>
+        </navLabel>
+        <content src="text/part0064.html#1T1400-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_61" playOrder="60" class="chapter">
+        <navLabel>
+          <text>Contents</text>
+        </navLabel>
+        <content src="text/part0065.html#1TVKI0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_62" playOrder="61" class="chapter">
+        <navLabel>
+          <text>Chapter One: The Island</text>
+        </navLabel>
+        <content src="text/part0066.html#1UU540-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_63" playOrder="62" class="chapter">
+        <navLabel>
+          <text>Chapter Two: The Ancient Treasure House</text>
+        </navLabel>
+        <content src="text/part0067.html#1VSLM0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_64" playOrder="63" class="chapter">
+        <navLabel>
+          <text>Chapter Three: The Dwarf</text>
+        </navLabel>
+        <content src="text/part0068.html#20R680-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_65" playOrder="64" class="chapter">
+        <navLabel>
+          <text>Chapter Four: The Dwarf Tells of Prince Caspian</text>
+        </navLabel>
+        <content src="text/part0069.html#21PMQ0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_66" playOrder="65" class="chapter">
+        <navLabel>
+          <text>Chapter Five: Caspian’s Adventure in the Mountains</text>
+        </navLabel>
+        <content src="text/part0070.html#22O7C0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_67" playOrder="66" class="chapter">
+        <navLabel>
+          <text>Chapter Six: The People That Lived in Hiding</text>
+        </navLabel>
+        <content src="text/part0071.html#23MNU0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_68" playOrder="67" class="chapter">
+        <navLabel>
+          <text>Chapter Seven: Old Narnia in Danger</text>
+        </navLabel>
+        <content src="text/part0072.html#24L8G0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_69" playOrder="68" class="chapter">
+        <navLabel>
+          <text>Chapter Eight: How They Left the Island</text>
+        </navLabel>
+        <content src="text/part0073.html#25JP20-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_70" playOrder="69" class="chapter">
+        <navLabel>
+          <text>Chapter Nine: What Lucy Saw</text>
+        </navLabel>
+        <content src="text/part0074.html#26I9K0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_71" playOrder="70" class="chapter">
+        <navLabel>
+          <text>Chapter Ten: The Return of the Lion</text>
+        </navLabel>
+        <content src="text/part0075.html#27GQ60-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_72" playOrder="71" class="chapter">
+        <navLabel>
+          <text>Chapter Eleven: The Lion Roars</text>
+        </navLabel>
+        <content src="text/part0076.html#28FAO0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_73" playOrder="72" class="chapter">
+        <navLabel>
+          <text>Chapter Twelve: Sorcery and Sudden Vengeance</text>
+        </navLabel>
+        <content src="text/part0077.html#29DRA0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_74" playOrder="73" class="chapter">
+        <navLabel>
+          <text>Chapter Thirteen: The High King in Command</text>
+        </navLabel>
+        <content src="text/part0078.html#2ACBS0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_75" playOrder="74" class="chapter">
+        <navLabel>
+          <text>Chapter Fourteen: How All Were Very Busy</text>
+        </navLabel>
+        <content src="text/part0079.html#2BASE0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_76" playOrder="75" class="chapter">
+        <navLabel>
+          <text>Chapter Fifteen: Aslan Makes a Door in the Air</text>
+        </navLabel>
+        <content src="text/part0080.html#2C9D00-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="num_77" playOrder="76" class="chapter">
+      <navLabel>
+        <text>The Voyage of the Dawn Treader</text>
+      </navLabel>
+      <content src="text/part0081.html#2D7TI0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      <navPoint id="num_78" playOrder="77" class="chapter">
+        <navLabel>
+          <text>Dedication</text>
+        </navLabel>
+        <content src="text/part0083.html#2F4UM0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_79" playOrder="78" class="chapter">
+        <navLabel>
+          <text>Contents</text>
+        </navLabel>
+        <content src="text/part0084.html#2G3F80-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_80" playOrder="79" class="chapter">
+        <navLabel>
+          <text>Chapter One: The Picture in the Bedroom</text>
+        </navLabel>
+        <content src="text/part0085.html#2H1VQ0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_81" playOrder="80" class="chapter">
+        <navLabel>
+          <text>Chapter Two: On Board the Dawn Treader</text>
+        </navLabel>
+        <content src="text/part0086.html#2I0GC0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_82" playOrder="81" class="chapter">
+        <navLabel>
+          <text>Chapter Three: The Lone Islands</text>
+        </navLabel>
+        <content src="text/part0087.html#2IV0U0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_83" playOrder="82" class="chapter">
+        <navLabel>
+          <text>Chapter Four: What Caspian Did There</text>
+        </navLabel>
+        <content src="text/part0088.html#2JTHG0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_84" playOrder="83" class="chapter">
+        <navLabel>
+          <text>Chapter Five: The Storm and What Came of It</text>
+        </navLabel>
+        <content src="text/part0089.html#2KS220-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_85" playOrder="84" class="chapter">
+        <navLabel>
+          <text>Chapter Six: The Adventures of Eustace</text>
+        </navLabel>
+        <content src="text/part0090.html#2LQIK0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_86" playOrder="85" class="chapter">
+        <navLabel>
+          <text>Chapter Seven: How the Adventure Ended</text>
+        </navLabel>
+        <content src="text/part0091.html#2MP360-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_87" playOrder="86" class="chapter">
+        <navLabel>
+          <text>Chapter Eight: Two Narrow Escapes</text>
+        </navLabel>
+        <content src="text/part0092.html#2NNJO0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_88" playOrder="87" class="chapter">
+        <navLabel>
+          <text>Chapter Nine: The Island of the Voices</text>
+        </navLabel>
+        <content src="text/part0093.html#2OM4A0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_89" playOrder="88" class="chapter">
+        <navLabel>
+          <text>Chapter Ten: The Magician’s Book</text>
+        </navLabel>
+        <content src="text/part0094.html#2PKKS0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_90" playOrder="89" class="chapter">
+        <navLabel>
+          <text>Chapter Eleven: The Dufflepuds Made Happy</text>
+        </navLabel>
+        <content src="text/part0095.html#2QJ5E0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_91" playOrder="90" class="chapter">
+        <navLabel>
+          <text>Chapter Twelve: The Dark Island</text>
+        </navLabel>
+        <content src="text/part0096.html#2RHM00-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_92" playOrder="91" class="chapter">
+        <navLabel>
+          <text>Chapter Thirteen: The Three Sleepers</text>
+        </navLabel>
+        <content src="text/part0097.html#2SG6I0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_93" playOrder="92" class="chapter">
+        <navLabel>
+          <text>Chapter Fourteen: The Beginning of the End of the World</text>
+        </navLabel>
+        <content src="text/part0098.html#2TEN40-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_94" playOrder="93" class="chapter">
+        <navLabel>
+          <text>Chapter Fifteen: The Wonders of the Last Sea</text>
+        </navLabel>
+        <content src="text/part0099.html#2UD7M0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_95" playOrder="94" class="chapter">
+        <navLabel>
+          <text>Chapter Sixteen: The Very End of the World</text>
+        </navLabel>
+        <content src="text/part0100.html#2VBO80-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="num_96" playOrder="95" class="chapter">
+      <navLabel>
+        <text>The Silver Chair</text>
+      </navLabel>
+      <content src="text/part0101.html#30A8Q0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      <navPoint id="num_97" playOrder="96" class="chapter">
+        <navLabel>
+          <text>Dedication</text>
+        </navLabel>
+        <content src="text/part0103.html#3279U0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_98" playOrder="97" class="chapter">
+        <navLabel>
+          <text>Contents</text>
+        </navLabel>
+        <content src="text/part0104.html#335QG0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_99" playOrder="98" class="chapter">
+        <navLabel>
+          <text>Chapter One: Behind the Gym</text>
+        </navLabel>
+        <content src="text/part0105.html#344B20-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_100" playOrder="99" class="chapter">
+        <navLabel>
+          <text>Chapter Two: Jill Is Given a Task</text>
+        </navLabel>
+        <content src="text/part0106.html#352RK0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_101" playOrder="100" class="chapter">
+        <navLabel>
+          <text>Chapter Three: The Sailing of the King</text>
+        </navLabel>
+        <content src="text/part0107.html#361C60-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_102" playOrder="101" class="chapter">
+        <navLabel>
+          <text>Chapter Four: A Parliament of Owls</text>
+        </navLabel>
+        <content src="text/part0108.html#36VSO0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_103" playOrder="102" class="chapter">
+        <navLabel>
+          <text>Chapter Five: Puddleglum</text>
+        </navLabel>
+        <content src="text/part0109.html#37UDA0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_104" playOrder="103" class="chapter">
+        <navLabel>
+          <text>Chapter Six: The Wild Waste Lands of the North</text>
+        </navLabel>
+        <content src="text/part0110.html#38STS0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_105" playOrder="104" class="chapter">
+        <navLabel>
+          <text>Chapter Seven: The Hill of the Strange Trenches</text>
+        </navLabel>
+        <content src="text/part0111.html#39REE0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_106" playOrder="105" class="chapter">
+        <navLabel>
+          <text>Chapter Eight: The House of Harfang</text>
+        </navLabel>
+        <content src="text/part0112.html#3APV00-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_107" playOrder="106" class="chapter">
+        <navLabel>
+          <text>Chapter Nine: How They Discovered Something Worth Knowing</text>
+        </navLabel>
+        <content src="text/part0113.html#3BOFI0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_108" playOrder="107" class="chapter">
+        <navLabel>
+          <text>Chapter Ten: Travels Without the Sun</text>
+        </navLabel>
+        <content src="text/part0114.html#3CN040-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_109" playOrder="108" class="chapter">
+        <navLabel>
+          <text>Chapter Eleven: In the Dark Castle</text>
+        </navLabel>
+        <content src="text/part0115.html#3DLGM0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_110" playOrder="109" class="chapter">
+        <navLabel>
+          <text>Chapter Twelve: The Queen of Underland</text>
+        </navLabel>
+        <content src="text/part0116.html#3EK180-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_111" playOrder="110" class="chapter">
+        <navLabel>
+          <text>Chapter Thirteen: Underland Without the Queen</text>
+        </navLabel>
+        <content src="text/part0117.html#3FIHQ0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_112" playOrder="111" class="chapter">
+        <navLabel>
+          <text>Chapter Fourteen: The Bottom of the World</text>
+        </navLabel>
+        <content src="text/part0118.html#3GH2C0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_113" playOrder="112" class="chapter">
+        <navLabel>
+          <text>Chapter Fifteen: The Disappearance of Jill</text>
+        </navLabel>
+        <content src="text/part0119.html#3HFIU0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_114" playOrder="113" class="chapter">
+        <navLabel>
+          <text>Chapter Sixteen: The Healing of Harms</text>
+        </navLabel>
+        <content src="text/part0120.html#3IE3G0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="num_115" playOrder="114" class="chapter">
+      <navLabel>
+        <text>The Last Battle</text>
+      </navLabel>
+      <content src="text/part0121.html#3JCK20-99cb7a924f5f427897c13ee07ab9efdc"/>
+      <navPoint id="num_116" playOrder="115" class="chapter">
+        <navLabel>
+          <text>Contents</text>
+        </navLabel>
+        <content src="text/part0123.html#3L9L60-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_117" playOrder="116" class="chapter">
+        <navLabel>
+          <text>Chapter One: By Caldron Pool</text>
+        </navLabel>
+        <content src="text/part0124.html#3M85O0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_118" playOrder="117" class="chapter">
+        <navLabel>
+          <text>Chapter Two: The Rashness of the King</text>
+        </navLabel>
+        <content src="text/part0125.html#3N6MA0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_119" playOrder="118" class="chapter">
+        <navLabel>
+          <text>Chapter Three: The Ape in Its Glory</text>
+        </navLabel>
+        <content src="text/part0126.html#3O56S0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_120" playOrder="119" class="chapter">
+        <navLabel>
+          <text>Chapter Four: What Happened That Night</text>
+        </navLabel>
+        <content src="text/part0127.html#3P3NE0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_121" playOrder="120" class="chapter">
+        <navLabel>
+          <text>Chapter Five: How Help Came to the King</text>
+        </navLabel>
+        <content src="text/part0128.html#3Q2800-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_122" playOrder="121" class="chapter">
+        <navLabel>
+          <text>Chapter Six: A Good Night’s Work</text>
+        </navLabel>
+        <content src="text/part0129.html#3R0OI0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_123" playOrder="122" class="chapter">
+        <navLabel>
+          <text>Chapter Seven: Mainly About Dwarfs</text>
+        </navLabel>
+        <content src="text/part0130.html#3RV940-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_124" playOrder="123" class="chapter">
+        <navLabel>
+          <text>Chapter Eight: What News the Eagle Brought</text>
+        </navLabel>
+        <content src="text/part0131.html#3STPM0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_125" playOrder="124" class="chapter">
+        <navLabel>
+          <text>Chapter Nine: The Great Meeting on Stable Hill</text>
+        </navLabel>
+        <content src="text/part0132.html#3TSA80-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_126" playOrder="125" class="chapter">
+        <navLabel>
+          <text>Chapter Ten: Who Will Go Into the Stable?</text>
+        </navLabel>
+        <content src="text/part0133.html#3UQQQ0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_127" playOrder="126" class="chapter">
+        <navLabel>
+          <text>Chapter Eleven: The Pace Quickens</text>
+        </navLabel>
+        <content src="text/part0134.html#3VPBC0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_128" playOrder="127" class="chapter">
+        <navLabel>
+          <text>Chapter Twelve: Through the Stable Door</text>
+        </navLabel>
+        <content src="text/part0135.html#40NRU0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_129" playOrder="128" class="chapter">
+        <navLabel>
+          <text>Chapter Thirteen: How the Dwarfs Refused to Be Taken In</text>
+        </navLabel>
+        <content src="text/part0136.html#41MCG0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_130" playOrder="129" class="chapter">
+        <navLabel>
+          <text>Chapter Fourteen: Night Falls on Narnia</text>
+        </navLabel>
+        <content src="text/part0137.html#42KT20-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_131" playOrder="130" class="chapter">
+        <navLabel>
+          <text>Chapter Fifteen: Further Up and Further In</text>
+        </navLabel>
+        <content src="text/part0138.html#43JDK0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_132" playOrder="131" class="chapter">
+        <navLabel>
+          <text>Chapter Sixteen: Farewell to Shadowlands</text>
+        </navLabel>
+        <content src="text/part0139.html#44HU60-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="num_133" playOrder="132" class="chapter">
+      <navLabel>
+        <text>Boxen</text>
+      </navLabel>
+      <content src="text/part0140.html#45GEO0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      <navPoint id="num_134" playOrder="16" class="chapter">
+        <navLabel>
+          <text>Introduction</text>
+        </navLabel>
+        <content src="text/part0142.html"/>
+      </navPoint>
+      <navPoint id="num_135" playOrder="134" class="chapter">
+        <navLabel>
+          <text>Contents</text>
+        </navLabel>
+        <content src="text/part0143.html#48C0E0-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_136" playOrder="135" class="chapter">
+        <navLabel>
+          <text>Animal-Land</text>
+        </navLabel>
+        <content src="text/part0145.html#4A91I0-99cb7a924f5f427897c13ee07ab9efdc"/>
+        <navPoint id="num_137" playOrder="17" class="chapter">
+          <navLabel>
+            <text>The King’s Ring</text>
+          </navLabel>
+          <content src="text/part0146.html"/>
+        </navPoint>
+        <navPoint id="num_138" playOrder="18" class="chapter">
+          <navLabel>
+            <text>Manx Against Manx</text>
+          </navLabel>
+          <content src="text/part0147.html"/>
+        </navPoint>
+        <navPoint id="num_139" playOrder="19" class="chapter">
+          <navLabel>
+            <text>The Relief of Murry</text>
+          </navLabel>
+          <content src="text/part0148.html"/>
+        </navPoint>
+        <navPoint id="num_140" playOrder="20" class="chapter">
+          <navLabel>
+            <text>History of Mouse-Land from Stone-Age to Bublish I (Old History)</text>
+          </navLabel>
+          <content src="text/part0149.html"/>
+        </navPoint>
+        <navPoint id="num_141" playOrder="21" class="chapter">
+          <navLabel>
+            <text>History of Animal-Land (New History)</text>
+          </navLabel>
+          <content src="text/part0150.html"/>
+        </navPoint>
+        <navPoint id="num_142" playOrder="22" class="chapter">
+          <navLabel>
+            <text>The Chess Monograph</text>
+          </navLabel>
+          <content src="text/part0151.html"/>
+        </navPoint>
+        <navPoint id="num_143" playOrder="23" class="chapter">
+          <navLabel>
+            <text>The Geography of Animal-Land</text>
+          </navLabel>
+          <content src="text/part0152.html"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="num_144" playOrder="143" class="chapter">
+        <navLabel>
+          <text>Boxen</text>
+        </navLabel>
+        <content src="text/part0153.html#4HT620-99cb7a924f5f427897c13ee07ab9efdc"/>
+        <navPoint id="num_145" playOrder="24" class="chapter">
+          <navLabel>
+            <text>Boxen: or Scenes from Boxonian City Life</text>
+          </navLabel>
+          <content src="text/part0154.html"/>
+        </navPoint>
+        <navPoint id="num_146" playOrder="25" class="chapter">
+          <navLabel>
+            <text>The Locked Door and Than-Kyu</text>
+          </navLabel>
+          <content src="text/part0156.html"/>
+        </navPoint>
+        <navPoint id="num_147" playOrder="26" class="chapter">
+          <navLabel>
+            <text>The Sailor</text>
+          </navLabel>
+          <content src="text/part0159.html"/>
+        </navPoint>
+        <navPoint id="num_148" playOrder="147" class="chapter">
+          <navLabel>
+            <text>Littera Scripta Manet</text>
+          </navLabel>
+          <content src="text/part0161.html#4PHAI0-99cb7a924f5f427897c13ee07ab9efdc"/>
+        </navPoint>
+        <navPoint id="num_149" playOrder="148" class="chapter">
+          <navLabel>
+            <text>Tararo</text>
+          </navLabel>
+          <content src="text/part0163.html#4REBM0-99cb7a924f5f427897c13ee07ab9efdc"/>
+        </navPoint>
+        <navPoint id="num_150" playOrder="149" class="chapter">
+          <navLabel>
+            <text>The Life of Lord John Big of Bigham</text>
+          </navLabel>
+          <content src="text/part0165.html#4TBCQ0-99cb7a924f5f427897c13ee07ab9efdc"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="num_151" playOrder="150" class="chapter">
+        <navLabel>
+          <text>Encyclopedia Boxoniana</text>
+        </navLabel>
+        <content src="text/part0169.html#515F20-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+      <navPoint id="num_152" playOrder="151" class="chapter">
+        <navLabel>
+          <text>The History of Boxen</text>
+        </navLabel>
+        <content src="text/part0171.html#532G60-99cb7a924f5f427897c13ee07ab9efdc"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="num_153" playOrder="27" class="chapter">
+      <navLabel>
+        <text>Copyright</text>
+      </navLabel>
+      <content src="text/part0173.html"/>
+    </navPoint>
+    <navPoint id="num_154" playOrder="28" class="chapter">
+      <navLabel>
+        <text>About the Author</text>
+      </navLabel>
+      <content src="text/part0174.html"/>
+    </navPoint>
+    <navPoint id="num_155" playOrder="154" class="chapter">
+      <navLabel>
+        <text>Back Ads</text>
+      </navLabel>
+      <content src="text/part0175_split_000.html#56SIE0-99cb7a924f5f427897c13ee07ab9efdc"/>
+    </navPoint>
+    <navPoint id="num_156" playOrder="155" class="chapter">
+      <navLabel>
+        <text>Credit</text>
+      </navLabel>
+      <content src="text/part0176.html#57R300-99cb7a924f5f427897c13ee07ab9efdc"/>
+    </navPoint>
+    <navPoint id="num_157" playOrder="29" class="chapter">
+      <navLabel>
+        <text>Copyright</text>
+      </navLabel>
+      <content src="text/part0177.html"/>
+    </navPoint>
+    <navPoint id="num_158" playOrder="30" class="chapter">
+      <navLabel>
+        <text>About the Publisher</text>
+      </navLabel>
+      <content src="text/part0178.html"/>
+    </navPoint>
+  </navMap>
+</ncx>
