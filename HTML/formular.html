@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Formular de Contact</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #output {
+      margin-top: 20px;
+      background: #e0ffe0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="contactForm">
+    <h2>Contactează-ne</h2>
+    <input type="text" id="nume" placeholder="Nume" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <textarea id="mesaj" rows="4" placeholder="Mesajul tău..." required></textarea>
+    <button type="submit">Trimite</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // prevenim trimiterea formularului
+
+      // Colectăm valorile
+      const nume = document.getElementById('nume').value;
+      const email = document.getElementById('email').value;
+      const mesaj = document.getElementById('mesaj').value;
+
+      // Afișăm datele
+      document.getElementById('output').innerHTML = `
+        <h3>Date primite:</h3>
+        <p><strong>Nume:</strong> ${nume}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Mesaj:</strong> ${mesaj}</p>
+      `;
+
+      // Opțional: goliți formularul
+      document.getElementById('contactForm').reset();
+    });
+  </script>
+
+</body>
+</html>

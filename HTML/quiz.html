@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #quiz-container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    .option {
+      margin: 10px 0;
+    }
+
+    button {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="quiz-container">
+    <h2 id="question">Întrebarea va apărea aici</h2>
+    <div id="options"></div>
+    <button onclick="nextQuestion()">Următoarea</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const quiz = [
+      {
+        question: "Ce limbaj se folosește pentru stilizarea paginilor web?",
+        options: ["HTML", "CSS", "JavaScript", "Python"],
+        correct: 1
+      },
+      {
+        question: "Ce înseamnă HTML?",
+        options: ["Hyper Trainer Markup Language", "HyperText Markup Language", "HighText Machine Language", "None of the above"],
+        correct: 1
+      },
+      {
+        question: "Ce face JavaScript în paginile web?",
+        options: ["Definește structura", "Stilizează conținutul", "Adaugă interactivitate", "Salvează date permanent"],
+        correct: 2
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const q = quiz[currentQuestion];
+      document.getElementById('question').textContent = q.question;
+      const optionsDiv = document.getElementById('options');
+      optionsDiv.innerHTML = "";
+
+      q.options.forEach((opt, index) => {
+        const btn = document.createElement('button');
+        btn.textContent = opt;
+        btn.className = 'option';
+        btn.onclick = () => checkAnswer(index);
+        optionsDiv.appendChild(btn);
+      });
+
+      document.getElementById('result').textContent = "";
+    }
+
+    function checkAnswer(selected) {
+      const correct = quiz[currentQuestion].correct;
+      const result = document.getElementById('result');
+      if (selected === correct) {
+        score++;
+        result.textContent = "Corect!";
+        result.style.color = "green";
+      } else {
+        result.textContent = "Greșit!";
+        result.style.color = "red";
+      }
+
+      // Dezactivăm butoanele
+      document.querySelectorAll('.option').forEach(btn => btn.disabled = true);
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < quiz.length - 1) {
+        currentQuestion++;
+        loadQuestion();
+      } else {
+        document.getElementById('quiz-container').innerHTML = `
+          <h2>Ai terminat quiz-ul!</h2>
+          <p>Scor final: ${score} din ${quiz.length}</p>
+        `;
+      }
+    }
+
+    loadQuestion();
+  </script>
+
+</body>
+</html>

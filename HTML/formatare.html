@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Formatare Dinamică</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .image, .video {
+      max-width: 100%;
+      border-radius: 10px;
+      transition: transform 0.4s, border 0.4s;
+    }
+
+    .text {
+      font-size: 16px;
+      line-height: 1.6;
+      transition: color 0.3s, font-size 0.3s;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TEXT -->
+  <div class="section">
+    <h2>Text formatabil</h2>
+    <p id="text" class="text">Acesta este un paragraf de test. Poți schimba stilul lui apăsând butonul de mai jos.</p>
+    <button onclick="formateazaText()">Schimbă stilul textului</button>
+  </div>
+
+  <!-- IMAGINE -->
+  <div class="section">
+    <h2>Imagine</h2>
+    <img id="img" class="image" src="https://picsum.photos/600/300" alt="Imagine aleatoare">
+    <br>
+    <button onclick="formateazaImagine()">Aplică efect imaginii</button>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="section">
+    <h2>Videoclip</h2>
+    <video id="video" class="video" width="100%" controls>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Browserul tău nu suportă video HTML5.
+    </video>
+    <br>
+    <button onclick="formateazaVideo()">Stilizează video</button>
+  </div>
+
+  <script>
+    let textModificat = false;
+    function formateazaText() {
+      const text = document.getElementById("text");
+      if (!textModificat) {
+        text.style.color = "darkgreen";
+        text.style.fontSize = "20px";
+        text.style.fontWeight = "bold";
+      } else {
+        text.style.color = "";
+        text.style.fontSize = "";
+        text.style.fontWeight = "";
+      }
+      textModificat = !textModificat;
+    }
+
+    let imgModificata = false;
+    function formateazaImagine() {
+      const img = document.getElementById("img");
+      if (!imgModificata) {
+        img.style.border = "5px solid #FF5733";
+        img.style.transform = "rotate(2deg) scale(1.05)";
+      } else {
+        img.style.border = "";
+        img.style.transform = "";
+      }
+      imgModificata = !imgModificata;
+    }
+
+    let videoModificat = false;
+    function formateazaVideo() {
+      const video = document.getElementById("video");
+      if (!videoModificat) {
+        video.style.border = "6px solid #0066cc";
+        video.style.boxShadow = "0 0 20px rgba(0,0,0,0.3)";
+      } else {
+        video.style.border = "";
+        video.style.boxShadow = "";
+      }
+      videoModificat = !videoModificat;
+    }
+  </script>
+
+</body>
+</html>
