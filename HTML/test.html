@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Structură pagină cu CSS</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #444;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 100px);
+      gap: 15px;
+    }
+
+    nav img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    nav img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 400px;
+    }
+
+    main {
+      flex: 2;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    aside {
+      flex: 1;
+      padding: 20px;
+      background-color: #e9e9e9;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Site-ul Meu</h1>
+    <p>Un exemplu de structură a paginii cu CSS</p>
+  </header>
+
+  <nav id="myNav">
+    <img id="1" src="https://picsum.photos/id/1015/400/300" alt="Foto 1" onclick="schimba(1)">
+    <img id="2" src="https://picsum.photos/id/1025/400/300" alt="Foto 2" onclick="schimba(2)">
+    <img id="3" src="https://picsum.photos/id/1035/400/300" alt="Foto 3">
+    <img id="4" src="https://picsum.photos/id/1045/400/300" alt="Foto 4">
+    <img id="5" src="https://picsum.photos/id/1055/400/300" alt="Foto 5">
+    <img id="6" src="https://picsum.photos/id/1065/400/300" alt="Foto 6">
+  </nav>
+
+  <div class="container">
+    <main>
+      <img id="m1" src="https://picsum.photos/id/1015/400/300" alt="Foto 1" style="display: none;">
+      <img id="m2" src="https://picsum.photos/id/1025/400/300" alt="Foto 2" style="display: none;">
+      <img id="m3" src="https://picsum.photos/id/1035/400/300" alt="Foto 3" style="display: none;">
+      <img id="m4" src="https://picsum.photos/id/1045/400/300" alt="Foto 4" style="display: none;">
+      <img id="m5" src="https://picsum.photos/id/1055/400/300" alt="Foto 5" style="display: none;">
+      <img id="m6" src="https://picsum.photos/id/1065/400/300" alt="Foto 6" style="display: none;">
+    </main>
+
+    <aside>
+      <p id="s1" style="display: none;">Explicații despre poza 1.</p>
+      <p id="s2" style="display: none;">Explicații despre poza 2.</p>
+      <p id="s3" style="display: none;">Explicații despre poza 3.</p>
+      <p id="s4" style="display: none;">Explicații despre poza 4.</p>
+      <p id="s5" style="display: none;">Explicații despre poza 5.</p>
+    </aside>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Site-ul Meu. Toate drepturile rezervate.</p>
+  </footer>
+
+  <script>
+    var curenta = 0;
+    function schimba(index) {
+      if (curenta) {
+        imagine_curenta = document.getElementById('m' + curenta);
+        descriere_curenta = document.getElementById('s' + curenta);
+        imagine_curenta.style.display = 'none';
+        descriere_curenta.style.display = 'none';
+      }
+      imagine_urmatoare = document.getElementById('m' + index);
+      descriere_urmatoare = document.getElementById('s' + index);
+      imagine_urmatoare.style.display = 'block';
+      descriere_urmatoare.style.display = 'block';
+      curenta = index;
+    }
+    nav = document.getElementById('myNav');
+    const imagini = nav.querySelectorAll('img');
+
+    imagini.forEach(img => {
+      img.addEventListener('click', () => {
+        schimba(img.attr('id'));
+      });
+    });
+  </script>
+
+</body>
+</html>
