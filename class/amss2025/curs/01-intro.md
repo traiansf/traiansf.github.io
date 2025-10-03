@@ -6,7 +6,7 @@ date: "2025"
 
 # Welcome
 
-- Course: Analiza și Modelarea Sistemelor Software (AMSS)
+- Course: Software Systems Modelling / Analiza și Modelarea Sistemelor Software (AMSS)
 - Instructor: Traian-Florin Șerbănuță
 - Semester: Fall 2025
 - Contact: traian.serbanuta@unibuc.ro
@@ -35,7 +35,7 @@ Tell students what to expect in today's session. Mention that it's more relaxed 
 # Who We Are
 
 - Name
-- Program / year
+- Program
 - One fun fact about you
 - Your experience with software / modeling
 
@@ -47,7 +47,7 @@ Encourage students to share to build rapport. Keep it short and light-hearted.
 
 # Course Scope & Objectives
 
-By the end of the course, students will be able to get better at:
+By the end of the course, students should get better at:
 
 - Analyzing requirements of software systems
 - Creating structural and behavioral UML models
@@ -76,11 +76,11 @@ Walk through the modules in sequence. Connect them to real-world examples.
 
 # Assessments
 
-- Project: 100%
+- Project: 90%
   - teams consisting of 4-5 students (recommended)
   - there will be a single note for the entire team
   - documentation (50%) and presentation (50%)
-- Participation: 10% bonus
+- Participation: 20%
 
 ::: notes
 Adapt percentages based on actual syllabus. Emphasize the importance of the project and teamwork.
@@ -148,32 +148,42 @@ Facilitate sharing. Emphasize there are multiple valid perspectives.
 
 # Logistics & Next Steps
 
-- Teams page: ![AMSS 2025/2026](images/teams.png)
-- Course materials: Teams
+- [Join Teams page: ![AMSS 2025/2026](images/teams.png)](https://teams.microsoft.com/l/team/19%3AmSabq5nD8EXPvLIZgJMdgBb7fsYHH9VeuD1qQO_4c9k1%40thread.tacv2/conversations?groupId=5f56ccf7-c88d-45bd-a5ea-5def8544e409&tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1)
+- Course materials: [https://traiansf.github.io/class/amss2025/](https://traiansf.github.io/class/amss2025/)
+  - Materials from previous iteration of this class (prof. Claudia Chirita): [GitHub](https://github.com/cechirita/amss2024/)
 - Communication: Teams / email
-- Next class: UML Class diagrams
-- Homework:
-  - Readings:
-    - Chapters 1 and 2 (and maybe 3) of Martin Fowler's [UML Distilled](https://www.cs.uah.edu/~rcoleman/CS307/Announcements/UML%20Distilled.pdf)
-    - Familiarize with some [design patterns](https://www.cs.uah.edu/~rcoleman/CS307/DesignPatterns/DesignPatterns.html) (and associated humour)
-  - Setup: Install/find some software for drawing UML diagrams you are comfortable with
-    - [PlantUML](https://editor.plantuml.com/) (also available as VSCode extension)
-    - [Mermaid](https://mermaid.live/edit), 4 Github, a la Markdown. [Sintaxă diagrame de clasă](https://mermaid.js.org/syntax/classDiagram.html)
-    - [Lucidchart](https://www.lucidchart.com/)
-    - [app.diagrams](https://app.diagrams.net/)
-    - [Visual Paradigm](https://online.visual-paradigm.com/diagrams/solutions/free-class-diagram-tool/)
-    - Microsoft Paint / Word / pencil and paper
+- Next class: Requirements analysis
 
 ::: notes
 Encourage students to explore the GitHub repo. Make sure they know how to reach you.
 :::
+
+# Homework
+
+## Readings
+
+- Chapters 1 and 2 (and maybe 3) of Martin Fowler's [UML Distilled](https://www.cs.uah.edu/~rcoleman/CS307/Announcements/UML%20Distilled.pdf)
+- Familiarize with some [design patterns](https://www.cs.uah.edu/~rcoleman/CS307/DesignPatterns/DesignPatterns.html) (and associated humour)
+
+## Setup
+
+Install/find some software for drawing UML diagrams you are comfortable with
+
+Examples:
+
+- [PlantUML](https://editor.plantuml.com/) (also available as VSCode extension)
+- [Mermaid](https://mermaid.live/edit), 4 Github, a la Markdown. [Sintaxă diagrame de clasă](https://mermaid.js.org/syntax/classDiagram.html)
+- [Lucidchart](https://www.lucidchart.com/)
+- [app.diagrams](https://app.diagrams.net/)
+- [Visual Paradigm](https://online.visual-paradigm.com/diagrams/solutions/free-class-diagram-tool/)
+- Microsoft Paint / Word / pencil and paper
 
 ---
 
 # Thank You
 
 - Today: introductions, overview, first modeling exercises
-- Next: dive deeper into UML class diagrams
+- Next: dive deeper into requirements analysis
 
 **Questions?**
 
