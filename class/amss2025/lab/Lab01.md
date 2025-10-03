@@ -2,6 +2,7 @@
 title: "Analiza și Modelarea Sistemelor Software - Lab 1"
 author: "Traian Șerbănuță"
 date: "2025"
+thanks: "Thanking Andrian Babii @ Endava for slide content"
 ---
 
 # Agenda
