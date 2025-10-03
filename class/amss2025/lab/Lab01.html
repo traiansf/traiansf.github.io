@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Traian Șerbănuță" />
+  <meta name="date" content="2025-01-01" />
+  <title>Analiza și Modelarea Sistemelor Software - Lab 1</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Analiza și Modelarea Sistemelor Software - Lab
+1</h1>
+  <p class="author">
+Traian Șerbănuță
+  </p>
+  <p class="date">2025</p>
+</div>
+<div id="agenda" class="slide section level1">
+<h1>Agenda</h1>
+<ul>
+<li>Get to know</li>
+<li>Laboratory structure</li>
+<li>General Presentation</li>
+</ul>
+</div>
+<div id="introduction" class="slide section level1">
+<h1>Introduction</h1>
+<p><strong>Subject:</strong> Software System Modeling</p>
+<ul>
+<li>UML Diagrams, Modeling, Design Patterns, etc.</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>To be active<br />
+</li>
+<li>Attendance is not mandatory<br />
+</li>
+<li>Evaluation based on team project</li>
+</ul>
+</div>
+<div id="who-we-are" class="slide section level1">
+<h1>Who we are</h1>
+<p><strong>About me:</strong></p>
+<ul>
+<li>Traian Șerbănuță</li>
+<li>associate professor @ <a
+href="https://cs.unibuc.ro/~tserbanuta">UNIBUC</a></li>
+<li>research consultant @ <a href="https://pi2.network/">Pi Squared
+Inc.</a></li>
+</ul>
+<p><strong>About you:</strong></p>
+<ul>
+<li>Name<br />
+</li>
+<li>Professional interests<br />
+</li>
+<li>Fun fact</li>
+</ul>
+</div>
+<div id="tools" class="slide section level1">
+<h1>Tools</h1>
+<ul>
+<li><a href="https://www.lucidchart.com/">Lucidchart</a><br />
+</li>
+<li><a href="https://www.websequencediagrams.com/">Web Sequence
+Diagrams</a><br />
+</li>
+<li><a href="https://yuml.me/">yUML</a><br />
+</li>
+<li><a href="https://mermaid-js.github.io/">Mermaid</a><br />
+</li>
+<li><a href="https://app.diagrams.net/">Diagrams.net</a></li>
+</ul>
+</div>
+<div id="uml" class="slide section level1">
+<h1>UML</h1>
+<ul>
+<li>UML is <strong>not a process of designing solutions</strong><br />
+</li>
+<li>It is a way of communicating designs <strong>independent of
+programming languages</strong><br />
+</li>
+<li>UML 2 has many diagram types, divided into:
+<ul>
+<li><strong>Structural diagrams</strong><br />
+</li>
+<li><strong>Behavior diagrams</strong> (including interaction
+aspects)</li>
+</ul></li>
+</ul>
+</div>
+<div class="slide section level1">
+
+<div class="float">
+<img src="images/slide7_img3.png" alt="Types of diagrams in UML" />
+<div class="figcaption">Types of diagrams in UML</div>
+</div>
+</div>
+<div id="poll" class="slide section level1">
+<h1>Poll</h1>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>What type of diagram is presented?</strong></p>
+<ul>
+<li>Class<br />
+</li>
+<li>Package<br />
+</li>
+<li>Interaction<br />
+</li>
+<li>Use case<br />
+</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="float">
+<img src="images/slide8_img4.jpg" alt="????" />
+<div class="figcaption">????</div>
+</div>
+</div>
+</div>
+</div>
+<div id="answer-class-diagram" class="slide section level1">
+<h1><strong>Answer:</strong> Class diagram</h1>
+<ul>
+<li>Backbone of object-oriented modeling<br />
+</li>
+<li>Shows how different entities relate to each other (static
+structure)<br />
+</li>
+<li>Purposes:
+<ul>
+<li>Analysis and design of static view of an application<br />
+</li>
+<li>Describe responsibilities of a system<br />
+</li>
+<li>Base for component and deployment diagrams<br />
+</li>
+<li>Forward and reverse engineering</li>
+</ul></li>
+</ul>
+</div>
+<div id="poll-1" class="slide section level1">
+<h1>Poll</h1>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>What type of diagram is presented?</strong></p>
+<ul>
+<li>State machine<br />
+</li>
+<li>Interaction<br />
+</li>
+<li>Component<br />
+</li>
+<li>Use case<br />
+</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="float">
+<img src="images/slide10_img4.png" alt="????" />
+<div class="figcaption">????</div>
+</div>
+</div>
+</div>
+</div>
+<div id="answer-component-diagram" class="slide section level1">
+<h1><strong>Answer:</strong> Component diagram</h1>
+<ul>
+<li>Focuses on <strong>system’s components</strong><br />
+</li>
+<li>Models <strong>static implementation view</strong><br />
+</li>
+<li>Breaks down system into high-level functionalities<br />
+</li>
+<li>Each component has a clear aim and interacts minimally with
+others</li>
+</ul>
+</div>
+<div id="exercise-parking-lot-design" class="slide section level1">
+<h1>Exercise: Parking Lot Design</h1>
+<p><strong>Goal:</strong> Design a parking lot using class diagrams.</p>
+<p><strong>Steps:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Gather product requirements (make reasonable assumptions).<br />
+</li>
+<li>Eliminate confusion and clarify.<br />
+</li>
+<li>Draw class hierarchy diagram.<br />
+</li>
+<li>Ignore scalability/performance issues.</li>
+</ol>
+</div>
+<div id="parking-lot-requirements" class="slide section level1">
+<h1>Parking Lot Requirements</h1>
+<ul>
+<li>Multiple floors for parking cars<br />
+</li>
+<li>Multiple entry and exit points<br />
+</li>
+<li>Payment options:
+<ul>
+<li>Automated exit panel<br />
+</li>
+<li>Parking attendant<br />
+</li>
+<li>Info portal on each floor (cash &amp; credit cards)<br />
+</li>
+</ul></li>
+<li>If paid at info portal → no need to pay at exit<br />
+</li>
+<li>System should enforce max capacity<br />
+</li>
+<li>If full → show message at entrance + display board on ground
+floor<br />
+</li>
+<li>Multiple parking spot types: Compact, Large, Handicapped,
+Motorcycle, etc.<br />
+</li>
+<li>Electric car spots with charging + payment panel<br />
+</li>
+<li>Support multiple vehicle types: car, truck, van, motorcycle,
+etc.</li>
+</ul>
+</div>
+</body>
+</html>
