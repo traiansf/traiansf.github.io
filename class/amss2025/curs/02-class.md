@@ -4,18 +4,6 @@ author: "Traian-Florin Șerbănuță"
 date: "2025"
 ---
 
-# Welcome Back
-
-- Course: Analiza și Modelarea Sistemelor Software (AMSS)
-- Lecture 2: UML Class Diagrams
-- Duration: 100 minutes (with a break)
-
-::: notes
-Welcome students back, briefly recap last week’s key points (analysis, modeling motivation, class project intro). Explain that today we’ll start diving into UML class diagrams in detail.
-:::
-
----
-
 # Agenda
 
 1. Quick recap
@@ -119,7 +107,7 @@ class Book {
     - publicationYear : int
     - genre : String
     - availableCopies : int
-    
+
     + getDetails() : String
     + borrowBook() : boolean
     + calculateFine() : int
@@ -152,7 +140,7 @@ class Book {
 ::::::::::::::
 
 
-<!-- 
+<!--
 ```plantuml
 '| label: fig-borrow
 '| class: important
@@ -205,23 +193,23 @@ then I should find the original car among those cars.
   '| filename: dept
   '| height: 25%
   @startuml
-  
+
   hide empty members
   '''' Declarations to stylize the diagram ''''
   hide circle
-  
+
   skinparam classFontStyle bold
-  
+
   skinparam classAttributeIconSize 0
-  
+
   ' Core class: Book
   left to right direction
 
-  
+
   Department "1" o--> "0..*" Professor
-  
+
   @enduml
-  ```  
+  ```
 
 - **Composition ($\blacklozenge$)**: “owns-a” relationship, parts die with the whole
 
@@ -231,23 +219,23 @@ then I should find the original car among those cars.
   '| filename: car
   '| height: 25%
   @startuml
-  
+
   hide empty members
   '''' Declarations to stylize the diagram ''''
   hide circle
-  
+
   skinparam classFontStyle bold
-  
+
   skinparam classAttributeIconSize 0
-  
+
   ' Core class: Book
   left to right direction
 
-  
+
   Car *--> Engine
-  
+
   @enduml
-  ```  
+  ```
 
 ::: notes
 Ask students for more examples. Stress lifetime dependency difference.
@@ -449,7 +437,7 @@ Customer --> Address : billing
 Customer --> Address : shipping
 
 Order ..> ValidationResult
-@enduml  
+@enduml
 ```
 
 ---
@@ -475,7 +463,7 @@ quantity
 class Product {
 name
 price
-} 
+}
 
 class DiscountCode {
   code
@@ -495,7 +483,7 @@ Order --> "0..1" DiscountCode
 
 Order "*" --> Customer
 
-@enduml  
+@enduml
 ```
 
 
