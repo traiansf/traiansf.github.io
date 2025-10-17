@@ -9,8 +9,6 @@ thanks: "Thanking Andrian Babii @ Endava for slide content"
 
 UML behavioral diagrams
 
-Use case diagrams
-
 Sequence diagrams
 
 ---
@@ -24,8 +22,8 @@ Sequence diagrams
 
 ### Elements and relationships
 
-- Diagram elements resemble verbs in a natural language
-- relationships that connect them typically convey passage of time.
+- elements resemble verbs in a natural language
+- relationships typically convey passage of time
 
 ### Example
 
@@ -36,6 +34,30 @@ Elements of a behavioral diagram of a vehicle reservation system
 - Provide Credit Card Details.
 
 # Types of behavioral diagrams
+
+## Sequence Diagrams
+
+How –and in what order– a group of objects works together.
+
+:::::::::::::: {.columns}
+::: {.column width="50%"}
+
+Also known as
+
+- event diagrams
+- event scenarios
+
+Used by both software developers and business professionals, to
+
+- understand new requirements
+- document existing processes
+:::
+::: {.column width="50%"}
+![](img/Software%20System%20Modeling-Lab3_14.png)
+:::
+::::::::::::::
+
+---
 
 ## Activity diagrams
 
@@ -59,7 +81,6 @@ Activities can be:
 ![](img/Software%20System%20Modeling-Lab3_0.png)
 :::
 ::::::::::::::
-
 
 ---
 
@@ -129,166 +150,115 @@ Diagrams used as nodes
 :::
 ::::::::::::::
 
+---
 
 ## State Diagram
 
-A state machine is any device that stores the status of an object at a given time and can change status or cause other actions based on the input it receives\. States refer to the different combinations of information that an object can hold\, not how the object behaves\. In order to understand the different states of an object\, you might want to visualize all the possible states and show how an object gets to each state\, and you can do so with a UML state diagram\.
+Useful for representing state machines.
 
-![](img/Software%20System%20Modeling-Lab3_5.png)
+- describing all possible states of objects
+  - combinations of information that an object can hold
+  - __not__ how the object behaves.
+- how state changes through actions/inputs
 
-__State diagram applications__
+![](img/state-machine.jpg)
 
-Like most UML diagrams\, state diagrams have several uses\.
-
-The main applications are as follows:
-
-Depicting event\-driven objects in a reactive system\.
-
-Illustrating use case scenarios in a business context\.
-
-Describing how an object moves through various states within its lifetime\.
-
-Showing the overall behavior of a state machine or the behavior of a related set of state machines\.
-
-
-
-  * __State diagram symbols and components__
-
-
-![](img/Software%20System%20Modeling-Lab3_6.png)
-
-![](img/Software%20System%20Modeling-Lab3_7.png)
-
-Choice pseudostate
-
-![](img/Software%20System%20Modeling-Lab3_8.jpg)
-
-![](img/Software%20System%20Modeling-Lab3_9.png)
-
-Transition Arrow
-
-![](img/Software%20System%20Modeling-Lab3_10.png)
-
-![](img/Software%20System%20Modeling-Lab3_11.png)
-
-![](img/Software%20System%20Modeling-Lab3_12.jpg)
-
-![](img/Software%20System%20Modeling-Lab3_13.png)
-
-## Create a state diagram for an online shopping website
+# Sequence Diagrams
 
 ## Sequence Diagrams
 
-A sequence diagram is a type of interaction diagram because it describes how—and in what order—a group of objects works together\. These diagrams are used by software developers and business professionals to understand requirements for a new system or to document an existing process\. Sequence diagrams are sometimes known as event diagrams or event scenarios\.
+How –and in what order– a group of objects works together.
 
+:::::::::::::: {.columns}
+::: {.column width="50%"}
+
+Also known as
+
+- event diagrams
+- event scenarios
+
+Used by both software developers and business professionals, to
+
+- understand new requirements
+- document existing processes
+:::
+::: {.column width="50%"}
 ![](img/Software%20System%20Modeling-Lab3_14.png)
+:::
+::::::::::::::
 
-__Use cases for sequence diagrams__
+---
 
-The following scenarios are ideal for using a sequence diagram:
+## Use cases for sequence diagrams
 
-Usage scenario: A usage scenario is a diagram of how your system could potentially be used\. It's a great way to make sure that you have worked through the logic of every usage scenario for the system\.
+### Usage scenario
 
-Method logic: Just as you might use a UML sequence diagram to explore the logic of a use case\, you can use it to explore the logic of any function\, procedure\, or complex process\.
+Draw a diagram of how your system could be used.
 
-Service logic: If you consider a service to be a high\-level method used by different clients\, a sequence diagram is an ideal way to map that out\.
+- ensures thinking about the logic of every usage scenario.
 
+### Method logic
 
+Explore the logic of any function, procedure, or complex process.
 
-  * __Sequence diagram symbols and components__
+### Service logic
 
-
-![](img/Software%20System%20Modeling-Lab3_15.png)
-
-![](img/Software%20System%20Modeling-Lab3_16.png)
-
-![](img/Software%20System%20Modeling-Lab3_17.png)
-
-![](img/Software%20System%20Modeling-Lab3_18.png)
-
-![](img/Software%20System%20Modeling-Lab3_19.png)
-
-Alternative loop symbol
-
-![](img/Software%20System%20Modeling-Lab3_20.png)
-
-Option loop symbol
+Viewing a service as a high-level method used by different clients.
 
 
+---
+
+## Sequence diagram symbols and components
+
+:::::::::::::: {.columns}
+::: {.column width="50%"}
+![Object symbol](img/Software%20System%20Modeling-Lab3_17.png)
+
+![Lifeline symbol](img/Software%20System%20Modeling-Lab3_18.png)
+
+![Event](img/Software%20System%20Modeling-Lab3_15.png)
+:::
+::: {.column width="50%"}
+![Actor](img/Software%20System%20Modeling-Lab3_16.png)
+
+
+![Alternative](img/Software%20System%20Modeling-Lab3_19.png)
+
+![Loop](img/Software%20System%20Modeling-Lab3_20.png)
+:::
+::::::::::::::
+
+---
 
   * __Common message symbols__
 
 
-| Symbol | Name | Description |
-| :-: | :-: | :-: |
-|  | Synchronous message | __This symbol is used when a sender must wait for a response to a message before it continues\. __ |
-|  | Asynchronous message | __Asynchronous messages don't require a response before the sender continues\. Only the call should be included in the diagram\.__ |
-|  | Asynchronous return message | __Represented by a dashed line with a lined arrowhead\.__ |
-|  | Asynchronous create message | __Represented by a dashed line with a lined arrowhead\. This message creates a new object\.__ |
-|  | Replay message | __Represented by a dashed line with a lined arrowhead\, these messages are replies to calls\.__ |
-|  | Delete message | __Represented by a solid line with a solid arrowhead\, followed by an X\. This message destroys an object\.__ |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                      Symbol                         Name                                                   Description
+-------------------------------------------------    ---------------------------------------------------    -----------------------------------------------------------------------------
+![](img/Software%20System%20Modeling-Lab3_21.png)    Synchronous message                                    sender waits for response before it continues
 
-![](img/Software%20System%20Modeling-Lab3_21.png)
+![](img/Software%20System%20Modeling-Lab3_22.png)    Asynchronous message                                   don't require response before continuing.
+                                                                                                            Only the call should be included in the diagram
 
-![](img/Software%20System%20Modeling-Lab3_22.png)
+![](img/Software%20System%20Modeling-Lab3_24.png)    Create message                                         creates a new object
+                                                     (asyncronously)
 
-![](img/Software%20System%20Modeling-Lab3_23.png)
+![](img/Software%20System%20Modeling-Lab3_25.png)    Reply message                                          replies to calls
 
-![](img/Software%20System%20Modeling-Lab3_24.png)
+![](img/Software%20System%20Modeling-Lab3_26.png)    Delete message                                         destroys an object
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-![](img/Software%20System%20Modeling-Lab3_25.png)
+---
 
-![](img/Software%20System%20Modeling-Lab3_26.png)
+## Sequence diagram example
 
-![](img/Software%20System%20Modeling-Lab3_27.png)
+![](img/sequence-diagram.png){height=90%}
 
-__sequenceDiagram__
+---
 
-participant ct as Customer
+## Exercise
 
-participant catalog as Catalog
+Model (using a sequence diagram) the possible scenarios of a __Customer__ purchasing a __Product__ using an online shopping system:
 
-participant cart as Cart
-
-participant lg as Login
-
-participant checkout as Checkout
-
-ct __\->>\+__ catalog __:__  Search Products
-
-catalog __\-\->\-__ ct __:__  Return Products
-
-ct __\->>\+__ catalog __:__  Select Product
-
-catalog __\-\->\-__ ct __:__  Return Product
-
-ct __\-\)\+__ cart __:__  Add product to cart
-
-cart __\-\-\)__ catalog __:__  Decrease available stock
-
-cart __\-\-\)\-__ ct __:__  Product added
-
-ct __\->>\+__ cart __:__  Go to cart
-
-cart __\->>\+__ lg __:__  Check customer logged
-
-__alt__  is not logged in
-
-cart __\->>__ lg __:__  Redirect customer to login
-
-lg __\->>__ lg __:__  login
-
-__else__  is logged in
-
-lg __\-\->>__ cart __:__  return customer info
-
-__end__
-
-cart __\-\->>\-__ ct __:__  return information in cart
-
-ct __\->>\+__ checkout __:__  Select payment and shipping \- order
-
-checkout __\-\->>\-__ ct __:__  Return a order number
-
-![](img/Software%20System%20Modeling-Lab3_28.png)
-
+A _Customer_ browses/searches the _Catalog_, adds and/or removes _Products_ into a _Cart_ (updating the stocks), then goes to a _Checkout_ page which  gets its credentials from a _Login_ (which verifies/requires that the user is logged in), allows it to select payment/shipping info, and returns to the customer an order number to allow tracking the order.

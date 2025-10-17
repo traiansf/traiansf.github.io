@@ -5,24 +5,20 @@ author: "Traian-Florin Șerbănuță"
 date: "2025"
 ---
 
-::: notes
-Welcome students and explain that today marks a new phase: understanding *how to capture what the system should do* (requirements) and represent those needs with *UML behavioral diagrams*.
-:::
-
----
-
 # Agenda
 
-1. What are requirements?
-2. Scenarios and use cases
-3. UML Use Case Diagrams
-4. **Interactive Exercise 1:** Identify actors and use cases
-5. Break (10 minutes)
-6. UML Sequence Diagrams
-7. **Interactive Exercise 2:** Model an interaction
-8. Wrap-up and discussion
+#. What are requirements?
+#. Scenarios and use cases
+#. UML Use Case Diagrams
+#. **Interactive Exercise 1:** Identify actors and use cases
+
+#. UML Sequence Diagrams
+#. **Interactive Exercise 2:** Model an interaction
+#. Wrap-up and discussion
 
 ::: notes
+Welcome students and explain that today marks a new phase: understanding *how to capture what the system should do* (requirements) and represent those needs with *UML behavioral diagrams*.
+
 Outline how the class transitions from informal descriptions of user needs to formal interaction models.
 :::
 
@@ -37,9 +33,22 @@ Outline how the class transitions from informal descriptions of user needs to fo
   - **Non-functional requirements:** how the system should *be*
   - **Domain requirements:** external or business rules
 
-**Example:**
+**Examples:**
 
-> The system shall allow registered students to submit assignments online.
+A course management system should:
+
+__functional__
+
+> allow registered students to submit assignments online
+
+__non-functional__
+
+> be able to accomodate up to 50k students
+
+__domain__
+
+> comply with GDPR regulations
+
 
 ::: notes
 Introduce requirements as the foundation for all later modeling. Emphasize clarity and verifiability.
@@ -59,6 +68,41 @@ Introduce requirements as the foundation for all later modeling. Emphasize clari
 ::: notes
 Share a short story or example of a failed system due to unclear requirements.
 :::
+
+---
+
+## Example (negative): Denver Airport Baggage System
+
+__Goal__: Fully automated baggage handling system for all airlines
+
+__What Went Wrong:__
+
+- **Unclear & Changing Requirements:**
+
+  Frequent scope changes, especially from airlines
+
+- **Stakeholder Misalignment:**
+
+  Conflicting airline needs not reconciled
+
+- **Overly Ambitious Design:**
+
+  Unrealistic automation goals
+
+- **Poor Communication:**
+
+  Incomplete and inconsistent requirement documentation
+
+__Impact:__
+
+- **16-month delay**
+- **$560M cost overrun**
+- **System never operational**
+
+__Key Lesson:__
+
+> Clear, stable, and agreed-upon requirements are essential for complex system success.
+
 
 ---
 
@@ -94,7 +138,7 @@ Show an example diagram (e.g., Student interacting with Course Management System
 
 # Example
 
-![University Course Platform](images/enroll.png)
+![](images/enroll.png)
 
 ---
 
@@ -104,9 +148,11 @@ Show an example diagram (e.g., Student interacting with Course Management System
 - **Extend:** optional or conditional behavior
 - **Generalization:** specialization of an actor or use case
 
-**Example:**
-- `Register` includes `Login`
-- `Notify of Important Dates` extends `Enroll in Course`
+## Example
+
+- `Login` includes `Register`
+
+- `Generate Reports` extends `Manage Course Offering`
 
 ::: notes
 Show small visual examples of each relationship type.
@@ -116,11 +162,12 @@ Show small visual examples of each relationship type.
 
 # Interactive Exercise 1: Identify Actors and Use Cases
 
-**Scenario:** A university online examination system.
+## Scenario: A university online examination system.
 
 Students can register for exams, view schedules, and submit answers online. Professors can create exams, publish grades, and review submissions. The system authenticates all users.
 
-**Tasks:**
+## Tasks
+
 1. Identify at least 3 actors.
 2. Define 5–7 use cases.
 3. Sketch a use case diagram.
@@ -133,15 +180,16 @@ Give students ~15 minutes in groups, then discuss different actor boundaries and
 
 # UML Sequence Diagrams
 
+Visualize the sequence of interactions that fulfill a use case.
+
 - Describe **how** objects interact to perform a use case
 - Focus on **message order** and **lifelines** over time
 
-**Elements:**
-- **Actor / object lifelines**
-- **Messages** (synchronous, asynchronous, return)
-- **Activation bars** (execution time)
+## Elements
 
-**Why:** Visualize the sequence of interactions that fulfill a use case.
+- Actor / object lifelines
+- Messages (synchronous, asynchronous, return)
+- Activation bars (execution time)
 
 ::: notes
 Explain how sequence diagrams complement use case diagrams by adding time and structure.
@@ -153,18 +201,26 @@ Explain how sequence diagrams complement use case diagrams by adding time and st
 
 **Scenario:** “User logs into the system”
 
-Actors and objects:
+## Actors and objects:
+
 - `User`
 - `LoginPage`
 - `AuthService`
 - `Database`
 
-**Steps:**
-1. User enters credentials → LoginPage
-2. LoginPage sends request → AuthService
-3. AuthService validates → Database
-4. Database returns result
-5. AuthService responds with success/failure
+## Steps
+
+1. User enters credentials into a LoginInterface
+2. The LoginPage send verify credentials message to an AuthenticationService
+3. The AuthService sends check credentials to a Database
+4. The Database returns result
+5. The AuthService responds with success
+6. The Login Interface replies with success message
+
+5a. The AuthService responds with error: Authentication Failed.
+
+    The Login Interface replies with success message
+
 
 ::: notes
 Show the diagram visually. Point out how control flows and what each lifeline represents.
@@ -182,14 +238,16 @@ Show the diagram visually. Point out how control flows and what each lifeline re
 
 **Scenario:** "Customer places an order in an online shop."
 
-Actors and objects:
+## Actors and objects
+
 - `Customer`
 - `WebApp`
 - `OrderService`
 - `PaymentGateway`
 - `Database`
 
-**Tasks:**
+## Tasks
+
 1. Identify the main sequence of messages.
 2. Draw a sequence diagram (lifelines, messages, returns).
 3. Include one alternative path (e.g., payment failure).
@@ -202,13 +260,16 @@ Allow ~15 minutes for group work, then have one group present. Discuss message f
 
 # Wrap-Up
 
-**Key Takeaways:**
+## Key Takeaways
+
 - Requirements describe *what* the system must do.
 - Scenarios make requirements concrete.
 - Use case diagrams capture system functionality and boundaries.
 - Sequence diagrams model detailed interactions.
 
-**Next Lecture:** Some design patterns
+## Next Lecture
+
+Some design patterns
 
 ::: notes
 Encourage students to start drafting use cases for their project ideas. Suggest reviewing examples in the course repo.
