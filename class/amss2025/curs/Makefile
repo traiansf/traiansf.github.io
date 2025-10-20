@@ -1,3 +1,7 @@
-TARGETS = 01-intro.html 01-intro.pdf 02-class.pdf 02-class.html 03-requirements.html 03-requirements.pdf
+MDS = $(wildcard *.md)
+HTMLS = $(patsubst %.md,%.html,$(MDS))
+PDFS = $(patsubst %.md,%.pdf,$(MDS))
+
+TARGETS = $(HTMLS) $(PDFS)
 
 include ../include.mk
