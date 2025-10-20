@@ -203,7 +203,7 @@ knowing its implementation?</p>
 </div>
 <div id="iterator-pattern-code-example" class="slide section level1">
 <h1>Iterator Pattern code example</h1>
-<p><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/Iterator.java">Source
+<p><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/IteratorPatternDemo.java">Source
 file</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co">// Step 1: Create the Iterator interface</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="kw">interface</span> <span class="bu">Iterator</span> <span class="op">{</span></span>
@@ -255,6 +255,150 @@ file</a></p>
 <span id="cb1-48"><a href="#cb1-48" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-49"><a href="#cb1-49" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb1-50"><a href="#cb1-50" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<div id="iterator-pattern-exercise" class="slide section level1">
+<h1>Iterator Pattern Exercise</h1>
+<h2 id="exercise">Exercise</h2>
+<p>Modify 3 lines in the example above to make the iterator a reverse
+iterator.</p>
+<h2 id="question">Question</h2>
+<blockquote>
+<p>How does this custom Iterator differ from Java’s built-in
+<code>java.util.Iterator</code>, and when might you still implement your
+own?</p>
+</blockquote>
+</div>
+<div id="builder-pattern" class="slide section level1">
+<h1>Builder Pattern</h1>
+<h2 id="type-1">Type</h2>
+<p>Creational pattern</p>
+<h2 id="intent-1">Intent</h2>
+<p>Separate the construction of a complex object from its
+representation, so the same construction process can create different
+representations.</p>
+<h2 id="problem-solved-1">Problem Solved</h2>
+<p>How can we construct complex objects step by step while keeping the
+construction logic separate from the representation?</p>
+<h2 id="solution-1">Solution</h2>
+<p>Use a <em>Builder</em> class to encapsulate object creation in
+multiple steps.</p>
+</div>
+<div id="builder-pattern-concrete-example" class="slide section level1">
+<h1>Builder Pattern (concrete example)</h1>
+<h2 id="task">Task</h2>
+<p>Design a Computer class that represents a configurable computer
+system. The goal is to let users “build” a computer step-by-step,
+choosing which components to include.</p>
+<p>A valid computer may include:</p>
+<ul>
+<li><p>CPU (e.g., “Intel i9”, “AMD Ryzen 7”)</p></li>
+<li><p>GPU (e.g., “NVIDIA RTX 4090”, “AMD Radeon RX 7800”)</p></li>
+<li><p>RAM (in GB)</p></li>
+<li><p>Storage (in GB)</p></li>
+</ul>
+<p>You should be able to build objects fluently, like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>Computer gamingPC <span class="op">=</span> <span class="kw">new</span> Computer<span class="op">.</span><span class="fu">Builder</span><span class="op">()</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setCPU</span><span class="op">(</span><span class="st">&quot;Intel i9&quot;</span><span class="op">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setGPU</span><span class="op">(</span><span class="st">&quot;NVIDIA RTX 4090&quot;</span><span class="op">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setRAM</span><span class="op">(</span><span class="dv">32</span><span class="op">)</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setStorage</span><span class="op">(</span><span class="dv">2000</span><span class="op">)</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>        <span class="op">.</span><span class="fu">build</span><span class="op">();</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>gamingPC<span class="op">);</span></span></code></pre></div>
+</div>
+<div id="builder-pattern-concrete-example-solution" class="slide section level1">
+<h1>Builder Pattern (concrete example solution)</h1>
+<p><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/IteratorPatternDemo.java">Source
+file</a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">// Product class</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="kw">class</span> Computer <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> CPU<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    <span class="kw">private</span> <span class="bu">String</span> GPU<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> RAM<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> storage<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    <span class="co">// Private constructor — use Builder instead</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    <span class="kw">private</span> <span class="fu">Computer</span><span class="op">(</span>Builder builder<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">CPU</span> <span class="op">=</span> builder<span class="op">.</span><span class="fu">CPU</span><span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">GPU</span> <span class="op">=</span> builder<span class="op">.</span><span class="fu">GPU</span><span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">RAM</span> <span class="op">=</span> builder<span class="op">.</span><span class="fu">RAM</span><span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">storage</span> <span class="op">=</span> builder<span class="op">.</span><span class="fu">storage</span><span class="op">;</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>    <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;Computer [CPU=&quot;</span> <span class="op">+</span> CPU <span class="op">+</span> <span class="st">&quot;, GPU=&quot;</span> <span class="op">+</span> GPU <span class="op">+</span> <span class="st">&quot;, RAM=&quot;</span> <span class="op">+</span> RAM <span class="op">+</span> <span class="st">&quot;GB, Storage=&quot;</span> <span class="op">+</span> storage <span class="op">+</span> <span class="st">&quot;GB]&quot;</span><span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>    <span class="co">// Static nested Builder class</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> Builder <span class="op">{</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>        <span class="kw">private</span> <span class="bu">String</span> CPU<span class="op">;</span></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>        <span class="kw">private</span> <span class="bu">String</span> GPU<span class="op">;</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a>        <span class="kw">private</span> <span class="dt">int</span> RAM<span class="op">;</span></span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a>        <span class="kw">private</span> <span class="dt">int</span> storage<span class="op">;</span></span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a>        <span class="kw">public</span> Builder <span class="fu">setCPU</span><span class="op">(</span><span class="bu">String</span> CPU<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a>            <span class="kw">this</span><span class="op">.</span><span class="fu">CPU</span> <span class="op">=</span> CPU<span class="op">;</span></span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a>        <span class="kw">public</span> Builder <span class="fu">setGPU</span><span class="op">(</span><span class="bu">String</span> GPU<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a>            <span class="kw">this</span><span class="op">.</span><span class="fu">GPU</span> <span class="op">=</span> GPU<span class="op">;</span></span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a>        <span class="kw">public</span> Builder <span class="fu">setRAM</span><span class="op">(</span><span class="dt">int</span> RAM<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-39"><a href="#cb3-39" tabindex="-1"></a>            <span class="kw">this</span><span class="op">.</span><span class="fu">RAM</span> <span class="op">=</span> RAM<span class="op">;</span></span>
+<span id="cb3-40"><a href="#cb3-40" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb3-41"><a href="#cb3-41" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-42"><a href="#cb3-42" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" tabindex="-1"></a>        <span class="kw">public</span> Builder <span class="fu">setStorage</span><span class="op">(</span><span class="dt">int</span> storage<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-44"><a href="#cb3-44" tabindex="-1"></a>            <span class="kw">this</span><span class="op">.</span><span class="fu">storage</span> <span class="op">=</span> storage<span class="op">;</span></span>
+<span id="cb3-45"><a href="#cb3-45" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">this</span><span class="op">;</span></span>
+<span id="cb3-46"><a href="#cb3-46" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-47"><a href="#cb3-47" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" tabindex="-1"></a>        <span class="kw">public</span> Computer <span class="fu">build</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-49"><a href="#cb3-49" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">new</span> <span class="fu">Computer</span><span class="op">(</span><span class="kw">this</span><span class="op">);</span></span>
+<span id="cb3-50"><a href="#cb3-50" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-51"><a href="#cb3-51" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-52"><a href="#cb3-52" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-53"><a href="#cb3-53" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" tabindex="-1"></a><span class="co">// Demo class</span></span>
+<span id="cb3-55"><a href="#cb3-55" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BuilderPatternDemo <span class="op">{</span></span>
+<span id="cb3-56"><a href="#cb3-56" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-57"><a href="#cb3-57" tabindex="-1"></a>        Computer gamingPC <span class="op">=</span> <span class="kw">new</span> Computer<span class="op">.</span><span class="fu">Builder</span><span class="op">()</span></span>
+<span id="cb3-58"><a href="#cb3-58" tabindex="-1"></a>                <span class="op">.</span><span class="fu">setCPU</span><span class="op">(</span><span class="st">&quot;Intel i9&quot;</span><span class="op">)</span></span>
+<span id="cb3-59"><a href="#cb3-59" tabindex="-1"></a>                <span class="op">.</span><span class="fu">setGPU</span><span class="op">(</span><span class="st">&quot;NVIDIA RTX 4090&quot;</span><span class="op">)</span></span>
+<span id="cb3-60"><a href="#cb3-60" tabindex="-1"></a>                <span class="op">.</span><span class="fu">setRAM</span><span class="op">(</span><span class="dv">32</span><span class="op">)</span></span>
+<span id="cb3-61"><a href="#cb3-61" tabindex="-1"></a>                <span class="op">.</span><span class="fu">setStorage</span><span class="op">(</span><span class="dv">2000</span><span class="op">)</span></span>
+<span id="cb3-62"><a href="#cb3-62" tabindex="-1"></a>                <span class="op">.</span><span class="fu">build</span><span class="op">();</span></span>
+<span id="cb3-63"><a href="#cb3-63" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>gamingPC<span class="op">);</span></span>
+<span id="cb3-65"><a href="#cb3-65" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-66"><a href="#cb3-66" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<div id="bulder-pattern-exercise" class="slide section level1">
+<h1>Bulder Pattern exercise</h1>
+<p>Design a Pizza class that represents a customizable pizza order,
+using the Builder Pattern.</p>
+<p>Your pizza should have:</p>
+<ul>
+<li><p>A size (e.g., Small, Medium, Large)</p></li>
+<li><p>A crust type (e.g., Thin, Thick, Stuffed)</p></li>
+<li><p>A list of toppings (e.g., Cheese, Pepperoni, Mushrooms)</p></li>
+<li><p>A flag for extra cheese</p></li>
+</ul>
+<p>The goal is to make object creation flexible and readable, like
+this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>Pizza pizza <span class="op">=</span> <span class="kw">new</span> Pizza<span class="op">.</span><span class="fu">Builder</span><span class="op">()</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setSize</span><span class="op">(</span><span class="st">&quot;Large&quot;</span><span class="op">)</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setCrust</span><span class="op">(</span><span class="st">&quot;Stuffed&quot;</span><span class="op">)</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>        <span class="op">.</span><span class="fu">addTopping</span><span class="op">(</span><span class="st">&quot;Pepperoni&quot;</span><span class="op">)</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>        <span class="op">.</span><span class="fu">addTopping</span><span class="op">(</span><span class="st">&quot;Mushrooms&quot;</span><span class="op">)</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>        <span class="op">.</span><span class="fu">setExtraCheese</span><span class="op">(</span><span class="kw">true</span><span class="op">)</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>        <span class="op">.</span><span class="fu">build</span><span class="op">();</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pizza<span class="op">);</span></span></code></pre></div>
 </div>
 </body>
 </html>
