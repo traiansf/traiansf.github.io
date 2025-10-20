@@ -206,12 +206,9 @@ Use a *Builder* class to encapsulate object creation in multiple steps.
 
 # Builder Pattern (concrete example)
 
-## Task
-
 Design a Computer class that represents a configurable computer system.
 The goal is to let users “build” a computer step-by-step, choosing which components to include.
-
-A valid computer may include:
+A computer may include:
 
 - CPU (e.g., “Intel i9”, “AMD Ryzen 7”)
 
@@ -230,13 +227,12 @@ Computer gamingPC = new Computer.Builder()
         .setRAM(32)
         .setStorage(2000)
         .build();
-
 System.out.println(gamingPC);
 ```
 
 # Builder Pattern (concrete example solution)
 
-[Source file](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/IteratorPatternDemo.java)
+[Source file](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/BuilderPatternDemo.java)
 
 ```java
 // Product class
@@ -307,12 +303,9 @@ public class BuilderPatternDemo {
 }
 ```
 
-
-
 # Bulder Pattern exercise
 
 Design a Pizza class that represents a customizable pizza order, using the Builder Pattern.
-
 Your pizza should have:
 
 - A size (e.g., Small, Medium, Large)
@@ -333,6 +326,118 @@ Pizza pizza = new Pizza.Builder()
         .addTopping("Mushrooms")
         .setExtraCheese(true)
         .build();
-
 System.out.println(pizza);
+```
+
+---
+
+# Singleton Pattern
+
+## Type
+
+Creational pattern
+
+## Intent
+
+Ensure a class has only one instance, and provide a global point of access to it.
+
+## Problem Solved
+
+How can we make sure there is exactly one instance of a class used throughout a system?
+
+## Solution
+
+- Make the constructor private
+- Store a static instance reference
+- Provide a static accessor
+
+# Singleton Pattern (concrete example)
+
+Implement a `DatabaseConnection` class that simulates a single, shared connection to a database.
+
+The program should ensure that:
+
+- Only one instance of the connection is ever created.
+
+- Any part of the program that requests a connection gets the same instance.
+
+## Example use
+
+```java
+DatabaseConnection conn1 = DatabaseConnection.getInstance();
+DatabaseConnection conn2 = DatabaseConnection.getInstance();
+
+conn1.query("SELECT * FROM users");
+
+System.out.println(conn1 == conn2); // should print true
+```
+
+# Singleton Pattern (concrete example solution)
+
+[Source file](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/SingletonPatternDemo.java)
+
+```java
+// Singleton class
+class DatabaseConnection {
+    // Step 1: Create a private static instance of the class
+    private static DatabaseConnection instance;
+
+    // Step 2: Make the constructor private to prevent instantiation
+    private DatabaseConnection() {
+        System.out.println("Connecting to the database...");
+    }
+
+    // Step 3: Provide a public static method to get the single instance
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
+    }
+
+    // Example method
+    public void query(String sql) {
+        System.out.println("Executing query: " + sql);
+    }
+}
+
+// Demo class
+public class SingletonDemo {
+    public static void main(String[] args) {
+        DatabaseConnection conn1 = DatabaseConnection.getInstance();
+        DatabaseConnection conn2 = DatabaseConnection.getInstance();
+
+        conn1.query("SELECT * FROM users");
+
+        // Show that both references point to the same object
+        System.out.println(conn1 == conn2); // true
+    }
+}
+```
+
+# Singleton Pattern exercise
+
+Implement a `Logger` for a simple application.
+Only one instance of this class should ever exist, and all parts of the program should share it.
+
+## Example use
+
+```java
+Logger logger1 = Logger.getInstance();
+Logger logger2 = Logger.getInstance();
+
+logger1.log("Starting the app...");
+logger2.log("App is running.");
+
+// Both should refer to the same instance
+System.out.println(logger1 == logger2); // true
+```
+
+## Expected output
+
+```out
+Logger initialized.
+[LOG]: Starting the app...
+[LOG]: App is running.
+true
 ```

@@ -12,3 +12,5 @@ clean:
 # Pattern rule to convert .md files to .pdf using pandoc
 %.pdf: %.md
 	pandoc --pdf-engine=lualatex $(OPTIONS) -t beamer -o $@ $<
+
+.PHONY: all clean
