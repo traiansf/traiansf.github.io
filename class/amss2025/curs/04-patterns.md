@@ -112,7 +112,7 @@ Define an `Iterator` interface with methods like `hasNext()` and `next()`.
 
 # Iterator Pattern code example
 
-[Source file](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/Iterator.java)
+[Source file](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/IteratorPatternDemo.java)
 
 ```java
 // Step 1: Create the Iterator interface
