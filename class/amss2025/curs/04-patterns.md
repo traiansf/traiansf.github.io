@@ -8,9 +8,13 @@ date: "2025"
 
 #. What are Design Patterns?
 #. Classification of Patterns
-#. **Iterator Pattern**
-#. **Builder Pattern**
-#. **Singleton Pattern**
+#. Patterns
+   #. **Iterator**
+   #. **Builder**
+   #. **Singleton**
+   #. **Observer**
+   #. **Factory Method**
+   #. **State**
 #. Wrap-up
 
 
@@ -415,6 +419,8 @@ public class SingletonDemo {
 }
 ```
 
+---
+
 # Singleton Pattern exercise
 
 Implement a `Logger` for a simple application.
@@ -441,3 +447,440 @@ Logger initialized.
 [LOG]: App is running.
 true
 ```
+
+---
+
+# Observer Pattern
+
+## Type
+
+Behavioral pattern
+
+## Intent
+
+Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+## Problem Solved
+
+How can objects stay in sync without tight coupling between them?
+
+## Solution
+
+Introduce a *Subject* that maintains a list of *Observers*; when the Subject changes, it notifies all Observers.
+
+---
+
+## Observer Pattern (concrete example)
+
+Imagine we are building a **Weather Station** system that needs to update several displays (temperature, humidity, forecast) whenever new weather data is available.
+
+Your task is to design the update mechanism between the Weather Station (subject) and its displays (observers).
+
+# Observer Pattern (concrete example solution)
+
+[Source file](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/ObserverPatternDemo.java)
+
+```java
+import java.util.*;
+
+interface Observer {
+    void update(float temperature);
+}
+
+interface Subject {
+    void attach(Observer o);
+    void detach(Observer o);
+    void notifyObservers();
+}
+
+class WeatherStation implements Subject {
+    private List<Observer> observers = new ArrayList<>();
+    private float temperature;
+
+    public void attach(Observer o) {
+        observers.add(o);
+    }
+
+    public void detach(Observer o) {
+        observers.remove(o);
+    }
+
+    public void setTemperature(float t) {
+        this.temperature = t;
+        notifyObservers();
+    }
+
+    public void notifyObservers() {
+        for (Observer o : observers) {
+            o.update(temperature);
+        }
+    }
+}
+
+class Display implements Observer {
+    private String name;
+
+    public Display(String name) {
+        this.name = name;
+    }
+
+    public void update(float temperature) {
+        System.out.println(name + " display: new temperature = " + temperature);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        WeatherStation station = new WeatherStation();
+        Display d1 = new Display("Main");
+        Display d2 = new Display("Secondary");
+
+        station.attach(d1);
+        station.attach(d2);
+
+        station.setTemperature(25.0f);
+        station.setTemperature(30.0f);
+    }
+}
+
+```
+
+::: notes
+Discuss how the Observer pattern decouples subjects and observers. Changing the data source doesn’t require changing the display logic.
+:::
+
+---
+
+# Observer Pattern Exercise
+
+Create a simplified Chat Room system.
+The `ChatRoom` (the _Subject_) notifies all registered `Users` (the _Observers_) whenever a new message is sent.
+
+## Example use:
+
+```java
+ChatRoom room = new ChatRoom("Design Patterns");
+
+User alice = new User("Alice");
+User bob = new User("Bob");
+User charlie = new User("Charlie");
+
+room.join(alice);
+room.join(bob);
+room.join(charlie);
+
+room.sendMessage("Alice", "Hey everyone!");
+room.sendMessage("Bob", "Hi Alice!");
+```
+
+# Observer Pattern Exercise (expected output)
+
+[Alice] says: Hey everyone!
+
+[Notification to Bob] New message in Design Patterns: Alice says "Hey everyone!"
+
+[Notification to Charlie] New message in Design Patterns: Alice says "Hey everyone!"
+
+[Bob] says: Hi Alice!
+
+[Notification to Alice] New message in Design Patterns: Bob says "Hi Alice!"
+
+[Notification to Charlie] New message in Design Patterns: Bob says "Hi Alice!"
+
+---
+
+# Factory Method Pattern
+
+## Type
+
+Creational pattern
+
+## Intent
+
+Define an interface for creating an object, but let subclasses decide which class to instantiate.
+
+## Problem Solved
+
+How can we delegate the instantiation of related objects without hardcoding specific classes?
+
+## Solution
+
+Create a factory interface that defines a method for object creation, implemented by concrete subclasses.
+
+---
+
+# Factory Method Pattern (concrete example)
+
+We need to build a system for creating different types of **documents** (e.g., PDF, Word). Each document has its own creation process, but they share a common interface.
+
+Provide a flexible design to handle this.
+
+---
+
+# Factory Method Pattern (concrete example solution)
+
+[Source file](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/FactoryMethodPatternDemo.java)
+
+```java
+abstract class Document {
+    public abstract void open();
+}
+
+class PDFDocument extends Document {
+    public void open() {
+        System.out.println("Opening PDF Document");
+    }
+}
+
+class WordDocument extends Document {
+    public void open() {
+        System.out.println("Opening Word Document");
+    }
+}
+
+abstract class Application {
+    public abstract Document createDocument();
+
+    public void newDocument() {
+        Document doc = createDocument();
+        doc.open();
+    }
+}
+
+class PDFApp extends Application {
+    public Document createDocument() {
+        return new PDFDocument();
+    }
+}
+
+class WordApp extends Application {
+    public Document createDocument() {
+        return new WordDocument();
+    }
+}
+
+public class FactoryDemo {
+    public static void main(String[] args) {
+        Application pdfApp = new PDFApp();
+        pdfApp.newDocument();
+
+        Application wordApp = new WordApp();
+        wordApp.newDocument();
+    }
+}
+
+```
+
+::: notes
+Explain how Factory Method allows adding new document types without changing the client code.
+:::
+
+# Factory Method Pattern Exercise
+
+Implement a __Shape Factory__ that can create different kinds of shapes — such as _Circle_, _Rectangle_, and _Square_ — based on a given input.
+The main program should be able to request shapes without knowing their exact classes.
+
+## Example use
+
+```java
+ShapeFactory factory = new ShapeFactory();
+
+Shape shape1 = factory.getShape("CIRCLE");
+shape1.draw();
+
+Shape shape2 = factory.getShape("RECTANGLE");
+shape2.draw();
+```
+
+## Expected output
+
+Drawing a Circle
+
+Drawing a Rectangle
+
+---
+
+# State Pattern
+
+## Type
+
+Behavioral pattern
+
+## Intent
+
+Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
+
+## Problem Solved
+
+How can we manage an object’s behavior that depends on its current state, without long if/else or switch statements?
+
+## Solution
+
+Encapsulate state-specific behavior into separate classes and delegate state handling to them.
+
+---
+
+# State Pattern (concrete example)
+
+We’re building a **Media Player** that behaves differently depending on whether it’s in the *Playing*, *Paused*, or *Stopped* state.
+
+Design the system so that transitions between states change the behavior dynamically.
+
+---
+
+# State Pattern (concrete example solution)
+
+[Source file](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss2025/curs/code/StatePatternDemo.java)
+
+```java
+interface State {
+    void play(Player player);
+    void pause(Player player);
+    void stop(Player player);
+}
+
+class PlayingState implements State {
+    public void play(Player player) {
+        System.out.println("Already playing");
+    }
+    public void pause(Player player) {
+        System.out.println("Pausing playback");
+        player.setState(new PausedState());
+    }
+    public void stop(Player player) {
+        System.out.println("Stopping playback");
+        player.setState(new StoppedState());
+    }
+}
+
+class PausedState implements State {
+    public void play(Player player) {
+        System.out.println("Resuming playback");
+        player.setState(new PlayingState());
+    }
+    public void pause(Player player) {
+        System.out.println("Already paused");
+    }
+    public void stop(Player player) {
+        System.out.println("Stopping from paused state");
+        player.setState(new StoppedState());
+    }
+}
+
+class StoppedState implements State {
+    public void play(Player player) {
+        System.out.println("Starting playback");
+        player.setState(new PlayingState());
+    }
+    public void pause(Player player) {
+        System.out.println("Can't pause, player is stopped");
+    }
+    public void stop(Player player) {
+        System.out.println("Already stopped");
+    }
+}
+
+class Player {
+    private State state;
+
+    public Player() {
+        this.state = new StoppedState();
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public void play() {
+        state.play(this);
+    }
+
+    public void pause() {
+        state.pause(this);
+    }
+
+    public void stop() {
+        state.stop(this);
+    }
+}
+
+public class StateDemo {
+    public static void main(String[] args) {
+        Player player = new Player();
+        player.play();
+        player.pause();
+        player.stop();
+    }
+}
+
+```
+
+::: notes
+Discuss how encapsulating behavior by state simplifies logic and makes adding new states easy.
+:::
+
+---
+
+# State Pattern exercise
+
+Implement a Vending Machine that sells a single type of item (e.g., a soda).
+The machine’s behavior depends on its current state:
+
+- When no coin is inserted, you can’t buy anything.
+
+- When a coin is inserted, you can choose to dispense the item or cancel.
+
+- When dispensing, it delivers the item and returns to waiting for a new coin.
+
+The vending machine will have three states:
+
+- NoCoinState – waiting for a coin
+
+- HasCoinState – coin inserted, waiting for user to select item
+
+- DispensingState – vending the item
+
+---
+
+# State Pattern exercise (example use)
+
+```java
+VendingMachine machine = new VendingMachine();
+
+machine.insertCoin();
+machine.pressButton();
+machine.insertCoin();
+machine.returnCoin();
+machine.pressButton();
+```
+
+## Expected output
+
+```output
+Coin inserted.
+Dispensing item...
+Please take your item.
+Coin inserted.
+Coin returned.
+Insert coin first.
+```
+
+---
+
+# Wrap-Up
+
+## Key Takeaways
+
+- Design patterns capture proven design experience.
+
+- **Iterator** decouples collection traversal from representation
+
+- **Builder** separates the construction of an  object from representation
+
+- **Singleton** ensures a class has only one, globally accessible, instance
+
+- **Observer** decouples state change notification.
+
+- **Factory Method** delegates object creation to subclasses or factories.
+
+- **State** encapsulates behavior changes without complex conditionals.
