@@ -78,11 +78,15 @@ Stress that patterns aren’t code snippets — they’re design blueprints that
 
 Design patterns are typically grouped into three main categories:
 
-| Category | Description | Example Patterns |
-|-----------|--------------|------------------|
-| **Creational** | How objects are created | Singleton, Builder, Factory Method |
-| **Structural** | How classes and objects are composed | Adapter, Bridge, Decorator |
-| **Behavioral** | How objects interact and communicate | Iterator, Observer, State |
+------------------------------------------------------------------------------------------
+Category         Description                            Example Patterns                  
+--------------   ------------------------------------   ----------------------------------
+**Creational**   How objects are created                Singleton, Builder, Factory Method
+
+**Structural**   How classes and objects are composed   Adapter, Bridge, Decorator        
+
+**Behavioral**   How objects interact and communicate   Iterator, Observer, State         
+------------------------------------------------------------------------------------------
 
 ::: notes
 Briefly define each group. Mention that this lecture mixes examples from creational and behavioral patterns.
