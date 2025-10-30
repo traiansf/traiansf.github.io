@@ -1,3 +1,7 @@
-TARGETS = Lab01.html Lab01.pdf Lab02.html Lab02.pdf
+MDS = $(wildcard *.md)
+HTMLS = $(patsubst %.md,%.html,$(MDS))
+PDFS = $(patsubst %.md,%.pdf,$(MDS))
+
+TARGETS = $(HTMLS) $(PDFS)
 
 include ../include.mk
