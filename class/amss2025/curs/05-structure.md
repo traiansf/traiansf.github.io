@@ -29,7 +29,7 @@ An object diagram shows a snapshot of the system at a particular time — instan
 
 - Visualize examples of how objects are related at runtime.
 
-- Validate class diagrams with concrete examples.
+- Understand class diagram structure by concrete examples.
 
 ### Key Elements
 
@@ -115,19 +115,37 @@ Show how object diagrams help understand the real-world instantiation of class d
 
 ---
 
+## Example: Parties
+
+:::::::::::::: {.columns}
+::: {.column width="30%"}
+### Class diagram
+
+![](images/party_class.png)
+:::
+::: {.column width="70%"}
+### Object diagram
+
+![](images/party_object.png)
+:::
+::::::::::::::
+
+---
+
 ## Interactive Task
 
-Given the following class model:
+Assume we want to model arithmetic expressions with variables:
 
-- `Student`, `Course`, `Enrollment`
-
-- Each `Student` can enroll in multiple `Course`s via `Enrollment`.
+```BNF
+Expr ::= Const Int | Var String | Plus Expr Expr | Times Expr Expr
+```
 
 ### Tasks
 
 - Draw a class diagram for the given model
 
-- Draw an *object diagram* with 2 students and 2 courses showing their enrollments.
+- Draw an *object diagram* containing at least one instance every class,
+  all connected.
 
 ::: notes
 Encourage students to think about how associations appear as links between instances.
@@ -141,7 +159,7 @@ Encourage students to think about how associations appear as links between insta
 
 ### Definition
 
-Package diagrams organize elements (classes, components, or other packages) into groups.
+Package diagrams organize elements (classes, components, other packages, ...) into groups.
 
 ### Purpose
 
@@ -150,6 +168,17 @@ Manage large models and clarify dependencies among system parts.
 ### Key Elements
 
 Packages, dependencies, imports, merges.
+
+### Structure
+
+- each element is part of a single package
+- same package can contain both (sub)packages and other elements
+
+---
+
+## Ways of showing packages on diagrams
+
+![](images/packages.png)
 
 ---
 
@@ -197,14 +226,15 @@ Explain how dependency arrows indicate which package uses which. Packages can im
 
 ---
 
-## Example
+## Example: Well-structures, clear flow diagram
+
+![](images/package_clean_flow.png){height=100%}
+
+---
+
+## Example: Package structure for a web service
 
 ```plantuml
-'| label: fig-package-1
-'| class: important
-'| caption: Package structure for a web service
-'| filename: package-1
-'| height: 70%
 @startuml
 
   hide empty members
@@ -238,7 +268,8 @@ package "External" {
 
 ## Interactive Exercise
 
-**Task:** Given several classes (`User`, `Product`, `Payment`, `Review`, `Cart`), propose a modular package structure.  
+**Task:** Given several classes/Packages (`Website`, `Mobile App`, `Payment`, `CustomerService`, `Cart`, `ProductDB`, `CustomerDB`), propose a modular package structure.  
+
 Goal: Reduce coupling and improve clarity.
 
 ::: notes
@@ -248,6 +279,8 @@ Students should discuss and defend their grouping choices — emphasize modular 
 # Component Diagrams
 
 ## Component Diagrams
+
+![](images/components.png)
 
 ### Definition
 
@@ -263,32 +296,26 @@ Components, interfaces, ports, dependencies.
 
 ---
 
-## Example: Web Application
+## Component diagrams: Key takes
 
-```
-+-----------------------+
-| <<component>>         |
-| Frontend              |
-|-----------------------|
-| Interfaces: UI API    |
-+-----------------------+
-          |
-          v
-+-----------------------+
-| <<component>>         |
-| Backend               |
-|-----------------------|
-| Services: REST API    |
-+-----------------------+
-          |
-          v
-+-----------------------+
-| <<component>>         |
-| Database              |
-|-----------------------|
-| Tables, Queries       |
-+-----------------------+
-```
+
+Components represent pieces that are independently purchasable and upgradeable
+
+- They are about how customers want to relate to software
+
+- Buy components one piece at a time
+
+- Upgrade one component or another at any time
+  - old and new components should work seamlessly
+
+- Mix and match pieces from different providers
+
+---
+
+## Example: Sales server component diagram
+
+
+![](images/components-sales-server.png)
 
 ::: notes
 Discuss how components abstract subsystems and interfaces define how they interact.
@@ -324,29 +351,10 @@ Nodes (devices, servers), artifacts (software units), communication links.
 
 ---
 
-## Example: Web Application Deployment
+## Example: Application Deployment
 
-```
-+--------------------+
-| Client Node        |
-|--------------------|
-| Browser            |
-+--------------------+
-        |
-        v
-+--------------------+
-| Web Server Node    |
-|--------------------|
-| Frontend, Backend  |
-+--------------------+
-        |
-        v
-+--------------------+
-| Database Server    |
-|--------------------|
-| DBMS, Data Files   |
-+--------------------+
-```
+![](images/deployment.png){height=80%}
+
 
 ::: notes
 Explain how nodes can represent real or virtual hardware. Connect this with modern deployment (cloud, containers).
@@ -356,7 +364,7 @@ Explain how nodes can represent real or virtual hardware. Connect this with mode
 
 ## Exercise
 
-Given a system that includes a mobile app, a REST API backend, and a cloud database, create a simple deployment diagram.
+Given a system that includes (but is not limited to) a mobile app, a REST API backend, and a cloud database, create a simple deployment diagram.
 
 ::: notes
 Ask students to identify which artifacts deploy on which nodes and what communication channels are used.

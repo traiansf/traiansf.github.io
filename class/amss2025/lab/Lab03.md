@@ -25,21 +25,129 @@ thanks: "Thanking Andrian Babii @ Endava for slide content"
 
 **Scenario:** Airport parking lot  
 
-- Contains multiple levels – *3 levels*  
+- Contains multiple levels
 - Sensors at each parking slot to detect if a slot is free or not  
-- One entrance and one exit  
-- Entrance has a display showing:
+- Multiple entrances and exits
+- By the entrances there are displays showing:
   - Total free spots  
-  - Free spots per level  
-- Exit has a camera that:
-  - Reads license plates  
-  - Opens the barrier if the ticket was paid  
+  - Free spots per level
+- Both entrance and exit have cameras that reads license plates  
+- Entrance generates a ticket
+- Exit Opens the barrier if the ticket was paid
 - Multiple payment kiosks on each level  
 - Payment can be made with **cash** or **credit card**  
 
 ---
 
-![](images/parking_lot.png)
+```plantuml
+@startuml
+hide empty members
+class AutomatedBarrierSystem {
+  open() : boolean
+}
+
+AutomatedBarrierSystem --> PlateReadingCamera
+
+class ExitBarrier {
+  wasTickerPayed() : boolean
+}
+
+class PlateReadingCamera {
+  getLicensePlate() : String
+}
+
+class EntryBarrier {
+  printTicket() : Ticket
+}
+
+class Ticket {
+  licensePlate: String
+  creationDate: Date
+  paymentDate: Date
+  paymentAmmount: double
+  pay(p: Payment): bool
+}
+
+class ParkingLot {
+  getFreeSpotsPerLevel(idx: int) : int
+  getFreeSpots() : int
+}
+
+class ParkingLevel {
+  getFreeSpots() : int
+}
+
+class ParkingSpot {
+  isFree: boolean
+  number: String
+  assignVechicle()
+}
+
+class Vehicle {
+  licensePlate: String
+}
+
+ParkingSpot o--> "0..1" Vehicle
+Vehicle o--> "0..1" Ticket
+
+
+Ticket --> TicketStatus : status
+Ticket ..> Payment : <<call>>
+
+enum TicketStatus {
+  Assigned
+  Payed
+  Closed
+}
+
+AutomatedBarrierSystem <|-- ExitBarrier
+AutomatedBarrierSystem <|-- EntryBarrier
+ParkingLot *--> "1..*" ParkingLevel
+ParkingLevel *--> "1..*" ParkingSpot
+ParkingLevel *--> "1..*" Payment
+
+
+EntryBarrier ..> Ticket : <<creates>>
+ExitBarrier ..> Ticket : <<uses>>
+
+Vehicle <|-- Motorcycle
+Vehicle <|-- Car
+Vehicle <|-- Van
+
+class DisplayBoard {
+  displayFreeSpots()
+  displayFreeSpotsPerLevel()
+}
+
+DisplayBoard --> ParkingLot
+
+class Payment {
+  amount: double
+  bool pay()
+}
+
+class CashPayment {
+  payedAmount: double
+  change: double  
+}
+
+class CardPayment {
+  cardHolderName: String
+}
+
+enum CardType {
+  Visa
+  MasterCard
+}
+
+CashPayment --|> Payment
+CardPayment --|> Payment
+CardPayment --> CardType
+ParkingLot --> "1..*" EntryBarrier
+ParkingLot --> "1..*" ExitBarrier
+
+@enduml
+```
 
 ---
 
