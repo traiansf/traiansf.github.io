@@ -118,12 +118,12 @@ Show how object diagrams help understand the real-world instantiation of class d
 ## Example: Parties
 
 :::::::::::::: {.columns}
-::: {.column width="30%"}
+::: {.column width="35%"}
 ### Class diagram
 
-![](images/party_class.png)
+![](images/party_class.png){.fullwidth}
 :::
-::: {.column width="70%"}
+::: {.column width="65%"}
 ### Object diagram
 
 ![](images/party_object.png)
@@ -226,7 +226,7 @@ Explain how dependency arrows indicate which package uses which. Packages can im
 
 ---
 
-## Example: Well-structures, clear flow diagram
+## Example: Well-structured, clear flow diagram
 
 ![](images/package_clean_flow.png){height=100%}
 
@@ -268,7 +268,7 @@ package "External" {
 
 ## Interactive Exercise
 
-**Task:** Given several classes/Packages (`Website`, `Mobile App`, `Payment`, `CustomerService`, `Cart`, `ProductDB`, `CustomerDB`), propose a modular package structure.  
+**Task:** Given several classes/Packages (`Website`, `Mobile App`, `Payment`, `CustomerService`, `Cart`, `ProductDB`, `CustomerDB`), propose a modular package structure.
 
 Goal: Reduce coupling and improve clarity.
 
@@ -315,7 +315,7 @@ Components represent pieces that are independently purchasable and upgradeable
 ## Example: Sales server component diagram
 
 
-![](images/components-sales-server.png)
+![](images/components-sales-server.png){.fullpage}
 
 ::: notes
 Discuss how components abstract subsystems and interfaces define how they interact.

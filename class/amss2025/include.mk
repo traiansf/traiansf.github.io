@@ -6,8 +6,8 @@ clean:
 	rm -f $(TARGETS)
 
 # Pattern rule to convert .md files to .html using pandoc
-%.html: %.md
-	pandoc $(OPTIONS) -t slidy -s -o $@ $<
+%.html: %.md ../my.css
+	pandoc $(OPTIONS) -t slidy -s --css=../my.css  -o $@ $<
 
 # Pattern rule to convert .md files to .pdf using pandoc
 %.pdf: %.md
