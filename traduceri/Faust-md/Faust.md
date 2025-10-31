@@ -1,5 +1,5 @@
 
-Johann Wolfgang Goethe se naște la 28 august 1749 la Frankfurt pe Main. Tatăl său, Johann Kaspar Goethe, era consilier imperial, mama sa, Katharina Elisabeth, născută Textor, provenea dintr-o familie de patricieni. Alături de sora lui, Cornelia, duce o copilărie lipsită de griji și primește o educație aleasă, învățând preponderent cu preceptori. În 1765, pleacă la Leipzig pentru a studia dreptul, dar cade bolnav în 1768 și se întoarce în casa părintească. Își încheie studiile juridice la Strasbourg în anii 1770–1771, după care practică avocatura la Frankfurt și Wetzlar. Este însă mai preocupat de literatură. Poeziile sale din această perioadă aduc un stil nou în lirica germană. Drama istorică *Götz von Berlichingen* (1773) este primită cu entuziasm în Germania, iar romanul epistolar *Suferințele tânărului Werther* (1774) îl face celebru în întreaga Europă, devenind o carte-cult. Aceste succese îl transformă pe tânărul Goethe în cea mai proeminentă figură a noii mișcări literare „Sturm und Drang“, care opune raționalismului iluminist trăirea individului, sentimentul și fantezia. În 1775, ajunge la Weimar, unde va rămâne tot restul vieții. Aici, la curtea ducelui Karl August, ocupă diverse funcții, fiind responsabil cu finanțele, cu exploatările miniere etc.; mai târziu, preia conducerea teatrului de curte din Weimar. În 1782 este înnobilat. Studiile pe care le desfășoară în domenii precum mineralogia, geologia, botanica sau osteologia se concretizează, în timp, prin descoperirea osului intermaxilar la om (1784) și prin apariția lucrărilor despre metamorfoza plantelor (1790) și despre teoria culorilor (1810). Între 1786 și 1788, Goethe zăbovește în Italia, călătorie pe care o resimte ca pe o adevărată „renaștere“. Puternic influențat de Antichitatea greco-romană, termină de scris tragedia clasică *Ifigenia în Taurida* (1787) și alte drame începute cu ani în urmă. Întors din Italia, o întâlnește pe Christiane Vulpius, o tânără de condiție modestă, care îi va dărui un fiu, dar pe care o va lua de soție abia în 1806. Perioada cuprinsă între 1794 și 1805 este marcată de prietenia și colaborarea cu Friedrich Schiller: sunt anii de vârf a ceea a ajuns să fie cunoscut în istoria literaturii drept „clasicismul de la Weimar“. Forma definitivă a romanului *Anii de ucenicie ai lui Wilhelm Meister* (1795/1796), precum și baladele scrise în 1797 („anul baladelor“) stau sub zodia schimbului spiritual cu Schiller. După moartea lui Schiller, Goethe reia lucrul la *Faust* și, în 1808, publică Partea întâi a tragediei. Scrie la autobiografia *Poezie și adevăr*, pe care nu va izbuti însă s-o ducă mai departe de anul 1775. Lectura poetului persan Hafiz, dar și dragostea târzie pentru Marianne von Willemer, una dintre multele lui muze, îi inspiră poeziile reunite în *Divanul apusean-răsăritean* (tipărit în 1819 și, într-o ediție lărgită, în 1827). Cu zece luni înainte de moartea sa, survenită la 22 martie 1832, Goethe duce la bun sfârșit Partea a doua din *Faust*, destinând-o publicării postume. Primele două volume din *Convorbiri cu Goethe în ultimii ani ai vieții sale*, cuprinzând discuțiile poetului cu secretarul său Johann Peter Eckermann, apar în 1836, fiind urmate de un al treilea în 1848.
+Johann Wolfgang Goethe se naște la 28 august 1749 la Frankfurt pe Main. Tatăl său, Johann Kaspar Goethe, era consilier imperial, mama sa, Katharina Elisabeth, născută Textor, provenea dintr-o familie de patricieni. Alături de sora lui, Cornelia, duce o copilărie lipsită de griji și primește o educație aleasă, învățând preponderent cu preceptori. În 1765, pleacă la Leipzig pentru a studia dreptul, dar cade bolnav în 1768 și se întoarce în casa părintească. Își încheie studiile juridice la Strasbourg în anii 1770–1771, după care practică avocatura la Frankfurt și Wetzlar. Este însă mai preocupat de literatură. Poeziile sale din această perioadă aduc un stil nou în lirica germană. Drama istorică *Götz von Berlichingen* (1773) este primită cu entuziasm în Germania, iar romanul epistolar *Suferințele tânărului Werther* (1774) îl face celebru în întreaga Europă, devenind o carte-cult. Aceste succese îl transformă pe tânărul Goethe în cea mai proeminentă figură a noii mișcări literare „Sturm und Drang”, care opune raționalismului iluminist trăirea individului, sentimentul și fantezia. În 1775, ajunge la Weimar, unde va rămâne tot restul vieții. Aici, la curtea ducelui Karl August, ocupă diverse funcții, fiind responsabil cu finanțele, cu exploatările miniere etc.; mai târziu, preia conducerea teatrului de curte din Weimar. În 1782 este înnobilat. Studiile pe care le desfășoară în domenii precum mineralogia, geologia, botanica sau osteologia se concretizează, în timp, prin descoperirea osului intermaxilar la om (1784) și prin apariția lucrărilor despre metamorfoza plantelor (1790) și despre teoria culorilor (1810). Între 1786 și 1788, Goethe zăbovește în Italia, călătorie pe care o resimte ca pe o adevărată „renaștere”. Puternic influențat de Antichitatea greco-romană, termină de scris tragedia clasică *Ifigenia în Taurida* (1787) și alte drame începute cu ani în urmă. Întors din Italia, o întâlnește pe Christiane Vulpius, o tânără de condiție modestă, care îi va dărui un fiu, dar pe care o va lua de soție abia în 1806. Perioada cuprinsă între 1794 și 1805 este marcată de prietenia și colaborarea cu Friedrich Schiller: sunt anii de vârf a ceea a ajuns să fie cunoscut în istoria literaturii drept „clasicismul de la Weimar”. Forma definitivă a romanului *Anii de ucenicie ai lui Wilhelm Meister* (1795/1796), precum și baladele scrise în 1797 („anul baladelor”) stau sub zodia schimbului spiritual cu Schiller. După moartea lui Schiller, Goethe reia lucrul la *Faust* și, în 1808, publică Partea întâi a tragediei. Scrie la autobiografia *Poezie și adevăr*, pe care nu va izbuti însă s-o ducă mai departe de anul 1775. Lectura poetului persan Hafiz, dar și dragostea târzie pentru Marianne von Willemer, una dintre multele lui muze, îi inspiră poeziile reunite în *Divanul apusean-răsăritean* (tipărit în 1819 și, într-o ediție lărgită, în 1827). Cu zece luni înainte de moartea sa, survenită la 22 martie 1832, Goethe duce la bun sfârșit Partea a doua din *Faust*, destinând-o publicării postume. Primele două volume din *Convorbiri cu Goethe în ultimii ani ai vieții sale*, cuprinzând discuțiile poetului cu secretarul său Johann Peter Eckermann, apar în 1836, fiind urmate de un al treilea în 1848.
 
 
 ## FAUST – TRAGEDIE de JOHANN WOLFGANG GOETHE, Traducere de LUCIAN BLAGA
@@ -39,42 +39,42 @@ Comenzi telefonice: 0372.743.382; 0723.684.194
 
 ## NOTĂ ASUPRA EDIȚIEI
 
-Tălmăcirea lui Lucian Blaga a apărut pentru prima oară în 1955 la Editura de Stat pentru Literatură și Artă. După moartea traducătorului, fiica sa, Dorli Blaga, a pregătit o a doua ediție, revăzând textul prin confruntare cu manuscrisul, introducând indicațiile de regie care lipseau și completând explicațiile și interpretările oferite la subsol de către tatăl său cu note referitoare la figuri mitologice. Această ediție revăzută și completată a apărut în 1962 la Editura pentru Literatură, în două volume, și a fost republicată aproape în aceeași formă în 1968, fiind semnalată abia la republicare ca „ediția a II-a“.
+Tălmăcirea lui Lucian Blaga a apărut pentru prima oară în 1955 la Editura de Stat pentru Literatură și Artă. După moartea traducătorului, fiica sa, Dorli Blaga, a pregătit o a doua ediție, revăzând textul prin confruntare cu manuscrisul, introducând indicațiile de regie care lipseau și completând explicațiile și interpretările oferite la subsol de către tatăl său cu note referitoare la figuri mitologice. Această ediție revăzută și completată a apărut în 1962 la Editura pentru Literatură, în două volume, și a fost republicată aproape în aceeași formă în 1968, fiind semnalată abia la republicare ca „ediția a II-a”.
 
 Volumul de față, îngrijit în redacția Editurii Humanitas, preia, cu mici modificări, textul din 1968 al celei de-a doua ediții. Grafia și punctuația au fost aduse la zi, conform normelor în vigoare, acolo unde astfel de intervenții nu aduceau atingere substanței textului și nu afectau ritmul versurilor. Scăpările și erorile tipografice au fost îndreptate tacit. Indicațiile scenice au fost scoase dintre paranteze, urmând opțiunea lui Goethe, consfințită prin edițiile germane princeps din 1808 (*Faust I*) și 1832 (*Faust II*). Notele de subsol, în care Lucian Blaga, autor interzis la acea vreme, a fost nevoit să strecoare unele clișee din jargonul ideologic al anilor ’50, au fost curățate de formulări care erau străine scrisului său. Formele lexicale și flexiunile folosite de traducător au fost păstrate în integralitate.
 
 Ilustrațiile prezentului volum, create de artistul austriac Franz Xaver Simm (1853–1918), provin din ediția germană a tragediei apărută în 1899 la Deutsche Verlags-Anstalt (Stuttgart, Leipzig). Aceasta cuprindea numeroase xilogravuri executate în diverse ateliere, dintre care s-au inclus în ediția de față cele 21 de ilustrații *pleine page* (inclusiv cele trei pagini de titlu), patru ilustrații de dimensiuni mai mici și vinieta de final. Textele care însoțesc ilustrațiile s-au adăugat în redacție.
 
-Grupajul „Goethe despre *Faust*“ reunește o suită de remarci făcute de poet în contextul informal al epistolelor sau al convorbirilor cu Eckermann. Aceste fragmente revelatoare înlesnesc orientarea cititorului în ansamblul dramei și articulează totodată, într-o manieră intuitivă, idei centrale ale esteticii goetheene.
+Grupajul „Goethe despre *Faust*” reunește o suită de remarci făcute de poet în contextul informal al epistolelor sau al convorbirilor cu Eckermann. Aceste fragmente revelatoare înlesnesc orientarea cititorului în ansamblul dramei și articulează totodată, într-o manieră intuitivă, idei centrale ale esteticii goetheene.
 
-Textul din finalul ediției de față, în care Lucian Blaga vorbește despre experiența de a traduce o operă de o asemenea complexitate, are la origine o comunicare ținută în aprilie 1957, tipărită mai întâi sub titlul „Cum am tradus pe *Faust*“ în revista *Steaua* (VIII, nr. 5, 1957) și apoi, într-o formă completată, intitulată „*Faust* și problema traducerilor“, în revista *Luceafărul* (VI, nr. 11, 1963). În 1957, Blaga a inclus articolul în rândul materialelor care urmau să alcătuiască volumul *Izvoade* (apărut abia în 1972 la Editura Minerva). Textul reprodus aici – ușor prescurtat pentru scopurile prezentei ediții – a fost preluat după ediția integrală, necenzurată, a volumului *Izvoade*, publicată de Humanitas după 1990 (2002, 2012).
+Textul din finalul ediției de față, în care Lucian Blaga vorbește despre experiența de a traduce o operă de o asemenea complexitate, are la origine o comunicare ținută în aprilie 1957, tipărită mai întâi sub titlul „Cum am tradus pe *Faust*” în revista *Steaua* (VIII, nr. 5, 1957) și apoi, într-o formă completată, intitulată „*Faust* și problema traducerilor”, în revista *Luceafărul* (VI, nr. 11, 1963). În 1957, Blaga a inclus articolul în rândul materialelor care urmau să alcătuiască volumul *Izvoade* (apărut abia în 1972 la Editura Minerva). Textul reprodus aici – ușor prescurtat pentru scopurile prezentei ediții – a fost preluat după ediția integrală, necenzurată, a volumului *Izvoade*, publicată de Humanitas după 1990 (2002, 2012).
 
-Considerând că orice literatură națională trebuie să fie și „o oglindă a literaturii universale“, Lucian Blaga a dat culturii române tălmăciri care poartă tot atât de mult marca harului său ca și prolifica sa creație originală, beletristică și filozofică. Dintre acestea, cea mai cunoscută rămâne traducerea capodoperei lui Goethe, cel care, teoretizând pentru prima dată conceptul de „literatură universală“ (*Weltliteratur*), a constatat la începutul secolului al XIX-lea întrepătrunderea crescândă a literaturilor naționale.
+Considerând că orice literatură națională trebuie să fie și „o oglindă a literaturii universale”, Lucian Blaga a dat culturii române tălmăciri care poartă tot atât de mult marca harului său ca și prolifica sa creație originală, beletristică și filozofică. Dintre acestea, cea mai cunoscută rămâne traducerea capodoperei lui Goethe, cel care, teoretizând pentru prima dată conceptul de „literatură universală” (*Weltliteratur*), a constatat la începutul secolului al XIX-lea întrepătrunderea crescândă a literaturilor naționale.
 
 
 ## GOETHE DESPRE *FAUST*
 
-*Goethe a lucrat la* Faust, *cu lungi pauze, de la începuturile carierei sale literare și până la adânci bătrâneți. Ani de zile, textul a stat în adormire, pentru a fi reluat iar și iar, modificat, dezvoltat, până la desăvârșirea întregului. O primă variantă fragmentară, așa-numitul* Urfaust, *care conține încă multe pasaje în proză, ia naștere în prima parte a anilor 1770, înainte ca poetul să se stabilească la Weimar. După 1785, Goethe revine asupra manuscrisului, prelucrându-l și completându-l, iar în 1790 publică* Faust, ein Fragment, *cu ocazia tipăririi unei ediții în opt volume a operele sale. Aceste două versiuni preliminare sunt punctul de plecare pentru elaborarea formei definitive a Părții întâi a tragediei, care apare sub titlul* Faust. Eine Tragödie *în anul 1808.* Faust I *conține deja celebrul „Prolog în cer“, cu discuția dintre Dumnezeu și Mefistofel, care încadrează peripețiile lui Faust pe pământ și fixează orizontul întregii opere.*
+*Goethe a lucrat la* Faust, *cu lungi pauze, de la începuturile carierei sale literare și până la adânci bătrâneți. Ani de zile, textul a stat în adormire, pentru a fi reluat iar și iar, modificat, dezvoltat, până la desăvârșirea întregului. O primă variantă fragmentară, așa-numitul* Urfaust, *care conține încă multe pasaje în proză, ia naștere în prima parte a anilor 1770, înainte ca poetul să se stabilească la Weimar. După 1785, Goethe revine asupra manuscrisului, prelucrându-l și completându-l, iar în 1790 publică* Faust, ein Fragment, *cu ocazia tipăririi unei ediții în opt volume a operele sale. Aceste două versiuni preliminare sunt punctul de plecare pentru elaborarea formei definitive a Părții întâi a tragediei, care apare sub titlul* Faust. Eine Tragödie *în anul 1808.* Faust I *conține deja celebrul „Prolog în cer”, cu discuția dintre Dumnezeu și Mefistofel, care încadrează peripețiile lui Faust pe pământ și fixează orizontul întregii opere.*
 
 *Referirile scrise ale autorului la* Faust *se înmulțesc în anii târzii. Ele sunt consemnate în scrisori, în convorbirile cu Eckermann și, mai laconic, în jurnalul lui Goethe, ba chiar în jurnalele unor contemporani. Sunt anii în care Goethe începe să se gândească serios la continuarea dramei, revăzând câteva scene disparate scrise până atunci. Între 1825 și 1831, dă la iveală, încetul cu încetul, Partea a doua. Se hotărește însă să nu publice* Faust II *în timpul vieții, decizie pe care o motivează, cu cinci zile înainte de moarte, în ultima sa scrisoare, adresată lui Wilhelm von Humboldt.* Faust. Der Tragödie zweiter Teil in fünf Akten *va apărea postum în 1832, la câteva luni după moartea lui Goethe.*
 
-*Fragmentele reunite mai jos[^1] ne permit să aruncăm o privire în atelierul creației și dau o idee despre modul în care înțelegea autorul ansamblul acestei producții „incomensurabile“, dar oferă și explicații cu privire la Partea a doua, care, prin complexitatea și varietatea sa, solicită din plin cititorul. În puține cuvinte, Goethe ne spune cum ar trebui citit* Faust *și care au fost intențiile sale.*
+*Fragmentele reunite mai jos[^1] ne permit să aruncăm o privire în atelierul creației și dau o idee despre modul în care înțelegea autorul ansamblul acestei producții „incomensurabile”, dar oferă și explicații cu privire la Partea a doua, care, prin complexitatea și varietatea sa, solicită din plin cititorul. În puține cuvinte, Goethe ne spune cum ar trebui citit* Faust *și care au fost intențiile sale.*
 
-[^1]: Majoritatea lor sunt reproduse într-o amplă anexă la ediția germană îngrijită de Erich Trunz: Johann Wolfgang von Goethe, *Dramatische Dichtungen I: Faust I. Faust II. Urfaust*, hg. v. Erich Trunz, Deutscher Taschenbuch Verlag, München, 1998, reprezentând vol. 3 din seria *Operelor* lui Goethe în 14 volume cunoscută ca „Hamburger Ausgabe“.
+[^1]: Majoritatea lor sunt reproduse într-o amplă anexă la ediția germană îngrijită de Erich Trunz: Johann Wolfgang von Goethe, *Dramatische Dichtungen I: Faust I. Faust II. Urfaust*, hg. v. Erich Trunz, Deutscher Taschenbuch Verlag, München, 1998, reprezentând vol. 3 din seria *Operelor* lui Goethe în 14 volume cunoscută ca „Hamburger Ausgabe”.
 
 *Din jurnalul lui Sulpiz Boisserée, 3 august 1815*
 
-Apoi aduce vorba despre *Faust*. Partea întâi, încheiată cu moartea lui Gretchen, cere acum, *par ricochet*, un nou început, iar întreprinderea aceasta ar fi tare anevoioasă, căci mâna pictorului, penelul său nu mai sunt aceleași; ceea ce ar produce acum nu s-ar potrivi cu cele dinainte. – Îi răspund că n-ar trebui să-și facă atâtea scrupule, că oamenii au capacitatea de a se transpune în altul, cu atât mai mult maestrul în creațiile sale mai vechi. – Goethe: „Recunosc bucuros, o mare parte-i deja isprăvită.“ – Mă interesez de sfârșit. – Goethe: „Despre sfârșit nu vorbesc, nu mi-e îngăduit să vorbesc, dar e de asemenea gata, a ieșit foarte bine, grandios, ca-n vremurile cele mai bune.“ – Îmi închipui, zic, că diavolul nu are câștig de cauză. – Goethe: „La început, Faust îi pune diavolului o condiție, de aici decurge tot restul.“
+Apoi aduce vorba despre *Faust*. Partea întâi, încheiată cu moartea lui Gretchen, cere acum, *par ricochet*, un nou început, iar întreprinderea aceasta ar fi tare anevoioasă, căci mâna pictorului, penelul său nu mai sunt aceleași; ceea ce ar produce acum nu s-ar potrivi cu cele dinainte. – Îi răspund că n-ar trebui să-și facă atâtea scrupule, că oamenii au capacitatea de a se transpune în altul, cu atât mai mult maestrul în creațiile sale mai vechi. – Goethe: „Recunosc bucuros, o mare parte-i deja isprăvită.” – Mă interesez de sfârșit. – Goethe: „Despre sfârșit nu vorbesc, nu mi-e îngăduit să vorbesc, dar e de asemenea gata, a ieșit foarte bine, grandios, ca-n vremurile cele mai bune.” – Îmi închipui, zic, că diavolul nu are câștig de cauză. – Goethe: „La început, Faust îi pune diavolului o condiție, de aici decurge tot restul.”
 
 *Goethe către Karl Ernst Schubarth, 3 noiembrie 1820*
 
-Ceea ce spuneți despre „Închinare“ și despre „Prolog“[^2] e fără cusur. M-au mișcat însă conjecturile dumneavoastră despre Partea a doua a lui *Faust* și despre rezolvarea intrigii. Că lucrurile evoluează spre idealitate, pentru a-și găsi la urmă împlinirea pe acest făgaș, ați intuit foarte corect; numai că tratarea mea trebuia să-și urmeze propriul curs, și mai sunt pe pământ câteva rătăciri mărețe, reale și fantastice, care pot abate biata făptură omenească de o manieră mai nobilă, mai demnă și mai înaltă decât se întâmplă în desfășurarea comună a Părții întâi. Și prin acestea ar trebui să răzbată amicul nostru Faust. […] Ați ghicit corect și deznodământul. Mefistofel nu trebuie să câștige rămășagul decât pe jumătate și, chiar dacă Faust rămâne cu jumătate din vină, numaidecât intervine dreptul de grațiere al bătrânului senior, conducând spre cel mai senin final al întregului.
+Ceea ce spuneți despre „Închinare” și despre „Prolog”[^2] e fără cusur. M-au mișcat însă conjecturile dumneavoastră despre Partea a doua a lui *Faust* și despre rezolvarea intrigii. Că lucrurile evoluează spre idealitate, pentru a-și găsi la urmă împlinirea pe acest făgaș, ați intuit foarte corect; numai că tratarea mea trebuia să-și urmeze propriul curs, și mai sunt pe pământ câteva rătăciri mărețe, reale și fantastice, care pot abate biata făptură omenească de o manieră mai nobilă, mai demnă și mai înaltă decât se întâmplă în desfășurarea comună a Părții întâi. Și prin acestea ar trebui să răzbată amicul nostru Faust. […] Ați ghicit corect și deznodământul. Mefistofel nu trebuie să câștige rămășagul decât pe jumătate și, chiar dacă Faust rămâne cu jumătate din vină, numaidecât intervine dreptul de grațiere al bătrânului senior, conducând spre cel mai senin final al întregului.
 
-[^2]: Goethe se referă la „Prologul în teatru“ (n.ed.).
+[^2]: Goethe se referă la „Prologul în teatru” (n.ed.).
 
-*„Elena“, interludiu la Faust. Anunț[^3]*
+*„Elena”, interludiu la Faust. Anunț[^3]*
 
-[^3]: Această schiță, dictată de Goethe în decembrie 1826 și publicată în anul următor, trebuia să-i pregătească pe cititori pentru publicarea separată a actului III din Partea a doua – act pe care poetul îl numea, simplu, „Elena“. În continuarea textului, neinclusă aici, este expusă pe larg acțiunea din actul II care precede intrarea în scenă a preafrumoasei Elena (n.ed.).
+[^3]: Această schiță, dictată de Goethe în decembrie 1826 și publicată în anul următor, trebuia să-i pregătească pe cititori pentru publicarea separată a actului III din Partea a doua – act pe care poetul îl numea, simplu, „Elena”. În continuarea textului, neinclusă aici, este expusă pe larg acțiunea din actul II care precede intrarea în scenă a preafrumoasei Elena (n.ed.).
 
 Caracterul lui Faust, la înălțimea la care l-a ridicat noua prelucrare a basmului popular vechi, brut, ne înfățișează un om care, simțindu-se neliniștit și inconfortabil în limitele obișnuite ale vieții pământești, găsește că posesiunea celei mai înalte științe, desfătarea cu cele mai încântătoare avuții nu sunt câtuși de puțin în măsură să-i satisfacă năzuințele, așadar un spirit care, îndreptându-și privirile în toate direcțiile, se întoarce de fiecare dată mai nefericit.
 
@@ -86,49 +86,49 @@ Căci, așa cum ne spune vechea legendă, dar și jocul de păpuși, care prezin
 
 „De altfel, germanii sunt oameni ciudați! Prin gândurile și ideile lor profunde, pe care le urmăresc și le răsădesc peste tot, își fac viața mai grea decât e cazul. Îndrăzniți odată și-odată să vă dăruiți impresiilor, să vă delectați, să vă lăsați mișcați, înălțați; găsiți în voi curajul de a vă lăsa învățați, de a vă lăsa înflăcărați și îmboldiți către ceva măreț – și nu socotiți mereu că tot ce nu-i cugetare și idee abstractă e deșertăciune!
 
-Iată-i, vin la mine și mă întreabă ce idee am căutat să întruchipez în *Faust*. De parcă eu însumi aș ști lucrul acesta și aș putea să-l exprim! *Din cer prin lume până-n iad*, asta ar fi ceva, la nevoie; dar aici nu-i vorba de o idee, ci de mersul acțiunii. Apoi, că diavolul pierde rămășagul și că un om care, din grele rătăciri, aspiră neîncetat spre mai bine poate fi *izbăvit* – acesta e un gând bun, productiv, care explică câte ceva, dar nu e o *idee* care să stea la temelia întregului și a fiecărei scene în parte. Mare minunăție ar mai fi ieșit, zău așa, dacă mi-aș fi propus să înșir pe firul sărăcăcios al unei singure idei generale o viață atât de bogată, de pestriță, de variată cum este aceea pe care am înfățișat-o în *Faust*!“
+Iată-i, vin la mine și mă întreabă ce idee am căutat să întruchipez în *Faust*. De parcă eu însumi aș ști lucrul acesta și aș putea să-l exprim! *Din cer prin lume până-n iad*, asta ar fi ceva, la nevoie; dar aici nu-i vorba de o idee, ci de mersul acțiunii. Apoi, că diavolul pierde rămășagul și că un om care, din grele rătăciri, aspiră neîncetat spre mai bine poate fi *izbăvit* – acesta e un gând bun, productiv, care explică câte ceva, dar nu e o *idee* care să stea la temelia întregului și a fiecărei scene în parte. Mare minunăție ar mai fi ieșit, zău așa, dacă mi-aș fi propus să înșir pe firul sărăcăcios al unei singure idei generale o viață atât de bogată, de pestriță, de variată cum este aceea pe care am înfățișat-o în *Faust*!”
 
-Goethe urmă: „În general, nu mi-a stat în fire, ca poet, să tind la întruchiparea unui ce *abstract*. Am găzduit în interiorul meu *impresii*, anume impresii senzuale, pline de viață, încântătoare, multicolore, nespus de variate, așa cum mi le oferea o imaginație intensă; iar ca poet tot ce mi-a rămas de făcut a fost să rotunjesc și să modelez înlăuntrul meu aceste imagini și impresii în chip artistic și să le scot la iveală printr-o reprezentare vie, astfel încât și ceilalți să aibă parte de aceleași impresii când aud sau citesc cele înfățișate de mine.“
+Goethe urmă: „În general, nu mi-a stat în fire, ca poet, să tind la întruchiparea unui ce *abstract*. Am găzduit în interiorul meu *impresii*, anume impresii senzuale, pline de viață, încântătoare, multicolore, nespus de variate, așa cum mi le oferea o imaginație intensă; iar ca poet tot ce mi-a rămas de făcut a fost să rotunjesc și să modelez înlăuntrul meu aceste imagini și impresii în chip artistic și să le scot la iveală printr-o reprezentare vie, astfel încât și ceilalți să aibă parte de aceleași impresii când aud sau citesc cele înfățișate de mine.”
 
 *Goethe către K.J.L. Iken, 27 septembrie 1827*
 
-Îngăduiți-mi, înainte de toate, să-mi exprim bucuria pe care mi-ați făcut-o prin interesul ce l-ați arătat „Elenei“. […] Nu m-am îndoit niciodată că cititorii pentru care am scris de fapt vor înțelege numaidecât sensul principal al acestei producții. E timpul ca dezbinarea pătimașă dintre clasici și romantici să se încheie odată și-odată cu o conciliere. Dezideratul principal este acesta: să ne cultivăm; din ce surse ne cultivăm ar fi totuna, dacă nu ar trebui să ne temem că vom fi pervertiți prin modele false. Căci tocmai datorită unei perspective mai ample și mai clare înlăuntrul și asupra literaturii greco-romane ne-am eliberat de barbaria monahală în secolele al XV-lea și al XVI-lea. Oare nu aceste nobile izvoade ne învață să considerăm totul în adevărata sa valoare sensibil-estetică, de la ce-i mai vechi până la ce-i mai nou?
+Îngăduiți-mi, înainte de toate, să-mi exprim bucuria pe care mi-ați făcut-o prin interesul ce l-ați arătat „Elenei”. […] Nu m-am îndoit niciodată că cititorii pentru care am scris de fapt vor înțelege numaidecât sensul principal al acestei producții. E timpul ca dezbinarea pătimașă dintre clasici și romantici să se încheie odată și-odată cu o conciliere. Dezideratul principal este acesta: să ne cultivăm; din ce surse ne cultivăm ar fi totuna, dacă nu ar trebui să ne temem că vom fi pervertiți prin modele false. Căci tocmai datorită unei perspective mai ample și mai clare înlăuntrul și asupra literaturii greco-romane ne-am eliberat de barbaria monahală în secolele al XV-lea și al XVI-lea. Oare nu aceste nobile izvoade ne învață să considerăm totul în adevărata sa valoare sensibil-estetică, de la ce-i mai vechi până la ce-i mai nou?
 
-Nădăjduind la o asemenea participare plină de înțelegere, mi-am dat frâu liber în timpul elaborării „Elenei“, fără să mă gândesc la vreun public sau la vreun cititor anume, încredințat că cel care cuprinde și deslușește întregul va avea răbdarea și bunăvoința să-și însușească încetul cu încetul și elementele individuale. Pe de-o parte, filologul nu va rămâne cu nici o nelămurire, ci se va desfăta cu Antichitatea readusă la viață, care-i este deja cunoscută; pe de altă parte, cel înzestrat cu sensibilitate va pătrunde ceea ce se ascunde în tihnă ici și colo: „*Eleusis servat, quod ostendat revisentibus*“[^4]. M-aș bucura dacă, și de astă dată, misterul îi va face pe prieteni să se întoarcă mai des la el.
+Nădăjduind la o asemenea participare plină de înțelegere, mi-am dat frâu liber în timpul elaborării „Elenei”, fără să mă gândesc la vreun public sau la vreun cititor anume, încredințat că cel care cuprinde și deslușește întregul va avea răbdarea și bunăvoința să-și însușească încetul cu încetul și elementele individuale. Pe de-o parte, filologul nu va rămâne cu nici o nelămurire, ci se va desfăta cu Antichitatea readusă la viață, care-i este deja cunoscută; pe de altă parte, cel înzestrat cu sensibilitate va pătrunde ceea ce se ascunde în tihnă ici și colo: „*Eleusis servat, quod ostendat revisentibus*”[^4]. M-aș bucura dacă, și de astă dată, misterul îi va face pe prieteni să se întoarcă mai des la el.
 
-[^4]: „Eleusis păstrează lucruri pe care le arată celor ce se-ntorc“ (lat.) – Seneca, *Naturales quaestiones*, VII, 31, 6 (n.ed.).
+[^4]: „Eleusis păstrează lucruri pe care le arată celor ce se-ntorc” (lat.) – Seneca, *Naturales quaestiones*, VII, 31, 6 (n.ed.).
 
 *Convorbirile lui Eckermann cu Goethe, 1 octombrie 1827*
 
 …M-am dus la Goethe, care mi-a citit scena a doua[^5] din noul său Faust.
 
-[^5]: Scena „Palatul imperial. Sala tronului“; vezi pp. 205 sqq. (n.ed.).
+[^5]: Scena „Palatul imperial. Sala tronului”; vezi pp. 205 sqq. (n.ed.).
 
-„În figura împăratului“, spuse el, „am căutat să înfățișez un suveran care are toate atributele posibile ca să-și piardă pământurile, lucru care-i și reușește mai târziu.
+„În figura împăratului”, spuse el, „am căutat să înfățișez un suveran care are toate atributele posibile ca să-și piardă pământurile, lucru care-i și reușește mai târziu.
 
 Binele împărăției și al supușilor săi nu-l frământă deloc; se gândește numai la el și la cum să se amuze zi de zi cu ceva nou. Țara e văduvită de lege și dreptate, judecătorul e complice și de partea răufăcătorilor, nimeni nu-i stingherește și nu-i pedepsește pe cei ce săvârșesc fărădelegi nemaiauzite. Oastea e în neorânduială, oștenii nu și-au primit solda și umblă alandala după jaf, luându-și singuri simbria și descurcându-se cum pot. Visteria statului e goală, ajutoarele bănești promise nu mai sosesc. Nici în gospodăria împăratului lucrurile nu stau mai bine: din bucătărie și pivniță lipsesc cele trebuincioase. Mareșalul palatului, care nu mai știe cum să se descurce de pe o zi pe alta, a încăput deja pe mâna cămătarilor, iar aceștia au pus zălog pe totul, astfel încât și la masa împăratului se mănâncă pe datorie.
 
-Consiliul de stat vrea să-i ceară socoteală suveranului pentru toate aceste neajunsuri și să caute o cale de a îndrepta lucrurile. Numai că Înălțimea Sa nu este deloc dispusă să-și plece distinsa ureche la asemenea vorbe supărătoare. Gândul îi stă la amuzament. Aici, desigur, Mefistofel e în elementul său: numaidecât, îl înlătură pe măscăriciul de până acum și se insinuează pe lângă împărat în calitate de nou bufon și consilier.“
+Consiliul de stat vrea să-i ceară socoteală suveranului pentru toate aceste neajunsuri și să caute o cale de a îndrepta lucrurile. Numai că Înălțimea Sa nu este deloc dispusă să-și plece distinsa ureche la asemenea vorbe supărătoare. Gândul îi stă la amuzament. Aici, desigur, Mefistofel e în elementul său: numaidecât, îl înlătură pe măscăriciul de până acum și se insinuează pe lângă împărat în calitate de nou bufon și consilier.”
 
 *Convorbirile lui Eckermann cu Goethe, 13 februarie 1831*
 
 Cu Goethe la masă. Mi-a povestit că lucrează mai departe la actul al patrulea din *Faust* și că în sfârșit i-a ieșit începutul așa cum și-l dorise.
 
-„*Ce* anume avea să se întâmple“, zise el, „era lămurit de mult, după cum știți. Dar *cum* aveau să se întâmple lucrurile, în privința asta nu eram pe deplin mulțumit, și-s bucuros că, iată, mi-au venit niște idei bune. Acum, am să-mi folosesc imaginația pentru a umple tot golul acesta, de la «Elena» până la actul al cincilea, care-i isprăvit: am să pun pe hârtie o schemă amănunțită, ca să pot elabora apoi totul în tihnă și siguranță, lucrând la părțile care mă atrag pe moment. Actul acesta va avea, și el, un caracter propriu foarte bine conturat – aidoma unui microcosmos ce există pentru sine, nu se va amesteca cu restul și va fi legat de întreg doar prin trimiteri fine la ceea ce se petrece înainte și după.“
+„*Ce* anume avea să se întâmple”, zise el, „era lămurit de mult, după cum știți. Dar *cum* aveau să se întâmple lucrurile, în privința asta nu eram pe deplin mulțumit, și-s bucuros că, iată, mi-au venit niște idei bune. Acum, am să-mi folosesc imaginația pentru a umple tot golul acesta, de la «Elena» până la actul al cincilea, care-i isprăvit: am să pun pe hârtie o schemă amănunțită, ca să pot elabora apoi totul în tihnă și siguranță, lucrând la părțile care mă atrag pe moment. Actul acesta va avea, și el, un caracter propriu foarte bine conturat – aidoma unui microcosmos ce există pentru sine, nu se va amesteca cu restul și va fi legat de întreg doar prin trimiteri fine la ceea ce se petrece înainte și după.”
 
-„Va fi, deci, în ton cu restul“, spusei eu. „Căci, în fond, Pivnița lui Auerbach, Bucătăria vrăjitoarei, Blocksbergul[^6], Consiliul de stat, Mascarada, scena cu banii de hârtie, Laboratorul, Noaptea valpurgică clasică, Elena sunt tot atâtea mici lumi de sine stătătoare, care, închise în sine, se influențează reciproc, dar au puțin de-a face una cu alta. Poetul dorește să reprezinte un univers variat și folosește povestea unui erou faimos ca pe un fir ce străbate întreaga operă, înșirând pe el ceea ce poftește. La fel stau lucrurile cu *Odiseea* sau cu *Gil Blas*.“
+„Va fi, deci, în ton cu restul”, spusei eu. „Căci, în fond, Pivnița lui Auerbach, Bucătăria vrăjitoarei, Blocksbergul[^6], Consiliul de stat, Mascarada, scena cu banii de hârtie, Laboratorul, Noaptea valpurgică clasică, Elena sunt tot atâtea mici lumi de sine stătătoare, care, închise în sine, se influențează reciproc, dar au puțin de-a face una cu alta. Poetul dorește să reprezinte un univers variat și folosește povestea unui erou faimos ca pe un fir ce străbate întreaga operă, înșirând pe el ceea ce poftește. La fel stau lucrurile cu *Odiseea* sau cu *Gil Blas*.”
 
-[^6]: „Muntele Nebun“, în transpunerea lui Lucian Blaga; *cf.* și explicațiile oferite de traducător la pp. 478–479 (n.ed.).
+[^6]: „Muntele Nebun”, în transpunerea lui Lucian Blaga; *cf.* și explicațiile oferite de traducător la pp. 478–479 (n.ed.).
 
-„Aveți întru totul dreptate“, remarcă Goethe. „Ceea ce contează într-o asemenea compoziție este ca masele individuale să fie semnificative și clare, în timp ce întregul rămâne mereu incomensurabil și, tocmai prin faptul că se înfățișează ca o problemă nerezolvată, îi ademenește pe oameni să-l contemple iar și iar.“
+„Aveți întru totul dreptate”, remarcă Goethe. „Ceea ce contează într-o asemenea compoziție este ca masele individuale să fie semnificative și clare, în timp ce întregul rămâne mereu incomensurabil și, tocmai prin faptul că se înfățișează ca o problemă nerezolvată, îi ademenește pe oameni să-l contemple iar și iar.”
 
 *Convorbirile lui Eckermann cu Goethe, 17 februarie 1831*
 
 L-am întrebat cum merge lucrul la *Faust*.
 
-„*Faust* a pus acum complet stăpânire pe mine“, răspunse Goethe. „Nu trece zi fără să chibzuiesc și să născocesc câte ceva la el. Am cerut să mi se broșeze întregul manuscris al Părții a doua, ca să-l am în fața ochilor în toată materialitatea lui. Locul în care va veni actul al patrulea, care lipsește încă, l-am umplut cu foi albe, și nu încape discuție că bucățile isprăvite mă ademenesc și mă îndeamnă să desăvârșesc și restul. Lucrurile acestea care țin de simțuri au o însemnătate mai mare decât se crede, de aceea trebuie să venim în ajutorul spiritului cu tot felul de trucuri […].
+„*Faust* a pus acum complet stăpânire pe mine”, răspunse Goethe. „Nu trece zi fără să chibzuiesc și să născocesc câte ceva la el. Am cerut să mi se broșeze întregul manuscris al Părții a doua, ca să-l am în fața ochilor în toată materialitatea lui. Locul în care va veni actul al patrulea, care lipsește încă, l-am umplut cu foi albe, și nu încape discuție că bucățile isprăvite mă ademenesc și mă îndeamnă să desăvârșesc și restul. Lucrurile acestea care țin de simțuri au o însemnătate mai mare decât se crede, de aceea trebuie să venim în ajutorul spiritului cu tot felul de trucuri […].
 
-Partea întâi este aproape pe de-a-ntregul subiectivă. Totul a izvorât dintr-un individ mai stânjenit, mai pătimaș, dar și clarobscurul acesta poate fi prielnic oamenilor. Partea a doua nu mai are însă aproape nimic subiectiv, aici apare o lume mai înaltă, mai vastă, mai luminoasă, mai lipsită de patimi, iar cine nu a umblat nițel și nu a trăit câte ceva în viață nu va găsi că-i spune mare lucru.“
+Partea întâi este aproape pe de-a-ntregul subiectivă. Totul a izvorât dintr-un individ mai stânjenit, mai pătimaș, dar și clarobscurul acesta poate fi prielnic oamenilor. Partea a doua nu mai are însă aproape nimic subiectiv, aici apare o lume mai înaltă, mai vastă, mai luminoasă, mai lipsită de patimi, iar cine nu a umblat nițel și nu a trăit câte ceva în viață nu va găsi că-i spune mare lucru.”
 
 *Convorbirile lui Eckermann cu Goethe, 21 februarie 1831*
 
@@ -136,15 +136,15 @@ Cabirii lui Schelling ne-au făcut să luăm în discuție Noaptea valpurgică c
 
 [^7]: *Cf.* pp. 165–179 și pp. 288–342 (n.ed.).
 
-„Noaptea valpurgică de odinioară“, spuse Goethe, „are o ordine monarhică, prin faptul că diavolul este acolo șeful incontestabil, privit pretutindeni cu respect; cea clasică însă e decis republicană, căci aici toți au același rang, nici unul nu-l privește pe altul de sus, nimeni nu e subordonat și nu se sinchisește de celălalt.“
+„Noaptea valpurgică de odinioară”, spuse Goethe, „are o ordine monarhică, prin faptul că diavolul este acolo șeful incontestabil, privit pretutindeni cu respect; cea clasică însă e decis republicană, căci aici toți au același rang, nici unul nu-l privește pe altul de sus, nimeni nu e subordonat și nu se sinchisește de celălalt.”
 
-„De asemenea“, zisei eu, „în cea clasică, lumea se desface în individualități clar conturate, pe când pe Blocksbergul german toate figurile se dizolvă într-o mare masă de vrăjitoare.“
+„De asemenea”, zisei eu, „în cea clasică, lumea se desface în individualități clar conturate, pe când pe Blocksbergul german toate figurile se dizolvă într-o mare masă de vrăjitoare.”
 
-„Tocmai de aceea“, interveni Goethe, „Mefistofel știe prea bine ce va să însemne când Homunculus îi vorbește de vrăjitoarele tesalice. Un bun cunoscător al Antichității se va gândi la anumite lucruri când aude de vrăjitoarele tesalice, în timp ce, pentru omul neinstruit, acestea rămân un simplu nume.“
+„Tocmai de aceea”, interveni Goethe, „Mefistofel știe prea bine ce va să însemne când Homunculus îi vorbește de vrăjitoarele tesalice. Un bun cunoscător al Antichității se va gândi la anumite lucruri când aude de vrăjitoarele tesalice, în timp ce, pentru omul neinstruit, acestea rămân un simplu nume.”
 
-„Cu siguranță, Antichitatea v-a fost foarte vie în minte“, observai eu, „altminteri n-ați fi izbutit să evocați toate acele figuri cu atâta prospețime, să le mânuiți și să le tratați cu atâta dezinvoltură.“
+„Cu siguranță, Antichitatea v-a fost foarte vie în minte”, observai eu, „altminteri n-ați fi izbutit să evocați toate acele figuri cu atâta prospețime, să le mânuiți și să le tratați cu atâta dezinvoltură.”
 
-„Dacă nu m-aș fi îndeletnicit toată viața cu artele plastice“, răspunse Goethe, „nu aș fi putut înfăptui așa ceva. Cel mai dificil, însă, a fost să păstrez măsura în fața acestei abundențe și să las la o parte toate personajele care nu se potriveau întocmai cu intențiile mele. Așa se face că nu m-am folosit de Minotaur, de Harpii și de alți câțiva monștri.“
+„Dacă nu m-aș fi îndeletnicit toată viața cu artele plastice”, răspunse Goethe, „nu aș fi putut înfăptui așa ceva. Cel mai dificil, însă, a fost să păstrez măsura în fața acestei abundențe și să las la o parte toate personajele care nu se potriveau întocmai cu intențiile mele. Așa se face că nu m-am folosit de Minotaur, de Harpii și de alți câțiva monștri.”
 
 *Goethe către Carl Friedrich Zelter, 1 iunie 1831*
 
@@ -152,13 +152,13 @@ Trimite-mi în continuare, dragul meu, câte un mănunchi din bogata recoltă pe
 
 *Convorbirile lui Eckermann cu Goethe, 6 iunie 1831*
 
-„În actul al cincilea“, spuse Goethe, „eu mi l-am închipuit pe Faust la vârsta de o sută de ani, și mă întreb dacă nu ar fi bine să menționez undeva explicit acest lucru […].
+„În actul al cincilea”, spuse Goethe, „eu mi l-am închipuit pe Faust la vârsta de o sută de ani, și mă întreb dacă nu ar fi bine să menționez undeva explicit acest lucru […].
 
-De altfel, veți admite că sfârșitul, unde sufletul izbăvit se înalță la ceruri, era foarte greu de realizat și că, tratând asemenea chestiuni transcendente, care abia pot fi intuite, aș fi putut lesne să mă pierd în vag dacă n-aș fi dat intențiilor mele poetice, prin figurile și reprezentările bine conturate ale Bisericii creștine, o formă și o soliditate care situează totul în anumite limite benefice.“
+De altfel, veți admite că sfârșitul, unde sufletul izbăvit se înalță la ceruri, era foarte greu de realizat și că, tratând asemenea chestiuni transcendente, care abia pot fi intuite, aș fi putut lesne să mă pierd în vag dacă n-aș fi dat intențiilor mele poetice, prin figurile și reprezentările bine conturate ale Bisericii creștine, o formă și o soliditate care situează totul în anumite limite benefice.”
 
 În următoarele săptămâni, Goethe a terminat și actul al patrulea, singurul care mai lipsea, astfel că în august toată Partea a doua era gata și deja broșată. Goethe era nespus de fericit că-și atinsese țelul spre care năzuise atâta amar de vreme.
 
-„De-acum“, zise el, „pot să privesc restul zilelor mele pur și simplu ca pe un dar, și în fond n-are nici o importanță dacă am să mai creez ceva – și ce anume.“
+„De-acum”, zise el, „pot să privesc restul zilelor mele pur și simplu ca pe un dar, și în fond n-are nici o importanță dacă am să mai creez ceva – și ce anume.”
 
 *Goethe către Wilhelm von Humboldt, 17 martie 1832*
 
@@ -655,7 +655,7 @@ Să vă înlănțuie-n suavă dragoste cerească!<br>
 Voi să-ntăriți durabil, în gândiri-tipare!<br>
 Cerul se închide, arhanghelii se risipesc.
 
-[^9]: „Domnul“ se adresează aici îngerilor într-un fel „păgân“, ceea ce arată cât de liber utilizează Goethe motivele religiei creștine.
+[^9]: „Domnul” se adresează aici îngerilor într-un fel „păgân”, ceea ce arată cât de liber utilizează Goethe motivele religiei creștine.
 
 MEFISTOFEL singur
 
@@ -778,7 +778,7 @@ Acu de-abia pricep a înțeleptului[^14] povață:<br>
 „A duhurilor lume nu-i ascunsă,<br>
 Doar mintea ta și inima-s închise.<br>
 Ridică-te, discipole, fără mâhnire<br>
-Și scaldă-ți pieptul în aurorele deschise!“
+Și scaldă-ți pieptul în aurorele deschise!”
 
 *El privește semnul îndelung.*
 
@@ -825,13 +825,13 @@ Să mi te-arăți! Chiar dacă-n preț ai cere viața!
 
 *El cuprinde cartea și rostește tainic semnul Duhului. Zvâcnește o flacără roșiatică,* Duhul *apare în flacără.*
 
-[^10]: Prin „semințe“, Faust înțelege „cauzele“ lucrurilor, pe care alchimiștii le vedeau sub forma unor „semințe“. Naturalistul magician *Paracelsus* (secolul al XVI-lea) vorbea despre *semina rerum* (semințele lucrurilor).
+[^10]: Prin „semințe”, Faust înțelege „cauzele” lucrurilor, pe care alchimiștii le vedeau sub forma unor „semințe”. Naturalistul magician *Paracelsus* (secolul al XVI-lea) vorbea despre *semina rerum* (semințele lucrurilor).
 
 [^11]: *Michel de Nostredame* (1503–1566), astrolog francez, care a publicat în 1555 o cărțulie: *Les vrayes centuries et prophéties* (*Adevăratele centurii și profeții*).
 
 [^12]: Prin semnul macrocosmului, Faust înțelege o schiță schematică a universului.
 
-[^13]: Prin „natură“, Faust înțelege aici puterea ascunsă a naturii, ceea ce alchimistul *van Helmont* (secolul al XVII-lea) numea *anima mundi* (sufletul universal).
+[^13]: Prin „natură”, Faust înțelege aici puterea ascunsă a naturii, ceea ce alchimistul *van Helmont* (secolul al XVII-lea) numea *anima mundi* (sufletul universal).
 
 [^14]: Înțeleptul la care se referă Faust ar putea să fie Nostradamus, dar s-ar putea ca Goethe să se refere și la naturalistul mistic *Jakob Böhme* (1575–1624), care a scris o carte intitulată *Aurora*.
 
@@ -1789,7 +1789,7 @@ Se răcorește. Înserează. Ne așteaptă casa.<br>
 Dar ce stați astfel, cu neliniște<br>
 Privind departe?
 
-[^23]: Wagner își expune aici credința sa în existența unor „spirite“ ale celor patru regiuni ale lumii, potrivit celor patru puncte cardinale ale orizontului.
+[^23]: Wagner își expune aici credința sa în existența unor „spirite” ale celor patru regiuni ale lumii, potrivit celor patru puncte cardinale ale orizontului.
 
 FAUST
 
@@ -1923,16 +1923,16 @@ Cu inima curată să-l privesc,<br>
 Sacrul izvod<br>
 În graiul meu iubit să-l tălmăcesc.<br>
 Deschide un volum și încearcă să traducă.<br>
-Stă scris: „La început a fost Cuvântul.“<br>
+Stă scris: „La început a fost Cuvântul.”<br>
 Mă și opresc. Cine m-ajută să fac pasul?<br>
 Cuvântul? – Nu pot să-l prețuiesc așa de mult!<br>
 Altfel va trebui să-l tălmăcesc,<br>
 Dacă de spirit eu ascult.<br>
-Stă scris: „La început a fost Ideea.“<br>
+Stă scris: „La început a fost Ideea.”<br>
 Dar cântărește bine-ntâiul rând,<br>
 Ca pana să nu fugă, slove goale așternând.<br>
 Ideea e, ce-nfăptuiește și creează totul?<br>
-Ar trebui să scriu: „La început a fost Puterea.“<br>
+Ar trebui să scriu: „La început a fost Puterea.”<br>
 Dar iată că scriind sunt îndemnat<br>
 Să nu fac nici aici popasul.<br>
 Din ce adâncuri vine șoapta?<br>
@@ -2045,9 +2045,9 @@ Nu aștepta arzânda, întreita lumină[^30]!<br>
 Nu aștepta<br>
 Să-mi pun în joc arta deplină!
 
-[^29]: „Semnul“ despre care vorbește Faust e crucifixul.
+[^29]: „Semnul” despre care vorbește Faust e crucifixul.
 
-[^30]: Prin „întreita lumină“, Faust înțelege trinitatea.
+[^30]: Prin „întreita lumină”, Faust înțelege trinitatea.
 
 MEFISTOFEL *apare, în timp ce ceața se destramă, îmbrăcat ca un scolast călător[^31], de după sobă*
 
@@ -2503,7 +2503,7 @@ Blestem pe mustul strugurilor cadă<br>
 Blestem nădejdilor! Blestem credinței, închinării!<br>
 Și blèstem mai ales răbdării!
 
-[^33] Aluzie la imaginea „peșterii“ cu care Platon (427–347 î.Hr.) aseamănă „corpul“ (în *Republica*, începutul Cărții a VII-a).
+[^33] Aluzie la imaginea „peșterii” cu care Platon (427–347 î.Hr.) aseamănă „corpul” (în *Republica*, începutul Cărții a VII-a).
 
 [^34] *Mamon* – zeu al bogățiilor la sirieni. În Evanghelii, o denumire dată diavolului.
 
@@ -2693,7 +2693,7 @@ Vrei bronz sau marmură, un pergament? Hârtie?<br>
 Să scriu c-o daltă, c-un stilet, c-o pană?<br>
 Ești liber să alegi precum îți place!
 
-[^36]: Prin „piei“, Faust înțelege pergamentele.
+[^36]: Prin „piei”, Faust înțelege pergamentele.
 
 MEFISTOFEL
 
@@ -2771,7 +2771,7 @@ Ce stă în veșnică lumină sus.<br>
 Pe noi în beznă ne-a trimis, sub toate,<br>
 Iar vouă vă priește numai zi și noapte.[^38]
 
-[^37]: Prin „aluat“, Mefistofel înțelege universul, pe care nici el însuși nu-l poate cuprinde, asimila.
+[^37]: Prin „aluat”, Mefistofel înțelege universul, pe care nici el însuși nu-l poate cuprinde, asimila.
 
 [^38]: Oamenii sunt, urmărind ideea lui Mefistofel, spirite intermediare între spiritele întunericului și cele ale luminii.
 
@@ -3208,7 +3208,7 @@ Eritis sicut Deus, scientes bonum et malum.[^41]
 *Închide albumul, respectuos, și pleacă.*
 
 
-[^41]: „Veți fi ca Dumnezeu și veți cunoaște binele și răul“ (lat.) – Facerea, 3, 5.
+[^41]: „Veți fi ca Dumnezeu și veți cunoaște binele și răul” (lat.) – Facerea, 3, 5.
 
 MEFISTOFEL
 
@@ -3430,7 +3430,7 @@ Se zvârcolea și gâfâia.<br>
 Bucătăreasa râse: „Ce-a mai fi?<br>
 Că șobolanul fluieră, ha-ha,<br>
 Și ortul popii și l-a da,<br>
-Ca de aleanul dragostii.“
+Ca de aleanul dragostii.”
 
 CORUL
 
@@ -3543,7 +3543,7 @@ MEFISTOFEL
 Trecurăm tocmai astăzi pe la el.<br>
 Am stat de vorbă-ndelungat.<br>
 Ne-a povestit atâtea despre verii lui.<br>
-La despărțire zise: „Fiecăruia salut să-i spui.“
+La despărțire zise: „Fiecăruia salut să-i spui.”
 
 *Se-nclină spre Frosch.*
 
@@ -4454,7 +4454,7 @@ Amicului n-are să-i strice-nghițitura.<br>
 E-un om trecut prin multe demnități,<br>
 Și care-a tras licori destule la măsea.
 
-[^45]: „Sibilă“ nu înseamnă, aici, decât „vrăjitoare“.
+[^45]: „Sibilă” nu înseamnă, aici, decât „vrăjitoare”.
 
 *Vrăjitoarea toarnă băutura, cu multe ceremonii, în cupă.*
 
@@ -4923,11 +4923,11 @@ Simți că nu-i cu mare har.<br>
 „Copila mea – ea zise –, bunul nu-i agonisit pe drept,<br>
 El va să-ți mistuie puterea, sângele din piept.<br>
 L-om închina mai bine Maicii Preciste,<br>
-Cu mana cerului ea are să ne bucure!“<br>
+Cu mana cerului ea are să ne bucure!”<br>
 Margareta își strâmbă gurița într-o parte:<br>
 „Ei, ce să-i faci, un dar de care nu am parte,<br>
 Cu toate că nu poate fi chiar fără Dumnezeu<br>
-Cel ce l-a furișat în dulăpiorul meu.“<br>
+Cel ce l-a furișat în dulăpiorul meu.”<br>
 Chemă un popă fără-ntârziere muma.<br>
 Și popa, de-ndat’ ce înțelese gluma,<br>
 Privi cu jind, priveliștea-i era pe plac.<br>
@@ -4937,7 +4937,7 @@ Biserica are un bun stomac,<br>
 Țări și imperii din belșug a înghițit,<br>
 Și încă niciodată nu s-a ciumurlit.<br>
 Femei, numai biserica s-a-nvrednicit<br>
-Să mistuie un bun nedrept și rătăcit.“
+Să mistuie un bun nedrept și rătăcit.”
 
 FAUST
 
@@ -5222,8 +5222,8 @@ De paie putrede, dar el muri ca un creștin.<br>
 Aflai c-avea-n socoata petrecaniei cam multe.<br>
 Așa striga: „Cum trebuie să mă urăsc și cât<br>
 De-adânc, că meseria, că soția mi le-am părăsit!<br>
-Oh, amintirea mă omoară!“ Așa spunea:<br>
-„Oh, în viața asta dacă m-ar ierta!“
+Oh, amintirea mă omoară!” Așa spunea:<br>
+„Oh, în viața asta dacă m-ar ierta!”
 
 MARTA *plângând*
 
@@ -5232,7 +5232,7 @@ Sărmanul bunul soț! De mult eu l-am iertat.
 MEFISTOFEL
 
 „Dar Dumnezeu o știe – spuse el din rost –<br>
-Mai vinovată decât mine ea a fost.“
+Mai vinovată decât mine ea a fost.”
 
 MARTA
 
@@ -5245,7 +5245,7 @@ Că aiura în agonie.<br>
 „Eram adus – spunea – copii a face,<br>
 Silit apoi o pâne să câștig, muncind să mă omor,<br>
 Și încă pâne în înțelesul cel mai larg,<br>
-Iar partea mea să n-o mănânc în pace.“
+Iar partea mea să n-o mănânc în pace.”
 
 MARTA
 
@@ -5262,7 +5262,7 @@ Căci ni s-a dat să prindem o corabie turcească<br>
 Ducând comori de-ale sultanului pe ea.<br>
 Și vitejia noastră își găsea răsplată,<br>
 Și eu primii, precum se cuvenea,<br>
-O parte bine-bine măsurată.“
+O parte bine-bine măsurată.”
 
 MARTA
 
@@ -5422,7 +5422,7 @@ MEFISTOFEL
 *Sancta Simplicitas!*[^50] Nu e nevoie de nimic.<br>
 Fiți martor, făr-a ști prea mult.
 
-[^50]: „Sfântă naivitate!“ (lat.). Exclamația reformatorului ceh *Ján Hus* (1369–1415) când a fost ars pe rug.
+[^50]: „Sfântă naivitate!” (lat.). Exclamația reformatorului ceh *Ján Hus* (1369–1415) când a fost ars pe rug.
 
 FAUST
 
@@ -6019,7 +6019,7 @@ Pe urmă pământeanul să dispară<br>
 
 …Ca să închei, nu spun cuvântul, cum.
 
-[^52]: Mefistofel ironizează extazul metafizicienilor mistici, care năzuiesc spre „uniune“ cu întreg universul.
+[^52]: Mefistofel ironizează extazul metafizicienilor mistici, care năzuiesc spre „uniune” cu întreg universul.
 
 FAUST
 
@@ -6054,7 +6054,7 @@ Căci vremea i se pare-acum grozav de lungă.<br>
 Stă la fereastră și privește cum se-alungă,<br>
 Cum norii trec peste cetate.<br>
 Și ziua-ntreagă, nopți pe jumătate,<br>
-„O păsărică dac-aș fi“, ea cântă.<br>
+„O păsărică dac-aș fi”, ea cântă.<br>
 E bucuroasă uneori și trist-ades.<br>
 Și altă dat’ o-neacă plânsul, lacrima și-o zvântă.<br>
 Apoi, precum se pare, iarăși liniștită<br>
@@ -6657,10 +6657,10 @@ Eu barba-mi mângâiam zâmbind,<br>
 Paharul ridicam spunând:<br>
 „Dar este una-n toată țara<br>
 Asemenea să fie surioarei mele,<br>
-Să facă Margaretei vrednică pereche?“<br>
+Să facă Margaretei vrednică pereche?”<br>
 Când o prinsoare se făcea, ciocneam<br>
 Paharele. Unii spuneau: „E drept,<br>
-Podoabă-i ea, ca ea nu-i alta-n neam.“<br>
+Podoabă-i ea, ca ea nu-i alta-n neam.”<br>
 Cum amuțeau lăudăroșii! – Și acum?<br>
 Îmi vine părul să mi-l smulg din cap,<br>
 Și pe pereți să sar! Și nicăiri nu mai încap.<br>
@@ -6967,7 +6967,7 @@ COR
 *Dies irae, dies illa*<br>
 *Solvet saeclum in favilla.*[^56]
 
-[^56]: Din imnul închinat Judecății din urmă, atribuit lui *Toma de Celano*, poet religios medieval. În traducere: „Ziua mâniei, ziua aceea va preface lumea în cenușă“ (lat.).
+[^56]: Din imnul închinat Judecății din urmă, atribuit lui *Toma de Celano*, poet religios medieval. În traducere: „Ziua mâniei, ziua aceea va preface lumea în cenușă” (lat.).
 
 *Orgă.*
 
@@ -6995,7 +6995,7 @@ COR
 *Quidquid latet adparebit,*<br>
 *Nil inultum remanebit.*[^57]
 
-[^57]: „Când judecătorul va ședea, tot ce-i ascuns va ieși la iveală. Nimic nu rămâne nerăzbunat“ (lat.).
+[^57]: „Când judecătorul va ședea, tot ce-i ascuns va ieși la iveală. Nimic nu rămâne nerăzbunat” (lat.).
 
 MARGARETA
 
@@ -7017,7 +7017,7 @@ COR
 *Quem patronum rogaturus?*<br>
 *Cum vix justus sit securus.*[^58]
 
-[^58]: „Ce voi spune atunci, nenorocitul de mine? Ce ocrotitor voi ruga să mă ajute? Când numai cel drept este fără de grijă“ (lat.).
+[^58]: „Ce voi spune atunci, nenorocitul de mine? Ce ocrotitor voi ruga să mă ajute? Când numai cel drept este fără de grijă” (lat.).
 
 SPIRITUL RĂU
 
@@ -7040,7 +7040,7 @@ Cade în leșin.
 
 #### NOAPTE VALPURGICĂ[^59]
 
-[^59]: Noaptea „valpurgică“, de la Sfânta Valpurgis, a cărei zi era la 1 mai. Dracii și vrăjitoarele și-ar fi ales noaptea aceasta pentru preamărirea Satanei din mânie împotriva Valpurgiei, care ar fi dus o viață prea sfântă.
+[^59]: Noaptea „valpurgică”, de la Sfânta Valpurgis, a cărei zi era la 1 mai. Dracii și vrăjitoarele și-ar fi ales noaptea aceasta pentru preamărirea Satanei din mânie împotriva Valpurgiei, care ar fi dus o viață prea sfântă.
 
 *Peisaj muntos. Regiune între Schierke și Elend.*
 
@@ -7520,7 +7520,7 @@ MEFISTOFEL
 Privește-o mai de-aproape, bine.<br>
 Aceasta e Lilit[^63].
 
-[^63]: *Lilit* – după anumite legende rabinice, întâia soție „demonică“ a lui Adam. Se spune că ea ar apărea în Noaptea valpurgică.
+[^63]: *Lilit* – după anumite legende rabinice, întâia soție „demonică” a lui Adam. Se spune că ea ar apărea în Noaptea valpurgică.
 
 FAUST
 
@@ -7580,7 +7580,7 @@ N-am demonstrat eu oare<br>
 Că spiritele n-au picioare?<br>
 Și-acum dansați la fel cu noi!
 
-[^64]: Prin personajul proctofantasmistului, Goethe îl caracterizează pe autorul iluminist *Friedrich Nicolai* (1733–1811). Nicolai a făcut Academiei din Berlin o comunicare, în care arăta că, din pricina unor tulburări arteriale, el „vedea“ spirite. De aceste halucinații s-ar fi vindecat printr-o cură de „lipitori“.
+[^64]: Prin personajul proctofantasmistului, Goethe îl caracterizează pe autorul iluminist *Friedrich Nicolai* (1733–1811). Nicolai a făcut Academiei din Berlin o comunicare, în care arăta că, din pricina unor tulburări arteriale, el „vedea” spirite. De aceste halucinații s-ar fi vindecat printr-o cură de „lipitori”.
 
 FRUMOASA *dansând*
 
@@ -7599,7 +7599,7 @@ Așa cum el în vechea-i moară[^65] face,<br>
 Aceast-ar fi o treabă ce i-ar place,<br>
 Îndeosebi dacă i-ați cere învoirea.
 
-[^65]: „Moara“ este tipografia lui Nicolai, care publica revista literară *Allgemeine Deutsche Bibliothek* (1765–1806).
+[^65]: „Moara” este tipografia lui Nicolai, care publica revista literară *Allgemeine Deutsche Bibliothek* (1765–1806).
 
 PROCTOFANTASMISTUL
 
@@ -7815,7 +7815,7 @@ Fluieră pe nas nebun.
 
 UN SPIRIT CE ABIA SE ÎNFIRIPĂ[^73]
 
-[^73]: Prin „Spiritul“ și „Perechea“ (strofa următoare), Goethe îi ironizează pe poetaștri.
+[^73]: Prin „Spiritul” și „Perechea” (strofa următoare), Goethe îi ironizează pe poetaștri.
 
 Aripi, burtă are fleacul,<br>
 Nici nu umblă, nici nu zboară,<br>
@@ -7831,7 +7831,7 @@ N-o să zbori nici chiar cu două.
 
 CĂLĂTOR CURIOS[^74]
 
-[^74]: „Călătorul“ este tot Nicolai, care a publicat *Descrierea unei călătorii prin Germania și Elveția* (12 volume).
+[^74]: „Călătorul” este tot Nicolai, care a publicat *Descrierea unei călătorii prin Germania și Elveția* (12 volume).
 
 E un joc de măști acesta?<br>
 Să mai cred vederii, zici?<br>
@@ -7840,7 +7840,7 @@ E și astăzi pe aici?
 
 ORTODOXUL [^75]
 
-[^75]: „Ortodoxul“ se pare că ar fi contele *Friedrich Leopold zu Stolberg* (1750–1819), care-l critica, din punct de vedere creștin, pe Schiller pentru poezia acestuia *Zeii Greciei*.
+[^75]: „Ortodoxul” se pare că ar fi contele *Friedrich Leopold zu Stolberg* (1750–1819), care-l critica, din punct de vedere creștin, pe Schiller pentru poezia acestuia *Zeii Greciei*.
 
 N-are gheare, n-are coadă,<br>
 Îndoieli însă nu-mi fac.<br>
@@ -7909,7 +7909,7 @@ Astfel pe Satan tătucul<br>
 
 UN SCRIITOR[^78]
 
-[^78]: Scriitorul atacat în aceste versuri este *August von Hennings*, care scotea revista *Der Musaget* și jurnalul *Genius der Zeit* (*Geniul timpului*). „*Ci-devant* Geniul timpului“ este numit acest jurnal, fiindcă în momentul când apărea *Faust I* (1808) își încetase apariția.
+[^78]: Scriitorul atacat în aceste versuri este *August von Hennings*, care scotea revista *Der Musaget* și jurnalul *Genius der Zeit* (*Geniul timpului*). „*Ci-devant* Geniul timpului” este numit acest jurnal, fiindcă în momentul când apărea *Faust I* (1808) își încetase apariția.
 
 Iată-i cum, venind grămadă,<br>
 Ei glumesc naivi cu toții.<br>
@@ -8118,7 +8118,7 @@ Salveaz-o! Altfel vai ție! Altfel cadă cel mai groaznic blestem pe capul tău 
 
 MEFISTOFEL
 
-Nu pot să topesc pecetea răzbunătorului, nu pot deschide lacătele sale. „Salveaz-o!“ Dar cine a fost cel ce în pierzanie o a zvârlit? Eu sau tu?
+Nu pot să topesc pecetea răzbunătorului, nu pot deschide lacătele sale. „Salveaz-o!” Dar cine a fost cel ce în pierzanie o a zvârlit? Eu sau tu?
 
 *Faust se uită sălbatic împrejur.*
 
@@ -8639,7 +8639,7 @@ Redați-l sănătos luminii sfinte!
 
 [^86]: Cele patru răstimpuri ale nopții corespund împărțirii date de romani timpului nocturn: cele patru vigilii (sau străji, din lat. *vigilia, -ae* = veghe).
 
-[^87]: *Lethe* – în mitologia greacă, râu în Hades, din care sufletele morților beau „uitarea“.
+[^87]: *Lethe* – în mitologia greacă, râu în Hades, din care sufletele morților beau „uitarea”.
 
 COR<br>
 *– glasuri, când singure, când câte două, când mai multe, alternând*
@@ -9023,13 +9023,13 @@ Ce-n calcule nu intră, nu-i adevărat.<br>
 Ce voi nu cântăriți, e fără greutate.[^94]<br>
 Moneda, care voi n-o bateți, n-are preț.
 
-[^94]: Aici Mefistofel, ca și Goethe, de altfel, este un adversar al teoriilor „mecaniciste“, dar printr-o interpretare într-adins nepotrivită îl prezintă pe cancelar ca pe un adept al acestor teorii; în realitate, cancelarul este un exponent al modului de a gândi teologic, medieval.
+[^94]: Aici Mefistofel, ca și Goethe, de altfel, este un adversar al teoriilor „mecaniciste”, dar printr-o interpretare într-adins nepotrivită îl prezintă pe cancelar ca pe un adept al acestor teorii; în realitate, cancelarul este un exponent al modului de a gândi teologic, medieval.
 
 ÎMPĂRATUL
 
 Numai cu-atâta lipsurile noastre, din păcate,<br>
 N-au dispărut. Ți-e acru rodul, pădureț!<br>
-M-am săturat de necurmatul „cum“ și „dacă“.<br>
+M-am săturat de necurmatul „cum” și „dacă”.<br>
 Lipsește banul! Fă-o cumva, să se facă!
 
 MEFISTOFEL
@@ -9141,7 +9141,7 @@ Comoara e ascunsă sub picioare![^99]
 
 [^98]: Mefistofel este aici un apologet de circumstanță al superstițiilor în legătură cu locurile unde s-ar găsi comori.
 
-[^99]: În secolul al XVIII-lea se făcea mare caz de „dibuirea“ metalelor (ascunse în pământ) de către oameni care își atribuiau puteri senzitive deosebite.
+[^99]: În secolul al XVIII-lea se făcea mare caz de „dibuirea” metalelor (ascunse în pământ) de către oameni care își atribuiau puteri senzitive deosebite.
 
 MURMURUL
 
@@ -10497,7 +10497,7 @@ O, veșnic neuitată noapte,<br>
 Nefericită, ce durere ne-ai adus!<br>
 Ziua de mâne va vesti<br>
 Un nenoroc cumplit nespus:<br>
-„E împăratul, cel ce arde!“<br>
+„E împăratul, cel ce arde!”<br>
 O, dacă nu ar fi adevărat!<br>
 Arde-mpăratul și cu ceata sa.<br>
 Cel ce l-a sfătuit să fie blestemat,<br>
@@ -10668,7 +10668,7 @@ De-o mie de coroane. Garanție<br>
 Ea are multele, nenumărate,<br>
 Comorile-ngropate prin împărăție.<br>
 Porunci s-au dat ca din pământ<br>
-Comorile să fie ridicate.“
+Comorile să fie ridicate.”
 
 ÎMPĂRATUL
 
@@ -10681,7 +10681,7 @@ Adu-ți aminte. Însuți ai semnat-o.<br>
 Noaptea trecută. Cancelarul și cu mine<br>
 Vorbitu-ți-am pe când stăteai ca mare Pan:<br>
 „Acordă-ți fericirea, iar norodului un bine,<br>
-Prin trăsături de pană, prea puține.“<br>
+Prin trăsături de pană, prea puține.”<br>
 Țidula-a fost multiplicat-apoi<br>
 De meșteri iscusiți, în mii de foi.<br>
 Ca fapta bună tuturor să le priască<br>
@@ -10711,7 +10711,7 @@ Preschimbă-n aur și-n argint curat<br>
 La cârciumă, pe la băcan și la brutar,<br>
 Gândește lumea la ospețe cum îi place,<br>
 Sau cum în haine nouă să se-mbrace.<br>
-Prin cârciumi, chiote: „Trăiască Împăratul!“<br>
+Prin cârciumi, chiote: „Trăiască Împăratul!”<br>
 Miresme de grătar de-a lungul și de-a latul!
 
 MEFISTOFEL
@@ -10979,7 +10979,7 @@ De ele să vorbim, de-am vrea,<br>
 Ne-ar încerca nedumerire –<br>
 Sunt *mumele*[^134]!
 
-[^134]: Mitul mumelor este una din cele mai minunate plăsmuiri ale lui Goethe. El a găsit sugestii pentru crearea acestui mit în Plutarh, care vorbește despre o populație siciliană ce crede în zeițe-mume. Filozofia lui Platon l-a ajutat să adâncească aceste sugestii. „Mumele“ sunt la Goethe o ex presie plastică circumscriind prototipurile ființelor și lucrurilor, „fenomenele originare“.
+[^134]: Mitul mumelor este una din cele mai minunate plăsmuiri ale lui Goethe. El a găsit sugestii pentru crearea acestui mit în Plutarh, care vorbește despre o populație siciliană ce crede în zeițe-mume. Filozofia lui Platon l-a ajutat să adâncească aceste sugestii. „Mumele” sunt la Goethe o ex presie plastică circumscriind prototipurile ființelor și lucrurilor, „fenomenele originare”.
 
 FAUST *tresare înspăimântat*
 
@@ -11053,7 +11053,7 @@ Din jar să-ți scot castane, fără clește.<br>
 Dar înainte! Ducă-ne în adâncime mersul.<br>
 În Golul tău sper să descopăr Universul.
 
-[^135]: *Mistagog* – în Grecia antică, un om care își inițiază novicii în „mistere“, în cultele religioase, secrete.
+[^135]: *Mistagog* – în Grecia antică, un om care își inițiază novicii în „mistere”, în cultele religioase, secrete.
 
 MEFISTOFEL
 
@@ -12696,7 +12696,7 @@ O țintă demnă câmpul ăsta pentru ei ar fi,<br>
 Și mărturie-ar sta că-n vechiul lor teatru<br>
 Am fost văzut în rol de *Old Iniquity*[^159].
 
-[^159]: *Old Iniquity* – „Răul“, în vechiul teatru englez.
+[^159]: *Old Iniquity* – „Răul”, în vechiul teatru englez.
 
 SFINXUL
 
@@ -12726,7 +12726,7 @@ Enigme vei avea, de te rostești pe tine,<br>
 „La fel de necesar evlaviosului și celui rău,<br>
 Întâiului o zea, când face scrimă,<br>
 Iar pentru celălalt ortac de nebunie,<br>
-În ambe chipuri tu amuzi pe-naltul zeu.“
+În ambe chipuri tu amuzi pe-naltul zeu.”
 
 ÎNTÂIUL GRIFON *sforăind*
 
@@ -13093,7 +13093,7 @@ Care, spre cinstea sa, eroi atâția, un popor<br>
 Întreg a educat, pe nobilii argonauți[^170],<br>
 Pe toți câți lumea poeziei au clădit.
 
-[^170]: *Argonauții* – eroi ai legendelor grecești, numiți astfel după corabia lor „Argo“; ei au pornit, sub conducerea lui Iason, să aducă Lâna de Aur, păzită de-un balaur, în Colchida. Cei mai mari eroi ai timpului au luat parte la această expediție.
+[^170]: *Argonauții* – eroi ai legendelor grecești, numiți astfel după corabia lor „Argo”; ei au pornit, sub conducerea lui Iason, să aducă Lâna de Aur, păzită de-un balaur, în Colchida. Cei mai mari eroi ai timpului au luat parte la această expediție.
 
 CHIRON
 
@@ -13646,8 +13646,8 @@ MEFISTOFEL *în vale*
 Cu-aceste spirite străine nu mă dumiresc.<br>
 La miazănoapte Muntele Nebun[^190] e un plăcut<br>
 Ținut: oricum, acolo nu mă rătăcesc.<br>
-Veghează-acolo pentru noi „Bătrâna“[^191],<br>
-„Ciobanul“[^191] cată de pe piatra lui în zare,<br>
+Veghează-acolo pentru noi „Bătrâna”[^191],<br>
+„Ciobanul”[^191] cată de pe piatra lui în zare,<br>
 Și Măgurile fluieră pe plaiuri,<br>
 Dar totu-i pentru mii de ani, se pare.<br>
 Aici nu știi nici unde stai, nici unde mergi,<br>
@@ -13663,7 +13663,7 @@ Merg înainte! Prea obișnuit să gust ceva,<br>
 
 [^190]: *Brocken* (Muntele Nebun), în munții Harz, de care se leagă legendele valpurgice.
 
-[^191]: „*Bătrâna*“, „*Ciobanul*“ – piscuri pe muntele Brocken.
+[^191]: „*Bătrâna*”, „*Ciobanul*” – piscuri pe muntele Brocken.
 
 LAMIILE *trăgând pe Mefistofel după ele*
 
@@ -14539,7 +14539,7 @@ Tind veșnic înainte.<br>
 Ei sunt înfometații<br>
 Unor eterne ținte.[^218]
 
-[^218]: Filozoful Friedrich Wilhelm Schelling interpreta figurile Cabirilor ca simbol al „dorului arzător“, al „foamei și dorinței“.
+[^218]: Filozoful Friedrich Wilhelm Schelling interpreta figurile Cabirilor ca simbol al „dorului arzător”, al „foamei și dorinței”.
 
 SIRENE
 
@@ -15143,7 +15143,7 @@ Găsi-le-vei în vechea rânduială, căci<br>
 Un privilegiu e al domnului de a<br>
 Găsi toate la locul lor, în casa lui,<br>
 Când se întoarce, tot cum le-a lăsat.<br>
-Puterea slugii e de-a nu schimba nimic.“
+Puterea slugii e de-a nu schimba nimic.”
 
 [^235]: *Lacedaemon* – numele antic al statului spartan.
 
@@ -15170,7 +15170,7 @@ Apă curată fie de la sfânt izvor<br>
 În marile urcioare; lemn uscat,<br>
 Ce prinde flacăra, tu ține-l pregătit,<br>
 Să nu lipsească nici cuțitul ascuțit.<br>
-Rămâie toate celelalte-n grija ta.“<br>
+Rămâie toate celelalte-n grija ta.”<br>
 Astfel vorbi la despărțire, dar nimic<br>
 Din tot ce-i viu, nimica nu-mi numise el<br>
 Pentru tăiere-n cinstea celor din Olimp.<br>
@@ -15624,7 +15624,7 @@ PHORKIAS
 Se povestește însă că ai dublu chip,<br>
 Fiind văzută-n Ilios, dar și-n Egipt.[^248]
 
-[^248]: O străveche legendă povestește că Paris, după ce a răpit-o pe Elena, a ajuns și în Egipt. Acolo, Proteus a reținut-o pe Elena, făcând după chipul ei un „idol“ cu care Paris a plecat apoi spre Troia.
+[^248]: O străveche legendă povestește că Paris, după ce a răpit-o pe Elena, a ajuns și în Egipt. Acolo, Proteus a reținut-o pe Elena, făcând după chipul ei un „idol” cu care Paris a plecat apoi spre Troia.
 
 ELENA
 
@@ -16412,7 +16412,7 @@ De omu-acesta într-atâta de ciudat<br>
 Cu altul; vorba prinsă în auz<br>
 Urmată-a fost mângâitor de alta.[^257]
 
-[^257]: Elena remarcă în vorbirea lui Lynceus „rimele“; aceasta era pentru ea o mare noutate. Elena ia astfel contact cu poezia nouă, menită a exprima stări sufletești de natură „romantică“.
+[^257]: Elena remarcă în vorbirea lui Lynceus „rimele”; aceasta era pentru ea o mare noutate. Elena ia astfel contact cu poezia nouă, menită a exprima stări sufletești de natură „romantică”.
 
 FAUST
 
@@ -16748,10 +16748,10 @@ Sare pe pământul sigur, dar pământul ca o coardă<br>
 Îl azvârle-n aer – la a treia săritură, iată-l<br>
 El atinge bolta sus.<br>
 Speriată mama strigă: „Sări în voie, dragul mamei.<br>
-Dar de zboruri te ferește; zborul liber ți-e oprit!“<br>
+Dar de zboruri te ferește; zborul liber ți-e oprit!”<br>
 Iară tatăl îi vestește: „În pământ zace puterea<br>
 Ce te-nalță; de atingi pământul doar c-un deget,<br>
-Și cu talpa, ca Anteu, feciorul humei, te-ntărești.“<br>
+Și cu talpa, ca Anteu, feciorul humei, te-ntărești.”<br>
 Astfel de pe-o stâncă pân’ la alta peste gol adânc,<br>
 Ca o minge ce-i bătută cu putere, sare el.<br>
 Dar deodată în prăpastia căscată el dispare,<br>
@@ -17206,7 +17206,7 @@ Jale! Ce jale!
 
 [^268]: Aluzie la poetul Byron.
 
-[^269]: Aureola reprezintă „geniul“ lui Euphorion. Anticii făceau deosebire între „spirit“ și „suflet“.
+[^269]: Aureola reprezintă „geniul” lui Euphorion. Anticii făceau deosebire între „spirit” și „suflet”.
 
 ELENA ȘI FAUST
 
@@ -17215,7 +17215,7 @@ Tortura cea grea.
 
 EUPHORION *glasul lui se aude din adânc[^270]*
 
-[^270]: Din adânc vorbește „sufletul“ (umbra) lui Euphorion.
+[^270]: Din adânc vorbește „sufletul” (umbra) lui Euphorion.
 
 Mamă, în sumbrul ținut<br>
 Singur nu mă lăsa!
@@ -17791,7 +17791,7 @@ Spunând: „Să fie domn cel ce va face rânduială,<br>
 Că împăratul nici nu poate, nici nu vrea; Nou împărat s-alegem, să însuflețească<br>
 Împărăția iar, s-asigure-ntr-o lume<br>
 Creată proaspăt bunăstarea-anume,<br>
-Și pacea cu dreptatea s-o căsătorească.“
+Și pacea cu dreptatea s-o căsătorească.”
 
 FAUST
 
@@ -18147,7 +18147,7 @@ Numai râs a provocat:<br>
 „Ca ecoul într-o vale<br>
 V-a pierit scump împărat.<br>
 Când de el se pomenește,<br>
-Basmul spune: – A fost odat’!“
+Basmul spune: – A fost odat’!”
 
 FAUST
 
@@ -18530,7 +18530,7 @@ Prin meșteșuguri femeiești, știu ele<br>
 De existență să despartă aparența,<br>
 Și orișicine jură că aceasta-i existența.[^292]
 
-[^292]: Aluzie ironică la numeroasele discuții filozofice din timpul lui Goethe, în legătură cu problema „existenței“ și a „aparenței“.
+[^292]: Aluzie ironică la numeroasele discuții filozofice din timpul lui Goethe, în legătură cu problema „existenței” și a „aparenței”.
 
 *Pauză.*
 
@@ -18594,7 +18594,7 @@ De n-or voi, veți porunci.
 
 [^293]: E vorba de Lucifer.
 
-[^294]: „Se bat vâlvele“ – fulgere mute (expresie populară românească, folosită în unele regiuni ale țării).
+[^294]: „Se bat vâlvele” – fulgere mute (expresie populară românească, folosită în unele regiuni ale țării).
 
 MEFISTOFEL
 
@@ -19121,7 +19121,7 @@ Fapte bune ca-n trecut.
 
 BAUCIS[^296] *măicuță foarte bătrână*
 
-[^296]: Baucis și Philemon nu trebuie identificați cu figurile purtând aceleași nume din literatura antică (Ovid). După chiar lămuririle date de Goethe lui Eckermann, aceste nume au fost atribuite personajelor din *Faust* pentru a circumscrie niște „caractere“.
+[^296]: Baucis și Philemon nu trebuie identificați cu figurile purtând aceleași nume din literatura antică (Ovid). După chiar lămuririle date de Goethe lui Eckermann, aceste nume au fost atribuite personajelor din *Faust* pentru a circumscrie niște „caractere”.
 
 Vorba fie-ți mai înceată,<br>
 Călătorule pribeag!<br>
@@ -19569,7 +19569,7 @@ Până ce ușa s-a dărâmat.<br>
 Amenințai apoi cu gură mare.<br>
 Dar nu găsirăm ascultare.<br>
 Și cum se-ntâmplă de-obicei,<br>
-„Nu vrea“, „N-aude“ erau ei.<br>
+„Nu vrea”, „N-aude” erau ei.<br>
 Noi însă n-am mai amânat,<br>
 De zor ți i-am înlăturat.<br>
 Perechea mult n-a suferit,<br>
@@ -19750,7 +19750,7 @@ Un iureș fostu-mi-a viața,<br>
 A fost puternic, fost-a mare,<br>
 Acum cuminte-n așezare.<br>
 Mi-e cunoscut întreg pâmântul,<br>
-Spre „dincolo“ nu este zare.<br>
+Spre „dincolo” nu este zare.<br>
 Nerod cine-ntr-acolo cată,<br>
 Închipuindu-și că-n tărie<br>
 Ființe-asemeni lui să fie.<br>
@@ -19998,7 +19998,7 @@ De ce trecut?<br>
 Trecut, nimic, îmi sunt perfect la fel.<br>
 La ce mereu creația eternă?<br>
 Se pierde în nimic creatul, rostogol.<br>
-„Trecut“. Din asta descifrezi vreun rost?<br>
+„Trecut”. Din asta descifrezi vreun rost?<br>
 E ca și cum nici n-ar fi fost.<br>
 Dar ca și cum ar fi, se-nvârte în ocol.<br>
 Acestora eu le prefer eternul gol.
@@ -20455,7 +20455,7 @@ Fluviu ce-n adâncuri cade,<br>
 Și-cu-nvălurare drumul<br>
 Și-l scurtează prin cascade.
 
-[^305]: Spiritele foarte curate ca ale pruncilor fericiți, morți devreme, nu mai au organele necesare spre a vedea lumea materială. Pater seraphicus le cheamă „în el“, ca să le împrumute ochii săi, cu care ele ar putea vedea. Concepția este luată de la misticul Emanuel Swedenborg, dar Goethe o dezvoltă pur poetic.
+[^305]: Spiritele foarte curate ca ale pruncilor fericiți, morți devreme, nu mai au organele necesare spre a vedea lumea materială. Pater seraphicus le cheamă „în el”, ca să le împrumute ochii săi, cu care ele ar putea vedea. Concepția este luată de la misticul Emanuel Swedenborg, dar Goethe o dezvoltă pur poetic.
 
 PRUNCII FERICIȚI *dinăuntru*
 
@@ -20624,7 +20624,7 @@ De-o privire ce-a vrăjit?
 
 Mater Gloriosa[^310] *vine plutind.*
 
-[^310]: *Mater Gloriosa* – Maica Domnului ca regină a cerului. În această ultimă scenă, Goethe recurge la iconografia catolică, spre a-și expune o concepție poetică personală despre salvarea sufletelor, sau mai bine zis a „entelehiilor“ (partea activă a sufletelor).
+[^310]: *Mater Gloriosa* – Maica Domnului ca regină a cerului. În această ultimă scenă, Goethe recurge la iconografia catolică, spre a-și expune o concepție poetică personală despre salvarea sufletelor, sau mai bine zis a „entelehiilor” (partea activă a sufletelor).
 
 CORUL POCĂITELOR
 
@@ -20708,7 +20708,7 @@ Luați din viață,<br>
 Dar el a-nvățat –<br>
 Acum ne învață.[^314]
 
-[^314]: Sufletul lui Faust, purificându-se, a întrecut pe acela al pruncilor fericiți, care pot „învăța“ de la el.
+[^314]: Sufletul lui Faust, purificându-se, a întrecut pe acela al pruncilor fericiți, care pot „învăța” de la el.
 
 UNA DIN POCĂITE *altfel numită și Margareta*
 
@@ -20761,11 +20761,11 @@ Despre un traducător prin sufletul căruia a trecut pârjolul lui Faust se poat
 
 Din motive lesne de înțeles, acel cuvânt de început n-a putut să dea roade care să rămână, graiul literar poe tic fiind atunci însuși în faza tatonărilor de prin cipiu. Când limba literară română modernă prindea chip datorită ostenelilor lui Alecsandri și Eminescu, poeții de seamă și-au închinat zelul aproape exclusiv creației originale; traducerile erau lăsate pe la peri feria interesului sau, și mai rău, în grija diletanților, care totdeauna și-au făcut loc cu coatele în această muncă ce atât de ușor îmbată cu iluzia creației. Ade vărat e că, în cele câteva decenii posteminesciene, poeți precum Coșbuc și Iosif au făcut multe traduceri, fragmentar onorabile, fragmentar de mântuială, grăbite adesea. Coșbuc s-a întrecut uneori pe sine traducând pe Dante, dar fără largă respirație.
 
-Ștefan O[ctavian] Iosif a tradus mult și onest, dar s-a încercat cu o poezie uneori prea gravă pen tru puterile sale. El a tradus chiar „Prologul în cer“ din *Faust*: frumos, nu încape îndoială, dar scăzut ca tonalitate – închipuiți-vă o frescă de Michelangelo reprodusă în pastel. […]
+Ștefan O[ctavian] Iosif a tradus mult și onest, dar s-a încercat cu o poezie uneori prea gravă pen tru puterile sale. El a tradus chiar „Prologul în cer” din *Faust*: frumos, nu încape îndoială, dar scăzut ca tonalitate – închipuiți-vă o frescă de Michelangelo reprodusă în pastel. […]
 
-Să nu uităm însă că o literatură ce are deplina con știință a misiunii sale nu aspiră să devină numai un ansamblu de creații originale, oricât de impre sio nant ar fi prin proporțiile sale un atare ansam blu. Orice literatură trebuie să devină și o oglindă a literaturii universale. În limba rusă există un ase menea univers, în limba germană, de așijderea. În literatura germană, uriași ai poeziei, precum Goethe, George sau Rilke, și-au închinat o mare parte a acti vității lor tălmăcirii unor capodopere poe tice din literatura universală. Ni se spune că în limba en gleză ar exista vreo două sute de traduceri după Faust al lui Goethe. De altfel, simpla împrejurare că cele mai multe literaturi europene moderne încep printr-o „traducere“, prin traducerea Bibliei, ar tre bui să fie, credem, un suficient motiv de apreciere mai justă a „traducerii“ ca preocupare spirituală. […]
+Să nu uităm însă că o literatură ce are deplina con știință a misiunii sale nu aspiră să devină numai un ansamblu de creații originale, oricât de impre sio nant ar fi prin proporțiile sale un atare ansam blu. Orice literatură trebuie să devină și o oglindă a literaturii universale. În limba rusă există un ase menea univers, în limba germană, de așijderea. În literatura germană, uriași ai poeziei, precum Goethe, George sau Rilke, și-au închinat o mare parte a acti vității lor tălmăcirii unor capodopere poe tice din literatura universală. Ni se spune că în limba en gleză ar exista vreo două sute de traduceri după Faust al lui Goethe. De altfel, simpla împrejurare că cele mai multe literaturi europene moderne încep printr-o „traducere”, prin traducerea Bibliei, ar tre bui să fie, credem, un suficient motiv de apreciere mai justă a „traducerii” ca preocupare spirituală. […]
 
-Mărturisesc cu regret că traducerile anterioare ale lui *Faust*, făcute în românește, nu mi-au fost de nici un folos pentru lucrarea mea. Gorun a tradus cinstit, dar el nu era poet. Soricu nu nimerește niciodată nici una din semnificațiile adânci ale operei și banalizează totul cu versul său, când găunos, când dulceag. De altfel, Soricu e lipsit de cele mai elementare cunoștințe de limbă germană. E suficient să amintesc că un cuvânt ca *Siebenmeilenstiefel*, care este cizma năzdrăvană cu care se fac pași de șapte poște, a fost transpus de Soricu prin cuvântul „drăcușor“.
+Mărturisesc cu regret că traducerile anterioare ale lui *Faust*, făcute în românește, nu mi-au fost de nici un folos pentru lucrarea mea. Gorun a tradus cinstit, dar el nu era poet. Soricu nu nimerește niciodată nici una din semnificațiile adânci ale operei și banalizează totul cu versul său, când găunos, când dulceag. De altfel, Soricu e lipsit de cele mai elementare cunoștințe de limbă germană. E suficient să amintesc că un cuvânt ca *Siebenmeilenstiefel*, care este cizma năzdrăvană cu care se fac pași de șapte poște, a fost transpus de Soricu prin cuvântul „drăcușor”.
 
 Astfel, traducerile anterioare ale lui *Faust* nu puteau fi socotite în nici un fel ca etape pregătitoare ale traducerii la care mă angajam.
 
@@ -20779,23 +20779,23 @@ Am găsit că o asemenea aspirație trebuie retezată în fața lui *Faust*.
 
 Străduințele mele nu mergeau atât spre vocabularul îmbelșugat, cât spre întrebuințarea nuanțată, neobișnuită uneori, a unui vocabular de circulație generală printre români. Ceea ce urmăream nu era cuvântul pitoresc, rar, a cărui semnifi cație trebuie căutată în dicționarul limbii, ci îmbinarea nouă de cuvinte care umblă în toată obștea românească.
 
-Foarte rar m-am abătut de la acest criteriu în traducerea lui *Faust*. Sunt nespus de puține cuvintele regionale sau locale pe care m-am văzut nevoit să le întrebuințez. Astfel, de exemplu, într-o scenă de mare umor[^315], ilariantă prin unele fețe ale ei, îmi trebuia un cuvânt pentru a exprima starea de student-novice din anul I; atmosfera scenei mă ispitea să fac uz de expresia „balic“, curentă pe străzile Clujului. În cele 12 500 de versuri ale lui *Faust*[^316] am făcut însă foarte puțină monedă din cuvinte de circulație restrânsă. Cred că degetele de la o singură mână sunt suficiente pentru numărarea excepțiilor de la norma ce mi-am impus.
+Foarte rar m-am abătut de la acest criteriu în traducerea lui *Faust*. Sunt nespus de puține cuvintele regionale sau locale pe care m-am văzut nevoit să le întrebuințez. Astfel, de exemplu, într-o scenă de mare umor[^315], ilariantă prin unele fețe ale ei, îmi trebuia un cuvânt pentru a exprima starea de student-novice din anul I; atmosfera scenei mă ispitea să fac uz de expresia „balic”, curentă pe străzile Clujului. În cele 12 500 de versuri ale lui *Faust*[^316] am făcut însă foarte puțină monedă din cuvinte de circulație restrânsă. Cred că degetele de la o singură mână sunt suficiente pentru numărarea excepțiilor de la norma ce mi-am impus.
 
 [^315]: Vezi pp. 276 sqq. (n.ed.).
 
 [^316]: Tragedia lui Goethe numără, de fapt, 12 111 versuri (n.ed.).
 
-Cât privește întrebuințarea poetică a neologismului, experiența ce mi-a fost prilejuită de traducerea lui *Faust* mi-a verificat pe deplin o părere mai veche a mea. *Faust* este, fără îndoială, cea mai genială „cosmopee“ a literaturii universale. Opera este de-o bogăție fără seamăn de idei, probleme și semnificații. Am crezut că o asemenea operă nu poate fi tradusă fără a beneficia de virtuțile luminoase ale neologismului.
+Cât privește întrebuințarea poetică a neologismului, experiența ce mi-a fost prilejuită de traducerea lui *Faust* mi-a verificat pe deplin o părere mai veche a mea. *Faust* este, fără îndoială, cea mai genială „cosmopee” a literaturii universale. Opera este de-o bogăție fără seamăn de idei, probleme și semnificații. Am crezut că o asemenea operă nu poate fi tradusă fără a beneficia de virtuțile luminoase ale neologismului.
 
 Încercările anterioare de traducere a lui *Faust* au eșuat, printre altele, și fiindcă traducătorii au încercat să ocolească neologismul, introducând un grai sămănătorist în tălmăcirea unei opere de înaltă, supremă intelectualitate. Un atare conținut nu poate fi transpus în grai exclusiv țărănesc sau pastoral, căci riscă să se întunece și să se banalizeze. Întrebuințarea neologismului în poezie deschide totuși o seamă de probleme.
 
-Rămâne un adevăr: pentru urechea noastră, neologismul face, în general, o impresie „prozaică“. Iată deci dilema. Pe de o parte, în traducerea lui *Faust*, întrebuințarea neologismului se impunea din motive ce țin de intelectualitatea superioară a acestei opere poetice; pe de altă parte, neologismul mai impresionează încă „prozaic“ urechea noastră. Experiența câștigată cu traducerea lui *Faust* venea să-mi confirme părerea ce-o aveam dintotdeauna că se poate ieși triumfător din dilema neologistică. Formulez rezultatul experiențelor astfel: orice neologism de circulație curentă, oricât de „prozaic“ ar părea, poate fi salvat pentru poezie dacă i se adaugă un epitet compensator din graiul neaoș românesc sau dacă e combinat, în general, cu o expresie autohtonă, plastică, plină de sevă. Există desigur în orice limbă cuvinte poetice ca atare, poetice prin chiar corpul lor sonor și prin sarcinile de semnificație ce le poartă. Dar poezia ia naștere nu numai din și prin cuvinte izolate; poezia ia ființă și prin cuvântul combinat cu alt cuvânt. Și aici se deschide o poartă largă neologismului. Firește că întrebuințarea neologismului salvator, îmbinat cu un cuvânt neaoș românesc, atârnă în cele din urmă de puterea creatoare de limbă a traducătorului sau a poetului. Dar numai din citirea versiunii românești a lui *Faust* se va vedea cum am înțeles să rezolv această problemă în situația dilematică de a încerca o traducere ce nu evită neologismul și care aspiră să rămână totuși poetică.
+Rămâne un adevăr: pentru urechea noastră, neologismul face, în general, o impresie „prozaică”. Iată deci dilema. Pe de o parte, în traducerea lui *Faust*, întrebuințarea neologismului se impunea din motive ce țin de intelectualitatea superioară a acestei opere poetice; pe de altă parte, neologismul mai impresionează încă „prozaic” urechea noastră. Experiența câștigată cu traducerea lui *Faust* venea să-mi confirme părerea ce-o aveam dintotdeauna că se poate ieși triumfător din dilema neologistică. Formulez rezultatul experiențelor astfel: orice neologism de circulație curentă, oricât de „prozaic” ar părea, poate fi salvat pentru poezie dacă i se adaugă un epitet compensator din graiul neaoș românesc sau dacă e combinat, în general, cu o expresie autohtonă, plastică, plină de sevă. Există desigur în orice limbă cuvinte poetice ca atare, poetice prin chiar corpul lor sonor și prin sarcinile de semnificație ce le poartă. Dar poezia ia naștere nu numai din și prin cuvinte izolate; poezia ia ființă și prin cuvântul combinat cu alt cuvânt. Și aici se deschide o poartă largă neologismului. Firește că întrebuințarea neologismului salvator, îmbinat cu un cuvânt neaoș românesc, atârnă în cele din urmă de puterea creatoare de limbă a traducătorului sau a poetului. Dar numai din citirea versiunii românești a lui *Faust* se va vedea cum am înțeles să rezolv această problemă în situația dilematică de a încerca o traducere ce nu evită neologismul și care aspiră să rămână totuși poetică.
 
 Câteva cuvinte despre o altă față a traducerii și despre alte câteva probleme ce ni s-au pus în legătură cu tălmăcirea lui *Faust*. O traducere poetică ia ființă într-o zonă de interferență între structurile stilistice ale operei originale și structurile stilistice proprii poetului-traducător.
 
 Oricât ar încerca traducătorul să se depersonalizeze, interferența de structuri se produce în chip inevitabil. În critica literară europeană s-au făcut în deceniile din urmă studii din cele mai concludente ce arată că trăsăturile, înclinările, ticurile stilistice cele mai caracteristice ale unui poet pot fi studiate cu deosebire asupra traducerilor ce el le face după opere scrise în alte limbi. E firesc să fie așa, căci traducerile le poți compara cu originalele care, sub atâtea aspecte, au un alt tipar stilistic.
 
-Un poet, traducând din altul, nu are în nici un fel posibilitatea de a se transforma în oglinda pură a obiectului său. Asemenea posibilități sunt date doar în lumea mecanică și fizică, dar nu în lumea complexă a fenomenelor spirituale. O traducere poetică, valabilă în sine și prin sine, este prin toate condițiile ei, obiective și subiective, o „re-creare“, iar nu o transpunere literară dintr-o limbă într-altă limbă. Marile traduceri care contează în diversele literaturi sunt „echivalente poetice“, nu simple „traduceri“. Nemții au pentru acest fel de traduceri termenul de *Nachdichtung* sau chiar de *Umdichtung*. Traducerea mea este o *Nachdichtung*.
+Un poet, traducând din altul, nu are în nici un fel posibilitatea de a se transforma în oglinda pură a obiectului său. Asemenea posibilități sunt date doar în lumea mecanică și fizică, dar nu în lumea complexă a fenomenelor spirituale. O traducere poetică, valabilă în sine și prin sine, este prin toate condițiile ei, obiective și subiective, o „re-creare”, iar nu o transpunere literară dintr-o limbă într-altă limbă. Marile traduceri care contează în diversele literaturi sunt „echivalente poetice”, nu simple „traduceri”. Nemții au pentru acest fel de traduceri termenul de *Nachdichtung* sau chiar de *Umdichtung*. Traducerea mea este o *Nachdichtung*.
 
 Grele nedumeriri și frământări mi-a pricinuit și problema stilului în care să fie tălmăcit *Faust*. Opera goetheană prezintă fețe stilistice de-o varietate deconcertantă. Fragmentul definitivat pe temeiul lui *Urfaust* este scris în stil preromantic și trădează influențe shakespeariene. Actul Elenei din *Faust II* este în mare parte clasicizant, dar cu îmbelșugate enclave romantice. În *Faust II* este prezent și clasicismul, prin multe elemente de formă și conținut, de mitologie antică și de pondere proprie maturității spirituale, dar același *Faust II* are importante părți scrise într-un fel de stil neobaroc care depășește atât romantismul, cât și clasicismul. Goethe a lucrat la Faust, cu mari întreruperi, timp de vreo șaizeci de ani. Stilurile diferitelor vârste goetheene se pot vedea în structura operei ca straturile geologice în scoarța pământului. Ce putea să întreprindă un tra ducător pus în fața unui asemenea spectaculos peisaj artistic? Spuneam că o traducere care este *Nachdichtung* se realizează într-o zonă stilistică în care structura originalului interferează cu a tălmăcitorului. În cazul special al lui *Faust*, varietatea de stiluri a originalului se va estompa deci în avantajul unității. Din parte-mi, am lucrat la traducere numai trei ani. S-ar putea deci ca traducerea să aibă un caracter sti listic mai unitar decât originalul.
 
@@ -20803,7 +20803,7 @@ Dar să intrăm și în unele chestiuni de tehnică literară. Distingem în *Fa
 
 Nenumărate probleme de tehnică poetică mi s-au pus în legătură cu traducerea lui *Faust*. Cosmopeea lui Goethe este o sinteză de genuri poetice și de forme poetice, unică în felul său în literatura universală.
 
-Cât privește „ritmurile“, m-am ținut, în general, de cele ale originalului.
+Cât privește „ritmurile”, m-am ținut, în general, de cele ale originalului.
 
 Părțile de versificație liberă le-am tradus în ritmuri libere. Cele desfășurate într-o versificație strânsă în chingi clasice le-am respectat întocmai. Iar traducerea n-a avut nevoie de un mai mare număr de versuri decât originalul. Cele vreo treizeci de versuri în plus ale traducerii, față de 12 500 ale originalului, cred că nu înseamnă o diluare.
 
@@ -20811,13 +20811,13 @@ Rima are o eflorescență abundentă în *Faust*. Cu excepția unor părți din 
 
 Mă simt îndemnat să mai adaug unele lucruri cu privire la limba de care am ținut să fac uz în traducerea mea. Textul original mi-a pus uneori în față termeni local-germani care mergeau anevoie într-o traducere, mai ales într-o traducere care intenționa să nu facă deloc impresia de traducere. (Fie spus în paranteză, o condiție esențială a unei bune traduceri este să nu pară traducere.) E vorba despre unele denumiri geografice sau despre termeni ținând de mitologia populară germană.
 
-Am ocolit în chip intenționat denumiri și termeni de câte ori textul a îngăduit aceasta. Astfel, bunăoară, unde se vorbește despre anume locuri din munții Harz, despre Brocken sau Blocksberg, despre peisajul în care are loc Noaptea valpurgică, am recurs la termeni mai generali care circulă în geografia noastră păstorească, întrebuințând denumiri ca „plai“, „măgură“, „Bătrâna“, „Ciobanul“ etc.[^317] Însuși Blocksbergul devine în traducerea mea, simplu, „Muntele Nebun“, denumire ce mi-a sugerat-o un epitet ce se dă Blocksbergului chiar în textul original. Pentru termeni de mitologie populară germană, cu totul nelaloc într-o traducere românească, am căutat de numiri corespunzătoare în mitologia noastră folclorică. Astfel, am introdus în textul meu denumirea de „crasnic“, care înseamnă corcitură de drac și femeie.
+Am ocolit în chip intenționat denumiri și termeni de câte ori textul a îngăduit aceasta. Astfel, bunăoară, unde se vorbește despre anume locuri din munții Harz, despre Brocken sau Blocksberg, despre peisajul în care are loc Noaptea valpurgică, am recurs la termeni mai generali care circulă în geografia noastră păstorească, întrebuințând denumiri ca „plai”, „măgură”, „Bătrâna”, „Ciobanul” etc.[^317] Însuși Blocksbergul devine în traducerea mea, simplu, „Muntele Nebun”, denumire ce mi-a sugerat-o un epitet ce se dă Blocksbergului chiar în textul original. Pentru termeni de mitologie populară germană, cu totul nelaloc într-o traducere românească, am căutat de numiri corespunzătoare în mitologia noastră folclorică. Astfel, am introdus în textul meu denumirea de „crasnic”, care înseamnă corcitură de drac și femeie.
 
 [^317]: Vezi p. 313 (n.ed.).
 
 Spuneam, privitor la limba în care am făcut traducerea, că ea poartă, desigur, pecetea limbii poetice a traducătorului. N-am urmărit într-adins acest lucru. Din contră, ceea ce s-a făcut s-a făcut împotriva oricărei intenții. N-am căutat, adică, să impun limbii tiparul meu. Intenția mea era să mă depersonalizez pe cât cu putință și să asimilez pe *Faust* limbii literare românești în general. Există în traducerea mea versuri a căror cadență și melodie interioară amintesc uneori versul popular românesc. Uneori apar versuri izolate – sau chiar texte de lungimea unor poezii – care amintesc cadența, melodia și armonia eminesciană. Când un asemenea mod se impunea de la sine, nu m-am ferit deloc să dau urmare sfatului ce se desprindea din condițiile de lucru. Asimilarea acestui univers poetic care este *Faust* se cerea făcută cu toate mijloacele și uneltele ce ni le pune la dispoziție limba noastră literară și în alcătuirea unor noi expresii sau forme de limbă. Un personaj mitologic care joacă rol în actul IV din *Faust II* se numește Raufebold – i-am zis Războilă. Creangă al nostru, cu ai săi Flămânzilă, Gerilă, Setilă, a fost nașul acestui botez.
 
-În timpul când traduceam Partea I din *Faust*, un bătrân prieten, un intelectual român din Transilvania, care știa pe dinafară, chiar în limba germană, multe fragmente din opera germană, m-a rugat să-i trimit în traducerea mea unele părți ce-l interesau îndeosebi. I-am trimis, printre altele, și scena în care Mefisto, travestit în Faust, stă de vorbă cu un „balic“, bătându-și joc de toate facultățile universitare.[^318] Mefisto spune novicelui, printre altele, și memorabilele cuvinte: *Grau, teurer Freund, ist alle Theorie, und grün des Lebens goldner Baum.*
+În timpul când traduceam Partea I din *Faust*, un bătrân prieten, un intelectual român din Transilvania, care știa pe dinafară, chiar în limba germană, multe fragmente din opera germană, m-a rugat să-i trimit în traducerea mea unele părți ce-l interesau îndeosebi. I-am trimis, printre altele, și scena în care Mefisto, travestit în Faust, stă de vorbă cu un „balic”, bătându-și joc de toate facultățile universitare.[^318] Mefisto spune novicelui, printre altele, și memorabilele cuvinte: *Grau, teurer Freund, ist alle Theorie, und grün des Lebens goldner Baum.*
 
 [^318]: Vezi pp. 86–92 (n.ed.).
 
@@ -20825,13 +20825,13 @@ Spuneam, privitor la limba în care am făcut traducerea, că ea poartă, desigu
 
 Bătrânul, simpaticul intelectual, mi-a răspuns că este mulțumit de traducerea fragmentelor, dar că, pentru cele două versuri citate, el ar propune o altă traducere, mai fidelă originalului. Traducerea sa suna așa: Cenușie, scumpe prietene, e orice teorie, Dar verde pomul vieții cu frunza-i aurie.
 
-I-am răspuns prietenului, cu care aveam, de altfel, un schimb de scrisori glumețe, că traducerea sa este într-adevăr mai fidelă, atât de fidelă, încât poate fi „legalizată“ la un notar public, dar că, din păcate, nu pot accepta modificarea, deoarece traducerea mea rămâne, după umila-mi părere, mai poetică. Mi-am lămurit apoi pe larg prietenul că în activitatea mea de tălmăcitor al lui *Faust* m-am străduit să dau un echivalent poetic, iar nu o traducere notarială.
+I-am răspuns prietenului, cu care aveam, de altfel, un schimb de scrisori glumețe, că traducerea sa este într-adevăr mai fidelă, atât de fidelă, încât poate fi „legalizată” la un notar public, dar că, din păcate, nu pot accepta modificarea, deoarece traducerea mea rămâne, după umila-mi părere, mai poetică. Mi-am lămurit apoi pe larg prietenul că în activitatea mea de tălmăcitor al lui *Faust* m-am străduit să dau un echivalent poetic, iar nu o traducere notarială.
 
 Poezia a fost definită ca artă a cuvântului. Niciodată o traducere notarială a poeziei nu este poezie. Traducerea poeziei este o artă în sine și pentru sine – și aceasta mai mult decât orice altă artă interpretativă.
 
 Traducerea poeziei este o artă care se situează la drumul jumătate între artele interpretative și artele creatoare. Traducerea unei poezii sau este în sine și prin sine poezie, sau nu este nimic. Nu-mi pot imagina un traducător de poezie care să nu-și iubească opera întocmai ca o creație originală. Astfel, traducătorul trebuie să se ia la întrecere cu originalul.
 
-Poezia este o artă a cuvântului și, printre altele, deci și o funcție a corpului sonor care este cuvântul – de aceea opune poezia rezistențe atât de incredibile traducerii. Cel mai adesea, traducerea, oricât de bună, rămâne inferioară originalului. Și nu e de mirare, căci poezia este prin definiție legată de „cuvânt“. De vreo zece ori, la diferite vârste, am încercat să traduc celebra poezioară a lui Goethe *Wan derers Nachtlied*:
+Poezia este o artă a cuvântului și, printre altele, deci și o funcție a corpului sonor care este cuvântul – de aceea opune poezia rezistențe atât de incredibile traducerii. Cel mai adesea, traducerea, oricât de bună, rămâne inferioară originalului. Și nu e de mirare, căci poezia este prin definiție legată de „cuvânt”. De vreo zece ori, la diferite vârste, am încercat să traduc celebra poezioară a lui Goethe *Wan derers Nachtlied*:
 
 Über allen Gipfeln ist Ruh,<br>
 Über [In] allen Wipfeln<br>
