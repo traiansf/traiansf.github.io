@@ -1,41 +1,37 @@
 ---
-title: "AMSS Lecture 8: UML Activity Diagrams"
-author: "[Your Name]"
+title: "AMSS Lecture 7: UML Activity Diagrams"
+author: "Traian Florin Șerbănuță"
 date: "2025"
 ---
 
-# Welcome
+## Agenda
 
-- Course: Analiza și Modelarea Sistemelor Software (AMSS)
-- Lecture 8: UML Activity Diagrams
-- Duration: 100 minutes (two 50-minute sessions)
+- Fundamentals of Activity Diagrams
+
+- Advanced Constructs and Applications
 
 ::: notes
 Introduce Activity Diagrams as a dynamic modeling tool for **processes, workflows, and operations**. Emphasize that they complement state diagrams by describing *what happens* rather than *object lifecycles*.
 :::
 
----
-
-# Agenda
-
-**Session 1:** Fundamentals of Activity Diagrams  
-**Session 2:** Advanced Constructs and Applications
+# Fundamentals of Activity Diagrams
 
 ---
-
-# Session 1: Fundamentals of Activity Diagrams
 
 ## What Are Activity Diagrams?
 
-**Definition:**  
+### Definition
+
 Activity diagrams describe the **flow of control and data** between actions in a process.
 
-**Use Cases:**
-- Model business workflows or algorithms.
-- Detail use case realizations.
-- Represent concurrent behavior.
+### Use Cases
 
-**Comparison:**
+- Model algorithms, business process, and workflows
+- Detail use case realizations
+- Similar to flowcharts but supporting concurrent behavior
+
+### Comparison
+
 | Diagram | Focus |
 |----------|--------|
 | State Diagram | Object lifecycle |
@@ -55,22 +51,9 @@ Activity diagrams describe the **flow of control and data** between actions in a
 
 ---
 
-## Example: ATM Transaction
+## Example: Order Processing
 
-```plantuml
-@startuml
-start
-:Insert card;
-:Enter PIN;
-if (PIN valid?) then (yes)
-  :Show menu;
-  :Withdraw cash;
-else (no)
-  :Display error;
-endif
-stop
-@enduml
-```
+![](images/activity-1.png){height=90%}
 
 ::: notes
 Demonstrate how Activity Diagrams resemble flowcharts but integrate UML semantics (decisions, concurrency, swimlanes).
@@ -78,22 +61,23 @@ Demonstrate how Activity Diagrams resemble flowcharts but integrate UML semantic
 
 ---
 
-## Example: Online Order Workflow
+## Decomposing an Action as a subactivity
 
-```plantuml
-@startuml
-start
-:Receive Order;
-:Check Inventory;
-if (In stock?) then (yes)
-  :Confirm Payment;
-  :Ship Product;
-else (no)
-  :Notify Customer;
-endif
-stop
-@enduml
-```
+An action can be implemented as:
+
+- a method invocation
+- as a sub-activity (shown using the rake symbol)
+
+:::::::::::::: {.columns}
+::: {.column width="40%"}
+### Modified Activity
+![](images/activity-3.png)
+:::
+::: {.column width="60%"}
+### Subactivity
+![](images/activity-2.png)
+:::
+::::::::::::::
 
 ::: notes
 Emphasize how branching decisions reflect business logic. The diagram models workflow from initiation to completion.
@@ -101,18 +85,30 @@ Emphasize how branching decisions reflect business logic. The diagram models wor
 
 ---
 
+## Partitions (swim lanes) – who does what?
+
+![Which actions one class or organization unit carries out](images/activity-4.png){height=80%}
+
+::: notes
+Explain how swimlanes improve clarity by associating tasks with participants. Great for business modeling.
+:::
+
+---
+
 ## Interactive Exercise 1: Course Registration Process
 
-**Scenario:** A student registers for a course.
+### Scenario
 
-**Steps:**
+A student registers for a course.
+
+### Steps
+
 1. Log in
 2. Check prerequisites
 3. If eligible → register for course
 4. Update records & send confirmation (in parallel)
 
-**Task:** Draw the activity diagram using PlantUML or by hand. Include one decision and one fork/join.
-
+<!--
 ```plantuml
 @startuml
 start
@@ -129,46 +125,13 @@ else (no)
 endif
 stop
 @enduml
-```
+``` -->
 
 ::: notes
 Encourage students to reflect on sequencing, decisions, and concurrency.
 :::
 
----
-
-# (Break - 10 minutes)
-
----
-
 # Session 2: Advanced Constructs and Applications
-
-## Swimlanes
-
-**Purpose:** Show which actor or subsystem performs each action.
-
-**Notation:** Vertical or horizontal lanes representing responsibilities.
-
-**Example: Online Purchase Process**
-
-```plantuml
-@startuml
-|Customer|
-start
-:Select product;
-:Place order;
-|System|
-:Check stock;
-:Process payment;
-|Warehouse|
-:Prepare shipment;
-stop
-@enduml
-```
-
-::: notes
-Explain how swimlanes improve clarity by associating tasks with participants. Great for business modeling.
-:::
 
 ---
 
@@ -197,23 +160,69 @@ Discuss real-world implications of concurrency: synchronization, error handling,
 
 ---
 
+## Tokens in Activity Diagrams
+
+### Purpose of tokens
+
+- Represent the *flow of control* or *flow of data*.
+- Enable the execution of actions when they arrive
+
+  at input pins or control flows.
+
+### Types of tokens
+
+- **Control tokens**: Indicate progression of execution.
+- **Object tokens**: Carry data values or objects along object flows.
+
+### Token behavior
+
+- Actions **consume** incoming and **produce** outgoing tokens.
+- Fork multiplies tokens (one for each outgoing flow).
+- Join synchronizes incoming tokens (one for each incoming flow).
+- Decisions route tokens based on guard conditions.
+
+---
+
+## Signals
+
+- Allow to specify entry points corresponding to events
+  - receiving a signal produces one token
+
+- Activity receives an event from an outside process
+  - Time signals – triggered by the passing of time
+  - Accept signals – triggered by other events
+
+  ![](images/activity-5.png){height=50%}
+
+---
+
+## Emiting signals and flowing into signals
+
+One can also send signals
+
+- e.g., send a message, waiting for a reply
+
+![](images/activity-6.png){height=50%}
+
+### Notes
+
+- the two flows are racing: first to end completes the activity
+
+- Flow going into an accept signal means:
+
+  Start listening only when flow enters the signal
+
+---
+
 ## Data Flow and Object Nodes
 
+- **Connectors** Allow splitting the draw of an edge in two parts
 - **Object nodes** represent data produced/consumed by activities.
-- Used to visualize data movement alongside control flow.
+  - correspond to object tokens
+  - Used to visualize data movement alongside control flow.
+  - Can also be specified using **pins**
 
-**Example:**
-```plantuml
-@startuml
-start
-:Collect data;
-:Process data;
-:Generate report;
-stop
-@enduml
-```
-
-Add data objects like *Order*, *Invoice*, *Shipment* to visualize real workflows.
+![](images/activity-7.png){height=65%}
 
 ::: notes
 Explain that object nodes enrich the model with data semantics without overcomplicating control flow.
@@ -221,19 +230,80 @@ Explain that object nodes enrich the model with data semantics without overcompl
 
 ---
 
+## Pins: argument passing and transformation
+
+- Pins allow showing information about parameters
+- Output parameters of action should match input of next
+  - One can use **transformations** to ensure that
+- With pins we can have multiple flows entering same action
+
+![](images/activity-8.png)
+
+- In business modelling, pins show resources
+
+---
+
+## Expansion regions: multiple action invocations
+
+- Area where actions ocurr once for each item in a collection
+  - useful for mapping and filtering collections
+
+![Mapping actions to a collection](images/activity-9.png){width=80%}
+
+![Shorthand for single action map](images/activity-10.png){width=80%}
+
+---
+
+## Flow final: stop a flow without ending entire activity
+
+![Filter and Map actions to a collection](images/activity-11.png){height=80%}
+
+---
+
+## Join specifications: conditions attached to a join node
+
+![](images/activity-12.png)
+
+---
+
+## Comparison to Petri Nets
+
+### Conceptual similarity
+
+- Both use tokens to represent the *dynamic state* of the system.
+- Movement of tokens represents progress in execution.
+
+### Key differences
+
+- Activity Diagrams: object tokens; semiformal semantics.
+- Petri Nets: tokens (usually) indistinguishable; formal semantics
+
+### Execution correspondence
+
+- Activity Diagram actions ~ Petri Net transitions.
+- Activity Diagram edges / pins ~ Petri Net places.
+- Token flow in both describes enabling and firing of behaviors.
+
+### Why the comparison matters
+
+- Petri Nets provide a *formal* foundation to analyze concurrency, conflicts, and reachability.
+- Activity Diagrams can be mapped to Petri Nets for verification or simulation.
+
+---
+
 ## Interactive Exercise 2: Airport Check-in Process
+
+Create an activity diagram with two swimlanes and one parallel branch.
 
 **Actors:** Passenger, System
 
-**Requirements:**
+### Requirements
 - Passenger checks in.
 - System verifies ticket.
 - If baggage overweight → pay fee.
 - In parallel: print boarding pass + update database.
 
-**Task:** Create an activity diagram with two swimlanes and one parallel branch.
-
-```plantuml
+<!-- ```plantuml
 @startuml
 |Passenger|
 start
@@ -250,7 +320,7 @@ fork again
 end fork
 stop
 @enduml
-```
+``` -->
 
 ::: notes
 Ask students to identify decision points and concurrency areas. Discuss how this model could inform software design.
@@ -258,7 +328,7 @@ Ask students to identify decision points and concurrency areas. Discuss how this
 
 ---
 
-# Wrap-Up
+## Wrap-Up
 
 | Concept | Description | Example |
 |----------|--------------|----------|
@@ -267,12 +337,11 @@ Ask students to identify decision points and concurrency areas. Discuss how this
 | Fork/Join | Parallel execution | "Ship + Notify" |
 | Swimlane | Role-based grouping | "Customer vs. System" |
 
-**Key Takeaways:**
+### Key Takeaways
+
 - Activity Diagrams model workflows and concurrent processes.
 - Ideal for requirements and process-level modeling.
 - Useful bridge from analysis to system design.
-
-**Next Lecture:** Sequence Diagrams (Advanced Scenarios and Interaction Modeling).
 
 ::: notes
 Summarize distinctions from state diagrams and encourage practice by modeling real processes.
