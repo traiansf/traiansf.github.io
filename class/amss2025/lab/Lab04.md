@@ -8,9 +8,7 @@ date: "2025"
 
 1. **Introduction**
 
-   - Quick overview of UML behavioral modeling
    - State vs. Activity diagrams
-   - How we’ll work today
 
 2. **Hands-on Problem 1**
 
