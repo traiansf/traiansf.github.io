@@ -14,7 +14,7 @@ date: "2025"
 Introduce Activity Diagrams as a dynamic modeling tool for **processes, workflows, and operations**. Emphasize that they complement state diagrams by describing *what happens* rather than *object lifecycles*.
 :::
 
-# Fundamentals of Activity Diagrams
+# Fundamentals of Activity Diagrams  
 
 ---
 
@@ -65,17 +65,15 @@ Demonstrate how Activity Diagrams resemble flowcharts but integrate UML semantic
 
 An action can be implemented as:
 
-- a method invocation
+- a method in a class
 - as a sub-activity (shown using the rake symbol)
 
 :::::::::::::: {.columns}
-::: {.column width="40%"}
-### Modified Activity
-![](images/activity-3.png)
-:::
 ::: {.column width="60%"}
-### Subactivity
 ![](images/activity-2.png)
+:::
+::: {.column width="40%"}
+![](images/activity-3.png)
 :::
 ::::::::::::::
 
@@ -88,10 +86,6 @@ Emphasize how branching decisions reflect business logic. The diagram models wor
 ## Partitions (swim lanes) – who does what?
 
 ![Which actions one class or organization unit carries out](images/activity-4.png){height=80%}
-
-::: notes
-Explain how swimlanes improve clarity by associating tasks with participants. Great for business modeling.
-:::
 
 ---
 
@@ -108,7 +102,7 @@ A student registers for a course.
 3. If eligible → register for course
 4. Update records & send confirmation (in parallel)
 
-<!--
+<!-- 
 ```plantuml
 @startuml
 start
@@ -132,6 +126,35 @@ Encourage students to reflect on sequencing, decisions, and concurrency.
 :::
 
 # Session 2: Advanced Constructs and Applications
+
+---
+
+## Swimlanes
+
+**Purpose:** Show which actor or subsystem performs each action.
+
+**Notation:** Vertical or horizontal lanes representing responsibilities.
+
+**Example: Online Purchase Process**
+
+```plantuml
+@startuml
+|Customer|
+start
+:Select product;
+:Place order;
+|System|
+:Check stock;
+:Process payment;
+|Warehouse|
+:Prepare shipment;
+stop
+@enduml
+```
+
+::: notes
+Explain how swimlanes improve clarity by associating tasks with participants. Great for business modeling.
+:::
 
 ---
 
