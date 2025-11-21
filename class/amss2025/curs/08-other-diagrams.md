@@ -301,6 +301,10 @@ Define UML _extensions_ for domain-specific modeling.
 
 - custom stereotypes, tagged values, and constraints.
 
+![](images/profile-2.png)
+
+## 5. Profile Diagram example
+
 ![](images/profile-1.png){height=80%}
 
 ## 5. Profile Diagrams exercise (Secure Web Services profile)
