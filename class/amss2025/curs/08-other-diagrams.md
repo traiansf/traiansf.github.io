@@ -183,152 +183,198 @@ The system consists of:
 
 ---
 
-## 3. Timing Diagrams (15 minutes)
+## 3. Timing Diagrams
 
-Show the *change of state over time*.
+Focus: timing constraints between state changes on different objects
 
-### Example
+- Show the *change of state over time*.
 
-```plantuml
-@startuml
-robust "DoorSensor" as DS
-concise "SecurityController" as SC
+- Hardware design: modelling of real-time / cyberphysical systems
 
-@0
-DS is closed
-
-@10
-DS is open
-
-@20
-SC is checking
-
-@30
-SC is alert
-@enduml
-```
+![](images/timing-1.png)
 
 ---
 
-## Interactive Exercise (5 minutes)
+## 3. Timing Diagrams with cross state-changes
 
-### Task
+- Useful when there are more states
 
-Create a timing diagram showing:
+![](images/timing-2.png)
 
-- TemperatureSensor reading changes from 18°C → 20°C → 19°C  
-- HeatingController turns *on* only when below 19°C
+## 3. Timing diagrams example (including messages)
 
-# Session 2 (50 minutes): Structure Diagrams
+![](images/timing-3.png){height=90%}
 
-## 4. Composite Structure Diagrams (20 minutes)
+## 3. Timing Diagram exercise
 
-### Purpose
-Show the *internal structure* of a class or component.
+Create a UML Timing Diagram showing how three components in a smart-home lighting system (motion sensor, light controller, light) change states over time and respond to each other.
 
-### Example
+### Initial States
+
+- MotionSensor = DetectingMotion
+
+- LightController = Active
+
+- Light = ON
+
+### Sequence of Events
+
+1. At t = 0s, the MotionSensor switches to NoMotion.
+
+2. After 10 seconds of no motion, the LightController transitions from Active → WaitingToOff.
+
+3. At t = 12s, the MotionSensor briefly detects motion again (DetectingMotion), causing:
+
+   LightController → Active (cancel auto-off)
+
+4. At t = 18s, MotionSensor returns to NoMotion.
+
+5. After another 10 seconds of continuous no motion (i.e., at t = 28s), LightController sends command
+   Light = OFF
+
+# Structure Diagrams
+
+## 4. Composite Structure Diagrams
+
+:::::::::::::: {.columns}
+::: {.column width="40%"}
+Used to show:
+
+- internal structure
+  - interactions with environment through ports
+
+- behavior of a collaboration
+
+![TV Viewer Class](images/simple-tv.png)
+
+:::
+::: {.column width="60%"}
+![TV Viewer as Composite Structure](images/composite-1.png)
+:::
+::::::::::::::
+
+## 4. Composite Structures example (internal structure)
+
+![](images/composite-2.png){height=90%}
+
+## 4. Composite Structures example (collaboration)
+
+![Observer design pattern as a composite structure](images/composite-3.png){height=50%}
+
+- Collaboration icon is connected to each of the rectangles
+- Rectangles denote interfaces 
+  - types of properties of the collaboration.
+- Each line is labeled by the name of the property (role).
+
+## 4. Composite Structures exercise
+
+Create a Composite Structure Diagram showing the internal structure of an AudioPlayback component in a music-player app.
+
+### Scenario
+
+You are given a component called AudioPlayback, responsible for decoding and playing audio files.
+Internally, it contains three parts:
+
+- Decoder
+
+- Buffer
+
+- OutputDevice (e.g., speakers or headphone jack)
+
+
+AudioPlayback component interacts with environment through:
+
+- controlPort – receives play/pause/stop commands
+
+- audioPort – sends raw audio samples to hardware
+
+### Optional additions
+
+- A visualizer
+- A volume control
+
+---
+
+## 5. Profile Diagrams
+
+Define UML _extensions_ for domain-specific modeling.
+
+- custom stereotypes, tagged values, and constraints.
+
+![](images/profile-1.png){height=80%}
+
+## 5. Profile Diagrams exercise (Secure Web Services profile)
+
+Create a UML Profile Diagram that extends UML to better describe security characteristics of web-service components.
+
+### Tasks
+
+1. Create a WebSecurity profile
+2. Add stereotypes
+   a. SecureCompoent extends Component with encryption and CA tags
+   b. SensitiveData extends Class with a dataCategory tag
+   c. AuthRequired extends Operation with authLevel tag
+3. Add at least one constraint
+   - e.g., SensitiveData must have at least one private attribute
+
+---
+
+## 5. Solution
 
 ```plantuml
 @startuml
-package "Hub" {
-  class Hub {
-    + processRequests()
-  }
+' Use UML profile diagram mode
+skinparam stereotypeFontColor black
+hide circle
+hide empty members
 
-  class HeatingPort
-  class SecurityPort
+package "WebSecurityProfile" <<profile>> {
 
-  Hub o-- HeatingPort
-  Hub o-- SecurityPort
+' --- UML metaclasses being extended ---
+class Component <<Metaclass>>
+class Class <<Metaclass>>
+class Operation <<Metaclass>>
+
+    ' --- secureComponent stereotype ---
+    class secureComponent <<stereotype>> {
+        +encryption : String
+        +certificateAuthority : String
+        ---
+        {constraint: encryption <> "" }
+    }
+
+    ' --- sensitiveData stereotype ---
+    class sensitiveData <<stereotype>> {
+        +dataCategory : String
+    }
+
+    ' --- authRequired stereotype ---
+    class authRequired <<stereotype>> {
+        +authLevel : Integer
+        ---
+        {constraint: authLevel >= 1 and authLevel <= 3 }
+    }
+
+' --- Extension relationships ---
+secureComponent -up-> Component : extends
+
+sensitiveData -up-> Class : extends
+
+authRequired -up-> Operation : extends
+
 }
+
 @enduml
 ```
- 
-```plantuml
-@startuml
- boundary b1
- control c1
- b1 -(0)- c1
-
- component comp1
- interface interf1
- comp1 #~~( interf1
-
- :mode1actor: -0)- fooa1
- :mode1actorl: -le0)- foo1l
-
- [component1] 0)-(0-(0 [componentC]
- () component3 )-0-(0 "foo" [componentC]
-
- [aze1] #-->> [aze2]
-@enduml
-```
-
-## Interactive Exercise (10 minutes)
-
-### Task
-
-Model the *HeatingController* internal structure.  
-
-Include:  
-
-- A sensor input port  
-- An actuator output port  
-- A processing unit
-
----
-
-## 5. Profile Diagrams (20 minutes)
-
-### Purpose
-Define UML extensions for domain-specific modeling.
-
-### Example
-
-```
-@startuml
-profile SmartHomeProfile {
-  stereotype Sensor
-  stereotype Actuator
-}
-
-class TemperatureSensor <<Sensor>>
-class HeatingController <<Actuator>>
-@enduml
-```
-
-## Interactive Exercise (10 minutes)
-
-### Task
-
-Create a simple **SmartLightingProfile** with:  
-
-- Stereotype `LightDevice`  
-- Stereotype `Dimmable`  
-
-Apply your stereotypes to:
-
-- LightSensor  
-- LightController
-
----
 
 ## Wrap-Up
 
 ### Summary Table
 
-| Diagram Type | Purpose | Example |
-|--------------|---------|---------|
-| Communication | Object message exchange | Heating activation |
-| Interaction Overview | High-level flow | Morning routine |
-| Timing | Time-based behavior | Door sensor alert |
-| Composite Structure | Internal architecture | Hub subsystem |
-| Profile | Domain extensions | SmartHome stereotypes |
-
-### Closing Task
-
-Pick one Smart Home subsystem (Heating, Security, Lighting) and:
-
-- Create *one* interaction diagram
-- Create *one* structure diagram
-- Apply at least *one* stereotype from a custom profile
+| Diagram Type | Purpose |
+|--------------|---------|
+| Communication | Object message exchange |
+| Interaction Overview | High-level flow |
+| Timing | Time-based behavior |
+| Composite Structure | Internal architecture |
+| Profile | Domain extensions |
