@@ -17,11 +17,11 @@ date: "2025"
 - Composite Structure Diagrams
 - Profile Diagrams
 
-<!-- ### Running Example: Smart Home Automation System  
+<!-- ### Running Example: Smart Home Automation System
 
-- Devices: TemperatureSensor, DoorSensor  
-- Controllers: HeatingController, SecurityController  
-- Hub orchestrates all devices  
+- Devices: TemperatureSensor, DoorSensor
+- Controllers: HeatingController, SecurityController
+- Hub orchestrates all devices
 - User interacts via MobileApp -->
 
 # Interaction Diagrams
@@ -96,7 +96,7 @@ Use Case          Complex logic, workflows,             High-level interaction p
 
 ---
 
-## Interactive Exercise (5 minutes)
+## Interactive Exercise
 
 ### Task
 
@@ -105,7 +105,7 @@ places a food order online.
 
 ### Guidelines
 
-- Use at least 4 objects (CustomerApp, OrderService, RestaurantSystem, PaymentService).  
+- Use at least 4 objects (CustomerApp, OrderService, RestaurantSystem, PaymentService).
 - Number your messages.
 - model possible failures.
 
@@ -262,7 +262,7 @@ Used to show:
 ![Observer design pattern as a composite structure](images/composite-3.png){height=50%}
 
 - Collaboration icon is connected to each of the rectangles
-- Rectangles denote interfaces 
+- Rectangles denote interfaces
   - types of properties of the collaboration.
 - Each line is labeled by the name of the property (role).
 
@@ -321,6 +321,7 @@ Create a UML Profile Diagram that extends UML to better describe security charac
 3. Add at least one constraint
    - e.g., SensitiveData must have at least one private attribute
 
+<!--
 ---
 
 ## 5. Solution
@@ -369,7 +370,9 @@ authRequired -up-> Operation : extends
 }
 
 @enduml
-```
+``` -->
+
+---
 
 ## Wrap-Up
 
@@ -377,8 +380,8 @@ authRequired -up-> Operation : extends
 
 | Diagram Type | Purpose |
 |--------------|---------|
-| Communication | Object message exchange |
+| Communication | Data links and message sequence |
 | Interaction Overview | High-level flow |
 | Timing | Time-based behavior |
 | Composite Structure | Internal architecture |
-| Profile | Domain extensions |
+| Profile | Domain specific extensions |
