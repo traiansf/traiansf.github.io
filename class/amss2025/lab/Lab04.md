@@ -83,7 +83,7 @@ fork
   else (no)
     |Notifier|
     :Notify Payment Failure;
-    stop
+    end
   endif
 fork again
   |Inventory System|
@@ -108,7 +108,7 @@ end fork
 :Ship Order;
 |Notifier|
 :Notify Customer;
-end
+stop
 @enduml
 ```
 
