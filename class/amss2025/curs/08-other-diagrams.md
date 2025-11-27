@@ -15,7 +15,6 @@ date: "2025"
 ### Structure Diagrams
 
 - Composite Structure Diagrams
-- Profile Diagrams
 
 <!-- ### Running Example: Smart Home Automation System
 
@@ -295,85 +294,6 @@ AudioPlayback component interacts with environment through:
 
 ---
 
-## 5. Profile Diagrams
-
-Define UML _extensions_ for domain-specific modeling.
-
-- custom stereotypes, tagged values, and constraints.
-
-![](images/profile-2.png)
-
-## 5. Profile Diagram example
-
-![](images/profile-1.png){height=80%}
-
-## 5. Profile Diagrams exercise (Secure Web Services profile)
-
-Create a UML Profile Diagram that extends UML to better describe security characteristics of web-service components.
-
-### Tasks
-
-1. Create a WebSecurity profile
-2. Add stereotypes
-   a. SecureCompoent extends Component with encryption and CA tags
-   b. SensitiveData extends Class with a dataCategory tag
-   c. AuthRequired extends Operation with authLevel tag
-3. Add at least one constraint
-   - e.g., SensitiveData must have at least one private attribute
-
-<!--
----
-
-## 5. Solution
-
-```plantuml
-@startuml
-' Use UML profile diagram mode
-skinparam stereotypeFontColor black
-hide circle
-hide empty members
-
-package "WebSecurityProfile" <<profile>> {
-
-' --- UML metaclasses being extended ---
-class Component <<Metaclass>>
-class Class <<Metaclass>>
-class Operation <<Metaclass>>
-
-    ' --- secureComponent stereotype ---
-    class secureComponent <<stereotype>> {
-        +encryption : String
-        +certificateAuthority : String
-        ---
-        {constraint: encryption <> "" }
-    }
-
-    ' --- sensitiveData stereotype ---
-    class sensitiveData <<stereotype>> {
-        +dataCategory : String
-    }
-
-    ' --- authRequired stereotype ---
-    class authRequired <<stereotype>> {
-        +authLevel : Integer
-        ---
-        {constraint: authLevel >= 1 and authLevel <= 3 }
-    }
-
-' --- Extension relationships ---
-secureComponent -up-> Component : extends
-
-sensitiveData -up-> Class : extends
-
-authRequired -up-> Operation : extends
-
-}
-
-@enduml
-``` -->
-
----
-
 ## Wrap-Up
 
 ### Summary Table
@@ -384,4 +304,3 @@ authRequired -up-> Operation : extends
 | Interaction Overview | High-level flow |
 | Timing | Time-based behavior |
 | Composite Structure | Internal architecture |
-| Profile | Domain specific extensions |
