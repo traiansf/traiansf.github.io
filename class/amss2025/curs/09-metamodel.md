@@ -6,9 +6,10 @@ date: "2025"
 
 ## Agenda
 
-### Goal
+### Goals
 
-Understand the UML meta‑model and how **Profiles** extend/customize it.
+- Understand the ideas behind the UML meta‑model
+- Using **Profile Diagrams** to customize UML for a domain
 
 ### The UML Meta-Model
 
@@ -18,7 +19,7 @@ Understand the UML meta‑model and how **Profiles** extend/customize it.
 
 ### Profile Diagrams
 
-- Profiles as Meta‑Model Customization
+- Profiles as Meta‑Model Customizations
 
 # The UML Meta-Model
 
@@ -109,7 +110,7 @@ UML is defined using a 4‑layer meta‑model architecture:
 | **M1** | Model | Your diagrams (class diagrams, state diagrams...) |
 | **M0** | Runtime | Real objects in the running system |
 
-## MOF Visualization (as a Package Diagram)
+## Visualization of the 4-layered MOF architecture for UML
 
 ```plantuml
 @startuml
@@ -179,11 +180,12 @@ Associations
 ### Complete MOF (CMOF)
 
 - Offers the full expressive power of MOF
+  - A particular aspect of CMOF is its Reflection layer
   - UML is defined in CMOF
 
 ---
 
-## 3. Essential MOF (EMOF) classes
+## Essential MOF (EMOF) classes
 
 ![](images/meta-model-1.png)
 
@@ -311,13 +313,15 @@ package FactoryAssembly <<RoboticsProfile>> {
 
 ## Why Profiles instead of modifying the UML meta‑model?
 
-- Profiles keep UML standard-compliant  
-- Tool‑friendly  
-- Tailored for specific domains (IoT, automotive, medical, cloud, finance)
+- Profiles keep UML standard-compliant
+- Tool‑friendly
+- Tailored for specific domains
+
+  (IoT, automotive, medical, cloud, finance)
 
 Examples:
 
-- SysML = UML Profile  
+- SysML = UML Profile
 - MARTE (real‑time systems) = UML Profile
 
 ---
