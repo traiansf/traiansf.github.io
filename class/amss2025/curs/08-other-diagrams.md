@@ -1,5 +1,5 @@
 ---
-title: "AMSS Lecture 9: UML Design – Additional Diagram Types"
+title: "AMSS Lecture 8: UML Design – Additional Diagram Types"
 author: "Traian-Florin Șerbănuță"
 date: "2025"
 ---

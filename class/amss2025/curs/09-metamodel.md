@@ -1,28 +1,30 @@
 ---
-title: "AMSS Lecture 10: The UML Meta‑Model & Profiles"
+title: "AMSS Lecture 9: The UML Meta‑Model & Profile Diagrams"
 author: "Traian-Florin Șerbănuță"
 date: "2025"
 ---
 
 ## Agenda
 
-**Goal:** Understand the UML meta‑model and how **Profiles** extend/customize it.
+### Goal
 
-The UML Meta-Model
+Understand the UML meta‑model and how **Profiles** extend/customize it.
 
-1. **UML Meta‑Model Basics**
-2. **Meta‑Model Architecture (MOF layers)**
-3. **How UML Constructs Are Defined**
+### The UML Meta-Model
 
-Profile Diagrams
+- UML Meta‑Model Basics
+- Meta‑Model Architecture (MOF layers)
+- How UML Constructs Are Defined
 
-5. **Profiles as Meta‑Model Customization**
+### Profile Diagrams
 
----
+- Profiles as Meta‑Model Customization
 
 # The UML Meta-Model
 
-## 1. What Is a Meta‑Model? (10 minutes)
+---
+
+## 1. What Is a Meta‑Model?
 
 - A *model* represents a real‑world system.
 - A *meta‑model* defines the **rules for building models**.
@@ -40,11 +42,15 @@ The UML meta‑model defines:
 
 MDA is a software development approach defined by the Object Management Group (OMG)
 
-- Focuses on creating and transforming models rather than writing code directly
+- Focuses on creating and transforming models
+
+  rather than writing code directly
 
 - Separates business logic from platform-specific implementation
 
-- Supports automation: models → transformations → generated code
+- Supports automation:
+
+  models → transformations → generated code
 
 ### Key MDA Model Types
 
@@ -80,7 +86,7 @@ QVT
 : Query/View/Transformation
 : (model transformation language)
 
-OCL 
+OCL
 
 : Object Constraint Language
 : (add constraints to models)
@@ -92,12 +98,12 @@ XMI
 
 ---
 
-## 2. The MOF Architecture
+## 2. The Meta-Object Facility (MOF) Architecture
 
-UML is defined using a 4‑layer meta‑model architecture (OMG MOF):
+UML is defined using a 4‑layer meta‑model architecture:
 
-| Layer | Meaning | Example |
-|------|---------|---------|
+| Layer | Meaning       | Example                |
+|------|---------------|------------------------|
 | **M3** | Meta‑meta‑model | MOF defining UML’s structure |
 | **M2** | Meta‑model | UML specification (classes, states, components...) |
 | **M1** | Model | Your diagrams (class diagrams, state diagrams...) |
@@ -129,9 +135,9 @@ TemperatureSensor <|-- tempSensorInstance
 
 ---
 
-## MOF in More Detail
+## Meta-Object Facility (MOF) in More Detail
 
-- Meta-Object Facility (MOF) is an Object Management Group (OMG) standard
+- MOF is an Object Management Group (OMG) standard
 
 - Defines how meta-models are built
 
@@ -167,7 +173,7 @@ Associations
 ### Essential MOF (EMOF)
 
 - A simplified subset of MOF
-- Used for dimple DSLs, transformation systems
+- Used for simple DSLs, transformation systems
   - Many DSLs (Domain-Specific Languages) use EMOF for simplicity
 
 ### Complete MOF (CMOF)
@@ -177,64 +183,24 @@ Associations
 
 ---
 
-## 3. Anatomy of the UML Meta‑Model
+## 3. Essential MOF (EMOF) classes
 
-How the UML meta‑model defines *Class*, *Attribute*, and *Association*.
+![](images/meta-model-1.png)
 
-```plantuml
-@startuml
-skinparam linetype polyline
-hide empty members
-class Class {
-  name
-}
-class Attribute {
-  visibility
-  name
-  multiplicity
-}
-class Association {
-    role
-}
-
-Class "1" <--> "*" Attribute
-Attribute --> Class : type
-Association --|> Attribute
-@enduml
-```
-
-- A UML *Class* has *Attribute*s
-
-- *Association*s are *Attribute*s with additional details
+# Profiles and Profile diagrams
 
 ---
-
-## Interactive Exercise (10 minutes)
-
-**Task:** With a partner, reverse‑engineer the meta‑model elements behind a **sequence diagram**.
-
-Identify:
-- What meta‑model class represents a *lifeline*?
-- What meta‑model class represents a *message*?
-- What meta‑model class represents an *execution specification*?
-
-Write your answers as a small meta‑model sketch.
-
----
-
-# Session 2 (50 minutes)
 
 ## 4. Profiles and Stereotypes (10 minutes)
 
-### Profiles are  **lightweight extensions** to the UML meta‑model.
-
-They allow you to:
+### Profiles are  **lightweight extensions** to the UML meta‑model
 
 - Add domain‑specific concepts
 - Add constraints
-- Specialize existing UML meta‑model elements without modifying UML itself
+- Specialize existing UML meta‑model elements
+  - without modifying UML itself
 
-### Stereotypes extend UML elements:
+### Stereotypes extend UML elements
 
 - Add tagged values
 - Add constraints
@@ -244,17 +210,119 @@ They allow you to:
 
 ## 5. Profile Diagrams
 
-Define UML _extensions_ for domain-specific modeling.
+Define UML *extensions* for domain-specific modeling.
 
 - custom stereotypes, tagged values, and constraints.
 
 ![](images/profile-2.png)
 
+---
+
 ## 5. Profile Diagram example
 
 ![](images/profile-1.png){height=80%}
 
-## 5. Profile Diagrams exercise (Secure Web Services profile)
+---
+
+## A profile diagram and a DSL model using it
+
+:::::::::::::: {.columns}
+::: {.column width="60%"}
+
+```plantuml
+@startuml
+hide circle
+hide empty members
+
+' Declare the profile
+package RoboticsProfile <<profile>> {
+
+    ' Metaclass: Class
+    class "uml::Class" as UML_Class <<metaclass>>
+
+    ' Stereotypes extending Class
+    class Robot <<stereotype>> {
+        type : String
+    }
+
+    class Sensor <<stereotype>> {
+        range : Integer
+    }
+
+    ' Metaclass: Activity
+    class "uml::Activity" as UML_Activity <<metaclass>>
+
+    ' Stereotype extending Activity
+    class Task <<stereotype>> {
+        duration : Integer
+    }
+}
+
+' Extensions
+Robot -[hidden]- UML_Class
+Sensor -[hidden]- UML_Class
+Task  -[hidden]- UML_Activity
+
+Robot ..|> UML_Class : extends
+Sensor ..|> UML_Class : extends
+Task  ..|> UML_Activity : extends
+
+@enduml
+```
+
+:::
+::: {.column width="40%"}
+
+```plantuml
+@startuml
+hide circle
+hide empty members
+
+' Apply the profile (visual cue only, PlantUML doesn't enforce)
+' Note: PlantUML doesn't support actual XMI stereotype application,
+' but the notation is accepted visually.
+
+package FactoryAssembly <<RoboticsProfile>> {
+
+    class ArmBot <<Robot>> {
+        type = "Articulated Arm"
+        pickAndPlace()
+    }
+
+    class DistanceSensor <<Sensor>> {
+        range = 200
+    }
+
+    class PickAndPlace <<Task>> {
+        duration = 12
+    }
+
+    ArmBot --> PickAndPlace : <<behavior>>
+    ArmBot --> DistanceSensor
+}
+
+@enduml
+```
+
+:::
+::::::::::::::
+
+---
+
+## Why Profiles instead of modifying the UML meta‑model?
+
+- Profiles keep UML standard-compliant  
+- Tool‑friendly  
+- Tailored for specific domains (IoT, automotive, medical, cloud, finance)
+
+Examples:
+
+- SysML = UML Profile  
+- MARTE (real‑time systems) = UML Profile
+
+---
+
+## Interactive exercise (Secure Web Services profile)
 
 Create a UML Profile Diagram that extends UML to better describe security characteristics of web-service components.
 
@@ -268,10 +336,7 @@ Create a UML Profile Diagram that extends UML to better describe security charac
 3. Add at least one constraint
    - e.g., SensitiveData must have at least one private attribute
 
-<!--
----
-
-## 5. Solution
+<!-- ## 5. Solution
 
 ```plantuml
 @startuml
@@ -321,66 +386,12 @@ authRequired -up-> Operation : extends
 
 ---
 
-## How this ties to the meta‑model?
-
-- A *stereotype* extends a UML meta‑model class, e.g.:  
-  `stereotype Sensor extends Class`
-
-- `<<Sensor>>` marks all classes that play the role of sensors
-
----
-
-## Profiles vs. Meta‑Model Subclassing (10 minutes)
-
-**Why Profiles instead of modifying the UML meta‑model?**
-
-- Profiles keep UML standard-compliant  
-- Tool‑friendly  
-- Tailored for specific domains (IoT, automotive, medical, cloud, finance)
-
-Examples:  
-- SysML = UML Profile  
-- MARTE (real‑time systems) = UML Profile
-
----
-
-## Interactive Exercise (10 minutes)
-
-**Task:** Design a profile for the Smart Home system:
-
-Create the following stereotypes:
-- `SensorDevice` (tag: unit)
-- `ControllerDevice` (tag: cpuLoad)
-- `Alerting` (tag: severity)
-
-Apply your stereotypes to:
-- TemperatureSensor  
-- SecurityController  
-- AlarmModule
-
-**Bonus:** Show how your stereotypes extend meta‑model classes (Class, Component, etc.).
-
----
-
 ## Summary
 
-- UML is defined by a **meta‑model** (M2 layer) using MOF (M3 layer)
+- UML is defined by a **meta‑model** (M2 layer)
+  using MOF (M3 layer)
+
 - Your diagrams are **models** (M1), representing real objects (M0)
 - Profiles customize UML **without altering the meta‑model**
 - Stereotypes add domain semantics and constraints
 - Profiles are essential for domain‑specific modeling (e.g., SysML)
-
----
-
-## Final Reflection Exercise
-
-Write a short paragraph:  
-**How would you extend UML to better model smart home security concerns?**  
-Consider whether you would add:  
-- Stereotypes  
-- Tagged values  
-- Constraints  
-- A full Domain‑Specific Profile
-
----
-
