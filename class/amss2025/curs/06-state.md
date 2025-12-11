@@ -1,5 +1,5 @@
 ---
-title: "AMSS Lecture 7: UML State Diagrams"
+title: "AMSS Lecture 6: UML State Diagrams"
 author: "Traian-Florin Șerbănuță"
 date: "2025"
 ---

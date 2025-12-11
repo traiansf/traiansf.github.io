@@ -1,5 +1,5 @@
 ---
-title: "AMSS Lecture 6: UML Structural Diagrams"
+title: "AMSS Lecture 5: UML Structural Diagrams"
 author: "Traian Florin Șerbănuță"
 date: "2025"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "AMSS Lecture 11: Evaluating & Testing UML Models"
+title: "AMSS Lecture 10: Evaluating & Testing UML Models"
 author: "Traian-Florin Șerbănuță"
 date: "2025"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "AMSS Lecture 3: Design Patterns (I)"
+title: "AMSS Lecture 4: Design Patterns (I)"
 author: "Virgil-Nicolae Șerbănuță"
 date: "2025"
 ---

@@ -43,29 +43,21 @@ Traian Șerbănuță
 <div id="timing-diagrams-quick-refresher" class="slide section level2">
 <h1>Timing Diagrams — Quick Refresher</h1>
 <ul>
-<li>Show <strong>state changes over time</strong> for multiple
-lifelines<br />
-</li>
+<li>Show how <strong>state changes over time</strong> for multiple
+lifelines</li>
 <li>Emphasize <strong>temporal constraints</strong>,
-<strong>durations</strong>, and <strong>deadlines</strong><br />
-</li>
+<strong>durations</strong>, and <strong>deadlines</strong></li>
 <li>Useful for:
 <ul>
-<li>embedded systems<br />
-</li>
-<li>robotics<br />
-</li>
-<li>real-time software<br />
-</li>
+<li>embedded systems</li>
+<li>robotics</li>
+<li>real-time software</li>
 <li>safety-critical controllers</li>
 </ul></li>
 </ul>
-<p><strong>Key Elements:</strong><br />
-- Lifelines<br />
-- States / Value changes<br />
-- Timing constraints<br />
-- Duration and time markers<br />
-- Messages and asynchronous events</p>
+<p><strong>Key Elements:</strong> - Lifelines - States / Value changes -
+Timing constraints - Duration and time markers - Messages and
+asynchronous events</p>
 </div>
 <div id="timing-diagram-example" class="slide section level2">
 <h1>Timing diagram example</h1>
@@ -74,21 +66,17 @@ lifelines<br />
 <div id="exercise-overview" class="slide section level2">
 <h1>Exercise Overview</h1>
 <p>You will create a <strong>Timing Diagram</strong> for a multi-sensor
-<strong>Collision Avoidance System</strong> (CAS) used by a drone.<br />
-The system integrates multiple periodic and event-driven signals, strict
+<strong>Collision Avoidance System</strong> (CAS) used by a drone. The
+system integrates multiple periodic and event-driven signals, strict
 deadlines, and interrupt conditions.</p>
 </div>
 <div id="system-components-lifelines" class="slide section level2">
 <h1>System Components (Lifelines)</h1>
 <ul>
-<li><strong>FPS</strong> — Front Proximity Sensor<br />
-</li>
-<li><strong>ALT</strong> — Downward Altimeter<br />
-</li>
-<li><strong>VPU</strong> — Vision Processing Unit<br />
-</li>
-<li><strong>APC</strong> — Autopilot Control Module<br />
-</li>
+<li><strong>FPS</strong> — Front Proximity Sensor</li>
+<li><strong>ALT</strong> — Downward Altimeter</li>
+<li><strong>VPU</strong> — Vision Processing Unit</li>
+<li><strong>APC</strong> — Autopilot Control Module</li>
 <li><strong>MC</strong> — Motor Controller</li>
 </ul>
 <p>Your diagram must include all five.</p>
@@ -97,14 +85,11 @@ deadlines, and interrupt conditions.</p>
 <h1>Normal Timing Behavior</h1>
 <ul>
 <li><strong>FPS:</strong> emits distance reading every <strong>50
-ms</strong><br />
-</li>
+ms</strong></li>
 <li><strong>ALT:</strong> emits altitude reading every <strong>50
-ms</strong><br />
-</li>
+ms</strong></li>
 <li><strong>VPU:</strong> emits obstacle classification every
-<strong>150 ms</strong><br />
-</li>
+<strong>150 ms</strong></li>
 <li><strong>APC:</strong> computes flight-plan update every <strong>100
 ms</strong></li>
 </ul>
@@ -114,13 +99,10 @@ ms</strong></li>
 <h1>Event: Obstacle Detected (FPS)</h1>
 <p>When FPS detects an object within <strong>2.0 m</strong>:</p>
 <ol style="list-style-type: decimal">
-<li>Sends <strong>CloseObstacle</strong> to APC immediately<br />
-</li>
+<li>Sends <strong>CloseObstacle</strong> to APC immediately</li>
 <li>APC must respond within <strong>25 ms</strong> with
-<strong>Brake</strong> to MC<br />
-</li>
-<li>MC performs braking maneuver for <strong>200 ms</strong><br />
-</li>
+<strong>Brake</strong> to MC</li>
+<li>MC performs braking maneuver for <strong>200 ms</strong></li>
 <li>MC signals <strong>BrakeComplete</strong> when done</li>
 </ol>
 <p>MC braking may be interrupted later by emergency events.</p>
@@ -129,11 +111,9 @@ ms</strong></li>
 <h1>Event: Rapid Altitude Drop (ALT)</h1>
 <p>If ALT senses a drop &gt; <strong>0.5 m within 100 ms</strong>:</p>
 <ol style="list-style-type: decimal">
-<li>ALT sends <strong>RapidDrop</strong> to APC<br />
-</li>
+<li>ALT sends <strong>RapidDrop</strong> to APC</li>
 <li>APC must send <strong>Ascend</strong> to MC within <strong>40
-ms</strong><br />
-</li>
+ms</strong></li>
 <li>MC applies upward thrust for <strong>300 ms</strong></li>
 </ol>
 <p>APC’s internal update cycle continues during this.</p>
@@ -142,14 +122,11 @@ ms</strong><br />
 <h1>Event: Vision Override (VPU)</h1>
 <p>If VPU classifies an obstacle as <strong>Critical</strong>:</p>
 <ol style="list-style-type: decimal">
-<li>APC overrides all previous commands<br />
-</li>
+<li>APC overrides all previous commands</li>
 <li>Sends <strong>EmergencyStop</strong> to MC within <strong>15
-ms</strong><br />
-</li>
+ms</strong></li>
 <li>APC broadcasts <strong>CriticalObstacle</strong> to FPS, ALT, and
-VPU<br />
-</li>
+VPU</li>
 <li>MC halts any action (braking or ascending) immediately</li>
 </ol>
 <p>This takes precedence over all other behaviors.</p>
@@ -158,15 +135,11 @@ VPU<br />
 <h1>Interaction Rules</h1>
 <ul>
 <li>FPS, ALT, and VPU continue periodic outputs at their
-frequencies<br />
-</li>
+frequencies</li>
 <li>Motor actions (<strong>Braking</strong>, <strong>Ascending</strong>)
-last assigned durations<br />
-</li>
-<li><strong>EmergencyStop interrupts any motor maneuver</strong><br />
-</li>
-<li>APC deadlines must be shown (25 ms, 40 ms, 15 ms)<br />
-</li>
+last assigned durations</li>
+<li><strong>EmergencyStop interrupts any motor maneuver</strong></li>
+<li>APC deadlines must be shown (25 ms, 40 ms, 15 ms)</li>
 <li>Students must show overlapping timing (e.g., Critical detected
 during braking)</li>
 </ul>
@@ -175,94 +148,84 @@ during braking)</li>
 <h1>Student Task</h1>
 <p>Create a <strong>UML Timing Diagram</strong> showing:</p>
 <ul>
-<li>All five lifelines<br />
-</li>
-<li>State/value timelines for each component<br />
-</li>
-<li>Periodic readings (50 ms, 150 ms, 100 ms)<br />
-</li>
+<li>All five lifelines</li>
+<li>State/value timelines for each component</li>
+<li>Periodic readings (50 ms, 150 ms, 100 ms)</li>
 <li>Event-driven transitions:
 <ul>
-<li><code>CloseObstacle</code><br />
-</li>
-<li><code>RapidDrop</code><br />
-</li>
+<li><code>CloseObstacle</code></li>
+<li><code>RapidDrop</code></li>
 <li><code>Brake</code>, <code>Ascend</code>,
-<code>EmergencyStop</code><br />
-</li>
-<li><code>CriticalObstacle</code><br />
-</li>
+<code>EmergencyStop</code></li>
+<li><code>CriticalObstacle</code></li>
 </ul></li>
 <li>Duration constraints:
 <ul>
-<li>Braking: <strong>200 ms</strong><br />
-</li>
-<li>Ascending: <strong>300 ms</strong><br />
-</li>
+<li>Braking: <strong>200 ms</strong></li>
+<li>Ascending: <strong>300 ms</strong></li>
 </ul></li>
-<li>APC deadlines: <strong>25 ms, 40 ms, 15 ms</strong><br />
-</li>
-<li>At least <strong>one interrupt case</strong><br />
-</li>
+<li>APC deadlines: <strong>25 ms, 40 ms, 15 ms</strong></li>
+<li>At least <strong>one interrupt case</strong></li>
 <li>Time markers (t0, t1, t2…)</li>
 </ul>
 </div>
 <div id="tips" class="slide section level2">
 <h1>Tips</h1>
 <ul>
-<li>Start by placing time axis and the five lifelines<br />
-</li>
-<li>Add periodic outputs first<br />
-</li>
-<li>Insert event-driven triggers<br />
-</li>
-<li>Represent deadlines clearly<br />
-</li>
-<li>Use timing marks (t0, t1…) for clarity<br />
-</li>
+<li>Start by placing time axis and the five lifelines</li>
+<li>Add periodic outputs first</li>
+<li>Insert event-driven triggers</li>
+<li>Represent deadlines clearly</li>
+<li>Use timing marks (t0, t1…) for clarity</li>
 <li>Ensure emergency paths override other states cleanly</li>
 </ul>
-</div>
-<div class="slide section level2">
-
 </div>
 
 <div id="communication-diagrams" class="title-slide slide section level1">
 <h1>Communication Diagrams</h1>
 
 </div>
-<div id="uml-communication-diagrams-refresher" class="slide section level2">
-<h1>UML Communication Diagrams Refresher</h1>
+<div id="communication-diagrams-quick-refresher" class="slide section level2">
+<h1>Communication Diagrams — Quick Refresher</h1>
+<dl>
+<dt>Purpose</dt>
+<dd>
+<p>Show interactions between objects in a system and their message
+flows</p>
+</dd>
+<dt>Focus</dt>
+<dd>
+<p>Relationships and links, not time sequence</p>
+</dd>
+</dl>
+<h3 id="key-concepts">Key Concepts</h3>
+<dl>
+<dt>Objects/Actors</dt>
+<dd>
+<p>represented as rectangles with names</p>
+</dd>
+<dt>Links</dt>
+<dd>
+<p>lines connecting objects</p>
+</dd>
+<dt>Messages</dt>
+<dd>
+<p>arrows along links, optionally numbered to indicate sequence</p>
+</dd>
+<dt>Sequence numbers</dt>
+<dd>
+<p>to show nested/parallel interactions</p>
+</dd>
+<dd>
+(e.g., <code>1</code>, <code>1.1</code>, <code>1.2</code>,
+<code>2</code>)
+</dd>
+</dl>
+<h3 id="use-cases">Use Cases</h3>
 <ul>
-<li><strong>Purpose:</strong> Show interactions between objects in a
-system and their message flows<br />
-</li>
-<li><strong>Focus:</strong> Relationships and links, not time
-sequence<br />
-</li>
-<li><strong>Key Concepts:</strong>
-<ul>
-<li><strong>Objects/Actors</strong> — represented as rectangles with
-names<br />
-</li>
-<li><strong>Links</strong> — lines connecting objects<br />
-</li>
-<li><strong>Messages</strong> — arrows along links, optionally numbered
-to indicate sequence<br />
-</li>
-<li><strong>Sequence numbers</strong> — e.g., <code>1</code>,
-<code>1.1</code>, <code>1.2</code>, <code>2</code> to show
-nested/parallel interactions<br />
-</li>
-</ul></li>
-<li><strong>Use Cases:</strong>
-<ul>
-<li>Modeling collaborative behavior<br />
-</li>
-<li>Complementary to Sequence Diagrams<br />
-</li>
+<li>Modeling collaborative behavior</li>
+<li>Complementary to Sequence Diagrams</li>
 <li>Useful for analyzing message paths and responsibilities</li>
-</ul></li>
 </ul>
 </div>
 <div id="communication-diagram-example" class="slide section level2">
@@ -282,16 +245,11 @@ robots</strong> that negotiate access to a <strong>shared loading
 bay</strong>.</p>
 <p>Key components:</p>
 <ul>
-<li><strong>Robot A</strong><br />
-</li>
-<li><strong>Robot B</strong><br />
-</li>
-<li><strong>Bay Controller (BC)</strong><br />
-</li>
-<li><strong>Task Scheduler (TS)</strong><br />
-</li>
-<li><strong>Collision Monitor (CM)</strong><br />
-</li>
+<li><strong>Robot A</strong></li>
+<li><strong>Robot B</strong></li>
+<li><strong>Bay Controller (BC)</strong></li>
+<li><strong>Task Scheduler (TS)</strong></li>
+<li><strong>Collision Monitor (CM)</strong></li>
 <li><strong>Fleet Manager (FM)</strong></li>
 </ul>
 <p>Robots must request access, negotiate conflicts, and handle overrides
@@ -333,10 +291,8 @@ Bay Controller (BC).</li>
 <li>The <strong>Collision Monitor (CM)</strong> may send
 <strong>ProximityAlert</strong> to:
 <ul>
-<li>Robot A<br />
-</li>
-<li>Robot B<br />
-</li>
+<li>Robot A</li>
+<li>Robot B</li>
 <li>Bay Controller (BC)</li>
 </ul></li>
 </ul>
@@ -360,10 +316,8 @@ movement.</li>
 diagrams.</li>
 <li><strong>Message ordering</strong> within:
 <ul>
-<li>Normal access negotiation<br />
-</li>
-<li>Tie-break protocol<br />
-</li>
+<li>Normal access negotiation</li>
+<li>Tie-break protocol</li>
 <li>Safety override interrupt sequence</li>
 </ul></li>
 <li><strong>Conditional messages</strong> (equality of priority).</li>
@@ -373,9 +327,8 @@ CounterProposal).</li>
 point.</li>
 </ul>
 </div>
-<div id="task" class="slide section level2">
-<h1>Task</h1>
-<p>Produce a UML Communication Diagram showing:</p>
+<div id="task-produce-a-uml-communication-diagram-showing" class="slide section level2">
+<h1>Task: Produce a UML Communication Diagram showing</h1>
 <ol style="list-style-type: decimal">
 <li><strong>Objects / Lifelines</strong>
 <ul>
@@ -387,12 +340,9 @@ point.</li>
 </ul></li>
 <li><strong>Message Flows</strong>
 <ul>
-<li>Access request cycle<br />
-</li>
-<li>Priority request to TS<br />
-</li>
-<li>Tie-break negotiation if required<br />
-</li>
+<li>Access request cycle</li>
+<li>Priority request to TS</li>
+<li>Tie-break negotiation if required</li>
 <li>Safety override sequence</li>
 </ul></li>
 <li><strong>Message Numbering</strong>
@@ -401,41 +351,17 @@ point.</li>
 </ul></li>
 <li><strong>Conditional &amp; Loop Indicators</strong>
 <ul>
-<li>Show repeated proposal exchanges<br />
-</li>
+<li>Show repeated proposal exchanges</li>
 <li>Show priority-equality decision branches</li>
 </ul></li>
 <li><strong>Interrupt Modeling</strong>
 <ul>
-<li>Show how <strong>ProximityAlert</strong> interrupts
-negotiation<br />
-</li>
-<li>Show BC → Robot abort sequence<br />
-</li>
-<li>Show BC → FM reporting<br />
-</li>
+<li>Show how <strong>ProximityAlert</strong> interrupts negotiation</li>
+<li>Show BC → Robot abort sequence</li>
+<li>Show BC → FM reporting</li>
 <li>Show FM’s commands</li>
 </ul></li>
 </ol>
-</div>
-<div id="expected-complexity" class="slide section level2">
-<h1>Expected Complexity</h1>
-<p>Students must represent:</p>
-<ul>
-<li>Multi-party negotiations<br />
-</li>
-<li>Conditional tie-breaking<br />
-</li>
-<li>Direct robot-to-robot communication<br />
-</li>
-<li>Interrupt-driven behavior<br />
-</li>
-<li>Message ordering and hierarchy<br />
-</li>
-<li>Safety-override commands</li>
-</ul>
-<p>This typically results in <strong>15–30 messages</strong> and
-multiple branches.</p>
 </div>
 </body>
 </html>
