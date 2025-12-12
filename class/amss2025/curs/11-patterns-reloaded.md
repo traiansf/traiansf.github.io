@@ -76,6 +76,34 @@ Elements accept a visitor and delegate the operation to it.
 
 ---
 
+# Visitor Pattern - key ideas
+
+Elements
+
+: Objects you want to operate on (e.g., nodes in an AST, shapes in a graphics editor).
+: Each element implements an accept(visitor) method.
+
+Visitor
+
+: An object that implements different operations for each concrete element type.
+: Example methods:
+
+  ```java
+  visitCircle(circle)
+  visitSquare(square)
+  visitTriangle(triangle)
+  ```
+
+Double Dispatch
+
+: A crucial mechanism:
+
+: The element calls visitor.visitXYZ(this)
+
+: The visitor chooses the correct method based on the element type
+
+: This avoids type-checking or if/instanceof cascades.
+
 # Visitor Pattern --- concrete example scenario
 
 ## Problem
@@ -91,10 +119,11 @@ Elements accept a visitor and delegate the operation to it.
 The Visitor pattern lets you add new operations by creating new Visitor classes,  
 while the shapes themselves remain unchanged and simply “accept” visitors.
 
-# Visitor Pattern --- concrete example diagram
+# Visitor Pattern --- UML class diagram
 
 ```plantuml
 @startuml
+hide empty members
 interface Visitor {
     +visitCircle(Circle)
     +visitRectangle(Rectangle)
@@ -106,9 +135,6 @@ interface Element {
 
 class Circle implements Element
 class Rectangle implements Element
-
-Element <|.. Circle
-Element <|.. Rectangle
 
 Visitor <-- Circle : accept(v)
 Visitor <-- Rectangle : accept(v)
@@ -164,14 +190,34 @@ public class Main {
 }
 ```
 
+# Visitor Pattern - benefits and drawbacks
+
+## Benefits
+
+- Easy to add new operations: Add a new visitor class, no changes to element classes.
+
+- Keeps element classes small: Offloads complex logic.
+
+- Great for tree-like structures: Compilers, interpreters, document processors, etc.
+
+## Drawbacks
+
+- Hard to add new element types: Every visitor must be updated.
+
+- Increased coupling: Visitors need access to element internals.
+
+- More boilerplate: Especially in statically typed languages.
+
 # Visitor Pattern Exercise
 
 ## Task
 
-Design a system for processing elements in an online document editor:
-Paragraph, Image, and Table.  
-Define two possible operations: spell-checking and exporting to HTML.  
-Sketch how the Visitor pattern would let you add these operations
+- Design a system for processing elements in an online document editor:
+Paragraph, Image, and Table.
+
+- Define two possible operations: spell-checking and exporting to HTML.  
+
+- Sketch how the Visitor pattern would let you add these operations
 without modifying the element classes.
 
 ## Goal
@@ -196,41 +242,56 @@ How to reduce direct dependencies and complex communication between many interac
 Create a `Mediator` object that centralizes communication logic.  
 Colleagues communicate only through the mediator.
 
+# Mediator Pattern --- key concepts
+
+Mediator (Interface / Abstract Class)
+
+: Defines how components communicate through the mediator.
+
+Concrete Mediator
+
+: Implements coordination logic.
+: Receives events from components and decides how to react.
+
+Colleague Components
+
+: Objects that interact only through the mediator.
+: They notify the mediator when something happens instead of contacting each other directly.
+
+
 # Mediator Pattern --- concrete example scenario
 
 ## Problem
 
-In a chat application, every user needs to send messages to others.  
+- In a chat application, every user needs to send messages to others.  
 
-If each user communicated directly with every other user, the system would become  
-highly coupled and difficult to maintain.  
+- If each user communicated directly with every other user, the system would become highly coupled and difficult to maintain.  
 
 . . .
 
 ## Solution
 
-The Mediator pattern introduces a central ChatRoom that manages all communication.  
+- The Mediator pattern introduces a central ChatRoom that manages all communication.  
 
-Users send messages through the mediator, drastically simplifying interaction.
+- Users send messages through the mediator, drastically simplifying interaction.
 
-# Mediator Pattern --- concrete example diagram
+# Mediator Pattern --- UML class diagram
 
 ```plantuml
 @startuml
+hide empty members
 interface Mediator {
     +sendMessage(msg, Colleague)
 }
 
 abstract class Colleague {
-    -mediator: Mediator
     +send(msg)
 }
 
 class ConcreteMediator implements Mediator
 class User extends Colleague
 
-Colleague --> Mediator
-ConcreteMediator <|-- Mediator
+Colleague o--> Mediator
 
 User --> ConcreteMediator : send()
 @enduml
@@ -280,20 +341,38 @@ public class Main {
 }
 ```
 
+# Mediator Pattern --- Benefits & Tradeoffs
+
+## Benefits
+
+- Loose coupling: Components don't depend on each other’s implementation.
+
+- Centralized control: Collaboration logic is in one place.
+
+- Easier maintenance: Changes affect fewer places.
+
+## Drawbacks
+
+- Mediator can become too large ("God Object")
+  - If it takes on too much logic, the pattern backfires.
+
+- May hide complexity instead of removing it.
+
 # Mediator Pattern Exercise
 
 ## Task
 
-Imagine a smart home system where devices (lights, thermostat, alarm,
-blinds) must coordinate actions (e.g., “away mode”).  
-Design a Mediator that centralizes communication so devices do not
-directly reference or call each other.  
-Outline the mediator role and how devices interact with it.
+- Imagine a smart home system where devices (lights, thermostat, alarm,
+  blinds) must coordinate actions (e.g., “away mode”).  
+
+- Design a Mediator that centralizes communication so devices do not
+  directly reference or call each other.  
+
+- Outline the mediator role and how devices interact with it.
 
 ## Goal
 
-Recognize situations with complex object interactions and apply a mediator
-to simplify communication.
+Recognize situations with complex object interactions and apply a mediator to simplify communication.
 
 ---
 
@@ -311,28 +390,51 @@ How to avoid a class explosion caused by combining multiple abstractions with mu
 ## Solution
 Split abstraction and implementation into separate class hierarchies, connecting them via a bridge interface.
 
+---
+
+# Bridge Pattern --- key components
+
+Abstraction
+
+: Defines high-level control logic.
+
+: Maintains a reference to an implementation.
+
+Refined Abstraction
+
+: Specialized abstractions that extend the base abstraction.
+
+Implementor (Interface or Abstract Class)
+
+: Defines low-level platform-specific operations.
+
+Concrete Implementor
+
+: Actual implementation details.
+
 
 # Bridge Pattern --- concrete example scenario
 
 ## Problem
 
-You want to build a universal remote-control system that works with different devices  
-like TVs, Radios, and projectors.  
+- You want to build a universal remote-control system that works with different devices  
+  like TVs, Radios, and projectors.  
 
-If you directly subclass for every combination (e.g., AdvancedTVRemote, BasicRadioRemote),  
-you get class explosion.  
+- If you directly subclass for every combination (e.g., AdvancedTVRemote, BasicRadioRemote),  
+  you get class explosion.  
 
 . . .
 
 ## Solution
 
-The Bridge pattern separates the abstraction (Remote) from the implementation (Device),  
-allowing each to evolve independently and avoiding unnecessary subclasses.
+- The Bridge pattern separates the abstraction (Remote) from the implementation (Device),  
+  allowing each to evolve independently and avoiding unnecessary subclasses.
 
 # Bridge Pattern --- concrete example diagram
 
 ```plantuml
 @startuml
+hide empty members
 interface Device {
     +turnOn()
     +turnOff()
@@ -406,6 +508,30 @@ public class Main {
 
 ---
 
+# Bridge Pattern --- benefits and drawbacks
+
+## ️ Benefits
+
+- Decouples abstraction from implementation
+  - They evolve independently.
+
+- Avoids class explosion
+  - You don’t need a subclass for every combination.
+
+- Improves extensibility
+  - Add new abstractions or new implementations without touching the other side.
+
+- Follows the Open/Closed Principle
+  - Add features without modifying existing code.
+
+## Drawbacks
+
+- Makes architecture more complex than necessary for simple cases.
+
+- Adds layers of indirection you may not always need.
+
+---
+
 # Bridge Pattern Exercise
 
 ## Task
@@ -438,14 +564,32 @@ Create an `Adapter` that wraps an existing class and exposes the desired target 
 
 ---
 
-## Adapter Pattern --- concrete example scenario
+# Adapter Pattern --- key components
+
+Target
+
+: The interface your code expects and uses.
+
+Adaptee
+
+: The existing class with an incompatible interface.
+
+Adapter
+
+: The wrapper that Implements the Target interface
+
+: Internally calls the Adaptee method(s), translating data or behavior
+
+---
+
+# Adapter Pattern --- concrete example scenario
 
 ## Problem
 
-Your media application expects a MediaPlayer interface with a play() method,  
-but your existing audio engine (LegacyPlayer) only supports playMp3().
+- Your media application expects a MediaPlayer interface with a play() method,  
+  - but your existing audio engine (LegacyPlayer) only supports playMp3().
 
-You cannot modify the legacy system, but you must integrate it.  
+- You cannot modify the legacy system, but you must integrate it.  
 
 . . .
 
@@ -453,6 +597,30 @@ You cannot modify the legacy system, but you must integrate it.
 
 The Adapter pattern wraps the incompatible class and exposes the interface the client expects,  
 allowing the two systems to work together seamlessly.
+
+---
+
+# Adapter Pattern --- UML class diagram
+
+```plantuml
+@startuml
+hide empty members
+interface MediaPlayer {
+    +play(file)
+}
+
+class LegacyPlayer {
+    +playMp3(file)
+}
+
+class MediaAdapter implements MediaPlayer {
+    +play(file)
+}
+
+MediaAdapter o--> LegacyPlayer
+@enduml
+```
+
 
 # Adapter Pattern --- concrete example code
 
@@ -486,27 +654,27 @@ public class Main {
 }
 ```
 
-# Adapter Pattern --- concrete example diagram
+---
 
-```plantuml
-@startuml
-interface MediaPlayer {
-    +play(file)
-}
+# Adapter Pattern --- benefits and drawbacks
 
-class LegacyPlayer {
-    +playMp3(file)
-}
+## Benefits
 
-class MediaAdapter implements MediaPlayer {
-    -legacy: LegacyPlayer
-    +play(file)
-}
+- Reuses existing code without modification
 
-MediaPlayer <|.. MediaAdapter
-MediaAdapter o--> LegacyPlayer
-@enduml
-```
+- Decouples client code from concrete implementations
+
+- Makes third-party, legacy, or low-level APIs easier to use
+
+- Improves testability by exposing a clean interface
+
+## Drawbacks
+
+- Adds an extra layer of indirection
+
+- Can proliferate adapters if many mismatched types exist
+
+- If misused, may hide architectural inconsistencies
 
 ---
 
@@ -514,10 +682,11 @@ MediaAdapter o--> LegacyPlayer
 
 ## Task
 
-A new external weather service provides data in a completely different
-format from your current WeatherData interface.  
-Design an Adapter that lets your system continue using WeatherData
-while seamlessly integrating the new provider.
+- A new external weather service provides data in a completely different
+  format from your current WeatherData interface.  
+
+- Design an Adapter that lets your system continue using WeatherData
+  - while seamlessly integrating the new provider.
 
 ## Goal
 
@@ -541,29 +710,50 @@ Wrap objects with decorator classes that implement the same interface and add be
 
 ---
 
+# Decorator Pattern --- key components
+
+Component (interface or abstract class)
+
+: Defines the main operations.
+
+Concrete Component
+
+: The core object you want to decorate.
+
+Decorator (abstract class)
+
+: Wraps a component and delegates calls to it.
+
+Concrete Decorators
+
+: Add additional behavior before or after delegating to the wrapped object.
+
+---
+
 # Decorator Pattern --- concrete example scenario
 
 ## Problem
 
-A beverage ordering system needs to allow customers to add ingredients  
-like milk, sugar, or whipped cream to drinks.  
+- A beverage ordering system needs to allow customers to add ingredients  
+  - like milk, sugar, or whipped cream to drinks.  
 
-Creating a subclass for every combination (CoffeeWithMilkAndSugar, etc.)  
-would cause a combinational explosion.  
+- Creating a subclass for every combination (CoffeeWithMilkAndSugar, etc.)  
+  would cause a combinational explosion.  
 
 . . .
 
 ## Solution
 
-The Decorator pattern lets you dynamically wrap beverages with add-ons,  
-mixing and matching features without modifying existing code.
+- The Decorator pattern lets you dynamically wrap beverages with add-ons,  
+  - mixing and matching features without modifying existing code.
 
 ---
 
-# Decorator Pattern --- concrete example diagram
+# Decorator Pattern --- UML class diagram
 
 ```plantuml
 @startuml
+hide empty members
 interface Beverage {
     +getDescription()
     +cost()
@@ -571,19 +761,11 @@ interface Beverage {
 
 class Coffee implements Beverage
 
-abstract class AddOn implements Beverage {
-    -beverage: Beverage
-}
+abstract class AddOn implements Beverage
 
 class Milk extends AddOn
 class Sugar extends AddOn
 class WhippedCream extends AddOn
-
-Beverage <|.. Coffee
-Beverage <|.. AddOn
-AddOn <|-- Milk
-AddOn <|-- Sugar
-AddOn <|-- WhippedCream
 
 AddOn o--> Beverage
 @enduml
@@ -634,14 +816,40 @@ public class Main {
 Explain how Factory Method allows adding new document types without changing the client code.
 :::
 
+---
+
+# Decorator Pattern --- benefits and drawbacks
+
+## Benefits
+
+- Add responsibilities at runtime
+
+- Combine decorators in flexible ways
+
+- Open/Closed Principle (add behavior without modifying existing code)
+
+- Avoids deep subclass hierarchies
+
+## Drawbacks
+
+- Lots of small classes
+
+- Behavior can become harder to trace after many layers
+
+- Debugging can be trickier
+
+---
+
 # Decorator Pattern Exercise
 
 ## Task
 
-Consider an online text editor where users can apply features such as:
-Bold, Italic, Underline, Syntax Highlighting.  
-Describe how you could use Decorators to apply multiple text styles to
-a plain Text object at runtime, without creating many subclasses.
+- Consider an online text editor where users can apply features such as:
+  - Bold, Italic, Underline, Syntax Highlighting.  
+
+- Describe how you could use Decorators to apply multiple text styles to
+  a plain Text object at runtime
+  - without creating many subclasses.
 
 ## Goal
 
@@ -669,35 +877,49 @@ Implement a proxy that implements the same interface as the real subject and con
 
 ## Problem
 
-Accessing a real database connection is slow and expensive.  
+- Accessing a real database connection is slow and expensive.  
 
-However, you only need the actual connection when a query is executed.  
+- However, you only need the actual connection when a query is executed.  
 
 . . .
 
 ## Solution
 
-The Proxy pattern allows you to create a DatabaseProxy that delays  
-the creation of the RealDatabase until it's truly needed (lazy loading),  
-controlling access and improving performance.
+- The Proxy pattern allows you to create a DatabaseProxy that
+  - delays the creation of the RealDatabase until it's truly needed (lazy loading),
+  - controlling access and improving performance.
 
 ---
 
-# Proxy Pattern --- concrete example diagram
+# Proxy Pattern - key components
+
+Subject (interface)
+
+: Defines the operations available to both Proxy and RealSubject.
+
+RealSubject
+
+: The actual object that does the real work.
+
+Proxy
+
+: Implements the same interface but performs extra steps before/after delegating to RealSubject:
+  *Access control*, *Lazy initialization*, *Logging / auditing*, *Remote communication*, *Caching*
+: Clients cannot tell whether they’re talking to the proxy or the real subject.
+
+---
+
+# Proxy Pattern --- UML class diagram
 
 ```plantuml
 @startuml
+hide empty members
 interface Database {
     +query(sql)
 }
 
 class RealDatabase implements Database
-class DatabaseProxy implements Database {
-    -realDb: RealDatabase
-}
-
-Database <|.. RealDatabase
-Database <|.. DatabaseProxy
+class DatabaseProxy implements Database
 
 DatabaseProxy o--> RealDatabase
 @enduml
@@ -746,14 +968,41 @@ public class Main {
 
 ---
 
+# Proxy Pattern --- benefits and drawbacks
+
+## Benefits
+
+- Add functionality without changing the real object
+
+- Control expensive or sensitive operations
+
+- Transparent to clients—same interface
+
+- Can optimize performance (caching, lazy loading)
+
+- Supports distributed systems (remote proxy)
+
+## Drawbacks
+
+- Adds complexity
+
+- Indirection may hurt performance if misused
+
+- Can hide what’s really happening (e.g., network calls look local)
+
+---
+
 # Proxy Pattern Exercise
 
 ## Task
 
-Your application accesses remote image files stored on a cloud server.
-Design a Proxy that loads the actual image only when it is displayed
-(for example, when scrolling in a gallery).  
-Describe the responsibilities of both the proxy and the real image.
+- Your application accesses remote image files stored on a cloud server.
+
+- Design a Proxy that loads the actual image only when it is displayed
+  
+  (for example, when scrolling in a gallery).  
+
+- Describe the responsibilities of both the proxy and the real image.
 
 ## Goal
 
@@ -778,44 +1027,62 @@ Leaf objects implement base behavior; composite objects store children and deleg
 
 ---
 
-# Composite Pattern --- concrete example scenario
+# Composite Pattern --- key components
 
-## Problem
+Component (common interface)
 
-You want to represent a hierarchical file system where folders can contain  
-both files and other folders.  
+: Defines operations available to both leaf and composite objects.
 
-Clients should treat individual files and folder groups uniformly  
-(e.g., calling show() on either should work).  
+Leaf
 
-. . .
+: A simple object with no children.
 
-## Solution
+Composite
 
-The Composite pattern allows you to build tree structures in which  
-both leaf nodes (files) and composite nodes (folders) share the same interface.
+: A container object that can hold components (both leaves and other composites).
+
+Client
+
+: Interacts with components uniformly, without caring if they’re leaves or composites.
 
 ---
 
 # Composite Pattern --- concrete example scenario
 
+## Problem
+
+- You want to represent a hierarchical file system where folders can contain  
+  both files and other folders.  
+
+- Clients should treat individual files and folder groups uniformly  
+  
+  (e.g., calling show() on either should work).  
+
+. . .
+
+## Solution
+
+- The Composite pattern allows you to build tree structures in which  
+  both leaf nodes (files) and composite nodes (folders) share the same interface.
+
+---
+
+# Composite Pattern --- UML class diagram
+
 ```plantuml
 @startuml
+hide empty members
 interface FileSystemNode {
     +show()
 }
 
 class FileNode implements FileSystemNode
 class Folder implements FileSystemNode {
-    -children: List<FileSystemNode>
     +add(node)
     +remove(node)
 }
 
-FileSystemNode <|.. FileNode
-FileSystemNode <|.. Folder
-
-Folder o--> FileSystemNode : contains
+Folder *--> "0..*" FileSystemNode : children
 @enduml
 ```
 
@@ -866,50 +1133,83 @@ public class Main {
 }
 ```
 
+---
+# Composite Pattern --- benefits and drawbacks
+
+## Benefits
+
+- Treat leaves and composites the same
+
+- Simplifies client code
+
+- Makes tree structures easy to build and manipulate
+
+- Supports recursive operations elegantly
+
+- Encourages flexible, extensible system architecture
+
+## Drawbacks
+
+- Can make type distinctions harder when you do need to handle leaf/composite differently
+
+- Risk of making Composite overly general
+
+- May expose child-management methods even for leaves (depending on design)
+
+---
+
 # Composite Pattern Exercise
 
 ## Task
 
-You are modeling hierarchical UI components: Buttons, Labels, TextFields,
-and Containers that hold other components.  
-Explain how the Composite pattern allows you to treat every UI element
-uniformly (e.g., calling render() or resize()).  
-Sketch the component interface and the composite structure.
+- You are modeling hierarchical UI components:
+  - Buttons, Labels, TextFields, and Containers that hold other components.  
+
+- Explain how the Composite pattern allows you to treat every UI element
+  uniformly (e.g., calling render() or resize()).  
+
+- Sketch the component interface and the composite structure.
 
 ## Goal
 
 Understand how to represent part–whole hierarchies with recursive
 composition and uniform treatment.
 
-# Wrap-Up
+# Wrap-Up --- Key Insights
 
-## Key Insights
+Visitor
 
-- **Visitor** – Add new operations to existing class hierarchies *without modifying them*  
-  by externalizing behavior into Visitor objects.
+: Add operations to existing class hierarchies *without modifying them* by externalizing behavior.
 
-- **Mediator** – Reduce tangled, many-to-many communication by centralizing  
-  interaction logic inside a mediator object.
+Mediator
 
-- **Bridge** – Separate abstraction from implementation to avoid class explosion  
-  and allow both sides to vary independently.
+: Reduce tangled, many-to-many communication by centralizing interaction logic inside a mediator object.
 
-- **Adapter** – Make incompatible interfaces work together by wrapping one interface  
-  to match the expectations of another.
+Bridge
 
-- **Decorator** – Dynamically add responsibilities or behavior to objects at runtime  
-  without subclassing or modifying original classes.
+: Separate abstraction from implementation; avoid class explosion and allow sides to vary independently.
 
-- **Proxy** – Control or enhance access to another object (lazy loading, security, caching)  
-  without changing the real object.
+Adapter
 
-- **Composite** – Represent part–whole hierarchies and treat individual items  
-  and groups uniformly through a shared component interface.
+: Make incompatible interfaces work together: wrap one interface to match expectations of another.
+
+Decorator
+
+: Dynamically add responsibilities or behavior to objects at without subclassing or modifying original classes.
+
+Proxy
+
+: Control/enhance access to an object (lazy loading, security, caching) without changing the real object.
+
+Composite
+
+: Treat individual items and groups uniformly through a shared component interface.
 
 # Wrap-up diagram
 
 ```plantuml
 @startuml
+hide empty members
 package "Behavioral Patterns" {
     interface Visitor
     class Element
