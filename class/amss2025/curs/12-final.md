@@ -4,7 +4,11 @@ author: "Traian Florin Șerbănuță"
 date: "2025"
 ---
 
-## Agenda
+### Goal
+
+Consolidate UML knowledge, reflect on modeling choices, and connect diagrams, design patterns, and evaluation techniques.
+
+### Agenda
 
 #. Why UML still matters
 #. UML diagram landscape (overview)
@@ -13,10 +17,6 @@ date: "2025"
 #. Design patterns & architecture recap
 #. Model evaluation & quality
 #. Reflection & discussion exercises
-
-### Goal
-
-Consolidate UML knowledge, reflect on modeling choices, and connect diagrams, design patterns, and evaluation techniques.
 
 # Foundations & Behavioral View
 
