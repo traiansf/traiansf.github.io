@@ -29,7 +29,7 @@ O pricină am arătat-o în cuvântarea de mai înainte. Trebuie să arăt și o
 
 ### II
 
-– Unii interpreți spun că evanghelistul a făcut aceasta din pricina răutății lui Isav și a altor fapte săvârșite de el mai înainte. Eu nu sunt însă de această părere. Dacă aceasta ar fi pricina lăsării la o parte a lui Isav, atunci pentru ce sunt pomenite puțin mai jos niște femei, tot așa de stri- cate ca și Isav? Că din cele contrarii se vădește slava lui Iisus, nu din faptul că a avut strămoși străluciți, ci din aceea că a avut strămoși mici și neînsemnați. Pentru cineva mare este mare slavă când poate să se umilească mult.
+– Unii interpreți spun că evanghelistul a făcut aceasta din pricina răutății lui Isav și a altor fapte săvârșite de el mai înainte. Eu nu sunt însă de această părere. Dacă aceasta ar fi pricina lăsării la o parte a lui Isav, atunci pentru ce sunt pomenite puțin mai jos niște femei, tot așa de stricate ca și Isav? Că din cele contrarii se vădește slava lui Iisus, nu din faptul că a avut strămoși străluciți, ci din aceea că a avut strămoși mici și neînsemnați. Pentru cineva mare este mare slavă când poate să se umilească mult.
 
 – Deci pentru care pricină nu l-a amintit pe Isav?
 
@@ -77,7 +77,7 @@ Nimeni[^14], dar, să nu se laude cu strămoșii. Gândește-te la strămoșii S
 
 ### V
 
-Pentru smerenia ta vei primi întreaga plată chiar dacă ai lucrat din ceasul al unsprezecelea[^17]. „*Chiar dacă nu vei avea nici o pricină de mântuire*, zice Scriptura, *pentru Mine voi face, ca să nu se necinstească numele Meu*”[^18]. Suspinul tău numai, lacrimile tale, pe toate le ia în seamă Dom- nul și le face pricină de mântuire. Așadar să nu ne lăudăm, ci să ne numim nefolositori, ca să ajungem folositori\! Dacă spui că ești plin de fapte bune, le-ai pierdut pe toate, chiar dacă ai săvârșit într-adevăr fapte bune; dar dacă spui că nu ești bun de nimica, ai ajuns folositor, chiar dacă n-ai făcut nici o faptă bună. De aceea este de neapărată trebuință să uităm toate faptele noastre bune.
+Pentru smerenia ta vei primi întreaga plată chiar dacă ai lucrat din ceasul al unsprezecelea[^17]. „*Chiar dacă nu vei avea nici o pricină de mântuire*, zice Scriptura, *pentru Mine voi face, ca să nu se necinstească numele Meu*”[^18]. Suspinul tău numai, lacrimile tale, pe toate le ia în seamă Domnul și le face pricină de mântuire. Așadar să nu ne lăudăm, ci să ne numim nefolositori, ca să ajungem folositori\! Dacă spui că ești plin de fapte bune, le-ai pierdut pe toate, chiar dacă ai săvârșit într-adevăr fapte bune; dar dacă spui că nu ești bun de nimica, ai ajuns folositor, chiar dacă n-ai făcut nici o faptă bună. De aceea este de neapărată trebuință să uităm toate faptele noastre bune.
 
 – Dar cum putem să uităm ceea ce știm?
 
