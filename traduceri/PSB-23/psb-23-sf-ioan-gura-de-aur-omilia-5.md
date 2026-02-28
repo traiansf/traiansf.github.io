@@ -58,7 +58,6 @@ Acestei obiecții voi răspunde mai întîi aşa: textul Septuagintei este mai v
 III 
 Dar chiar dacă iudeii aduc mărturia celorlalte traduceri ale Vechiu- lui Testament, şi atunci biruința va fi tot de partea noastră. Scriptura obişnuiește să dea numele de tinerețe” şi „fecioriei"; şi face asta nu numai cînd e vorba de femei, ci şi cînd e vorba de bărbați. „Tinerii şi fecioarele, spune psalmistul, bătrînii cu cei mai tineri”11. Iar în alt loc, unde este vorba de siluirea unei fete, Scriptura spune: „Dacă va striga tînăra "12, adică fecioara. Dar şi cuvintele din textul lui Isaia, aflate înaintea cuvintelor spuse de înger lui Iosif, sprijină ideea că în această profeție este vorba de o fecioară. Profetul Isaia n-a spus numai: „Iată Fecioara va avea în pîntece”13, ci mai înainte a spus: „Iată Însuşi Domnul va da vouă semn şi apoi a adăugat: „Iată Fecioara va avea în pîntece”. Dacă aceea care avea să nască n-ar fi fost fecioară, dacă avea să nască pe temeiul legii căsătoriei, ce semn ar mai fi naşterea? Semn se dă numai atunci cînd trebuie să se întîmple ceva ce depăşeşte ceea ce se petrece de obicei, cînd se întîmplă ceva străin, ceva neobişnuit. Altfel cum ar mai putea fi semn? 
 „Şi sculîndu-se Iosif din somn, a făcut precum i-a poruncit lui îngerul Domnului" 15 
-39 14 
 
 -----------------
 
@@ -125,11 +124,7 @@ Să nu stăm, dar, cu gura căscată aşteptînd ajutor de la alții. Au într-a
 OMILII LA matei 
 73 
 scăpat de moarte pe barbari**, dar n-a putut să scape pe iudei din robie. In Evanghelii vom vedea că mîntuirea și pieirea nu se întîmplă asupra unor persoane diferite, ci asupra uneia și aceleiași persoane. Aceeaşi persoană se mîntuie într-un moment prin rugăciunile lui, dar mai tîrziu rugăciunile nu-i ajută. Cel care datora zece mii de talanți, rugîndu-se, a scăpat de primejdie; dar mai tîrziu rugăciunea lui n-a mai avut nici o putere35; altuia, dimpotrivă, mai întîi rugăciunea nu i-a fost de folos, dar mai pe urmă l-a ajutat nespus de mult. Cine-i acesta? Fiul care a mîncat averea părintească36. 
-35 
-Deci, dacă ne trîndăvim nu ne vom putea mîntui nici cu rugăciu- nile altora; dar dacă sîntem treji vom reuși noi înşine, mai mult decît cu rugăciunile altora. Că şi Dumnezeu mai degrabă vrea să ne dea nouă harul decît altora care se roagă pentru noi, ca să avem și îndrăznire şi să ne facem şi mai buni, silindu-ne să potolim mînia lui Dumnezeu. Aşa a 
-miluit pe cananeanca37. 
-, aşa a mîntuit pe femeia cea păcătoasă, așa și pe tîlhar. Nici unul n-a avut mijlocitor şi apărător. 
-40 
+Deci, dacă ne trîndăvim nu ne vom putea mîntui nici cu rugăciu- nile altora; dar dacă sîntem treji vom reuși noi înşine, mai mult decît cu rugăciunile altora. Că şi Dumnezeu mai degrabă vrea să ne dea nouă harul decît altora care se roagă pentru noi, ca să avem și îndrăznire şi să ne facem şi mai buni, silindu-ne să potolim mînia lui Dumnezeu. Aşa a miluit pe cananeanca37, aşa a mîntuit pe femeia cea păcătoasă, aşa şi pe tîlhar. Nici unul n-a avut mijlocitor şi apărător. 
 V 
 Nu vă spun asta ca să nu ne mai rugăm sfinților, ci ca să nu ne trîn- dăvim, şi nici cuprinşi de lenevie şi de somn să rugăm pe alţii să facă ce trebuia să facem noi. Cînd Domnul a spus:,,Faceți-vă prieteni”, nu s-a oprit numai la aceste cuvinte, ci a adăugat: „din mamona al nedreptă- ții”“, ca să ajungă iarăşi faptă bună a voastră. Că la nimic altceva n-a făcut aici aluzie Hristos decît la milostenie. Şi minunat lucru este că Dumnezeu nu ne mai ia la bani mărunţi, dacă ne despărțim de bogăţia strînsă pe nedrept. Ţi-ai strîns bogăția în chip rău? Cheltuieşte-o bine! Ai adunat averi în chip nedrept? Imprăştii-le drept! 
 - Dar ce virtute mai este aceea de a face milostenie din nişte bogății ca acestea? 
