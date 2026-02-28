@@ -6,6 +6,9 @@ ca să se împlinească ceea ce s-a zis de Domnul prin profetul, care zice:
 I 
 Aud pe mulți spunînd: „Cînd sîntem în biserică şi ascultăm predica ne căim de păcatele noastre; dar, după ce plecăm, ajungem alții; focul rivnei ni se stinge. Ce să facem ca să nu se mai întîmple asta?". 
 Să vedem de unde vine! Din ce pricină se petrece în noi o schim- bare atît de mare? Pricina o găsesc în aceea că nu ne ocupăm de ce tre- buie și că avem legături cu oameni răi. N-ar trebui ca, după ce plecăm de la biserică, să ne ocupăm cu lucruri care n-au nici o legătură cu bise- rica, ci îndată ce ajungem acasă să luăm Biblia, să chemăm în jurul nostru soţia şi copiii şi să le împărtăşim şi lor cele spuse la biserică şi numai după aceea să ne apucăm de treabă. Dacă atunci cînd ieşim de la baie nu ne ducem în piață, ca nu cumva cele din piață să ne strice buna dispoziție ce-o avem în urma băii, cu mult mai mult trebuie să facem aşa cînd ieşim de la biserică. Dar noi facem tocmai dimpotrivă. De aceea pierdem totul. Nu s-a întărit încă bine în sufletul nostru folosul celor spuse la predică, că furia cea mare a treburilor lumeşti se năpus- teşte peste noi şi tîrăşte cu ea toate cele auzite în biserică. Ca să nu se întîmple asta, după ce pleci de la biserică nu fă altă treabă mai de nea- părată trebuință decît repetarea celor spuse în predică. Ar fi cu totul lip- sit de judecată să dăm treburilor lumeşti cinci-şase zile pe săptămînă, iar celor duhovniceşti, nici măcar o zi, dar, mai bine spus, nici o mică parte din zi. Uitați-vă la copiii noștri! Nu citesc ei toată ziua lecțiile pe care le au de învățat? Așa să facem și noi! Altfel nu ne va fi de nici un folos venirea la biserică; că turnăm în fiecare zi în noi, ca într-un vas găurit, învățăturile, că pentru păstrarea celor spuse în predică nu ne dăm nici atîta silință cîtă o dăm pentru aur şi argint. Cînd primeşti cîțiva dinari2, îi pui în pungă, ba mai și strîngi la gură punga; iar noi 
+
+-----------------
+
 1. Matei 1, 22 23. 
 2. Pentru valoarea dinarului sa se vada nota 15, omilia II. 
 
@@ -21,6 +24,9 @@ Care este versetul pe care trebuie să-l tîlcuim azi?
 „Iar acestea toate s-au făcut ca să se împlinească ceea ce s-a zis de Domnul prin profetul care zice”3. 
 După vrednicia minunii, atît cît i-a fost cu putință, îngerul a strigat, spunînd: „Iar acestea toate s-au făcut!”. 
 Cînd îngerul a văzut oceanul și adîncul iubirii de oameni a lui Dumnezeu, cînd a văzut înfăptuit ce nici nu era nădăjduit, cînd a văzut suspendarea legilor firii şi împăcarea lui Dumnezeu cu oamenii, cînd a văzut pe Cel mai presus de toate pogorît la cele mai prejos de toate, cînd a văzut dărîmarea zidului din mijloc, desființarea piedicilor şi altele cu mult mai mari decît acestea, într-un singur cuvînt a înfățișat minunea, spunînd: „Iar acestea toate s-au făcut ca să se împlinească ceea ce s-a zis de Domnul”. „Să nu socotești, îi spune lui Iosif îngerul, că acum s-au hotărît acestea! Au fost propovăduite cu multă vreme înainte!". Aceas- ta caută şi Pavel să o arate în toate epistolele sale. Şi-l trimite îngerul pe Iosif la profetul Isaia, pentru că de s-ar întîmpla ca la trezirea sa din somn Iosif să uite cuvintele spuse în vis, să-și aducă aminte de cuvintele profetice citite necontenit de el şi astfel să-şi amintească şi de cele ce i-a spus. Îngerul nu 
+
+-----------------
+
 3. Matei 1, 22. 
 
 **********
@@ -33,6 +39,9 @@ Ce spune profeția?
 Aş putea fi întrebat: 
 - Dar atunci pentru ce nu s-a numit Emanuel, ci Iisus Hristos? - Ingerul n-a spus: „Vei chema”, ci: „Vor chema”, adică mulțimile de oameni şi faptele săvîrşite de Hristos. În acest text, numele Emanuel este dat de faptele săvîrşite de Hristos. Că are obicei Scriptura să numească pe cineva nu cu numele său, ci cu faptele săvîrşite de el. De aceea cuvintele: „Îl vor chema Emanuel” nu înseamnă altceva decît că vor vedea că Dumnezeu este cu oamenii. Totdeauna a fost Dumnezeu cu oamenii, dar niciodată atît de lămurit ca acum. 
 Dacă iudeii n-ar fi fără ruşine, i-aș întreba: Cînd a fost copilul numit: „Degrab pradă, curînd jefuieşte!"? Dar nu vor putea să-mi răs- pundă. Deci: Pentru ce spunea profetul Isaia: „Pune-i numele lui: Degrab pradă”? Pentru că după nașterea lui s-a făcut jefuirea și împărți- rea prăzilor. I se dă, deci, ca nume tocmai fapta săvîrşită. Un alt exemplu. Citim în Scriptură: „Iar cetatea va fi numită cetatea dreptății, metropolă credincioasă, Sion"10. Şi nicăieri nu găsim în Scriptură că ceta- tea a fost numită „Dreptate”, ci totdeauna „Ierusalim”. Dar pentru că avea să ajungă „cetate a dreptății” prin schimbarea ei în mai bine, de 
+
+-----------------
+
 4. Matei 1, 20. 5. Matei 1, 23. 6. Matei 1, 20. 
 7. Is. 7, 13; Matei 1, 22. 
 8. Is. 8, 3. 
@@ -50,6 +59,9 @@ III
 Dar chiar dacă iudeii aduc mărturia celorlalte traduceri ale Vechiu- lui Testament, şi atunci biruința va fi tot de partea noastră. Scriptura obişnuiește să dea numele de tinerețe” şi „fecioriei"; şi face asta nu numai cînd e vorba de femei, ci şi cînd e vorba de bărbați. „Tinerii şi fecioarele, spune psalmistul, bătrînii cu cei mai tineri”11. Iar în alt loc, unde este vorba de siluirea unei fete, Scriptura spune: „Dacă va striga tînăra "12, adică fecioara. Dar şi cuvintele din textul lui Isaia, aflate înaintea cuvintelor spuse de înger lui Iosif, sprijină ideea că în această profeție este vorba de o fecioară. Profetul Isaia n-a spus numai: „Iată Fecioara va avea în pîntece”13, ci mai înainte a spus: „Iată Însuşi Domnul va da vouă semn şi apoi a adăugat: „Iată Fecioara va avea în pîntece”. Dacă aceea care avea să nască n-ar fi fost fecioară, dacă avea să nască pe temeiul legii căsătoriei, ce semn ar mai fi naşterea? Semn se dă numai atunci cînd trebuie să se întîmple ceva ce depăşeşte ceea ce se petrece de obicei, cînd se întîmplă ceva străin, ceva neobişnuit. Altfel cum ar mai putea fi semn? 
 „Şi sculîndu-se Iosif din somn, a făcut precum i-a poruncit lui îngerul Domnului" 15 
 39 14 
+
+-----------------
+
 11. Ps. 148, 12. 
 12. Deut. 22, 27. 
 13. Is. 7, 13. 
@@ -67,6 +79,9 @@ Ai văzut că evanghelistul numeşte pe Fecioară mereu „femeia lui”? Face a
 Dar atunci pentru ce a mai pus cuvîntul „pînă”? 
 - Adeseori Scriptura obişnuieşte să facă asta, folosind cuvîntul cînd e vorba de timpuri nedeterminate. De pildă: Cînd a fost vorba de cora- bia lui Noe de pe timpul potopului a spus: „Corbul nu s-a mai întors pînă ce nu s-a uscat pămîntul”18, cu toate că nici după aceea nu s-a mai întors. Vorbind despre Dumnezeu, Scriptura spune: „Din veac şi pînă-n veac Tu eşti"""; dar prin aceste cuvinte Scriptura nu pune hotare existenței lui Dumnezeu. În altă parte Scriptura binevesteşte şi spune: „Va răsări în zilele lui dreptatea și mulțimea păcii pînă ce va dispărea luna” 20, ; asta nu înseamnă că pune capăt acestui frumos corp ceresc. Tot astfel şi în tex- tul din Evanghelie, Matei a spus „pînă” ca să ne arate că Fecioara a fost fecioară înainte de naşterea Pruncului; cît priveşte timpul de după naş- tere, l-a lăsat pe seama gîndirii tale. Matei ți-a spus numai ceea ce era de neapărată trebuință să afli, anume că Fecioara a rămas fecioară pînă la naştere; iar ceea ce-i o consecință firească şi evidentă a spuselor sale, a lăsat-o pe seama conştiinţei tale. Că Iosif, care era un om drept, n-ar fi vrut cu nici un preț să o cunoască nici după naşterea Fiului ei, cînd ştia că era o Mamă, care a fost învrednicită de o naștere nouă și străină. Dacă ar fi cunoscut-o și ar fi avut-o ca femeie, pentru ce Domnul o încredinţează ucenicului ca pe o femeie fără de apărare, care nu are pe nimeni, şi-i porunceşte s-o ia cu el?21 
 - Atunci pentru ce Iacov şi cei dimpreună cu el sînt numiți frații lui Hristos?22 
+
+-----------------
+
 16. Matei 1, 24. 17. Matei 1, 25. 
 18. Fac. 8, 7. 
 19. Ps. 89, 2. 
@@ -82,6 +97,9 @@ Aşa precum şi Iosif a fost numit bărbatul Mariei. Au fost puse multe văluri 
 IV 
 Nu v-am spus26 toate acestea numai ca să le auziți, ci ca să şi imitați bărbăţia şi toată dreptatea apostolilor, ca nimeni să nu-şi piardă nădej- dea, chiar dacă pînă acum a dus o viață plină de păcate, ca, după ce ați primit mila şi harul lui Dumnezeu, să nu vă puneți nădejdea în altci- neva, ci în virtutea voastră. 
 Dacă Iacov şi ceilalți, cîtă vreme n-au fost virtuoși, n-au avut nici un folos de pe urma unei astfel de înrudiri, cu toate că erau din aceeaşi familie şi din aceeaşi patrie cu Iisus, vom putea noi, oare, să fim iertaţi dacă ne sprijinim pe virtuțile rudelor şi fraților noştri de sînge, fără să fim noi înşine buni, fără să ducem noi o viață virtuoasă? Asta ne-a dat a 
+
+-----------------
+
 23. Ioan 7, 5. 
 24. Fapte 15, 1. 29. 
 25. Fapte 21, 20. 
@@ -93,6 +111,9 @@ Dacă Iacov şi ceilalți, cîtă vreme n-au fost virtuoși, n-au avut nici un f
 SFÎNTUL IOAN GURĂ DE AUR 
 înțelege profetul cînd a spus: „Fratele nu izbăveşte; izbăvi-va, oare, omul?" 27. Nu poate, chiar de-ar fi Moise, Samuel sau Ieremia. Ascultă ce spune Dumnezeu lui Ieremia: „Nu te ruga pentru poporul acesta, că nu te voi asculta!"28. „Şi pentru ce te minunezi că nu te ascult, pare a-i spune Dumnezeu. Chiar dacă însuşi Moise ar fi alături de tine, chiar dacă ar fi Samuel, nu voi primi rugăciunea lor pentru poporul acesta!" De s-ar ruga chiar lezechiel pentru ei, și el va auzi: „Chiar dacă ar sta înaintea Mea Noe, Iov şi Daniel, fiii voştri şi fiicele voastre nu se vor mîntui!”29 Chiar de-ar fi patriarhul Avraam şi s-ar ruga pentru cei bolnavi de boli grele, dacă aceştia nu se întorc la Dumnezeu, Dumnezeu Își va întoarce fața de la el şi-l va părăsi, ca să nu audă glasul rugăciunii lui. Chiar de-ar fi Samuel, şi-ar face acelaşi lucru, Dumnezeu îi va spune şi lui: „Nu plînge pentru Saul"30. De s-ar ruga cineva pentru sora lui, fără să aibă îndreptă- țire, va auzi din nou ca şi Moise: „Dacă tatăl ei ar fi scuipat-o în obraz”31. 
 Să nu stăm, dar, cu gura căscată aşteptînd ajutor de la alții. Au într-adevăr foarte mare putere rugăciunile sfinților, dar atunci cînd și noi ne căim şi ne îndreptăm. Moise a scăpat de mînia dumnezeiască pe fratele său Aaron și pe cele şase sute de mii de iudei, dar n-a putut s-o scape pe sora lui. Şi totuşi păcatul ei nu era la fel cu al celorlalți. Maria insultase pe Moise; poporul îndrăznise să nu mai creadă în Dumnezeu. Las, însă, în grija voastră dezlegarea acestei probleme, iar eu voi încerca să dezleg una încă şi mai grea decît aceasta. Dar pentru ce să vorbesc de sora lui Moise? Chiar Moise, conducătorul unui popor atît de mare, nu şi-a putut ajuta luişi, ci, după nenumărate oboseli și neca- zuri, după ce a condus poporul patruzeci de ani, a fost oprit să intre în pămîntul pentru care primise atîtea făgăduinţe şi juruințe. Care este pri- cina? Harul acesta nu i-ar fi fost folositor, ci i-ar fi adus multă pagubă şi ar fi smintit pe mulți iudei. Cînd Moise i-a scăpat din robia Egiptului, iudeii, părăsind pe Dumnezeu, se uitau numai la Moise şi socoteau că toată scăparea se datoreşte lui Moise. Pînă unde credeți că n-ar fi mers cu necredința lor, dacă l-ar fi văzut că-i mai duce şi în pămîntul făgă- duinţei? De aceea nici locul mormîntului lui Moise nu se cunoaşte32. Samuel n-a putut să-l scape pe Saul de mînia lui Dumnezeu, în schimb pe israeliți de multe ori i-a mîntuit. Ieremia n-a putut să mîntuie pe iudei, dar a scăpat pe un altul, aşa cum spune în profeția sa. Daniel a 
+
+-----------------
+
 27. Ps. 48, 7. 
 28. Ier. 11, 14. 
 29. lez. 14, 14. 16. 
@@ -113,6 +134,9 @@ V
 Nu vă spun asta ca să nu ne mai rugăm sfinților, ci ca să nu ne trîn- dăvim, şi nici cuprinşi de lenevie şi de somn să rugăm pe alţii să facă ce trebuia să facem noi. Cînd Domnul a spus:,,Faceți-vă prieteni”, nu s-a oprit numai la aceste cuvinte, ci a adăugat: „din mamona al nedreptă- ții”“, ca să ajungă iarăşi faptă bună a voastră. Că la nimic altceva n-a făcut aici aluzie Hristos decît la milostenie. Şi minunat lucru este că Dumnezeu nu ne mai ia la bani mărunţi, dacă ne despărțim de bogăţia strînsă pe nedrept. Ţi-ai strîns bogăția în chip rău? Cheltuieşte-o bine! Ai adunat averi în chip nedrept? Imprăştii-le drept! 
 - Dar ce virtute mai este aceea de a face milostenie din nişte bogății ca acestea? 
 - Totuşi Dumnezeu, fiind iubitor de oameni, Se pogoară pînă la a socoti virtute o astfel de milostenie. De facem aşa, ne făgăduieşte multe bunătăți. Noi, însă, am ajuns la atîta nesimțire că nu dăm nici din ave- rile strînse pe nedrept, ci răpim şi furăm cu nemiluita; iar dacă dăm cîțiva bănuți, socotim că am făcut totul. N-ai auzit pe Pavel spunînd că „cel care seamănă cu zgîrcenie, cu zgîrcenie va şi secera”?" Pentru ce te zgîr- 
+
+-----------------
+
 34. Dan. 2, 24. 
 35. Matei 18, 23-34. 36. Luca 15, 11-32. 37. Matei 15, 21-28. 
 38. Luca 7, 37–50. 
