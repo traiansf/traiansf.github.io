@@ -8,6 +8,9 @@ Aud pe mulți spunînd: „Cînd sîntem în biserică şi ascultăm predica ne 
 Să vedem de unde vine! Din ce pricină se petrece în noi o schim- bare atît de mare? Pricina o găsesc în aceea că nu ne ocupăm de ce tre- buie și că avem legături cu oameni răi. N-ar trebui ca, după ce plecăm de la biserică, să ne ocupăm cu lucruri care n-au nici o legătură cu bise- rica, ci îndată ce ajungem acasă să luăm Biblia, să chemăm în jurul nostru soţia şi copiii şi să le împărtăşim şi lor cele spuse la biserică şi numai după aceea să ne apucăm de treabă. Dacă atunci cînd ieşim de la baie nu ne ducem în piață, ca nu cumva cele din piață să ne strice buna dispoziție ce-o avem în urma băii, cu mult mai mult trebuie să facem aşa cînd ieşim de la biserică. Dar noi facem tocmai dimpotrivă. De aceea pierdem totul. Nu s-a întărit încă bine în sufletul nostru folosul celor spuse la predică, că furia cea mare a treburilor lumeşti se năpus- teşte peste noi şi tîrăşte cu ea toate cele auzite în biserică. Ca să nu se întîmple asta, după ce pleci de la biserică nu fă altă treabă mai de nea- părată trebuință decît repetarea celor spuse în predică. Ar fi cu totul lip- sit de judecată să dăm treburilor lumeşti cinci-şase zile pe săptămînă, iar celor duhovniceşti, nici măcar o zi, dar, mai bine spus, nici o mică parte din zi. Uitați-vă la copiii noștri! Nu citesc ei toată ziua lecțiile pe care le au de învățat? Așa să facem și noi! Altfel nu ne va fi de nici un folos venirea la biserică; că turnăm în fiecare zi în noi, ca într-un vas găurit, învățăturile, că pentru păstrarea celor spuse în predică nu ne dăm nici atîta silință cîtă o dăm pentru aur şi argint. Cînd primeşti cîțiva dinari2, îi pui în pungă, ba mai și strîngi la gură punga; iar noi 
 1. Matei 1, 22 23. 
 2. Pentru valoarea dinarului sa se vada nota 15, omilia II. 
+
+**********
+
 Omilii la matei 
 67 
 în biserică primim cuvinte mai de preț ca aurul și pietrele scumpe, pri- mim vistieriile Duhului, dar nu le depunem în tainițele sufletului, ci, fără de nici o grijă, le lăsăm să zboare la întîmplare din mintea noastră. Cine va avea milă de noi, cînd noi sîntem proprii noştri duşmani, cînd noi înşine ne aruncăm într-o atît de mare sărăcie sufletească? Ca să nu se întîmple asta, să ne punem o lege de netrecut nouă, soțiilor noastre şi copiilor noştri: să afierosim o zi întreagă din săptămînă predicii şi celor auzite la biserică. Aşa vom prinde mai uşor cele ce se vor mai spune; oboseala mea va fi mai mică, iar cîştigul vostru mai mare, pentru că, avînd în minte predicile de mai înainte, înțelegeți iute cele ce am să vă spun. Şi nu puțin ajută la înțelegerea celor spuse buna cunoaştere a şiru- lui de idei expuse în predicile mele. 
@@ -19,6 +22,9 @@ Care este versetul pe care trebuie să-l tîlcuim azi?
 După vrednicia minunii, atît cît i-a fost cu putință, îngerul a strigat, spunînd: „Iar acestea toate s-au făcut!”. 
 Cînd îngerul a văzut oceanul și adîncul iubirii de oameni a lui Dumnezeu, cînd a văzut înfăptuit ce nici nu era nădăjduit, cînd a văzut suspendarea legilor firii şi împăcarea lui Dumnezeu cu oamenii, cînd a văzut pe Cel mai presus de toate pogorît la cele mai prejos de toate, cînd a văzut dărîmarea zidului din mijloc, desființarea piedicilor şi altele cu mult mai mari decît acestea, într-un singur cuvînt a înfățișat minunea, spunînd: „Iar acestea toate s-au făcut ca să se împlinească ceea ce s-a zis de Domnul”. „Să nu socotești, îi spune lui Iosif îngerul, că acum s-au hotărît acestea! Au fost propovăduite cu multă vreme înainte!". Aceas- ta caută şi Pavel să o arate în toate epistolele sale. Şi-l trimite îngerul pe Iosif la profetul Isaia, pentru că de s-ar întîmpla ca la trezirea sa din somn Iosif să uite cuvintele spuse în vis, să-și aducă aminte de cuvintele profetice citite necontenit de el şi astfel să-şi amintească şi de cele ce i-a spus. Îngerul nu 
 3. Matei 1, 22. 
+
+**********
+
 68 
 SFÎNTUL JOAN GURĂ DE AUR 
 i-a vorbit Fecioarei de proorocia lui Isaia, pentru că era tînără și nu cunoştea bine Scripturise; lui Iosif, însă, îi vorbește, pentru că era un bărbat drept, un bărbat care citea cu zel pe profeți. În timpul visului îngerul i-a spus: „pe Maria, femeia ta"4. Acum, însă, după ce i-a adus ca mărturie pe profetul Isaia", îngerul îi dă Mariei şi numele:,,Fecioară" Dacă Iosif ar fi auzit de la înger numele de Fecioară înainte de a-l fi auzit de la Isaia, s-ar fi tulburat mult; dar aşa nu s-a tulburat deloc, că nu auzea o noutate, ci un lucru cunoscut, citit şi studiat de multă vreme. Ingerul, deci, aduce mărturia lui Isaia pentru ca Iosif să primească cu mai multă ușurință spusele sale. Dar nu se mărgineşte numai la atît, ci atribuie lui Dumnezeu cuvîntul: „Cuvintul acesta, spune îngerul, nu-i al lui Isaia, ci al lui Dumnezeu”. De aceea n-a spus: „Ĉa să se împlinească ceea ce s-a zis de Isaia”, ci: „Ca să se împlinească ceea ce s-a zis de Domnul”. Gura era a lui Isaia, dar proorocia venea de sus, de la Dumnezeu. 
@@ -32,6 +38,9 @@ Dacă iudeii n-ar fi fără ruşine, i-aș întreba: Cînd a fost copilul numit:
 8. Is. 8, 3. 
 9. A. 8, 3. 
 10. Is. 1, 26. 
+
+**********
+
 OMILII LA MATEI 
 69 
 aceea profetul a spus că se va numi aşa. Cînd se întîmplă un fapt care defineşte mai bine decît numele pe cel ce a săvîrşit fapta sau pe cel care se bucură de rezultatele ei, atunci i se dă acelei persoane chiar numele faptei săvîrşite. 
@@ -46,6 +55,9 @@ Dar chiar dacă iudeii aduc mărturia celorlalte traduceri ale Vechiu- lui Testa
 13. Is. 7, 13. 
 14. Is. 7, 13. 
 15. Matei 1, 24. 
+
+**********
+
 70 
 SFÎNTUL JOAN GURĂ DE Aur 
 Ai văzut ascultare şi supunere? Ai văzut suflet treaz şi cu totul cin- stit? Cînd o bănuia pe Fecioară de o faptă urîtă şi rușinoasă nu suferea s-o țină lîngă el; dar cînd a scăpat de această bănuială nici nu s-a mai gîndit s-o lase, ci a ţinut-o şi a slujit întregii iconomii a întrupării Domnului. 
@@ -61,6 +73,9 @@ Dar atunci pentru ce a mai pus cuvîntul „pînă”?
 20. Ps. 71, 7. 
 21. Ioan 19, 26-27. 
 22. Matei 13, 55; Marcu 6, 3. 
+
+**********
+
 OMILII LA MATEI 
 71 
 Aşa precum şi Iosif a fost numit bărbatul Mariei. Au fost puse multe văluri pentru ca să se acopere pentru moment o naştere ca aceasta. De aceea și Ioan Evanghelistul îi numește tot frați: „Că nici fra- ții Lui nu credeau în El"23. Şi totuşi cei ce n-au crezut la început au ajuns mai târziu apostoli minunaţi şi vestiți. Cînd Pavel şi cei cu el s-au suit la Ierusalim ca să capete lămuriri asupra învățăturii creştine, s-au dus îndată la Iacov24. Atît era de minunat Iacov, încît a fost primul episcop al Ierusalimului. Se spune despre el că ducea o viață atît de aspră, că i s-au uscat toate mădularele și că din pricina deselor rugăciuni şi a mul- telor metanii la pămînt, fruntea i s-a făcut atît de tare că nu era mai moale decît genunchii unei cămile din cauza acelor izbituri. Tot Iacov, cînd Pavel s-a suit mai tîrziu la Ierusalim, îl încurajează, spunîndu-i: „Vezi, frate, cîte mii sînt cei care au crezut?"25. Atît de mare îi era înțelep- ciunea şi zelul! Dar, mai bine spus, atît de mare era puterea lui Hristos! Oameni care Îl luaseră în rîs pe Hristos pe cînd trăia, după moartea Lui atît de mult au fost zguduiți, încît au fost în stare să şi moară pentru El cu dragă inimă. Aceasta mai cu seamă arată puterea învierii Lui. Acesta a fost şi motivul pentru care au fost păstrate pentru mai tîrziu faptele cele mai strălucite ale lui Hristos, pentru ca dovada scoasă din ele să fie mai presus de orice îndoială. Dacă noi uităm, după ce-au murit, pe cei pe care i-am admirat pe cînd erau în viață, te întreb cum au putut mai tîrziu cei care-şi bătuseră joc de Hristos pe cînd trăia să-L socotească Dumnezeu, dacă Hristos ar fi fost un om ca toți oamenii? Cum au putut primi chiar să moară pentru El, dacă n-ar fi avut dovada clară a învierii Lui? 
@@ -71,6 +86,9 @@ Dacă Iacov şi ceilalți, cîtă vreme n-au fost virtuoși, n-au avut nici un f
 24. Fapte 15, 1. 29. 
 25. Fapte 21, 20. 
 26. De aici începe partea morală: Nu trebuie să ne gîndim că ne poate ajuta virtutea altora, ci noi înșine să ducem o viață virtuoasă; și împotriva cămatarilor. 
+
+**********
+
 72 
 SFÎNTUL IOAN GURĂ DE AUR 
 înțelege profetul cînd a spus: „Fratele nu izbăveşte; izbăvi-va, oare, omul?" 27. Nu poate, chiar de-ar fi Moise, Samuel sau Ieremia. Ascultă ce spune Dumnezeu lui Ieremia: „Nu te ruga pentru poporul acesta, că nu te voi asculta!"28. „Şi pentru ce te minunezi că nu te ascult, pare a-i spune Dumnezeu. Chiar dacă însuşi Moise ar fi alături de tine, chiar dacă ar fi Samuel, nu voi primi rugăciunea lor pentru poporul acesta!" De s-ar ruga chiar lezechiel pentru ei, și el va auzi: „Chiar dacă ar sta înaintea Mea Noe, Iov şi Daniel, fiii voştri şi fiicele voastre nu se vor mîntui!”29 Chiar de-ar fi patriarhul Avraam şi s-ar ruga pentru cei bolnavi de boli grele, dacă aceştia nu se întorc la Dumnezeu, Dumnezeu Își va întoarce fața de la el şi-l va părăsi, ca să nu audă glasul rugăciunii lui. Chiar de-ar fi Samuel, şi-ar face acelaşi lucru, Dumnezeu îi va spune şi lui: „Nu plînge pentru Saul"30. De s-ar ruga cineva pentru sora lui, fără să aibă îndreptă- țire, va auzi din nou ca şi Moise: „Dacă tatăl ei ar fi scuipat-o în obraz”31. 
@@ -80,6 +98,9 @@ Să nu stăm, dar, cu gura căscată aşteptînd ajutor de la alții. Au într-a
 29. lez. 14, 14. 16. 
 30. 1 Regi 16, 1. 31. Num. 12, 14. 
 32. Deut. 34, 6. 33. I Regi 16, 1. 
+
+**********
+
 OMILII LA matei 
 73 
 scăpat de moarte pe barbari**, dar n-a putut să scape pe iudei din robie. In Evanghelii vom vedea că mîntuirea și pieirea nu se întîmplă asupra unor persoane diferite, ci asupra uneia și aceleiași persoane. Aceeaşi persoană se mîntuie într-un moment prin rugăciunile lui, dar mai tîrziu rugăciunile nu-i ajută. Cel care datora zece mii de talanți, rugîndu-se, a scăpat de primejdie; dar mai tîrziu rugăciunea lui n-a mai avut nici o putere35; altuia, dimpotrivă, mai întîi rugăciunea nu i-a fost de folos, dar mai pe urmă l-a ajutat nespus de mult. Cine-i acesta? Fiul care a mîncat averea părintească36. 
@@ -98,14 +119,19 @@ Nu vă spun asta ca să nu ne mai rugăm sfinților, ci ca să nu ne trîn- dăv
 39. Luca 23, 43. 
 40. Luca 16, 9. 
 41. II Cor. 9, 6. 
+
+**********
+
 74 
-SFINTUL IOAN GURĂ DE AUR ¦ 
+SFINTUL Ioan GURĂ DE AUR ¦ 
 ceşti? Nu cumva milostenia-i risipă? Nu cumva e cheltuială? Nu, ci cîş- tig, afacere bună! Iar unde-i afacere bună acolo-i şi cîștig; unde-i sămînță, acolo-i și seceriș. De ai avea de lucrat o țarină cu pămînt bun şi gras, pe care trebuie să arunci multă sămînță, şi n-ai mai avea sămînță, ai mai şi împrumuta de la alții; ei bine zgîrcenia într-o treabă ca aceasta ai socoti-o pagubă; dar cînd e vorba să semeni în cer, unde nu te poți aştepta la timpuri neprielnice, ci culegi rod îmbelşugat de pe urma seminţelor aruncate, şovăi, pregeți și nu te gîndeşti că pierzi de te zgîr- ceşti şi cîştigi de nu te zgîrcești. Imprăştie-ți, dar, bogăția, ca să n-o pierzi! N-o ține la tine, ca s-o ai! Aruncă-o, ca s-o păstrezi! Cheltuiește-o, ca s-o cîştigi! Chiar de-ar trebui s-o păstrezi, n-o păstra, că negreșit o pierzi! Încredinţeaz-o lui Dumnezeu! Din mîna Lui nimeni n-o poate răpi! Nu da bani cu camătă, că nu ştii de-ai să cîștigi! Ci împrumută-L pe Cel Ce-ți dă o dobîndă mai mare decît capitalul! Dă-ți banii tăi cu împrumut acolo unde nu-i invidie, unde nu-s pîrîşi, unde nu-i viclenie, unde nu-i teamă! Împrumută-L pe Cel Ce n-are nevoie de nimic, dar are nevoie de dragul tău! Împrumută-L pe Cel Ce hrăneşte pe toți, dar suferă de foame, ca tu să nu flămînzeşti! Împrumută-L pe Cel Ce s-a făcut sărac, ca tu să te îmbogățești! Dă-ți banii tăi cu împrumut acolo unde nu-i moarte, ci culegi viață în loc de moarte! Dobînda aceasta îți dă împărăţia cerurilor; cealaltă, iadul; una e rodul filozofiei, cealaltă a iubirii de argint; una e rodul iubirii de oameni, cealaltă a cruzimii. Ce cuvînt de apărare vom avea, dar, cînd putem cîştiga şi mai mult şi mai sigur şi la timp potrivit şi în multă libertate şi fără batjocură și fără teamă şi fără primejdie, dar părăsim acest cîştig şi alergăm după celă- lalt, ruşinos, murdar, primejdios, pierzător, care ne pregăteşte cuptorul cel îngrozitor? 
 Nimic, nimic nu-i mai rușinos, mai neomenos decît cîştigul de pe urma cametei! Camăta neguțătoreşte nenorocirile altora, preface în cîş- tig nefericirea altuia, cere plată pentru iubirea de oameni; şi ca și cum cămătarului i-ar fi teamă să nu pară milostiv, sub masca iubirii de oameni sapă şi mai adînc prăpastia nenorocirii; ajută, dar măreşte sără- cia; întinde mîna, dar îmbrînceşte în adînc; primeşte ca într-un port pe cel pe care-l împrumută, dar îl aruncă în valurile înfuriate ale mării, care-l izbesc de stîncile de la suprafața mării, de cele din fundul mării şi de cele de la ţărm. 
 - Dar ce-mi porunceşti? mă poate întreba cineva. Banii strînşi de mine şi de trebuință mie să-i dau altuia să-și facă treburile, iar eu să nu cer nici o dobîndă? 
 - Doamne fereşte! Nu spun asta, ci vreau să iei dobîndă, nu una mică și neînsemnată, ci cu mult mai mare. Vreau să iei în loc de aur, 
+
+**********
+
 OMILIE LA MATEI 
 75 
 cerul. Pentru ce, dar, te străduiești să fii sărac, tîrîndu-te pe pămînt, umblînd după cîștiguri mici și nu după cele mari? Purtarea ta nu te arată că știi să te îmbogățești. Cînd Dumnezeu îți făgăduiește să-ți dea în schimbul cîtorva bani avuțiile din cer, Îi spui: „Nu-mi da cerul, ci în locul cerului aurul cel trecător!". Asta înseamnă că vrei să rămîi sărac! Pentru că cel ce dorește să se îmbogățească și să trăiască în belşug pre- feră pe cele veşnice în locul celor trecătoare, pe cele ce nu se împuți- nează în locul celor ce se irosesc, pe cele multe în locul celor puține, pe cele nestricăcioase în locul celor stricăcioase. Aşa va avea şi pe 
-unele şi pe altele. Dar cel ce caută pămîntul în locul cerului pierde şi pămîntul; pe cînd cel ce preferă cerul în locul pămîntului se bucură din belşug şi de cer şi de pămînt. Ca să se întîmple şi cu noi aceasta, să disprețuim pe toate cele de aici şi să căutăm bunătățile cele viitoare. Aşa vom dobîndi şi pe unele şi pe altele, cu harul și cu iubirea de oameni a Domnului nostru Iisus Hristos, Căruia slava și puterea în vecii vecilor, Amin. 
-şi 
+unele şi pe altele. Dar cel ce caută pămîntul în locul cerului pierde şi pămîntul; pe cînd cel ce preferă cerul în locul pămîntului se bucură din belşug şi de cer şi de pămînt. Ca să se întîmple şi cu noi aceasta, să disprețuim pe toate cele de aici şi să căutăm bunătățile cele viitoare. Aşa vom dobîndi şi pe unele şi pe altele, cu harul și cu iubirea de oameni a Domnului nostru Iisus Hristos, Căruia slava și puterea în vecii vecilor, Amin.
