@@ -8,6 +8,7 @@ Avem nevoie de multe privegheri, de multe rugăciuni, ca să putem interpreta te
 Ei spun: „Iată că s-a arătat o stea şi la nașterea lui Hristos! Deci aceasta-i o dovadă că astrologia este adevărată. Dacă Hristos S-a născut după legile astrologiei, pentru ce mai spuneți voi, creştinii, că Hristos a pus capăt astrologiei, că a arătat că destinul nu are putere, că a închis gurile demonilor, că a alungat rătăcirea şi că a făcut să piară orice vrăji- torie ca aceasta?".
 - Te întreb însă: Ce află magii de la stea? Că Hristos era Împăratul iudeilor? Dar nu era Împăratul acestei împărații, precum Însuşi a spus lui Pilat: „Împărăția Mea nu este din lumea aceasta". Nimic nu L-a arătat ca Împărat: nici lăncierii, nici scutașii, nici caii, nici perechile de catîri; nici altceva de acest fel n-a avut în jurul Lui, ci a dus o viață smerită şi săracă, purtînd cu El din loc în loc doisprezece oameni smeriți.
 Dar chiar dacă ştiau că este Împărat, pentru ce au venit? Că nu e treaba astrologiei, după cum înşişi astrologii spun, să cunoască din stele pe cei care se nasc, ci să prezică, după ceasul în care s-a născut cineva, care-i va fi viitorul. Magii, însă, n-au fost de față cînd a născut Mama,
+-----------------
 1. Matei 2, 1 2.
 2 loan 18, 36.
 **********
@@ -40,6 +41,7 @@ Aş putea fi întrebat:
 III
 - Dar pentru care pricină s-a arătat steaua?
 - Ca să mustre nesimțirea iudeilor şi să le ia orice cuvînt de apărare pentru nerecunoştinţa lor. Pentru că Cel născut avea să pună capăt vechii viețuiri, pentru că avea să cheme întreaga lume la închinarea Lui - că avea să fie închinat şi pe apă şi pe uscat -, de aceea chiar de la înce- put deschide neamurilor uşa, voind să instruiască pe ai Săi prin cei străini. Pentru că iudeii n-au ţinut seamă de profeții lor, care necontenit le vorbeau de venirea Lui, Dumnezeu a făcut să vină nişte păgîni, dintr-un pămînt îndepărtat, să caute pe Împăratul născut printre ei, şi astfel să afle iudeii din gura perșilor ceea ce nu voiseră să afle de la pro-
+-----------------
 3. Teş. 13, 21-22.
 4. Matei 2, 9.
 **********
@@ -51,6 +53,7 @@ pe
 Hristos după ce au avut mărturiile atîtor profeți, după ce au văzut că magii L-au primit numai prin arătarea unei stele şi că s-au închinat Celui născut? Ceea ce au făcut cu ninivitenii trimiţînd pe Iona3, ceea ce au făcut cu samarineanca şi cu cananeanca", aceea au făcut şi cu magii. De asta le şi spunea Hristos:,,Barvați niniviteni se vor scula şi-i vor osîndi! Impărăteasa de la miazăzi se va scula şi va osîndi neamul acesta". Îi vor osîndi, că aceia au crezut în El pe temeiul unor mărturii foarte slabe, pe cînd iudeii n-au crezut, deşi au avut cele mai puternice mărturii.
 Dar pentru ce Dumnezeu, mi s-ar putea spune, i-a adus pe magi prin arătarea stelei?
 - Şi ce-ar fi trebuit să facă? Să le trimită profeți? Magii n-ar fi primit mărturia profeților! Să le trimită glas din cer? Nu l-ar fi luat în seamă! Să le fi trimis înger? Dar şi pe acesta l-ar fi trecut cu vederea! De aceea Dumnezeu lasă la o parte toate aceste mărturii şi, făcînd mare pogoră- mînt, îi cheamă pe o cale obişnuită lor: le arată o stea mare şi deosebită de celelalte stele, ca să-i minuneze și prin mărimea şi prin frumusețea înfăţişării ei, dar şi prin felul mersului ei. Pavel a făcut la fel: elenilor le vorbeşte pornind de la altarul de pe AeropagR, aducînd ca mărturie pe poeții lor; iar iudeilor, care trăiau după lege, le vorbeşte pornind de la tăierea împrejur şi de la jertfe. Pentru că fiecare om iubeşte acelea cu care este obişnuit, de aceea atît Dumnezeu cît şi oamenii trimişi de El pentru mîntuirea lumii se folosesc de ideile şi de faptele cu care lumea era obişnuită. Să nu socotești, dar, dă e ceva nevrednic de Dumnezeu că a chemat prin o stea pe magi ca să se închine lui Hristos! Dacă gîndeşti aşa, atunci ataci toate prescripțiunile iudaice: şi jertfele şi curățirile şi începuturile de lună nouă şi chivotul şi însuşi templul. Că toate acestea şi-au luat început din pricina neputinţei lor de a se ridica cu mintea mai presus de cele materiale. Totuşi Dumnezeu, pentru mîntuirea celor rătăciți, a îngăduit iudeilor să I se slujească prin aceste acte de cult, prin care şi păgînii, cu mici deosebiri, slujeau demonilor, pentru ca, depăr- tîndu-se încetul cu încetul de obiceiul lor, să-i ridice la filozofia cea înaltă. Aşa a făcut şi cu magii; a vrut să-i cheme prin arătarea unei stele, ca să-i înalțe cu mintea mai sus de propria lor gîndire. Pentru că, după ce i-a condus şi i-a călăuzit şi după ce i-a adus lîngă iesle, nu le mai
+-----------------
 5. Iona 1, 2.
 6. Ioan 4, 7. 7. Matei 15, 22. 8. Matei 12, 41. 42. 9. Fapte 17, 22–31.
 **********
@@ -63,6 +66,7 @@ Trebuie, însă, să ne întoarcem la începutul cuvintelor citite din Evangheli
 Care este începutul?
 „Iar dacă S-a născut Iisus în Betleemul Iudeii, în zilele lui Irod împăratul, iată magi de la răsărit au venit în Ierusalim"13
 Magii mergeau după steaua care îi conducea şi au crezut; dar iudeii n-au crezut nici pe profeți, deşi le vorbiseră în urechile lor.
+-----------------
 10. I Regi 5, 1–6. 13.
 11. I Regi 28, 7–25. 12. Prov. 9, 9. 13. Matei 2, 1.
 **********
@@ -77,6 +81,7 @@ Dar pentru ce Dumnezeu n-a descoperit tuturor magilor naşterea lui Hristos?
 *
 -N-aveau să creadă toți; aceştia erau mai înclinaţi a crede decît cei- lalți. Nenumărate neamuri au pierit, dar profetul Iona a fost trimis numai la niniviteni1; doi tîlhari au fost pe cruce, dar numai unul s-a mîntuit20.
 Vezi-le virtutea magilor nu din aceea că au venit în Palestina, ci și din aceea că au vorbit cu îndrăznire cu Irod. Ca să nu-i dea impresia că sînt nişte înşelători, îi spun de steaua care i-a călăuzit, de lungimea dru- mului, grăindu-i cu îndrăznire: „Am venit să ne închinăm Lui"21. Nu s-au temut nici de mînia poporului, nici de tirania împăratului. De aceea eu cred că aceşti magi au ajuns şi în țara lor dascălii concetățenilor lor. Dacă nu s-au ferit să facă asta în Iudeea, apoi cu atît mai mult au avut curajul să vorbească acasă la ei, mai ales că acum aveau în urechile lor şi cuvintele dumnezeieşti ale îngerului şi mărturia profetului.
+-----------------
 14. Matei 14, 1–12.
 15. Mih. 5, 2.
 16. Fac. 49, 10.
@@ -94,6 +99,7 @@ Mînați de acelaşi gînd, pentru care și mai înainte se depărtaseră de Dum
 Tu, însă, uită-mi-te cît de preciși sînt profeții! Profetul Isaia a vestit mai dinainte naşterea, zicînd: „Și ar fi dorit să fi fost arse cu foc, că Prunc s-a născut nouă, Fiul, şi ni s-a dat nouă"24. Dar iudeii tulburîndu-se n-au căutat să vadă ce s-a întîmplat, nici să meargă după magi, nici să-L afle, Aşa au fost iudeii! Mai certăreți și mai nepăsători decît toți oamenii. Ar fi trebuit ca chiar ei să se mîndrească că printre ei s-a născut Împăratul, că au atras la ei pe perși, că au să aibă pe toți oamenii supuși lor, că lucrurile mergeau spre mai bine şi că împărăţia lor ajunsese chiar de la început aşa de strălucită. Dar ei nici așa nu s-au făcut mai buni; şi doar nu de mult scăpaseră de robie. Dar chiar dacă iudeii n-ar fi ştiut nimic de aceste lucruri înalte şi nespuse, era firesc să se gîndească, numai pe temeiul celor petrecute sub ochii lor, că dacă acum tremură atîta de Împăratul nostru abia născut, cu mult mai mult se vor teme şi se vor supune Lui mai tîrziu, cînd Pruncul va creşte şi cînd cele ale noastre vor fi mai strălucite decît cele ale barbarilor. Dar nimic din acestea nu i-a trezit. Atît de mare le era prostia și odată cu asta şi invidia.
 25
 Pe amîndouă trebuie să le izgonim cu toată grija din sufletele noastre; mai iute ca focul trebuie să fie cel ce vrea să lupte împotriva lor. De aceea şi Hristos spunea: „Foc am venit să arunc pe pămînt şi cît voiam ca el să fie aprins acum "26. De aceea Duhul se arată în chip de foc.
+-----------------
 22. Matei 2, 3.
 23. Ieş. 16, 3; Num. 11, 4–5,
 24. Isaia 9, 5-6.
@@ -106,6 +112,7 @@ V
 Noi, însă, am ajuns mai reci decît cenuşa şi mai morți decît morții. Şi am ajuns aşa, cu toate că vedem pe Pavel că zboară mai presus de cer şi de cerul cerului, că biruie şi depăşeşte toate mai iute ca flacăra, pe cele de jos, pe cele de sus, pe cele prezente, pe cele viitoare, pe cele ce sînt, pe cele ce nu sînt. Dar dacă pilda lui Pavel ți se pare prea mare
 pentru tine, cu toate că scuza aceasta pornește din pricina trîndăviei sufletului tău – că în ce-ți este superior Pavel, ca să spui că ți-i cu nepu- tinţă să-l imiţi? dar ca să nu ne certăm, să-l las pe Pavel şi să ne gîn- dim la primii creştini, care au aruncat banii, moşiile şi orice preocupare şi grijă lumească şi s-au afierosit cu totul lui Dumnezeu, stăruind ziua şi noaptea în învăţătura cuvîntului. Așa e focul cel duhovnicesc! Nu îngă- duie să dorim cele de pe pămînt, ci ne mută spre o altă dragoste. Din pricina aceasta cel îndrăgostit de astfel de lucruri face cu ușurință totul chiar de-ar trebui să-și părăsească averile, luxul şi desfătarea, chiar de-ar trebui să disprețuiască slava, chiar de-ar trebui să-şi dea sufletul. Odată intrată în suflet căldura acelui foc, izgoneşte toată trîndăvia şi-l face pe cel cuprins de ea mai uşor ca pana. Disprețuind pe toate cele văzute, unul ca acesta se căieşte neîncetat, varsă mereu izvoare de lacrimi şi culege de pe urma lor mare plăcere. Da, nimic nu apropie şi nu uneşte atît de mult pe om de Dumnezeu ca astfel de lacrimi. Unul ca acesta nu se uită la cele din jurul lui fie de locuieşte în mijlocul oraşelor, fie de trăieşte în pustie, în munţi şi în vîlcele; și nici nu se mai satură de lacrimi fie că-şi plînge păcatele lui, fie că le plînge pe ale altora. De aceea pe aceștia, înainte de alții, i-a fericit Dumnezeu, zicînd: „Fericiți cei ce pling"27. Cum ar fi putut Pavel să spună: „Bucurați-vă pururea în Domnul»28, dacă aceste lacrimi n-ar naşte plăcere? După cum plăcerea lumească este unită cu durerea, tot aşa lacrimile vărsate după placul lui Dumnezeu odrǎslesc bucurie neîncetată şi nevestejită. Aşa a ajuns mai curată decît fecioarele femeia cea păcătoasă2o, pentru că a fost cuprinsă de acest foc. Cînd pocăința i-a cuprins sufletul, cînd a fremătat de dorul pentru Hristos, şi-a despletit părul capului ei, a spălat sfintele Lui picioare cu lacrimile sale, le-a şters cu cosiţele ei și a vărsat pe ele mir. Toate acestea erau fapte din afară, văzute de toată lumea; dar cele ce se petreceau în sufletul ei erau cu mult mai mari decît acestea şi le vedea numai Dumnezeu. De aceea cînd auzim cele făcute de femeia păcă- toasă ne veselim împreună cu ea, ne bucurăm de faptele ei și o slobo- zim de toate păcatele ei.
 Dacă noi, deci, care sîntem nişte răi, o judecăm aşa, gîndește-te la bunătăţile de care s-a bucurat de la Dumnezeu! Gîndește-te cîtă fericire a cules de pe urma pocăinței ei, chiar înainte de a primi darurile lui Dumnezeu! După cum văzduhul se curățește după o ploaie bogată, tot așa, după lacrimi îmbelşugate, se pogoară în suflet linişte şi alinare şi dispare întunecimea păcatelor. După cum ne curățim de păcate prin
+-----------------
 27. Matei 5, 4.
 28. Filip. 4, 4.
 29. Luca 7, 37-50.
@@ -116,6 +123,7 @@ apă şi prin Duh, tot aşa ne curățim iarăşi prin lacrimi şi mărturisire;
 VI
 De vei lăcrima şi tu aşa, vei merge pe urmele Stăpînului. Şi El a lăcrimat; şi pentru Lazăr31, şi pentru Ierusalim32, şi pentru Iuda. Şi vei vedea că de multe ori Domnul lăcrimează; dar niciodată nu-L vei vedea rîzînd, nici zîmbind măcar. Nici unul din evanghelişti n-a spus-o. La fel şi Pavel; a lăcrimat şi el; și a făcut asta trei ani, ziua şi noaptea; a spus-o și el şi au spus-o și alții despre el; dar că a rîs, n-a spus-o nici el, nici altul; nici unul din sfinți n-a rîs; şi n-au spus-o nici ei, nici despre alţii. Numai despre Sarra s-a spus că a rîs34, cînd a fost ținută de rău, şi despre fiul lui Noe, cînd a ajuns din liber sclav35.
 Nu spun asta ca să opresc rîsul, ci ca să curm rîsul dezmățat. Spune-mi, te rog, pentru ce te strici de rîs, pentru ce trăiești nepăsător, cînd eşti vinovat de atîtea păcate, cînd trebuie să te înfăţişezi înaintea înfricoşă- toarei judecăţi şi să dai amănunțită socoteală de toate faptele săvîrşite pe pămînt? Da, vom da socoteală de păcatele săvîrşite cu voie şi fără de voie.,,De cel care se va lepăda de Mine înaintea oamenilor, spune Hristos, Mă voi lepăda şi Eu de el înaintea Tatălui Meu "36. Chiar dacă lepădarea de Hristos este fără voia noastră, totuşi nu scăpăm de pedeapsă, ci vom da socoteală şi de ea. Vom da socoteală și de cele pe care le ştim şi de cele pe care nu le ştim. „Nu mă ştiu vinovat cu nimic, spune Pavel, dar nu cu aceasta m-am îndreptățit"37.
+-----------------
 30. I Regi 1, 13.
 31. Ioan 11, 35. 32. Matei 23, 37. 33. Matei 26, 50. 34. Fac. 18, 12. 35. Fac. 9, 22-23. 36. Matei 10, 33. 37. I Cor. 4, 4.
 **********
@@ -128,6 +136,7 @@ Locul acesta în care ne găsim nu-i pentru rîs, nici nu ne-am adunat aici să 
 Cu toate acestea, sînt unii oameni atît de nesimțiți că şi după aceste cuvinte spun:
 - Să dea Dumnezeu să nu plîng niciodată, ci să-mi facă parte de rîs și de joacă toată viața.
 - Poate fi un gînd mai copilăresc decît acesta? Că nu Dumnezeu îți face parte să joci, ci diavolul! Ascultă ce-au pățit cei ce au jucat! „A şezut poporul, spune Scriptura, a mîncat şi a băut și s-a sculat să joace!"41. Aşa au făcut şi sodomenii, așa au făcut și cei de pe vremea potopului. Că şi despre ei spune Scriptura că erau mîndri, aveau de toate şi se răsfățau de belşugul pîinii"12. Iar cei de pe timpul lui Noe vedeau că de atîția ani se lucra la facerea corăbiei şi totuşi o duceau numai în petreceri ca nişte nesimţiţi, fără să se gîndească la cele ce aveau să se întîmple. De aceea, cînd a venit potopul pe toți aceştia i-a măturat, iar năvala apelor a îne- cat atunci întreaga lume.
+-----------------
 38. Rom. 10, 2.
 39. II Cor. 11, 3. 40. Matei 5, 4.
 41. Teş. 32, 6. 42. Tez. 16, 49.
@@ -136,6 +145,7 @@ OMILI LA MATEI
 87
 VII
 Nu cere, deci, de la Dumnezeu acelea pe care le primeşti de la dia- vol. Dumnezeu dă inimă zdrobită, smerită, trează, curată, frîntă, pocăită și pătrunsă de durere. Acestea sînt darurile Lui, pentru că de ele mai cu seamă avem noi nevoie. În fața noastră stă un război cumplit; lupta noastră este împotriva puterilor nevăzute; bătălia noastră, împo- triva duhurilor răutății; războiul nostru, împotriva începătoriilor, împo- triva stăpîniilor13. Ar fi de dorit ca să ne sîrguim să fim treji, să ne deș- teptăm ca să putem face față acelei oştiri sălbatice. Dar dacă rîdem și jucăm, dacă stăm toată vremea nepăsători, vom cădea, chiar înainte de a ne ajuta diavolul, din pricina propriei noastre nepăsări. Nu e al nostru să rîdem neîncetat, să ne îmbuibăm şi să petrecem, ci a celor de pe scenă, a femeilor stricate, a bărbaților desfrînați, a paraziților şi a lingu- şitorilor; nu a celor chemați la cer, a celor înscrişi în cetatea cea de sus, a celor care au în mîini armele cele duhovniceşti, ci a celor ce fac voile diavolului. Diavolul, diavolul este acela care a făcut din rîs și din joc o artă, ca să atragă la el pe ostaşii lui Hristos, ca să le moaie tăria rîvnei lor. De aceea a zidit și teatre în oraşe, a făcut iscusiți pe actori ca, prin vătămarea sufletească adusă de cuvintelor lor, să răspîndească o ciumă ca aceasta în tot oraşul. Cele pe care Pavel ne-a poruncit să le evităm - vorbele proaste şi glumele - pe acelea diavolul ne îndeamnă să le cău- tăm. Şi ceea ce-i mai cumplit din toate sînt lucrurile de care se rîde. Cînd actorii spun vreo vorbă de ocară sau cuvinte de ruşine mulți oameni proşti rîd şi se veselesc; aplaudă vorbe şi gesturi ce-ar trebui pietruite; iar prin plăcerea aceasta atrag asupra capetelor lor cuptorul cel de foc. Cei care laudă pe actori, aceia sînt mai cu seamă cei care-i încurajează să vorbească aşa; de aceea e şi drept ca ei să fie pedepsiţi şi pentru pedeapsa ce-i amenință pe actori. Dacă nu s-ar mai duce nimeni să-i privească, n-ar mai juca nimeni pe scenă; dar cînd vă văd că pără- siţi atelierele, meseriile, cîştigul de pe urma îndeletnicirilor voastre, că lăsați totul la pămînt ca să vă duceți la teatru, atunci actorii capătă şi mai mult curaj şi-şi dau și mai mare silință ca să joace cît mai bine. Nu spun aceste lucruri ca să-i dezvinovățesc, ci ca să aflați că voi sînteţi pri- cina şi rădăcina unei nelegiuiri ca aceasta, voi care vă pierdeți toată ziua la teatru, bătîndu-vă joc de sfințenia căsătoriei și făcînd de ocară această taină mare. Nu este atît de păcătos cel ce joacă astfel de roluri cît tu, mai mult decît el, tu care-i porunceşti să facă asta; dar mai bine spus, nu-i porunceşti numai, ci prin rîvna, prin veselia, prin rîsul și prin laudele jocului lor contribui în toate chipurile la înființarea unor astfel
+-----------------
 43. Efes, 6, 12.
 **********
 88
@@ -149,10 +159,12 @@ că actrița care joacă în pielea goală este o stricată! Gîndeşte-te, că 
 Dar cine a adus pe lume umbletul în pielea goală?
 -
 - Neascultarea şi ispita diavolului. Astfel, chiar de la început, obiceiul acesta se datoreşte diavolului. Primii oameni s-au ruşinat cînd s-au văzut goi; voi, însă, vă și lăudaţi cu asta şi după spusele apostolului „slava voastră e în neruşinarea voastră"". Cum se va mai uita la tine soția ta, cînd te întorci de la o nelegiuire ca aceasta? Cum te va mai primi? Cum îți va vorbi cînd ai batjocorît în aşa hal pe toate femeile, cînd ai ajuns prizo- nierul unor astfel de spectacole şi ai ajuns robul unei femei stricate?
+-----------------
 44. Filip. 3, 19.
 **********
 OMILII LA MATEI
 89
 Dacă suferiţi cînd auziţi aceste cuvinte, îmi faceți o mare bucurie. ,Cine este cel ce mă înveseleşte dacă nu cel întristat de mine?"45 spune Pavel.
 Nu încetați, dar, niciodată de a suspina şi de a vă căi de astfel de fapte! Tristeţea pricinuită de nişte fapte ca acestea este începutul schim- bării voastre în mai bine. De aceea şi eu am fost mai aspru în predica mea de azi, pentru ca, tăind mai adînc, să vă scap de puroiul care vă ameţeşte mințile și să vă redau sănătatea sufletului. Să dea Dumnezeu ca noi toți să ne bucurăm de toate şi să avem parte şi de răsplățile gătite celor ce fac fapte bune, cu harul şi iubirea de oameni a Domnului nostru Iisus Hristos, Căruia slava şi puterea în vecii vecilor, Amin.
+-----------------
 45. II Cor. 2, 2.
