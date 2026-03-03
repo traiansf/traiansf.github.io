@@ -540,9 +540,14 @@ vecii vecilor, Amin.
 3. Ieş. 13, 21-22.
 4. Matei 2, 9.
 5. Iona 1, 2.
-6. Ioan 4, 7. 7. Matei 15, 22. 8. Matei 12, 41-42. 9. Fapte 17, 22–31.
-10. I Regi 5, 1–6. 13.
-11. I Regi 28, 7–25. 12. Prov. 9, 9. 13. Matei 2, 1.
+6. Ioan 4, 7.
+7. Matei 15, 22.
+8. Matei 12, 41-42.
+9. Fapte 17, 22–31.
+10. I Regi 5, 1–6, 13.
+11. I Regi 28, 7–25.
+12. Prov. 9, 9.
+13. Matei 2, 1.
 14. Matei 14, 1–12.
 15. Mih. 5, 2.
 16. Fac. 49, 10.
@@ -561,11 +566,18 @@ vecii vecilor, Amin.
 28. Filip. 4, 4.
 29. Luca 7, 37-50.
 30. I Regi 1, 13.
-31. Ioan 11, 35. 32. Matei 23, 37. 33. Matei 26, 50. 34. Fac. 18, 12. 35. Fac.
-   9, 22-23. 36. Matei 10, 33. 37. I Cor. 4, 4.
+31. Ioan 11, 35.
+32. Matei 23, 37.
+33. Matei 26, 50.
+34. Fac. 18, 12.
+35. Fac. 9, 22-23.
+36. Matei 10, 33.
+37. I Cor. 4, 4.
 38. Rom. 10, 2.
-39. II Cor. 11, 3. 40. Matei 5, 4.
-41. Ieş. 32, 6. 42. Iez. 16, 49.
+39. II Cor. 11, 3.
+40. Matei 5, 4.
+41. Ieş. 32, 6.
+42. Iez. 16, 49.
 43. Efes, 6, 12.
 44. Filip. 3, 19.
 45. II Cor. 2, 2.
