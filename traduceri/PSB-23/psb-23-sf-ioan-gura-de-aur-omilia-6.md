@@ -46,7 +46,7 @@ n-ar fi fost motivată. Iar dacă Pruncul s-ar fi născut în palatele împără
 și dacă tatăl Lui, împăratul, ar fi fost de față, atunci de bună seamă ai fi
 putut spune că au venit să se închine Pruncului născut, cu gîndul de a cinsti
 pe tatăl Lui, iar prin asta să atragă asupra lor bunăvoinţa împăratului. Dar
-aşa, nici nu se gîndeau că este Impăratul lor, ci Împăratul unui popor străin şi
+aşa, nici nu se gîndeau că este Împăratul lor, ci Împăratul unui popor străin şi
 al unei țări tare departe de ţara lor şi nici nu se aşteptau să vadă un bărbat
 în puterea vîrstei! Atunci pentru ce au făcut o călătorie atîta de lungă, pentru
 ce l-au adus daruri, pentru ce au făcut toate acestea cu riscul atîtor
@@ -136,11 +136,11 @@ că nu era o stea precum celelalte din chipul în care a arătat locul unde s-a
 născut Pruncul. Că n-a arătat locul rămînînd sus pe cer - de altfel nici nu
 putea să le arate locul de rămînea sus --, ci l-a arătat pogorîndu-se jos. Știți
 doar că locul era atît de mic cît putea încăpea o colibă, dar mai bine spus, cît
-putea încăpea trupul unui prunc; iar o stea obişnuită nu putea să arate un ast-
-fel de loc pentru că o stea stă la o înălțime foarte mare şi nu poate să arate
-un loc atît de mic, nici să-l facă cunoscut celor care vor să-l găsească. De
-lucrul acesta poți să te încredințezi uitîndu-te la lună; deşi este cu mult mai
-mare decît stelele, totuşi pare că este aproape de toți locuitorii lumii
+putea încăpea trupul unui prunc; iar o stea obişnuită nu putea să arate un
+astfel de loc pentru că o stea stă la o înălțime foarte mare şi nu poate să
+arate un loc atît de mic, nici să-l facă cunoscut celor care vor să-l găsească.
+De lucrul acesta poți să te încredințezi uitîndu-te la lună; deşi este cu mult
+mai mare decît stelele, totuşi pare că este aproape de toți locuitorii lumii
 răspîndiți pe o întindere atît de mare de pămînt. Spune-mi, te rog, cum ar fi
 putut steaua să arate locul aşa de îngust al ieslei şi al colibei de n-ar fi
 părăsit înălțimea aceea, de nu s-ar fi pogorît jos şi n-ar fi stat chiar
@@ -195,7 +195,7 @@ stelei?
   tăierea împrejur şi de la jertfe. Pentru că fiecare om iubeşte acelea cu care
   este obişnuit, de aceea atît Dumnezeu cît şi oamenii trimişi de El pentru
   mîntuirea lumii se folosesc de ideile şi de faptele cu care lumea era
-  obişnuită. Să nu socotești, dar, dă e ceva nevrednic de Dumnezeu că a chemat
+  obişnuită. Să nu socotești, dar, că e ceva nevrednic de Dumnezeu că a chemat
   prin o stea pe magi ca să se închine lui Hristos! Dacă gîndeşti aşa, atunci
   ataci toate prescripțiunile iudaice: şi jertfele şi curățirile şi începuturile
   de lună nouă şi chivotul şi însuşi templul. Că toate acestea şi-au luat
@@ -266,7 +266,7 @@ să se ducă să se închine lui Hristos şi cine i-a îndemnat?
 
 După părerea mea, lucrul acesta nu se datoreşte numai stelei, ci și lui
 Dumnezeu, Care a pus în mişcare sufletul lor, aşa precum a făcut și cu împăratul
-Cir determinîndu-l să elibereze pe iudei din robie17 Dumnezeu n-a făcut asta
+Cir determinîndu-l să elibereze pe iudei din robie17. Dumnezeu n-a făcut asta
 nimicindu-le libera lor voință. La fel și cu Pavel, l-a chemat printr-un glas de
 sus18, iar prin aceasta a făcut cunoscut și harul Său, dar și ascultarea lui
 Pavel.
@@ -302,7 +302,7 @@ libertate ca aceea.
 Tu, însă, uită-mi-te cît de preciși sînt profeții! Profetul Isaia a vestit mai
 dinainte naşterea, zicînd: „Și ar fi dorit să fi fost arse cu foc, că Prunc s-a
 născut nouă, Fiul, şi ni s-a dat nouă"24. Dar iudeii tulburîndu-se n-au căutat
-să vadă ce s-a întîmplat, nici să meargă după magi, nici să-L afle, Aşa au fost
+să vadă ce s-a întîmplat, nici să meargă după magi, nici să-L afle. Aşa au fost
 iudeii! Mai certăreți și mai nepăsători decît toți oamenii. Ar fi trebuit ca
 chiar ei să se mîndrească că printre ei s-a născut Împăratul, că au atras la ei
 pe perși, că au să aibă pe toți oamenii supuși lor, că lucrurile mergeau spre
@@ -317,8 +317,8 @@ trezit. Atît de mare le era prostia și odată cu asta şi invidia.25
 
 Pe amîndouă trebuie să le izgonim cu toată grija din sufletele noastre; mai iute
 ca focul trebuie să fie cel ce vrea să lupte împotriva lor. De aceea şi Hristos
-spunea: „Foc am venit să arunc pe pămînt şi cît voiam ca el să fie aprins acum
-"26. De aceea Duhul se arată în chip de foc.
+spunea: „Foc am venit să arunc pe pămînt şi cît voiam ca el
+să fie aprins acum"26. De aceea Duhul se arată în chip de foc.
 
 ### V
 
@@ -347,7 +347,7 @@ păcatele lui, fie că le plînge pe ale altora. De aceea pe aceștia, înainte 
 alții, i-a fericit Dumnezeu, zicînd: „Fericiți cei ce plîng"27. Cum ar fi putut
 Pavel să spună: „Bucurați-vă pururea în Domnul»28, dacă aceste lacrimi n-ar
 naşte plăcere? După cum plăcerea lumească este unită cu durerea, tot aşa
-lacrimile vărsate după placul lui Dumnezeu odrǎslesc bucurie neîncetată şi
+lacrimile vărsate după placul lui Dumnezeu odrăslesc bucurie neîncetată şi
 nevestejită. Aşa a ajuns mai curată decît fecioarele femeia cea păcătoasă29,
 pentru că a fost cuprinsă de acest foc. Cînd pocăința i-a cuprins sufletul, cînd
 a fremătat de dorul pentru Hristos, şi-a despletit părul capului ei, a spălat
@@ -488,7 +488,7 @@ mulți să ajungă desfrînați și multe case au stricat. Şi mai cu seamă pen
 suspin, pentru că văd că nu vi se par rele cele de pe scenă, ci le aplaudaţi,
 strigaţi şi rîdeți cînd desfrîul este prezentat fără de rușine.
 
-Ce spuí? Spui că piesele jucate sînt ficțiuni?
+Ce spui? Spui că piesele jucate sînt ficțiuni?
 
 - Dar tocmai pentru asta sînt vrednici de pedeapsă şi cei ce le fac şi cei ce le
   joacă, pentru că se străduiesc să înfăţişeze pe scenă ceea ce toate legile
@@ -496,7 +496,7 @@ Ce spuí? Spui că piesele jucate sînt ficțiuni?
   scenă. Nu mai spun cît de desfrînați sînt actorii care joacă astfel de
   piese, care reprezintă desfrîul şi adulterul pe scenă! Nu mai spun cît de
   neînfrînaţi şi de neruşinaţi îi fac pe spectatori! Nu este privire mai
-  desfrînată şi mai neînfrinată decît privirea celui care doreşte să vadă
+  desfrînată şi mai neînfrînată decît privirea celui care doreşte să vadă
   astfel de spectacole. În ce te priveşte, n-ai dori să-ți vezi nevasta umblînd
   în pielea goală prin oraş; dar, mai bine spus, nici în casă, ci ai socoti asta
   o ocară. Dar te duci la teatru ca să faci de ocară şi pe bărbaţi şi pe femei,
@@ -520,8 +520,8 @@ Dar cine a adus pe lume umbletul în pielea goală?
   goi; voi, însă, vă și lăudaţi cu asta şi după spusele apostolului „slava
   voastră e în neruşinarea voastră"44. Cum se va mai uita la tine soția ta, cînd
   te întorci de la o nelegiuire ca aceasta? Cum te va mai primi? Cum îți va
-  vorbi cînd ai batjocorît în aşa hal pe toate femeile, cînd ai ajuns prizo-
-  nierul unor astfel de spectacole şi ai ajuns robul unei femei stricate?
+  vorbi cînd ai batjocorît în aşa hal pe toate femeile, cînd ai ajuns
+  prizonierul unor astfel de spectacole şi ai ajuns robul unei femei stricate?
 
 Dacă suferiţi cînd auziţi aceste cuvinte, îmi faceți o mare bucurie. „Cine este
 cel ce mă înveseleşte dacă nu cel întristat de mine?"45 spune Pavel.
@@ -535,24 +535,24 @@ toate şi să avem parte şi de răsplățile gătite celor ce fac fapte bune, c
 şi iubirea de oameni a Domnului nostru Iisus Hristos, Căruia slava şi puterea în
 vecii vecilor, Amin.
 
-1. Matei 2, 1 2.
+1. Matei 2, 1-2.
 2. Ioan 18, 36.
 3. Ieş. 13, 21-22.
 4. Matei 2, 9.
 5. Iona 1, 2.
-6. Ioan 4, 7. 7. Matei 15, 22. 8. Matei 12, 41. 42. 9. Fapte 17, 22–31.
+6. Ioan 4, 7. 7. Matei 15, 22. 8. Matei 12, 41-42. 9. Fapte 17, 22–31.
 10. I Regi 5, 1–6. 13.
 11. I Regi 28, 7–25. 12. Prov. 9, 9. 13. Matei 2, 1.
 14. Matei 14, 1–12.
 15. Mih. 5, 2.
 16. Fac. 49, 10.
-17. I Ezdra 1, 1--11.
+17. I Ezdra 1, 1-11.
 18. Fapte 9, 4-6.
 19. Iona 1, 2.
 20. Luca 23, 39–43.
 21. Matei 2, 2.
 22. Matei 2, 3.
-23. Ieş. 16, 3; Num. 11, 4–5,
+23. Ieş. 16, 3; Num. 11, 4–5.
 24. Isaia 9, 5-6.
 25. De aici începe partea morală: Plînsul după voia lui Dumnezeu pricinuiește
    mare bucurie şi folos; mare rău este rîsul; trebuie să fugim de teatre,
