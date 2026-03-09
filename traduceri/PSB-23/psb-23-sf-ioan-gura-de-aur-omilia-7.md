@@ -33,16 +33,16 @@ Nazaret şi a întunecat profeția?
 -- N-a întunecat-o, ci a lămurit-o mai mult. Tocmai faptul că Mama Sa locuia în
 Nazaret arată că naşterea lui Hristos în Betleem s-a făcut potrivit rînduielii
 lui Dumnezeu. De aceea n-a plecat îndată după naştere, ci a mai rămas încă
-patruzeci de zile, ca să dea prilej celor ce voiau să cerceteze totul cu de-
-amănuntul. Că multe erau cele ce îndreptățeau o astfel de cercetare pentru cei
-ce ar fi voit să examineze în mai de aproape lucrurile. Cînd au venit magii în
-Ierusalim, tot oraşul a fost puternic tulburat şi odată cu oraşul şi împăratul;
-a fost adus ca mărturie profetul Miheea, au făcut mare sfat şi s-au mai
-întîmplat în Ierusalim şi alte multe fapte, pe care Luca le povesteşte cu de-
-amănuntul; de pildă cele cu privire la Ana şi la Simeon[^3], la Zaharia[^4], la
-îngeri şi la păstori[^5]. Toate acestea sînt îndestulătoare pricini pentru cei
-ce vor să examineze mai de aproape lucrurile, ca să descopere cele petrecute în
-Betleem. Dacă magii, care veniseră din Persia, au cunoscut locul naşterii lui
+patruzeci de zile, ca să dea prilej celor ce voiau să cerceteze totul cu
+de-amănuntul. Că multe erau cele ce îndreptățeau o astfel de cercetare pentru
+cei ce ar fi voit să examineze în mai de aproape lucrurile. Cînd au venit magii
+în Ierusalim, tot oraşul a fost puternic tulburat şi odată cu oraşul şi
+împăratul; a fost adus ca mărturie profetul Miheea, au făcut mare sfat şi s-au
+mai întîmplat în Ierusalim şi alte multe fapte, pe care Luca le povesteşte cu
+de-amănuntul; de pildă cele cu privire la Ana şi la Simeon[^3], la Zaharia[^4],
+la îngeri şi la păstori[^5]. Toate acestea sînt îndestulătoare pricini pentru
+cei ce vor să examineze mai de aproape lucrurile, ca să descopere cele petrecute
+în Betleem. Dacă magii, care veniseră din Persia, au cunoscut locul naşterii lui
 Hristos, apoi cu mult mai uşor puteau să-l afle locuitorii Ierusalimului. La
 început, la naştere, Hristos S-a arătat iudeilor prin multe minuni; dar pentru
 că iudeii n-au voit să-L vadă, a stat un timp ascuns; apoi, printr-un alt
@@ -137,14 +137,14 @@ Aşa e răutatea! Cade în groapa săpată de ea însăşi; încearcă lucruri i
 Uită-te la nebunia lui Irod! De credea profeția și de-o socotea de neschimbat,
 trebuia să ştie lămurit că încerca ceva cu neputinţă; şi iarăşi, de nu credea
 profeția și nu se aștepta să se înfăptuiască spusele ei, atunci n-ar fi trebuit
-să se teamă şi să se înfricoşeze şi nici să pună la cale viclenia. Deci și într-
-un caz şi în altul viclenia lui era de prisos. Apoi era o nebunie fără margini
-să-şi închipuie că magii au să-l prefere pe el în locul Celui născut, pentru
-Care făcuseră atîta drum. Cînd magii ardeau atîta de dragul Pruncului, înainte
-de a-L vedea, cum mai putea Irod nădăjdui să-i convingă să-L trădeze după ce-L
-văzuseră şi fuseseră încredințați și de profeție? Şi totuşi, deşi erau atîtea
-motive care să-l oprească de la acest gînd, Irod a încercat: „Şi chemînd în
-ascuns pe magi, i-a întrebat". Îşi închipuia că iudeii vor căuta să scape
+să se teamă şi să se înfricoşeze şi nici să pună la cale viclenia. Deci și
+într-un caz şi în altul viclenia lui era de prisos. Apoi era o nebunie fără
+margini să-şi închipuie că magii au să-l prefere pe el în locul Celui născut,
+pentru Care făcuseră atîta drum. Cînd magii ardeau atîta de dragul Pruncului,
+înainte de a-L vedea, cum mai putea Irod nădăjdui să-i convingă să-L trădeze
+după ce-L văzuseră şi fuseseră încredințați și de profeție? Şi totuşi, deşi erau
+atîtea motive care să-l oprească de la acest gînd, Irod a încercat: „Şi chemînd
+în ascuns pe magi, i-a întrebat". Îşi închipuia că iudeii vor căuta să scape
 Pruncul; nici Irod nu-şi putea închipui ca iudeii să alunece în atîta nebunie,
 încît să vrea să dea în mîinile vrăjmaşilor pe apărătorul lor, pe mîntuitorul
 lor, pe Cel ce a venit pentru eliberarea poporului. Irod, deci, îi cheamă în
@@ -418,47 +418,22 @@ voi face curată adunarea Bisericii. Aşa ne vom scăpa și de ruşinea de acum 
 vom dobîndi şi viaţa cea viitoare, cu harul şi cu iubirea de oameni a Domnului
 nostru Iisus Hristos, Căruia slava şi puterea în vecii vecilor, Amin.
 
-[^1]: Matei 2, 4-5.
-[^2]: Mih. 5, 1.
-[^3]: Luca 2, 25-38.
-[^4]: Luca 1, 5-25.
-[^5]: Luca 2, 8-18.
-[^6]: Matei 3, 13-17.
-[^7]: Mih. 5, 2.
-[^8]: Mih. 5, 2.
-[^9]: Matei 2, 6.
-[^10]: Matei 1, 21.
-[^11]: Matei 2, 2.
-[^12]: Matei 2, 6.
-[^13]: Ps. 8, 2.
-[^14]: Ps. 8, 3.
-[^15]: Ps. 109, 1.
-[^16]: Isaia 11, 10.
-[^17]: Rom. 9, 6–7.
-[^18]: Matei 2, 7.
-[^19]: Matei 2, 16.
-[^20]: Matei 2, 8.
-[^21]: Matei 2, 9.
-[^22]: Marcion, eretic din secolul al doilea, predica antiteza dintre dreptate
-    şi har, lege și Evanghelie, iudaism şi creştinism. După el totul îşi are
-    originea în două principii veşnice şi necreate: un Dumnezeu bun şi un
-    Dumnezeu drept, dar rău, creatorul lumii materiale şi autorul Vechiului
-    Testament.
-[^23]: Pavel din Samosata, episcop al Antiohiei, eretic din sec. III,
-    condamnat de trei sinoade ținute în Antiohia între 264 și 268, tăgăduia
-    Dumnezeirea lui Hristos.
-[^24]: Sf. Ioan Gură de Aur numește pe magi strămoși ai Bisericii, pentru că,
-    înainte de întemeierea Bisericii, magii au propovăduit pe Hristos.
-[^25]: Matei 28, 19.
-[^26]: Fapte 13, 46.
-[^27]: De aici începe partea morală: Cei ce se împărtășesc cu nevrednicie se
-    vatămă pe ei înşişi: despre milostenie; să fugim de sminteli.
-[^28]: I Cor. 11, 27.
-[^29]: Prov. 6, 6.
-[^30]: Matei 5, 28.
-[^31]: Antiohia.
-[^32]: Fapte 11, 26.
-[^33]: I Cor. 7, 31.
-[^34]: I Cor. 7, 29.
-[^35]: I Cor. 7, 4.
-[^36]: I Cor. 7, 3.
+[^1]: Matei 2, 4-5. [^2]: Mih. 5, 1. [^3]: Luca 2, 25-38. [^4]: Luca 1, 5-25.
+    [^5]: Luca 2, 8-18. [^6]: Matei 3, 13-17. [^7]: Mih. 5, 2. [^8]: Mih. 5, 2.
+    [^9]: Matei 2, 6. [^10]: Matei 1, 21. [^11]: Matei 2, 2. [^12]: Matei 2, 6.
+    [^13]: Ps. 8, 2. [^14]: Ps. 8, 3. [^15]: Ps. 109, 1. [^16]: Isaia 11, 10.
+    [^17]: Rom. 9, 6–7. [^18]: Matei 2, 7. [^19]: Matei 2, 16. [^20]: Matei 2,
+    8. [^21]: Matei 2, 9. [^22]: Marcion, eretic din secolul al doilea, predica
+    antiteza dintre dreptate şi har, lege și Evanghelie, iudaism şi creştinism.
+    După el totul îşi are originea în două principii veşnice şi necreate: un
+    Dumnezeu bun şi un Dumnezeu drept, dar rău, creatorul lumii materiale şi
+    autorul Vechiului Testament. [^23]: Pavel din Samosata, episcop al
+    Antiohiei, eretic din sec. III, condamnat de trei sinoade ținute în Antiohia
+    între 264 și 268, tăgăduia Dumnezeirea lui Hristos. [^24]: Sf. Ioan Gură de
+    Aur numește pe magi strămoși ai Bisericii, pentru că, înainte de întemeierea
+    Bisericii, magii au propovăduit pe Hristos. [^25]: Matei 28, 19. [^26]:
+    Fapte 13, 46. [^27]: De aici începe partea morală: Cei ce se împărtășesc cu
+    nevrednicie se vatămă pe ei înşişi: despre milostenie; să fugim de sminteli.
+    [^28]: I Cor. 11, 27. [^29]: Prov. 6, 6. [^30]: Matei 5, 28. [^31]:
+    Antiohia. [^32]: Fapte 11, 26. [^33]: I Cor. 7, 31. [^34]: I Cor. 7, 29.
+    [^35]: I Cor. 7, 4. [^36]: I Cor. 7, 3.
