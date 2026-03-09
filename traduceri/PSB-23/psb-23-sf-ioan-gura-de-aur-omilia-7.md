@@ -1,7 +1,7 @@
 # OMILIA VII
 
 „Şi adunînd pe toți arhiereii și cărturarii poporului, i-a întrebat: «Unde este
-să Se nască Hristos?>> Iar ei i-au spus lui: «În Betleemul Iudeii»"[^1].
+să Se nască Hristos?» Iar ei i-au spus lui: «În Betleemul Iudeii»"[^1].
 
 ## I
 
@@ -84,7 +84,7 @@ iudeilor. Cînd Fecioara a născut, îngerul zice: „Vei chema numele Lui: Iisu
 n-au spus: „Unde este Fiul lui Dumnezeu", ci: „Cel ce S-a născut, Împăratul
 iudeilor"[^11]. În profeție iarăși nu s-a spus: „Din tine va ieși Fiul lui
 Dumnezeu", ci „povățuitor Care va păstori pe poporul Meu Israel"[^12]. Că
-profetul trebuia să vorbească la început cu mai mult pogorămînt, și că să nu-i
+profetul trebuia să vorbească la început cu mai mult pogorămînt, și să nu-i
 scandalizeze, dar să și propovăduiască mîntuirea lor, spre a-i atrage mai mult.
 Primele mărturii, cele din timpul de după naştere, nu spun ceva deosebit despre
 Hristos, cum spun mărturiile despre minunile săvîrşite mai tîrziu de El, care
@@ -418,22 +418,47 @@ voi face curată adunarea Bisericii. Aşa ne vom scăpa și de ruşinea de acum 
 vom dobîndi şi viaţa cea viitoare, cu harul şi cu iubirea de oameni a Domnului
 nostru Iisus Hristos, Căruia slava şi puterea în vecii vecilor, Amin.
 
-[^1]: Matei 2, 4-5. [^2]: Mih. 5, 1. [^3]: Luca 2, 25-38. [^4]: Luca 1, 5-25.
-    [^5]: Luca 2, 8-18. [^6]: Matei 3, 13-17. [^7]: Mih. 5, 2. [^8]: Mih. 5, 2.
-    [^9]: Matei 2, 6. [^10]: Matei 1, 21. [^11]: Matei 2, 2. [^12]: Matei 2, 6.
-    [^13]: Ps. 8, 2. [^14]: Ps. 8, 3. [^15]: Ps. 109, 1. [^16]: Isaia 11, 10.
-    [^17]: Rom. 9, 6–7. [^18]: Matei 2, 7. [^19]: Matei 2, 16. [^20]: Matei 2,
-    8. [^21]: Matei 2, 9. [^22]: Marcion, eretic din secolul al doilea, predica
-    antiteza dintre dreptate şi har, lege și Evanghelie, iudaism şi creştinism.
-    După el totul îşi are originea în două principii veşnice şi necreate: un
-    Dumnezeu bun şi un Dumnezeu drept, dar rău, creatorul lumii materiale şi
-    autorul Vechiului Testament. [^23]: Pavel din Samosata, episcop al
-    Antiohiei, eretic din sec. III, condamnat de trei sinoade ținute în Antiohia
-    între 264 și 268, tăgăduia Dumnezeirea lui Hristos. [^24]: Sf. Ioan Gură de
-    Aur numește pe magi strămoși ai Bisericii, pentru că, înainte de întemeierea
-    Bisericii, magii au propovăduit pe Hristos. [^25]: Matei 28, 19. [^26]:
-    Fapte 13, 46. [^27]: De aici începe partea morală: Cei ce se împărtășesc cu
-    nevrednicie se vatămă pe ei înşişi: despre milostenie; să fugim de sminteli.
-    [^28]: I Cor. 11, 27. [^29]: Prov. 6, 6. [^30]: Matei 5, 28. [^31]:
-    Antiohia. [^32]: Fapte 11, 26. [^33]: I Cor. 7, 31. [^34]: I Cor. 7, 29.
-    [^35]: I Cor. 7, 4. [^36]: I Cor. 7, 3.
+[^1]: Matei 2, 4-5.
+[^2]: Mih. 5, 1.
+[^3]: Luca 2, 25-38.
+[^4]: Luca 1, 5-25.
+[^5]: Luca 2, 8-18.
+[^6]: Matei 3, 13-17.
+[^7]: Mih. 5, 2.
+[^8]: Mih. 5, 2.
+[^9]: Matei 2, 6.
+[^10]: Matei 1, 21.
+[^11]: Matei 2, 2.
+[^12]: Matei 2, 6.
+[^13]: Ps. 8, 2.
+[^14]: Ps. 8, 3.
+[^15]: Ps. 109, 1.
+[^16]: Isaia 11, 10.
+[^17]: Rom. 9, 6–7.
+[^18]: Matei 2, 7.
+[^19]: Matei 2, 16.
+[^20]: Matei 2, 8.
+[^21]: Matei 2, 9.
+[^22]: Marcion, eretic din secolul al doilea, predica antiteza dintre dreptate
+    şi har, lege și Evanghelie, iudaism şi creştinism. După el totul îşi are
+    originea în două principii veşnice şi necreate: un Dumnezeu bun şi un
+    Dumnezeu drept, dar rău, creatorul lumii materiale şi autorul Vechiului
+    Testament.
+[^23]: Pavel din Samosata, episcop al Antiohiei, eretic din sec. III,
+    condamnat de trei sinoade ținute în Antiohia între 264 și 268, tăgăduia
+    Dumnezeirea lui Hristos.
+[^24]: Sf. Ioan Gură de Aur numește pe magi strămoși ai Bisericii, pentru că,
+    înainte de întemeierea Bisericii, magii au propovăduit pe Hristos.
+[^25]: Matei 28, 19.
+[^26]: Fapte 13, 46.
+[^27]: De aici începe partea morală: Cei ce se împărtășesc cu nevrednicie se
+    vatămă pe ei înşişi: despre milostenie; să fugim de sminteli.
+[^28]: I Cor. 11, 27.
+[^29]: Prov. 6, 6.
+[^30]: Matei 5, 28.
+[^31]: Antiohia.
+[^32]: Fapte 11, 26.
+[^33]: I Cor. 7, 31.
+[^34]: I Cor. 7, 29.
+[^35]: I Cor. 7, 4.
+[^36]: I Cor. 7, 3.
