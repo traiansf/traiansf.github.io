@@ -1,24 +1,24 @@
 # OMILIA VII
 
-„*Şi adunînd pe toți arhiereii și cărturarii poporului, i-a întrebat: «Unde
+„*Şi adunând pe toți arhiereii și cărturarii poporului, i-a întrebat: «Unde
 este să Se nască Hristos?» Iar ei i-au spus lui: «În Betleemul Iudeii»*"[^1].
 
 ## I
 
-Ai văzut că toate s-au făcut spre mustrarea iudeilor? Atîta vreme cît iudeii
-nu-L vedeau pe Hristos, nu erau stăpîniți de invidie şi dădeau mărturie despre
-adevăr; dar cînd I-au văzut slava adusă de minuni, stăpîniți de invidie, n-au
+Ai văzut că toate s-au făcut spre mustrarea iudeilor? Atâta vreme cât iudeii
+nu-L vedeau pe Hristos, nu erau stăpâniți de invidie şi dădeau mărturie despre
+adevăr; dar când I-au văzut slava adusă de minuni, stăpâniți de invidie, n-au
 mai spus adevărul. Adevărul, însă, ieşea la lumină pe toate căile şi tocmai
 duşmanii îl întăreau mai mult.
 
-Iată şi aici cît de minunat şi de neobişnuit a rînduit Dumnezeu lucrurile! Şi
-magii și iudeii află unii de la alții ceva mai mult decît ştiau; şi se învață
+Iată şi aici cât de minunat şi de neobişnuit a rânduit Dumnezeu lucrurile! Şi
+magii și iudeii află unii de la alții ceva mai mult decât ştiau; şi se învață
 unii pe alţii. Iudeii au aflat de la magi că o stea L-a propovăduit pe Hristos
 în țara perşilor; iar magii au aflat de la iudei că Cel propovăduit de stea a
 fost vestit de profeți cu multă vreme înainte. Astfel întrebarea pusă de Irod a
 ajuns dovada unei învățături mai clare şi mai precise şi pentru magi şi pentru
-iudei. Şi astfel duşmanii adevărului sînt siliți să citească înaintea lui Irod
-şi a magilor, fără voia lor, scrierile care vorbeau despre adevăr, sînt siliți
+iudei. Şi astfel duşmanii adevărului sunt siliți să citească înaintea lui Irod
+şi a magilor, fără voia lor, scrierile care vorbeau despre adevăr, sunt siliți
 să tălmăcească profeția, chiar dacă n-o tălmăcesc toată. Au vorbit numai de
 Betleem și că din el va veni Cel ce păstoreşte pe Israel, dar n-au mai adăugat
 continuarea profeției, ca să linguşească pe împărat.
@@ -31,69 +31,69 @@ continuarea profeției, ca să linguşească pe împărat.
 Nazaret şi a întunecat profeția?
 
 -- N-a întunecat-o, ci a lămurit-o mai mult. Tocmai faptul că Mama Sa locuia în
-Nazaret arată că naşterea lui Hristos în Betleem s-a făcut potrivit rînduielii
+Nazaret arată că naşterea lui Hristos în Betleem s-a făcut potrivit rânduielii
 lui Dumnezeu. De aceea n-a plecat îndată după naştere, ci a mai rămas încă
 patruzeci de zile, ca să dea prilej celor ce voiau să cerceteze totul cu
 de-amănuntul. Că multe erau cele ce îndreptățeau o astfel de cercetare pentru
-cei ce ar fi voit să examineze în mai de aproape lucrurile. Cînd au venit magii
+cei ce ar fi voit să examineze în mai de aproape lucrurile. Când au venit magii
 în Ierusalim, tot oraşul a fost puternic tulburat şi odată cu oraşul şi
 împăratul; a fost adus ca mărturie profetul Miheea, au făcut mare sfat şi s-au
-mai întîmplat în Ierusalim şi alte multe fapte, pe care Luca le povesteşte cu
+mai întâmplat în Ierusalim şi alte multe fapte, pe care Luca le povesteşte cu
 de-amănuntul; de pildă cele cu privire la Ana şi la Simeon[^3], la Zaharia[^4],
-la îngeri şi la păstori[^5]. Toate acestea sînt îndestulătoare pricini pentru
+la îngeri şi la păstori[^5]. Toate acestea sunt îndestulătoare pricini pentru
 cei ce vor să examineze mai de aproape lucrurile, ca să descopere cele petrecute
 în Betleem. Dacă magii, care veniseră din Persia, au cunoscut locul naşterii lui
 Hristos, apoi cu mult mai uşor puteau să-l afle locuitorii Ierusalimului. La
 început, la naştere, Hristos S-a arătat iudeilor prin multe minuni; dar pentru
 că iudeii n-au voit să-L vadă, a stat un timp ascuns; apoi, printr-un alt
 început, S-a descoperit cu mai multă strălucire[^6]. Acum nu magii, nici steaua,
-ci Tatăl L-a propovăduit de sus; şi Duhul S-a pogorît atrăgînd glasul acela
+ci Tatăl L-a propovăduit de sus; şi Duhul S-a pogorât atrăgând glasul acela
 peste capul Celui botezat; şi Ioan, cu toată îndrăznirea, striga de-a lungul
-întregii Iudei, umplînd cu învățătura sa ținuturile locuite şi nelocuite; şi
-mărturia minunilor şi pămîntul și marea şi toată zidirea slobozeau strălucit
-glasul despre El. La naşterea Sa s-au petrecut atîtea minuni cîte puteau să
-arate în linişte pe Cel venit pe lume. Şi ca să nu spună iudeii: „Nu ştim cînd
-S-a născut şi nici în ce loc", Dumnezeu a rînduit venirea magilor şi celelalte
+întregii Iudei, umplând cu învățătura sa ținuturile locuite şi nelocuite; şi
+mărturia minunilor şi pământul și marea şi toată zidirea slobozeau strălucit
+glasul despre El. La naşterea Sa s-au petrecut atâtea minuni câte puteau să
+arate în linişte pe Cel venit pe lume. Şi ca să nu spună iudeii: „Nu ştim când
+S-a născut şi nici în ce loc", Dumnezeu a rânduit venirea magilor şi celelalte
 pe care le-am spus. Deci iudeii nu pot avea nici o scuză că n-au cercetat cele
 ce se petrecuseră.
 
 ## II
 
-Uită-te cît de precise sînt cuvintele profeției! Profetul n-a spus: „va locui
+Uită-te cât de precise sunt cuvintele profeției! Profetul n-a spus: „va locui
 în Betleem", ci „*din tine va ieşi*"[^7]. Deci profeția spune că se va naşte
 acolo. Dar unii iudei au neruşinarea să spună că aceste cuvinte s-au spus despre
 Zorobabel. Cum s-ar putea susține asta? Doar „*ieşirile lui*" n-au fost
 „*dintru început, din zilele veacului!*". Cum s-ar putea aplica lui Zorobabel
-cuvintele de la începutul profeției „*din tine va ieși*", cînd Zorobabel nu
+cuvintele de la începutul profeției „*din tine va ieși*", când Zorobabel nu
 s-a născut în Iudeea, ci în Babilon? De aceea a și fost numit Zorobabel, pentru
-că acolo s-a născut. Cei care cunosc limba siriană înțeleg cuvîntul Zorobabel.
-Pe lîngă cele spuse şi timpul de mai tîrziu întăreşte mărturia. Căci ce spune
+că acolo s-a născut. Cei care cunosc limba siriană înțeleg cuvântul Zorobabel.
+Pe lângă cele spuse şi timpul de mai târziu întăreşte mărturia. Căci ce spune
 profeția?
 
 „*Şi tu, Betleeme, nicidecum nu eşti cel mai mic între domnii lui
 Iuda*"[^8],[^9].
 
-Profetul arată pricina strălucirii Betleemului spunînd că „*din tine va ieşi*".
+Profetul arată pricina strălucirii Betleemului spunând că „*din tine va ieşi*".
 Şi nimeni altcineva n-a făcut strălucit şi vestit locul acela, ci numai Hristos.
 După ce S-a născut, vin să vadă ieslea și locul colibei oameni de la marginile
-lumii. Acest lucru l-a arătat mai dinainte profetul spunînd: „*Nicidecum nu
+lumii. Acest lucru l-a arătat mai dinainte profetul spunând: „*Nicidecum nu
 eşti cel mai mic între domnii lui Iuda*", adică între conducătorii de seminții.
 Prin aceste cuvinte a cuprins şi Ierusalimul. Dar nici aşa iudeii n-au luat în
 seamă profeția, deşi folosul îi privea pe ei. Aceasta e pricina că profeții nu
-vorbesc la început atît de vrednicia lui Hristos cît de binefacerile făcute de
-Hristos iudeilor. Cînd Fecioara a născut, îngerul zice: „*Vei chema numele Lui:
-Iisus*"; şi adaugă: „*că El va mîntui pe poporul Său de păcatele sale*"[^10].
+vorbesc la început atât de vrednicia lui Hristos cât de binefacerile făcute de
+Hristos iudeilor. Când Fecioara a născut, îngerul zice: „*Vei chema numele Lui:
+Iisus*"; şi adaugă: „*că El va mântui pe poporul Său de păcatele sale*"[^10].
 Iar magii n-au spus: „Unde este Fiul lui Dumnezeu", ci: „Cel ce S-a născut,
 Împăratul iudeilor"[^11]. În profeție iarăși nu s-a spus: „Din tine va ieși
 Fiul lui Dumnezeu", ci „*povățuitor Care va păstori pe poporul Meu
 Israel*"[^12].
-Că profetul trebuia să vorbească la început cu mai mult pogorămînt, și ca să nu-i
-scandalizeze, dar să și propovăduiască mîntuirea lor, spre a-i atrage mai mult.
+Că profetul trebuia să vorbească la început cu mai mult pogorământ, și ca să nu-i
+scandalizeze, dar să și propovăduiască mântuirea lor, spre a-i atrage mai mult.
 Primele mărturii, cele din timpul de după naştere, nu spun ceva deosebit despre
-Hristos, cum spun mărturiile despre minunile săvîrşite mai tîrziu de El, care
+Hristos, cum spun mărturiile despre minunile săvârşite mai târziu de El, care
 vorbesc mai lămurit despre slava Lui. Ascultă ce spune profetul despre copiii
-care-I cîntau imne după săvîrşirea multelor Sale minuni: „*Din gura pruncilor
-şi a celor ce sug ai săvîrşit laudă*"[^13]; şi iarăși: „*Că vor vedea cerurile,
+care-I cântau imne după săvârşirea multelor Sale minuni: „*Din gura pruncilor
+şi a celor ce sug ai săvârşit laudă*"[^13]; şi iarăși: „*Că vor vedea cerurile,
 lucrul degetelor Tale*"[^14]. Aceste din urmă cuvinte Îl arată Creator al
 universului. Profeția spusă despre El după înălțare, Îl arată de aceeaşi cinste
 cu Tatăl: „*Zis-a Domnul Domnului meu: Şezi de-a dreapta Mea*"[^15], iar Isaia
@@ -101,35 +101,35 @@ spune: „*Cel ce S-a ridicat să conducă neamurile; în El vor nădăjdui
 neamurile*"[^16].
 
 Dar pentru ce, ar putea întreba cineva, profetul Miheia spune că Betleemul nu
-este cel mai mic între domnii lui Iuda, cînd satul acesta a ajuns vestit nu
+este cel mai mic între domnii lui Iuda, când satul acesta a ajuns vestit nu
 numai în Palestina, ci în toată lumea?
 
-- Cuvîntul profetului a fost adresat deocamdată iudeilor; de aceea a și adăugat:
+- Cuvântul profetului a fost adresat deocamdată iudeilor; de aceea a și adăugat:
 „*Va păstori pe poporul Meu Israel*", cu toate că a păstorit lumea întreagă.
 Dar, după cum am spus, profetul nu vrea să scandalizeze deocamdată pe iudei,
 dar le descoperă că va păstori și pe toate celelalte neamuri.
 
-Dar pentru ce profetul spune că va păstori pe poporul iudeu, cînd nu l-a
+Dar pentru ce profetul spune că va păstori pe poporul iudeu, când nu l-a
 păstorit?
 
-- Dar asta mai cu seamă s-a şi întîmplat! Spunînd aici „Israel" a arătat pe
-iudeii care au crezut în El, iar Pavel, interpretînd acest loc, spunea:
-„*Nu toți din Israel sînt Israel, ci numai cîți s-au născut prin credință și
+- Dar asta mai cu seamă s-a şi întâmplat! Spunând aici „Israel" a arătat pe
+iudeii care au crezut în El, iar Pavel, interpretând acest loc, spunea:
+„*Nu toți din Israel sunt Israel, ci numai câți s-au născut prin credință și
 făgăduință*"[^17]. Iar dacă nu i-a păstorit pe toți, e păcatul şi vina lor. Ar
 fi trebuit să I se închine împreună cu magii şi să slăvească pe Dumnezeu, că a
 venit peste ei un timp ca acela care să le dezlege toate păcatele lor. Şi doar
 nu auziseră nimic de judecată, nici de pedepse, ci de un păstor liniştit şi
-blînd! Dar ei fac dimpotrivă: se tulbură, se frămîntă şi mai tîrziu pun la cale
+blând! Dar ei fac dimpotrivă: se tulbură, se frământă şi mai târziu pun la cale
 fel de fel de viclenii.
 
-„*Atunci Irod chemînd în ascuns pe magi, i-a întrebat cu de-amănuntul despre
+„*Atunci Irod chemând în ascuns pe magi, i-a întrebat cu de-amănuntul despre
 vremea în care s-a arătat steaua*"[^18].
 
 Irod căuta să omoare pe Cel născut; dar asta nu mai e furie, ci curată nebunie;
-căci cele spuse şi cele întîmplate erau de ajuns să-l oprească de la orice
-încercare ca aceasta. Cele întîmplate nu erau fapte omeneşti; nu erau fapte
+căci cele spuse şi cele întâmplate erau de ajuns să-l oprească de la orice
+încercare ca aceasta. Cele întâmplate nu erau fapte omeneşti; nu erau fapte
 omeneşti ca o stea să cheme din înaltul cerului pe magi, să-i pornească pe nişte
-barbari într-o călătorie atît de îndepărtată spre a se închina Celui aflat în
+barbari într-o călătorie atât de îndepărtată spre a se închina Celui aflat în
 scutece şi în iesle şi ca profeții să-L prezică de demult; toate acestea, precum
 şi toate celelalte, erau fapte mai presus de om. Totuşi Irod n-a ținut seama de
 nici una din ele.
@@ -143,25 +143,25 @@ profeția și nu se aștepta să se înfăptuiască spusele ei, atunci n-ar fi t
 să se teamă şi să se înfricoşeze şi nici să pună la cale viclenia. Deci și
 într-un caz şi în altul viclenia lui era de prisos. Apoi era o nebunie fără
 margini să-şi închipuie că magii au să-l prefere pe el în locul Celui născut,
-pentru Care făcuseră atîta drum. Cînd magii ardeau atîta de dragul Pruncului,
+pentru Care făcuseră atâta drum. Când magii ardeau atâta de dragul Pruncului,
 înainte de a-L vedea, cum mai putea Irod nădăjdui să-i convingă să-L trădeze
 după ce-L văzuseră şi fuseseră încredințați și de profeție? Şi totuşi, deşi
-erau atîtea motive care să-l oprească de la acest gînd, Irod a încercat:
-„*Şi chemînd în ascuns pe magi, i-a întrebat*". Îşi închipuia că iudeii vor
+erau atâtea motive care să-l oprească de la acest gând, Irod a încercat:
+„*Şi chemând în ascuns pe magi, i-a întrebat*". Îşi închipuia că iudeii vor
 căuta să scape Pruncul; nici Irod nu-şi putea închipui ca iudeii să alunece în
-atîta nebunie, încît să vrea să dea în mîinile vrăjmaşilor pe apărătorul lor,
-pe mîntuitorul lor, pe Cel ce a venit pentru eliberarea poporului. Irod, deci,
+atâta nebunie, încât să vrea să dea în mâinile vrăjmaşilor pe apărătorul lor,
+pe mântuitorul lor, pe Cel ce a venit pentru eliberarea poporului. Irod, deci,
 îi cheamă în ascuns şi-i întreabă, nu de timpul în care S-a născut Pruncul, ci
-de timpul în care s-a arătat steaua, întinzînd cu multă dibăcie cursa. După
+de timpul în care s-a arătat steaua, întinzând cu multă dibăcie cursa. După
 părerea mea steaua trebuie să se fi arătat cu multă vreme înainte de naşterea
 Pruncului, pentru că magii au trebuit să facă multă vreme pe drum ca să ajungă
-în Palestina chiar în momentul naşterii; că trebuia să I se închine Lui pe cînd
+în Palestina chiar în momentul naşterii; că trebuia să I se închine Lui pe când
 era în scutece. Deci steaua li s-a arătat cu mult mai înainte, pentru a arăta
 că naşterea Lui este minunată şi neobișnuită. Dacă li s-ar fi arătat în răsărit
 chiar în momentul în care S-a născut Pruncul în Palestina, magii n-ar mai fi
 ajuns să-L vadă înfășat în scutece, deoarece călătoria le lua mult timp. Să nu
 ne minunăm deloc, deci, dacă Irod a poruncit să fie ucişi pruncii de doi ani şi
-mai mici[^19]; mînia şi teama îl fac să mărească timpul, pentru mai multă
+mai mici[^19]; mânia şi teama îl fac să mărească timpul, pentru mai multă
 siguranță, ca să nu-i scape nimeni.
 
 Aşadar, Irod a chemat pe magi şi le-a spus:
@@ -169,26 +169,26 @@ Aşadar, Irod a chemat pe magi şi le-a spus:
 „*Mergeţi şi cercetați cu de-amănuntul despre Prunc, şi dacă-L veți afla,
 vestiți-mă, ca şi eu venind să mă închin Lui*"[^20].
 
-Ai văzut cît de lipsit de judecată a fost Irod? Dacă vorbești drept, pentru ce
+Ai văzut cât de lipsit de judecată a fost Irod? Dacă vorbești drept, pentru ce
 întrebi în ascuns pe magi? Iar dacă vrei să pui la cale o nelegiuire, pentru ce
 nu-ți dai seama că magii vor descoperi viclenia ta tocmai pentru că i-ai
-întrebat întru ascuns? Dar, după cum am spus, cînd un om e stăpînit de răutate
+întrebat întru ascuns? Dar, după cum am spus, când un om e stăpânit de răutate
 face prostii din ce în ce mai mari. Irod n-a spus: „Mergeți de aflați de
 împărat", ci: „de Prunc". Nici numele de împărat nu voia să-l rostească. Dar
 magii, datorită bunei lor credințe, nu şi-au dat seama de asta; că nu-şi puteau
-închipui că Irod ar putea merge atît de departe cu răutatea încît să încerce a
-vicleni împotriva unei rînduieli atît de minunate a lui Dumnezeu. Au plecat,
-deci, magii fără nici o bănuială, gîndindu-se la cele ce ştiau ei şi la cele ce
+închipui că Irod ar putea merge atât de departe cu răutatea încât să încerce a
+vicleni împotriva unei rânduieli atât de minunate a lui Dumnezeu. Au plecat,
+deci, magii fără nici o bănuială, gândindu-se la cele ce ştiau ei şi la cele ce
 auziseră de la alții.
 
 „*Şi iată steaua, pe care o văzuseră în răsărit, mergea înaintea lor*"[^21].
-Că pentru asta s-a şi ascuns steaua, ca magii, pierzîndu-şi călăuza, să fie
+Că pentru asta s-a şi ascuns steaua, ca magii, pierzându-şi călăuza, să fie
 siliți să întrebe pe iudei și să se facă tuturora cunoscută naşterea lui
 Hristos.
 După ce au întrebat şi după ce au avut dascăli pe duşmanii lui Hristos, steaua
-iar s-a arătat. Uită-te cît de minunat se desfăşoară lucrurile! Din mîna stelei
-îi ia de mînă pe magi poporul şi împăratul; iar aceştia îl aduc pe profet ca
-să-i învețe cele ce se petreceau în Betleem. Iar mai tîrziu din mîna profetului
+iar s-a arătat. Uită-te cât de minunat se desfăşoară lucrurile! Din mâna stelei
+îi ia de mână pe magi poporul şi împăratul; iar aceştia îl aduc pe profet ca
+să-i învețe cele ce se petreceau în Betleem. Iar mai târziu din mâna profetului
 îi ia îngerul, care-i învață totul. Deci de la Ierusalim la Betleem steaua le
 arată drumul; că steaua i-a însoțit de acolo iarăşi. Şi s-a făcut aceasta ca să
 afli şi de aici că steaua nu era o stea ca toate celelalte, că nici o stea nu
@@ -207,19 +207,19 @@ Poate că cineva ar întreba:
 Pruncului era lipsită de strălucire și necunoscută. Trebuia, deci, ca steaua
 să-i ducă chiar la locul unde S-a născut. De aceea, îndată ce-au ieşit din
 Ierusalim s-a arătat steaua şi nu s-a oprit înainte de a ajunge la ieslea
-naşterii. Minunea a urmat minunii. Amîndouă erau pline de minune: şi închinarea
+naşterii. Minunea a urmat minunii. Amândouă erau pline de minune: şi închinarea
 magilor şi mergerea stelei înaintea lor; erau îndestulătoare să atragă chiar pe
 cei cu totul împietriți la suflet. Dacă magii ar fi spus că au auzit de nașterea
 Pruncului din gura profeților sau că îngerii au vorbit cu ei îndeosebi, n-ar fi
 fost crezuți; dar aşa, steaua arătată pe cer a închis gura tuturor, chiar a
-celor mai neruşinați. Mai mult: cînd steaua a ajuns deasupra Pruncului, steaua
-s-a oprit. Iar ca o stea, cînd să se ascundă, cînd să se arate şi în sfîrşit să
+celor mai neruşinați. Mai mult: când steaua a ajuns deasupra Pruncului, steaua
+s-a oprit. Iar ca o stea, când să se ascundă, când să se arate şi în sfârşit să
 se oprească după ce iar s-a arătat, înseamnă că era o stea cu o putere mai mare
-decît a unei stele obişnuite. Asta a întărit și mai mult credința magilor. De
+decât a unei stele obişnuite. Asta a întărit și mai mult credința magilor. De
 aceea s-au şi bucurat. S-au bucurat că au găsit ce căutau; s-au bucurat că au
-ajuns vestitorii adevărului; s-au bucurat că n-au făcut în zadar atîta cale.
-Atît de mare le era dorul de Hristos! Şi venind steaua s-a oprit chiar deasupra
-capului Pruncului, arătînd că dumnezeiesc este Pruncul. Oprindu-se, steaua i-a
+ajuns vestitorii adevărului; s-au bucurat că n-au făcut în zadar atâta cale.
+Atât de mare le era dorul de Hristos! Şi venind steaua s-a oprit chiar deasupra
+capului Pruncului, arătând că dumnezeiesc este Pruncul. Oprindu-se, steaua i-a
 făcut să se închine Pruncului, nu ca niște simpli barbari, ci ca unii din cei
 mai înțelepți dintre barbari. Vezi ce rost mare a avut steaua? În afară de
 profeție şi de interpretarea arhiereilor şi cărturarilor magii au dat atenție și
@@ -227,53 +227,53 @@ stelei.
 
 Să se ruşineze Marcion[^22], să se ruşineze Pavel din Samosata[^23], care nu
 vor să vadă ce-au văzut magii, strămoşii Bisericii![^24] Nu mi-i ruşine să-i
-numesc strămoși ai Bisericii! Să se ruşineze Marcion, cînd vede că Dumnezeu
-este închinat în trup! Să se ruşineze Pavel, cînd vede că nu este închinat
+numesc strămoși ai Bisericii! Să se ruşineze Marcion, când vede că Dumnezeu
+este închinat în trup! Să se ruşineze Pavel, când vede că nu este închinat
 numai ca simplu om! Că este Dumnezeu în trup o arată scutecele şi ieslea; iar
-că magii nu I s-au închinat ca unui simplu om, o arată darurile acelea atît de
-bogate aduse de ei lui Hristos, pe cînd era încă Prunc, daruri care de obicei
+că magii nu I s-au închinat ca unui simplu om, o arată darurile acelea atât de
+bogate aduse de ei lui Hristos, pe când era încă Prunc, daruri care de obicei
 se aduc numai lui Dumnezeu. Să se ruşineze şi iudeii împreună cu Marcion și
-Pavel, cînd văd că le-o iau înainte barbarii şi magii şi cînd nici după aceştia
+Pavel, când văd că le-o iau înainte barbarii şi magii şi când nici după aceştia
 nu înțeleg să vină să se închine lui Hristos! Că tot ce s-a făcut atunci a fost
 o preînchipuire a celor viitoare! Chiar de la început, de la nașterea lui
-Hristos, s-a arătat că neamurile păgîne o vor lua înaintea poporului iudeu.
+Hristos, s-a arătat că neamurile păgâne o vor lua înaintea poporului iudeu.
 
 - Atunci pentru ce, ar putea întreba cineva, pentru ce Hristos n-a spus de la
-început apostolilor, ci mai tîrziu: „*Mergînd, învățați toate neamurile*"?[^25]
+început apostolilor, ci mai târziu: „*Mergând, învățați toate neamurile*"?[^25]
 
 - Pentru că, aşa cum am spus şi mai înainte, închinarea magilor era o
 preînchipuire şi mai înainte-vestire a celor viitoare. Trebuia ca iudeii să vină
-întîi la Hristos; dar cînd de bunăvoie şi-au trădat propria lor binefacere,
+întâi la Hristos; dar când de bunăvoie şi-au trădat propria lor binefacere,
 lucrurile au luat o altă întorsătură. Nici la naştere nu trebuia să vină magii
 înaintea iudeilor; nici nu trebuia ca niște oameni de la o aşa depărtare să le-o
 ia înaintea celor care locuiau chiar în Ierusalim şi nici nu trebuia ca niște
 oameni, care nici nu auziseră de profeți, să alerge înaintea celor ce cunoşteau
 din copilărie profețiile. Dar pentru că şi-au ignorat cu totul propriul lor
 bine, perşii o iau înaintea ierusalimlenilor, lucru pe care îl spune şi Pavel:
-„*Trebuia să vă grăim vouă mai întîi cuvîntul Domnului; dar pentru că v-ați
+„*Trebuia să vă grăim vouă mai întâi cuvântul Domnului; dar pentru că v-ați
 judecat pe voi nevrednici, iată ne întoarcem la neamuri*"[^26]. Iudeii ar fi
 trebuit să alerge după ce au auzit de la magi, dacă mai înainte nu crezuseră;
-dar n-au voit. De aceea, pe cînd iudeii dormeau, păgînii au alergat înaintea
+dar n-au voit. De aceea, pe când iudeii dormeau, păgânii au alergat înaintea
 lor.
 
 ## V
 
 Să căutăm[^27] deci să fim şi noi ca magii! Să ne liberăm de obiceiurile cele
-păgîneşti, să ne depărtăm mult de ele, ca să vedem pe Hristos; că şi magii nu
+păgâneşti, să ne depărtăm mult de ele, ca să vedem pe Hristos; că şi magii nu
 L-ar fi văzut dacă nu s-ar fi depărtat mult de țara lor. Să ne depărtăm de
-lucrurile cele pămînteşti, că și magii, atîta vreme cît erau în Persia, vedeau
-numai steaua; dar cînd s-au depărtat de Persia au văzut pe Soarele dreptății;
+lucrurile cele pământeşti, că și magii, atâta vreme cât erau în Persia, vedeau
+numai steaua; dar când s-au depărtat de Persia au văzut pe Soarele dreptății;
 dar, mai bine spus, nici steaua n-ar fi văzut-o dacă nu s-ar fi ridicat de-acolo
-cu rîvnă. Să ne ridicăm, dar, şi noi. Lasă-i pe toți ceilalți să se tulbure! Noi
+cu râvnă. Să ne ridicăm, dar, şi noi. Lasă-i pe toți ceilalți să se tulbure! Noi
 să alergăm la casa Pruncului! Să nu ni se potolească dorul chiar dacă împărați,
 popoare și tirani ne-ar tăia drumul! Aşa, vom depărta din calea noastră toate
 greutățile. Că și magii n-ar fi scăpat de primejdia ce le venea din partea
 împăratului, dacă n-ar fi văzut Pruncul. Înainte de a-L vedea, erau înconjurați
 din toate părţile de frică, de primejdii, de tulburări; după ce I s-au închinat,
 linişte şi siguranță! Acum nu-i mai primeşte steaua, ci îngerul, că, prin
-închinare ajungînd preoți, I-au adus şi daruri. Părăseşte, dar, şi tu poporul
+închinare ajungând preoți, I-au adus şi daruri. Părăseşte, dar, şi tu poporul
 iudeu, oraşul tulburat, pe tiranul ucigaş, nălucirea cea lumească, grăbeşte-te
-spre Betleem, unde este casa pîinii celei duhovniceşti. Eşti păstor? Vino şi vei
+spre Betleem, unde este casa pâinii celei duhovniceşti. Eşti păstor? Vino şi vei
 vedea pe Prunc în colibă! Eşti împărat? Nu vii să-L vezi? Atunci nu ți-i de
 folos porfira împărătească! Eşti mag? Asta nu te împiedică deloc, numai dacă vii
 să-L cinsteşti şi să I te închini Lui, nu ca să calci în picioare pe Fiul lui
@@ -281,68 +281,68 @@ Dumnezeu! Fă aceasta cu cutremur şi cu bucurie! Pot sta împreună bucuria şi
 cutremurul! Vezi să nu fii ca Irod şi să spui: „*Că venind, să mă închin Lui*"
 și venind să vrei să-L ucizi! Că lui Irod se aseamănă toți cei care se
 împărtăşesc cu nevrednicie cu sfintele taine! „*Unul ca acesta, spune Pavel, va
-fi vinovat față de trupul şi sîngele Domnului*"[^28] pentru că au în ei înșiși
+fi vinovat față de trupul şi sângele Domnului*"[^28] pentru că au în ei înșiși
 pe mamona, pe tiranul pe care-l supără împărăția lui Hristos, tiran mai
-nelegiuit decît Irod. Mamona vrea să stăpînească şi trimite pe cei ai lui să se
-închine lui Hristos numai de formă, dar Îl junghie cînd I se închină. Să ne
+nelegiuit decât Irod. Mamona vrea să stăpânească şi trimite pe cei ai lui să se
+închine lui Hristos numai de formă, dar Îl junghie când I se închină. Să ne
 temem, dar, ca nu cumva să avem chip de rugători şi de închinători, dar cu fapta
-să facem cele potrivnice. Cînd vrem să ne închinăm, să aruncăm totul din mîini!
-De avem aur să-l dăm lui Hristos, să nu-l îngropăm în pămînt! Dacă barbarii
+să facem cele potrivnice. Când vrem să ne închinăm, să aruncăm totul din mâini!
+De avem aur să-l dăm lui Hristos, să nu-l îngropăm în pământ! Dacă barbarii
 aceia I-au adus atunci aur ca să-L cinstească, cine eşti tu de nu dai nimic
-celui ce are nevoie de ajutor? Aceia au făcut atîta drum ca să vadă pe Cel
-născut, dar tu ce apărare mai poți avea cînd n-ai de trecut nici o uliță ca să
+celui ce are nevoie de ajutor? Aceia au făcut atâta drum ca să vadă pe Cel
+născut, dar tu ce apărare mai poți avea când n-ai de trecut nici o uliță ca să
 cercetezi pe un bolnav sau pe un întemnitat? Ni-i milă negreşit de bolnavi, de
-întemnițați şi de vrăjmaşi, dar tu n-ai milă nici de Stăpînul şi Binefăcătorul
-tău! Magii I-au adus aur, dar tu abia de-I dai o pîine! Magii au văzut steaua
+întemnițați şi de vrăjmaşi, dar tu n-ai milă nici de Stăpânul şi Binefăcătorul
+tău! Magii I-au adus aur, dar tu abia de-I dai o pâine! Magii au văzut steaua
 şi s-au bucurat, dar tu vezi chiar Hristos, străin şi gol, şi nu-ți tresare
-inima! Care dintre voi cei de față, care aţi fost încărcați cu atîtea
-binefaceri, ați făcut o cale atîta de lungă de dragul lui Hristos, ca barbarii
+inima! Care dintre voi cei de față, care aţi fost încărcați cu atâtea
+binefaceri, ați făcut o cale atâta de lungă de dragul lui Hristos, ca barbarii
 aceia, dar mai
-bine spus, mai filozofi decît filozofii? Dar pentru ce vorbesc de cale lungă?
-Multe femei de ale noastre sînt atît de trîndave încît nu merg nici o uliță ca
-să vadă pe Hristos în ieslea cea duhovnicească, dacă nu sînt purtate de catîri!
+bine spus, mai filozofi decât filozofii? Dar pentru ce vorbesc de cale lungă?
+Multe femei de ale noastre sunt atât de trândave încât nu merg nici o uliță ca
+să vadă pe Hristos în ieslea cea duhovnicească, dacă nu sunt purtate de catâri!
 Alții, deşi pot merge pe picioarele lor, totuşi în loc să vină la biserică
 preferă afacerile şi teatrele. Barbarii aceia, înainte de a-L vedea, au făcut
-atîta cale de dragul lui Hristos; tu, însă, nici după ce L-ai văzut n-ai rîvna
+atâta cale de dragul lui Hristos; tu, însă, nici după ce L-ai văzut n-ai râvna
 lor, ci-L laşi pe Hristos şi dai fuga să vezi pe actori — că iarăși vorbesc de
-cele pe care le-am vorbit în cuvîntul de mai înainte. Îl vezi Hristos culcat în
-iesle şi-L părăseşti ca să vezi femei pe scenă. De cîte trăsnete nu-s vrednice
+cele pe care le-am vorbit în cuvântul de mai înainte. Îl vezi Hristos culcat în
+iesle şi-L părăseşti ca să vezi femei pe scenă. De câte trăsnete nu-s vrednice
 astfel de purtări?
 
 ## VI
 
 Spune-mi, te rog: Dacă ți-ar făgădui cineva să te ducă la palatul împărătesc
 ca să-ți arate pe împărat pe tron, ai alege oare teatrul în locul împăratului?
-Şi totuşi într-un palat împărătesc n-ai nimic de cîştigat! Aici însă, în
+Şi totuşi într-un palat împărătesc n-ai nimic de câştigat! Aici însă, în
 biserică, izvor de foc duhovnicesc izvorăște din masa aceasta; şi tu o laşi şi
 alergi la spectacol ca să vezi femei care fac baie în pielea goală, să vezi cum
-sînt batjocorite femeile, şi-L părăseşti pe Hristos Care stă lîngă izvor? Şi
-acum stă Hristos lîngă izvor, nu vorbind cu samarineanca, ci cu tot oraşul. Dar
+sunt batjocorite femeile, şi-L părăseşti pe Hristos Care stă lângă izvor? Şi
+acum stă Hristos lângă izvor, nu vorbind cu samarineanca, ci cu tot oraşul. Dar
 poate că şi acum Hristos vorbeşte tot numai cu samarineanca. Că nici acum nu-i
-nimeni lîngă El, ci unii numai cu trupurile, iar alții nici cu atît. Totuşi
-Hristos nu pleacă, ci rămîne şi cere de la noi de băut, nu apă, ci sfințenie;
-căci cele sfinte le dă El sfinţilor. Nu ne dă apă de izvor, ci sînge viu, care
+nimeni lângă El, ci unii numai cu trupurile, iar alții nici cu atât. Totuşi
+Hristos nu pleacă, ci rămâne şi cere de la noi de băut, nu apă, ci sfințenie;
+căci cele sfinte le dă El sfinţilor. Nu ne dă apă de izvor, ci sânge viu, care
 nu-i simbol al morţii, ci pricină a vieții. Tu, însă, părăseşti izvorul
-sîngelui,
+sângelui,
 potirul cel înfricoşător, şi te duci la izvorul cel drăcesc, ca să vezi femei
-desfrînate făcînd baie în pielea goală, ca să ți se înece sufletul. Că apa aceea
-este un ocean de desfrînare; nu învăluieşte cu apă trupurile, ci îneacă
-sufletele. Femeia îşi cufundă trupul gol în baie, dar tu, cînd o vezi, te
-scufunzi în adîncul desfrînării. Aşa e mreaja diavolului; nu îneacă pe cei care
+desfrânate făcând baie în pielea goală, ca să ți se înece sufletul. Că apa aceea
+este un ocean de desfrânare; nu învăluieşte cu apă trupurile, ci îneacă
+sufletele. Femeia îşi cufundă trupul gol în baie, dar tu, când o vezi, te
+scufunzi în adâncul desfrânării. Aşa e mreaja diavolului; nu îneacă pe cei care
 înoată, ci mai ales pe cei care stau sus în porticele din jurul bazinului de
-înot; îi îneacă mai cumplit decît pe Faraon, care a fost înecat atunci cu caii
+înot; îi îneacă mai cumplit decât pe Faraon, care a fost înecat atunci cu caii
 şi căruțele lui. Dacă ar fi cu putință să vedeți sufletele înecate, v-aş arăta
 multe suflete plutind moarte la suprafața acestor ape, aşa cum odinioară pluteau
-la suprafața Mării Roşii trupurile egiptenilor. Dar ceea ce-i mai cumplit decît
+la suprafața Mării Roşii trupurile egiptenilor. Dar ceea ce-i mai cumplit decât
 toate este că oamenii numesc o pieire ca aceasta desfătare, iar oceanul acesta
 al pierzaniei loc de plăcere, deşi poţi străbate Marea Egee şi Marea Tireniană
-mai cu ușurință şi în mai multă siguranță decît priveliştea aceasta. Mai întîi
+mai cu ușurință şi în mai multă siguranță decât priveliştea aceasta. Mai întâi
 diavolul ține toată noaptea sufletele în aşteptare; apoi după ce le-a arătat ce
 aşteptau, le înlănțuiește și le face prizoniere. Să nu-ți închipui că eşti
-lipsit de păcat dacă nu te-ai apropiat de o desfrînată; poftindu-o ai săvîrşit
-totul. Că, fiind stăpînit de poftă, îți ațîţi şi mai mult flacăra. Iar dacă spui
-că aceste spectacole nu te vatămă, atunci eşti vrednic de mai mare osîndă pentru
-că, încurajînd prin prezența ta astfel de spectacole, smintești şi pe alţii, iar
+lipsit de păcat dacă nu te-ai apropiat de o desfrânată; poftindu-o ai săvârşit
+totul. Că, fiind stăpânit de poftă, îți ațâţi şi mai mult flacăra. Iar dacă spui
+că aceste spectacole nu te vatămă, atunci eşti vrednic de mai mare osândă pentru
+că, încurajând prin prezența ta astfel de spectacole, smintești şi pe alţii, iar
 ție îți faci de ruşine obrazul și odată cu obrazul sufletul.
 
 Dar ca să nu vă țin numai de rău, haide să vă dau şi un mijloc de îndreptare.
@@ -353,30 +353,30 @@ Care?
 trebuit, după legea lui Pavel, ca voi să fiți dascălii lor! Dar, pentru că, prin
 păcat, s-a stricat ordinea și a ajuns capul jos, iar trupul sus, să alegem
 cealaltă cale. Dacă ţi-i ruşine ca nevasta ta să-ţi fie dascăl, fugi de păcat
-şi vei putea să te urci iute pe tronul ce ți l-a dat Dumnezeu! Dar atîta vreme
-cît trăieşti în păcat, Scriptura te trimite nu numai la femeie, ci chiar la
+şi vei putea să te urci iute pe tronul ce ți l-a dat Dumnezeu! Dar atâta vreme
+cât trăieşti în păcat, Scriptura te trimite nu numai la femeie, ci chiar la
 animalele cele mai de jos. Nu se ruşinează să te trimită pe tine, om înzestrat
 cu rațiune, să fii ucenicul furnicii[^29]. Cu asta nu învinuiesc Scriptura, ci
 pe cei ce-şi trădează noblețea lor de oameni. Aşa voi face şi eu! Te voi da acum
-pe mîna soției tale! De o vei disprețui, te voi trimite la şcoala celor
-necuvîntătoare şi-ţi voi arăta cîte păsări, cîți peşti, cîte patrupede, cîte
-tîrîtoare sînt mai cuviincioase și mai înțelepte decît tine. Dacă nu-ți place şi
+pe mâna soției tale! De o vei disprețui, te voi trimite la şcoala celor
+necuvântătoare şi-ţi voi arăta câte păsări, câți peşti, câte patrupede, câte
+târâtoare sunt mai cuviincioase și mai înțelepte decât tine. Dacă nu-ți place şi
 îți este ruşine cu o astfel de apropiere, ridică-te la cinstea ta de om, fugi de
-oceanul iadului, de rîul cel de foc, de spectacolul de la baie! Că baia aceea dă
-naştere oceanului iadului şi aprinde acel adînc al flacării.
+oceanul iadului, de râul cel de foc, de spectacolul de la baie! Că baia aceea dă
+naştere oceanului iadului şi aprinde acel adânc al flacării.
 
 ## VII
 
 Dacă omul „*care se uită la o femeie spre a o pofti a şi făcut
-desfrînare*"[^30],
+desfrânare*"[^30],
 cum să nu ajungă prizonier cel care vede o femeie în pielea goală? Nu ca potopul
 de pe timpul lui Noe, care a ucis tot neamul omenesc, ucid cu multă ruşine
 aceste femei, care fac baie în pielea goală, pe toți cei ce le privesc; apa
 potopului aceluia, da, a ucis trupul, dar a tăiat răutatea sufletului; apa
-aceasta, însă, face tocmai dimpotrivă: omoară sufletul, lăsînd trupurile vii.
+aceasta, însă, face tocmai dimpotrivă: omoară sufletul, lăsând trupurile vii.
 
-Cînd e vorba de întîietate, pretindeți că stați în fruntea întregii lumi, pentru
-că oraşul vostru[^31] este cel dintîi care şi-a pus pe cap cununa cu numele de
+Când e vorba de întâietate, pretindeți că stați în fruntea întregii lumi, pentru
+că oraşul vostru[^31] este cel dintâi care şi-a pus pe cap cununa cu numele de
 creştin[^32]. Dar nu vi-i ruşine ca la întrecerea în cumințenie să fiţi în urma
 celor mai din urmă oraşe?
 
@@ -384,46 +384,46 @@ Da, ne este ruşine, îmi veți răspunde. Şi ce ne poruncești să facem? Să 
 în munţi şi să ne facem călugări?
 
 De aceea suspin, că socoți că numai călugărilor li se potriveşte buna-cuviinţă
-şi cumințenia, deşi Hristos a dat legile Sale pentru toți oamenii. Cînd a spus
+şi cumințenia, deşi Hristos a dat legile Sale pentru toți oamenii. Când a spus
 „*cel care se uită la o femeie spre a o pofti*" n-a spus aceste cuvinte numai
 călugărului, ci și omului însurat. Că muntele acela, Muntele Fericirilor, era
-atunci plin de oameni însurați. Gîndeşte-te, deci, la priveliştea aceea, urăşte
-priveliştea cea drăcească de la baie, şi nu osîndi greutatea cuvîntului meu! Nu
+atunci plin de oameni însurați. Gândeşte-te, deci, la priveliştea aceea, urăşte
+priveliştea cea drăcească de la baie, şi nu osândi greutatea cuvântului meu! Nu
 te împiedic să te căsătoreşti, nici nu te opresc să te distrezi, dar vreau să
-faci asta cu cumințenie, nu cu ruşine, nu cu osîndă, nu cu mii şi mii de păcate.
+faci asta cu cumințenie, nu cu ruşine, nu cu osândă, nu cu mii şi mii de păcate.
 Nu legiuiesc să te duci în munți și în pustie, ci să locuiești în mijlocul
-orașului, dar cinstit, blînd și cuminte. Cu toții avem aceleaşi legi de împlinit
+orașului, dar cinstit, blând și cuminte. Cu toții avem aceleaşi legi de împlinit
 ca și monahii, în afară de legea căsătoriei; dar mai bine spus, chiar şi în
-această privință Pavel ne porunceşte să fim în toate ca monahii, spunînd:
+această privință Pavel ne porunceşte să fim în toate ca monahii, spunând:
 „*Chipul lumii acesteia trece*"[^33], aşa că aceia care au femei să fie ca şi
 cum n-ar avea[^34]. Nu-ți poruncesc, deci, să locuieşti în creierii munţilor,
 deşi aş dori-o, pentru că oraşele noastre fac ce făceau sodomenii; dar nu silesc
-pe nimeni. Rămîi în casa ta, lîngă copiii tăi, lîngă soția ta, dar îți cer:
+pe nimeni. Rămâi în casa ta, lângă copiii tăi, lângă soția ta, dar îți cer:
 nu-ţi insulta soția, nu-ți bate joc de copii, nu aduce în casa ta stricăciunea
-de la teatre şi băi. N-auzi, oare, pe Pavel spunînd că „*bărbatul nu este stăpîn
-pe trupul său, ci femeia*"[^35], dînd aceeaşi lege la amîndoi? Îți mustri cu
+de la teatre şi băi. N-auzi, oare, pe Pavel spunând că „*bărbatul nu este stăpân
+pe trupul său, ci femeia*"[^35], dând aceeaşi lege la amândoi? Îți mustri cu
 asprime soția dacă se duce des la biserică, dar tu îți petreci toată ziua la
 teatru şi nu te socoteşti vrednic de mustrare! Ţii foarte mult ca femeia să-ți
 fie cinstită, ba faci şi lucruri de prisos şi depăşeşti măsura, neîngăduindu-i
-să iasă din casă nici pentru treburile neapărat trebuincioase; dar cînd e vorba
+să iasă din casă nici pentru treburile neapărat trebuincioase; dar când e vorba
 de tine, socoteşti că ți-i îngăduit totul! Dar nu ţi-o îngăduie Pavel, care a
 dat şi femeii aceeaşi putere, că spune: „*Bărbatul să dea femeii cinstea
-cuvenită*"[^36]. Ce cinste-i dai cînd o insulți în ce are ea mai scump şi dai
-desfrînatelor trupul tău, care-i al ei? Ştii doar că trupul tău este al ei! Ce
-cinste-i dai cînd aduci în casă gîlceavă şi război? Ce cinste-i dai cînd faci în
+cuvenită*"[^36]. Ce cinste-i dai când o insulți în ce are ea mai scump şi dai
+desfrânatelor trupul tău, care-i al ei? Ştii doar că trupul tău este al ei! Ce
+cinste-i dai când aduci în casă gâlceavă şi război? Ce cinste-i dai când faci în
 oraș fapte pe care povestindu-le acasă fac să roşească soția care te ascultă,
 fiica ta care-i de față; dar înainte de ele te faci tu însuți de ruşine. Trebuie
-neapărat sau să taci sau să te faci aşa hal de rîs povestind nişte necuviinţe,
+neapărat sau să taci sau să te faci aşa hal de râs povestind nişte necuviinţe,
 pentru care de le-ar povesti slugile tale, ai avea tot dreptul să le biciuieşti.
-Spune-mi: Mai poți avea vreun cuvînt de apărare cînd te uiți cu atîta patimă la
-nişte spectacole de care nu-i frumos nici să vorbeşti de ele, cînd preferi
+Spune-mi: Mai poți avea vreun cuvânt de apărare când te uiți cu atâta patimă la
+nişte spectacole de care nu-i frumos nici să vorbeşti de ele, când preferi
 aceste spectacole, pe care nu-i cu cale nici să le povestești?
 
-Deocamdată, dar, ca să nu vă obosesc, îmi opresc aici cuvîntul. Dar dacă veţi
+Deocamdată, dar, ca să nu vă obosesc, îmi opresc aici cuvântul. Dar dacă veţi
 stărui în aceleași fapte, îmi voi ascuți mai mult cuțitul şi-l voi înfige mai
-adînc. Nu voi înceta pînă nu voi distruge acest teatru al diavolului, pînă nu
+adânc. Nu voi înceta până nu voi distruge acest teatru al diavolului, până nu
 voi face curată adunarea Bisericii. Aşa ne vom scăpa și de ruşinea de acum și
-vom dobîndi şi viaţa cea viitoare, cu harul şi cu iubirea de oameni a Domnului
+vom dobândi şi viaţa cea viitoare, cu harul şi cu iubirea de oameni a Domnului
 nostru Iisus Hristos, Căruia slava şi puterea în vecii vecilor, Amin.
 
 [^1]: Matei 2, 4-5.
