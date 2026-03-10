@@ -87,7 +87,7 @@ Iar magii n-au spus: „Unde este Fiul lui Dumnezeu", ci: „Cel ce S-a născut,
 Împăratul iudeilor"[^11]. În profeție iarăși nu s-a spus: „Din tine va ieși
 Fiul lui Dumnezeu", ci „*povățuitor Care va păstori pe poporul Meu
 Israel*"[^12].
-Că profetul trebuia să vorbească la început cu mai mult pogorămînt, și să nu-i
+Că profetul trebuia să vorbească la început cu mai mult pogorămînt, și ca să nu-i
 scandalizeze, dar să și propovăduiască mîntuirea lor, spre a-i atrage mai mult.
 Primele mărturii, cele din timpul de după naştere, nu spun ceva deosebit despre
 Hristos, cum spun mărturiile despre minunile săvîrşite mai tîrziu de El, care
@@ -319,7 +319,7 @@ alergi la spectacol ca să vezi femei care fac baie în pielea goală, să vezi 
 sînt batjocorite femeile, şi-L părăseşti pe Hristos Care stă lîngă izvor? Şi
 acum stă Hristos lîngă izvor, nu vorbind cu samarineanca, ci cu tot oraşul. Dar
 poate că şi acum Hristos vorbeşte tot numai cu samarineanca. Că nici acum nu-i
-nimeni lîngă El, şi unii numai cu trupurile, iar alții nici cu atît. Totuşi
+nimeni lîngă El, ci unii numai cu trupurile, iar alții nici cu atît. Totuşi
 Hristos nu pleacă, ci rămîne şi cere de la noi de băut, nu apă, ci sfințenie;
 căci cele sfinte le dă El sfinţilor. Nu ne dă apă de izvor, ci sînge viu, care
 nu-i simbol al morţii, ci pricină a vieții. Tu, însă, părăseşti izvorul
