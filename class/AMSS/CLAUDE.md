@@ -34,6 +34,11 @@ Per-subdirectory:
 - `curs/` and `lab/`: pandoc converts every `*.md` into both `*.html` (slidy slides) and `*.pdf` (beamer via `lualatex`). Images are embedded as base64 via `--embed-resources`, so the outputs are self-contained — no image directories are copied into `$(BASE)`.
 - `proiect/`: pandoc converts `README.md` → `index.html`.
 - `curs/code/`: Java design-pattern demos. `make` compiles all `*.java`; `make run` compiles and runs each class. The `.class` files stay local (gitignored) and are not deployed.
+- `static/`: files that ship to `$(BASE)/` verbatim (not built from Markdown) — the course landing page, hand-written lab pages, and empty directory-listing blockers. The tree mirrors the deployed layout; the top-level `static` target rsyncs `AMSS/static/` into `$(BASE)/`.
+
+### Adding a new lecture or lab
+
+When adding a new deck under `curs/` or `lab/`, also add the corresponding entry to `static/index.html` — it's the hand-maintained TOC that links to every built deck, and it won't update itself. Use the existing entries as the template (both `.html` and `.pdf` links).
 
 `include.mk` defines the shared pandoc pipeline (pattern rules for `.md → $(BASE)/$(SUBDIR)/%.html` and `.md → $(BASE)/$(SUBDIR)/%.pdf`) and is included by every subdirectory Makefile. Each subdir Makefile sets `SUBDIR` before the include. Changing pandoc options (e.g. the plantuml jar path, currently hardcoded to `/usr/share/plantuml/plantuml.jar`) belongs in `include.mk`, not in the subdirectory Makefiles.
 
@@ -54,6 +59,6 @@ The pipeline requires a working Haskell toolchain (for pandoc built via `stack i
 
 ## Generated files
 
-`$(BASE)/curs/*.{html,pdf}`, `$(BASE)/lab/*.{html,pdf}`, and `$(BASE)/proiect/index.html` are build artifacts but **are committed** to the repo (this is a GitHub Pages site serving them directly). Rebuild them when editing the corresponding `.md` source under `class/AMSS/`, and include the regenerated outputs from `class/amss2025/` in the same commit.
+`$(BASE)/curs/*.{html,pdf}`, `$(BASE)/lab/*.{html,pdf}`, and `$(BASE)/proiect/index.html` are build artifacts but **are committed** to the repo (this is a GitHub Pages site serving them directly). Rebuild them when editing the corresponding `.md` source under `class/AMSS/`, and include the regenerated outputs from `class/amss2025/` in the same commit. The static files staged by the `static` target (landing page, `lab/Lab06.html`, `lab/meet.html`, empty `index.html` placeholders) are also committed under `class/amss2025/`; edit their sources under `AMSS/static/` and re-run `make` to refresh them.
 
 `examen_scris.{aux,fdb_latexmk,fls,log,pdf}` in this directory are LaTeX build leftovers from `examen_scris.tex`, untracked and safe to ignore.
