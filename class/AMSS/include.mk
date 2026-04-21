@@ -1,16 +1,23 @@
-OPTIONS=--embed-resources --standalone --lua-filter=../diagram/diagram.lua --metadata=plantumlPath:"/usr/share/plantuml/plantuml.jar"
-#--metadata=javaPath:"c:\Program Files\Java\jre1.8.0_201\bin\java.exe"
+ifndef SUBDIR
+$(error SUBDIR must be set by the including Makefile)
+endif
 
+AMSS_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
+BASE ?= $(abspath $(AMSS_ROOT)/../amss2025)
+OUTDIR := $(BASE)/$(SUBDIR)
+
+OPTIONS = --embed-resources --standalone --lua-filter=$(AMSS_ROOT)/diagram/diagram.lua --metadata=plantumlPath:"/usr/share/plantuml/plantuml.jar"
+
+.PHONY: all clean
 all: $(TARGETS)
+
 clean:
 	rm -f $(TARGETS)
 
-# Pattern rule to convert .md files to .html using pandoc
-%.html: %.md
+$(OUTDIR)/%.html: %.md
+	@mkdir -p $(dir $@)
 	pandoc $(OPTIONS) -t slidy -s -o $@ $<
 
-# Pattern rule to convert .md files to .pdf using pandoc
-%.pdf: %.md
+$(OUTDIR)/%.pdf: %.md
+	@mkdir -p $(dir $@)
 	pandoc --pdf-engine=lualatex $(OPTIONS) -t beamer -o $@ $<
-
-.PHONY: all clean

@@ -6,35 +6,47 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Course materials for **AMSS 2025** (Analiza și Modelarea Sistemelor Software / Software Systems Modelling), a UML/design-patterns course taught by Traian-Florin Șerbănuță at the University of Bucharest. The repository is published as a static site (GitHub Pages) under `traiansf.github.io/class/amss2025`.
 
+The tree is split in two:
+
+- `class/AMSS/` — sources: `.md` slides, image assets, Java demo code, Makefiles, the diagram Lua filter.
+- `class/amss2025/` — published artifacts: `.html` / `.pdf` that GitHub Pages serves. Built from `class/AMSS/` and committed.
+
 Content is written primarily in **Romanian**. When editing `.md` slide sources, match the existing language and diacritics style (`ă`, `â`, `î`, `ș`, `ț`, with `â` used inside words and `î` at word boundaries — see recent commits).
 
 ## Build system
 
-Top-level `make` recursively builds four subdirectories:
+Top-level `make` (run from `class/AMSS/`) recursively builds four subdirectories:
 
 ```
 make          # build everything (curs, lab, proiect, curs/code)
 make clean    # remove generated artifacts
 ```
 
+Output location is controlled by the `BASE` variable, which defaults to `../amss2025` (absolute path computed from the Makefile location). Override it to build into a different tree:
+
+```
+make BASE=/tmp/preview         # regenerates the full site under /tmp/preview
+make -C curs BASE=/tmp/preview  # just one subdir
+```
+
 Per-subdirectory:
 
-- `curs/` and `lab/`: pandoc converts every `*.md` into both `*.html` (slidy slides, self-contained) and `*.pdf` (beamer via `lualatex`).
+- `curs/` and `lab/`: pandoc converts every `*.md` into both `*.html` (slidy slides) and `*.pdf` (beamer via `lualatex`). Images are embedded as base64 via `--embed-resources`, so the outputs are self-contained — no image directories are copied into `$(BASE)`.
 - `proiect/`: pandoc converts `README.md` → `index.html`.
-- `curs/code/`: Java design-pattern demos. `make` compiles all `*.java`; `make run` compiles and runs each class.
+- `curs/code/`: Java design-pattern demos. `make` compiles all `*.java`; `make run` compiles and runs each class. The `.class` files stay local (gitignored) and are not deployed.
 
-`include.mk` at the root defines the shared pandoc pipeline (pattern rules for `.md → .html` and `.md → .pdf`) and is included by every subdirectory Makefile. Changing pandoc options (e.g. the plantuml jar path, currently hardcoded to `/usr/share/plantuml/plantuml.jar`) belongs there, not in the subdirectory Makefiles.
+`include.mk` defines the shared pandoc pipeline (pattern rules for `.md → $(BASE)/$(SUBDIR)/%.html` and `.md → $(BASE)/$(SUBDIR)/%.pdf`) and is included by every subdirectory Makefile. Each subdir Makefile sets `SUBDIR` before the include. Changing pandoc options (e.g. the plantuml jar path, currently hardcoded to `/usr/share/plantuml/plantuml.jar`) belongs in `include.mk`, not in the subdirectory Makefiles.
 
-To rebuild a single slide deck, run make in its subdirectory:
+To rebuild a single slide deck:
 
 ```bash
-make -C curs 04-patterns.pdf
-make -C lab  Lab03.html
+make -C curs $(BASE)/curs/04-patterns.pdf   # or just: make -C curs
+make -C lab  $(BASE)/lab/Lab03.html
 ```
 
 ## Diagram pipeline
 
-`diagram/diagram.lua` is a pandoc Lua filter that transcodes fenced code blocks (plantuml, graphviz, etc.) into embedded images during the pandoc run. It's wired in via `include.mk`'s `--lua-filter=../diagram/diagram.lua`. Slide authors write UML as plantuml code blocks inside the `.md` source; the filter renders them at build time — there are no committed image artifacts for those diagrams.
+`diagram/diagram.lua` is a pandoc Lua filter that transcodes fenced code blocks (plantuml, graphviz, etc.) into embedded images during the pandoc run. It's wired in via `include.mk`'s `--lua-filter=$(AMSS_ROOT)/diagram/diagram.lua`. Slide authors write UML as plantuml code blocks inside the `.md` source; the filter renders them at build time — there are no committed image artifacts for those diagrams.
 
 ## System dependencies
 
@@ -42,8 +54,6 @@ The pipeline requires a working Haskell toolchain (for pandoc built via `stack i
 
 ## Generated files
 
-`*.html` and `*.pdf` alongside every `*.md` in `curs/` and `lab/` are build artifacts but **are committed** to the repo (this is a GitHub Pages site serving them directly). Rebuild them when editing the corresponding `.md`, and include the regenerated outputs in the same commit.
+`$(BASE)/curs/*.{html,pdf}`, `$(BASE)/lab/*.{html,pdf}`, and `$(BASE)/proiect/index.html` are build artifacts but **are committed** to the repo (this is a GitHub Pages site serving them directly). Rebuild them when editing the corresponding `.md` source under `class/AMSS/`, and include the regenerated outputs from `class/amss2025/` in the same commit.
 
-Same applies to `curs/code/*.class` (also committed) and `proiect/index.html`.
-
-`examen_scris.{aux,fdb_latexmk,fls,log,pdf}` in the root are LaTeX build leftovers from `examen_scris.tex`, untracked and safe to ignore.
+`examen_scris.{aux,fdb_latexmk,fls,log,pdf}` in this directory are LaTeX build leftovers from `examen_scris.tex`, untracked and safe to ignore.
