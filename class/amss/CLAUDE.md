@@ -8,14 +8,14 @@ Course materials for **AMSS 2025** (Analiza și Modelarea Sistemelor Software / 
 
 The tree is split in two:
 
-- `class/AMSS/` — sources: `.md` slides, image assets, Java demo code, Makefiles, the diagram Lua filter.
-- `class/amss2025/` — published artifacts: `.html` / `.pdf` that GitHub Pages serves. Built from `class/AMSS/` and committed.
+- `class/amss/` — sources: `.md` slides, image assets, Java demo code, Makefiles, the diagram Lua filter.
+- `class/amss2025/` — published artifacts: `.html` / `.pdf` that GitHub Pages serves. Built from `class/amss/` and committed.
 
 Content is written primarily in **Romanian**. When editing `.md` slide sources, match the existing language and diacritics style (`ă`, `â`, `î`, `ș`, `ț`, with `â` used inside words and `î` at word boundaries — see recent commits).
 
 ## Build system
 
-Top-level `make` (run from `class/AMSS/`) recursively builds four subdirectories:
+Top-level `make` (run from `class/amss/`) recursively builds four subdirectories:
 
 ```
 make          # build everything (curs, lab, proiect, curs/code)
@@ -34,7 +34,7 @@ Per-subdirectory:
 - `curs/` and `lab/`: pandoc converts every `*.md` into both `*.html` (slidy slides) and `*.pdf` (beamer via `lualatex`). Images are embedded as base64 via `--embed-resources`, so the outputs are self-contained — no image directories are copied into `$(BASE)`.
 - `proiect/`: pandoc converts `README.md` → `index.html`.
 - `curs/code/`: Java design-pattern demos. `make` compiles all `*.java`; `make run` compiles and runs each class. The `.class` files stay local (gitignored) and are not deployed.
-- `static/`: files that ship to `$(BASE)/` verbatim (not built from Markdown) — the course landing page, hand-written lab pages, and empty directory-listing blockers. The tree mirrors the deployed layout; the top-level `static` target rsyncs `AMSS/static/` into `$(BASE)/`.
+- `static/`: files that ship to `$(BASE)/` verbatim (not built from Markdown) — the course landing page, hand-written lab pages, and empty directory-listing blockers. The tree mirrors the deployed layout; the top-level `static` target rsyncs `amss/static/` into `$(BASE)/`.
 
 ### Adding a new lecture or lab
 
@@ -59,6 +59,6 @@ The pipeline requires a working Haskell toolchain (for pandoc built via `stack i
 
 ## Generated files
 
-`$(BASE)/curs/*.{html,pdf}`, `$(BASE)/lab/*.{html,pdf}`, and `$(BASE)/proiect/index.html` are build artifacts but **are committed** to the repo (this is a GitHub Pages site serving them directly). Rebuild them when editing the corresponding `.md` source under `class/AMSS/`, and include the regenerated outputs from `class/amss2025/` in the same commit. The static files staged by the `static` target (landing page, `lab/Lab06.html`, `lab/meet.html`, empty `index.html` placeholders) are also committed under `class/amss2025/`; edit their sources under `AMSS/static/` and re-run `make` to refresh them.
+`$(BASE)/curs/*.{html,pdf}`, `$(BASE)/lab/*.{html,pdf}`, and `$(BASE)/proiect/index.html` are build artifacts but **are committed** to the repo (this is a GitHub Pages site serving them directly). Rebuild them when editing the corresponding `.md` source under `class/amss/`, and include the regenerated outputs from `class/amss2025/` in the same commit. The static files staged by the `static` target (landing page, `lab/Lab06.html`, `lab/meet.html`, empty `index.html` placeholders) are also committed under `class/amss2025/`; edit their sources under `amss/static/` and re-run `make` to refresh them.
 
 `examen_scris.{aux,fdb_latexmk,fls,log,pdf}` in this directory are LaTeX build leftovers from `examen_scris.tex`, untracked and safe to ignore.
