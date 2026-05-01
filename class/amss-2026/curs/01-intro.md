@@ -1,5 +1,5 @@
 ---
-title: "AMSS 2026 — Lecture 1: Intro + the AI-Mediated SDLC"
+title: "AMSS 2026 — Lecture 1: Intro + the AI-mediated SDLC"
 author: "Traian-Florin Șerbănuță"
 date: "2026"
 ---
