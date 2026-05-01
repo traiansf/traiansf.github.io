@@ -13,6 +13,12 @@ The tree is split in two:
 
 Content is written primarily in **Romanian**. When editing `.md` slide sources, match the existing language and diacritics style (`ă`, `â`, `î`, `ș`, `ț`, with `â` used inside words and `î` at word boundaries — see recent commits).
 
+## Course schedule
+
+The course runs for **14 weeks**. Each week has one teaching session (`curs/`); laboratory sessions (`lab/`) run **every other week** (≈7 lab sessions over the semester). Both a teaching session and a laboratory session are **100 minutes** long.
+
+When authoring or revising a deck under `curs/` or `lab/`, size the content to fit within that 100-minute slot — including time for examples, questions, and (for labs) hands-on work. If a topic overflows, split it across sessions rather than rushing through.
+
 ## Build system
 
 Top-level `make` (run from `class/amss/`) recursively builds four subdirectories:
