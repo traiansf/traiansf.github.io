@@ -172,7 +172,7 @@ Write to `class/amss-2026/proiect/Makefile`:
 ```makefile
 SUBDIR = proiect
 
-TARGETS = $(OUTDIR)/index.html
+TARGETS = $(if $(wildcard README.md),$(OUTDIR)/index.html)
 
 include ../include.mk
 
@@ -180,6 +180,8 @@ $(OUTDIR)/index.html: README.md Makefile
 	@mkdir -p $(dir $@)
 	pandoc $(OPTIONS) -s -o $@ $<
 ```
+
+(The conditional `TARGETS` deviates from the 2025 `proiect/Makefile`. Reason: the 2025 Makefile assumes `README.md` exists; in this scaffolding plan, `proiect/Makefile` is created in Task 1 but `README.md` does not exist until Task 4. Without the conditional, `make` between Task 1 and Task 4 fails with "No rule to make target 'README.md'". The wildcard makes TARGETS empty when `README.md` is absent, mirroring how `curs/` and `lab/` Makefiles handle no-source-files via `$(wildcard *.md)`.)
 
 Write to `class/amss-2026/exam/Makefile`:
 
