@@ -524,8 +524,8 @@ Write to `class/amss-2026/exam/examen-2026.tex`:
 ```latex
 \documentclass[12pt,a4paper]{article}
 \usepackage[romanian]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
 \usepackage{geometry}
 \geometry{margin=2.5cm}
 
