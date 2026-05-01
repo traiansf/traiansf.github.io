@@ -847,9 +847,19 @@ Write to `class/amss-2026/tooling/SETUP.md`:
 3. **Point Continue.dev at the canonical config.**
 
    Copy `.continue/config.yaml` into your home directory's Continue config
-   location:
-   - Linux/macOS: `~/.continue/config.yaml`
-   - Windows: `%USERPROFILE%\.continue\config.yaml`
+   location.
+
+   ```bash
+   # Linux / macOS (run from amss-2026/tooling)
+   mkdir -p ~/.continue
+   cp .continue/config.yaml ~/.continue/config.yaml
+   ```
+
+   ```powershell
+   # Windows PowerShell (run from amss-2026\tooling)
+   New-Item -ItemType Directory -Force "$env:USERPROFILE\.continue"
+   Copy-Item .continue\config.yaml "$env:USERPROFILE\.continue\config.yaml"
+   ```
 
 4. **Fill in the three `REPLACE_BEFORE_W1` placeholders** in your local copy
    with the credentials handed out in Lab 1 (model name, apiBase, apiKey).
