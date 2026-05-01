@@ -208,10 +208,10 @@ Expected: each subdir Makefile is invoked, no `.md` or `.tex` files exist yet so
 
 Then verify the test output dir:
 ```bash
-ls -la /tmp/amss2026-test
 find /tmp/amss2026-test -type f
+ls -la /tmp/amss2026-test
 ```
-Expected: `static/curs/`, `static/lab/`, `static/exam/`, `static/proiect/` directories exist; no files yet.
+Expected: `find` prints nothing (no files yet); `ls -la` shows only `.` and `..` entries. The static rsync from an empty source produces an empty target.
 
 Clean up:
 ```bash
