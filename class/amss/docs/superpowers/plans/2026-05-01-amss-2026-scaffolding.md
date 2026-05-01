@@ -586,6 +586,8 @@ expune problema.
 \end{document}
 ```
 
+(Preamble note: the build engine is `lualatex` per `exam/Makefile`. With lualatex, the standard Unicode pattern is `fontspec` + a Unicode-aware OTF font like Latin Modern Roman. The earlier `[utf8]{inputenc}` + `[T1]{fontenc}` approach — which works for `pdflatex` and is what the existing `class/amss/examen_scris.tex` uses — silently drops Romanian comma-below characters under `lualatex` because the T1-encoded bitmap fonts don't contain those glyphs.)
+
 - [ ] **Step 2: Build the exam PDF and confirm output**
 
 Run from `class/amss-2026/`:
