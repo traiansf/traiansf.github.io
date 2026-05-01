@@ -89,7 +89,7 @@ OPTIONS = --embed-resources --standalone --lua-filter=$(AMSS_ROOT)/diagram/diagr
 .PHONY: all clean
 all: $(TARGETS)
 
-clean:
+clean::
 	rm -f $(TARGETS)
 
 $(OUTDIR)/%.html: %.md
@@ -100,6 +100,8 @@ $(OUTDIR)/%.pdf: %.md
 	@mkdir -p $(dir $@)
 	pandoc --pdf-engine=lualatex $(OPTIONS) -t beamer -o $@ $<
 ```
+
+(Note: `clean::` is a Make double-colon target. It lets subdir Makefiles — like `exam/Makefile` — define their *own* `clean::` rules that compose with this one rather than overriding it. This is how `exam/` cleans the lualatex auxiliary files.)
 
 Verify:
 ```bash
@@ -190,15 +192,22 @@ SUBDIR = exam
 
 TEXS = $(wildcard *.tex)
 PDFS = $(patsubst %.tex,$(OUTDIR)/%.pdf,$(TEXS))
+AUX_EXTS = aux log toc fls fdb_latexmk out
+AUX_FILES = $(foreach ext,$(AUX_EXTS),$(patsubst %.tex,$(OUTDIR)/%.$(ext),$(TEXS)))
 
 TARGETS = $(PDFS)
 
 include ../include.mk
 
+clean::
+	rm -f $(AUX_FILES)
+
 $(OUTDIR)/%.pdf: %.tex
 	@mkdir -p $(dir $@)
 	cd $(dir $<) && lualatex -interaction=nonstopmode -output-directory=$(OUTDIR) $(notdir $<)
 ```
+
+(The `clean::` rule here composes with `include.mk`'s `clean::` to remove lualatex's auxiliary files — `.aux`, `.log`, `.toc`, `.fls`, `.fdb_latexmk`, `.out` — that lualatex writes alongside the `.pdf` when `-output-directory` is used.)
 
 - [ ] **Step 6: Verify the empty-tree build succeeds**
 
