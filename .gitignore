@@ -2,3 +2,13 @@ coq/ilds-school/recapp/.lia.cache
 coq/ilds-school/main/.lia.cache
 coq/ilds-school/main/#sol_3_well-founded.v#
 .lia.cache
+
+# LaTeX build byproducts (lualatex with -output-directory leaves these
+# alongside the .pdf in class/amss2026/exam/; clean by `make -C class/amss-2026 clean`)
+class/amss2026/exam/*.aux
+class/amss2026/exam/*.log
+class/amss2026/exam/*.toc
+class/amss2026/exam/*.fls
+class/amss2026/exam/*.fdb_latexmk
+class/amss2026/exam/*.out
+class/amss2026/exam/*.synctex.gz
