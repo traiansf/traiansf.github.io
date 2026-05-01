@@ -965,7 +965,13 @@ Do NOT cross-include files from `../amss/`. The two trees are intentionally deco
 
 ## Tooling stack
 
-Procurement decision (institutional `llm.fmi.unibuc.ro` / per-student Gemini free-tier / pooled paid API) is open. The canonical config in `tooling/.continue/config.yaml` has `REPLACE_BEFORE_W1` placeholders for the three endpoint fields; fill in once the procurement choice is made. See spec §6 for the option matrix.
+Procurement decision (institutional `llm.fmi.unibuc.ro` / per-student Gemini free-tier / pooled paid API) is open. See spec §6 for the option matrix.
+
+**Pre-W1 replacement checklist** for the canonical setup at `tooling/`:
+
+- `tooling/.continue/config.yaml` — three `REPLACE_BEFORE_W1` markers (model, apiBase, apiKey).
+- `tooling/SETUP.md` — `<course-repo-url>` placeholder in Step 1 (clone command).
+- `static/index.html` — placeholder GitHub URL `https://github.com/traiansf/amss-2026-tooling` in the Tooling section.
 
 ## Relationship to the 2025 tree
 
