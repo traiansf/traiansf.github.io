@@ -1,0 +1,43 @@
+# AMSS 2026 — canonical Continue.dev configuration
+#
+# To switch model endpoints, change ONLY the `apiBase` and `apiKey` fields below.
+# The rest of the cohort runs the exact same config — that is the parity rule.
+#
+# Procurement options (see spec §6):
+#
+# 1. Institutional self-hosted (preferred):
+#      apiBase: "https://llm.fmi.unibuc.ro/v1"
+#      apiKey: "<student-issued token from FMI>"
+#      model: "qwen3-coder-30b"   # or whatever the server serves
+#
+# 2. Per-student Gemini free-tier (fallback):
+#      apiBase: "https://generativelanguage.googleapis.com/v1beta/openai"
+#      apiKey: "<student's own Google AI Studio key>"
+#      model: "gemini-2.5-flash"
+#
+# 3. Pooled paid API via LiteLLM proxy (last resort):
+#      apiBase: "https://litellm.<course-domain>/v1"
+#      apiKey: "<per-student key issued by instructor>"
+#      model: "deepseek-coder"
+
+name: amss-2026
+version: 0.0.1
+schema: v1
+
+models:
+  - name: amss-default
+    provider: openai
+    model: REPLACE_BEFORE_W1
+    apiBase: REPLACE_BEFORE_W1
+    apiKey: REPLACE_BEFORE_W1
+    roles:
+      - chat
+      - edit
+      - apply
+
+context:
+  - provider: file
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
