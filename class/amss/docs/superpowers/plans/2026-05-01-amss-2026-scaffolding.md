@@ -939,8 +939,8 @@ Source for **AMSS 2026 — Analiza și Modelarea Sistemelor Software (ediția AI
 - `lab/` — 7 lab decks (`Lab01.md` through `Lab07.md`). Currently stubs.
 - `proiect/` — project description (`README.md` → `index.html`). Currently stubs.
 - `exam/` — written resit-exam template (`examen-2026.tex`). R2 format per spec §5.
-- `static/` — hand-maintained landing page and assets that ship verbatim to `../amss2026/`.
-- `tooling/` — canonical agentic-AI setup (Continue.dev workspace + setup guide). Distributed to students unchanged.
+- `static/` — hand-maintained files that ship verbatim to `../amss2026/`. Currently only `index.html`; add additional assets as needed.
+- `tooling/` — canonical agentic-AI setup distributed to students unchanged. Contains: `README.md` (orientation + procurement pointers), `SETUP.md` (student step-by-step ~30 min), `.continue/config.yaml` (Continue.dev config with three `REPLACE_BEFORE_W1` markers).
 - `diagram/` — pandoc Lua filter for plantuml/graphviz code blocks (duplicate of `../amss/diagram/`, kept independent).
 - `include.mk`, `Makefile`, per-subdir Makefiles — same pipeline pattern as `../amss/`, but `BASE` defaults to `../amss2026`.
 
