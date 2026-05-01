@@ -26,7 +26,7 @@ Five commitments follow:
    - **F1 — Read & critique on the spot.** Given any AI-generated UML diagram, identify defects, missing elements, wrong relationships.
    - **F3 — Articulate rationale.** Explain why they directed AI a certain way and what they accepted or rejected.
    - **F4 — Defend traceability.** Navigate their own project end-to-end (requirement → use case → class → state/sequence → test).
-5. **Tooling parity.** Every student gets the same **course-provided agentic AI access** — Claude Code or equivalent — through institutional procurement. Chat-only access (web ChatGPT, Claude.ai) is *not* the design baseline; the project assumes file-and-repo-aware agentic tooling.
+5. **Tooling parity.** Every student uses the same **course-standardized agentic tooling**: a single canonical setup (one editor extension, one model endpoint, one config file) documented in the course repo. The baseline is **agentic open-source clients** (Continue.dev or Cline in VS Code) pointing at a **course-provided or free-tier model endpoint** — see §6 for procurement options. Chat-only access (web ChatGPT, Claude.ai) is *not* the design baseline; the project assumes file-and-repo-aware agentic tooling. Students who BYO stronger tooling (Claude Code, Copilot, Cursor on their own accounts) may use it on top of the baseline, but graded artifacts must reproduce on the canonical setup.
 
 ### Design rationale
 
@@ -42,7 +42,7 @@ The course runs 14 weeks; each week has one 100-min lecture; labs run biweekly (
 | Week | Lecture | Lab (biweekly) |
 |---|---|---|
 | **1** | **Intro + the AI-mediated SDLC.** Course logistics, tooling preview, the architect-critic loop, what changes when AI joins the SDLC. | — |
-| **2** | **Requirements with AI.** Functional / non-functional / domain requirements; prompting for elicitation; AI failure modes (fabrication, over-specifying, vague NFRs); use cases as a structuring lens. | **Lab 1 — skill drill:** tooling onboarding (Claude Code, repo bootstrap, agentic-access verification) + first AI-driven requirements gathering on a toy domain. |
+| **2** | **Requirements with AI.** Functional / non-functional / domain requirements; prompting for elicitation; AI failure modes (fabrication, over-specifying, vague NFRs); use cases as a structuring lens. | **Lab 1 — skill drill:** tooling onboarding (canonical agentic setup from course repo, model-endpoint verification) + first AI-driven requirements gathering on a toy domain. |
 | **3** | **Testable specs & TDD-as-spec.** Why tests are the executable form of requirements; AI-generated tests as a spec-precision check; the "if AI cannot produce a passing test from your spec, your spec is too vague" loop; traceability use case → scenario → test. | — |
 | **4** | **Class diagrams in the AI loop.** Class diagrams as the central structural artifact; driving AI to produce them; reading critically (wrong multiplicity, fake associations, missing aggregations); UML literacy targets. | **Lab 2 — skill drill:** drive AI to produce a class diagram for a given spec; iterate at least twice; log what changed and why. |
 | **5** | **Other structural views.** Object / package / component / deployment diagrams and when each matters; AI's tendency to over- or under-decompose at the architecture level. | — |
@@ -50,7 +50,7 @@ The course runs 14 weeks; each week has one 100-min lecture; labs run biweekly (
 | **7** | **Behavioral II — state + activity.** State machines for object lifecycles; activity diagrams for workflows; AI failure modes (orphan states, unreachable transitions, missed guards). | — |
 | **8** | **Patterns I — selection.** Classic GoF vocabulary; "when to apply" decision questions; driving AI to suggest patterns; common failure: AI overuses patterns / decorates without solving anything. | **Lab 4 — critique session:** flawed behavioral artifacts (sequence, state, activity), same defect-hunt format as Lab 3. |
 | **9** | **Patterns II — integration & critique.** Visitor / Mediator / Bridge / Adapter / Decorator / Proxy / Composite; pattern-level critique: was this applied or just labeled? | — |
-| **10** | **Cross-layer traceability.** The full trace: requirement → use case → class → state/sequence → test; conventions for maintaining it; critique exercises (find broken links). The F4 lecture. | **Lab 5 — project workshop + checkpoint defense.** Intermediate presentation gate (the 1-point checkpoint preserved from the current course); each student walks the team through their slice's traceability. |
+| **10** | **Cross-layer traceability.** The full trace: requirement → use case → class → state/sequence → test; conventions for maintaining it; critique exercises (find broken links). *Anchors the "defend traceability" skill (F4) from the literacy floor in §1.* | **Lab 5 — project workshop + checkpoint defense.** Intermediate presentation gate (the 1-point checkpoint preserved from the current course); each student walks the team through their slice's traceability. |
 | **11** | **Model evaluation & quality.** Quality criteria (consistency, completeness, correctness); static evaluation, conformance checking, simulation; where AI is a worse evaluator than the human; brief metamodel concepts. | — |
 | **12** | **Presentation & defense skills.** How to present an AI-mediated design; the F1+F3+F4 rubric explained; what examiners look for; dry-run mechanics. | **Lab 6 — project workshop + dry-run.** Each student does a 5-min cold defense in front of the team; team gives critique. |
 | **13** | **Project workshop / open Q&A.** Buffer week; in-class supervised work; final adjustments to documentation. | — |
@@ -155,10 +155,26 @@ Most of the existing UML content survives, with a reframed lens:
 - **Existing lab scenarios are gold for the new critique labs.** Lab03 parking lot, Lab04 ATM, Lab05 drone CAS — these become the deliberately flawed AI-generated artifacts in new Labs 3-4. The existing scenarios already have well-understood "right answers" against which to seed plausible AI mistakes.
 - **Java demos in `curs/code/`** can serve as TDD-with-AI starter scenarios in Lab 1 onboarding or W3 lecture demo.
 
-### Operational commitments needed before W1
+### Tooling stack
 
-- **Agentic AI access procurement.** Confirm institutional access (likely Anthropic for Education + Claude Code, or equivalent). This is the critical-path blocker — if it slips, the design degrades to chat-only access, which the project is not designed for.
+The cohort runs ~100 students per year, so tooling decisions must scale to that concurrency (typically 15-30 students hitting a model endpoint at once during lab/work time, not 100). The design assumes a canonical setup — one editor extension + one model endpoint + one config file in the course repo — that every student runs identically. The original brainstorm assumed Claude Code as the default; that assumption is dropped because per-student frontier-API costs at this scale are not realistic without procurement that may not happen.
+
+Three procurement paths for the model endpoint, in order of preference:
+
+1. **Institutional self-hosted (preferred baseline).** Use the existing FMI LLM server at `https://llm.fmi.unibuc.ro/` if accessible to enrolled students, or stand up a department-provisioned vLLM instance serving a coding model (Qwen3-Coder 30B, GLM-4 Coder, or similar) on a single modern GPU (RTX 4090 / used A6000 48GB / cloud A100/H100). vLLM's continuous batching handles ~100-student concurrency on a single GPU (Ollama does not — its serial queuing fails around 40 concurrent requests). Predictable flat cost, total privacy, model parity. Requires admin time.
+2. **Per-student free-tier API (documented fallback).** Each student creates a Google AI Studio free-tier account and uses the Gemini API (very generous daily limits, 1M-token context) plugged into Continue.dev or Cline. Groq and OpenRouter free tiers as backup. Zero infrastructure, no upfront cost, strong models. Per-student key management; rate limits are per-account (no shared accounts); third-party terms may shift mid-semester.
+3. **Pooled paid API (last resort).** Department-funded DeepSeek or OpenRouter account routed through a LiteLLM proxy with per-student keys/quotas. Roughly €30-80/month total at this cohort size with moderate use. Strong models, central control, usage caps, audit logs. Proxy admin and key-leak risk.
+
+**Recommendation.** Start with Option 1 if `llm.fmi.unibuc.ro` is accessible to FMI students; otherwise stand up a vLLM instance on department hardware. Document Option 2 as the fallback for offline / outage / off-campus work. Option 3 only if neither institutional path works.
+
+**BYO is allowed.** Students may use Claude Code, Copilot, Cursor on their own accounts, but graded artifacts must reproduce on the canonical setup (the parity constraint from §1).
+
+*GitHub Copilot Student note:* sign-ups for Copilot Pro/Pro+/Student were temporarily paused on 2026-04-20; existing verified students kept access but lost premium-model self-selection. If the pause has lifted by autumn 2026, Copilot Student becomes a viable BYO upgrade for already-verified students — not a baseline. The instructor (as a verified teacher) can still get Copilot Pro free, useful for course prep and TA workflows.
+
+### Other operational commitments needed before W1
+
 - **Course-managed git org.** All team repos live there. Public-within-cohort visibility is a deliberate design choice (cross-team learning from defect logs).
+- **Canonical agentic-tooling setup in the course repo.** A single VS Code workspace with Continue.dev or Cline preconfigured, model endpoint pointing at the chosen procurement option, ready to clone-and-run. Every additional configuration choice multiplies by 100 in support requests.
 - **Publishing pipeline unchanged.** Same pandoc + plantuml + lualatex flow described in `class/amss/CLAUDE.md`; new sources land in `class/amss/`, publish to `traiansf.github.io/class/amss2026/`.
 - **Curricular approval.** Confirm the redesign maps to AMSS's existing approved learning outcomes. UML literacy + design rationale are preserved (taught differently), so this should be administrative-only — but worth checking with the department before locking the syllabus.
 - **Academic-integrity statement.** A one-page student-facing statement attached to the syllabus, framing what AI use is expected vs. what crosses the line. The directed-design narrative + cold defense are the integrity check; that needs to be made explicit so students do not accidentally over- or under-disclose AI use.
@@ -166,8 +182,9 @@ Most of the existing UML content survives, with a reframed lens:
 ### Risks and mitigations
 
 - **Model capability volatility.** If frontier models become dramatically better at modeling mid-semester, the critic-skill drill becomes harder to scaffold (fewer seeded defects). *Mitigation:* keep the meta-skill of critique central, not the specific defect catalogue. The skill ages better than the examples.
-- **Equity within course-provided tooling.** Some students may run into tool/account friction. *Mitigation:* course-managed access mitigates most of this; lab rooms with shared workstations backstop the rest.
-- **Procurement timing.** Agentic AI access must be live before W1. *Mitigation:* start procurement well ahead of the semester (latest: by end of summer 2026).
+- **Open-source model quality below frontier.** Self-hosted coding models (Qwen3-Coder 30B class) are weaker than Claude Sonnet / GPT-5 on hard tasks; they may make *different* defects than the ones the curriculum is built around. *Mitigation:* in Labs 3-4, source the deliberately flawed artifacts from the same model students will use, so seeded defects match observed failure modes. Refresh the defect catalogue annually.
+- **Equity within canonical setup.** Some students may run into tool/account/network friction. *Mitigation:* lab rooms with shared workstations backstop personal-device issues; the per-student Gemini fallback (Option 2) handles network outages and off-campus work.
+- **Tooling-stack timing.** The canonical setup must be live and tested before W1. *Mitigation:* start procurement decisions well ahead of the semester (latest: by end of summer 2026); pre-semester dry-run of Lab 1 mechanics validates the stack on real-cohort scale.
 
 ### Naming / publishing
 
@@ -180,7 +197,7 @@ Most of the existing UML content survives, with a reframed lens:
 Rough sequence (each step blocks the next):
 
 1. Implementation plan (next task, via `superpowers:writing-plans`).
-2. Confirm agentic AI access procurement.
+2. Confirm tooling stack per §6: verify student access to `llm.fmi.unibuc.ro` or budget department GPU for vLLM; document the canonical setup (extension + endpoint + config) in the course repo.
 3. Confirm curricular approval / academic-integrity framing with the department.
 4. Rewrite lecture catalogue: new W1, W3, W10, W11, W12 from scratch; reshape W2, W4, W5, W6, W7, W8, W9; archive AMSS 2025 lectures 08, 09.
 5. Rewrite project README (`class/amss/proiect/README.md`) per Section 4.
@@ -193,5 +210,5 @@ Rough sequence (each step blocks the next):
 
 - That the 14-week structure documented in `class/amss/CLAUDE.md` matches the actual semester calendar for autumn 2026 (no exam-week eating into the schedule).
 - That a parallel implementation course exists and overlaps with this cohort, so the "implementation is not graded here" boundary is real.
-- That institutional agentic-AI access is achievable on the procurement timeline.
+- That at least one procurement path in §6 is achievable for autumn 2026 (institutional `llm.fmi.unibuc.ro` access, department GPU for vLLM, or per-student Gemini free-tier as fallback).
 - That curricular approval permits the topic-catalogue changes (drops to lectures 08, 09 of AMSS 2025).
