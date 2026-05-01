@@ -68,3 +68,9 @@ The pipeline requires a working Haskell toolchain (for pandoc built via `stack i
 `$(BASE)/curs/*.{html,pdf}`, `$(BASE)/lab/*.{html,pdf}`, and `$(BASE)/proiect/index.html` are build artifacts but **are committed** to the repo (this is a GitHub Pages site serving them directly). Rebuild them when editing the corresponding `.md` source under `class/amss/`, and include the regenerated outputs from `class/amss2025/` in the same commit. The static files staged by the `static` target (landing page, `lab/Lab06.html`, `lab/meet.html`, empty `index.html` placeholders) are also committed under `class/amss2025/`; edit their sources under `amss/static/` and re-run `make` to refresh them.
 
 `examen_scris.{aux,fdb_latexmk,fls,log,pdf}` in this directory are LaTeX build leftovers from `examen_scris.tex`, untracked and safe to ignore.
+
+## Sibling tree: AMSS 2026
+
+Source for the **2026 edition** of the course lives in `../amss-2026/`, not in this directory. That edition is a complete redesign around AI-mediated software design (architect-and-critic pedagogy). See `class/amss-2026/CLAUDE.md` for the 2026 tree's specifics, and `docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md` for the full design spec.
+
+The two trees are intentionally independent — they share no Makefiles or pipeline files, so changes to one cannot break the other. Build outputs go to sibling directories: `../amss2025/` from this tree, `../amss2026/` from `../amss-2026/`.
