@@ -264,7 +264,7 @@ Write to `class/amss-2026/curs/01-intro.md`:
 
 ```markdown
 ---
-title: "AMSS 2026 — Lecture 1: Intro + the AI-Mediated SDLC"
+title: "AMSS 2026 — Lecture 1: Intro + the AI-mediated SDLC"
 author: "Traian-Florin Șerbănuță"
 date: "2026"
 ---
@@ -640,7 +640,7 @@ Write to `class/amss-2026/static/index.html`:
 
     <h2>Curs</h2>
     <ol>
-      <li><a href="curs/01-intro.html">Intro + AI-mediated SDLC</a> [<a href="curs/01-intro.pdf">PDF</a>]</li>
+      <li><a href="curs/01-intro.html">Intro + the AI-mediated SDLC</a> [<a href="curs/01-intro.pdf">PDF</a>]</li>
       <li><a href="curs/02-requirements.html">Requirements with AI</a> [<a href="curs/02-requirements.pdf">PDF</a>]</li>
       <li><a href="curs/03-testable-specs.html">Testable Specs &amp; TDD-as-Spec</a> [<a href="curs/03-testable-specs.pdf">PDF</a>]</li>
       <li><a href="curs/04-class-diagrams.html">Class Diagrams in the AI Loop</a> [<a href="curs/04-class-diagrams.pdf">PDF</a>]</li>
