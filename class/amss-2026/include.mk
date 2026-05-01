@@ -11,7 +11,7 @@ OPTIONS = --embed-resources --standalone --lua-filter=$(AMSS_ROOT)/diagram/diagr
 .PHONY: all clean
 all: $(TARGETS)
 
-clean:
+clean::
 	rm -f $(TARGETS)
 
 $(OUTDIR)/%.html: %.md
