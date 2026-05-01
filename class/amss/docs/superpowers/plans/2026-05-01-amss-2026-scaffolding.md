@@ -629,7 +629,8 @@ The static landing page at `static/index.html` is the hand-maintained TOC linkin
 Write to `class/amss-2026/static/index.html`:
 
 ```html
-<html>
+<!DOCTYPE html>
+<html lang="ro">
   <head>
     <meta charset="utf-8" />
     <title>AMSS 2026 — Analiza și Modelarea Sistemelor Software (ediția AI-mediated)</title>
