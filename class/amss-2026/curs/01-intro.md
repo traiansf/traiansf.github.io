@@ -379,3 +379,114 @@ Be explicit: BYO is a power-user upgrade, not a substitute. Students who only ru
 :::
 
 ---
+
+# Schedule
+
+- **14 weeks** of lectures, one per week (100 min each).
+- **7 labs**, biweekly (Weeks 2, 4, 6, 8, 10, 12, 14 — 100 min each).
+- Course landing page: `traiansf.github.io/class/amss2026/`.
+
+::: notes
+Walk the schedule briefly. Note that lab weeks alternate — students don't have a lab every week.
+:::
+
+---
+
+# Final Grade
+
+| Component | Points |
+|---|---|
+| Project | 8 |
+| Attendance | 1 |
+| *Din oficiu* | 1 |
+| **Total** | **10** |
+
+::: notes
+*Din oficiu* = mandatory by university convention; everyone gets it. Real differentiation lives in the project's 8 points.
+:::
+
+---
+
+# The Project
+
+- **Teams of 3-5 students.**
+- Domain announced by **31 October 2026**.
+- Multiple teams may share a domain — the directed-design trails differ.
+- Each student owns a **slice** of their team's system.
+- December checkpoint (Lab 5): 1 of the 8 project points.
+- Final defense (W14 + Lab 7): the rest.
+
+::: notes
+Project README has the full rubric. Slice ownership is what makes the cold-defense work — every student must be able to walk their own slice end-to-end.
+:::
+
+---
+
+# Oral Defense — F1 + F3 + F4
+
+Cold defense, 3 of 8 project points. *Unaided*, you must:
+
+- **F1** — Read & critique any AI-generated UML diagram from any team's repo.
+- **F3** — Articulate rationale for your own design decisions.
+- **F4** — Defend traceability across your project's slices.
+
+This is the integrity check.
+
+::: notes
+Third mention of F1+F3+F4. State it the same way you stated it in the frame and in the SDLC-changes transition.
+
+Cold-defense means examiners may pick a teammate's slice and ask you to walk it. Impossible to fake without genuine team-wide traceability awareness.
+:::
+
+---
+
+# Resit Exam (Restanță)
+
+For students who fail the regular evaluation path:
+
+- Single 90-min written paper.
+- Format: critique an AI-generated artifact set + short-answer rationale + traceability walk.
+- **No AI in the room.**
+- Tests the same competence (F1+F3+F4) as the oral defense.
+
+::: notes
+Template at `exam/examen-2026.pdf`. The resit is a fallback path, not a different skillset.
+:::
+
+---
+
+# Academic Integrity
+
+- AI use is **expected** for almost every artifact in this course.
+- The *directed-design narrative* is your record of what you did with AI.
+- The *cold defense* is the integrity check — examiners verify you understand your own work.
+- One-page statement attached to the syllabus (circulated before W2).
+
+::: notes
+Be explicit: AI use is not "cheating" in this course; it's the assignment. What's not OK: outsourcing the *direction* and *judgment*. The oral defense surfaces that gap immediately.
+:::
+
+---
+
+# Communication
+
+- *Teams link / mailing list — to be circulated before W2.*
+- Office hours: by appointment (email).
+- Course repo: GitHub (link circulated with the team-formation announcement).
+
+::: notes
+Placeholder for now. Update this slide once the Teams channel is set up.
+:::
+
+---
+
+# That's It For Today
+
+- Next week: requirements with AI.
+- Lab 1 (Week 2 lab slot): tooling onboarding + first AI-driven requirements drill.
+
+Questions?
+
+::: notes
+Closer slide. Open the floor for questions; don't run out the clock.
+:::
