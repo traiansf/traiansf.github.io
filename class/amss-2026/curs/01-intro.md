@@ -335,3 +335,47 @@ Second mention of F1+F3+F4 (first was in commitment #4). Deliberate repetition �
 :::
 
 ---
+
+# What You Just Saw: The Course Tooling
+
+- **Editor:** VS Code with the Continue.dev extension.
+- **Endpoint:** the canonical course model endpoint (configured in `tooling/.continue/config.yaml`).
+- **Mode:** agentic chat — file-and-repo aware, not browser ChatGPT.
+
+This is what every student in the cohort runs.
+
+::: notes
+Refer back to the demo briefly. Don't re-introduce Continue.dev as if for the first time — students just watched it work.
+
+The actual canonical endpoint depends on the procurement decision (institutional `llm.fmi.unibuc.ro` / per-student Gemini free-tier / pooled paid API). Whichever it ends up being, the *config* is the same shape.
+:::
+
+---
+
+# Where We Install: Lab 1
+
+- Lab 1 (Week 2): hands-on tooling onboarding. Don't try alone before then.
+- Setup guide: `tooling/SETUP.md` in the course repo.
+- Estimated time: ~30 min on a working laptop.
+
+::: notes
+Lab 1 walks every student through install + first AI-driven requirements gathering. Pre-requisites: VS Code + Git. Course-issued endpoint credentials are handed out at the start of Lab 1.
+:::
+
+---
+
+# Tooling Parity (BYO Allowed, On Top)
+
+You may also use, on your personal accounts:
+
+- Claude Code, GitHub Copilot, Cursor — anything you have access to.
+
+**But:** every graded artifact must reproduce on the canonical setup.
+
+This is what lets the examiner reproduce your work during the oral defense.
+
+::: notes
+Be explicit: BYO is a power-user upgrade, not a substitute. Students who only run their personal tools and skip the canonical setup will fail the oral defense's reproduction check.
+:::
+
+---
