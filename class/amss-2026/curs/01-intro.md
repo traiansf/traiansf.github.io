@@ -162,3 +162,17 @@ This handoff slide stays up until the demo trigger replaces it. Pause briefly so
 :::
 
 ---
+
+# Demo: Library Kiosk
+
+> Live AI design loop. Watch the architect move and the critic move.
+
+**Prompt to AI:** *"Generate a UML class diagram for a small library kiosk: users borrow and return books; staff register returns; books can be reserved while on loan."*
+
+::: notes
+Switch to Continue.dev. Run the runbook at `class/amss-2026/curs/01-intro-demo.md` for the full 12 min. This slide stays on screen as the lecture-side anchor — students glance back at the prompt while the diagram appears in the editor.
+
+If live AI fails, the runbook §6 covers the fallback path.
+:::
+
+---
