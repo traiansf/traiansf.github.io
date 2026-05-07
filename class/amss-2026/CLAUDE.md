@@ -33,7 +33,7 @@ Do NOT cross-include files from `../amss/`. The two trees are intentionally deco
 
 ## Editing guidelines
 
-- Romanian where the existing course is in Romanian; English where the spec uses English (e.g., lecture/lab titles per the spec's tables). Match the diacritics style of `../amss/` (`ă`, `â`, `î`, `ș`, `ț`, with `â` inside words and `î` at boundaries).
+- **Lecture and lab decks are written in English** (matching the 2025 course's actual practice and the spec's English lecture titles). The project README (`proiect/README.md`) is in Romanian to match the student-facing institutional context — when editing it, follow the diacritics style of `../amss/` (`ă`, `â`, `î`, `ș`, `ț`, with `â` inside words and `î` at boundaries).
 - Lecture/lab content must conform to the 100-min session sizing constraint documented in `../amss/CLAUDE.md` § "Course schedule".
 - Each new lecture/lab MUST have a corresponding entry in `static/index.html` (it is hand-maintained).
 - The "no auto-generated diagrams" rule from AMSS 2025's project README is **explicitly reversed** for 2026 — see spec §4.
