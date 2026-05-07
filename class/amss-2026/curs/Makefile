@@ -1,6 +1,6 @@
 SUBDIR = curs
 
-MDS = $(wildcard *.md)
+MDS = $(filter-out %-demo.md,$(wildcard *.md))
 HTMLS = $(patsubst %.md,$(OUTDIR)/%.html,$(MDS))
 PDFS = $(patsubst %.md,$(OUTDIR)/%.pdf,$(MDS))
 
