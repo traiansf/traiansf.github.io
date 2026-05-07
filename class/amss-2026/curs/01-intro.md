@@ -176,3 +176,162 @@ If live AI fails, the runbook §6 covers the fallback path.
 :::
 
 ---
+
+# What AI Changes at Each SDLC Stage
+
+The next 7 slides walk the SDLC stage by stage.
+
+For each: **what AI does well** vs. **where AI fails**.
+
+This is also the rest of your semester — each stage previews a future week.
+
+::: notes
+Section opener. Brief — students just came back from a demo, give them a beat to reset before the survey.
+:::
+
+---
+
+# Requirements Gathering (W2 preview)
+
+**AI does well:**
+
+- Drafts long lists of plausible-looking requirements fast.
+- Surfaces stakeholder roles and use cases you might not have considered.
+
+**AI fails at:**
+
+- Fabricating non-functional requirements without grounding.
+- Vague NFRs ("the system shall be performant").
+- Over-specifying — generating 200 requirements where 20 would do.
+
+::: notes
+W2 lecture covers the failure modes in detail. Lab 1 is a hands-on requirements drill.
+:::
+
+---
+
+# Test/Spec Design (W3 preview)
+
+**AI does well:**
+
+- Generates test scaffolds from a clear specification.
+- Surfaces edge cases the spec doesn't mention.
+
+**AI fails at:**
+
+- Producing tests for vague specs — they pass for the wrong reasons.
+- Over-fitting tests to a particular implementation.
+
+> If AI can't produce a passing test from your spec, your spec is too vague.
+
+::: notes
+This last line is the W3 mantra. The required-but-ungraded TDD loop in the project hangs on this idea.
+:::
+
+---
+
+# Structural Modeling (W4-5 preview)
+
+**AI does well:**
+
+- Drafts a class diagram from a one-page spec in seconds.
+- Suggests reasonable class names and relationships.
+
+**AI fails at:**
+
+- Wrong multiplicities (you saw one in the demo).
+- Fabricated classes with no behavior.
+- Conflating abstract concepts with concrete instances.
+
+::: notes
+W4 = class diagrams. W5 = object/package/component/deployment. The demo we just did is the prototypical W4 exercise.
+:::
+
+---
+
+# Behavioral Modeling (W6-7 preview)
+
+**AI does well:**
+
+- Generates sequence diagrams for happy-path scenarios.
+- Sketches state machines for object lifecycles.
+
+**AI fails at:**
+
+- Fabricating messages between objects that don't exist.
+- Missing guards on state transitions.
+- Orphan states / unreachable transitions.
+
+::: notes
+W6 = use cases + sequence. W7 = state + activity.
+:::
+
+---
+
+# Patterns (W8-9 preview)
+
+**AI does well:**
+
+- Recognizes textbook pattern situations and applies them.
+- Knows the GoF vocabulary.
+
+**AI fails at:**
+
+- Decorating code with patterns that solve nothing.
+- Overusing patterns where simple code would do.
+- Calling something "Visitor" when it's just an `if/else` on a type tag.
+
+::: notes
+W8 = pattern selection. W9 = pattern integration & critique. The critique frame is heavy here — many AI pattern applications look right and are wrong.
+:::
+
+---
+
+# Quality, Traceability, Evaluation (W10-11 preview)
+
+**AI does well:**
+
+- Cross-references artifacts on demand.
+- Spots structural gaps if asked the right question.
+
+**AI fails at:**
+
+- Maintaining traceability across iterations.
+- Self-evaluating its own output.
+- Catching consistency issues without being prompted.
+
+::: notes
+W10 = the full trace (requirement → use case → class → state/sequence → test). W11 = quality criteria + simulation. F4 (defensible traceability) is anchored here.
+:::
+
+---
+
+# Coding (Out of Scope Here)
+
+Implementation is a *parallel course's* domain — not ours.
+
+We use it as our **forcing function**: TDD-with-AI is required for the project, but its output is never graded.
+
+What gets read is your *reflection on what the loop revealed*.
+
+::: notes
+This is the third commitment again, in concrete form. Recap briefly so students understand why they will write code but it won't be graded.
+:::
+
+---
+
+# Back to F1 + F3 + F4
+
+Every stage above gets evaluated through the same three abilities:
+
+- **F1** — read & critique what AI produced.
+- **F3** — articulate why you directed AI the way you did.
+- **F4** — defend the trace from one stage to the next.
+
+This is the literacy floor. The oral defense tests it directly.
+
+::: notes
+Second mention of F1+F3+F4 (first was in commitment #4). Deliberate repetition — say it the same way each time.
+:::
+
+---
