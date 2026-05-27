@@ -35,7 +35,7 @@ Walk the diagram aloud. The following defects are common; pick the **2-3 that ac
 | 5 | Missing guard / operation | Borrow with no availability check, or return with no state change | *"What stops me from borrowing a book that's already out?"* |
 | 6 | Anemic class | `Staff` with no associations beyond `register_return()` | *"What does Staff *know about*? Who do they interact with?"* |
 
-If AI produces a clean diagram with no critique surface (low probability for the kiosk prompt with current open-source coding models, but possible) → jump to §6 "Make-it-fail reserve".
+If AI produces a clean diagram with no critique surface (low probability for the kiosk prompt with current open-source coding models, but possible) → jump to §7 "Make-it-fail reserve".
 
 ## 3. Critique walkthrough (~4-5 min)
 

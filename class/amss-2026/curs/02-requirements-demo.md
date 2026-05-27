@@ -35,7 +35,7 @@ Walk the requirements doc aloud. The following defects are common; pick the **2-
 | 5 | Conflated requirements | One FR bundles distinct concerns ("user can rent, return, and report stolen bikes") | *"Split this — what's the success criterion for each piece?"* |
 | 6 | Missing acceptance criterion | "Users should be able to rent a bike" with no measurable success | *"How do I know when this is done?"* |
 
-If AI produces a clean requirements doc with no critique surface (low probability for a long-form text artifact, but possible) → jump to §6 "Make-it-fail reserve".
+If AI produces a clean requirements doc with no critique surface (low probability for a long-form text artifact, but possible) → jump to §7 "Make-it-fail reserve".
 
 ## 3. Critique walkthrough (~5 min)
 
