@@ -172,3 +172,68 @@ Connect to today's frame: AI doesn't fix Denver-style failures; if anything, AI 
 :::
 
 ---
+
+# Prompting Move #1: Scaffolded > Direct
+
+**Direct:** *"Give me requirements for a bike-sharing app."*
+
+Returns: a long, unstructured list. Mixes FR/NFR/domain. Fabricates stakeholders.
+
+**Scaffolded:** *"Give me requirements for a bike-sharing app, organized by use case. Each use case is one user goal; for each, list FR, NFR, and domain constraints separately."*
+
+Returns: structured by intent. Easier to read, critique, and iterate on.
+
+::: notes
+This is the move the demo's prompt #2 demonstrated. Re-anchor by referring back to the demo screen.
+:::
+
+---
+
+# Prompting Move #2: Stakeholder Role Priming
+
+**Without priming:** *"List non-functional requirements for the kiosk."*
+
+**With priming:** *"You are a safety auditor for urban micromobility. List non-functional requirements for the kiosk from that role."*
+
+The role concentrates AI's output on what that role cares about — safety NFRs become concrete, ones outside the role drop.
+
+> Roles are filters. Pick the filter that matches what you want AI to surface.
+
+::: notes
+Doesn't eliminate fabrication, but compresses the output toward one frame at a time. Useful when you need depth in one area.
+:::
+
+---
+
+# Prompting Move #3: Negative Prompting
+
+Say what NOT to include:
+
+- *"… no technology choices (no databases, no frameworks)."*
+- *"… no fabricated stakeholders — use only roles I named in the prompt."*
+- *"… no vague adjectives — every NFR has a measurable threshold."*
+
+This won't catch every failure mode, but it preempts the most common ones.
+
+::: notes
+Negative prompting is cheap. Free defect prevention. The cost is one extra clause in the prompt; the benefit is AI doesn't have to pick which trap to fall into.
+:::
+
+---
+
+# This Is What Lab 1 Drills
+
+This week's lab (Lab 1, Week 2 lab slot):
+
+- 60 min in pairs.
+- Drive AI to produce a requirements doc for an assigned toy domain.
+- Iterate at least once. Use one of the three prompting moves above.
+- 5-line reflection on the AI failure modes you observed.
+
+Deliverable: the doc + reflection committed to the lab repo.
+
+::: notes
+Lab 1 brief is in `class/amss-2026/lab/Lab01.md` (forthcoming — own spec). This slide stays high-level to survive Lab 1 spec details still being open.
+:::
+
+---
