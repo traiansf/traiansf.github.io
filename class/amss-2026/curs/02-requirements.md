@@ -79,3 +79,17 @@ First of two F1+F3+F4 mentions today (the second lands in the close). Deliberate
 :::
 
 ---
+
+# Demo: Bike-Sharing Requirements
+
+> Live AI requirements gathering. Watch for fabrication, vague NFRs, and over-spec'ing.
+
+**Prompt to AI:** *"Generate a requirements document for a city bike-sharing app: users rent and return bicycles at stations across a city; payment is by app; staff rebalance bikes between stations. Cover functional, non-functional, and domain requirements."*
+
+::: notes
+Switch to Continue.dev with the markdown preview pane open. Run the runbook at `class/amss-2026/curs/02-requirements-demo.md` for the full 12-14 min. This slide stays on screen as the lecture-side anchor.
+
+If live AI fails, the runbook §6 covers the fallback path.
+:::
+
+---
