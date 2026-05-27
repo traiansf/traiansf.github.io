@@ -237,3 +237,94 @@ Lab 1 brief is in `class/amss-2026/lab/Lab01.md` (forthcoming — own spec). Thi
 :::
 
 ---
+
+# Failure Mode #1: Fabrication
+
+**Definition:** AI invents requirements (stakeholders, regulations, features) that weren't grounded in your prompt or the domain.
+
+**Example:** "REQ: integrate with the City Hall API for bike-lane closure notifications" — when no such API was mentioned, and probably doesn't exist.
+
+**Critique question:** *"Walk this back to my prompt. What did I ask for that produced this?"*
+
+::: notes
+Most common failure mode for requirements. AI compensates for thin prompts by filling space with plausible-looking detail.
+:::
+
+---
+
+# Failure Mode #2: Over-Specification
+
+**Definition:** AI produces dozens of requirements when the system needs a handful.
+
+**Example:** 30 separate REQs covering theft prevention, GPS jamming detection, weather sensors, accelerometer alerts, GDPR data-export, audit logs, … for a kiosk that mostly rents bikes.
+
+**Critique question:** *"Read the top 5. Does the system fail without each one? What's load-bearing?"*
+
+::: notes
+This is the lazy version of over-engineering — AI doesn't have to choose what matters, so it lists everything. Forces the critic to apply a prioritization filter.
+:::
+
+---
+
+# Failure Mode #3: Vague Non-Functional Requirements
+
+**Definition:** NFRs phrased as adjectives with no measurable threshold.
+
+**Example:** "The system shall be performant." / "User-friendly." / "Highly available."
+
+**Critique question:** *"Can you write a test that proves this? If not, it's not a requirement."*
+
+::: notes
+Plants the W3 mantra a second time. Vague NFRs are the loudest signal of a thin requirements pass — students should learn to spot them in seconds.
+:::
+
+---
+
+# Failure Mode #4: Conflated Requirements
+
+**Definition:** One requirement bundles distinct concerns; success criteria can't apply.
+
+**Example:** "REQ-12: User can rent, return, and report stolen bikes."
+
+That's three requirements, each with its own success criterion, masquerading as one.
+
+**Critique question:** *"Split this. What's the test for each piece?"*
+
+::: notes
+Conflation hides incomplete thinking. A single REQ implies a single test; if three tests fit, three REQs were needed.
+:::
+
+---
+
+# Failure Mode #5: Fabricated Technology Choices
+
+**Definition:** AI puts implementation choices (database, language, framework) into requirements.
+
+**Example:** "REQ-7: the system shall use Redis for caching."
+
+Redis is not a requirement — it's an implementation. The actual requirement is something like "rental confirmation appears within 2 seconds."
+
+**Critique question:** *"Why is a database in the requirements? What user need does Redis serve?"*
+
+::: notes
+This conflates requirements with design. AI does it because training data conflates them. Be ruthless about cutting tech choices from requirements; they re-enter at architecture.
+:::
+
+---
+
+# You Saw These in the Demo
+
+The bike-sharing requirements doc cycle 1 had (pick what actually appeared):
+
+- Fabricated stakeholders (likely)
+- Vague NFRs (very likely)
+- Over-specification (very likely)
+- Fabricated technology (possible)
+
+Cycle 2 — with the use-case scaffold — dropped most of them. **Scaffolds are how the architect-half corrects the critic-half's findings.**
+
+::: notes
+This slide ties the abstract catalogue back to the concrete demo students just watched. Re-reference whatever actually fired in the live cycle.
+:::
+
+---
