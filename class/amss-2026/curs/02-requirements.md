@@ -378,3 +378,56 @@ Clean boundary. Students should not leave today thinking they know how to draw a
 :::
 
 ---
+
+# This Week's Lab: Lab 1
+
+- Week 2 lab slot: tooling onboarding (~15 min) + AI-driven requirements drill in pairs (~60 min) + share-out (~25 min).
+- Domain assigned at lab start (toy domain, not your project).
+- Deliverable: requirements doc + 5-line reflection on the failure modes you observed.
+- Commit to the course lab repo (instructions handed out at lab start).
+
+Bring a laptop with Continue.dev pre-installed per `tooling/SETUP.md`.
+
+::: notes
+Lab 1 spec is its own document (forthcoming). Keep this slide high-level so it survives Lab 1 details landing late. Course-managed lab repo URL handed out in the lab itself.
+:::
+
+---
+
+# Next Week: Testable Specs
+
+If AI cannot produce a passing test from your spec, your spec is too vague.
+
+W3 reframes the requirements loop as a test-generation loop. The mantra above is the heuristic; W3 turns it into a discipline.
+
+::: notes
+W3 mantra planted three times now (failure-mode #3 slide, NFR-failure slide, here). Repetition is deliberate — it's the bridge between requirements and the rest of the SDLC.
+:::
+
+---
+
+# F1 + F3 + F4 — The Through-Line
+
+Today you drilled:
+
+- **F1** — read AI's requirements output and named the failure modes.
+- **F4** — saw why traceability starts at requirements: if requirements are fabricated, every downstream artifact inherits the fabrication.
+
+F3 (articulating *why* you directed AI a certain way) lands as you produce your own logs in Lab 1.
+
+::: notes
+Second and final F1+F3+F4 mention in W2. Same wording as the frame slide — deliberate.
+:::
+
+---
+
+# That's It For Today
+
+- Next lecture (W3): testable specs and TDD-as-spec.
+- This week's lab (Lab 1): drive AI to produce a requirements doc, log what failed.
+
+Questions?
+
+::: notes
+Closer. Open the floor; don't run out the clock.
+:::
