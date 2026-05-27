@@ -223,17 +223,14 @@ Negative prompting is cheap. Free defect prevention. The cost is one extra claus
 
 # This Is What Lab 1 Drills
 
-This week's lab (Lab 1, Week 2 lab slot):
+The three moves above — **scaffolded**, **role priming**, **negative prompting** — are exactly what Lab 1 asks you to apply.
 
-- 60 min in pairs.
-- Drive AI to produce a requirements doc for an assigned toy domain.
-- Iterate at least once. Use one of the three prompting moves above.
-- 5-line reflection on the AI failure modes you observed.
+Pairs, ~60 min hands-on. **Iterate at least once.** Catch your own failure modes as you go; the 5-line reflection is where you name them.
 
-Deliverable: the doc + reflection committed to the lab repo.
+(Deliverable mechanics: the close slide at the end of the lecture.)
 
 ::: notes
-Lab 1 brief is in `class/amss-2026/lab/Lab01.md` (forthcoming — own spec). This slide stays high-level to survive Lab 1 spec details still being open.
+Section-closing call-to-action. Don't re-explain Lab 1 mechanics here — the close slide owns the deliverable contract. Re-anchor to the prompting moves students just learned.
 :::
 
 ---
