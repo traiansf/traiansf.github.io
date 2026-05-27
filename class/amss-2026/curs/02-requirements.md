@@ -328,3 +328,53 @@ This slide ties the abstract catalogue back to the concrete demo students just w
 :::
 
 ---
+
+# Use Case = One User Goal
+
+A **use case** is one thing a user wants to accomplish with the system.
+
+For the bike-sharing app:
+
+- *Rent a bike* (one user goal)
+- *Return a bike* (another user goal)
+- *Report a stolen bike* (another user goal)
+
+Each use case is a hook — you can list FR, NFR, and domain requirements *per use case*, instead of in one giant flat list.
+
+::: notes
+No UML notation yet — just the vocabulary. "Use case" is a structural noun: a way of grouping requirements by intent.
+:::
+
+---
+
+# Use Cases as a Scaffold for AI
+
+Look at what happened in the demo:
+
+**Prompt #1 (flat):** "Generate requirements for a bike-sharing app."
+→ Long unstructured list, fabricated stakeholders, vague NFRs.
+
+**Prompt #2 (use-case-scaffolded):** "Rewrite organized by use case. For each: who, success criterion, one NFR."
+→ Tighter output. Each requirement now traces to one user goal.
+
+> The scaffold gives AI a vocabulary; vocabulary tightens output.
+
+::: notes
+This is the central move of the lecture. The architect-half doesn't write requirements — it writes the SCAFFOLD that lets AI write better requirements.
+:::
+
+---
+
+# UML Notation Is Coming — In W6
+
+Today: "use case" as a structural noun. No diagrams.
+
+In **W6** (Behavioral I): the UML notation — actors, ovals, system boundary, include / extend / generalization relationships. Plus sequence diagrams.
+
+Until then: think of use cases as labeled buckets for requirements, nothing more.
+
+::: notes
+Clean boundary. Students should not leave today thinking they know how to draw a use case diagram. They should leave knowing what a use case IS, conceptually.
+:::
+
+---
