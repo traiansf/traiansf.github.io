@@ -93,3 +93,82 @@ If live AI fails, the runbook §6 covers the fallback path.
 :::
 
 ---
+
+# Three Types of Requirements
+
+| Type | Question it answers | One-line example |
+|---|---|---|
+| **Functional** | What does the system *do*? | "A user can return a bike at any station." |
+| **Non-functional** | How well does it do it? | "Rental confirmation appears within 2 seconds." |
+| **Domain** | What external rules apply? | "Bikes must comply with EN 14764 city-bike safety standard." |
+
+::: notes
+Three side-by-side. Examples grounded in the bike-sharing scenario from the demo, so students stay in one mental model.
+:::
+
+---
+
+# Functional Requirements: Where AI Fails
+
+- AI fabricates user roles ("city hall liaison", "fleet operations manager") that weren't in your prompt.
+- AI conflates concerns: one FR bundles rent + return + report-stolen as a single bullet.
+- AI omits the boring core (login, list-bikes, view-history) and reaches for the dramatic edge (theft recovery).
+
+> Watch for: stakeholders that don't trace back to your prompt.
+
+::: notes
+Foreshadows §5.6 failure-modes catalogue. Don't name "fabrication" yet — that slide owns the term.
+:::
+
+---
+
+# Non-Functional Requirements: Where AI Fails
+
+- "The system shall be performant" — measurable as what?
+- "High availability" — 99%? 99.9%? Over what window?
+- "User-friendly" — by which standard? Tested how?
+
+> If you can't write a test that proves it, it's not a requirement.
+
+::: notes
+This line ("if you can't write a test...") foreshadows the W3 testable-specs mantra. Plant it here; W3 picks it up explicitly.
+:::
+
+---
+
+# Domain Requirements: Where AI Fails
+
+- AI invents regulations that sound plausible but don't exist ("GDPR Article 47" — there is no Article 47).
+- AI overspecifies compliance: 15 separate REQs for one regulation when one umbrella REQ would do.
+- AI misses real domain constraints: helmet-law jurisdictions, bike-lane requirements, weather/seasonal closures.
+
+> Watch for: regulations cited without article numbers, or article numbers you can't look up.
+
+::: notes
+The GDPR Article 47 detail — verify against the live AI output. Some models hallucinate plausible-looking citations; others don't. Adjust based on what the dry-run shows.
+:::
+
+---
+
+# Negative Example: Denver Airport Baggage System
+
+**Goal:** fully automated baggage handling for all airlines.
+
+**What went wrong:**
+
+- Unclear & changing requirements (scope shifts from airlines).
+- Stakeholder misalignment (conflicting airline needs).
+- Overly ambitious design (unrealistic automation).
+- Poor communication (incomplete, inconsistent docs).
+
+**Impact:** 16-month delay, $560M cost overrun, system never operational.
+
+> Clear, stable, agreed-upon requirements are essential.
+
+::: notes
+Reused from 2025's `class/amss/curs/03-requirements.md`. The Denver story still lands — it's a canonical example of requirements failure independent of AI.
+
+Connect to today's frame: AI doesn't fix Denver-style failures; if anything, AI lets you write 30 fabricated requirements faster, which makes the Denver problem worse without a strong critic.
+:::
+
+---
