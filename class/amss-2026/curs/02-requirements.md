@@ -68,9 +68,9 @@ Section preview. Brief. Students see the spine before the demo so they have hook
 
 From W1: in the oral defense, *unaided*, you must demonstrate:
 
-- **F1** — read & critique AI-generated artifacts on the spot.
-- **F3** — articulate why you directed AI a certain way.
-- **F4** — defend traceability across your project.
+- **F1** — read & critique any AI-generated artifact on the spot.
+- **F3** — articulate why you directed AI a certain way and what you accepted or rejected.
+- **F4** — defend traceability across your project: requirement → use case → class → state/sequence → test.
 
 Today drills F1 (failure-modes catalogue) and seeds F4 (traceability starts at requirements).
 
