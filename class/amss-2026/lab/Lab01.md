@@ -221,3 +221,27 @@ Low-stakes onboarding gate. The bar is on the literacy floor (F1 naming, F3 rati
 :::
 
 ---
+
+# Phase 3 — Share-out (25 min)
+
+- A few pairs present their worst failure mode + the move that fixed it.
+- We tally, live, which failure modes hit the most pairs.
+- Same domain, same starting prompt, ~50 pairs → a real failure-mode map.
+
+The modes you tally are exactly what you'll critique every week.
+
+::: notes
+Instructor pre-selects presenting pairs by scanning pushed reflections during the drill. The live tally is the payoff of everyone sharing one domain.
+:::
+
+---
+
+# Why This Matters
+
+If requirements are fabricated, every downstream artifact inherits it — class diagrams (Lab 2), tests (W3), all of it.
+
+Today you drilled **F1** (read & critique AI output) and **F3** (say *why* you directed the AI). Next: Lab 2 turns requirements into class diagrams.
+
+::: notes
+Closer. Tie back to the literacy floor and forward to Lab 2. F4 (traceability) is seeded here — fabrication propagating downstream is the traceability argument.
+:::
