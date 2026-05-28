@@ -191,7 +191,7 @@ Five lines, not five paragraphs. Naming the mode and giving the reason matters m
 # How to Submit
 
 ```bash
-git checkout -b lab01/<pair-id>
+git checkout lab01/<pair-id>      # the branch you created in onboarding
 mkdir -p lab01/<pair-id>
 # write requirements.md and reflection.md inside lab01/<pair-id>/
 git add lab01/<pair-id>

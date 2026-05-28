@@ -104,7 +104,7 @@ Fill per offering.
 
 **Submit:**
 ```bash
-git checkout -b lab01/<pair-id>
+git checkout lab01/<pair-id>      # the branch you created in onboarding
 mkdir -p lab01/<pair-id>
 git add lab01/<pair-id>
 git commit -m "Lab 1: <pair-id> vending machine requirements + reflection"
