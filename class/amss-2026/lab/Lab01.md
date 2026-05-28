@@ -212,7 +212,7 @@ Substitute your real pair-id everywhere `<pair-id>` appears. The clone was done 
 Pass needs both:
 
 1. Both files committed by the deadline.
-2. Your reflection names **≥2 failure modes** correctly **and** line 3 gives a real reason for your re-prompt (not just what you typed).
+2. Your reflection names **at least 2 failure modes** correctly **and** line 3 gives a real reason for your re-prompt (not just what you typed).
 
 A vacuous reflection ("AI was wrong, we fixed it") is a redo, not a fail. We grade your critique and reasoning — not the AI's output quality.
 
