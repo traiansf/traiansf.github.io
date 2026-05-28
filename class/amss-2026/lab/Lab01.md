@@ -45,3 +45,62 @@ Goal of this phase: every pair ends with a working AI completion AND a pushed br
 :::
 
 ---
+
+# Phase 2 — The Drill (60 min)
+
+**Domain: a vending machine.** Same for every pair.
+
+You alternate two roles:
+
+- **Architect** — drives the AI (writes the prompts).
+- **Critic** — reads the AI's output and names what's wrong or missing.
+
+Swap roles between the two rounds, so you both practice both.
+
+::: notes
+A single shared domain is deliberate: it makes the share-out a real side-by-side comparison of how the same prompt failed differently across pairs.
+:::
+
+---
+
+# Round 1 — A drives, B critiques (~25 min)
+
+**A** sends this starting prompt (deliberately bare):
+
+> *"Generate a requirements document for a vending machine. Cover functional, non-functional, and domain requirements."*
+
+**B** reads the output and names failure modes (see the next slides). Log each one.
+
+**A** re-prompts using a prompting move to fix what B found. **This re-prompt is required — iterate at least once.**
+
+::: notes
+The bare prompt is on purpose — it reliably produces fabrication, vague NFRs, and omissions. If the draft looks suspiciously clean, the critic uses the edge-case card a few slides on.
+:::
+
+---
+
+# Round 2 — swap: B drives, A critiques (~20 min)
+
+Now **B** drives and **A** critiques.
+
+Take a fresh angle: push for measurable acceptance criteria on each requirement, or negative-prompt away the fabricated technology A's round surfaced.
+
+Keep a running log of *what you asked the AI and why* — that's your F3 evidence and the source of reflection line 3.
+
+::: notes
+Running short? Round 2 is optional. Round 1 (which contains the required re-prompt) plus the reflection is the minimum.
+:::
+
+---
+
+# Finalize + Commit (last 10 min)
+
+- Keep the best requirements doc you drove the AI to — your tightest iteration, not the first draft.
+- Write the 5-line reflection (template a few slides on).
+- Commit and push to your pair branch.
+
+::: notes
+Don't polish the AI output by hand. The lab assesses how you *drove and critiqued* the AI, not how well you hand-edited its text.
+:::
+
+---
