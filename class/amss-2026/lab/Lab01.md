@@ -157,3 +157,67 @@ Hand this to the critic in each round. A "too-clean" draft that skips these is t
 :::
 
 ---
+
+# Deliverable
+
+On branch `lab01/<pair-id>`, commit:
+
+- `lab01/<pair-id>/requirements.md` — your best AI-driven requirements doc.
+- `lab01/<pair-id>/reflection.md` — exactly 5 lines (next slide).
+- `lab01/<pair-id>/log.md` — optional but recommended: your prompt/critique log.
+
+::: notes
+The log is your raw F3 evidence. It's optional for the gate but it's what we look at if a reflection is borderline.
+:::
+
+---
+
+# The 5-Line Reflection
+
+One line each:
+
+1. Worst failure mode you saw (name it) + where it appeared.
+2. A second failure mode + why it was easy or hard to catch.
+3. What you changed in the re-prompt — and **why** (this is F3).
+4. What improved (or didn't) after iterating.
+5. One requirement the AI never got right — the residual risk.
+
+::: notes
+Five lines, not five paragraphs. Naming the mode and giving the reason matters more than length.
+:::
+
+---
+
+# How to Submit
+
+```bash
+git checkout -b lab01/<pair-id>
+mkdir -p lab01/<pair-id>
+# write requirements.md and reflection.md inside lab01/<pair-id>/
+git add lab01/<pair-id>
+git commit -m "Lab 1: <pair-id> vending machine requirements + reflection"
+git push -u origin lab01/<pair-id>
+```
+
+Push fails? Paste both files into the shared doc / email the instructor, then fix git after class.
+
+::: notes
+Substitute your real pair-id everywhere `<pair-id>` appears. The clone was done in onboarding; this is the branch + commit + push.
+:::
+
+---
+
+# Grading — Pass / Redo
+
+Pass needs both:
+
+1. Both files committed by the deadline.
+2. Your reflection names **≥2 failure modes** correctly **and** line 3 gives a real reason for your re-prompt (not just what you typed).
+
+A vacuous reflection ("AI was wrong, we fixed it") is a redo, not a fail. We grade your critique and reasoning — not the AI's output quality.
+
+::: notes
+Low-stakes onboarding gate. The bar is on the literacy floor (F1 naming, F3 rationale), not on how polished the requirements doc is.
+:::
+
+---
