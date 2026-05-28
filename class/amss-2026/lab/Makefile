@@ -1,6 +1,6 @@
 SUBDIR = lab
 
-MDS = $(wildcard *.md)
+MDS = $(filter-out %-demo.md %-instructor.md,$(wildcard *.md))
 HTMLS = $(patsubst %.md,$(OUTDIR)/%.html,$(MDS))
 PDFS = $(patsubst %.md,$(OUTDIR)/%.pdf,$(MDS))
 
