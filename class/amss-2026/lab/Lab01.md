@@ -104,3 +104,56 @@ Don't polish the AI output by hand. The lab assesses how you *drove and critique
 :::
 
 ---
+
+# Three Prompting Moves (from W2)
+
+- **Scaffolded** — *"organized by use case; each use case is one user goal; list FR / NFR / domain per case."*
+- **Role priming** — *"act as a requirements engineer for vending hardware."*
+- **Negative prompting** — *"no technology choices; no invented payment methods or hardware."*
+
+Use at least one when you re-prompt.
+
+::: notes
+These are the three moves from the W2 "This Is What Lab 1 Drills" slide. The scaffolded move is the one the lecture demo pivoted on.
+:::
+
+---
+
+# Failure Modes to Catch (from W2)
+
+Five named modes — what AI wrongly **includes** or mis-states:
+
+- **Fabrication** — invented stakeholders, features, or regulations.
+- **Over-specification** — dozens of requirements where a handful suffice.
+- **Vague NFRs** — "fast", "reliable" with no measurable threshold.
+- **Conflated requirements** — one requirement bundling several concerns.
+- **Fabricated technology** — implementation choices posing as requirements.
+
+Plus the flip side — **omission** — what AI silently **leaves out**.
+
+::: notes
+The five named modes are from the W2 catalogue. Omission is the complement the catalogue doesn't name and the one a vending machine surfaces most. Your reflection may cite any of these six.
+:::
+
+---
+
+# Critic's Card — Vending Machine
+
+If the draft looks complete, stress these. Most are omissions:
+
+- Exact change unavailable / making change
+- Item sold out after selection
+- Two buyers grab the last item at once
+- Power loss mid-vend (paid, not dispensed)
+- Refund / cancel before dispense
+- Restock & cash audit (operator role)
+- *"Shall be fast / reliable"* — vague NFR
+- *"Use an SQL database / a specific coin mechanism"* — fabricated technology
+
+A draft that omits these *is* failing — silently.
+
+::: notes
+Hand this to the critic in each round. A "too-clean" draft that skips these is the most common and most dangerous result: the AI under-covers confidently.
+:::
+
+---
