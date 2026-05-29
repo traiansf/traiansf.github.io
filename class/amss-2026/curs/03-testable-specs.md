@@ -309,3 +309,57 @@ Reinforces ownership. The loop has no exit condition AI can compute for you. Thi
 :::
 
 ---
+
+# The Chain Gains a Tail
+
+Last week's chain:
+
+> requirement → use case
+
+This week it grows an executable end:
+
+> requirement → use case → **scenario → test**
+
+::: notes
+W2 established requirement → use case. W3 extends it to the test. This is F4's structure — and the test is the first node you can *run* to check the link.
+:::
+
+---
+
+# Scenario = A Concrete Instance of a Use Case
+
+- **Use case:** "Rent a bike" (one user goal).
+- **Scenario:** "A 60-minute rental." (one concrete path through it).
+- **Test:** `test_paid_ride_charges_per_minute` (that scenario, runnable).
+
+A use case has many scenarios; each interesting scenario becomes a test case.
+
+::: notes
+The bridge from W2's "use case = one user goal" to a testable artifact. Scenario is the missing middle term — concrete enough to assert on.
+:::
+
+---
+
+# Test = Scenario Made Runnable
+
+The test is the binding that makes traceability *verifiable*, not just documented.
+
+> A documented trace says "this requirement is covered." A test *proves* it — and breaks loudly when the link rots.
+
+::: notes
+Documentation traces drift silently. An executable trace fails when reality diverges from the requirement. That's why the test is the strongest node in the chain.
+:::
+
+---
+
+# Broken Links (a preview of W10)
+
+A test that asserts behaviour **no requirement asked for** is an orphan — just like a fabricated requirement with no user need.
+
+W10 makes finding broken links across the whole trace its own skill.
+
+::: notes
+Symmetry with W2's fabrication critique: fabrication adds a node with no parent; an orphan test adds a leaf with no parent. Both break traceability. W10 owns the full broken-link hunt.
+:::
+
+---
