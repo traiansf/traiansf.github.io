@@ -363,3 +363,56 @@ Symmetry with W2's fabrication critique: fabrication adds a node with no parent;
 :::
 
 ---
+
+# Your Project: The TDD-with-AI Reflection
+
+The loop you saw today *is* a required project deliverable:
+
+- Run it on **one feature** of your slice: spec → AI tests → AI code → run.
+- Document what the failures revealed about your spec.
+- Code is a byproduct. The **reflection** is what gets read.
+
+::: notes
+Parent spec §4, per-student deliverable #4. W3 is the method behind that deliverable. Emphasize: we never grade whether the code ships — we grade what the loop taught you about your spec.
+:::
+
+---
+
+# Next Week: Class Diagrams (W4)
+
+Once a requirement is pinned by a test, the next question is: *what objects realise it?*
+
+- **W4:** class diagrams — the structure behind the behaviour.
+- **Lab 2** (W4's slot): drive AI to produce a class diagram from a spec, iterate, log what changed.
+
+::: notes
+Clean handoff. W3 nailed down behaviour; W4 asks what structure delivers it. Lab 2 mechanics live in Lab 2's own brief (forthcoming).
+:::
+
+---
+
+# F1 + F3 + F4 — The Through-Line
+
+Today you drilled:
+
+- **F1** — read AI-written tests and named how they fail.
+- **F4** — the test is the *end* of the trace; if you can't trace a test back to a requirement, the chain is broken.
+
+F3 (articulating *why* you directed AI a certain way) lands in your project narrative.
+
+::: notes
+Second and final F1+F3+F4 mention in W3. Same wording as the frame slide. F4 anchored here.
+:::
+
+---
+
+# That's It For Today
+
+- Next lecture (W4): class diagrams.
+- Your project: run the spec → test → code loop on one feature; write the reflection.
+
+Questions?
+
+::: notes
+Closer. Open the floor; don't run out the clock. No trailing slide separator after this one.
+:::
