@@ -157,3 +157,79 @@ Not "tests replace requirements" — they're the same requirement at two precisi
 :::
 
 ---
+
+# AI Writes Tests Too — and They Fail in Their Own Ways
+
+You critiqued AI's *requirements* last week. Now critique AI's *tests*.
+
+A test can be green and still be worthless. The critic question is always:
+
+> *"Does this test fail for a wrong implementation? Does it pin the behaviour I actually want?"*
+
+::: notes
+Sets up the catalogue. This is F1 applied to tests — the same critic skill, new target.
+:::
+
+---
+
+# Test Failure #1: Invented Assumption
+
+**Definition:** the test hard-codes a value the spec never stated.
+
+```python
+def test_fare():
+    assert fare(60) == 6.0   # where did €6 come from?
+```
+
+**Critique:** *"My spec never said €0.10/min. The AI guessed — and a teammate's AI would guess differently."*
+
+::: notes
+The anchor failure mode — it's what fired in the demo's cycle 1. The guess looks authoritative; that's the trap. Re-reference whatever value the live model actually invented.
+:::
+
+---
+
+# Test Failure #2: Trivially-Passing Test
+
+**Definition:** the assertion holds for almost any implementation.
+
+```python
+def test_fare():
+    assert fare(10) >= 0   # true for 0, 999, anything
+```
+
+**Critique:** *"Does this fail for a wrong implementation? If not, it proves nothing."*
+
+::: notes
+Green, but tests nothing. Students should learn to ask "what wrong code would still pass this?" — if the answer is "lots," the test is trivial.
+:::
+
+---
+
+# Test Failure #3: Tautological Test
+
+**Definition:** the expected value is computed the same way the code computes it.
+
+```python
+def test_fare():
+    assert fare(60) == (60 - 30) * 0.10   # mirrors the implementation
+```
+
+**Critique:** *"If the code and the test share the same bug, the test still passes."*
+
+::: notes
+The most seductive failure — it looks rigorous. But it can't catch a bug in the formula because it reuses the formula. Hand-compute expected values instead.
+:::
+
+---
+
+# Two More: Missing Boundary & Faithful-to-a-Wrong-Spec
+
+- **Missing boundary:** no test at exactly 30 min, at the cap, or at 0. The interesting bugs live at the edges.
+- **Faithful to a wrong spec:** the test correctly encodes a spec that is itself wrong (e.g. no cap → unbounded charge). The test is right; the spec isn't.
+
+::: notes
+Secondary modes. The second is subtle and important: a green test against a bad spec gives false confidence. Plant for W11 — AI checking its own output against its own tests is a weak evaluator; the human stays the backstop.
+:::
+
+---
