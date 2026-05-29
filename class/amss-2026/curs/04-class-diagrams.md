@@ -87,3 +87,126 @@ Switch to Continue.dev with a PlantUML preview pane — students must SEE the re
 :::
 
 ---
+
+# A Class: Three Compartments
+
+```plantuml
+@startuml
+class Bike {
+  - id: String
+  - status: BikeStatus
+  + lock()
+  + unlock()
+}
+@enduml
+```
+
+Name, attributes (data), operations (behaviour). `-` private, `+` public.
+
+::: notes
+Adapts 2025's Book-class compartment example to the bike-sharing domain. The three compartments are the atom of every class diagram.
+:::
+
+---
+
+# Associations + Multiplicity
+
+```plantuml
+@startuml
+class User
+class Rental
+class Bike
+User "1" -- "*" Rental
+Rental "*" -- "1" Bike
+@enduml
+```
+
+Read it aloud: *one* user has *many* rentals; *many* rentals each reference *one* bike. Multiplicity is where AI most often lies.
+
+::: notes
+The most defect-prone element. Drill reading multiplicity aloud — 1, *, 0..1, 1..*. This is correct multiplicity; the defect catalogue shows the wrong version.
+:::
+
+---
+
+# Aggregation vs Composition
+
+```plantuml
+@startuml
+class Station
+class Bike
+class Rental
+class Payment
+Station o-- "*" Bike : holds
+Rental *-- "1" Payment : includes
+@enduml
+```
+
+- **Aggregation** (hollow diamond): a station *holds* bikes; bikes outlive the station.
+- **Composition** (filled diamond): a rental *includes* its payment; the payment dies with it.
+
+::: notes
+Reuses 2025's aggregation/composition contrast. The lifetime distinction is what AI routinely flattens into a plain line.
+:::
+
+---
+
+# Generalization (is-a)
+
+```plantuml
+@startuml
+class User
+class Rider
+class Staff
+User <|-- Rider
+User <|-- Staff
+@enduml
+```
+
+A `Rider` *is a* `User`; `Staff` *is a* `User`. The hollow triangle points at the parent.
+
+::: notes
+Reuses 2025's generalization example. "is-a" vs the "has-a" of association — AI sometimes models is-a as a plain association.
+:::
+
+---
+
+# Beyond the Floor
+
+You'll meet these reading AI output — recognise them, but they're not today's focus:
+
+- **Interfaces** — a contract a class implements.
+- **Abstract classes** — a partial parent you can't instantiate.
+- **Dependency arrows** — "uses" without owning.
+
+Today's reading floor is the four above: class, association + multiplicity, aggregation/composition, generalization.
+
+::: notes
+Deliberate scope boundary (spec §5.4). Name them so students aren't lost when AI emits them, but don't teach them today.
+:::
+
+---
+
+# The Reading Floor, Together
+
+```plantuml
+@startuml
+class User
+class Rider
+class Rental
+class Bike
+class Station
+User <|-- Rider
+User "1" -- "*" Rental
+Rental "*" -- "1" Bike
+Station o-- "*" Bike : holds
+@enduml
+```
+
+One small diagram, all four elements. If you can read this, you can critique AI's.
+
+::: notes
+Consolidation. Every element of the floor in one bike-sharing diagram. This is the F1 reading target.
+:::
+
+---
