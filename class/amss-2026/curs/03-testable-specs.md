@@ -233,3 +233,79 @@ Secondary modes. The second is subtle and important: a green test against a bad 
 :::
 
 ---
+
+# The Loop
+
+```plantuml
+@startuml
+hide empty description
+state "Write / tighten the spec" as Spec
+state "AI writes a test" as Test
+state "Does the test pin the\nbehaviour you want?" as Check
+state "AI writes the code" as Code
+state "Run the test" as Run
+[*] --> Spec
+Spec --> Test
+Test --> Check
+Check --> Spec : no — spec too vague
+Check --> Code : yes
+Code --> Run
+Run --> [*]
+@enduml
+```
+
+::: notes
+This is a process flowchart, **not** a UML state machine (those are W7). It is drawn with plantuml's state primitives only because the build pipeline renders them reliably (graphviz `dot` is not installed). Do not teach the notation here — point at the back-edge: "no, spec too vague" → tighten the spec. That loop is the lecture.
+:::
+
+---
+
+# The Mantra
+
+> **If AI can't write a passing test from your spec, your spec is too vague.**
+
+You watched it live: the vague fare spec produced a guessed test; the tightened spec produced a test that pins the behaviour.
+
+::: notes
+Say it plainly. The demo is its proof. This sentence is the bridge from requirements (W2) to everything downstream.
+:::
+
+---
+
+# Worked Example: The Fare Spec in Two Passes
+
+**Pass 1 (vague):** "Users are charged for renting a bike."
+→ AI invents €0.10/min. The test encodes a guess.
+
+**Pass 2 (tightened):** "Free first 30 min, then €0.10/min, capped at €5."
+→ AI writes tests for 20 min, 30 min, 60 min, and the cap. Each pins a real decision.
+
+::: notes
+The tightening is the architect move; spotting the guess is the critic move. Same A+B loop as W2, now on tests. Refer back to the demo screen.
+:::
+
+---
+
+# When Does the Loop Stop?
+
+Not when the code is "done."
+
+> The loop stops when the test stops *surprising* you — when every assertion is one you'd have written by hand and stand behind.
+
+::: notes
+Students will want a mechanical stopping rule. There isn't one. The signal is subjective but real: when the AI's tests no longer reveal a decision you hadn't made, the spec is precise enough.
+:::
+
+---
+
+# The Human Closes the Loop
+
+AI will happily generate plausible tests forever.
+
+What it can't do: decide whether a test expresses *what you actually want*. That judgment — the architect-critic call — is yours, and it's what the oral defense checks.
+
+::: notes
+Reinforces ownership. The loop has no exit condition AI can compute for you. This is why the course grades the trail, not the green checkmark.
+:::
+
+---
