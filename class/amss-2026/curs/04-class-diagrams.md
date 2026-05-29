@@ -316,3 +316,54 @@ Reuses 2025's simplified diagram, reframed as the critique RESULT. The attribute
 :::
 
 ---
+
+# How to Read an AI Class Diagram
+
+A fixed order, every time:
+
+1. Are the classes real **domain** concepts? (or invented infrastructure)
+2. Are the **multiplicities** right? (read each aloud)
+3. Does each **association** name a real relationship?
+4. Are **whole-part** relationships captured? (aggregation/composition)
+
+::: notes
+This IS the F1 drill. A repeatable read-order beats ad-hoc staring. Students internalise it for the oral defense and Lab 2.
+:::
+
+---
+
+# The Critique Loop on Structure
+
+read -> name the defects -> re-prompt with domain constraints -> re-read.
+
+Same architect-critic loop as W2 (requirements) and W3 (tests) — now on a diagram.
+
+::: notes
+The loop is the through-line of the course. The scaffold that tightens AI output here is naming the domain rules (a rental is one bike) — exactly the demo's prompt #2.
+:::
+
+---
+
+# Apply It to Your Own Output
+
+This week's lab (Lab 2): you drive AI to a class diagram from a 1-page spec, then run *this* read-order against what it draws.
+
+The critique log is the evidence — what you caught and how you fixed it.
+
+::: notes
+Bridges the read-order to Lab 2's deliverable. The read-order is the rubric for the critique log.
+:::
+
+---
+
+# The Human Decides What Matches the Domain
+
+AI can draw plausible structure forever. Deciding whether it matches the *domain* — that's the architect-critic call.
+
+It's what the oral defense checks, and AI can't make it for you.
+
+::: notes
+Reinforces ownership, mirroring W3's "human closes the loop." The defense grades this judgment, not the diagram's polish.
+:::
+
+---
