@@ -20,3 +20,58 @@ Authoring note: this lecture reshapes 2025's `class/amss/curs/02-class.md` (Book
 :::
 
 ---
+
+# Recap: Architect + Critic
+
+- **Architect / director (B):** drive AI through the SDLC.
+- **Critic / reviewer (A):** read AI's output and name what's wrong or missing.
+
+In W3 you critiqued AI-written tests. Today: the same loop, on a diagram.
+
+::: notes
+W3 was behaviour (tests); today is structure (classes). One breath of recap.
+:::
+
+---
+
+# From Behaviour to Structure
+
+- **W3 pinned what the system does** — a test says "a 60-minute rental costs €3.00."
+- **Today: what objects realise it** — a `Rental`, a `Bike`, a `User`, a `Payment`, and how they relate.
+
+The class diagram is the central structural artifact.
+
+::: notes
+The bridge from W3. The fare test implies objects: something holds the duration, something computes the charge. Today we draw that structure.
+:::
+
+---
+
+# Four Threads Today
+
+1. The class diagram as the central structural artifact.
+2. Driving AI to produce one.
+3. Reading it critically — multiplicity, fake associations, missing whole-part.
+4. The literacy floor: what you must read & critique cold.
+
+::: notes
+Threads 3 and 4 are the payload. Brief preview before the demo.
+:::
+
+---
+
+# Literacy Floor: F1 + F3 + F4
+
+From W1: in the oral defense, *unaided*, you must demonstrate:
+
+- **F1** — read & critique AI-generated artifacts on the spot.
+- **F3** — articulate why you directed AI a certain way.
+- **F4** — defend traceability across your project.
+
+Today is F1 at its sharpest: read an AI-drawn class diagram and name what's wrong.
+
+::: notes
+First of two F1+F3+F4 mentions. F1 anchored this week — reading & critiquing a diagram cold IS the oral-defense skill. Same wording in the close.
+:::
+
+---
