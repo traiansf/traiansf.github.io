@@ -78,3 +78,15 @@ First of two F1+F3+F4 mentions today (the second lands in the close). Say it the
 :::
 
 ---
+
+# Demo: Bike-Sharing Fare — Is Your Spec Testable?
+
+> Live: drive AI to write a test for a requirement from last week. Watch what price it invents.
+
+**Prompt to AI:** *"Here's a requirement from last week's bike-sharing app: 'Users are charged for renting a bike.' Write a pytest test for the fare calculation."*
+
+::: notes
+Switch to Continue.dev with an editor pane and a terminal pane visible. Run the runbook at `class/amss-2026/curs/03-testable-specs-demo.md` for ~12-14 min. This slide stays on screen as the lecture-side anchor. If live AI fails, the runbook §8 covers the fallback path.
+:::
+
+---
