@@ -104,7 +104,7 @@ Core reframe of the segment. The test isn't a separate QA artifact — it's the 
 
 ---
 
-# Acceptance Criterion ↔ Assertion
+# Acceptance Criterion = Assertion
 
 **Prose acceptance criterion:**
 
