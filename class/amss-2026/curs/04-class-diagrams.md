@@ -75,3 +75,15 @@ First of two F1+F3+F4 mentions. F1 anchored this week — reading & critiquing a
 :::
 
 ---
+
+# Demo: Bike-Sharing Class Diagram
+
+> Live: drive AI to draw the structure. Watch the multiplicities, the associations, and what's missing.
+
+**Prompt to AI:** *"Generate a UML class diagram (as PlantUML) for the city bike-sharing app: users rent and return bicycles at stations across a city; payment is by app; staff rebalance bikes between stations."*
+
+::: notes
+Switch to Continue.dev with a PlantUML preview pane — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/04-class-diagrams-demo.md` for ~12-14 min. Fallback: runbook §8.
+:::
+
+---
