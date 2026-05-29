@@ -90,3 +90,70 @@ Switch to Continue.dev with an editor pane and a terminal pane visible. Run the 
 :::
 
 ---
+
+# A Test Is a Requirement You Can Run
+
+- A **requirement** says what the system should do.
+- A **test** says it in a form the machine checks for you.
+
+> Same intent. One is prose; the other fails loudly when violated.
+
+::: notes
+Core reframe of the segment. The test isn't a separate QA artifact — it's the requirement, made executable.
+:::
+
+---
+
+# Acceptance Criterion ↔ Assertion
+
+**Prose acceptance criterion:**
+
+> "A 60-minute rental costs €3.00."
+
+**The same thing, executable:**
+
+```python
+def test_paid_ride_charges_per_minute():
+    assert fare(60) == 3.00
+```
+
+The assertion *is* the acceptance criterion — you just can't hand-wave it.
+
+::: notes
+Use the demo's fare example so students stay in one mental model. The point: writing the assertion forces you to know the exact number. Prose lets you dodge it.
+:::
+
+---
+
+# If You Can't Write the Assertion, the Spec Is Underspecified
+
+Try to test "users are charged for renting a bike":
+
+```python
+def test_fare():
+    assert fare(60) == ???   # the spec never said
+```
+
+No number → no test → the requirement isn't done yet.
+
+::: notes
+The constructive form of the mantra. The inability to write the assertion is diagnostic — it tells you exactly where the spec is vague. This is what the demo just showed live.
+:::
+
+---
+
+# Two Kinds of Spec: Prose and Executable
+
+| | Prose spec | Executable spec (test) |
+|---|---|---|
+| Readable by | humans | humans + machine |
+| Fails when violated? | silently | loudly |
+| Pins exact behaviour? | optional | required |
+
+Both are specs. The test is the one you can't fake.
+
+::: notes
+Not "tests replace requirements" — they're the same requirement at two precision levels. The executable one forces precision the prose one lets you skip.
+:::
+
+---
