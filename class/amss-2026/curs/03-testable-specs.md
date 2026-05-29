@@ -20,3 +20,61 @@ Authoring note (spec gate §6.10): this lecture is authored fresh. It does **not
 :::
 
 ---
+
+# Recap: Architect + Critic
+
+- **Architect / director (B):** drive AI through the SDLC.
+- **Critic / reviewer (A):** read AI's output and name what's wrong or missing.
+
+Last week (W2) you drove AI to produce a requirements doc — and critiqued it. Today: can you *test* what you wrote?
+
+::: notes
+W2 produced prose requirements. W3 asks the harder question: is that prose precise enough to turn into something executable? Keep the recap to one breath; the hook is the next slide.
+:::
+
+---
+
+# A Requirement That Looks Fine — Until You Test It
+
+From last week's bike-sharing doc:
+
+> *"Users are charged for renting a bike."*
+
+What would a test assert? `fare(60) == ?`
+
+You can't fill in the blank — the spec never says the price. **That gap is invisible in prose and obvious in a test.**
+
+::: notes
+This is the whole lecture in one slide. The prose looks complete; the moment you try to write the assertion, the hole appears. Don't resolve it here — the demo resolves it live.
+:::
+
+---
+
+# Four Threads in Today's Lecture
+
+1. A test is the executable form of a requirement.
+2. AI writes tests too — and they fail in their own ways.
+3. The loop: if AI can't write a passing test from your spec, your spec is too vague.
+4. Traceability: use case → scenario → test.
+
+::: notes
+Section preview. Threads 2 and 3 are the central payload. Brief — students need hooks before the demo.
+:::
+
+---
+
+# Literacy Floor: F1 + F3 + F4
+
+From W1: in the oral defense, *unaided*, you must demonstrate:
+
+- **F1** — read & critique AI-generated artifacts on the spot.
+- **F3** — articulate why you directed AI a certain way.
+- **F4** — defend traceability across your project.
+
+Today drills F1 on *tests*, and extends F4: the test is the new end of the trace.
+
+::: notes
+First of two F1+F3+F4 mentions today (the second lands in the close). Say it the same way each time. F4 is the anchored one this week — the trace gains an executable tail.
+:::
+
+---
