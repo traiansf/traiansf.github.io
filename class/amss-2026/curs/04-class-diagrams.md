@@ -367,3 +367,54 @@ Reinforces ownership, mirroring W3's "human closes the loop." The defense grades
 :::
 
 ---
+
+# This Week's Lab: Lab 2
+
+- Drive AI to produce a class diagram from a 1-page spec.
+- Iterate at least twice; log what changed and why.
+- Deliverable: the PlantUML diagram + a critique log (1 page max).
+- Commit to the course lab repo.
+
+::: notes
+Lab 2 spec is its own document (forthcoming). Keep high-level so it survives late details. "At least twice" / "1 page max" use words, not the dropped >= / <= glyphs (W3 PDF-glyph lesson).
+:::
+
+---
+
+# Next Week: Other Structural Views (W5)
+
+One class diagram isn't the whole structure.
+
+**W5:** object, package, component, and deployment views — and where AI over- or under-decomposes at the architecture level.
+
+::: notes
+Clean handoff. W4 was the class diagram; W5 widens to the other structural views.
+:::
+
+---
+
+# F1 + F3 + F4 — The Through-Line
+
+Today you drilled:
+
+- **F1** — read an AI class diagram and named its defects on the spot.
+- **F4** — the class is a structural node in the trace: requirement -> use case -> class (the behavioural tail, the test, came in W3).
+
+F3 (why you directed AI a certain way) lands in your project narrative.
+
+::: notes
+Second and final F1+F3+F4 mention. F1 anchored, same wording as the frame. The one-line trace touch keeps F4 continuity without a dedicated segment.
+:::
+
+---
+
+# That's It For Today
+
+- Next lecture (W5): other structural views.
+- This week's lab (Lab 2): drive AI to a class diagram, then critique it.
+
+Questions?
+
+::: notes
+Closer. Open the floor. No trailing slide separator after this one.
+:::
