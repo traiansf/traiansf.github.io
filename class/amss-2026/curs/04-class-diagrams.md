@@ -210,3 +210,109 @@ Consolidation. Every element of the floor in one bike-sharing diagram. This is t
 :::
 
 ---
+
+# AI Draws Plausible Structure — and Gets It Wrong
+
+A class diagram can look professional and still misrepresent the domain. The critic question:
+
+> *"Does this structure match the domain — or just look like a diagram?"*
+
+::: notes
+Sets up the catalogue — F1 applied to structure. The three core defects are spec-named: multiplicity, fake associations, missing aggregation.
+:::
+
+---
+
+# Defect #1: Wrong Multiplicity
+
+```plantuml
+@startuml
+class Rental
+class Bike
+Rental "*" -- "*" Bike
+@enduml
+```
+
+Many-to-many? One rental is *one* bike. **Critique:** *"Read it aloud — can a single rental involve many bikes? Fix the number."*
+
+::: notes
+The anchor defect — it fired in the demo's cycle 1. Wrong multiplicity is invisible until you read it aloud against the domain.
+:::
+
+---
+
+# Defect #2: Fake / Decorative Association
+
+A line between `User` and `Station` with no label, no verb, no meaning.
+
+**Critique:** *"What does this association mean? Name the verb. If you can't, the line shouldn't be there."*
+
+::: notes
+AI adds lines because diagrams "should" be connected. An association with no nameable verb is decoration. Kept textual — a rendered meaningless line teaches less than the question.
+:::
+
+---
+
+# Defect #3: Missing Aggregation
+
+`Station -- Bike` as a plain line hides that a station *holds* bikes — a whole-part relationship.
+
+**Critique:** *"Is this a plain link or a whole-part? Why isn't it an aggregation?"*
+
+::: notes
+The third spec-named core defect. AI flattens whole-part into plain associations because both render as lines; the ownership/lifetime meaning is lost.
+:::
+
+---
+
+# AI Over-Models
+
+```plantuml
+@startuml
+class BikeShareSystem {
+  - bikes
+  - stations
+  - users
+  - rentals
+  + doEverything()
+}
+class DatabaseManager
+class CacheController
+class NotificationService
+BikeShareSystem -- DatabaseManager
+BikeShareSystem -- CacheController
+BikeShareSystem -- NotificationService
+@enduml
+```
+
+A **god class** plus **invented infrastructure** (`DatabaseManager`, `CacheController`) — implementation, not domain.
+
+::: notes
+Reframes 2025's over-complicated diagram. AI over-models because it doesn't have to choose what matters. Defects #4 (invented class) and #5 (god class) together.
+:::
+
+---
+
+# The Critic Simplifies
+
+```plantuml
+@startuml
+class User
+class Rental
+class Bike
+class Station
+class Payment
+User "1" -- "*" Rental
+Rental "1" -- "1" Bike
+Rental "1" -- "1" Payment
+Station o-- "*" Bike
+@enduml
+```
+
+Same domain, only the classes that earn their place. **You saw defect #1 (multiplicity) live in the demo.**
+
+::: notes
+Reuses 2025's simplified diagram, reframed as the critique RESULT. The attribute-that-should-be-an-association defect (e.g. `User.rentals: String`) folds in here — the fix is the `User "1" -- "*" Rental` link. Ties the catalogue back to the demo.
+:::
+
+---
