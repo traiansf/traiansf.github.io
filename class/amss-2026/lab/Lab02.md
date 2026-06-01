@@ -49,3 +49,66 @@ The full spec is also seeded in lab02/README.md. The traps are natural: title-vs
 :::
 
 ---
+
+# Your Job — the Loop
+
+The same architect-critic loop from W4, run solo:
+
+**drive AI → read with the 4-step order → name the defects → re-prompt with domain rules → re-read.**
+
+- Bare first prompt, then **two required re-prompts** — iterate at least twice.
+- Keep the **best** diagram, not the first draft.
+- Log what you caught and why you re-prompted as you go — that log is the deliverable.
+
+::: notes
+Two iterations is the W4 mandate ("iterate at least twice"). The student is both architect and critic — no partner to swap with. The running log is the F1/F3 evidence; don't reconstruct it afterward.
+:::
+
+---
+
+# Round 1 — Bare Prompt + First Read
+
+Send a deliberately bare prompt, pasting the spec:
+
+> *"Generate a UML class diagram (as PlantUML) for this library system. [paste the 1-page spec]"*
+
+Render it, then run the **4-step read-order** (next slide) against it. Log every defect: its name, where it is, how bad it is.
+
+::: notes
+The bare prompt is on purpose — against an honest spec it reliably collapses title/copy, flattens the holds-aggregation, and over-models with infrastructure. If the draft looks suspiciously clean, use the defect card.
+:::
+
+---
+
+# The Read-Order (from W4)
+
+A fixed order, every time:
+
+1. Are the classes real **domain** concepts? (or invented infrastructure)
+2. Are the **multiplicities** right? (read each one aloud)
+3. Does each **association** name a real relationship? (a verb)
+4. Are **whole-part** relationships captured? (aggregation / composition)
+
+This is your critique-log rubric.
+
+::: notes
+Identical to W4's "How to Read an AI Class Diagram" slide. A repeatable read-order beats ad-hoc staring — it is also exactly what the oral defense drills.
+:::
+
+---
+
+# The Five Defects (from W4)
+
+Name them with this vocabulary:
+
+- **Wrong multiplicity** — `*--*` where it should be one (read it aloud).
+- **Fake / decorative association** — a line with no nameable verb.
+- **Missing aggregation** — a whole-part relationship drawn as a plain line.
+- **Invented class / infrastructure** — `DatabaseManager`, `CacheController` — implementation, not domain.
+- **God class** — one class that holds everything and does everything.
+
+::: notes
+The W4 catalogue, verbatim. The critique log must use these names; the grading gate checks for at least two of them, correctly applied.
+:::
+
+---
