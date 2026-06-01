@@ -158,3 +158,67 @@ The signature catch is title-vs-copy: AI models one `Book` class and then cannot
 :::
 
 ---
+
+# Deliverable
+
+On branch `lab02/<student-id>`, commit:
+
+- `lab02/<student-id>/diagram.puml` — your best AI-driven PlantUML class diagram (must render).
+- `lab02/<student-id>/critique-log.md` — 1 page max (next slide).
+- `lab02/<student-id>/transcript.md` — optional but recommended: your raw prompt/output trail.
+
+::: notes
+The transcript is your raw F3 evidence; optional for the gate, but it is what we look at if a log is borderline. Keep the best diagram, not the first.
+:::
+
+---
+
+# The Critique Log (1 page max)
+
+Structured by the read-order. One short block per iteration (Round 1, re-prompt 1, re-prompt 2):
+
+- **Defects found** — each: W4 name, where, severity.
+- **Re-prompt move and why** — which domain rule you named and the reason. *(F3 — graded.)*
+- **What changed** after regenerating.
+
+Close with **one residual risk** — a defect the AI never got right.
+
+::: notes
+The "why" line is the graded one. "The diagram was wrong, I asked again" is not a rationale. The residual-risk line seeds F4: a wrong structure propagates to the tests and the code.
+:::
+
+---
+
+# How to Submit
+
+```bash
+git checkout -b lab02/<student-id>
+mkdir -p lab02/<student-id>
+# write diagram.puml and critique-log.md inside lab02/<student-id>/
+git add lab02/<student-id>
+git commit -m "Lab 2: <student-id> library kiosk class diagram + critique log"
+git push -u origin lab02/<student-id>
+```
+
+Push fails? Paste both files into the shared doc / email the instructor, then fix git after class.
+
+::: notes
+Substitute your real student-id everywhere `<student-id>` appears. You likely already have the clone from Lab 1; this is branch + commit + push.
+:::
+
+---
+
+# Grading — Pass / Redo
+
+Pass needs both:
+
+1. `diagram.puml` (renders) and `critique-log.md` both committed by the deadline.
+2. Your log names **at least two** distinct W4 defects correctly **and** gives a real reason for at least one re-prompt (not just what you typed).
+
+A vacuous log ("the diagram was wrong, I fixed it") is a redo, not a fail. We grade your critique and reasoning — not the diagram's polish.
+
+::: notes
+Low-stakes literacy gate. The bar is on F1 (naming defects) and F3 (rationale), not on diagram quality. Grading the diagram would reward the AI's output over the student's critique.
+:::
+
+---
