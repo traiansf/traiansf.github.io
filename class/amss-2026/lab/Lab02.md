@@ -222,3 +222,27 @@ Low-stakes literacy gate. The bar is on F1 (naming defects) and F3 (rationale), 
 :::
 
 ---
+
+# Share-out (20 min)
+
+- A few students present the defect they caught that mattered most + the re-prompt move that fixed it.
+- We tally, live, which defects the AI produced across the room.
+- Same spec, same domain, ~100 of us → a real structural-defect map.
+
+The defects you tally are exactly what you critique every week — and in the oral defense.
+
+::: notes
+Instructor pre-selects presenters by scanning pushed logs during the drill, aiming for variety across the five defects. The title-vs-copy catch is worth surfacing if anyone found it.
+:::
+
+---
+
+# Why This Matters
+
+A wrong class structure does not stay contained — it propagates to the sequence diagrams (W6), the tests, and the code.
+
+Today you drilled **F1** (read & critique a diagram) and **F3** (say *why* you re-prompted). Next: **W5** widens to the other structural views; **Lab 3** flips you to red-team — hunting *planted* defects in artifacts we prepare.
+
+::: notes
+Closer. Tie back to the literacy floor and forward to W5 (other structural views) and Lab 3 (the critique/red-team lab). F4 is seeded by the residual-risk line: a wrong structure propagates downstream.
+:::
