@@ -143,14 +143,14 @@ Residual catalogue entries: invented infrastructure, the god class, and is-a-as-
 
 # Defect Card — Library Kiosk
 
-If the draft looks complete, stress these. Each maps to a W4 defect:
+If the draft looks complete, stress these — name the closest W4 defect:
 
 - `Member "*" -- "*" Book` — **wrong multiplicity** (a loan is one copy to one member).
 - Book and Copy as one class — collapses title vs physical item.
 - `Library -- Copy` as a plain line — **missing aggregation** (the library *holds* copies).
 - A line to `Member` with no verb — **fake association**.
 - `LibrarySystem` with all the data + `doEverything()` — **god class**.
-- `DatabaseManager`, `NotificationService` — **invented infrastructure**.
+- `DatabaseManager`, `CacheController` — **invented infrastructure**.
 - Member kind as `type: String` — is-a flattened to an attribute.
 
 ::: notes
@@ -177,7 +177,7 @@ The transcript is your raw F3 evidence; optional for the gate, but it is what we
 
 Structured by the read-order. One short block per iteration (Round 1, re-prompt 1, re-prompt 2):
 
-- **Defects found** — each: W4 name, where, severity.
+- **Defects found** — each: W4 name, where, severity (high / med / low).
 - **Re-prompt move and why** — which domain rule you named and the reason. *(F3 — graded.)*
 - **What changed** after regenerating.
 
@@ -192,6 +192,7 @@ The "why" line is the graded one. "The diagram was wrong, I asked again" is not 
 # How to Submit
 
 ```bash
+git clone <lab-repo-url>          # skip if you still have the Lab 1 clone
 git checkout -b lab02/<student-id>
 mkdir -p lab02/<student-id>
 # write diagram.puml and critique-log.md inside lab02/<student-id>/

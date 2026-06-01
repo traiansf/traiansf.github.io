@@ -33,6 +33,7 @@ class Library
 class Book {
   - isbn
   - title
+  - authors
 }
 class Copy {
   - barcode
@@ -155,6 +156,7 @@ A neighbourhood library runs a self-service kiosk.
 
 **Submit:**
 ```bash
+git clone <lab-repo-url>          # skip if you still have the Lab 1 clone
 git checkout -b lab02/<student-id>
 mkdir -p lab02/<student-id>
 git add lab02/<student-id>
