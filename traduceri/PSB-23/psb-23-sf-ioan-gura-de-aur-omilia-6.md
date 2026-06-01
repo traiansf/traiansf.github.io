@@ -1,3 +1,10 @@
+---
+title: Scrieri – Partea a treia – Omilii la Matei
+author: Sfântul Ioan Gură de Aur
+series: Părinți și scriitori bisericești 
+volume: 23
+---
+
 ## OMILIA VI
 
 „Iar dacă S-a născut Iisus în Betleemul Iudeii, în zilele lui Irod împăratul,

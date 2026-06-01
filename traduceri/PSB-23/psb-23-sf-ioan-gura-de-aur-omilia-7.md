@@ -1,9 +1,16 @@
-# OMILIA VII
+---
+title: Scrieri – Partea a treia – Omilii la Matei
+author: Sfântul Ioan Gură de Aur
+series: Părinți și scriitori bisericești 
+volume: 23
+---
+
+## OMILIA VII
 
 „*Şi adunând pe toți arhiereii și cărturarii poporului, i-a întrebat: «Unde
 este să Se nască Hristos?» Iar ei i-au spus lui: «În Betleemul Iudeii»*"[^1].
 
-## I
+### I
 
 Ai văzut că toate s-au făcut spre mustrarea iudeilor? Atâta vreme cât iudeii
 nu-L vedeau pe Hristos, nu erau stăpâniți de invidie şi dădeau mărturie despre
@@ -27,7 +34,7 @@ continuarea profeției, ca să linguşească pe împărat.
 
 „*Şi ieşirile Lui dintru început, din zilele veacului!*"[^2].
 
-- Dar pentru ce Hristos, dacă avea să vină din Betleem, a trăit după naştere în
+-- Dar pentru ce Hristos, dacă avea să vină din Betleem, a trăit după naştere în
 Nazaret şi a întunecat profeția?
 
 -- N-a întunecat-o, ci a lămurit-o mai mult. Tocmai faptul că Mama Sa locuia în
@@ -57,7 +64,7 @@ S-a născut şi nici în ce loc", Dumnezeu a rânduit venirea magilor şi celela
 pe care le-am spus. Deci iudeii nu pot avea nici o scuză că n-au cercetat cele
 ce se petrecuseră.
 
-## II
+### II
 
 Uită-te cât de precise sunt cuvintele profeției! Profetul n-a spus: „va locui
 în Betleem", ci „*din tine va ieşi*"[^7]. Deci profeția spune că se va naşte
@@ -104,7 +111,7 @@ Dar pentru ce, ar putea întreba cineva, profetul Miheia spune că Betleemul nu
 este cel mai mic între domnii lui Iuda, când satul acesta a ajuns vestit nu
 numai în Palestina, ci în toată lumea?
 
-- Cuvântul profetului a fost adresat deocamdată iudeilor; de aceea a și adăugat:
+-- Cuvântul profetului a fost adresat deocamdată iudeilor; de aceea a și adăugat:
 „*Va păstori pe poporul Meu Israel*", cu toate că a păstorit lumea întreagă.
 Dar, după cum am spus, profetul nu vrea să scandalizeze deocamdată pe iudei,
 dar le descoperă că va păstori și pe toate celelalte neamuri.
@@ -112,7 +119,7 @@ dar le descoperă că va păstori și pe toate celelalte neamuri.
 Dar pentru ce profetul spune că va păstori pe poporul iudeu, când nu l-a
 păstorit?
 
-- Dar asta mai cu seamă s-a şi întâmplat! Spunând aici „Israel" a arătat pe
+-- Dar asta mai cu seamă s-a şi întâmplat! Spunând aici „Israel" a arătat pe
 iudeii care au crezut în El, iar Pavel, interpretând acest loc, spunea:
 „*Nu toți din Israel sunt Israel, ci numai câți s-au născut prin credință și
 făgăduință*"[^17]. Iar dacă nu i-a păstorit pe toți, e păcatul şi vina lor. Ar
@@ -134,7 +141,7 @@ scutece şi în iesle şi ca profeții să-L prezică de demult; toate acestea, 
 şi toate celelalte, erau fapte mai presus de om. Totuşi Irod n-a ținut seama de
 nici una din ele.
 
-## III
+### III
 
 Aşa e răutatea! Cade în groapa săpată de ea însăşi; încearcă lucruri imposibile.
 Uită-te la nebunia lui Irod! De credea profeția și de-o socotea de neschimbat,
@@ -197,13 +204,13 @@ merge cum a mers această stea.
 Şi nu numai că merge, dar mergea înaintea lor, îi trăgea după ea și-i călăuzea
 în miezul zilei.
 
-## IV
+### IV
 
 Poate că cineva ar întreba:
 
-- Dar de ce mai aveau nevoie de stea de vreme ce cunoşteau locul naşterii?
+-- Dar de ce mai aveau nevoie de stea de vreme ce cunoşteau locul naşterii?
 
-- Ca să le fie arătat şi Pruncul. Asta n-o ştiau! Casa nu era mare; iar Mama
+-- Ca să le fie arătat şi Pruncul. Asta n-o ştiau! Casa nu era mare; iar Mama
 Pruncului era lipsită de strălucire și necunoscută. Trebuia, deci, ca steaua
 să-i ducă chiar la locul unde S-a născut. De aceea, îndată ce-au ieşit din
 Ierusalim s-a arătat steaua şi nu s-a oprit înainte de a ajunge la ieslea
@@ -238,10 +245,10 @@ nu înțeleg să vină să se închine lui Hristos! Că tot ce s-a făcut atunci
 o preînchipuire a celor viitoare! Chiar de la început, de la nașterea lui
 Hristos, s-a arătat că neamurile păgâne o vor lua înaintea poporului iudeu.
 
-- Atunci pentru ce, ar putea întreba cineva, pentru ce Hristos n-a spus de la
+-- Atunci pentru ce, ar putea întreba cineva, pentru ce Hristos n-a spus de la
 început apostolilor, ci mai târziu: „*Mergând, învățați toate neamurile*"?[^25]
 
-- Pentru că, aşa cum am spus şi mai înainte, închinarea magilor era o
+-- Pentru că, aşa cum am spus şi mai înainte, închinarea magilor era o
 preînchipuire şi mai înainte-vestire a celor viitoare. Trebuia ca iudeii să vină
 întâi la Hristos; dar când de bunăvoie şi-au trădat propria lor binefacere,
 lucrurile au luat o altă întorsătură. Nici la naştere nu trebuia să vină magii
@@ -256,7 +263,7 @@ trebuit să alerge după ce au auzit de la magi, dacă mai înainte nu crezuser�
 dar n-au voit. De aceea, pe când iudeii dormeau, păgânii au alergat înaintea
 lor.
 
-## V
+### V
 
 Să căutăm[^27] deci să fim şi noi ca magii! Să ne liberăm de obiceiurile cele
 păgâneşti, să ne depărtăm mult de ele, ca să vedem pe Hristos; că şi magii nu
@@ -309,7 +316,7 @@ cele pe care le-am vorbit în cuvântul de mai înainte. Îl vezi Hristos culcat
 iesle şi-L părăseşti ca să vezi femei pe scenă. De câte trăsnete nu-s vrednice
 astfel de purtări?
 
-## VI
+### VI
 
 Spune-mi, te rog: Dacă ți-ar făgădui cineva să te ducă la palatul împărătesc
 ca să-ți arate pe împărat pe tron, ai alege oare teatrul în locul împăratului?
@@ -347,9 +354,9 @@ că, încurajând prin prezența ta astfel de spectacole, smintești şi pe alţ
 
 Dar ca să nu vă țin numai de rău, haide să vă dau şi un mijloc de îndreptare.
 
-Care?
+-- Care?
 
-- Vreau să vă încredințez soțiilor voastre, ca ele să vă instruiască. Ar fi
+-- Vreau să vă încredințez soțiilor voastre, ca ele să vă instruiască. Ar fi
 trebuit, după legea lui Pavel, ca voi să fiți dascălii lor! Dar, pentru că, prin
 păcat, s-a stricat ordinea și a ajuns capul jos, iar trupul sus, să alegem
 cealaltă cale. Dacă ţi-i ruşine ca nevasta ta să-ţi fie dascăl, fugi de păcat
@@ -365,7 +372,7 @@ târâtoare sunt mai cuviincioase și mai înțelepte decât tine. Dacă nu-ți 
 oceanul iadului, de râul cel de foc, de spectacolul de la baie! Că baia aceea dă
 naştere oceanului iadului şi aprinde acel adânc al flacării.
 
-## VII
+### VII
 
 Dacă omul „*care se uită la o femeie spre a o pofti a şi făcut
 desfrânare*"[^30],
