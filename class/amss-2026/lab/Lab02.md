@@ -112,3 +112,49 @@ The W4 catalogue, verbatim. The critique log must use these names; the grading g
 :::
 
 ---
+
+# Re-prompt #1 — Name the Domain Rules
+
+Fix the worst defects by stating the rules the AI got wrong. For this domain, that is almost always:
+
+> *"A Book is a title; a Copy is a physical item — model both. A loan is exactly one copy to one member. The library holds many copies that outlive any loan (aggregation)."*
+
+Regenerate, re-read with the 4-step order, log what changed. **This is iteration 1.**
+
+::: notes
+Naming the domain rules is the scaffold move from W4's demo prompt #2. The title-vs-copy split is the signature fix — it converts the wrong many-to-many into Member–Loan–Copy.
+:::
+
+---
+
+# Re-prompt #2 — Kill the Residue
+
+Second pass targets what the first usually leaves:
+
+> *"Drop any class that isn't a library-domain concept (no DatabaseManager, no god 'LibrarySystem'). Model member kinds as subclasses (standard / staff), not a type field."*
+
+Regenerate, re-read, log. **This is iteration 2.** Then keep your best diagram.
+
+::: notes
+Residual catalogue entries: invented infrastructure, the god class, and is-a-as-attribute. Two iterations is the floor, not the ceiling — but the gate wants both logged.
+:::
+
+---
+
+# Defect Card — Library Kiosk
+
+If the draft looks complete, stress these. Each maps to a W4 defect:
+
+- `Member "*" -- "*" Book` — **wrong multiplicity** (a loan is one copy to one member).
+- Book and Copy as one class — collapses title vs physical item.
+- `Library -- Copy` as a plain line — **missing aggregation** (the library *holds* copies).
+- A line to `Member` with no verb — **fake association**.
+- `LibrarySystem` with all the data + `doEverything()` — **god class**.
+- `DatabaseManager`, `NotificationService` — **invented infrastructure**.
+- Member kind as `type: String` — is-a flattened to an attribute.
+
+::: notes
+The signature catch is title-vs-copy: AI models one `Book` class and then cannot express "two members each borrow a copy of the same title", producing the bogus many-to-many. Surfacing that is the lab's payoff.
+:::
+
+---
