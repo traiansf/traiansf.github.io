@@ -44,16 +44,16 @@ Traian-Florin Șerbănuță
 <li>Prompting for elicitation</li>
 <li>AI failure modes catalogue</li>
 <li>Use cases as a structuring lens</li>
-<li>Bridge to W3 + Lab 1 preview</li>
+<li>Bridge to Week 3 + Lab 1 preview</li>
 </ol>
 </div>
-<div id="recap-architect-critic" class="slide section level1">
-<h1>Recap: Architect + Critic</h1>
+<div id="recap-architect-and-critic" class="slide section level1">
+<h1>Recap: Architect and Critic</h1>
 <ul>
-<li><strong>Architect / director (B):</strong> drive AI through the
-SDLC.</li>
-<li><strong>Critic / reviewer (A):</strong> read AI’s output and name
-what’s wrong or missing.</li>
+<li><strong>Architect / director:</strong> drive AI through the software
+development lifecycle (SDLC).</li>
+<li><strong>Critic / reviewer:</strong> read AI’s output and name what’s
+wrong or missing.</li>
 </ul>
 <p>Last week you saw one cycle of this on a class diagram. Today: same
 loop, different artifact.</p>
@@ -62,7 +62,8 @@ loop, different artifact.</p>
 <h1>Today’s Loop Runs on Requirements</h1>
 <ul>
 <li>Architect prompt → AI generates a requirements doc.</li>
-<li>Critic reads it → finds fabrication, vague NFRs, over-spec’ing.</li>
+<li>Critic reads it → finds fabrication, vague non-functional
+requirements (NFRs), over-spec’ing.</li>
 <li>Architect re-prompts with structure → AI tightens.</li>
 </ul>
 <p>Each pass costs ~3-5 minutes with current models. In practice you’d
@@ -79,20 +80,20 @@ iterate 3-5 times before locking the doc.</p>
 <p>The demo touches all four; the deeper-dive segments name each
 one.</p>
 </div>
-<div id="literacy-floor-f1-f3-f4" class="slide section level1">
-<h1>Literacy Floor: F1 + F3 + F4</h1>
-<p>From W1: in the oral defense, <em>unaided</em>, you must
+<div id="the-literacy-floor-critique-rationale-traceability" class="slide section level1">
+<h1>The Literacy Floor: Critique, Rationale, Traceability</h1>
+<p>From Week 1: in the oral defense, <em>unaided</em>, you must
 demonstrate:</p>
 <ul>
-<li><strong>F1</strong> — read &amp; critique any AI-generated artifact
-on the spot.</li>
-<li><strong>F3</strong> — articulate why you directed AI a certain way
-and what you accepted or rejected.</li>
-<li><strong>F4</strong> — defend traceability across your project:
-requirement → use case → class → state/sequence → test.</li>
+<li><strong>Critique</strong> — read &amp; critique any AI-generated
+artifact on the spot.</li>
+<li><strong>Rationale</strong> — articulate why you directed AI a
+certain way and what you accepted or rejected.</li>
+<li><strong>Traceability</strong> — defend the trace across your
+project: requirement → use case → class → state/sequence → test.</li>
 </ul>
-<p>Today drills F1 (failure-modes catalogue) and seeds F4 (traceability
-starts at requirements).</p>
+<p>Today drills Critique (failure-modes catalogue) and seeds
+Traceability (traceability starts at requirements).</p>
 </div>
 <div id="demo-bike-sharing-requirements" class="slide section level1">
 <h1>Demo: Bike-Sharing Requirements</h1>
@@ -213,10 +214,10 @@ on.</p>
 <div id="prompting-move-2-stakeholder-role-priming" class="slide section level1">
 <h1>Prompting Move #2: Stakeholder Role Priming</h1>
 <p><strong>Without priming:</strong> <em>“List non-functional
-requirements for the kiosk.”</em></p>
+requirements for the bike-sharing station kiosk.”</em></p>
 <p><strong>With priming:</strong> <em>“You are a safety auditor for
-urban micromobility. List non-functional requirements for the kiosk from
-that role.”</em></p>
+urban micromobility. List non-functional requirements for the
+bike-sharing station kiosk from that role.”</em></p>
 <p>The role concentrates AI’s output on what that role cares about —
 safety NFRs become concrete, ones outside the role drop.</p>
 <blockquote>
@@ -266,7 +267,8 @@ What did I ask for that produced this?”</em></p>
 the system needs a handful.</p>
 <p><strong>Example:</strong> 30 separate REQs covering theft prevention,
 GPS jamming detection, weather sensors, accelerometer alerts, GDPR
-data-export, audit logs, … for a kiosk that mostly rents bikes.</p>
+data-export, audit logs, … for a bike-sharing station kiosk that mostly
+rents bikes.</p>
 <p><strong>Critique question:</strong> <em>“Read the top 5. Does the
 system fail without each one? What’s load-bearing?”</em></p>
 </div>
@@ -301,6 +303,20 @@ requirement is something like “rental confirmation appears within 2
 seconds.”</p>
 <p><strong>Critique question:</strong> <em>“Why is a database in the
 requirements? What user need does Redis serve?”</em></p>
+</div>
+<div id="your-turn-name-the-failure-mode" class="slide section level1">
+<h1>Your Turn: Name the Failure Mode</h1>
+<p>Here’s one AI-generated requirement:</p>
+<blockquote>
+<p><em>“REQ-7: the system shall use Redis for caching.”</em></p>
+</blockquote>
+<p>With your neighbour (60s): which of the five failure modes is this,
+and what’s your critique question?</p>
+<div class="incremental">
+<p><strong>Reveal:</strong> Fabricated Technology Choices — Redis is an
+implementation, not a need. Critique question: <em>“What user need does
+Redis serve? Where’s the measurable requirement underneath?”</em></p>
+</div>
 </div>
 <div id="you-saw-these-in-the-demo" class="slide section level1">
 <h1>You Saw These in the Demo</h1>
@@ -343,10 +359,10 @@ output. Each requirement now traces to one user goal.</p>
 <p>The scaffold gives AI a vocabulary; vocabulary tightens output.</p>
 </blockquote>
 </div>
-<div id="uml-notation-is-coming-in-w6" class="slide section level1">
-<h1>UML Notation Is Coming — In W6</h1>
+<div id="uml-notation-is-coming-in-week-6" class="slide section level1">
+<h1>UML Notation Is Coming — In Week 6</h1>
 <p>Today: “use case” as a structural noun. No diagrams.</p>
-<p>In <strong>W6</strong> (Behavioral I): the UML notation — actors,
+<p>In <strong>Week 6</strong> (Behavioral I): the UML notation — actors,
 ovals, system boundary, include / extend / generalization relationships.
 Plus sequence diagrams.</p>
 <p>Until then: think of use cases as labeled buckets for requirements,
@@ -370,26 +386,27 @@ start).</li>
 <h1>Next Week: Testable Specs</h1>
 <p>If AI cannot produce a passing test from your spec, your spec is too
 vague.</p>
-<p>W3 reframes the requirements loop as a test-generation loop. The
-mantra above is the heuristic; W3 turns it into a discipline.</p>
+<p>Week 3 reframes the requirements loop as a test-generation loop. The
+mantra above is the heuristic; Week 3 turns it into a discipline.</p>
 </div>
-<div id="f1-f3-f4-the-through-line" class="slide section level1">
-<h1>F1 + F3 + F4 — The Through-Line</h1>
+<div id="critique-rationale-traceability-the-through-line" class="slide section level1">
+<h1>Critique, Rationale, Traceability — The Through-Line</h1>
 <p>Today you drilled:</p>
 <ul>
-<li><strong>F1</strong> — read AI’s requirements output and named the
-failure modes.</li>
-<li><strong>F4</strong> — saw why traceability starts at requirements:
-if requirements are fabricated, every downstream artifact inherits the
-fabrication.</li>
+<li><strong>Critique</strong> — read AI’s requirements output and named
+the failure modes.</li>
+<li><strong>Traceability</strong> — saw why traceability starts at
+requirements: if requirements are fabricated, every downstream artifact
+inherits the fabrication.</li>
 </ul>
-<p>F3 (articulating <em>why</em> you directed AI a certain way) lands as
-you produce your own logs in Lab 1.</p>
+<p>Rationale (articulating <em>why</em> you directed AI a certain way)
+lands as you produce your own logs in Lab 1.</p>
 </div>
 <div id="thats-it-for-today" class="slide section level1">
 <h1>That’s It For Today</h1>
 <ul>
-<li>Next lecture (W3): testable specs and TDD-as-spec.</li>
+<li>Next lecture (Week 3): testable specs and test-driven development
+(TDD)-as-spec.</li>
 <li>This week’s lab (Lab 1): drive AI to produce a requirements doc, log
 what failed.</li>
 </ul>

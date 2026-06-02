@@ -44,25 +44,26 @@ Traian-Florin Șerbănuță
 <li>Live opener: drive AI to a Bike state machine</li>
 <li>Reading critically: orphan states, dead ends, missed guards</li>
 <li>The behaviour read-order</li>
-<li>Bridge to W8 + Lab 4</li>
+<li>Bridge to Week 8 + Lab 4</li>
 </ol>
 </div>
-<div id="recap-architect-critic" class="slide section level1">
-<h1>Recap: Architect + Critic</h1>
+<div id="recap-architect-and-critic" class="slide section level1">
+<h1>Recap: Architect and Critic</h1>
 <ul>
-<li><strong>Architect / director (B):</strong> drive AI through the
-SDLC.</li>
-<li><strong>Critic / reviewer (A):</strong> read AI’s output and name
-what’s wrong or missing.</li>
+<li><strong>Architect / director:</strong> drive AI through the software
+development lifecycle (SDLC).</li>
+<li><strong>Critic / reviewer:</strong> read AI’s output and name what’s
+wrong or missing.</li>
 </ul>
-<p>In W6 you critiqued an AI <em>interaction</em> (a sequence). Today:
-the same loop, on a <em>lifecycle</em> and a <em>workflow</em>.</p>
+<p>In Week 6 you critiqued an AI <em>interaction</em> (a sequence).
+Today: the same loop, on a <em>lifecycle</em> and a
+<em>workflow</em>.</p>
 </div>
 <div id="from-one-interaction-to-a-whole-lifecycle" class="slide section level1">
 <h1>From One Interaction to a Whole Lifecycle</h1>
 <ul>
-<li><strong>W6 pinned one interaction</strong> — the messages for “rent
-a bike”, one path through one use case.</li>
+<li><strong>Week 6 pinned one interaction</strong> — the messages for
+“rent a bike”, one path through one use case.</li>
 <li><strong>Today: the whole behaviour</strong> — a <code>Bike</code>
 lives through many <strong>states</strong>; a rental
 <strong>workflow</strong> branches and runs in parallel.</li>
@@ -70,21 +71,22 @@ lives through many <strong>states</strong>; a rental
 <p>Today’s question: <strong>can the object actually reach — and leave —
 every state the model claims?</strong></p>
 </div>
-<div id="literacy-floor-f1-f3-f4" class="slide section level1">
-<h1>Literacy Floor: F1 + F3 + F4</h1>
-<p>From W1: in the oral defense, <em>unaided</em>, you must
+<div id="the-literacy-floor-critique-rationale-traceability" class="slide section level1">
+<h1>The Literacy Floor: Critique, Rationale, Traceability</h1>
+<p>From Week 1: in the oral defense, <em>unaided</em>, you must
 demonstrate:</p>
 <ul>
-<li><strong>F1</strong> — read &amp; critique AI-generated artifacts on
-the spot.</li>
-<li><strong>F3</strong> — articulate why you directed AI a certain
-way.</li>
-<li><strong>F4</strong> — defend traceability across your project.</li>
+<li><strong>Critique</strong> — read &amp; critique AI-generated
+artifacts on the spot.</li>
+<li><strong>Rationale</strong> — articulate why you directed AI a
+certain way.</li>
+<li><strong>Traceability</strong> — defend the trace across your
+project.</li>
 </ul>
-<p>Today is F1 on lifecycles: read a state machine and name orphan
-states, unreachable transitions, missed guards. <strong>F4
+<p>Today is Critique on lifecycles: read a state machine and name orphan
+states, unreachable transitions, missed guards. <strong>Traceability
 touch:</strong> state and activity are behavioural nodes in the trace,
-alongside the W6 sequence.</p>
+alongside the Week 6 sequence.</p>
 </div>
 <div id="two-views-today" class="slide section level1">
 <h1>Two Views Today</h1>
@@ -178,6 +180,12 @@ The critic question:</p>
 every branch decided?”</em></p>
 </blockquote>
 </div>
+<div id="your-turn-spot-the-defect" class="slide section level1">
+<h1>Your Turn: Spot the Defect</h1>
+<p>Look at the next state machine before we critique it.</p>
+<p><strong>20 seconds with your neighbour:</strong> what’s wrong with
+this lifecycle before we critique it?</p>
+</div>
 <div id="defect-1-orphan-unreachable-state" class="slide section level1">
 <h1>Defect #1: Orphan / Unreachable State</h1>
 <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iNDUwcHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyMzNweDtoZWlnaHQ6NDUwcHg7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyMzMgNDUwIiB3aWR0aD0iMjMzcHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzPjxmaWx0ZXIgaGVpZ2h0PSIzMDAlIiBpZD0iZm9odWxvcHVkajVocCIgd2lkdGg9IjMwMCUiIHg9Ii0xIiB5PSItMSI+PGZlR2F1c3NpYW5CbHVyIHJlc3VsdD0iYmx1ck91dCIgc3RkRGV2aWF0aW9uPSIyLjAiLz48ZmVDb2xvck1hdHJpeCBpbj0iYmx1ck91dCIgcmVzdWx0PSJibHVyT3V0MiIgdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIC40IDAiLz48ZmVPZmZzZXQgZHg9IjQuMCIgZHk9IjQuMCIgaW49ImJsdXJPdXQyIiByZXN1bHQ9ImJsdXJPdXQzIi8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iYmx1ck91dDMiIG1vZGU9Im5vcm1hbCIvPjwvZmlsdGVyPjwvZGVmcz48Zz48ZWxsaXBzZSBjeD0iNTUiIGN5PSIzMyIgZmlsbD0iIzAwMDAwMCIgZmlsdGVyPSJ1cmwoI2ZvaHVsb3B1ZGo1aHApIiByeD0iMTAiIHJ5PSIxMCIgc3R5bGU9InN0cm9rZTogbm9uZTsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2ZvaHVsb3B1ZGo1aHApIiBoZWlnaHQ9IjUwIiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9Ijc5IiB4PSI2NS41IiB5PSIxMzUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHgxPSI2NS41IiB4Mj0iMTQ0LjUiIHkxPSIxNjEuMjk2OSIgeTI9IjE2MS4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTkiIHg9Ijc1LjUiIHk9IjE1Mi45OTUxIj5BdmFpbGFibGU8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2ZvaHVsb3B1ZGo1aHApIiBoZWlnaHQ9IjUwIiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9Ijg2IiB4PSI2IiB5PSIyNjIiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHgxPSI2IiB4Mj0iOTIiIHkxPSIyODguMjk2OSIgeTI9IjI4OC4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNjYiIHg9IjE2IiB5PSIyNzkuOTk1MSI+UmVzZXJ2ZWQ8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2ZvaHVsb3B1ZGo1aHApIiBoZWlnaHQ9IjUwIiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjU5IiB4PSI3Ni41IiB5PSIzODkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHgxPSI3Ni41IiB4Mj0iMTM1LjUiIHkxPSI0MTUuMjk2OSIgeTI9IjQxNS4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMzkiIHg9Ijg2LjUiIHk9IjQwNi45OTUxIj5JblVzZTwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZm9odWxvcHVkajVocCkiIGhlaWdodD0iNTAiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTA5IiB4PSIxMDAuNSIgeT0iOCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgeDE9IjEwMC41IiB4Mj0iMjA5LjUiIHkxPSIzNC4yOTY5IiB5Mj0iMzQuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9Ijg5IiB4PSIxMTAuNSIgeT0iMjUuOTk1MSI+TWFpbnRlbmFuY2U8L3RleHQ+PCEtLU1ENT1bMThjYjk2NzllMmM1ZTVmYWZjNGFhYTQwZWQwNzUzOGFdCmxpbmsgKnN0YXJ0IHRvIEF2YWlsYWJsZS0tPjxwYXRoIGQ9Ik01OC40NCw0Mi41OSBDNjUuNTMsNjAuMzIgODIuMDcsMTAxLjY2IDkzLjM5LDEyOS45OSAiIGZpbGw9Im5vbmUiIGlkPSIqc3RhcnQtJmd0O0F2YWlsYWJsZSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSI5NS4zMSwxMzQuNzYsOTUuNjgxNCwxMjQuOTE4MSw5My40NTMsMTMwLjExNzYsODguMjUzNiwxMjcuODg5Myw5NS4zMSwxMzQuNzYiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS4wOyIvPjwhLS1NRDU9WzZiMWRhZDkwMWNhYTcyZmZmY2NkNWRiMDM0NTliMTIwXQpsaW5rIEF2YWlsYWJsZSB0byBSZXNlcnZlZC0tPjxwYXRoIGQ9Ik05NC4yLDE4NS4xIEM4NC45OCwyMDUuNjggNzEuNywyMzUuMzMgNjEuOTIsMjU3LjE2ICIgZmlsbD0ibm9uZSIgaWQ9IkF2YWlsYWJsZS0mZ3Q7UmVzZXJ2ZWQiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS4wOyIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iNTkuNzYsMjYxLjk3LDY3LjEwMSwyNTUuNDA0Miw2MS44MTE4LDI1Ny40MTA0LDU5LjgwNTYsMjUyLjEyMTIsNTkuNzYsMjYxLjk3IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI0OCIgeD0iODIiIHk9IjIyOC4wNjY5Ij5yZXNlcnZlPC90ZXh0PjwhLS1NRDU9Wzk0MjNiZWI3ODkyZDk0ZjI4MzFmODQ0YTRjOTA5YzdmXQpsaW5rIFJlc2VydmVkIHRvIEluVXNlLS0+PHBhdGggZD0iTTU5Ljk5LDMxMi4xIEM2OS4zNywzMzIuNjggODIuODksMzYyLjMzIDkyLjg1LDM4NC4xNiAiIGZpbGw9Im5vbmUiIGlkPSJSZXNlcnZlZC0mZ3Q7SW5Vc2UiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS4wOyIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iOTUuMDQsMzg4Ljk3LDk0Ljk0NTYsMzc5LjEyMTYsOTIuOTY1NiwzODQuNDIwNiw4Ny42NjY2LDM4Mi40NDA2LDk1LjA0LDM4OC45NyIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNDEiIHg9IjgyIiB5PSIzNTUuMDY2OSI+dW5sb2NrPC90ZXh0PjwhLS1NRDU9WzUzNzQwYTk5OTBiODgxNTM4YjNlYWUzNDk3ZjAxMjc0XQpsaW5rIEluVXNlIHRvIEF2YWlsYWJsZS0tPjxwYXRoIGQ9Ik0xMjAuMTcsMzg4Ljc4IEMxMjQuNzgsMzc5LjczIDEyOS4zOCwzNjkuMTggMTMyLDM1OSBDMTgzLjk1LDE1Ny4xMyAxNDcuMjUsMjQzLjU4IDEzOSwyMTUgQzEzNi40MywyMDYuMTEgMTMxLjkyLDE5Ny4yNyAxMjcuMDEsMTg5LjQgIiBmaWxsPSJub25lIiBpZD0iSW5Vc2UtJmd0O0F2YWlsYWJsZSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxMjQuMjUsMTg1LjEzLDEyNS43NzU1LDE5NC44NiwxMjYuOTYzOSwxODkuMzI5NCwxMzIuNDk0NSwxOTAuNTE3OCwxMjQuMjUsMTg1LjEzIiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iMTU1IiB5PSIyOTEuNTY2OSI+cmV0dXJuQmlrZTwvdGV4dD48IS0tTUQ1PVthODZhMWE3NDQyM2Y1YjIzNDYyNzRmNzZkMGQ5OTQ1NF0KbGluayBNYWludGVuYW5jZSB0byBBdmFpbGFibGUtLT48cGF0aCBkPSJNMTQ1LjM2LDU4LjEgQzEzNy4xMyw3OC42OCAxMjUuMjcsMTA4LjMzIDExNi41NCwxMzAuMTYgIiBmaWxsPSJub25lIiBpZD0iTWFpbnRlbmFuY2UtJmd0O0F2YWlsYWJsZSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxMTQuNjEsMTM0Ljk3LDEyMS42NjY0LDEyOC4wOTkzLDExNi40NjcsMTMwLjMyNzYsMTE0LjIzODYsMTI1LjEyODEsMTE0LjYxLDEzNC45NyIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTMiIHg9IjEzMyIgeT0iMTAxLjA2NjkiPnJlcGFpcmVkPC90ZXh0PjwhLS1NRDU9WzQxNDcyMDBiNWIxYmVhOGViYmQyNGNmMDg3YzViMDk5XQpAc3RhcnR1bWwNClsqXSAtIC0+IEF2YWlsYWJsZQ0KQXZhaWxhYmxlIC0gLT4gUmVzZXJ2ZWQgOiByZXNlcnZlDQpSZXNlcnZlZCAtIC0+IEluVXNlIDogdW5sb2NrDQpJblVzZSAtIC0+IEF2YWlsYWJsZSA6IHJldHVybkJpa2UNCk1haW50ZW5hbmNlIC0gLT4gQXZhaWxhYmxlIDogcmVwYWlyZWQNCkBlbmR1bWwNCgpQbGFudFVNTCB2ZXJzaW9uIDEuMjAyMC4wMihTdW4gTWFyIDAxIDEwOjIyOjA3IFVUQyAyMDIwKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogT3BlbkpESyBSdW50aW1lIEVudmlyb25tZW50CkpWTTogT3BlbkpESyA2NC1CaXQgU2VydmVyIFZNCkphdmEgVmVyc2lvbjogMjEuMC4xMSsxMC0xLTI0LjA0LjItVWJ1bnR1Ck9wZXJhdGluZyBTeXN0ZW06IExpbnV4CkRlZmF1bHQgRW5jb2Rpbmc6IFVURi04Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBudWxsCi0tPjwvZz48L3N2Zz4=" />
@@ -237,48 +245,48 @@ join</strong>?</li>
 <h1>The Critique Loop on Lifecycles</h1>
 <p>read -&gt; name the orphan/unreachable/missed-guard -&gt; re-prompt
 with the missing transitions + guards -&gt; re-read.</p>
-<p>Same architect-critic loop as W2-W6 — now on a lifecycle and a
-workflow.</p>
+<p>Same architect-and-critic loop as Weeks 2-6 — now on a lifecycle and
+a workflow.</p>
 </div>
 <div id="the-human-decides-the-real-lifecycle" class="slide section level1">
 <h1>The Human Decides the Real Lifecycle</h1>
 <p>AI can list states and draw transitions forever. Whether the object
 can <em>actually</em> move through them — reach every state, leave every
-state, branch correctly — is the architect-critic call.</p>
+state, branch correctly — is the architect-and-critic call.</p>
 <p>It’s what the oral defense checks, and AI can’t make it for you.</p>
 </div>
 <div id="looking-ahead-lab-4-next-week" class="slide section level1">
 <h1>Looking Ahead: Lab 4 (Next Week)</h1>
-<p>Lab 4 (W8) is a <strong>team defect hunt on flawed behavioural
-artifacts</strong> — sequence (W6) + state + activity (W7), same format
-as Lab 3.</p>
+<p>Lab 4 (Week 8) is a <strong>team defect hunt on flawed behavioural
+artifacts</strong> — sequence (Week 6) + state + activity (Week 7), same
+format as Lab 3.</p>
 <p>Today’s behaviour read-orders are your defect-hunt rubric.</p>
 </div>
-<div id="next-week-patterns-i-w8" class="slide section level1">
-<h1>Next Week: Patterns I (W8)</h1>
-<p>Behaviour is done — W6 (interactions) and W7 (lifecycles + workflows)
-cover <em>how the system behaves</em>.</p>
-<p><strong>W8:</strong> design patterns — the reusable solutions, when
-to apply them, and how AI overuses or mislabels them. (Plus Lab 4, the
-behavioural defect hunt.)</p>
+<div id="next-week-patterns-i-week-8" class="slide section level1">
+<h1>Next Week: Patterns I (Week 8)</h1>
+<p>Behaviour is done — Week 6 (interactions) and Week 7 (lifecycles +
+workflows) cover <em>how the system behaves</em>.</p>
+<p><strong>Week 8:</strong> design patterns — the reusable solutions,
+when to apply them, and how AI overuses or mislabels them. (Plus Lab 4,
+the behavioural defect hunt.)</p>
 </div>
-<div id="f1-f3-f4-the-through-line" class="slide section level1">
-<h1>F1 + F3 + F4 — The Through-Line</h1>
+<div id="critique-rationale-traceability-the-through-line" class="slide section level1">
+<h1>Critique, Rationale, Traceability — The Through-Line</h1>
 <p>Today you drilled:</p>
 <ul>
-<li><strong>F1</strong> — read an AI state machine and named its orphan
-states, dead ends, and missed guards.</li>
-<li><strong>F4</strong> — state and activity join the sequence as
-behavioural nodes in the trace: requirement -&gt; use case -&gt;
-sequence / state / activity -&gt; class.</li>
+<li><strong>Critique</strong> — read an AI state machine and named its
+orphan states, dead ends, and missed guards.</li>
+<li><strong>Traceability</strong> — state and activity join the sequence
+as behavioural nodes in the full trace: requirement -&gt; use case -&gt;
+class -&gt; sequence / state / activity -&gt; test.</li>
 </ul>
-<p>F3 (why you directed AI a certain way) lands in your project
+<p>Rationale (why you directed AI a certain way) lands in your project
 narrative.</p>
 </div>
 <div id="thats-it-for-today" class="slide section level1">
 <h1>That’s It For Today</h1>
 <ul>
-<li>Next lecture (W8): patterns I — selection.</li>
+<li>Next lecture (Week 8): patterns I — selection.</li>
 <li>Next week’s lab (Lab 4): team defect hunt on flawed behavioural
 artifacts.</li>
 </ul>

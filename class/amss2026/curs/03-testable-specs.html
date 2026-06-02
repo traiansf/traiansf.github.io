@@ -103,7 +103,7 @@ Traian-Florin Șerbănuță
 <div id="todays-agenda" class="slide section level1">
 <h1>Today’s Agenda</h1>
 <ol style="list-style-type: decimal">
-<li>Frame: from requirements (W2) to testable specs</li>
+<li>Frame: from requirements (Week 2) to testable specs</li>
 <li>Live demo: is your spec testable?</li>
 <li>Tests as the executable form of requirements</li>
 <li>How AI-written tests fail</li>
@@ -111,15 +111,15 @@ Traian-Florin Șerbănuță
 <li>Traceability: use case → scenario → test</li>
 </ol>
 </div>
-<div id="recap-architect-critic" class="slide section level1">
-<h1>Recap: Architect + Critic</h1>
+<div id="recap-architect-and-critic" class="slide section level1">
+<h1>Recap: Architect and Critic</h1>
 <ul>
-<li><strong>Architect / director (B):</strong> drive AI through the
-SDLC.</li>
-<li><strong>Critic / reviewer (A):</strong> read AI’s output and name
-what’s wrong or missing.</li>
+<li><strong>Architect / director:</strong> drive AI through the software
+development lifecycle (SDLC).</li>
+<li><strong>Critic / reviewer:</strong> read AI’s output and name what’s
+wrong or missing.</li>
 </ul>
-<p>Last week (W2) you drove AI to produce a requirements doc — and
+<p>Last week (Week 2) you drove AI to produce a requirements doc — and
 critiqued it. Today: can you <em>test</em> what you wrote?</p>
 </div>
 <div id="a-requirement-that-looks-fine-until-you-test-it" class="slide section level1">
@@ -143,19 +143,20 @@ is too vague.</li>
 <li>Traceability: use case → scenario → test.</li>
 </ol>
 </div>
-<div id="literacy-floor-f1-f3-f4" class="slide section level1">
-<h1>Literacy Floor: F1 + F3 + F4</h1>
-<p>From W1: in the oral defense, <em>unaided</em>, you must
+<div id="the-literacy-floor-critique-rationale-traceability" class="slide section level1">
+<h1>The Literacy Floor: Critique, Rationale, Traceability</h1>
+<p>From Week 1: in the oral defense, <em>unaided</em>, you must
 demonstrate:</p>
 <ul>
-<li><strong>F1</strong> — read &amp; critique AI-generated artifacts on
-the spot.</li>
-<li><strong>F3</strong> — articulate why you directed AI a certain
-way.</li>
-<li><strong>F4</strong> — defend traceability across your project.</li>
+<li><strong>Critique</strong> — read &amp; critique AI-generated
+artifacts on the spot.</li>
+<li><strong>Rationale</strong> — articulate why you directed AI a
+certain way.</li>
+<li><strong>Traceability</strong> — defend the trace across your
+project.</li>
 </ul>
-<p>Today drills F1 on <em>tests</em>, and extends F4: the test is the
-new end of the trace.</p>
+<p>Today drills Critique on <em>tests</em>, and extends Traceability:
+the test is the new end of the trace.</p>
 </div>
 <div id="demo-bike-sharing-fare-is-your-spec-testable" class="slide section level1">
 <h1>Demo: Bike-Sharing Fare — Is Your Spec Testable?</h1>
@@ -187,7 +188,9 @@ you.</li>
 <p><strong>The same thing, executable:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">def</span> test_paid_ride_charges_per_minute():</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>    <span class="cf">assert</span> fare(<span class="dv">60</span>) <span class="op">==</span> <span class="fl">3.00</span></span></code></pre></div>
-<p>The assertion <em>is</em> the acceptance criterion — you just can’t
+<p>The per-minute rate is what makes €3.00 the expected total: the first
+30 min are free, then €0.10/min for 30 min = €3.00 (under the €5 cap).
+The assertion <em>is</em> the acceptance criterion — you just can’t
 hand-wave it.</p>
 </div>
 <div id="if-you-cant-write-the-assertion-the-spec-is-underspecified" class="slide section level1">
@@ -275,6 +278,14 @@ encodes a spec that is itself wrong (e.g. no cap → unbounded charge).
 The test is right; the spec isn’t.</li>
 </ul>
 </div>
+<div id="your-turn-name-the-failure-mode" class="slide section level1">
+<h1>Your Turn: Name the Failure Mode</h1>
+<p>AI wrote this test for the fare spec:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">def</span> test_fare():</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>    <span class="cf">assert</span> fare(<span class="dv">45</span>) <span class="op">==</span> <span class="fl">1.50</span></span></code></pre></div>
+<p>With your neighbour (60s): which of the five failure modes is this?
+Be ready to name your critique question — then we reveal.</p>
+</div>
 <div id="the-loop" class="slide section level1">
 <h1>The Loop</h1>
 <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iNjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyODJweDtoZWlnaHQ6NjQ0cHg7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyODIgNjQ0IiB3aWR0aD0iMjgycHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzPjxmaWx0ZXIgaGVpZ2h0PSIzMDAlIiBpZD0iZjE2Mml2MzNsOTdhdzUiIHdpZHRoPSIzMDAlIiB4PSItMSIgeT0iLTEiPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImJsdXJPdXQiIHN0ZERldmlhdGlvbj0iMi4wIi8+PGZlQ29sb3JNYXRyaXggaW49ImJsdXJPdXQiIHJlc3VsdD0iYmx1ck91dDIiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAuNCAwIi8+PGZlT2Zmc2V0IGR4PSI0LjAiIGR5PSI0LjAiIGluPSJibHVyT3V0MiIgcmVzdWx0PSJibHVyT3V0MyIvPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXJPdXQzIiBtb2RlPSJub3JtYWwiLz48L2ZpbHRlcj48L2RlZnM+PGc+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YxNjJpdjMzbDk3YXc1KSIgaGVpZ2h0PSI0MCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxNzIiIHg9IjM3IiB5PSI4OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE2MiIgeD0iNDIiIHk9IjExMy44NDY3Ij5Xcml0ZSAvIHRpZ2h0ZW4gdGhlIHNwZWM8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YxNjJpdjMzbDk3YXc1KSIgaGVpZ2h0PSI0MCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxMTAiIHg9IjYiIHk9IjE5MCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjEwMCIgeD0iMTEiIHk9IjIxNC44NDY3Ij5BSSB3cml0ZXMgYSB0ZXN0PC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMTYyaXYzM2w5N2F3NSkiIGhlaWdodD0iNDIuNTkzOCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxNTciIHg9IjQ0LjUiIHk9IjI5MSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0NyIgeD0iNDkuNSIgeT0iMzA4Ljk5NTEiPkRvZXMgdGhlIHRlc3QgcGluIHRoZTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNDEiIHg9IjUyLjUiIHk9IjMyNS4yOTIiPmJlaGF2aW91ciB5b3Ugd2FudD88L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YxNjJpdjMzbDk3YXc1KSIgaGVpZ2h0PSI0MCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxMzMiIHg9IjU2LjUiIHk9IjQxMSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjEyMyIgeD0iNjEuNSIgeT0iNDM1Ljg0NjciPkFJIHdyaXRlcyB0aGUgY29kZTwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjE2Mml2MzNsOTdhdzUpIiBoZWlnaHQ9IjQwIiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9Ijk2IiB4PSI3NSIgeT0iNTEyIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iODYiIHg9IjgwIiB5PSI1MzYuODQ2NyI+UnVuIHRoZSB0ZXN0PC90ZXh0PjxlbGxpcHNlIGN4PSIxMjMiIGN5PSIxOCIgZmlsbD0iIzAwMDAwMCIgZmlsdGVyPSJ1cmwoI2YxNjJpdjMzbDk3YXc1KSIgcng9IjEwIiByeT0iMTAiIHN0eWxlPSJzdHJva2U6IG5vbmU7IHN0cm9rZS13aWR0aDogMS4wOyIvPjxlbGxpcHNlIGN4PSIxMjMiIGN5PSI2MjMiIGZpbGw9Im5vbmUiIGZpbHRlcj0idXJsKCNmMTYyaXYzM2w5N2F3NSkiIHJ4PSIxMCIgcnk9IjEwIiBzdHlsZT0ic3Ryb2tlOiAjMDAwMDAwOyBzdHJva2Utd2lkdGg6IDEuMDsiLz48ZWxsaXBzZSBjeD0iMTIzLjUiIGN5PSI2MjMuNSIgZmlsbD0iIzAwMDAwMCIgcng9IjYiIHJ5PSI2IiBzdHlsZT0ic3Ryb2tlOiBub25lOyBzdHJva2Utd2lkdGg6IDEuMDsiLz48IS0tTUQ1PVs1YWY0N2Q3OGM0NGNjNmJjMWI3ZmVmNzI3NjZkYzg3Yl0KbGluayAqc3RhcnQgdG8gU3BlYy0tPjxwYXRoIGQ9Ik0xMjMsMjguMTkgQzEyMyw0MS4xOCAxMjMsNjUuMzggMTIzLDgzLjczICIgZmlsbD0ibm9uZSIgaWQ9IipzdGFydC0mZ3Q7U3BlYyIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxMjMsODguNzQsMTI3LDc5Ljc0LDEyMyw4My43NCwxMTksNzkuNzQsMTIzLDg4Ljc0IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuMDsiLz48IS0tTUQ1PVsyMWQ2NWFjNDhjOTYzMmUwYzJjNzA2MzU1OThlMjE0Zl0KbGluayBTcGVjIHRvIFRlc3QtLT48cGF0aCBkPSJNMTExLjA1LDEyOS4wOSBDMTAwLjkyLDE0NS4yNSA4Ni4zOCwxNjguNDcgNzUuNTgsMTg1LjcyICIgZmlsbD0ibm9uZSIgaWQ9IlNwZWMtJmd0O1Rlc3QiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS4wOyIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iNzIuOTIsMTg5Ljk3LDgxLjA5NTMsMTg0LjQ3NzgsNzUuNTgwMywxODUuNzM2NCw3NC4zMjE2LDE4MC4yMjE0LDcyLjkyLDE4OS45NyIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PCEtLU1ENT1bNmYyODVlNDUxOGRlOTU5MjZjZThhOTQzZjI1YmRiNTldCmxpbmsgVGVzdCB0byBDaGVjay0tPjxwYXRoIGQ9Ik03Mi45NSwyMzAuMzggQzgyLjgyLDI0Ni4zNiA5Ni44OCwyNjkuMTUgMTA3LjU4LDI4Ni41MSAiIGZpbGw9Im5vbmUiIGlkPSJUZXN0LSZndDtDaGVjayIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxMTAuMjMsMjkwLjgsMTA4LjkwNTIsMjgxLjA0MDcsMTA3LjYwMzEsMjg2LjU0NTYsMTAyLjA5ODIsMjg1LjI0MzYsMTEwLjIzLDI5MC44IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuMDsiLz48IS0tTUQ1PVtkZWU5MGE2NzZmMDkzNWJmNWJlYTQ3MzIwN2Y0OTU2OF0KbGluayBDaGVjayB0byBTcGVjLS0+PHBhdGggZD0iTTEyNi41NywyOTAuODEgQzEyOS4yMiwyNzQuMzggMTMyLjYsMjUwLjggMTM0LDIzMCBDMTM1LjE5LDIxMi4yNiAxMzUuMjEsMjA3Ljc0IDEzNCwxOTAgQzEzMi43MiwxNzEuMjggMTI5Ljc3LDE1MC4yNiAxMjcuMjUsMTM0LjQ3ICIgZmlsbD0ibm9uZSIgaWQ9IkNoZWNrLSZndDtTcGVjIiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuMDsiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjEyNi40MSwxMjkuMzIsMTIzLjkwMzcsMTM4Ljg0NDYsMTI3LjIxMTEsMTM0LjI1NTQsMTMxLjgwMDMsMTM3LjU2MjgsMTI2LjQxLDEyOS4zMiIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTM1IiB4PSIxMzUiIHk9IjIxNC41NjY5Ij5ubyDigJQgc3BlYyB0b28gdmFndWU8L3RleHQ+PCEtLU1ENT1bMDFhZTFiZjZhNWQ5MzkxZjNlOTdiMjEyZWQ3ZGFmOGVdCmxpbmsgQ2hlY2sgdG8gQ29kZS0tPjxwYXRoIGQ9Ik0xMjMsMzM0LjA2IEMxMjMsMzU0LjA1IDEyMywzODQuNDMgMTIzLDQwNS42MyAiIGZpbGw9Im5vbmUiIGlkPSJDaGVjay0mZ3Q7Q29kZSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxMjMsNDEwLjgxLDEyNyw0MDEuODEsMTIzLDQwNS44MSwxMTksNDAxLjgxLDEyMyw0MTAuODEiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjIyIiB4PSIxMjQiIHk9IjM3Ny4wNjY5Ij55ZXM8L3RleHQ+PCEtLU1ENT1bZjE2YmNiNjIxMGNjNGQ1MDEwNjUwMmYwMTlmMTYzMmJdCmxpbmsgQ29kZSB0byBSdW4tLT48cGF0aCBkPSJNMTIzLDQ1MS4wOSBDMTIzLDQ2Ni45OCAxMjMsNDg5LjY5IDEyMyw1MDYuODQgIiBmaWxsPSJub25lIiBpZD0iQ29kZS0mZ3Q7UnVuIiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuMDsiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjEyMyw1MTEuOTcsMTI3LDUwMi45NywxMjMsNTA2Ljk3LDExOSw1MDIuOTcsMTIzLDUxMS45NyIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PCEtLU1ENT1bMjZkNjVhMmZkNTU3MmY5N2YyNjA3NWQzMDJmMmU5ZmFdCmxpbmsgUnVuIHRvICplbmQtLT48cGF0aCBkPSJNMTIzLDU1Mi4zMSBDMTIzLDU2OC44OSAxMjMsNTkyLjQxIDEyMyw2MDcuNDQgIiBmaWxsPSJub25lIiBpZD0iUnVuLSZndDsqZW5kIiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuMDsiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjEyMyw2MTIuNTYsMTI3LDYwMy41NiwxMjMsNjA3LjU2LDExOSw2MDMuNTYsMTIzLDYxMi41NiIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjA7Ii8+PCEtLU1ENT1bNTc0MjRhZDdkYTRiNDhjNzYwZDI5NDI2NzI2ODE0N2ZdCkBzdGFydHVtbA0KaGlkZSBlbXB0eSBkZXNjcmlwdGlvbg0Kc3RhdGUgIldyaXRlIC8gdGlnaHRlbiB0aGUgc3BlYyIgYXMgU3BlYw0Kc3RhdGUgIkFJIHdyaXRlcyBhIHRlc3QiIGFzIFRlc3QNCnN0YXRlICJEb2VzIHRoZSB0ZXN0IHBpbiB0aGVcbmJlaGF2aW91ciB5b3Ugd2FudD8iIGFzIENoZWNrDQpzdGF0ZSAiQUkgd3JpdGVzIHRoZSBjb2RlIiBhcyBDb2RlDQpzdGF0ZSAiUnVuIHRoZSB0ZXN0IiBhcyBSdW4NClsqXSAtIC0+IFNwZWMNClNwZWMgLSAtPiBUZXN0DQpUZXN0IC0gLT4gQ2hlY2sNCkNoZWNrIC0gLT4gU3BlYyA6IG5vIOKAlCBzcGVjIHRvbyB2YWd1ZQ0KQ2hlY2sgLSAtPiBDb2RlIDogeWVzDQpDb2RlIC0gLT4gUnVuDQpSdW4gLSAtPiBbKl0NCkBlbmR1bWwNCgpQbGFudFVNTCB2ZXJzaW9uIDEuMjAyMC4wMihTdW4gTWFyIDAxIDEwOjIyOjA3IFVUQyAyMDIwKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogT3BlbkpESyBSdW50aW1lIEVudmlyb25tZW50CkpWTTogT3BlbkpESyA2NC1CaXQgU2VydmVyIFZNCkphdmEgVmVyc2lvbjogMjEuMC4xMSsxMC0xLTI0LjA0LjItVWJ1bnR1Ck9wZXJhdGluZyBTeXN0ZW06IExpbnV4CkRlZmF1bHQgRW5jb2Rpbmc6IFVURi04Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBudWxsCi0tPjwvZz48L3N2Zz4=" />
@@ -308,7 +319,7 @@ every assertion is one you’d have written by hand and stand behind.</p>
 <h1>The Human Closes the Loop</h1>
 <p>AI will happily generate plausible tests forever.</p>
 <p>What it can’t do: decide whether a test expresses <em>what you
-actually want</em>. That judgment — the architect-critic call — is
+actually want</em>. That judgment — the architect-and-critic call — is
 yours, and it’s what the oral defense checks.</p>
 </div>
 <div id="the-chain-gains-a-tail" class="slide section level1">
@@ -344,16 +355,17 @@ not just documented.</p>
 <em>proves</em> it — and breaks loudly when the link rots.</p>
 </blockquote>
 </div>
-<div id="broken-links-a-preview-of-w10" class="slide section level1">
-<h1>Broken Links (a preview of W10)</h1>
+<div id="broken-links-a-preview-of-week-10" class="slide section level1">
+<h1>Broken Links (a preview of Week 10)</h1>
 <p>A test that asserts behaviour <strong>no requirement asked
 for</strong> is an orphan — just like a fabricated requirement with no
 user need.</p>
-<p>W10 makes finding broken links across the whole trace its own
+<p>Week 10 makes finding broken links across the whole trace its own
 skill.</p>
 </div>
-<div id="your-project-the-tdd-with-ai-reflection" class="slide section level1">
-<h1>Your Project: The TDD-with-AI Reflection</h1>
+<div id="your-project-the-test-driven-development-tdd-with-ai-reflection" class="slide section level1">
+<h1>Your Project: The test-driven-development (TDD)-with-AI
+Reflection</h1>
 <p>The loop you saw today <em>is</em> a required project
 deliverable:</p>
 <ul>
@@ -364,33 +376,34 @@ tests → AI code → run.</li>
 read.</li>
 </ul>
 </div>
-<div id="next-week-class-diagrams-w4" class="slide section level1">
-<h1>Next Week: Class Diagrams (W4)</h1>
+<div id="next-week-class-diagrams-week-4" class="slide section level1">
+<h1>Next Week: Class Diagrams (Week 4)</h1>
 <p>Once a requirement is pinned by a test, the next question is:
 <em>what objects realise it?</em></p>
 <ul>
-<li><strong>W4:</strong> class diagrams — the structure behind the
+<li><strong>Week 4:</strong> class diagrams — the structure behind the
 behaviour.</li>
-<li><strong>Lab 2</strong> (W4’s slot): drive AI to produce a class
+<li><strong>Lab 2</strong> (Week 4’s slot): drive AI to produce a class
 diagram from a spec, iterate, log what changed.</li>
 </ul>
 </div>
-<div id="f1-f3-f4-the-through-line" class="slide section level1">
-<h1>F1 + F3 + F4 — The Through-Line</h1>
+<div id="critique-rationale-traceability-the-through-line" class="slide section level1">
+<h1>Critique, Rationale, Traceability — The Through-Line</h1>
 <p>Today you drilled:</p>
 <ul>
-<li><strong>F1</strong> — read AI-written tests and named how they
+<li><strong>Critique</strong> — read AI-written tests and named how they
 fail.</li>
-<li><strong>F4</strong> — the test is the <em>end</em> of the trace; if
-you can’t trace a test back to a requirement, the chain is broken.</li>
+<li><strong>Traceability</strong> — the test is the <em>end</em> of the
+trace; if you can’t trace a test back to a requirement, the chain is
+broken.</li>
 </ul>
-<p>F3 (articulating <em>why</em> you directed AI a certain way) lands in
-your project narrative.</p>
+<p>Rationale (articulating <em>why</em> you directed AI a certain way)
+lands in your project narrative.</p>
 </div>
 <div id="thats-it-for-today" class="slide section level1">
 <h1>That’s It For Today</h1>
 <ul>
-<li>Next lecture (W4): class diagrams.</li>
+<li>Next lecture (Week 4): class diagrams.</li>
 <li>Your project: run the spec → test → code loop on one feature; write
 the reflection.</li>
 </ul>

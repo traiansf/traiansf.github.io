@@ -44,45 +44,46 @@ Traian-Florin Șerbănuță
 passing)</li>
 <li>How AI over- and under-decomposes</li>
 <li>Reading critically: the architecture read-order</li>
-<li>Bridge to Lab 3 + W6</li>
+<li>Bridge to Lab 3 + Week 6</li>
 </ol>
 </div>
-<div id="recap-architect-critic" class="slide section level1">
-<h1>Recap: Architect + Critic</h1>
+<div id="recap-architect-and-critic" class="slide section level1">
+<h1>Recap: Architect and Critic</h1>
 <ul>
-<li><strong>Architect / director (B):</strong> drive AI through the
-SDLC.</li>
-<li><strong>Critic / reviewer (A):</strong> read AI’s output and name
-what’s wrong or missing.</li>
+<li><strong>Architect / director:</strong> drive AI through the software
+development lifecycle (SDLC).</li>
+<li><strong>Critic / reviewer:</strong> read AI’s output and name what’s
+wrong or missing.</li>
 </ul>
-<p>In W4 you critiqued an AI-drawn class diagram. Today: the same loop,
-one level up — at the architecture.</p>
+<p>In Week 4 you critiqued an AI-drawn class diagram. Today: the same
+loop, one level up — at the architecture.</p>
 </div>
 <div id="from-one-class-diagram-to-the-whole-structure" class="slide section level1">
 <h1>From One Class Diagram to the Whole Structure</h1>
 <ul>
-<li><strong>W4 gave you one class diagram</strong> — <code>User</code>,
-<code>Rental</code>, <code>Bike</code>, <code>Station</code>,
-<code>Payment</code> and how they relate.</li>
+<li><strong>Week 4 gave you one class diagram</strong> —
+<code>User</code>, <code>Rental</code>, <code>Bike</code>,
+<code>Station</code>, <code>Payment</code> and how they relate.</li>
 <li><strong>A real system has many such classes</strong>, across many
 parts. How is it carved up?</li>
 </ul>
 <p>Today’s question: <strong>what are the parts, and is the split
 right?</strong></p>
 </div>
-<div id="literacy-floor-f1-f3-f4" class="slide section level1">
-<h1>Literacy Floor: F1 + F3 + F4</h1>
-<p>From W1: in the oral defense, <em>unaided</em>, you must
+<div id="the-literacy-floor-critique-rationale-traceability" class="slide section level1">
+<h1>The Literacy Floor: Critique, Rationale, Traceability</h1>
+<p>From Week 1: in the oral defense, <em>unaided</em>, you must
 demonstrate:</p>
 <ul>
-<li><strong>F1</strong> — read &amp; critique AI-generated artifacts on
-the spot.</li>
-<li><strong>F3</strong> — articulate why you directed AI a certain
-way.</li>
-<li><strong>F4</strong> — defend traceability across your project.</li>
+<li><strong>Critique</strong> — read &amp; critique AI-generated
+artifacts on the spot.</li>
+<li><strong>Rationale</strong> — articulate why you directed AI a
+certain way.</li>
+<li><strong>Traceability</strong> — defend traceability across your
+project.</li>
 </ul>
-<p>Today is F1 at the architecture level: read an AI-drawn structure and
-name where it over- or under-decomposes.</p>
+<p>Today is Critique at the architecture level: read an AI-drawn
+structure and name where it over- or under-decomposes.</p>
 </div>
 <div id="four-views-one-question" class="slide section level1">
 <h1>Four Views, One Question</h1>
@@ -183,9 +184,15 @@ Name three parts that could be built and tested separately.”</em></p>
 <div id="defect-2-over-decomposition" class="slide section level1">
 <h1>Defect #2: Over-Decomposition</h1>
 <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ3cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDo2NTZweDtoZWlnaHQ6MjQ3cHg7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA2NTYgMjQ3IiB3aWR0aD0iNjU2cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzPjxmaWx0ZXIgaGVpZ2h0PSIzMDAlIiBpZD0iZjFudDZrenlpbDEzOXoiIHdpZHRoPSIzMDAlIiB4PSItMSIgeT0iLTEiPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImJsdXJPdXQiIHN0ZERldmlhdGlvbj0iMi4wIi8+PGZlQ29sb3JNYXRyaXggaW49ImJsdXJPdXQiIHJlc3VsdD0iYmx1ck91dDIiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAuNCAwIi8+PGZlT2Zmc2V0IGR4PSI0LjAiIGR5PSI0LjAiIGluPSJibHVyT3V0MiIgcmVzdWx0PSJibHVyT3V0MyIvPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXJPdXQzIiBtb2RlPSJub3JtYWwiLz48L2ZpbHRlcj48L2RlZnM+PGc+PCEtLU1ENT1bMTg1YjdmNWZmMWFmYzY3NTg2MmNlNzZiMGZlZDgwODVdCmVudGl0eSBCaWtlU2VydmljZS0tPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMW50Nmt6eWlsMTM5eikiIGhlaWdodD0iMzYuMjk2OSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTAwIiB4PSIyMSIgeT0iOCIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGhlaWdodD0iNSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTAiIHg9IjE2IiB5PSIxMyIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGhlaWdodD0iNSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTAiIHg9IjE2IiB5PSIzNC4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iODAiIHg9IjMxIiB5PSIzMC45OTUxIj5CaWtlU2VydmljZTwvdGV4dD48IS0tTUQ1PVsyNTFhMTUyZmU4YjZiYTlhYjNlOGZhMDExMjdhODcwOF0KZW50aXR5IFJlbnRhbFNlcnZpY2UtLT48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjFudDZrenlpbDEzOXopIiBoZWlnaHQ9IjM2LjI5NjkiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjExNCIgeD0iMTU2IiB5PSI4Ii8+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgaGVpZ2h0PSI1IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxMCIgeD0iMTUxIiB5PSIxMyIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGhlaWdodD0iNSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTAiIHg9IjE1MSIgeT0iMzQuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9Ijk0IiB4PSIxNjYiIHk9IjMwLjk5NTEiPlJlbnRhbFNlcnZpY2U8L3RleHQ+PCEtLU1ENT1bOWYyYjM5NDVlMTdkZTFmYjAyOWRmOTc0YmNkYzFmM2FdCmVudGl0eSBTdGF0aW9uU2VydmljZS0tPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMW50Nmt6eWlsMTM5eikiIGhlaWdodD0iMzYuMjk2OSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTE4IiB4PSIzMDUiIHk9IjgiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBoZWlnaHQ9IjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEwIiB4PSIzMDAiIHk9IjEzIi8+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgaGVpZ2h0PSI1IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxMCIgeD0iMzAwIiB5PSIzNC4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iOTgiIHg9IjMxNSIgeT0iMzAuOTk1MSI+U3RhdGlvblNlcnZpY2U8L3RleHQ+PCEtLU1ENT1bNDNhODE3ODEyZGRkYjMxYzczMDZkZGNiZWE2OWJiMDBdCmVudGl0eSBVc2VyU2VydmljZS0tPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMW50Nmt6eWlsMTM5eikiIGhlaWdodD0iMzYuMjk2OSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTAyIiB4PSI0NTgiIHk9IjgiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBoZWlnaHQ9IjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEwIiB4PSI0NTMiIHk9IjEzIi8+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgaGVpZ2h0PSI1IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxMCIgeD0iNDUzIiB5PSIzNC4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iODIiIHg9IjQ2OCIgeT0iMzAuOTk1MSI+VXNlclNlcnZpY2U8L3RleHQ+PCEtLU1ENT1bMWNhMmRlNzViZWYzZDBmY2RjNTI1ZWRlNzkwMTI5YjFdCmVudGl0eSBQYXltZW50U2VydmljZS0tPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMW50Nmt6eWlsMTM5eikiIGhlaWdodD0iMzYuMjk2OSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTMwIiB4PSI2IiB5PSIxMDQiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBoZWlnaHQ9IjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEwIiB4PSIxIiB5PSIxMDkiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBoZWlnaHQ9IjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEwIiB4PSIxIiB5PSIxMzAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjExMCIgeD0iMTYiIHk9IjEyNi45OTUxIj5QYXltZW50U2VydmljZTwvdGV4dD48IS0tTUQ1PVs3NDQwNGY1NWIwNTIxYWNlNTljZWY1ZmNmOTBmYTk3NV0KZW50aXR5IEJpa2VSZXBvc2l0b3J5LS0+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YxbnQ2a3p5aWwxMzl6KSIgaGVpZ2h0PSIzNi4yOTY5IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxMjQiIHg9IjE3MSIgeT0iMTA0Ii8+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgaGVpZ2h0PSI1IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxMCIgeD0iMTY2IiB5PSIxMDkiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBoZWlnaHQ9IjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEwIiB4PSIxNjYiIHk9IjEzMC4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTA0IiB4PSIxODEiIHk9IjEyNi45OTUxIj5CaWtlUmVwb3NpdG9yeTwvdGV4dD48IS0tTUQ1PVszZTU5ZTc2NDVjNmJiYzQ1NTVkNjhjOWJkOTZjODhkYV0KZW50aXR5IFJlbnRhbFJlcG9zaXRvcnktLT48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjFudDZrenlpbDEzOXopIiBoZWlnaHQ9IjM2LjI5NjkiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEzOCIgeD0iMzMwIiB5PSIxMDQiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBoZWlnaHQ9IjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEwIiB4PSIzMjUiIHk9IjEwOSIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGhlaWdodD0iNSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTAiIHg9IjMyNSIgeT0iMTMwLjI5NjkiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxMTgiIHg9IjM0MCIgeT0iMTI2Ljk5NTEiPlJlbnRhbFJlcG9zaXRvcnk8L3RleHQ+PCEtLU1ENT1bZGZjZDFkMTVlZWZlOTE3N2JmMjI5ODJjODAwZDA2ZTddCmVudGl0eSBTdGF0aW9uUmVwb3NpdG9yeS0tPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMW50Nmt6eWlsMTM5eikiIGhlaWdodD0iMzYuMjk2OSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTQyIiB4PSI1MDMiIHk9IjEwNCIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGhlaWdodD0iNSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTAiIHg9IjQ5OCIgeT0iMTA5Ii8+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgaGVpZ2h0PSI1IiBzdHlsZT0ic3Ryb2tlOiAjQTgwMDM2OyBzdHJva2Utd2lkdGg6IDEuNTsiIHdpZHRoPSIxMCIgeD0iNDk4IiB5PSIxMzAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjEyMiIgeD0iNTEzIiB5PSIxMjYuOTk1MSI+U3RhdGlvblJlcG9zaXRvcnk8L3RleHQ+PCEtLU1ENT1bMTMxZWY5NTcyNzdhMmU2NGJjMmM2NmFhYjU5MjcxZjddCmVudGl0eSBVc2VyUmVwb3NpdG9yeS0tPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMW50Nmt6eWlsMTM5eikiIGhlaWdodD0iMzYuMjk2OSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTI2IiB4PSI4IiB5PSIyMDAiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBoZWlnaHQ9IjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEwIiB4PSIzIiB5PSIyMDUiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBoZWlnaHQ9IjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEwIiB4PSIzIiB5PSIyMjYuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjEwNiIgeD0iMTgiIHk9IjIyMi45OTUxIj5Vc2VyUmVwb3NpdG9yeTwvdGV4dD48IS0tTUQ1PVs0YmUyMzQxNTMwNzQ3N2IyMWZjMmI0ZDQ1ZTJjYzU4ZF0KZW50aXR5IE5vdGlmaWNhdGlvblNlcnZpY2UtLT48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjFudDZrenlpbDEzOXopIiBoZWlnaHQ9IjM2LjI5NjkiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjE0NiIgeD0iMTY5IiB5PSIyMDAiLz48cmVjdCBmaWxsPSIjRkVGRUNFIiBoZWlnaHQ9IjUiIHN0eWxlPSJzdHJva2U6ICNBODAwMzY7IHN0cm9rZS13aWR0aDogMS41OyIgd2lkdGg9IjEwIiB4PSIxNjQiIHk9IjIwNSIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGhlaWdodD0iNSIgc3R5bGU9InN0cm9rZTogI0E4MDAzNjsgc3Ryb2tlLXdpZHRoOiAxLjU7IiB3aWR0aD0iMTAiIHg9IjE2NCIgeT0iMjI2LjI5NjkiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxMjYiIHg9IjE3OSIgeT0iMjIyLjk5NTEiPk5vdGlmaWNhdGlvblNlcnZpY2U8L3RleHQ+PCEtLU1ENT1bZTAxYzA5NDA2YzNlNTdhNjc4NzlkZTM5M2NhZmE4ZmJdCmxpbmsgQmlrZVNlcnZpY2UgdG8gUmVudGFsU2VydmljZS0tPjwhLS1NRDU9W2IzMzFiMDQwN2NmMDE2NzNlM2I3ZTA3MmE4NmFlOTRmXQpsaW5rIFJlbnRhbFNlcnZpY2UgdG8gU3RhdGlvblNlcnZpY2UtLT48IS0tTUQ1PVtiY2I0MDIyZTA3ZTliMmUzOTllYmIwMWJjYzEyMzM5Ml0KbGluayBTdGF0aW9uU2VydmljZSB0byBVc2VyU2VydmljZS0tPjwhLS1NRDU9W2FhODIzZTcwZTkzZGMxZTZjMmU5ZGE3NDg1MjFlM2NiXQpsaW5rIEJpa2VTZXJ2aWNlIHRvIFBheW1lbnRTZXJ2aWNlLS0+PCEtLU1ENT1bMDgwOWVlNTUxMjY4NmJmNmRjOTMzNjY3YmZiYzYxY2ZdCmxpbmsgUGF5bWVudFNlcnZpY2UgdG8gQmlrZVJlcG9zaXRvcnktLT48IS0tTUQ1PVtkMzc5OTIxOTU4MTUxNThmYWNjYWY0NzVjNjQxNTAzN10KbGluayBCaWtlUmVwb3NpdG9yeSB0byBSZW50YWxSZXBvc2l0b3J5LS0+PCEtLU1ENT1bNzk4MjAwYmM3Y2VjYzY5ODliNDAzMjE0ZjJlOGZlZDVdCmxpbmsgUmVudGFsUmVwb3NpdG9yeSB0byBTdGF0aW9uUmVwb3NpdG9yeS0tPjwhLS1NRDU9WzU3NTdiZGFhNTE1ZDNjMTE0MWM3MGQyZDY4ZWRlZTZjXQpsaW5rIFBheW1lbnRTZXJ2aWNlIHRvIFVzZXJSZXBvc2l0b3J5LS0+PCEtLU1ENT1bODVhY2IzNDU3ZjI5NmI0ODM2ZmIwMmRkMGI2MGQ3NmVdCmxpbmsgVXNlclJlcG9zaXRvcnkgdG8gTm90aWZpY2F0aW9uU2VydmljZS0tPjwhLS1NRDU9WzYwYzc5ZDk3ZjA0Zjg3NzE2ZjQ1MjFmNjg3OGZhNDM3XQpAc3RhcnR1bWwNCltCaWtlU2VydmljZV0NCltSZW50YWxTZXJ2aWNlXQ0KW1N0YXRpb25TZXJ2aWNlXQ0KW1VzZXJTZXJ2aWNlXQ0KW1BheW1lbnRTZXJ2aWNlXQ0KW0Jpa2VSZXBvc2l0b3J5XQ0KW1JlbnRhbFJlcG9zaXRvcnldDQpbU3RhdGlvblJlcG9zaXRvcnldDQpbVXNlclJlcG9zaXRvcnldDQpbTm90aWZpY2F0aW9uU2VydmljZV0NCkBlbmR1bWwNCgpQbGFudFVNTCB2ZXJzaW9uIDEuMjAyMC4wMihTdW4gTWFyIDAxIDEwOjIyOjA3IFVUQyAyMDIwKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogT3BlbkpESyBSdW50aW1lIEVudmlyb25tZW50CkpWTTogT3BlbkpESyA2NC1CaXQgU2VydmVyIFZNCkphdmEgVmVyc2lvbjogMjEuMC4xMSsxMC0xLTI0LjA0LjItVWJ1bnR1Ck9wZXJhdGluZyBTeXN0ZW06IExpbnV4CkRlZmF1bHQgRW5jb2Rpbmc6IFVURi04Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBudWxsCi0tPjwvZz48L3N2Zz4=" />
-<p>A component <strong>per class</strong>, plus a repository per entity.
-<strong>Critique:</strong> <em>“What boundary does each split earn?
-Which of these are really one part?”</em></p>
+<p>A component <strong>per class</strong>, plus a repository per
+entity.</p>
+</div>
+<div id="your-turn-one-part-or-three" class="slide section level1">
+<h1>Your Turn: One Part or Three?</h1>
+<p>With your neighbour (60s): pick which <strong>two of these boxes are
+really one part</strong> — vote, then we critique.</p>
+<p><strong>Critique (the reveal):</strong> <em>“What boundary does each
+split earn? Which of these are really one part?”</em></p>
 </div>
 <div id="defect-3-invented-infrastructure" class="slide section level1">
 <h1>Defect #3: Invented Infrastructure</h1>
@@ -228,16 +235,16 @@ respected)</li>
 <h1>The Critique Loop on Architecture</h1>
 <p>read -&gt; name the bad split -&gt; re-prompt with structural
 constraints -&gt; re-read.</p>
-<p>Same architect-critic loop as W2 (requirements), W3 (tests), W4
-(class diagram) — now on a decomposition.</p>
+<p>Same architect-and-critic loop as Week 2 (requirements), Week 3
+(tests), Week 4 (class diagram) — now on a decomposition.</p>
 </div>
 <div id="the-human-decides-the-right-grain" class="slide section level1">
 <h1>The Human Decides the Right Grain</h1>
 <p>AI can split a system into one box or a hundred. Neither is “more
 correct” on its own — the <strong>right grain</strong> is a judgment
 about <em>this</em> system’s real boundaries.</p>
-<p>That judgment is the architect-critic call, and AI can’t make it for
-you.</p>
+<p>That judgment is the architect-and-critic call, and AI can’t make it
+for you.</p>
 </div>
 <div id="looking-ahead-lab-3-next-week" class="slide section level1">
 <h1>Looking Ahead: Lab 3 (Next Week)</h1>
@@ -248,29 +255,30 @@ ratings.</p>
 <p>Today’s read-order is your defect-hunt rubric. This lecture was the
 dry run.</p>
 </div>
-<div id="next-week-behavioral-i-w6" class="slide section level1">
-<h1>Next Week: Behavioral I (W6)</h1>
-<p>Structure is done — W4 (classes) and W5 (architecture) cover <em>what
-the parts are</em>.</p>
-<p><strong>W6:</strong> use cases and sequence diagrams — <em>how the
-parts interact over time</em>, and where AI fabricates messages.</p>
+<div id="next-week-behavioral-i-week-6" class="slide section level1">
+<h1>Next Week: Behavioral I (Week 6)</h1>
+<p>Structure is done — Week 4 (classes) and Week 5 (architecture) cover
+<em>what the parts are</em>.</p>
+<p><strong>Week 6:</strong> use cases and sequence diagrams — <em>how
+the parts interact over time</em>, and where AI fabricates messages.</p>
 </div>
-<div id="f1-f3-f4-the-through-line" class="slide section level1">
-<h1>F1 + F3 + F4 — The Through-Line</h1>
+<div id="critique-rationale-traceability-the-through-line" class="slide section level1">
+<h1>Critique, Rationale, Traceability — The Through-Line</h1>
 <p>Today you drilled:</p>
 <ul>
-<li><strong>F1</strong> — read an AI architecture view and named where
-it over- or under-decomposed.</li>
-<li><strong>F4</strong> — the package/component is a structural node in
-the trace: requirement -&gt; use case -&gt; class -&gt; part.</li>
+<li><strong>Critique</strong> — read an AI architecture view and named
+where it over- or under-decomposed.</li>
+<li><strong>Traceability</strong> — the package/component is a
+structural node in the trace: requirement -&gt; use case -&gt; class
+-&gt; part.</li>
 </ul>
-<p>F3 (why you directed AI a certain way) lands in your project
+<p>Rationale (why you directed AI a certain way) lands in your project
 narrative.</p>
 </div>
 <div id="thats-it-for-today" class="slide section level1">
 <h1>That’s It For Today</h1>
 <ul>
-<li>Next lecture (W6): behavioral I — use cases + sequence.</li>
+<li>Next lecture (Week 6): behavioral I — use cases + sequence.</li>
 <li>Next week’s lab (Lab 3): team defect hunt on flawed structural
 artifacts.</li>
 </ul>
