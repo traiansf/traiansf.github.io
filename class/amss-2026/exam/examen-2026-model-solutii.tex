@@ -1,0 +1,120 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[romanian]{babel}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{framed}
+
+\title{AMSS 2026 — Examen restanță (model) \\ \large Soluții și barem orientativ}
+\author{Traian-Florin Șerbănuță}
+\date{2026}
+
+\begin{document}
+\maketitle
+
+\begin{framed}
+\noindent Acestea sunt \textbf{soluții model pentru subiectul-model}
+(domeniul bike-sharing din `examen-2026.pdf`). Subiectul real de la
+restanță folosește \textbf{alt scenariu} — dar \textbf{baremul și modul
+de notare sunt aceleași}. Folosește acest document ca să înțelegi
+\emph{ce se așteaptă} de la tine, nu ca listă de răspunsuri de memorat.
+\end{framed}
+
+\bigskip
+
+\section*{Cum se notează (barem orientativ)}
+
+Examenul oglindește rubrica apărării orale (F1 + F3 + F4). Se notează
+\textbf{competența}, nu prezentarea. Pondere orientativă:
+
+\begin{description}[leftmargin=4.5em,style=nextline]
+  \item[Partea I (F1) — \char`~50\%] Identificarea defectelor: cel puțin
+        cinci defecte reale, fiecare cu \emph{categorie}, \emph{severitate}
+        și \emph{corecție}. Răspuns slab: „arată ciudat" fără categorie
+        sau corecție.
+  \item[Partea II (F3) — \char`~25\%] O \emph{regulă de domeniu concretă}
+        plus un \emph{criteriu clar de respingere}. Răspuns slab: „aș cere
+        AI-ului o diagramă corectă", fără regulă și fără criteriu.
+  \item[Partea III (F4) — \char`~25\%] Identificarea inconsistenței
+        \emph{plus} parcurgerea lanțului de trasabilitate \emph{plus}
+        corecția. Răspuns slab: „multiplicitatea e greșită", fără traseu.
+\end{description}
+
+\section*{Partea I — Critică (F1): soluție model}
+
+Defectele plantate în artefactele-model (minim cinci așteptate):
+
+\paragraph{Diagrama de clase.}
+
+\begin{longtable}{p{4.2cm} p{1.8cm} p{6cm}}
+\textbf{Defect (categorie)} & \textbf{Severitate} & \textbf{Corecție} \\
+\hline
+\endhead
+clasă-zeu: \texttt{BikeSystem} (ține tot + \texttt{doEverything()}) &
+critică & distribuie responsabilitățile pe \texttt{Rental},
+\texttt{Bike}, \texttt{Station}; elimină clasa-zeu \\
+multiplicitate greșită: \texttt{Rental "*" -- "*" Bike} & critică &
+R1: o închiriere = o bicicletă → \texttt{Rental "*" -- "1" Bike} \\
+agregare lipsă: \texttt{Station -- Bike} (linie simplă) & majoră &
+R2: stația \emph{deține} biciclete care îi supraviețuiesc →
+\texttt{Station o-- Bike} \\
+asociere vagă: \texttt{Rental -> Payment} fără multiplicitate & minoră &
+precizează multiplicitatea (o închiriere are o plată) \\
+\end{longtable}
+
+\paragraph{Diagrama de stare (Bike).}
+
+\begin{longtable}{p{4.2cm} p{1.8cm} p{6cm}}
+\textbf{Defect (categorie)} & \textbf{Severitate} & \textbf{Corecție} \\
+\hline
+\endhead
+stare orfană / cerință nemodelată: nimic nu intră în
+\texttt{Maintenance} (R3 cere ca o bicicletă cu defect să intre în
+mentenanță) & majoră & adaugă \texttt{InUse --> Maintenance : fault} \\
+lipsă pseudo-stare inițială: nu există \texttt{[*] --> Available} &
+majoră & adaugă starea inițială \\
+\end{longtable}
+
+\section*{Partea II — Raționament (F3): răspuns model}
+
+\textit{R3: o bicicletă cu defect intră în mentenanță și revine
+disponibilă după reparație.}
+
+\begin{quote}
+Aș specifica regula de domeniu explicit: „din \texttt{InUse}, o
+bicicletă cu defect trece în \texttt{Maintenance}; din
+\texttt{Maintenance} revine în \texttt{Available} după reparație;
+mașina are o stare inițială (\texttt{Available})." Aș cere ca fiecare
+stare să fie \emph{accesibilă} și să aibă o ieșire.
+
+Aș \textbf{respinge}: o stare \texttt{Maintenance} fără tranziție de
+intrare (orfană); absența stării inițiale; tranziții fără eveniment;
+stări inventate care nu derivă din R3.
+\end{quote}
+
+Se punctează: regula de domeniu concretă \emph{și} criteriul de
+respingere. „Aș cere o diagramă bună" nu primește punctaj.
+
+\section*{Partea III — Trasabilitate (F4): răspuns model}
+
+\textit{R1: o închiriere este pentru exact o bicicletă.}
+
+\begin{quote}
+R1 spune \emph{exact o bicicletă}. Diagrama arată
+\texttt{Rental "*" -- "*" Bike} (mulți-la-mulți): o închiriere ar putea
+referi mai multe biciclete. \textbf{Inconsistență directă.}
+
+Lanțul de trasabilitate: R1 (cerință) → use case „Închiriază
+bicicletă" → clasa \texttt{Rental} și relația ei cu \texttt{Bike}.
+Citind multiplicitatea cu voce tare — „o închiriere are mai multe
+biciclete?" — contrazice R1. Corecție: \texttt{Rental "*" -- "1" Bike}.
+\end{quote}
+
+Se punctează: identificarea inconsistenței \emph{plus} parcurgerea
+lanțului cerință→model \emph{plus} corecția.
+
+\end{document}
