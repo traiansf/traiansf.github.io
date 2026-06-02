@@ -14,14 +14,14 @@ Proiectul de echipă este coloana vertebrală a evaluării: **8 din cele 10 punc
 
 Pe tot parcursul proiectului joci două roluri simultan:
 
-- **Arhitect / director.** Conduci AI prin SDLC — aduni cerințe, generezi modele, alegi pattern-uri, produci teste și cod.
+- **Arhitect / director.** Conduci AI prin ciclul de dezvoltare software (SDLC) — aduni cerințe, generezi modele, alegi pattern-uri, produci teste și cod.
 - **Critic / recenzent.** Citești critic ce produce AI — identifici defectele (fabricație, multiplicități greșite, stări orfane, pattern-uri aplicate decorativ) și propui corecții.
 
 Trei consecințe pe care trebuie să le internalizezi:
 
 1. **AI este unealta implicită, nu o excepție.** Fiecare artefact (cerințe, modele, cod, teste) se generează în mod normal *cu* AI. Valoarea ta este direcția, judecata și corectarea.
 2. **Se notează traseul, nu sistemul.** Se evaluează: narativul de design dirijat, setul final de artefacte revizuite și apărarea orală. *Nu* se notează: codul care rulează, rata brută de teste trecute, diagrame desenate de mână.
-3. **Implementarea este o pârghie, nu un livrabil.** Bucla TDD-cu-AI este obligatorie, dar nota stă în *documentarea* a ceea ce a dezvăluit bucla despre precizia specificației — nu în faptul că livrezi cod care merge.
+3. **Implementarea este o pârghie, nu un livrabil.** Bucla de dezvoltare ghidată de teste (TDD) cu AI este obligatorie, dar nota stă în *documentarea* a ceea ce a dezvăluit bucla despre precizia specificației — nu în faptul că livrezi cod care merge.
 
 ## Echipă și temă
 
@@ -42,7 +42,7 @@ Toate artefactele, jurnalele și transcripturile trăiesc într-un **repository 
 
 - **Model de ansamblu al sistemului** — o singură diagramă la nivel înalt, pregătită împreună, care arată întregul sistem și cum se încadrează sliceul fiecărui student.
 - **Document comun de cerințe** — fiecare cerință trasabilă către unul sau mai multe sliceuri individuale.
-- **Prezentare finală** — susținută împreună în W14 + Lab 7: fiecare student își prezintă sliceul, iar echipa prezintă ansamblul.
+- **Prezentare finală** — susținută împreună în săptămâna 14 + Lab 7: fiecare student își prezintă sliceul, iar echipa prezintă ansamblul.
 
 ## Livrabile per student
 
@@ -53,23 +53,23 @@ Fiecare student deține un **slice** coerent al sistemului și produce, în repo
 3. **Două diagrame UML pentru slice** — una **structurală** (de regulă de clasă) și una **comportamentală** (use case / secvență / stare / activitate), de tipuri diferite. Generate de AI, revizuite și corectate de tine.
    - **Regula „fără diagrame auto-generate" din 2025 este inversată.** Generarea cu AI este acum implicită; *traseul de revizuire* — ce ai schimbat și de ce — este noua dovadă a muncii tale.
 4. **Reflecție TDD-cu-AI** (≤ 2 pagini). Rulezi bucla pe cel puțin o caracteristică a sliceului: specificație → AI generează teste → AI generează cod → testele trec/cad → *ce au dezvăluit eșecurile despre specificație*. Codul este un produs secundar; se citește reflecția.
-5. **Cel puțin un design pattern** aplicat în slice, cu motivație (echipa, în total, ≥ 2 pattern-uri). **Aplicat, nu doar etichetat** — structura pattern-ului trebuie să fie prezentă, nu doar numele (vezi W8–W9).
+5. **Cel puțin un design pattern** aplicat în slice, cu motivație (echipa, în total, ≥ 2 pattern-uri). **Aplicat, nu doar etichetat** — structura pattern-ului trebuie să fie prezentă, nu doar numele (vezi săptămânile 8–9).
 
-## Apărarea orală (F1 + F3 + F4)
+## Apărarea orală (Critică / Raționament / Trasabilitate)
 
-În W14, fiecare student susține o **apărare la rece, neasistată** — fără AI în cameră. Aceasta este verificarea de integritate a proiectului și valorează **3 din 8 puncte**. Trebuie să demonstrezi:
+În săptămâna 14, fiecare student susține o **apărare la rece, neasistată** — fără AI în cameră. Aceasta este verificarea de integritate a proiectului și valorează **3 din 8 puncte**. Trebuie să demonstrezi:
 
-- **F1 — Citește și critică pe loc.** Dată orice diagramă UML generată de AI (din repository-ul *oricărei* echipe), identifici defecte, elemente lipsă, relații greșite.
-- **F3 — Articulează raționamentul.** Explici de ce ai dirijat AI într-un anume fel și ce ai acceptat sau respins.
-- **F4 — Apără trasabilitatea.** Navighezi proiectul tău cap-coadă: cerință → use case → clasă → stare/secvență → test.
+- **Critică — Citește și critică pe loc.** Dată orice diagramă UML generată de AI (din repository-ul *oricărei* echipe), identifici defecte, elemente lipsă, relații greșite.
+- **Raționament — Articulează raționamentul.** Explici de ce ai dirijat AI într-un anume fel și ce ai acceptat sau respins.
+- **Trasabilitate — Apără trasabilitatea.** Navighezi proiectul tău cap-coadă: cerință → use case → clasă → stare/secvență → test.
 
-Cursul W10 (trasabilitate) și W12 (prezentare și apărare) te pregătesc direct pentru acest moment; Lab 6 este repetiția la rece.
+Cursul din săptămâna 10 (trasabilitate) și cel din săptămâna 12 (prezentare și apărare) te pregătesc direct pentru acest moment; Lab 6 este repetiția la rece.
 
 ## Barem (8 puncte)
 
 | Componentă | Puncte | Evaluat pe |
 |---|---|---|
-| **Apărare orală** (W14) | **3** | F1+F3+F4 demonstrate *la rece*: citești și critici orice diagramă, articulezi raționamentul sliceului, aperi trasabilitatea. *Verificarea de integritate.* |
+| **Apărare orală** (săptămâna 14) | **3** | Critică, raționament și trasabilitate demonstrate *la rece*: citești și critici orice diagramă, articulezi raționamentul sliceului, aperi trasabilitatea. *Verificarea de integritate.* |
 | **Narativ de design + defect log** | **2** | Traseul vizibil al muncii de arhitect/critic. Înlocuiește vechea linie „diagrame" — diagramele sunt acum output-uri AI ușoare; contează ce ai *făcut* cu ele. |
 | **Calitatea documentației** | **1** | Coerența modelului de ansamblu, trasabilitatea cerințelor, claritatea prezentării, igiena repository-ului. |
 | **Design patterns** | **1** | Au fost pattern-urile alese deliberat, sau le-a decorat AI peste cod? Evaluat prin lentila designului dirijat. |
@@ -91,15 +91,15 @@ La ultimul laborator înainte de vacanța de iarnă, fiecare student susține o 
 
 Proiectul este integrarea întregului semestru — fiecare etapă a SDLC a fost antrenată undeva:
 
-- **Cerințe** — W2 + Lab 1 (onboarding unelte + cerințe cu AI).
-- **Specificații testabile / TDD** — W3.
-- **Diagrame structurale** — W4 (clasă) + W5 (alte vederi) + Lab 2.
-- **Diagrame comportamentale** — W6 (use case + secvență) + W7 (stare + activitate).
+- **Cerințe** — săptămâna 2 + Lab 1 (onboarding unelte + cerințe cu AI).
+- **Specificații testabile / TDD** — săptămâna 3.
+- **Diagrame structurale** — săptămâna 4 (clasă) + săptămâna 5 (alte vederi) + Lab 2.
+- **Diagrame comportamentale** — săptămâna 6 (use case + secvență) + săptămâna 7 (stare + activitate).
 - **Critică / red-team** — Lab 3 (structural) + Lab 4 (comportamental).
-- **Design patterns** — W8 (selecție) + W9 (aplicat vs etichetat).
-- **Trasabilitate (F4)** — W10 + checkpoint-ul din Lab 5.
-- **Prezentare și apărare** — W12 + repetiția din Lab 6.
-- **Prezentări finale** — W14 + Lab 7.
+- **Design patterns** — săptămâna 8 (selecție) + săptămâna 9 (aplicat vs etichetat).
+- **Trasabilitate** — săptămâna 10 + checkpoint-ul din Lab 5.
+- **Prezentare și apărare** — săptămâna 12 + repetiția din Lab 6.
+- **Prezentări finale** — săptămâna 14 + Lab 7.
 
 ## Nota finală
 
@@ -107,7 +107,7 @@ Proiectul este integrarea întregului semestru — fiecare etapă a SDLC a fost 
 
 ## Examen scris (restanță)
 
-Pentru sesiunea de restanțe, examenul scris testează același nivel F1+F3+F4 ca apărarea orală, în scris, fără AI în cameră (format **R2**: critică F1 + raționament F3 + trasabilitate F4). Vezi `../exam/examen-2026.pdf`.
+Pentru sesiunea de restanțe, examenul scris testează același nivel ca apărarea orală, într-o lucrare scrisă, fără AI în cameră (critică, raționament și trasabilitate, ca la apărarea orală). Vezi `../exam/examen-2026.pdf`.
 
 ## Unelte
 

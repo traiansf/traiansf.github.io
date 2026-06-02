@@ -15,7 +15,7 @@ Three phases, 100 minutes — **you work solo this time.**
 Deliverable: a PlantUML class diagram + a critique log (1 page max), committed to the course lab repo.
 
 ::: notes
-The hands-on follow-through of the W4 lecture. In W4 you watched the architect-critic loop on a bike-sharing class diagram; today you run it yourself, alone, on a different domain. Solo — because the oral defense is individual and cold.
+The hands-on follow-through of the Week 4 lecture. In Week 4 you watched the architect-and-critic loop on a bike-sharing class diagram; today you run it yourself, alone, on a different domain. Solo — because the oral defense is individual and cold.
 :::
 
 ---
@@ -52,7 +52,7 @@ The full spec is also seeded in lab02/README.md. The traps are natural: title-vs
 
 # Your Job — the Loop
 
-The same architect-critic loop from W4, run solo:
+The same architect-and-critic loop from Week 4, run solo:
 
 **drive AI → read with the 4-step order → name the defects → re-prompt with domain rules → re-read.**
 
@@ -61,7 +61,7 @@ The same architect-critic loop from W4, run solo:
 - Log what you caught and why you re-prompted as you go — that log is the deliverable.
 
 ::: notes
-Two iterations is the W4 mandate ("iterate at least twice"). The student is both architect and critic — no partner to swap with. The running log is the F1/F3 evidence; don't reconstruct it afterward.
+Two iterations is the Week 4 mandate ("iterate at least twice"). The student is both architect and critic — no partner to swap with. The running log is the Critique/Rationale evidence; don't reconstruct it afterward.
 :::
 
 ---
@@ -80,7 +80,7 @@ The bare prompt is on purpose — against an honest spec it reliably collapses t
 
 ---
 
-# The Read-Order (from W4)
+# The Read-Order (from Week 4)
 
 A fixed order, every time:
 
@@ -92,12 +92,12 @@ A fixed order, every time:
 This is your critique-log rubric.
 
 ::: notes
-Identical to W4's "How to Read an AI Class Diagram" slide. A repeatable read-order beats ad-hoc staring — it is also exactly what the oral defense drills.
+Identical to Week 4's "How to Read an AI Class Diagram" slide. A repeatable read-order beats ad-hoc staring — it is also exactly what the oral defense drills.
 :::
 
 ---
 
-# The Five Defects (from W4)
+# The Five Defects (from Week 4)
 
 Name them with this vocabulary:
 
@@ -108,7 +108,7 @@ Name them with this vocabulary:
 - **God class** — one class that holds everything and does everything.
 
 ::: notes
-The W4 catalogue, verbatim. The critique log must use these names; the grading gate checks for at least two of them, correctly applied.
+The Week 4 catalogue, verbatim. The critique log must use these names; the grading gate checks for at least two of them, correctly applied. The 7-item defect card later in this lab is just these five made concrete (title-vs-copy and is-a-as-attribute are instances of *invented class* / *wrong multiplicity* in this domain).
 :::
 
 ---
@@ -122,7 +122,7 @@ Fix the worst defects by stating the rules the AI got wrong. For this domain, th
 Regenerate, re-read with the 4-step order, log what changed. **This is iteration 1.**
 
 ::: notes
-Naming the domain rules is the scaffold move from W4's demo prompt #2. The title-vs-copy split is the signature fix — it converts the wrong many-to-many into Member–Loan–Copy.
+Naming the domain rules is the scaffold move from Week 4's demo prompt #2. The title-vs-copy split is the signature fix — it converts the wrong many-to-many into Member–Loan–Copy.
 :::
 
 ---
@@ -143,7 +143,7 @@ Residual catalogue entries: invented infrastructure, the god class, and is-a-as-
 
 # Defect Card — Library Kiosk
 
-If the draft looks complete, stress these — name the closest W4 defect:
+If the draft looks complete, stress these — name the closest Week 4 defect:
 
 - `Member "*" -- "*" Book` — **wrong multiplicity** (a loan is one copy to one member).
 - Book and Copy as one class — collapses title vs physical item.
@@ -168,7 +168,7 @@ On branch `lab02/<student-id>`, commit:
 - `lab02/<student-id>/transcript.md` — optional but recommended: your raw prompt/output trail.
 
 ::: notes
-The transcript is your raw F3 evidence; optional for the gate, but it is what we look at if a log is borderline. Keep the best diagram, not the first.
+The transcript is your raw Rationale evidence; optional for the gate, but it is what we look at if a log is borderline. Keep the best diagram, not the first.
 :::
 
 ---
@@ -177,14 +177,14 @@ The transcript is your raw F3 evidence; optional for the gate, but it is what we
 
 Structured by the read-order. One short block per iteration (Round 1, re-prompt 1, re-prompt 2):
 
-- **Defects found** — each: W4 name, where, severity (high / med / low).
-- **Re-prompt move and why** — which domain rule you named and the reason. *(F3 — graded.)*
+- **Defects found** — each: Week 4 name, where, severity (high / med / low).
+- **Re-prompt move and why** — which domain rule you named and the reason. *(Rationale — graded.)*
 - **What changed** after regenerating.
 
 Close with **one residual risk** — a defect the AI never got right.
 
 ::: notes
-The "why" line is the graded one. "The diagram was wrong, I asked again" is not a rationale. The residual-risk line seeds F4: a wrong structure propagates to the tests and the code.
+The "why" line is the graded one. "The diagram was wrong, I asked again" is not a rationale. The residual-risk line seeds Traceability: a wrong structure propagates to the tests and the code.
 :::
 
 ---
@@ -214,12 +214,12 @@ Substitute your real student-id everywhere `<student-id>` appears. You likely al
 Pass needs both:
 
 1. `diagram.puml` (renders) and `critique-log.md` both committed by the deadline.
-2. Your log names **at least two** distinct W4 defects correctly **and** gives a real reason for at least one re-prompt (not just what you typed).
+2. Your log names **at least two** distinct Week 4 defects correctly **and** gives a real reason for at least one re-prompt (not just what you typed).
 
 A vacuous log ("the diagram was wrong, I fixed it") is a redo, not a fail. We grade your critique and reasoning — not the diagram's polish.
 
 ::: notes
-Low-stakes literacy gate. The bar is on F1 (naming defects) and F3 (rationale), not on diagram quality. Grading the diagram would reward the AI's output over the student's critique.
+Low-stakes literacy gate. The bar is on Critique (naming defects) and Rationale (the why), not on diagram quality. Grading the diagram would reward the AI's output over the student's critique.
 :::
 
 ---
@@ -228,7 +228,7 @@ Low-stakes literacy gate. The bar is on F1 (naming defects) and F3 (rationale), 
 
 - A few students present the defect they caught that mattered most + the re-prompt move that fixed it.
 - We tally, live, which defects the AI produced across the room.
-- Same spec, same domain, ~100 of us → a real structural-defect map.
+- Same spec, same domain, the whole room → a real structural-defect map.
 
 The defects you tally are exactly what you critique every week — and in the oral defense.
 
@@ -240,10 +240,10 @@ Instructor pre-selects presenters by scanning pushed logs during the drill, aimi
 
 # Why This Matters
 
-A wrong class structure does not stay contained — it propagates to the sequence diagrams (W6), the tests, and the code.
+A wrong class structure does not stay contained — it propagates to the sequence diagrams (Week 6), the tests, and the code.
 
-Today you drilled **F1** (read & critique a diagram) and **F3** (say *why* you re-prompted). Next: **W5** widens to the other structural views; **Lab 3** flips you to red-team — hunting *planted* defects in artifacts we prepare.
+Today you drilled **Critique** (read & critique a diagram) and **Rationale** (say *why* you re-prompted). Next: **Week 5** widens to the other structural views; **Lab 3** flips you to red-team — hunting *planted* defects in artifacts we prepare.
 
 ::: notes
-Closer. Tie back to the literacy floor and forward to W5 (other structural views) and Lab 3 (the critique/red-team lab). F4 is seeded by the residual-risk line: a wrong structure propagates downstream.
+Closer. Tie back to the literacy floor and forward to Week 5 (other structural views) and Lab 3 (the critique/red-team lab). Traceability is seeded by the residual-risk line: a wrong structure propagates downstream.
 :::

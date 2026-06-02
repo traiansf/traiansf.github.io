@@ -12,25 +12,25 @@ date: "2026"
 4. Prompting for elicitation
 5. AI failure modes catalogue
 6. Use cases as a structuring lens
-7. Bridge to W3 + Lab 1 preview
+7. Bridge to Week 3 + Lab 1 preview
 
 ::: notes
 Today is content; Lab 1 this week is your hands-on follow-through. The demo previews what Lab 1 asks you to do in pairs.
 
-No re-introduction. Students saw who I was in W1. Open straight into structure.
+No re-introduction. Students saw who I was in Week 1. Open straight into structure.
 :::
 
 ---
 
-# Recap: Architect + Critic
+# Recap: Architect and Critic
 
-- **Architect / director (B):** drive AI through the SDLC.
-- **Critic / reviewer (A):** read AI's output and name what's wrong or missing.
+- **Architect / director:** drive AI through the software development lifecycle (SDLC).
+- **Critic / reviewer:** read AI's output and name what's wrong or missing.
 
 Last week you saw one cycle of this on a class diagram. Today: same loop, different artifact.
 
 ::: notes
-Slidy `. . .` not used here — students already saw the reveal in W1. Plain bullets are fine for the recap.
+Slidy `. . .` not used here — students already saw the reveal in Week 1. Plain bullets are fine for the recap.
 :::
 
 ---
@@ -38,7 +38,7 @@ Slidy `. . .` not used here — students already saw the reveal in W1. Plain bul
 # Today's Loop Runs on Requirements
 
 - Architect prompt → AI generates a requirements doc.
-- Critic reads it → finds fabrication, vague NFRs, over-spec'ing.
+- Critic reads it → finds fabrication, vague non-functional requirements (NFRs), over-spec'ing.
 - Architect re-prompts with structure → AI tightens.
 
 Each pass costs ~3-5 minutes with current models. In practice you'd iterate 3-5 times before locking the doc.
@@ -64,18 +64,18 @@ Section preview. Brief. Students see the spine before the demo so they have hook
 
 ---
 
-# Literacy Floor: F1 + F3 + F4
+# The Literacy Floor: Critique, Rationale, Traceability
 
-From W1: in the oral defense, *unaided*, you must demonstrate:
+From Week 1: in the oral defense, *unaided*, you must demonstrate:
 
-- **F1** — read & critique any AI-generated artifact on the spot.
-- **F3** — articulate why you directed AI a certain way and what you accepted or rejected.
-- **F4** — defend traceability across your project: requirement → use case → class → state/sequence → test.
+- **Critique** — read & critique any AI-generated artifact on the spot.
+- **Rationale** — articulate why you directed AI a certain way and what you accepted or rejected.
+- **Traceability** — defend the trace across your project: requirement → use case → class → state/sequence → test.
 
-Today drills F1 (failure-modes catalogue) and seeds F4 (traceability starts at requirements).
+Today drills Critique (failure-modes catalogue) and seeds Traceability (traceability starts at requirements).
 
 ::: notes
-First of two F1+F3+F4 mentions today (the second lands in the close). Deliberate repetition — say it the same way each time.
+First of two Critique, Rationale, Traceability mentions today (the second lands in the close). Deliberate repetition — say it the same way each time.
 :::
 
 ---
@@ -131,7 +131,7 @@ Foreshadows §5.6 failure-modes catalogue. Don't name "fabrication" yet — that
 > If you can't write a test that proves it, it's not a requirement.
 
 ::: notes
-This line ("if you can't write a test...") foreshadows the W3 testable-specs mantra. Plant it here; W3 picks it up explicitly.
+This line ("if you can't write a test...") foreshadows the Week 3 testable-specs mantra. Plant it here; Week 3 picks it up explicitly.
 :::
 
 ---
@@ -191,9 +191,9 @@ This is the move the demo's prompt #2 demonstrated. Re-anchor by referring back 
 
 # Prompting Move #2: Stakeholder Role Priming
 
-**Without priming:** *"List non-functional requirements for the kiosk."*
+**Without priming:** *"List non-functional requirements for the bike-sharing station kiosk."*
 
-**With priming:** *"You are a safety auditor for urban micromobility. List non-functional requirements for the kiosk from that role."*
+**With priming:** *"You are a safety auditor for urban micromobility. List non-functional requirements for the bike-sharing station kiosk from that role."*
 
 The role concentrates AI's output on what that role cares about — safety NFRs become concrete, ones outside the role drop.
 
@@ -253,7 +253,7 @@ Most common failure mode for requirements. AI compensates for thin prompts by fi
 
 **Definition:** AI produces dozens of requirements when the system needs a handful.
 
-**Example:** 30 separate REQs covering theft prevention, GPS jamming detection, weather sensors, accelerometer alerts, GDPR data-export, audit logs, … for a kiosk that mostly rents bikes.
+**Example:** 30 separate REQs covering theft prevention, GPS jamming detection, weather sensors, accelerometer alerts, GDPR data-export, audit logs, … for a bike-sharing station kiosk that mostly rents bikes.
 
 **Critique question:** *"Read the top 5. Does the system fail without each one? What's load-bearing?"*
 
@@ -272,7 +272,7 @@ This is the lazy version of over-engineering — AI doesn't have to choose what 
 **Critique question:** *"Can you write a test that proves this? If not, it's not a requirement."*
 
 ::: notes
-Plants the W3 mantra a second time. Vague NFRs are the loudest signal of a thin requirements pass — students should learn to spot them in seconds.
+Plants the Week 3 mantra a second time. Vague NFRs are the loudest signal of a thin requirements pass — students should learn to spot them in seconds.
 :::
 
 ---
@@ -305,6 +305,24 @@ Redis is not a requirement — it's an implementation. The actual requirement is
 
 ::: notes
 This conflates requirements with design. AI does it because training data conflates them. Be ruthless about cutting tech choices from requirements; they re-enter at architecture.
+:::
+
+---
+
+# Your Turn: Name the Failure Mode
+
+Here's one AI-generated requirement:
+
+> *"REQ-7: the system shall use Redis for caching."*
+
+With your neighbour (60s): which of the five failure modes is this, and what's your critique question?
+
+. . .
+
+**Reveal:** Fabricated Technology Choices — Redis is an implementation, not a need. Critique question: *"What user need does Redis serve? Where's the measurable requirement underneath?"*
+
+::: notes
+Quick pair beat right after the catalogue. Let pairs commit to an answer before the reveal — the Redis example deliberately matches Failure Mode #5, but accept "vague NFR" arguments too (the real requirement is a latency threshold). Time-box hard: 60 seconds, one or two pairs report, then reveal and move on.
 :::
 
 ---
@@ -362,11 +380,11 @@ This is the central move of the lecture. The architect-half doesn't write requir
 
 ---
 
-# UML Notation Is Coming — In W6
+# UML Notation Is Coming — In Week 6
 
 Today: "use case" as a structural noun. No diagrams.
 
-In **W6** (Behavioral I): the UML notation — actors, ovals, system boundary, include / extend / generalization relationships. Plus sequence diagrams.
+In **Week 6** (Behavioral I): the UML notation — actors, ovals, system boundary, include / extend / generalization relationships. Plus sequence diagrams.
 
 Until then: think of use cases as labeled buckets for requirements, nothing more.
 
@@ -395,32 +413,32 @@ Lab 1 spec is its own document (forthcoming). Keep this slide high-level so it s
 
 If AI cannot produce a passing test from your spec, your spec is too vague.
 
-W3 reframes the requirements loop as a test-generation loop. The mantra above is the heuristic; W3 turns it into a discipline.
+Week 3 reframes the requirements loop as a test-generation loop. The mantra above is the heuristic; Week 3 turns it into a discipline.
 
 ::: notes
-W3 mantra planted three times now (failure-mode #3 slide, NFR-failure slide, here). Repetition is deliberate — it's the bridge between requirements and the rest of the SDLC.
+Week 3 mantra planted three times now (failure-mode #3 slide, NFR-failure slide, here). Repetition is deliberate — it's the bridge between requirements and the rest of the software development lifecycle.
 :::
 
 ---
 
-# F1 + F3 + F4 — The Through-Line
+# Critique, Rationale, Traceability — The Through-Line
 
 Today you drilled:
 
-- **F1** — read AI's requirements output and named the failure modes.
-- **F4** — saw why traceability starts at requirements: if requirements are fabricated, every downstream artifact inherits the fabrication.
+- **Critique** — read AI's requirements output and named the failure modes.
+- **Traceability** — saw why traceability starts at requirements: if requirements are fabricated, every downstream artifact inherits the fabrication.
 
-F3 (articulating *why* you directed AI a certain way) lands as you produce your own logs in Lab 1.
+Rationale (articulating *why* you directed AI a certain way) lands as you produce your own logs in Lab 1.
 
 ::: notes
-Second and final F1+F3+F4 mention in W2. Same wording as the frame slide — deliberate.
+Second and final Critique, Rationale, Traceability mention in Week 2. Same wording as the frame slide — deliberate.
 :::
 
 ---
 
 # That's It For Today
 
-- Next lecture (W3): testable specs and TDD-as-spec.
+- Next lecture (Week 3): testable specs and test-driven development (TDD)-as-spec.
 - This week's lab (Lab 1): drive AI to produce a requirements doc, log what failed.
 
 Questions?

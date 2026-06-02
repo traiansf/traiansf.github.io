@@ -11,52 +11,52 @@ date: "2026"
 3. Live opener: drive AI to a Bike state machine
 4. Reading critically: orphan states, dead ends, missed guards
 5. The behaviour read-order
-6. Bridge to W8 + Lab 4
+6. Bridge to Week 8 + Lab 4
 
 ::: notes
-W6 modelled one interaction (a sequence). Today we model an object's whole lifecycle (state machine) and a workflow's branching/parallel structure (activity). The named payload is state-machine defects: orphan states, unreachable transitions, missed guards. No re-introduction — open into the interaction-to-lifecycle bridge.
+Week 6 modelled one interaction (a sequence). Today we model an object's whole lifecycle (state machine) and a workflow's branching/parallel structure (activity). The named payload is state-machine defects: orphan states, unreachable transitions, missed guards. No re-introduction — open into the interaction-to-lifecycle bridge.
 :::
 
 ---
 
-# Recap: Architect + Critic
+# Recap: Architect and Critic
 
-- **Architect / director (B):** drive AI through the SDLC.
-- **Critic / reviewer (A):** read AI's output and name what's wrong or missing.
+- **Architect / director:** drive AI through the software development lifecycle (SDLC).
+- **Critic / reviewer:** read AI's output and name what's wrong or missing.
 
-In W6 you critiqued an AI *interaction* (a sequence). Today: the same loop, on a *lifecycle* and a *workflow*.
+In Week 6 you critiqued an AI *interaction* (a sequence). Today: the same loop, on a *lifecycle* and a *workflow*.
 
 ::: notes
-One breath of recap. W6 was inter-object interaction over one path; today is intra-object lifecycle (state) and whole-workflow control flow (activity).
+One breath of recap. Week 6 was inter-object interaction over one path; today is intra-object lifecycle (state) and whole-workflow control flow (activity).
 :::
 
 ---
 
 # From One Interaction to a Whole Lifecycle
 
-- **W6 pinned one interaction** — the messages for "rent a bike", one path through one use case.
+- **Week 6 pinned one interaction** — the messages for "rent a bike", one path through one use case.
 - **Today: the whole behaviour** — a `Bike` lives through many **states**; a rental **workflow** branches and runs in parallel.
 
 Today's question: **can the object actually reach — and leave — every state the model claims?**
 
 ::: notes
-The bridge from W6. A sequence shows one successful path; it says nothing about all the states an object passes through or what happens on every branch. State machines and activity diagrams fill that in — and it's where AI strands states and forgets to merge.
+The bridge from Week 6. A sequence shows one successful path; it says nothing about all the states an object passes through or what happens on every branch. State machines and activity diagrams fill that in — and it's where AI strands states and forgets to merge.
 :::
 
 ---
 
-# Literacy Floor: F1 + F3 + F4
+# The Literacy Floor: Critique, Rationale, Traceability
 
-From W1: in the oral defense, *unaided*, you must demonstrate:
+From Week 1: in the oral defense, *unaided*, you must demonstrate:
 
-- **F1** — read & critique AI-generated artifacts on the spot.
-- **F3** — articulate why you directed AI a certain way.
-- **F4** — defend traceability across your project.
+- **Critique** — read & critique AI-generated artifacts on the spot.
+- **Rationale** — articulate why you directed AI a certain way.
+- **Traceability** — defend the trace across your project.
 
-Today is F1 on lifecycles: read a state machine and name orphan states, unreachable transitions, missed guards. **F4 touch:** state and activity are behavioural nodes in the trace, alongside the W6 sequence.
+Today is Critique on lifecycles: read a state machine and name orphan states, unreachable transitions, missed guards. **Traceability touch:** state and activity are behavioural nodes in the trace, alongside the Week 6 sequence.
 
 ::: notes
-First of two F1+F3+F4 mentions. F1 anchored this week on state machines — reading one cold and naming a stranded state IS the oral-defense skill. Same wording in the close.
+First of two Critique, Rationale, Traceability mentions. Critique anchored this week on state machines — reading one cold and naming a stranded state IS the oral-defense skill. Same wording in the close.
 :::
 
 ---
@@ -118,7 +118,7 @@ Read every state, and ask:
 A state you can't reach, or can't leave, is a defect.
 
 ::: notes
-This is the F1 drill for state machines. Reachability and escapability are exactly what AI gets wrong — it adds a state and forgets to wire it in or out. Drill tracing paths from the initial state.
+This is the Critique drill for state machines. Reachability and escapability are exactly what AI gets wrong — it adds a state and forgets to wire it in or out. Drill tracing paths from the initial state.
 :::
 
 ---
@@ -190,7 +190,7 @@ Read the flow, and ask:
 A dangling branch or an unsynchronised fork is a defect.
 
 ::: notes
-The F1 drill for activity diagrams. The symmetry checks (decision/merge, fork/join) plus reachability of a final node. These are the activity analogues of the state machine's reachable/escapable checks.
+The Critique drill for activity diagrams. The symmetry checks (decision/merge, fork/join) plus reachability of a final node. These are the activity analogues of the state machine's reachable/escapable checks.
 :::
 
 ---
@@ -202,7 +202,19 @@ A state machine can list all the right states and still be broken: a state nothi
 > *"Can the object actually reach — and leave — every state, and is every branch decided?"*
 
 ::: notes
-Sets up the gallery — F1 applied to behaviour. The core defects are spec-named: orphan/unreachable states, and missed guards. AI lists states fluently but wires them carelessly, because a state box looks complete on its own.
+Sets up the gallery — Critique applied to behaviour. The core defects are spec-named: orphan/unreachable states, and missed guards. AI lists states fluently but wires them carelessly, because a state box looks complete on its own.
+:::
+
+---
+
+# Your Turn: Spot the Defect
+
+Look at the next state machine before we critique it.
+
+**20 seconds with your neighbour:** what's wrong with this lifecycle before we critique it?
+
+::: notes
+A quick pair beat right before the gallery. Let them try the reachable/escapable checks themselves on Defect #1's diagram — most rooms catch that nothing puts a bike into Maintenance. Take one answer, then reveal the named defect. Keep it tight, 20-30 seconds of discussion.
 :::
 
 ---
@@ -322,7 +334,7 @@ Available --> [*] : decommission
 Every state reachable *and* escapable, guards on the branch, initial and final present.
 
 ::: notes
-The critique result — the counterpart to W4's "the critic simplifies." Maintenance now has a way in (faultReported) and out (repaired); the reserve branch is guarded; the final transition exists. This is what the demo's prompt #2 converges toward.
+The critique result — the counterpart to Week 4's "the critic simplifies." Maintenance now has a way in (faultReported) and out (repaired); the reserve branch is guarded; the final transition exists. This is what the demo's prompt #2 converges toward.
 :::
 
 ---
@@ -338,7 +350,7 @@ A fixed order, every time:
 5. Is there a path to a **final**?
 
 ::: notes
-This IS the F1 drill for behaviour, and the rubric Lab 4 will hand teams next week for the state/activity artifacts (the sequence read-order from W6 covers the third). A repeatable read-order beats ad-hoc staring.
+This IS the Critique drill for behaviour, and the rubric Lab 4 will hand teams next week for the state/activity artifacts (the sequence read-order from Week 6 covers the third). A repeatable read-order beats ad-hoc staring.
 :::
 
 ---
@@ -347,7 +359,7 @@ This IS the F1 drill for behaviour, and the rubric Lab 4 will hand teams next we
 
 read -> name the orphan/unreachable/missed-guard -> re-prompt with the missing transitions + guards -> re-read.
 
-Same architect-critic loop as W2-W6 — now on a lifecycle and a workflow.
+Same architect-and-critic loop as Weeks 2-6 — now on a lifecycle and a workflow.
 
 ::: notes
 The loop is the through-line. The scaffold that tightens AI output here is naming the missing wiring — "how does a bike enter and leave Maintenance? guard the reserve branch" — exactly the demo's prompt #2.
@@ -357,58 +369,58 @@ The loop is the through-line. The scaffold that tightens AI output here is namin
 
 # The Human Decides the Real Lifecycle
 
-AI can list states and draw transitions forever. Whether the object can *actually* move through them — reach every state, leave every state, branch correctly — is the architect-critic call.
+AI can list states and draw transitions forever. Whether the object can *actually* move through them — reach every state, leave every state, branch correctly — is the architect-and-critic call.
 
 It's what the oral defense checks, and AI can't make it for you.
 
 ::: notes
-Reinforces ownership, mirroring W4-W6's closes. The defense grades whether the lifecycle is sound and complete, not whether the diagram is tidy.
+Reinforces ownership, mirroring Weeks 4-6's closes. The defense grades whether the lifecycle is sound and complete, not whether the diagram is tidy.
 :::
 
 ---
 
 # Looking Ahead: Lab 4 (Next Week)
 
-Lab 4 (W8) is a **team defect hunt on flawed behavioural artifacts** — sequence (W6) + state + activity (W7), same format as Lab 3.
+Lab 4 (Week 8) is a **team defect hunt on flawed behavioural artifacts** — sequence (Week 6) + state + activity (Week 7), same format as Lab 3.
 
 Today's behaviour read-orders are your defect-hunt rubric.
 
 ::: notes
-W7 has no lab of its own (labs are biweekly; Lab 4 runs in W8). The gallery we just walked is the Lab 4 format in miniature. The W6 sequence read-order plus today's state/activity read-order together are the full rubric. Keep high-level — the Lab 4 brief is its own document.
+Week 7 has no lab of its own (labs are biweekly; Lab 4 runs in Week 8). The gallery we just walked is the Lab 4 format in miniature. The Week 6 sequence read-order plus today's state/activity read-order together are the full rubric. Keep high-level — the Lab 4 brief is its own document.
 :::
 
 ---
 
-# Next Week: Patterns I (W8)
+# Next Week: Patterns I (Week 8)
 
-Behaviour is done — W6 (interactions) and W7 (lifecycles + workflows) cover *how the system behaves*.
+Behaviour is done — Week 6 (interactions) and Week 7 (lifecycles + workflows) cover *how the system behaves*.
 
-**W8:** design patterns — the reusable solutions, when to apply them, and how AI overuses or mislabels them. (Plus Lab 4, the behavioural defect hunt.)
+**Week 8:** design patterns — the reusable solutions, when to apply them, and how AI overuses or mislabels them. (Plus Lab 4, the behavioural defect hunt.)
 
 ::: notes
-Clean handoff. Structure (W4-W5) and behaviour (W6-W7) are complete; W8 opens patterns. Bike-sharing can carry into the patterns examples. Flag Lab 4 runs in W8.
+Clean handoff. Structure (Weeks 4-5) and behaviour (Weeks 6-7) are complete; Week 8 opens patterns. Bike-sharing can carry into the patterns examples. Flag Lab 4 runs in Week 8.
 :::
 
 ---
 
-# F1 + F3 + F4 — The Through-Line
+# Critique, Rationale, Traceability — The Through-Line
 
 Today you drilled:
 
-- **F1** — read an AI state machine and named its orphan states, dead ends, and missed guards.
-- **F4** — state and activity join the sequence as behavioural nodes in the trace: requirement -> use case -> sequence / state / activity -> class.
+- **Critique** — read an AI state machine and named its orphan states, dead ends, and missed guards.
+- **Traceability** — state and activity join the sequence as behavioural nodes in the full trace: requirement -> use case -> class -> sequence / state / activity -> test.
 
-F3 (why you directed AI a certain way) lands in your project narrative.
+Rationale (why you directed AI a certain way) lands in your project narrative.
 
 ::: notes
-Second and final F1+F3+F4 mention. F1 anchored, same wording as the frame. The trace line now spans structure (W4-W5) and full behaviour (W6-W7), keeping F4 continuity without a dedicated segment.
+Second and final Critique, Rationale, Traceability mention. Critique anchored, same wording as the frame. The trace line now spans structure (Weeks 4-5) and full behaviour (Weeks 6-7), keeping Traceability continuity without a dedicated segment.
 :::
 
 ---
 
 # That's It For Today
 
-- Next lecture (W8): patterns I — selection.
+- Next lecture (Week 8): patterns I — selection.
 - Next week's lab (Lab 4): team defect hunt on flawed behavioural artifacts.
 
 Questions?

@@ -6,7 +6,7 @@ date: "2026"
 
 # Lab 4: Red-Team the Behaviour
 
-Three phases, 100 minutes — **teams of 3-4. Same format as Lab 3.**
+Three phases, 100 minutes — **teams of 3-5. Same format as Lab 3.**
 
 1. **Brief + rubric** (~10 min) — the domain, the three artifacts, the read-order.
 2. **Defect hunt** (~60 min) — hunt every planted defect in three flawed behavioural artifacts, rating each by severity.
@@ -25,17 +25,17 @@ The second critique/red-team lab. Lab 3 hunted flawed structure (class, package,
 - **Lab 3:** you red-teamed flawed **structural** artifacts — class, package, component.
 - **Today:** flawed **behavioural** artifacts — sequence, state, activity.
 
-Same architect-critic loop, all critic. No AI to drive — pure reading and critique, against the clock.
+Same architect-and-critic loop, all critic. No AI to drive — pure reading and critique, against the clock.
 
 ::: notes
-Emphasise the continuity: students already know the format from Lab 3. What changes is the catalogue — W6 (sequence) and W7 (state, activity) defects instead of W4-W5 structural ones. The skill on trial is the same: read a behaviour model cold and name what's wrong.
+Emphasise the continuity: students already know the format from Lab 3. What changes is the catalogue — Week 6 (sequence) and Week 7 (state, activity) defects instead of Weeks 4-5 structural ones. The skill on trial is the same: read a behaviour model cold and name what's wrong.
 :::
 
 ---
 
 # Before You Start
 
-- Form teams of **3-4**. One member is the **scribe** (owns the defect log + the commit).
+- Form teams of **3-5**. One member is the **scribe** (owns the defect log + the commit).
 - You receive at lab start: your **team-id**, the lab-repo URL, and the three artifacts (in `lab04/README.md` on clone).
 - All three artifacts model the **same** system — the ATM below.
 
@@ -71,38 +71,38 @@ All three describe the same ATM, and **all three are flawed**:
 Find every planted defect. Rate each. The team that scores highest wins the hunt-off.
 
 ::: notes
-The three behavioural views from W6 (sequence) and W7 (state, activity). Defects span both catalogues. Teams split the artifacts or sweep together — their call — but log into one shared deliverable.
+The three behavioural views from Week 6 (sequence) and Week 7 (state, activity). Defects span both catalogues. Teams split the artifacts or sweep together — their call — but log into one shared deliverable.
 :::
 
 ---
 
 # Your Rubric: the Read-Orders
 
-**Sequence (W6):**
+**Sequence (Week 6):**
 
 1. Each **message** maps to a real responsibility?
 2. **Order** causally possible? (no result before its cause)
 3. **Returns** present? (no dangling calls)
 4. **Failure path** modelled? (not just the happy path)
 
-**State machine (W7):**
+**State machine (Week 7):**
 
 5. Every state **reachable**? Every state **escapable** (or final)?
 6. **Guards** wherever one event branches? Initial present?
 
-**Activity (W7):**
+**Activity (Week 7):**
 
 7. Every **decision merges**? Every **fork joins**? A path to a **final**?
 
 ::: notes
-The combined W6+W7 read-orders, verbatim — this is the team's hunting checklist. Walk each artifact against the relevant steps. A repeatable read-order beats ad-hoc staring; it is also exactly what the oral defense drills.
+The combined Week 6 + Week 7 read-orders, verbatim — this is the team's hunting checklist. Walk each artifact against the relevant steps. A repeatable read-order beats ad-hoc staring; it is also exactly what the oral defense drills.
 :::
 
 ---
 
 # The Defect Vocabulary
 
-Name each defect with the catalogue from W6-W7:
+Name each defect with the catalogue from Weeks 6-7:
 
 - **Sequence:** fabricated message · impossible order · missing return · only the happy path · message to a stranger / invented lifeline.
 - **State:** orphan / unreachable state · dead-end state · missed guard · no initial / final.
@@ -111,7 +111,7 @@ Name each defect with the catalogue from W6-W7:
 A defect named with the catalogue scores; a vague "this looks off" does not.
 
 ::: notes
-Scoring rewards the right name. The vocabulary is the W6 sequence catalogue plus the W7 state/activity catalogue. Teams should keep this slide visible while hunting.
+Scoring rewards the right name. The vocabulary is the Week 6 sequence catalogue plus the Week 7 state/activity catalogue. Teams should keep this slide visible while hunting.
 :::
 
 ---
@@ -210,17 +210,17 @@ Pass needs both:
 The competition is for sharpness and bragging rights; the gate is an honest, catalogue-named log. We grade your critique, not your speed.
 
 ::: notes
-Low-stakes literacy gate, scored at the team level, identical to Lab 3. The bar is on F1 (naming + locating defects) and severity judgement. The hunt-off score drives engagement but is not itself the grade.
+Low-stakes literacy gate, scored at the team level, identical to Lab 3. The bar is on Critique (naming + locating defects) and severity judgement. The hunt-off score drives engagement but is not itself the grade.
 :::
 
 ---
 
 # Why This Matters
 
-You have now red-teamed both **structure** (Lab 3) and **behaviour** (Lab 4) — naming defects and rating them cold is exactly the **F1** skill the oral defense checks. Flawed behaviour propagates to tests and code.
+You have now red-teamed both **structure** (Lab 3) and **behaviour** (Lab 4) — naming defects and rating them cold is exactly the **Critique** skill the oral defense checks. Flawed behaviour propagates to tests and code.
 
-Next: **W9** deepens patterns; the labs now turn to **your own project** — **Lab 5** is the checkpoint defense.
+Next: **Week 9** deepens patterns; the labs now turn to **your own project** — **Lab 5** is the checkpoint defense.
 
 ::: notes
-Closer. Tie back to the literacy floor; the two critique labs (3, 4) complete the red-team arc. From here the labs shift to project work — Lab 5 is the intermediate checkpoint defense (W10). The severity-rated defect log is the through-line into the project's critique discipline.
+Closer. Tie back to the literacy floor; the two critique labs (3, 4) complete the red-team arc. From here the labs shift to project work — Lab 5 is the intermediate checkpoint defense (Week 10). The severity-rated defect log is the through-line into the project's critique discipline.
 :::

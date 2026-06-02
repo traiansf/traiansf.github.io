@@ -10,10 +10,10 @@ This week is a **buffer**: no new content. In-class supervised work and open que
 
 - Close the gaps from your **Lab 6 dry run**.
 - Finalise your documentation and repo.
-- Ask anything — this is the last session before **W14**.
+- Ask anything — this is the last session before **Week 14**.
 
 ::: notes
-W13 is deliberately content-free — a workshop week preserved as breathing room before the finale. The instructor circulates; students drive. Frame it as the last supervised chance to fix what the dry run surfaced.
+Week 13 is deliberately content-free — a workshop week preserved as breathing room before the finale. The instructor circulates; students drive. Frame it as the last supervised chance to fix what the dry run surfaced.
 :::
 
 ---
@@ -35,7 +35,7 @@ Set expectations. The buffer rewards students who have something to polish; for 
 
 You left the dry run with a written **gap list**. Close it:
 
-- the F you were weakest on (F1 read, F3 rationale, or F4 trace);
+- the defense skill you were weakest on (Critique — the cold read; Rationale — the why; or Traceability — the trace);
 - the specific defect, link, or rationale the instructor flagged.
 
 That list is your highest-priority work today.
@@ -63,17 +63,17 @@ Point back to the project description's per-student and per-team deliverables. T
 
 # Work On: Re-run Your Trace Audit
 
-The W10 audit, one more time, on your own slice:
+The Week 10 audit, one more time, on your own slice:
 
 1. Every **requirement** reaches a **test**?
 2. Every **artifact** traces back to a **requirement**?
 3. Do the **layers agree**?
 4. Any **stale links** since the dry run?
 
-Fix broken links before someone finds them in W14.
+Fix broken links before someone finds them in Week 14.
 
 ::: notes
-The trace audit is the single best defense prep — it directly answers F4 and surfaces drift. Running it now, after a week of changes, catches links that went stale since the dry run.
+The trace audit is the single best defense prep — it directly answers Traceability and surfaces drift. Running it now, after a week of changes, catches links that went stale since the dry run.
 :::
 
 ---
@@ -82,7 +82,7 @@ The trace audit is the single best defense prep — it directly answers F4 and s
 
 Defending is a **spoken** skill:
 
-- Have a teammate ask you F1 / F3 / F4 cold.
+- Have a teammate ask you Critique / Rationale / Traceability questions cold.
 - Read a diagram **aloud**; say **why** for each decision; **walk** a trace.
 - Swap and critique each other.
 
@@ -92,7 +92,7 @@ The loop, turned on the defense: peer critique surfaces gaps you can't see in yo
 
 ---
 
-# Pre-W14 Readiness Checklist
+# Pre-Week 14 Readiness Checklist
 
 Before you leave, can you honestly say:
 
@@ -102,7 +102,7 @@ Before you leave, can you honestly say:
 - My **defect log** is real and written down.
 
 ::: notes
-The self-check that mirrors the W14 rubric. A student who can tick all four is ready; one who can't knows exactly what to fix in the remaining week. Have students run this honestly before they pack up.
+The self-check that mirrors the Week 14 rubric. A student who can tick all four is ready; one who can't knows exactly what to fix in the remaining week. Have students run this honestly before they pack up.
 :::
 
 ---
@@ -112,22 +112,22 @@ The self-check that mirrors the W14 rubric. A student who can tick all four is r
 A weak area you can **name** is far better than one you hope nobody asks about.
 
 - Know where your slice is thin, and have a one-line reason.
-- Honesty is a strength signal in the defense (W12).
+- Honesty is a strength signal in the defense (Week 12).
 
 ::: notes
-Reinforce the W12 honesty point. Examiners reward candour about limits over glossy overclaims. Knowing your own weak spots also lets you steer the defense toward your strengths.
+Reinforce the Week 12 honesty point. Examiners reward candour about limits over glossy overclaims. Knowing your own weak spots also lets you steer the defense toward your strengths.
 :::
 
 ---
 
-# Next Week: W14 — The Defense
+# Next Week: Week 14 — The Defense
 
-W14 + Lab 7: team presentations and your **per-student cold defense** — graded, unaided.
+Week 14 + Lab 7: team presentations and your **per-student cold defense** — graded, unaided.
 
 You've rehearsed twice (Lab 5 checkpoint, Lab 6 dry run). This week closes the gaps. Then you defend the work that's yours.
 
 Questions?
 
 ::: notes
-Closer. Frame W14 as the culmination of two rehearsals plus this buffer. Open the floor for the remaining time — the rest of the session is supervised work. No trailing slide separator after this one.
+Closer. Frame Week 14 as the culmination of two rehearsals plus this buffer. Open the floor for the remaining time — the rest of the session is supervised work. No trailing slide separator after this one.
 :::

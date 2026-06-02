@@ -6,7 +6,7 @@ date: "2026"
 
 # Lab 3: Red-Team the Structure
 
-Three phases, 100 minutes — **you work in teams of 3-4.**
+Three phases, 100 minutes — **you work in teams of 3-5.**
 
 1. **Brief + rubric** (~10 min) — the domain, the three artifacts, the read-order.
 2. **Defect hunt** (~60 min) — your team hunts every planted defect in three flawed artifacts, rating each by severity.
@@ -15,7 +15,7 @@ Three phases, 100 minutes — **you work in teams of 3-4.**
 Deliverable: a **severity-rated defect log** per team, committed to the course lab repo.
 
 ::: notes
-The first critique/red-team lab. Lab 2 had you drive AI and critique your own output, solo. Today flips it: we hand you flawed artifacts and you hunt planted defects, as a team, against the clock. This is F1 under competitive pressure — the closest in-class proxy for the oral defense.
+The first critique/red-team lab. Lab 2 had you drive AI and critique your own output, solo. Today flips it: we hand you flawed artifacts and you hunt planted defects, as a team, against the clock. This is Critique under competitive pressure — the closest in-class proxy for the oral defense.
 :::
 
 ---
@@ -25,17 +25,17 @@ The first critique/red-team lab. Lab 2 had you drive AI and critique your own ou
 - **Lab 2:** you drove AI to a class diagram, then critiqued *your own* output.
 - **Today:** we prepared three flawed artifacts. Your job is to **find what's wrong** — and how badly.
 
-No AI to drive this lab. Pure reading and critique — the architect-critic loop, all critic.
+No AI to drive this lab. Pure reading and critique — the architect-and-critic loop, all critic.
 
 ::: notes
-Emphasise: there is no live model today. The artifacts are pre-built and seeded with realistic defects — the kind AI actually produces. The skill on trial is reading structure cold and naming defects, the same thing W4-W5 drilled.
+Emphasise: there is no live model today. The artifacts are pre-built and seeded with realistic defects — the kind AI actually produces. The skill on trial is reading structure cold and naming defects, the same thing Weeks 4-5 drilled.
 :::
 
 ---
 
 # Before You Start
 
-- Form teams of **3-4**. One member is the **scribe** (owns the defect log + the commit).
+- Form teams of **3-5**. One member is the **scribe** (owns the defect log + the commit).
 - You receive at lab start: your **team-id**, the lab-repo URL, and the three artifacts (in `lab03/README.md` on clone).
 - All three artifacts model the **same** system — the airport parking lot below.
 
@@ -72,35 +72,35 @@ All three describe the same parking lot, and **all three are flawed**:
 Find every planted defect. Rate each. The team that scores highest wins the hunt-off.
 
 ::: notes
-The three structural views from W4 (class) and W5 (package, component). Defects span both catalogues. Teams should split the artifacts or sweep together — their call — but log into one shared deliverable.
+The three structural views from Week 4 (class) and Week 5 (package, component). Defects span both catalogues. Teams should split the artifacts or sweep together — their call — but log into one shared deliverable.
 :::
 
 ---
 
 # Your Rubric: the Read-Orders
 
-**Class diagram (W4):**
+**Class diagram (Week 4):**
 
 1. Real **domain** classes? (or invented infrastructure / god class)
 2. **Multiplicities** right? (read each aloud)
 3. Each **association** names a real verb?
 4. **Whole-part** relationships captured? (aggregation / composition)
 
-**Package + component (W5):**
+**Package + component (Week 5):**
 
 5. Right **grain**? (not one box; not a box per class)
 6. **Dependencies** one way? (no cycles, layering respected)
 7. Each **component** defined by its interfaces?
 
 ::: notes
-The combined W4+W5 read-orders, verbatim — this is the team's hunting checklist. Walk each artifact against the relevant steps. A repeatable read-order beats ad-hoc staring; it is also exactly what the oral defense drills.
+The combined Weeks 4-5 read-orders, verbatim — this is the team's hunting checklist. Walk each artifact against the relevant steps. A repeatable read-order beats ad-hoc staring; it is also exactly what the oral defense drills.
 :::
 
 ---
 
 # The Defect Vocabulary
 
-Name each defect with the catalogue from W4-W5:
+Name each defect with the catalogue from Weeks 4-5:
 
 - **Class:** wrong multiplicity · fake association · missing aggregation · invented class/infrastructure · god class · is-a flattened to an attribute.
 - **Package/component:** under-decomposition · over-decomposition · invented infrastructure · dependency cycle / wrong direction · component with no interfaces.
@@ -108,7 +108,7 @@ Name each defect with the catalogue from W4-W5:
 A defect named with the catalogue scores; a vague "this looks off" does not.
 
 ::: notes
-Scoring rewards the right name. The vocabulary is the W4 five-defect catalogue plus the W5 decomposition defects. Teams should keep this slide visible while hunting.
+Scoring rewards the right name. The vocabulary is the Week 4 five-defect catalogue plus the Week 5 decomposition defects. Teams should keep this slide visible while hunting.
 :::
 
 ---
@@ -207,17 +207,17 @@ Pass needs both:
 The competition is for sharpness and bragging rights; the gate is an honest, catalogue-named log. We grade your critique, not your speed.
 
 ::: notes
-Low-stakes literacy gate, scored at the team level. The bar is on F1 (naming + locating defects) and severity judgement. The hunt-off score drives engagement but is not itself the grade — a team can win the hunt and still need a tighter log, or lose and pass cleanly.
+Low-stakes literacy gate, scored at the team level. The bar is on Critique (naming + locating defects) and severity judgement. The hunt-off score drives engagement but is not itself the grade — a team can win the hunt and still need a tighter log, or lose and pass cleanly.
 :::
 
 ---
 
 # Why This Matters
 
-Red-teaming AI's structural output — naming defects and rating them cold — is exactly the **F1** skill the oral defense checks. A flawed structure does not stay contained: it propagates to behaviour, tests, and code.
+Red-teaming AI's structural output — naming defects and rating them cold — is exactly the **Critique** skill the oral defense checks. A flawed structure does not stay contained: it propagates to behaviour, tests, and code.
 
-Next: **W7** widens behaviour to state + activity; **Lab 4** is this same defect hunt, on **behavioural** artifacts (sequence, state, activity).
+Next: **Week 7** widens behaviour to state + activity; **Lab 4** is this same defect hunt, on **behavioural** artifacts (sequence, state, activity).
 
 ::: notes
-Closer. Tie back to the literacy floor and forward to W7 (behavioral II) and Lab 4 (the behavioural defect hunt — identical format, new artifacts). The severity-rated defect log is the through-line into the project's critique logs.
+Closer. Tie back to the literacy floor and forward to Week 7 (behavioral II) and Lab 4 (the behavioural defect hunt — identical format, new artifacts). The severity-rated defect log is the through-line into the project's critique logs.
 :::

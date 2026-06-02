@@ -11,52 +11,52 @@ date: "2026"
 3. Live opener: drive AI to "apply" a pattern
 4. Reading critically: applied, or just labeled?
 5. How to verify a pattern claim
-6. Bridge to W10 + your project
+6. Bridge to Week 10 + your project
 
 ::: notes
-W8 asked whether a pattern is warranted. Today asks the next question: when AI says "I used the X pattern", did it actually build the structure — or just write the name? The named payload is the applied-vs-labeled critique. Open into the selecting-to-verifying bridge.
+Week 8 asked whether a pattern is warranted. Today asks the next question: when AI says "I used the X pattern", did it actually build the structure — or just write the name? The named payload is the applied-vs-labeled critique. Open into the selecting-to-verifying bridge.
 :::
 
 ---
 
-# Recap: Architect + Critic
+# Recap: Architect and Critic
 
-- **Architect / director (B):** drive AI through the SDLC.
-- **Critic / reviewer (A):** read AI's output and name what's wrong or missing.
+- **Architect / director:** drive AI through the software development lifecycle (SDLC).
+- **Critic / reviewer:** read AI's output and name what's wrong or missing.
 
-In W8 you decided *whether* a pattern earns its place. Today: *was it actually applied* — or just labeled?
+In Week 8 you decided *whether* a pattern earns its place. Today: *was it actually applied* — or just labeled?
 
 ::: notes
-One breath of recap. W8 was selection (whether / which / cost). Today is verification — the claim "this is a Decorator" is something the critic checks, not accepts.
+One breath of recap. Week 8 was selection (whether / which / cost). Today is verification — the claim "this is a Decorator" is something the critic checks, not accepts.
 :::
 
 ---
 
 # From Selecting to Verifying
 
-- **W8 pinned the decision** — is a pattern warranted here?
+- **Week 8 pinned the decision** — is a pattern warranted here?
 - **Today: the verification** — AI says "I applied the Visitor pattern." Did it build the structure, or just write the name?
 
 Today's question: **is the pattern actually there — or is the label decoration?**
 
 ::: notes
-The bridge. W8's defect #2 (decoration) was the preview: a name with no structure. Today develops it into a full critique skill across seven named patterns. A pattern label is a claim; the structure is the evidence.
+The bridge. Week 8's defect #2 (decoration) was the preview: a name with no structure. Today develops it into a full critique skill across seven named patterns. A pattern label is a claim; the structure is the evidence.
 :::
 
 ---
 
-# Literacy Floor: F1 + F3 + F4
+# The Literacy Floor: Critique, Rationale, Traceability
 
-From W1: in the oral defense, *unaided*, you must demonstrate:
+From Week 1: in the oral defense, *unaided*, you must demonstrate:
 
-- **F1** — read & critique AI-generated artifacts on the spot.
-- **F3** — articulate why you directed AI a certain way.
-- **F4** — defend traceability across your project.
+- **Critique** — read & critique AI-generated artifacts on the spot.
+- **Rationale** — articulate why you directed AI a certain way.
+- **Traceability** — defend the trace across your project.
 
-Today is **F1** on patterns: read a pattern claim and verify the structure is actually present. The label is a claim; the structure is the evidence.
+Today is **Critique** on patterns: read a pattern claim and verify the structure is actually present. The label is a claim; the structure is the evidence.
 
 ::: notes
-First of two F1+F3+F4 mentions. F1 anchored this week — verifying a pattern's structure against its name IS the oral-defense skill, and it directly defends a project's design narrative (F3). Same wording in the close.
+First of two Critique, Rationale, Traceability mentions. Critique anchored this week — verifying a pattern's structure against its name IS the oral-defense skill, and it directly defends a project's design narrative (Rationale). Same wording in the close.
 :::
 
 ---
@@ -74,7 +74,7 @@ Recognise the intent of each:
 - **Mediator** — centralise how objects interact.
 
 ::: notes
-The W9 vocabulary, lifted from 2025. One line of intent each — recognition, not deep teaching. The deep dives are the three with the clearest signature structures (Adapter, Decorator, Visitor); the rest stay recognition-level. Don't drill all seven.
+The Week 9 vocabulary, lifted from 2025. One line of intent each — recognition, not deep teaching. The deep dives are the three with the clearest signature structures (Adapter, Decorator, Visitor); the rest stay recognition-level. Mediator in particular stays recognition-level only — name and intent, no signature drill. Don't drill all seven.
 :::
 
 ---
@@ -192,7 +192,7 @@ When AI claims a pattern:
 A pattern label is a claim to verify, not a fact to accept.
 
 ::: notes
-Sets up the gallery — F1 applied to pattern claims. The defects below are all forms of "the label without the structure" (spec: "was this applied or just labeled?"). AI writes confident pattern names; the critic checks each against its signature.
+Sets up the gallery — Critique applied to pattern claims. The defects below are all forms of "the label without the structure" (spec: "was this applied or just labeled?"). AI writes confident pattern names; the critic checks each against its signature.
 :::
 
 ---
@@ -254,7 +254,7 @@ The anchor defect — and the demo's payload. A real Visitor has accept() on eac
 **Critique:** *"Name it by its structure, not its vibe. Which pattern does this structure actually match?"*
 
 ::: notes
-Pattern-name confusion: the structure exists but matches a different pattern, or a degenerate version. AI reaches for the prestigious-sounding name. The fix is naming by structure — and it matters for F4, because a mislabeled pattern breaks the design narrative.
+Pattern-name confusion: the structure exists but matches a different pattern, or a degenerate version. AI reaches for the prestigious-sounding name. The fix is naming by structure — and it matters for Traceability, because a mislabeled pattern breaks the design narrative.
 :::
 
 ---
@@ -266,7 +266,28 @@ Pattern names in class names and comments — `StrategyManager`, `// Observer pa
 **Critique:** *"Strip the label. Is there a Strategy interface and interchangeable implementations — or just an if/else?"*
 
 ::: notes
-Decoration at scale (W8's defect #2, now across the codebase). AI sprinkles pattern vocabulary to signal sophistication. The critique strips the name and asks for the structure. This is the habit the oral defense punishes hardest.
+Decoration at scale (Week 8's defect #2, now across the codebase). AI sprinkles pattern vocabulary to signal sophistication. The critique strips the name and asks for the structure. This is the habit the oral defense punishes hardest.
+:::
+
+---
+
+# Your Turn: Spot the Fake
+
+Here is what AI handed back, labeled "Visitor":
+
+```java
+class ReportVisitor {
+  String visit(Vehicle v) {
+    if (v instanceof Bike)  ...
+    else if (v instanceof EBike) ...
+  }
+}
+```
+
+With your neighbour (60s): which signature check exposes this — and which pattern is it *really*?
+
+::: notes
+Let pairs talk for 60 seconds, then take two answers. The exposing check: "where is accept() on the elements, and where is the dispatch on type?" — there is none, just an instanceof cascade. What it really is: a plain type switch wearing the Visitor name (Defect #3). This primes the verification recipe on the next slide.
 :::
 
 ---
@@ -281,7 +302,7 @@ A fixed order, every time:
 4. Is the **name correct** for the structure?
 
 ::: notes
-This IS the F1 drill for patterns. A repeatable verification beats being impressed by a pattern name. Students internalise it for defending their own project's design choices — every claimed pattern must pass these four.
+This IS the Critique drill for patterns. A repeatable verification beats being impressed by a pattern name. Students internalise it for defending their own project's design choices — every claimed pattern must pass these four.
 :::
 
 ---
@@ -303,6 +324,8 @@ class ReportVisitor
 Vehicle <|.. Bike
 Vehicle <|.. EBike
 Visitor <|.. ReportVisitor
+Bike ..> Visitor : accept calls visit(this)
+EBike ..> Visitor : accept calls visit(this)
 @enduml
 ```
 
@@ -318,7 +341,7 @@ The critique result — the counterpart to the slide-13 fake. Contrast them side
 
 read the claim -> check the signature structure -> re-prompt "show the structure, not the label" -> re-read.
 
-Same architect-critic loop as W2-W8 — now on a pattern claim.
+Same architect-and-critic loop as Weeks 2-8 — now on a pattern claim.
 
 ::: notes
 The loop is the through-line. The scaffold that tightens AI output here is demanding the mechanism — "show accept/visit double dispatch, no instanceof" — exactly the demo's prompt #2. The pattern's signature is the constraint.
@@ -328,12 +351,12 @@ The loop is the through-line. The scaffold that tightens AI output here is deman
 
 # The Human Decides Whether the Pattern Is Real
 
-AI labels patterns fluently and builds them unreliably. Verifying that the structure is actually present — and delivers the benefit — is the architect-critic call.
+AI labels patterns fluently and builds them unreliably. Verifying that the structure is actually present — and delivers the benefit — is the architect-and-critic call.
 
 It's what the oral defense checks, and AI can't make it for you.
 
 ::: notes
-Reinforces ownership, mirroring W4-W8's closes. The defense grades whether your claimed patterns are real (F1) and justified (F3), not whether the names sound impressive.
+Reinforces ownership, mirroring Weeks 4-8's closes. The defense grades whether your claimed patterns are real (Critique) and justified (Rationale), not whether the names sound impressive.
 :::
 
 ---
@@ -342,44 +365,44 @@ Reinforces ownership, mirroring W4-W8's closes. The defense grades whether your 
 
 Every pattern you claim in your design narrative, you must **defend structurally** in the oral defense.
 
-A labeled-not-applied pattern fails F3: you can't justify a structure that isn't there.
+A labeled-not-applied pattern fails Rationale: you can't justify a structure that isn't there.
 
 ::: notes
-The direct project tie. Students will claim patterns in their design docs; W9's verification is exactly how examiners test those claims. "I used Strategy" invites "show me the interface and the implementations." Patterns are an F3 minefield if labeled, not applied.
+The direct project tie. Students will claim patterns in their design docs; Week 9's verification is exactly how examiners test those claims. "I used Strategy" invites "show me the interface and the implementations." Patterns are a Rationale minefield if labeled, not applied.
 :::
 
 ---
 
-# Next Week: Cross-Layer Traceability (W10)
+# Next Week: Cross-Layer Traceability (Week 10)
 
-Patterns done — W8 (selection) and W9 (verification) cover *designing with patterns*.
+Patterns done — Week 8 (selection) and Week 9 (verification) cover *designing with patterns*.
 
-**W10:** the full trace — requirement -> use case -> class -> state / sequence -> test — and how to keep it intact. Plus **Lab 5**, your checkpoint defense.
+**Week 10:** the full trace — requirement -> use case -> class -> state / sequence -> test — and how to keep it intact. Plus **Lab 5**, your checkpoint defense.
 
 ::: notes
-Clean handoff. W10 anchors F4 (traceability), pulling together every artifact type from W2-W9 into one chain, and pairs with Lab 5 (the intermediate checkpoint defense). Bike-sharing carries forward.
+Clean handoff. Week 10 anchors Traceability, pulling together every artifact type from Weeks 2-9 into one chain, and pairs with Lab 5 (the intermediate checkpoint defense). Bike-sharing carries forward.
 :::
 
 ---
 
-# F1 + F3 + F4 — The Through-Line
+# Critique, Rationale, Traceability — The Through-Line
 
 Today you drilled:
 
-- **F1** — verified a pattern's structure against its label, and named the fakes.
-- **F3** — a claimed pattern is only defensible if its structure is real.
+- **Critique** — verified a pattern's structure against its label, and named the fakes.
+- **Rationale** — a claimed pattern is only defensible if its structure is real.
 
-F4: a correctly-named, genuinely-applied pattern keeps the design narrative honest.
+Traceability: a correctly-named, genuinely-applied pattern keeps the design narrative honest.
 
 ::: notes
-Second and final F1+F3+F4 mention. F1 anchored this week — structure over label. The F3/F4 touches set up W10's traceability and the project defense, where every pattern claim is tested.
+Second and final Critique, Rationale, Traceability mention. Critique anchored this week — structure over label. The Rationale/Traceability touches set up Week 10's traceability and the project defense, where every pattern claim is tested.
 :::
 
 ---
 
 # That's It For Today
 
-- Next lecture (W10): cross-layer traceability.
+- Next lecture (Week 10): cross-layer traceability.
 - Next week's lab (Lab 5): project workshop + checkpoint defense.
 
 Questions?

@@ -11,7 +11,7 @@
 - [ ] Seed `lab04/README.md` (brief + domain + the three flawed artifacts) into the course lab repo (template at the end of this file).
 - [ ] Ship the three artifacts as `.puml` files in `lab04/` so teams open them in their VS Code PlantUML preview: `artifact-sequence.puml`, `artifact-state.puml`, `artifact-activity.puml`.
 - [ ] Optional fallback: pre-render each `.puml` to PNG in `lab04/` in case a team's preview pane is down.
-- [ ] Assign team-ids (`t01`…`tNN`) and fill the roster table below; aim for teams of 3-4.
+- [ ] Assign team-ids (`t01`…`tNN`) and fill the roster table below; aim for teams of 3-5.
 - [ ] Confirm every team has push access to the lab repo (most still have the Lab 1/2/3 clone).
 - [ ] Have this runbook's **ground-truth tables** ready on your own screen (not projected) for the hunt-off.
 
@@ -186,7 +186,7 @@ Key correct decisions: the sequence models both failure branches with returns; e
 
 ## Phase 1 — Brief facilitation (10 min)
 
-1. Form teams of 3-4; hand out team-ids + lab-repo URL; point them at `lab04/README.md` and the three `.puml` files.
+1. Form teams of 3-5; hand out team-ids + lab-repo URL; point them at `lab04/README.md` and the three `.puml` files.
 2. Read the domain aloud once; stress it is honest — defects are in the artifacts.
 3. Put the combined W6+W7 read-order and the defect vocabulary on screen.
 4. State the scoring rule **before** the hunt: severity-weighted, false positives cost a point. Calibrate, don't spray.
@@ -260,7 +260,7 @@ Fill per offering.
 ~~~markdown
 # Lab 4 — Critique Session: Behavioral Artifacts
 
-**Mode:** red-team, in teams of 3-4. **No AI today** — you hunt planted defects in three flawed artifacts. Same format as Lab 3.
+**Mode:** red-team, in teams of 3-5. **No AI today** — you hunt planted defects in three flawed artifacts. Same format as Lab 3.
 
 **Domain (honest — defects are in the artifacts, not here):** an ATM. A customer inserts a card and enters a PIN; after 3 wrong PINs the card is retained. Once verified, the customer can withdraw cash: the ATM checks the balance with the bank, dispenses if funds suffice, and ejects the card. On insufficient funds or cancel, no cash is dispensed and the card is ejected. The ATM prints a receipt and returns to idle after each session (or on inactivity timeout).
 

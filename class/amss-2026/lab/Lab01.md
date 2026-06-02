@@ -4,7 +4,7 @@ author: "Traian-Florin Șerbănuță"
 date: "2026"
 ---
 
-# Lab 1: Requirements with AI
+# Lab 1: Tooling Onboarding + Requirements with AI
 
 Three phases, 100 minutes:
 
@@ -15,7 +15,7 @@ Three phases, 100 minutes:
 Deliverable: a requirements doc + a 5-line reflection, committed to the course lab repo.
 
 ::: notes
-This is the hands-on follow-through of the W2 lecture. The demo you watched (architect prompts AI, critic finds failure modes, architect re-prompts with a scaffold) is exactly what you do here, in pairs, on a different domain.
+This is the hands-on follow-through of the Week 2 lecture. The demo you watched (architect prompts AI, critic finds failure modes, architect re-prompts with a scaffold) is exactly what you do here, in pairs, on a different domain.
 :::
 
 ---
@@ -79,13 +79,13 @@ The bare prompt is on purpose — it reliably produces fabrication, vague NFRs, 
 
 ---
 
-# Round 2 — swap: B drives, A critiques (~20 min)
+# Round 2 — swap: B drives, A critiques (~25 min)
 
 Now **B** drives and **A** critiques.
 
 Take a fresh angle: push for measurable acceptance criteria on each requirement, or negative-prompt away the fabricated technology A's round surfaced.
 
-Keep a running log of *what you asked the AI and why* — that's your F3 evidence and the source of reflection line 3.
+Keep a running log of *what you asked the AI and why* — that's your Rationale evidence and the source of reflection line 3.
 
 ::: notes
 Running short? Round 2 is optional. Round 1 (which contains the required re-prompt) plus the reflection is the minimum.
@@ -105,7 +105,7 @@ Don't polish the AI output by hand. The lab assesses how you *drove and critique
 
 ---
 
-# Three Prompting Moves (from W2)
+# Three Prompting Moves (from Week 2)
 
 - **Scaffolded** — *"organized by use case; each use case is one user goal; list FR / NFR / domain per case."*
 - **Role priming** — *"act as a requirements engineer for vending hardware."*
@@ -114,25 +114,25 @@ Don't polish the AI output by hand. The lab assesses how you *drove and critique
 Use at least one when you re-prompt.
 
 ::: notes
-These are the three moves from the W2 "This Is What Lab 1 Drills" slide. The scaffolded move is the one the lecture demo pivoted on.
+These are the three moves from the Week 2 "This Is What Lab 1 Drills" slide. The scaffolded move is the one the lecture demo pivoted on.
 :::
 
 ---
 
-# Failure Modes to Catch (from W2)
+# Failure Modes to Catch (from Week 2)
 
 Five named modes — what AI wrongly **includes** or mis-states:
 
 - **Fabrication** — invented stakeholders, features, or regulations.
 - **Over-specification** — dozens of requirements where a handful suffice.
-- **Vague NFRs** — "fast", "reliable" with no measurable threshold.
+- **Vague NFRs** (non-functional requirements) — "fast", "reliable" with no measurable threshold.
 - **Conflated requirements** — one requirement bundling several concerns.
 - **Fabricated technology** — implementation choices posing as requirements.
 
 Plus the flip side — **omission** — what AI silently **leaves out**.
 
 ::: notes
-The five named modes are from the W2 catalogue. Omission is the complement the catalogue doesn't name and the one a vending machine surfaces most. Your reflection may cite any of these six.
+The five named modes are from the Week 2 catalogue. Omission is the complement the catalogue doesn't name and the one a vending machine surfaces most. Your reflection may cite any of these six.
 :::
 
 ---
@@ -167,7 +167,7 @@ On branch `lab01/<pair-id>`, commit:
 - `lab01/<pair-id>/log.md` — optional but recommended: your prompt/critique log.
 
 ::: notes
-The log is your raw F3 evidence. It's optional for the gate but it's what we look at if a reflection is borderline.
+The log is your raw Rationale evidence. It's optional for the gate but it's what we look at if a reflection is borderline.
 :::
 
 ---
@@ -178,7 +178,7 @@ One line each:
 
 1. Worst failure mode you saw (name it) + where it appeared.
 2. A second failure mode + why it was easy or hard to catch.
-3. What you changed in the re-prompt — and **why** (this is F3).
+3. What you changed in the re-prompt — and **why** (this is Rationale).
 4. What improved (or didn't) after iterating.
 5. One requirement the AI never got right — the residual risk.
 
@@ -217,7 +217,7 @@ Pass needs both:
 A vacuous reflection ("AI was wrong, we fixed it") is a redo, not a fail. We grade your critique and reasoning — not the AI's output quality.
 
 ::: notes
-Low-stakes onboarding gate. The bar is on the literacy floor (F1 naming, F3 rationale), not on how polished the requirements doc is.
+Low-stakes onboarding gate. The bar is on the literacy floor (Critique — naming the failure modes; Rationale — the why), not on how polished the requirements doc is.
 :::
 
 ---
@@ -226,7 +226,7 @@ Low-stakes onboarding gate. The bar is on the literacy floor (F1 naming, F3 rati
 
 - A few pairs present their worst failure mode + the move that fixed it.
 - We tally, live, which failure modes hit the most pairs.
-- Same domain, same starting prompt, ~50 pairs → a real failure-mode map.
+- Same domain, same starting prompt, every pair in the room → a real failure-mode map.
 
 The modes you tally are exactly what you'll critique every week.
 
@@ -238,10 +238,10 @@ Instructor pre-selects presenting pairs by scanning pushed reflections during th
 
 # Why This Matters
 
-If requirements are fabricated, every downstream artifact inherits it — class diagrams (Lab 2), tests (W3), all of it.
+If requirements are fabricated, every downstream artifact inherits it — class diagrams (Lab 2), tests (Week 3), all of it.
 
-Today you drilled **F1** (read & critique AI output) and **F3** (say *why* you directed the AI). Next: Lab 2 turns requirements into class diagrams.
+Today you drilled **Critique** (read & critique AI output) and **Rationale** (say *why* you directed the AI). Next: Lab 2 turns requirements into class diagrams.
 
 ::: notes
-Closer. Tie back to the literacy floor and forward to Lab 2. F4 (traceability) is seeded here — fabrication propagating downstream is the traceability argument.
+Closer. Tie back to the literacy floor and forward to Lab 2. Traceability is seeded here — fabrication propagating downstream is the traceability argument.
 :::

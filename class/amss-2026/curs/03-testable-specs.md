@@ -6,7 +6,7 @@ date: "2026"
 
 # Today's Agenda
 
-1. Frame: from requirements (W2) to testable specs
+1. Frame: from requirements (Week 2) to testable specs
 2. Live demo: is your spec testable?
 3. Tests as the executable form of requirements
 4. How AI-written tests fail
@@ -14,22 +14,22 @@ date: "2026"
 6. Traceability: use case → scenario → test
 
 ::: notes
-Last week we elicited requirements; today we make them testable. No re-introduction — students saw who I am in W1/W2. Open straight into structure.
+Last week we elicited requirements; today we make them testable. No re-introduction — students saw who I am in Week 1 / Week 2. Open straight into structure.
 
-Authoring note (spec gate §6.10): this lecture is authored fresh. It does **not** draw on the 2025 testing lecture (`class/amss/curs/10-testing.md`), which is reserved for W11 (model evaluation & quality). Do not "restore" 2025 testing content here.
+Authoring note (spec gate §6.10): this lecture is authored fresh. It does **not** draw on the 2025 testing lecture (`class/amss/curs/10-testing.md`), which is reserved for Week 11 (model evaluation & quality). Do not "restore" 2025 testing content here.
 :::
 
 ---
 
-# Recap: Architect + Critic
+# Recap: Architect and Critic
 
-- **Architect / director (B):** drive AI through the SDLC.
-- **Critic / reviewer (A):** read AI's output and name what's wrong or missing.
+- **Architect / director:** drive AI through the software development lifecycle (SDLC).
+- **Critic / reviewer:** read AI's output and name what's wrong or missing.
 
-Last week (W2) you drove AI to produce a requirements doc — and critiqued it. Today: can you *test* what you wrote?
+Last week (Week 2) you drove AI to produce a requirements doc — and critiqued it. Today: can you *test* what you wrote?
 
 ::: notes
-W2 produced prose requirements. W3 asks the harder question: is that prose precise enough to turn into something executable? Keep the recap to one breath; the hook is the next slide.
+Week 2 produced prose requirements. Week 3 asks the harder question: is that prose precise enough to turn into something executable? Keep the recap to one breath; the hook is the next slide.
 :::
 
 ---
@@ -63,18 +63,18 @@ Section preview. Threads 2 and 3 are the central payload. Brief — students nee
 
 ---
 
-# Literacy Floor: F1 + F3 + F4
+# The Literacy Floor: Critique, Rationale, Traceability
 
-From W1: in the oral defense, *unaided*, you must demonstrate:
+From Week 1: in the oral defense, *unaided*, you must demonstrate:
 
-- **F1** — read & critique AI-generated artifacts on the spot.
-- **F3** — articulate why you directed AI a certain way.
-- **F4** — defend traceability across your project.
+- **Critique** — read & critique AI-generated artifacts on the spot.
+- **Rationale** — articulate why you directed AI a certain way.
+- **Traceability** — defend the trace across your project.
 
-Today drills F1 on *tests*, and extends F4: the test is the new end of the trace.
+Today drills Critique on *tests*, and extends Traceability: the test is the new end of the trace.
 
 ::: notes
-First of two F1+F3+F4 mentions today (the second lands in the close). Say it the same way each time. F4 is the anchored one this week — the trace gains an executable tail.
+First of two Critique, Rationale, Traceability mentions today (the second lands in the close). Say it the same way each time. Traceability is the anchored one this week — the trace gains an executable tail.
 :::
 
 ---
@@ -117,7 +117,7 @@ def test_paid_ride_charges_per_minute():
     assert fare(60) == 3.00
 ```
 
-The assertion *is* the acceptance criterion — you just can't hand-wave it.
+The per-minute rate is what makes €3.00 the expected total: the first 30 min are free, then €0.10/min for 30 min = €3.00 (under the €5 cap). The assertion *is* the acceptance criterion — you just can't hand-wave it.
 
 ::: notes
 Use the demo's fare example so students stay in one mental model. The point: writing the assertion forces you to know the exact number. Prose lets you dodge it.
@@ -167,7 +167,7 @@ A test can be green and still be worthless. The critic question is always:
 > *"Does this test fail for a wrong implementation? Does it pin the behaviour I actually want?"*
 
 ::: notes
-Sets up the catalogue. This is F1 applied to tests — the same critic skill, new target.
+Sets up the catalogue. This is Critique applied to tests — the same critic skill, new target.
 :::
 
 ---
@@ -229,7 +229,24 @@ The most seductive failure — it looks rigorous. But it can't catch a bug in th
 - **Faithful to a wrong spec:** the test correctly encodes a spec that is itself wrong (e.g. no cap → unbounded charge). The test is right; the spec isn't.
 
 ::: notes
-Secondary modes. The second is subtle and important: a green test against a bad spec gives false confidence. Plant for W11 — AI checking its own output against its own tests is a weak evaluator; the human stays the backstop.
+Secondary modes. The second is subtle and important: a green test against a bad spec gives false confidence. Plant for Week 11 — AI checking its own output against its own tests is a weak evaluator; the human stays the backstop.
+:::
+
+---
+
+# Your Turn: Name the Failure Mode
+
+AI wrote this test for the fare spec:
+
+```python
+def test_fare():
+    assert fare(45) == 1.50
+```
+
+With your neighbour (60s): which of the five failure modes is this? Be ready to name your critique question — then we reveal.
+
+::: notes
+Quick pair check before moving on. Let two or three pairs call it. The reveal: it is an *invented assumption* — €0.10/min for 15 paid minutes after the 30-min free window gives €1.50, but the spec they were handed never stated the rate, so the test silently hard-codes a guess. Some pairs may also argue *missing boundary* (nothing tests 30 min or the cap) — accept that as a second valid reading. Keep it to 90 seconds total, then into the loop.
 :::
 
 ---
@@ -255,7 +272,7 @@ Run --> [*]
 ```
 
 ::: notes
-This is a process flowchart, **not** a UML state machine (those are W7). It is drawn with plantuml's state primitives only because the build pipeline renders them reliably (graphviz `dot` is not installed). Do not teach the notation here — point at the back-edge: "no, spec too vague" → tighten the spec. That loop is the lecture.
+This is a process flowchart, **not** a UML state machine (those are Week 7). It is drawn with plantuml's state primitives only because the build pipeline renders them reliably (graphviz `dot` is not installed). Do not teach the notation here — point at the back-edge: "no, spec too vague" → tighten the spec. That loop is the lecture.
 :::
 
 ---
@@ -267,7 +284,7 @@ This is a process flowchart, **not** a UML state machine (those are W7). It is d
 You watched it live: the vague fare spec produced a guessed test; the tightened spec produced a test that pins the behaviour.
 
 ::: notes
-Say it plainly. The demo is its proof. This sentence is the bridge from requirements (W2) to everything downstream.
+Say it plainly. The demo is its proof. This sentence is the bridge from requirements (Week 2) to everything downstream.
 :::
 
 ---
@@ -281,7 +298,7 @@ Say it plainly. The demo is its proof. This sentence is the bridge from requirem
 → AI writes tests for 20 min, 30 min, 60 min, and the cap. Each pins a real decision.
 
 ::: notes
-The tightening is the architect move; spotting the guess is the critic move. Same A+B loop as W2, now on tests. Refer back to the demo screen.
+The tightening is the architect move; spotting the guess is the critic move. Same architect-and-critic loop as Week 2, now on tests. Refer back to the demo screen.
 :::
 
 ---
@@ -302,7 +319,7 @@ Students will want a mechanical stopping rule. There isn't one. The signal is su
 
 AI will happily generate plausible tests forever.
 
-What it can't do: decide whether a test expresses *what you actually want*. That judgment — the architect-critic call — is yours, and it's what the oral defense checks.
+What it can't do: decide whether a test expresses *what you actually want*. That judgment — the architect-and-critic call — is yours, and it's what the oral defense checks.
 
 ::: notes
 Reinforces ownership. The loop has no exit condition AI can compute for you. This is why the course grades the trail, not the green checkmark.
@@ -321,7 +338,7 @@ This week it grows an executable end:
 > requirement → use case → **scenario → test**
 
 ::: notes
-W2 established requirement → use case. W3 extends it to the test. This is F4's structure — and the test is the first node you can *run* to check the link.
+Week 2 established requirement → use case. Week 3 extends it to the test. This is Traceability's structure — and the test is the first node you can *run* to check the link.
 :::
 
 ---
@@ -335,7 +352,7 @@ W2 established requirement → use case. W3 extends it to the test. This is F4's
 A use case has many scenarios; each interesting scenario becomes a test case.
 
 ::: notes
-The bridge from W2's "use case = one user goal" to a testable artifact. Scenario is the missing middle term — concrete enough to assert on.
+The bridge from Week 2's "use case = one user goal" to a testable artifact. Scenario is the missing middle term — concrete enough to assert on.
 :::
 
 ---
@@ -352,19 +369,19 @@ Documentation traces drift silently. An executable trace fails when reality dive
 
 ---
 
-# Broken Links (a preview of W10)
+# Broken Links (a preview of Week 10)
 
 A test that asserts behaviour **no requirement asked for** is an orphan — just like a fabricated requirement with no user need.
 
-W10 makes finding broken links across the whole trace its own skill.
+Week 10 makes finding broken links across the whole trace its own skill.
 
 ::: notes
-Symmetry with W2's fabrication critique: fabrication adds a node with no parent; an orphan test adds a leaf with no parent. Both break traceability. W10 owns the full broken-link hunt.
+Symmetry with Week 2's fabrication critique: fabrication adds a node with no parent; an orphan test adds a leaf with no parent. Both break traceability. Week 10 owns the full broken-link hunt.
 :::
 
 ---
 
-# Your Project: The TDD-with-AI Reflection
+# Your Project: The test-driven-development (TDD)-with-AI Reflection
 
 The loop you saw today *is* a required project deliverable:
 
@@ -373,42 +390,42 @@ The loop you saw today *is* a required project deliverable:
 - Code is a byproduct. The **reflection** is what gets read.
 
 ::: notes
-Parent spec §4, per-student deliverable #4. W3 is the method behind that deliverable. Emphasize: we never grade whether the code ships — we grade what the loop taught you about your spec.
+Parent spec §4, per-student deliverable #4. Week 3 is the method behind that deliverable. Emphasize: we never grade whether the code ships — we grade what the loop taught you about your spec.
 :::
 
 ---
 
-# Next Week: Class Diagrams (W4)
+# Next Week: Class Diagrams (Week 4)
 
 Once a requirement is pinned by a test, the next question is: *what objects realise it?*
 
-- **W4:** class diagrams — the structure behind the behaviour.
-- **Lab 2** (W4's slot): drive AI to produce a class diagram from a spec, iterate, log what changed.
+- **Week 4:** class diagrams — the structure behind the behaviour.
+- **Lab 2** (Week 4's slot): drive AI to produce a class diagram from a spec, iterate, log what changed.
 
 ::: notes
-Clean handoff. W3 nailed down behaviour; W4 asks what structure delivers it. Lab 2 mechanics live in Lab 2's own brief (forthcoming).
+Clean handoff. Week 3 nailed down behaviour; Week 4 asks what structure delivers it. Lab 2 mechanics live in Lab 2's own brief (forthcoming).
 :::
 
 ---
 
-# F1 + F3 + F4 — The Through-Line
+# Critique, Rationale, Traceability — The Through-Line
 
 Today you drilled:
 
-- **F1** — read AI-written tests and named how they fail.
-- **F4** — the test is the *end* of the trace; if you can't trace a test back to a requirement, the chain is broken.
+- **Critique** — read AI-written tests and named how they fail.
+- **Traceability** — the test is the *end* of the trace; if you can't trace a test back to a requirement, the chain is broken.
 
-F3 (articulating *why* you directed AI a certain way) lands in your project narrative.
+Rationale (articulating *why* you directed AI a certain way) lands in your project narrative.
 
 ::: notes
-Second and final F1+F3+F4 mention in W3. Same wording as the frame slide. F4 anchored here.
+Second and final Critique, Rationale, Traceability mention in Week 3. Same wording as the frame slide. Traceability anchored here.
 :::
 
 ---
 
 # That's It For Today
 
-- Next lecture (W4): class diagrams.
+- Next lecture (Week 4): class diagrams.
 - Your project: run the spec → test → code loop on one feature; write the reflection.
 
 Questions?

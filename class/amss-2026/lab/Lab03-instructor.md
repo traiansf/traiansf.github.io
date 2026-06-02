@@ -11,7 +11,7 @@
 - [ ] Seed `lab03/README.md` (brief + domain + the three flawed artifacts) into the course lab repo (template at the end of this file).
 - [ ] Ship the three artifacts as `.puml` files in `lab03/` so teams open them in their VS Code PlantUML preview (the same pane from W4 / Lab 2): `artifact-class.puml`, `artifact-package.puml`, `artifact-component.puml`.
 - [ ] Optional fallback: pre-render each `.puml` to PNG in `lab03/` in case a team's preview pane is down.
-- [ ] Assign team-ids (`t01`…`tNN`) and fill the roster table below; aim for teams of 3-4.
+- [ ] Assign team-ids (`t01`…`tNN`) and fill the roster table below; aim for teams of 3-5.
 - [ ] Confirm every team has push access to the lab repo (most still have the Lab 1/2 clone).
 - [ ] Have this runbook's **ground-truth tables** ready on your own screen (not projected) for the hunt-off.
 
@@ -209,7 +209,7 @@ DisplayBoard --> ParkingLot
 
 ## Phase 1 — Brief facilitation (10 min)
 
-1. Form teams of 3-4; hand out team-ids + lab-repo URL; point them at `lab03/README.md` and the three `.puml` files.
+1. Form teams of 3-5; hand out team-ids + lab-repo URL; point them at `lab03/README.md` and the three `.puml` files.
 2. Read the domain aloud once; stress it is honest — defects are in the artifacts.
 3. Put the combined W4+W5 read-order and the defect vocabulary on screen.
 4. State the scoring rule **before** the hunt: severity-weighted, false positives cost −1. Calibrate, don't spray.
@@ -281,7 +281,7 @@ Fill per offering.
 ~~~markdown
 # Lab 3 — Critique Session: Structural Artifacts
 
-**Mode:** red-team, in teams of 3-4. **No AI today** — you hunt planted defects in three flawed artifacts.
+**Mode:** red-team, in teams of 3-5. **No AI today** — you hunt planted defects in three flawed artifacts.
 
 **Domain (honest — defects are in the artifacts, not here):** an airport parking lot. Multiple levels; each level has many parking spots, each with a free/occupied sensor. Multiple entrances and exits, each with a plate-reading camera. The entry barrier prints a ticket; the exit barrier opens only if the ticket is paid. Payment kiosks on each level; payment is by cash or card. Display boards at entrances show free spots, total and per level.
 

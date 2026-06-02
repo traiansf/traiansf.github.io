@@ -15,7 +15,7 @@ The last session, shared with **Lab 7**:
 The defense mechanics are in the Lab 7 brief; today's lecture portion is the wrap and the reflection.
 
 ::: notes
-W14 shares its slot with Lab 7. Keep the lecture portion short — a retrospective and the reflection framing — then hand the bulk of the time to the presentations and graded cold defenses run from the Lab 7 runbook.
+Week 14 shares its slot with Lab 7. Keep the lecture portion short — a retrospective and the reflection framing — then hand the bulk of the time to the presentations and graded cold defenses run from the Lab 7 runbook.
 :::
 
 ---
@@ -24,7 +24,7 @@ W14 shares its slot with Lab 7. Keep the lecture portion short — a retrospecti
 
 You learned to be the **architect and critic** of an AI-mediated design:
 
-- **Architect** — drive AI through the SDLC.
+- **Architect** — drive AI through the software development lifecycle (SDLC).
 - **Critic** — read its output and name what's wrong.
 
 Every week built one piece of that.
@@ -40,12 +40,12 @@ The one-line thesis, restated at the end. The whole course was these two roles, 
 ```plantuml
 @startuml
 left to right direction
-rectangle "Requirements\nW2-W3" as R
-rectangle "Structure\nW4-W5" as S
-rectangle "Behaviour\nW6-W7" as B
-rectangle "Patterns\nW8-W9" as P
-rectangle "Trace + Quality\nW10-W11" as T
-rectangle "Defense\nW12-W14" as D
+rectangle "Requirements\nWeeks 2-3" as R
+rectangle "Structure\nWeeks 4-5" as S
+rectangle "Behaviour\nWeeks 6-7" as B
+rectangle "Patterns\nWeeks 8-9" as P
+rectangle "Trace + Quality\nWeeks 10-11" as T
+rectangle "Defense\nWeeks 12-14" as D
 R --> S
 S --> B
 B --> P
@@ -57,23 +57,23 @@ T --> D
 Each stage: drive AI, read critically, correct, trace forward.
 
 ::: notes
-The SDLC journey as one flow. Requirements to defense, every stage running the same architect-critic loop. This single diagram is the course map — point out that the labs (1-7) shadowed it.
+The SDLC journey as one flow. Requirements to defense, every stage running the same architect-and-critic loop. This single diagram is the course map — point out that the labs (1-7) shadowed it.
 :::
 
 ---
 
-# The Floor: F1 + F3 + F4
+# The Floor: Critique, Rationale, Traceability
 
 The literacy floor you can demonstrate **unaided**:
 
-- **F1** — read & critique any AI artifact on the spot.
-- **F3** — articulate why you directed AI a certain way.
-- **F4** — defend traceability end to end.
+- **Critique** — read & critique any AI artifact on the spot.
+- **Rationale** — articulate why you directed AI a certain way.
+- **Traceability** — defend traceability end to end.
 
 These are what the defense grades — and what AI can't do for you.
 
 ::: notes
-The literacy floor, one last time. F1+F3+F4 was the through-line of every lecture's close. Today it is the rubric of the graded defense that follows.
+The literacy floor, one last time. Critique, Rationale, Traceability was the through-line of every lecture's close. Today it is the rubric of the graded defense that follows.
 :::
 
 ---
@@ -82,12 +82,12 @@ The literacy floor, one last time. F1+F3+F4 was the through-line of every lectur
 
 Not UML for its own sake. Not prompt tricks.
 
-It built the **human evaluator** — the judgement AI is worst at: completeness, correctness, and whether the design really fits the domain (W11).
+It built the **human evaluator** — the judgement AI is worst at: completeness, correctness, and whether the design really fits the domain (Week 11).
 
 That judgement is yours, and it's the point.
 
 ::: notes
-The real takeaway, callback to W11. The course's insistence on reading and critiquing was never nostalgia for diagrams — it was developing the evaluation AI provably can't be trusted with. End on the human's irreplaceable role.
+The real takeaway, callback to Week 11. The course's insistence on reading and critiquing was never nostalgia for diagrams — it was developing the evaluation AI provably can't be trusted with. End on the human's irreplaceable role.
 :::
 
 ---
@@ -100,7 +100,7 @@ In your teams, name where AI **helped** most this semester:
 - What did it get right that would have taken you far longer alone?
 
 ::: notes
-First half of the reflection segment (spec §2 W14). Let teams speak. The honest "AI was genuinely useful here" is as important as the critique — the course is pro-AI-with-judgement, not anti-AI.
+First half of the reflection segment (spec §2 Week 14). Let teams speak. The honest "AI was genuinely useful here" is as important as the critique — the course is pro-AI-with-judgement, not anti-AI.
 :::
 
 ---
@@ -126,7 +126,7 @@ Team presentations, back to back, then your **per-student cold defense** — gra
 Present the **trail**, not just the artifacts. Read aloud, give reasons, walk your trace. Defend the work that's yours.
 
 ::: notes
-Hand-off to Lab 7. The mechanics, schedule, and barem are in the Lab 7 brief and runbook. The lecture's job is done — this slide turns the room over to the presentations and graded defenses.
+Hand-off to Lab 7. The mechanics, schedule, and rubric are in the Lab 7 brief and runbook. The lecture's job is done — this slide turns the room over to the presentations and graded defenses.
 :::
 
 ---

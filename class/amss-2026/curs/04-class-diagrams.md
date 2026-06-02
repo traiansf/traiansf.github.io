@@ -6,43 +6,43 @@ date: "2026"
 
 # Today's Agenda
 
-1. Frame: from behaviour (W3) to structure
+1. Frame: from behaviour (Week 3) to structure
 2. Live demo: drive AI to a class diagram
 3. Core notation: the reading floor
 4. How AI gets class diagrams wrong
-5. Reading critically: the F1 drill
-6. Bridge to W5 + Lab 2
+5. Reading critically: the Critique drill
+6. Bridge to Week 5 + Lab 2
 
 ::: notes
-W3 pinned behaviour with tests; today we model the structure that realises it — and Lab 2 this week is your hands-on follow-through. No re-introduction; open straight into structure.
+Week 3 pinned behaviour with tests; today we model the structure that realises it — and Lab 2 this week is your hands-on follow-through. No re-introduction; open straight into structure.
 
 Authoring note: this lecture reshapes 2025's `class/amss/curs/02-class.md` (Book-class compartments, aggregation/composition and generalization examples, and the over-complicated -> simplified diagram pair), reframed from "here is the notation" to "here is what AI gets wrong about it."
 :::
 
 ---
 
-# Recap: Architect + Critic
+# Recap: Architect and Critic
 
-- **Architect / director (B):** drive AI through the SDLC.
-- **Critic / reviewer (A):** read AI's output and name what's wrong or missing.
+- **Architect / director:** drive AI through the software development lifecycle (SDLC).
+- **Critic / reviewer:** read AI's output and name what's wrong or missing.
 
-In W3 you critiqued AI-written tests. Today: the same loop, on a diagram.
+In Week 3 you critiqued AI-written tests. Today: the same loop, on a diagram.
 
 ::: notes
-W3 was behaviour (tests); today is structure (classes). One breath of recap.
+Week 3 was behaviour (tests); today is structure (classes). One breath of recap.
 :::
 
 ---
 
 # From Behaviour to Structure
 
-- **W3 pinned what the system does** — a test says "a 60-minute rental costs €3.00."
+- **Week 3 pinned what the system does** — a test says "a 60-minute rental costs €3.00."
 - **Today: what objects realise it** — a `Rental`, a `Bike`, a `User`, a `Payment`, and how they relate.
 
 The class diagram is the central structural artifact.
 
 ::: notes
-The bridge from W3. The fare test implies objects: something holds the duration, something computes the charge. Today we draw that structure.
+The bridge from Week 3. The fare test implies objects: something holds the duration, something computes the charge. Today we draw that structure.
 :::
 
 ---
@@ -60,18 +60,18 @@ Threads 3 and 4 are the payload. Brief preview before the demo.
 
 ---
 
-# Literacy Floor: F1 + F3 + F4
+# The Literacy Floor: Critique, Rationale, Traceability
 
-From W1: in the oral defense, *unaided*, you must demonstrate:
+From Week 1: in the oral defense, *unaided*, you must demonstrate:
 
-- **F1** — read & critique AI-generated artifacts on the spot.
-- **F3** — articulate why you directed AI a certain way.
-- **F4** — defend traceability across your project.
+- **Critique** — read & critique AI-generated artifacts on the spot.
+- **Rationale** — articulate why you directed AI a certain way.
+- **Traceability** — defend the trace across your project.
 
-Today is F1 at its sharpest: read an AI-drawn class diagram and name what's wrong.
+Today is Critique at its sharpest: read an AI-drawn class diagram and name what's wrong.
 
 ::: notes
-First of two F1+F3+F4 mentions. F1 anchored this week — reading & critiquing a diagram cold IS the oral-defense skill. Same wording in the close.
+First of two Critique, Rationale, Traceability mentions. Critique anchored this week — reading & critiquing a diagram cold IS the oral-defense skill. Same wording in the close.
 :::
 
 ---
@@ -206,7 +206,17 @@ Station o-- "*" Bike : holds
 One small diagram, all four elements. If you can read this, you can critique AI's.
 
 ::: notes
-Consolidation. Every element of the floor in one bike-sharing diagram. This is the F1 reading target.
+Consolidation. Every element of the floor in one bike-sharing diagram. This is the Critique reading target.
+:::
+
+---
+
+# Your Turn: Read It Aloud
+
+Read this diagram aloud to your neighbour (60s): what does each multiplicity say? Spot anything that can't be right.
+
+::: notes
+Active reading before the defect catalogue. Have a pair voice "one user, many rentals; many rentals, one bike" aloud — saying multiplicities out loud is exactly the cold-read skill the oral defense checks. Take one or two readings, then move into the defects.
 :::
 
 ---
@@ -218,7 +228,7 @@ A class diagram can look professional and still misrepresent the domain. The cri
 > *"Does this structure match the domain — or just look like a diagram?"*
 
 ::: notes
-Sets up the catalogue — F1 applied to structure. The three core defects are spec-named: multiplicity, fake associations, missing aggregation.
+Sets up the catalogue — Critique applied to structure. The three core defects are spec-named: multiplicity, fake associations, missing aggregation.
 :::
 
 ---
@@ -312,7 +322,7 @@ Station o-- "*" Bike
 Same domain, only the classes that earn their place. **You saw defect #1 (multiplicity) live in the demo.**
 
 ::: notes
-Reuses 2025's simplified diagram, reframed as the critique RESULT. The attribute-that-should-be-an-association defect (e.g. `User.rentals: String`) folds in here — the fix is the `User "1" -- "*" Rental` link. Ties the catalogue back to the demo.
+Reuses 2025's simplified diagram, reframed as the critique RESULT. The attribute-that-should-be-an-association defect (e.g. `User.rentals: String`) folds in here — the fix is the `User "1" -- "*" Rental` link. Ties the catalogue back to the demo. Note the `Rental "1" -- "1" Bike` reads 1-1 *within a single rental*, whereas earlier `Rental "*" -- "1" Bike` takes the bike's view across time — one bike participates in many rentals. Both are correct; the difference is the lifetime you scope the association to.
 :::
 
 ---
@@ -327,7 +337,7 @@ A fixed order, every time:
 4. Are **whole-part** relationships captured? (aggregation/composition)
 
 ::: notes
-This IS the F1 drill. A repeatable read-order beats ad-hoc staring. Students internalise it for the oral defense and Lab 2.
+This IS the Critique drill. A repeatable read-order beats ad-hoc staring. Students internalise it for the oral defense and Lab 2.
 :::
 
 ---
@@ -336,7 +346,7 @@ This IS the F1 drill. A repeatable read-order beats ad-hoc staring. Students int
 
 read -> name the defects -> re-prompt with domain constraints -> re-read.
 
-Same architect-critic loop as W2 (requirements) and W3 (tests) — now on a diagram.
+Same architect-and-critic loop as Week 2 (requirements) and Week 3 (tests) — now on a diagram.
 
 ::: notes
 The loop is the through-line of the course. The scaffold that tightens AI output here is naming the domain rules (a rental is one bike) — exactly the demo's prompt #2.
@@ -358,12 +368,12 @@ Bridges the read-order to Lab 2's deliverable. The read-order is the rubric for 
 
 # The Human Decides What Matches the Domain
 
-AI can draw plausible structure forever. Deciding whether it matches the *domain* — that's the architect-critic call.
+AI can draw plausible structure forever. Deciding whether it matches the *domain* — that's the architect-and-critic call.
 
 It's what the oral defense checks, and AI can't make it for you.
 
 ::: notes
-Reinforces ownership, mirroring W3's "human closes the loop." The defense grades this judgment, not the diagram's polish.
+Reinforces ownership, mirroring Week 3's "human closes the loop." The defense grades this judgment, not the diagram's polish.
 :::
 
 ---
@@ -376,41 +386,41 @@ Reinforces ownership, mirroring W3's "human closes the loop." The defense grades
 - Commit to the course lab repo.
 
 ::: notes
-Lab 2 spec is its own document (forthcoming). Keep high-level so it survives late details. "At least twice" / "1 page max" use words, not the dropped >= / <= glyphs (W3 PDF-glyph lesson).
+Lab 2 spec is its own document (forthcoming). Keep high-level so it survives late details. "At least twice" / "1 page max" use words, not the dropped >= / <= glyphs (Week 3 PDF-glyph lesson).
 :::
 
 ---
 
-# Next Week: Other Structural Views (W5)
+# Next Week: Other Structural Views (Week 5)
 
 One class diagram isn't the whole structure.
 
-**W5:** object, package, component, and deployment views — and where AI over- or under-decomposes at the architecture level.
+**Week 5:** object, package, component, and deployment views — and where AI over- or under-decomposes at the architecture level.
 
 ::: notes
-Clean handoff. W4 was the class diagram; W5 widens to the other structural views.
+Clean handoff. Week 4 was the class diagram; Week 5 widens to the other structural views.
 :::
 
 ---
 
-# F1 + F3 + F4 — The Through-Line
+# Critique, Rationale, Traceability — The Through-Line
 
 Today you drilled:
 
-- **F1** — read an AI class diagram and named its defects on the spot.
-- **F4** — the class is a structural node in the trace: requirement -> use case -> class (the behavioural tail, the test, came in W3).
+- **Critique** — read an AI class diagram and named its defects on the spot.
+- **Traceability** — the class is a structural node in the trace: requirement -> use case -> class (the behavioural tail, the test, came in Week 3).
 
-F3 (why you directed AI a certain way) lands in your project narrative.
+Rationale (why you directed AI a certain way) lands in your project narrative.
 
 ::: notes
-Second and final F1+F3+F4 mention. F1 anchored, same wording as the frame. The one-line trace touch keeps F4 continuity without a dedicated segment.
+Second and final Critique, Rationale, Traceability mention. Critique anchored, same wording as the frame. The one-line trace touch keeps Traceability continuity without a dedicated segment.
 :::
 
 ---
 
 # That's It For Today
 
-- Next lecture (W5): other structural views.
+- Next lecture (Week 5): other structural views.
 - This week's lab (Lab 2): drive AI to a class diagram, then critique it.
 
 Questions?

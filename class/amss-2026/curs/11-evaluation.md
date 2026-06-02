@@ -11,7 +11,7 @@ date: "2026"
 3. Live demo: ask AI to evaluate a flawed artifact
 4. Where AI is a worse evaluator than you
 5. How to use AI as an evaluator — and how not to
-6. Bridge to W12 + the project
+6. Bridge to Week 12 + the project
 
 ::: notes
 The course used AI to generate and YOU to judge. Today turns to evaluation itself: what quality means, how to check it, and what happens when you ask AI to judge. The named payload is where AI is a worse evaluator than the human. Open into the generating-to-judging shift.
@@ -19,22 +19,22 @@ The course used AI to generate and YOU to judge. Today turns to evaluation itsel
 
 ---
 
-# Recap: Architect + Critic
+# Recap: Architect and Critic
 
-- **Architect / director (B):** drive AI through the SDLC.
-- **Critic / reviewer (A):** read AI's output and name what's wrong or missing.
+- **Architect / director:** drive AI through the software development lifecycle (SDLC).
+- **Critic / reviewer:** read AI's output and name what's wrong or missing.
 
-For ten weeks **you** were the critic. Today's question: can **AI** be the critic — can it judge its own output?
+For nine weeks **you** were the critic. Today's question: can **AI** be the critic — can it judge its own output?
 
 ::: notes
-One breath of recap. The architect-critic split assumed the human holds the critic role. Today we test whether that role can be handed to AI — and find the limits. This reframes the whole course's design choice.
+One breath of recap. The architect-and-critic split assumed the human holds the critic role. Today we test whether that role can be handed to AI — and find the limits. This reframes the whole course's design choice.
 :::
 
 ---
 
 # From Generating to Judging
 
-- **W2-W10: AI generated, you judged.** Every read-order trained your judgement.
+- **Weeks 2-10: AI generated, you judged.** Every read-order trained your judgement.
 - **Today: what if AI judges?** It is fast and tireless — but is it *right*?
 
 Today's question: **which parts of quality can AI evaluate — and which must stay yours?**
@@ -45,18 +45,18 @@ The bridge. The temptation in an AI-mediated workflow is to also delegate evalua
 
 ---
 
-# Literacy Floor: F1 + F3 + F4
+# The Literacy Floor: Critique, Rationale, Traceability
 
-From W1: in the oral defense, *unaided*, you must demonstrate:
+From Week 1: in the oral defense, *unaided*, you must demonstrate:
 
-- **F1** — read & critique AI-generated artifacts on the spot.
-- **F3** — articulate why you directed AI a certain way.
-- **F4** — defend traceability across your project.
+- **Critique** — read & critique AI-generated artifacts on the spot.
+- **Rationale** — articulate why you directed AI a certain way.
+- **Traceability** — defend the trace across your project.
 
-**F1 is the human's evaluation skill.** Today is why it can't be delegated — the defense is *unaided* for a reason.
+**Critique is the human's evaluation skill.** Today is why it can't be delegated — the defense is *unaided* for a reason.
 
 ::: notes
-First of two F1+F3+F4 mentions. The whole literacy floor is the human-as-evaluator. Today shows the mechanism behind the "unaided" rule: AI cannot stand in for your judgement on the criteria that matter. Same wording in the close.
+First of two Critique, Rationale, Traceability mentions. The whole literacy floor is the human-as-evaluator. Today shows the mechanism behind the "unaided" rule: AI cannot stand in for your judgement on the criteria that matter. Same wording in the close.
 :::
 
 ---
@@ -70,7 +70,7 @@ First of two F1+F3+F4 mentions. The whole literacy floor is the human-as-evaluat
 The three C's. Every evaluation asks all three.
 
 ::: notes
-The quality vocabulary. Consistency is internal coherence (and the W10 cross-artifact agreement); completeness is coverage; correctness is fit to reality. Students should learn to name which criterion a defect violates — it predicts whether AI can help find it.
+The quality vocabulary. Consistency is internal coherence (and the Week 10 cross-artifact agreement); completeness is coverage; correctness is fit to reality. Students should learn to name which criterion a defect violates — it predicts whether AI can help find it.
 :::
 
 ---
@@ -91,12 +91,12 @@ The crux of the lecture. Consistency and conformance reduce to checkable rules �
 
 # How You Evaluate: Three Techniques
 
-- **Static evaluation** — read against quality rules. *The W4-W10 read-orders are exactly this.*
+- **Static evaluation** — read against quality rules. *The Weeks 4-10 read-orders are exactly this.*
 - **Conformance checking** — does the model obey its well-formedness rules?
 - **Simulation** — execute the model: run the state machine, walk the sequence, run the test.
 
 ::: notes
-The toolkit. Static evaluation is the read-order discipline the whole course drilled. Conformance is the mechanical rule-check (next slide). Simulation is executing the model to find behavioural defects — connects to W7 reachability and W3's tests as the executable form of a spec.
+The toolkit. Static evaluation is the read-order discipline the whole course drilled. Conformance is the mechanical rule-check (next slide). Simulation is executing the model to find behavioural defects — connects to Week 7 reachability and Week 3's tests as the executable form of a spec.
 :::
 
 ---
@@ -114,6 +114,16 @@ Metamodel kept brief (spec: "brief metamodel concepts"). The point students need
 
 ---
 
+# Your Turn: Predict the Verdict
+
+In pairs, write down whether AI will (a) praise the flawed bike-sharing diagram, (b) nitpick cosmetics, or (c) catch the real defects — then we reveal live.
+
+::: notes
+Quick prediction beat before the demo: have each pair commit to (a), (b), or (c) on paper. Collect a show of hands so the room is on record. The live demo then either confirms the sycophancy/plausibility prediction or surprises them — either way they own a stake in the outcome. 60 seconds, then run the demo.
+:::
+
+---
+
 # Demo: Ask AI to Evaluate
 
 > Live: hand AI a flawed bike-sharing class diagram — one we know the defects of — and ask "is this good?". Watch what it says.
@@ -121,7 +131,7 @@ Metamodel kept brief (spec: "brief metamodel concepts"). The point students need
 **Prompt to AI:** *"Here is a UML class diagram for a bike-sharing app. Is this a good design? Rate it. [paste a flawed diagram]"*
 
 ::: notes
-Switch to Continue.dev. Run the runbook at `class/amss-2026/curs/11-evaluation-demo.md` for ~12 min. The diagram is the W4/Lab-2 flawed one (wrong multiplicity, god class, invented infra) — we know the ground truth. The near-certain failure: AI praises it, or nitpicks cosmetics while missing the real defects. Fallback: runbook §8.
+Switch to Continue.dev. Run the runbook at `class/amss-2026/curs/11-evaluation-demo.md` for ~12 min. The diagram is the Week 4 / Lab 2 flawed one (wrong multiplicity, god class, invented infra) — we know the ground truth. The near-certain failure: AI praises it, or nitpicks cosmetics while missing the real defects. Fallback: runbook §8.
 :::
 
 ---
@@ -133,7 +143,7 @@ AI is trained to be helpful and agreeable. Asked to judge, it leans toward appro
 > *"Is this judgement independent — or is AI just agreeing with me, or with itself?"*
 
 ::: notes
-Sets up the gallery — F1 turned on the evaluator. The failures below all stem from AI optimising for agreeable, plausible-sounding output rather than truth. An evaluator that wants to please is not an evaluator.
+Sets up the gallery — Critique turned on the evaluator. The failures below all stem from AI optimising for agreeable, plausible-sounding output rather than truth. An evaluator that wants to please is not an evaluator.
 :::
 
 ---
@@ -161,7 +171,7 @@ A clean diagram with a wrong multiplicity passes.
 **Lesson:** *Looks-right is not is-right. AI optimises for the first.*
 
 ::: notes
-AI was trained on what good artifacts look like, so it rates surface plausibility. A wrong `Member "*" -- "*" Book` in a tidy diagram sails through. This is why a human who reads the multiplicity aloud beats AI's gestalt impression. Reuse the W4 wrong-multiplicity example.
+AI was trained on what good artifacts look like, so it rates surface plausibility. A wrong `Member "*" -- "*" Book` in a tidy diagram sails through. This is why a human who reads the multiplicity aloud beats AI's gestalt impression. Reuse the Week 4 wrong-multiplicity example.
 :::
 
 ---
@@ -175,7 +185,7 @@ The dropped requirement, the unhandled failure path — invisible to it.
 **Lesson:** *Completeness is yours. AI can't miss what it never knew to expect.*
 
 ::: notes
-The completeness failure, predicted by slide 6. Absence has no token to attend to — AI cannot evaluate a requirement that isn't represented. This is exactly the orphan-requirement / happy-path-only defects from W10/W6, now framed as why AI can't catch them.
+The completeness failure, predicted by slide 6. Absence has no token to attend to — AI cannot evaluate a requirement that isn't represented. This is exactly the orphan-requirement / happy-path-only defects from Weeks 6 and 10, now framed as why AI can't catch them.
 :::
 
 ---
@@ -196,7 +206,7 @@ The correctness failure. AI has no access to the business reality; it can only j
 
 Ask the model that **generated** an artifact to grade it, and it rates its own work highly. There is no independent check — same blind spots, twice.
 
-**Lesson:** *The generator can't be the only critic. That's the whole architect-critic split.*
+**Lesson:** *The generator can't be the only critic. That's the whole architect-and-critic split.*
 
 ::: notes
 Closes the gallery by tying back to the course's founding split. A generator grading itself reproduces its own errors as "fine". This is the mechanism behind requiring an independent (human) critic — and, in PR practice, a separate reviewer.
@@ -215,7 +225,7 @@ InUse --> Maintenance : fault
 @enduml
 ```
 
-Narrow, checkable questions: *"Which states have no way out?"* -> AI flags `Maintenance`. *"List classes with no association."* Conformance and consistency — mechanical, verifiable.
+Narrow, checkable questions: *"Which states have no way out?"* -> AI flags `Maintenance`. *"Which states are unreachable?"* Conformance and consistency — mechanical, verifiable.
 
 ::: notes
 The constructive turn. AI is a fine conformance checker: dead-end states, missing multiplicities, classes with no links. The diagram shows a dead-end (Maintenance) AI's mechanical check can catch. The key is the QUESTION — specific and checkable, not "is this good?".
@@ -233,7 +243,7 @@ A fixed order, every time:
 4. **Verify** every AI evaluation against the domain.
 
 ::: notes
-This IS the drill for W11. It inverts the usual loop: AI evaluations are inputs to verify, not verdicts to accept. The four rules map directly to the five failures — each rule disarms one. Students apply this to their own project before the defense.
+This IS the drill for Week 11. It inverts the usual loop: AI evaluations are inputs to verify, not verdicts to accept. The four rules map directly to the five failures — each rule disarms one. Students apply this to their own project before the defense.
 :::
 
 ---
@@ -242,7 +252,7 @@ This IS the drill for W11. It inverts the usual loop: AI evaluations are inputs 
 
 ask a specific check -> verify AI's answer against the artifact -> never accept "looks good".
 
-When AI evaluates, **you** evaluate the evaluation. Same architect-critic loop, one level up.
+When AI evaluates, **you** evaluate the evaluation. Same architect-and-critic loop, one level up.
 
 ::: notes
 The loop, applied to evaluation. The scaffold here is the narrow question plus independent verification — AI's "all good" is a claim to check, exactly as its generated artifacts were. The human stays the critic of record.
@@ -257,7 +267,7 @@ AI can flag a missing multiplicity or a dead-end state. Judging whether the desi
 It's what the oral defense checks, and AI can't do it for you.
 
 ::: notes
-Reinforces ownership, the W11 form. The defense being unaided is not arbitrary — it tests the two criteria AI provably can't evaluate. The student is the evaluator of record for their project.
+Reinforces ownership, the Week 11 form. The defense being unaided is not arbitrary — it tests the two criteria AI provably can't evaluate. The student is the evaluator of record for their project.
 :::
 
 ---
@@ -274,37 +284,37 @@ The capstone framing for the evaluation arc. The course's insistence on the huma
 
 ---
 
-# Next Week: Presentation & Defense Skills (W12)
+# Next Week: Presentation & Defense Skills (Week 12)
 
 You can evaluate. Next: how to **present and defend** an AI-mediated design.
 
-**W12:** the F1+F3+F4 rubric explained, what examiners look for, dry-run mechanics. Plus **Lab 6**, your cold-defense dry run.
+**Week 12:** the Critique, Rationale, Traceability rubric explained, what examiners look for, dry-run mechanics. Plus **Lab 6**, your cold-defense dry run.
 
 ::: notes
-Clean handoff. W11 is the judgement; W12 is performing it under examination. W12 pairs with Lab 6 (the dry-run). The bike-sharing thread and the student's own project carry forward into the defense prep.
+Clean handoff. Week 11 is the judgement; Week 12 is performing it under examination. Week 12 pairs with Lab 6 (the dry-run). The bike-sharing thread and the student's own project carry forward into the defense prep.
 :::
 
 ---
 
-# F1 + F3 + F4 — The Through-Line
+# Critique, Rationale, Traceability — The Through-Line
 
 Today you drilled:
 
-- **F1** — saw why your critique can't be delegated: AI evaluates to please, looks-right over is-right, blind to what's missing.
-- **F4** — completeness and correctness across the trace are the human's to judge.
+- **Critique** — saw why your critique can't be delegated: AI evaluates to please, looks-right over is-right, blind to what's missing.
+- **Traceability** — completeness and correctness across the trace are the human's to judge.
 
-F3: when you reject AI's "looks good", you say *why* it isn't.
+Rationale: when you reject AI's "looks good", you say *why* it isn't.
 
 ::: notes
-Second and final F1+F3+F4 mention. F1 anchored — the human evaluator is irreplaceable on completeness and correctness. Sets up W12, where this judgement is performed and graded in the defense.
+Second and final Critique, Rationale, Traceability mention. Critique anchored — the human evaluator is irreplaceable on completeness and correctness. Sets up Week 12, where this judgement is performed and graded in the defense.
 :::
 
 ---
 
 # That's It For Today
 
-- Next lecture (W12): presentation & defense skills.
-- Looking ahead: Lab 6 (W12) is your cold-defense dry run.
+- Next lecture (Week 12): presentation & defense skills.
+- Looking ahead: Lab 6 (Week 12) is your cold-defense dry run.
 
 Questions?
 

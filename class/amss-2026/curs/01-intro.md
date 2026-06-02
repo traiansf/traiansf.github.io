@@ -22,12 +22,12 @@ Welcome students. Brief self-introduction. Note that this is a redesigned course
 
 1. Frame: the architect-critic loop + 5 course commitments
 2. Live demo: an AI-driven design loop on a tiny scenario
-3. What AI changes at each SDLC stage
+3. What AI changes at each software development lifecycle (SDLC) stage
 4. Tooling preview
 5. Course logistics
 
 ::: notes
-Tell students: today is the framing day. Week 2 is where the work begins — Lab 1 has hands-on tooling onboarding, and W2 covers requirements with AI.
+Tell students: today is the framing day. Week 2 is where the work begins — Lab 1 has hands-on tooling onboarding, and Week 2 covers requirements with AI.
 
 This lecture deliberately ends earlier than 100 minutes. There is room for questions throughout.
 :::
@@ -42,6 +42,18 @@ This lecture deliberately ends earlier than 100 minutes. There is room for quest
 
 ::: notes
 Set the stage. Many students have used ChatGPT or similar in courses. Today we name what they've already been doing implicitly and turn it into a discipline.
+:::
+
+---
+
+# Your Turn: Have You Already Done This?
+
+Hands up: who has used AI to generate code, requirements, or tests for a course?
+
+Turn to your neighbour for 30 seconds: did you trust the output? How did you check it?
+
+::: notes
+This surfaces that students are already acting as architect-and-critic without naming it. Take a quick show of hands, let pairs talk for 30 seconds, then bridge straight into the loop: that instinct to check the output *is* the critic move.
 :::
 
 ---
@@ -67,14 +79,14 @@ The slidy `. . .` produces an incremental reveal: the title appears first, then 
 
 You are simultaneously:
 
-- **Architect / director (B):** drive the work
-- **Critic / reviewer (A):** read the work
+- **Architect / director:** drive the work
+- **Critic / reviewer:** read the work
 
 The architect-half makes you the owner of the design.
 The critic-half makes you the owner of the quality.
 
 ::: notes
-Why both? Pure-critic students stay passive; pure-architect students coast on AI output. A+B forces both halves and produces a trail of decisions that's hard to fake. (This rationale is in parent spec §1's "Design rationale".)
+Why both? Pure-critic students stay passive; pure-architect students coast on AI output. The architect-and-critic loop forces both halves and produces a trail of decisions that's hard to fake. (This rationale is in parent spec §1's "Design rationale".)
 :::
 
 ---
@@ -96,7 +108,7 @@ This reverses the AMSS 2025 rule that explicitly forbade auto-generated artifact
 > **The trail is graded, not the running system.**
 
 What gets graded: directed-design narrative + final reviewed artifact set + oral defense.
-What does *not* get graded: running code, raw test pass-rates, hand-drawn diagrams.
+What does *not* get graded: running code, raw test pass-rates.
 
 ::: notes
 The grade lives in *what you did to AI's output*, not in the output itself. Code-quality grading is the parallel implementation course's job.
@@ -108,7 +120,7 @@ The grade lives in *what you did to AI's output*, not in the output itself. Code
 
 > **Implementation is a forcing function, not a deliverable.**
 
-TDD-with-AI is *required* for the project — but its output is *never* a grading line item.
+Test-driven development (TDD) with AI is *required* for the project — but its output is *never* a grading line item.
 
 The reflection on what TDD revealed about your spec is what gets read.
 
@@ -120,16 +132,16 @@ Why required-but-ungraded? Writing a testable spec is harder than writing a vagu
 
 # Five Course Commitments (4/5)
 
-> **Defensible literacy floor — F1 + F3 + F4.**
+> **Defensible literacy floor — Critique, Rationale, Traceability.**
 
 In the oral defense, *unaided*, you must demonstrate:
 
-- **F1** — Read & critique any AI-generated UML diagram on the spot.
-- **F3** — Articulate why you directed AI a certain way and what you accepted or rejected.
-- **F4** — Defend traceability across your project: requirement → use case → class → state/sequence → test.
+- **Critique** — Read & critique any AI-generated UML diagram on the spot.
+- **Rationale** — Articulate why you directed AI a certain way and what you accepted or rejected.
+- **Traceability** — Defend traceability across your project: requirement → use case → class → state/sequence → test.
 
 ::: notes
-You will hear F1+F3+F4 named twice more today (in the SDLC walkthrough and in the oral-defense rubric). Deliberate repetition. This is the spine of the course.
+You will hear Critique, Rationale, Traceability named twice more today (in the SDLC walkthrough and in the oral-defense rubric). Deliberate repetition. This is the spine of the course.
 :::
 
 ---
@@ -191,7 +203,7 @@ Section opener. Brief — students just came back from a demo, give them a beat 
 
 ---
 
-# Requirements Gathering (W2 preview)
+# Requirements Gathering (Week 2 preview)
 
 **AI does well:**
 
@@ -201,16 +213,16 @@ Section opener. Brief — students just came back from a demo, give them a beat 
 **AI fails at:**
 
 - Fabricating non-functional requirements without grounding.
-- Vague NFRs ("the system shall be performant").
+- Vague non-functional requirements (NFRs) ("the system shall be performant").
 - Over-specifying — generating 200 requirements where 20 would do.
 
 ::: notes
-W2 lecture covers the failure modes in detail. Lab 1 is a hands-on requirements drill.
+Week 2 lecture covers the failure modes in detail. Lab 1 is a hands-on requirements drill.
 :::
 
 ---
 
-# Test/Spec Design (W3 preview)
+# Test/Spec Design (Week 3 preview)
 
 **AI does well:**
 
@@ -225,12 +237,12 @@ W2 lecture covers the failure modes in detail. Lab 1 is a hands-on requirements 
 > If AI can't produce a passing test from your spec, your spec is too vague.
 
 ::: notes
-This last line is the W3 mantra. The required-but-ungraded TDD loop in the project hangs on this idea.
+This last line is the Week 3 mantra. The required-but-ungraded TDD loop in the project hangs on this idea.
 :::
 
 ---
 
-# Structural Modeling (W4-5 preview)
+# Structural Modeling (Weeks 4-5 preview)
 
 **AI does well:**
 
@@ -244,12 +256,12 @@ This last line is the W3 mantra. The required-but-ungraded TDD loop in the proje
 - Conflating abstract concepts with concrete instances.
 
 ::: notes
-W4 = class diagrams. W5 = object/package/component/deployment. The demo we just did is the prototypical W4 exercise.
+Week 4 = class diagrams. Week 5 = object/package/component/deployment. The demo we just did is the prototypical Week 4 exercise.
 :::
 
 ---
 
-# Behavioral Modeling (W6-7 preview)
+# Behavioral Modeling (Weeks 6-7 preview)
 
 **AI does well:**
 
@@ -263,17 +275,17 @@ W4 = class diagrams. W5 = object/package/component/deployment. The demo we just 
 - Orphan states / unreachable transitions.
 
 ::: notes
-W6 = use cases + sequence. W7 = state + activity.
+Week 6 = use cases + sequence. Week 7 = state + activity.
 :::
 
 ---
 
-# Patterns (W8-9 preview)
+# Patterns (Weeks 8-9 preview)
 
 **AI does well:**
 
 - Recognizes textbook pattern situations and applies them.
-- Knows the GoF vocabulary.
+- Knows the Gang of Four (GoF) vocabulary.
 
 **AI fails at:**
 
@@ -282,12 +294,12 @@ W6 = use cases + sequence. W7 = state + activity.
 - Calling something "Visitor" when it's just an `if/else` on a type tag.
 
 ::: notes
-W8 = pattern selection. W9 = pattern integration & critique. The critique frame is heavy here — many AI pattern applications look right and are wrong.
+Week 8 = pattern selection. Week 9 = pattern integration & critique. The critique frame is heavy here — many AI pattern applications look right and are wrong.
 :::
 
 ---
 
-# Quality, Traceability, Evaluation (W10-11 preview)
+# Traceability, Quality & Evaluation (Weeks 10-11 preview)
 
 **AI does well:**
 
@@ -301,7 +313,7 @@ W8 = pattern selection. W9 = pattern integration & critique. The critique frame 
 - Catching consistency issues without being prompted.
 
 ::: notes
-W10 = the full trace (requirement → use case → class → state/sequence → test). W11 = quality criteria + simulation. F4 (defensible traceability) is anchored here.
+Week 10 = the full trace (requirement → use case → class → state/sequence → test). Week 11 = quality criteria + simulation. Traceability (defensible traceability) is anchored here.
 :::
 
 ---
@@ -320,18 +332,18 @@ This is the third commitment again, in concrete form. Recap briefly so students 
 
 ---
 
-# Back to F1 + F3 + F4
+# Back to Critique, Rationale, Traceability
 
 Every stage above gets evaluated through the same three abilities:
 
-- **F1** — read & critique what AI produced.
-- **F3** — articulate why you directed AI the way you did.
-- **F4** — defend the trace from one stage to the next.
+- **Critique** — read & critique what AI produced.
+- **Rationale** — articulate why you directed AI the way you did.
+- **Traceability** — defend the trace from one stage to the next.
 
 This is the literacy floor. The oral defense tests it directly.
 
 ::: notes
-Second mention of F1+F3+F4 (first was in commitment #4). Deliberate repetition — say it the same way each time.
+Second mention of Critique, Rationale, Traceability (first was in commitment #4). Deliberate repetition — say it the same way each time.
 :::
 
 ---
@@ -382,7 +394,7 @@ Be explicit: BYO is a power-user upgrade, not a substitute. Students who only ru
 
 # Schedule
 
-- **14 weeks** of lectures, one per week (100 min each).
+- **14 teaching weeks**: 12 lecture weeks (~100 min each), plus a project workshop (Week 13) and final presentations (Week 14).
 - **7 labs**, biweekly (Weeks 2, 4, 6, 8, 10, 12, 14 — 100 min each).
 - Course landing page: `traiansf.github.io/class/amss2026/`.
 
@@ -410,11 +422,11 @@ Walk the schedule briefly. Note that lab weeks alternate — students don't have
 # The Project
 
 - **Teams of 3-5 students.**
+- Teams not formed by 1 November are randomized.
 - Domain announced by **31 October 2026**.
 - Multiple teams may share a domain — the directed-design trails differ.
 - Each student owns a **slice** of their team's system.
-- December checkpoint (Lab 5): 1 of the 8 project points.
-- Final defense (W14 + Lab 7): the rest.
+- December checkpoint (Lab 5): 1 pt. Remaining 7 pts across the oral defense, directed-design narrative + defect log, documentation, and design patterns — see the project rubric.
 
 ::: notes
 Project README has the full rubric. Slice ownership is what makes the cold-defense work — every student must be able to walk their own slice end-to-end.
@@ -422,18 +434,18 @@ Project README has the full rubric. Slice ownership is what makes the cold-defen
 
 ---
 
-# Oral Defense — F1 + F3 + F4
+# Oral Defense — Critique, Rationale, Traceability
 
 Cold defense, 3 of 8 project points. *Unaided*, you must:
 
-- **F1** — Read & critique any AI-generated UML diagram from any team's repo.
-- **F3** — Articulate rationale for your own design decisions.
-- **F4** — Defend traceability across your project's slices.
+- **Critique** — Read & critique any AI-generated UML diagram from any team's repo.
+- **Rationale** — Articulate rationale for your own design decisions.
+- **Traceability** — Defend traceability across your project's slices.
 
 This is the integrity check.
 
 ::: notes
-Third mention of F1+F3+F4. State it the same way you stated it in the frame and in the SDLC-changes transition.
+Third mention of Critique, Rationale, Traceability. State it the same way you stated it in the frame and in the SDLC-changes transition.
 
 Cold-defense means examiners may pick a teammate's slice and ask you to walk it. Impossible to fake without genuine team-wide traceability awareness.
 :::
@@ -447,10 +459,10 @@ For students who fail the regular evaluation path:
 - Single 90-min written paper.
 - Format: critique an AI-generated artifact set + short-answer rationale + traceability walk.
 - **No AI in the room.**
-- Tests the same competence (F1+F3+F4) as the oral defense.
+- Tests the same competence (Critique, Rationale, Traceability) as the oral defense.
 
 ::: notes
-Template at `exam/examen-2026.pdf`. The resit is a fallback path, not a different skillset.
+Template at `exam/examen-2026.tex` (built to PDF). The resit is a fallback path, not a different skillset.
 :::
 
 ---
@@ -460,7 +472,7 @@ Template at `exam/examen-2026.pdf`. The resit is a fallback path, not a differen
 - AI use is **expected** for almost every artifact in this course.
 - The *directed-design narrative* is your record of what you did with AI.
 - The *cold defense* is the integrity check — examiners verify you understand your own work.
-- One-page statement attached to the syllabus (circulated before W2).
+- One-page statement attached to the syllabus (circulated before Week 2).
 
 ::: notes
 Be explicit: AI use is not "cheating" in this course; it's the assignment. What's not OK: outsourcing the *direction* and *judgment*. The oral defense surfaces that gap immediately.
@@ -470,7 +482,7 @@ Be explicit: AI use is not "cheating" in this course; it's the assignment. What'
 
 # Communication
 
-- *Teams link / mailing list — to be circulated before W2.*
+- *Teams link / mailing list — to be circulated before Week 2.*
 - Office hours: by appointment (email).
 - Course repo: GitHub (link circulated with the team-formation announcement).
 
