@@ -1,0 +1,22 @@
+@startuml
+hide empty members
+class BikeSystem {
+  - bikes
+  - users
+  - rentals
+  + doEverything()
+}
+class User
+class Rental {
+  - start: Date
+  - end: Date
+}
+class Bike
+class Station
+class Payment
+Rental "*" -- "*" Bike
+User "1" -- "*" Rental
+Rental --> Payment
+Station -- Bike
+BikeSystem --> User
+@enduml
