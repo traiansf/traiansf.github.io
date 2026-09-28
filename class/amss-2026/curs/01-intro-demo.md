@@ -8,7 +8,7 @@
 
 - VS Code open, Continue.dev installed and configured against the canonical course endpoint (see `class/amss-2026/tooling/SETUP.md`).
 - Continue.dev mode set to **agentic chat**.
-- PlantUML rendering ready: either VS Code's PlantUML preview extension, or a terminal with `plantuml -tpng -pipe < file.puml > out.png` available.
+- Mermaid rendering ready: either VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension, or a terminal with `mmdc -i file.mmd -o out.png` available.
 - Browser tab pre-opened to `class/amss-2026/curs/01-intro-demo-fallback/01-fallback-cycle1-output.png` in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
@@ -16,9 +16,9 @@
 
 Paste this into Continue.dev's chat (do **not** improvise — reproducibility outweighs naturalness):
 
-> *"Generate a UML class diagram in PlantUML for a small library kiosk. Users can borrow and return books. Staff can register returns. A book can be reserved while it is out on loan."*
+> *"Generate a UML class diagram in Mermaid for a small library kiosk. Users can borrow and return books. Staff can register returns. A book can be reserved while it is out on loan."*
 
-Wait for AI to produce a PlantUML block. Render it (in-editor preview or pipe through `plantuml`). The diagram appears on screen for the room.
+Wait for AI to produce a Mermaid block. Render it (in-editor preview or `mmdc`). The diagram appears on screen for the room.
 
 **Time:** ~1 min to type, ~1-2 min for AI to generate, depending on endpoint latency.
 
@@ -55,7 +55,7 @@ For example, if defects 1, 2, and 3 fired:
 
 > *"Update the diagram: a user can have multiple active loans (0..\*); remove the Library class — it has no behavior; a reservation must record which user made it."*
 
-Wait for AI to produce the revised PlantUML. Render it. Briefly point at the corrected pieces.
+Wait for AI to produce the revised Mermaid. Render it. Briefly point at the corrected pieces.
 
 **Time:** ~1 min to type, ~1-2 min for AI to revise.
 

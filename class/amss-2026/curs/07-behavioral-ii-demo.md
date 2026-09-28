@@ -10,7 +10,7 @@
 
 - VS Code open, Continue.dev installed and configured against the canonical course endpoint (see `class/amss-2026/tooling/SETUP.md`).
 - Continue.dev mode set to **agentic chat**.
-- A **PlantUML preview pane** open in VS Code — students must SEE the rendered diagram to trace reachability; raw PlantUML text is not enough.
+- A **Mermaid preview** open in VS Code (the built-in Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram to trace reachability; raw Mermaid text is not enough.
 - Browser tab pre-opened to `class/amss-2026/curs/07-behavioral-ii-demo-fallback/01-fallback-cycle1-states.png` in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
@@ -18,7 +18,7 @@
 
 Paste this into Continue.dev's chat (do **not** improvise):
 
-> *"Generate a UML state machine diagram (as PlantUML) for a bike in the city bike-sharing app: it can be available, reserved, in use, and under maintenance."*
+> *"Generate a UML state machine diagram (as Mermaid) for a bike in the city bike-sharing app: it can be available, reserved, in use, and under maintenance."*
 
 Render the result in the preview pane. **Time:** ~1 min to type, ~2 min for AI to generate + render.
 
@@ -55,17 +55,16 @@ Naming the missing wiring is the pivot. Re-render. **Time:** ~1 min to type, ~2 
 
 The live AI output varies. This is the **dry-run-verified** reference the instructor confirms renders before delivery — the corrected lifecycle the critique converges toward:
 
-```plantuml
-@startuml
-[*] --> Available
-Available --> Reserved : reserve [bike ok]
-Available --> Maintenance : reserve [fault flagged]
-Reserved --> InUse : unlock
-InUse --> Available : returnBike
-InUse --> Maintenance : faultReported
-Maintenance --> Available : repaired
-Available --> [*] : decommission
-@enduml
+```mermaid
+stateDiagram-v2
+    [*] --> Available
+    Available --> Reserved : reserve [bike ok]
+    Available --> Maintenance : reserve [fault flagged]
+    Reserved --> InUse : unlock
+    InUse --> Available : returnBike
+    InUse --> Maintenance : faultReported
+    Maintenance --> Available : repaired
+    Available --> [*] : decommission
 ```
 
 Every state reachable and escapable, the reserve branch guarded, initial and final present. If the live output reaches something like this after prompt #2, the loop worked. Pivot straight into the deck's defect gallery — the live failure you just saw is defect #1 (or #2) of that gallery.

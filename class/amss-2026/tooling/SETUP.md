@@ -20,7 +20,17 @@
    In VS Code, open the Extensions panel and search "Continue". Install the
    extension by Continue Dev, Inc.
 
-3. **Point Continue.dev at the canonical config.**
+3. **Install the diagram previews.**
+
+   Diagrams in this course are written as Mermaid (they also render directly
+   on GitHub). In the Extensions panel, install **Markdown Preview Mermaid
+   Support** (by Matt Bierner); then any ` ```mermaid ` block in a Markdown
+   file renders in VS Code's Markdown preview (Ctrl+Shift+V). The few
+   component and package diagrams use PlantUML — for those, install the
+   **PlantUML** extension (by jebbs) and set its render option to the
+   PlantUML server, so no Java install is needed.
+
+4. **Point Continue.dev at the canonical config.**
 
    Copy `.continue/config.yaml` into your home directory's Continue config
    location.
@@ -37,10 +47,10 @@
    Copy-Item .continue\config.yaml "$env:USERPROFILE\.continue\config.yaml"
    ```
 
-4. **Fill in the three `REPLACE_BEFORE_W1` placeholders** in your local copy
+5. **Fill in the three `REPLACE_BEFORE_W1` placeholders** in your local copy
    with the credentials handed out in Lab 1 (model name, apiBase, apiKey).
 
-5. **Smoke test.**
+6. **Smoke test.**
 
    Open any file in VS Code, hit the Continue keybinding (default: Ctrl+L),
    and ask: "summarize this file in one sentence." If you get a response,

@@ -37,21 +37,19 @@ The one-line thesis, restated at the end. The whole course was these two roles, 
 
 # The Arc We Walked
 
-```plantuml
-@startuml
-left to right direction
-rectangle "Requirements\nWeeks 2-3" as R
-rectangle "Structure\nWeeks 4-5" as S
-rectangle "Behaviour\nWeeks 6-7" as B
-rectangle "Patterns\nWeeks 8-9" as P
-rectangle "Trace + Quality\nWeeks 10-11" as T
-rectangle "Defense\nWeeks 12-14" as D
-R --> S
-S --> B
-B --> P
-P --> T
-T --> D
-@enduml
+```mermaid
+flowchart LR
+  R["Requirements<br/>Weeks 2-3"]
+  S["Structure<br/>Weeks 4-5"]
+  B["Behaviour<br/>Weeks 6-7"]
+  P["Patterns<br/>Weeks 8-9"]
+  T["Trace + Quality<br/>Weeks 10-11"]
+  D["Defense<br/>Weeks 12-14"]
+  R --> S
+  S --> B
+  B --> P
+  P --> T
+  T --> D
 ```
 
 Each stage: drive AI, read critically, correct, trace forward.

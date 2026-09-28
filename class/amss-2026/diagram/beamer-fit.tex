@@ -1,0 +1,16 @@
+% Included in beamer builds (see include.mk). Pandoc's \pandocbounded scales
+% images to the full \textheight, which ignores the frame title and the caption
+% lines under a diagram, so tall diagrams overflow the slide. Cap at 60%.
+% No-op when the deck has no images (or pandoc < 3.5 lacks \pandocbounded).
+\makeatletter
+\@ifundefined{pandocbounded}{}{%
+\renewcommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{0.6\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi
+}}
+\makeatother

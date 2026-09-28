@@ -178,20 +178,19 @@ Sets up the gallery — Rationale applied to design. The core defects are overus
 
 # Defect #1: Overuse
 
-```plantuml
-@startuml
-class FareFactory
-class FareSingleton
-class FareStrategy
-class FareObserver
-class FareCalculator {
-  + add(a, b)
-}
-FareFactory ..> FareCalculator
-FareSingleton ..> FareCalculator
-FareStrategy ..> FareCalculator
-FareObserver ..> FareCalculator
-@enduml
+```mermaid
+classDiagram
+  class FareFactory
+  class FareSingleton
+  class FareStrategy
+  class FareObserver
+  class FareCalculator {
+    +add(a, b)
+  }
+  FareFactory ..> FareCalculator
+  FareSingleton ..> FareCalculator
+  FareStrategy ..> FareCalculator
+  FareObserver ..> FareCalculator
 ```
 
 Four patterns to add two numbers. **Critique:** *"What recurring problem does each solve? Strip every pattern whose problem isn't here."*
@@ -253,20 +252,20 @@ The vocabulary failure. AI uses pattern names loosely, so the design's self-desc
 
 # The Critic's Selection
 
-```plantuml
-@startuml
-interface FareStrategy {
-  + price(minutes)
-}
-class PeakFare
-class OffPeakFare
-class MemberFare
-class Rental
-FareStrategy <|.. PeakFare
-FareStrategy <|.. OffPeakFare
-FareStrategy <|.. MemberFare
-Rental --> FareStrategy
-@enduml
+```mermaid
+classDiagram
+  class FareStrategy {
+    <<interface>>
+    +price(minutes)
+  }
+  class PeakFare
+  class OffPeakFare
+  class MemberFare
+  class Rental
+  FareStrategy <|.. PeakFare
+  FareStrategy <|.. OffPeakFare
+  FareStrategy <|.. MemberFare
+  Rental --> FareStrategy
 ```
 
 One pattern, justified: fare rules really vary (peak / off-peak / member), so **Strategy** earns its place. Everything else: no pattern.

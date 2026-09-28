@@ -138,28 +138,27 @@ The spec's framing: sequence diagrams as use-case realisations. This is also a t
 
 > Live: ask AI to draw the interaction for "rent a bike." Watch the messages — are they real, in the right order, with the failure path?
 
-**Prompt to AI:** *"Generate a UML sequence diagram (as PlantUML) for renting a bike in the city bike-sharing app: a rider unlocks a bike at a station and is charged by app."*
+**Prompt to AI:** *"Generate a UML sequence diagram (as Mermaid) for renting a bike in the city bike-sharing app: a rider unlocks a bike at a station and is charged by app."*
 
 ::: notes
-Switch to Continue.dev with a PlantUML preview pane — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/06-behavioral-i-demo.md` for ~12 min. The near-certain failures: a fabricated message and a missing failure path. Fallback: runbook §8.
+Switch to Continue.dev with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/06-behavioral-i-demo.md` for ~12 min. The near-certain failures: a fabricated message and a missing failure path. Fallback: runbook §8.
 :::
 
 ---
 
 # Sequence: Lifelines + Messages
 
-```plantuml
-@startuml
-actor Rider
-participant App
-participant RentalService
-participant Bike
-Rider -> App : tap "unlock"
-App -> RentalService : startRental(bikeId)
-RentalService -> Bike : unlock()
-Bike --> RentalService : unlocked
-RentalService --> App : rentalStarted
-@enduml
+```mermaid
+sequenceDiagram
+    actor Rider
+    participant App
+    participant RentalService
+    participant Bike
+    Rider->>App: tap "unlock"
+    App->>RentalService: startRental(bikeId)
+    RentalService->>Bike: unlock()
+    Bike-->>RentalService: unlocked
+    RentalService-->>App: rentalStarted
 ```
 
 Each box has a **lifeline** down the page; **time flows top to bottom**. Solid arrow = a call; dashed = a return.
@@ -198,20 +197,19 @@ Quick paired diagnosis before the defect gallery. The planted break is an imposs
 
 # Alternative Paths
 
-```plantuml
-@startuml
-actor Rider
-participant App
-participant PaymentService
-Rider -> App : confirm rental
-App -> PaymentService : charge(rider)
-alt payment accepted
-  PaymentService --> App : ok
-else payment declined
-  PaymentService --> App : declined
-  App --> Rider : rental refused
-end
-@enduml
+```mermaid
+sequenceDiagram
+    actor Rider
+    participant App
+    participant PaymentService
+    Rider->>App: confirm rental
+    App->>PaymentService: charge(rider)
+    alt payment accepted
+        PaymentService-->>App: ok
+    else payment declined
+        PaymentService-->>App: declined
+        App-->>Rider: rental refused
+    end
 ```
 
 Real interactions have **failure paths**. The `alt` fragment shows the branch. AI usually draws only the happy path.
@@ -236,15 +234,14 @@ Sets up the gallery — Critique applied to behaviour. The core defect is the fa
 
 # Defect #1: Fabricated Message
 
-```plantuml
-@startuml
-participant App
-participant RentalService
-participant FraudDetector
-App -> RentalService : startRental(bikeId)
-RentalService -> FraudDetector : scoreRisk(rider)
-FraudDetector --> RentalService : score
-@enduml
+```mermaid
+sequenceDiagram
+    participant App
+    participant RentalService
+    participant FraudDetector
+    App->>RentalService: startRental(bikeId)
+    RentalService->>FraudDetector: scoreRisk(rider)
+    FraudDetector-->>RentalService: score
 ```
 
 `FraudDetector.scoreRisk` — no requirement asked for it. **Critique:** *"What requirement does this message serve? Who is responsible for it? If nothing, it shouldn't be here."*
@@ -257,15 +254,14 @@ The anchor defect. AI adds a plausible-sounding step (fraud scoring, analytics, 
 
 # Defect #2: Impossible Order
 
-```plantuml
-@startuml
-participant App
-participant RentalService
-participant Bike
-RentalService -> App : rentalStarted
-App -> RentalService : startRental(bikeId)
-RentalService -> Bike : unlock()
-@enduml
+```mermaid
+sequenceDiagram
+    participant App
+    participant RentalService
+    participant Bike
+    RentalService->>App: rentalStarted
+    App->>RentalService: startRental(bikeId)
+    RentalService->>Bike: unlock()
 ```
 
 `rentalStarted` is sent *before* `startRental` requests it. **Critique:** *"Read top to bottom — can step 1 happen before step 2 that causes it?"*
@@ -278,13 +274,12 @@ Causality broken: a result appears before its cause. AI sometimes orders message
 
 # Defect #3: Missing Return
 
-```plantuml
-@startuml
-participant App
-participant PaymentService
-App -> PaymentService : charge(rider)
-App -> App : show "rental active"
-@enduml
+```mermaid
+sequenceDiagram
+    participant App
+    participant PaymentService
+    App->>PaymentService: charge(rider)
+    App->>App: show "rental active"
 ```
 
 `App` declares the rental active without waiting for `charge` to return. **Critique:** *"Where's the response to charge? How does App know it succeeded?"*
@@ -309,14 +304,13 @@ The most common omission, and the costliest. Kept textual — the absence of a b
 
 # Defect #5: Message to a Stranger
 
-```plantuml
-@startuml
-participant Rider
-participant Bike
-participant DatabaseManager
-Rider -> Bike : chargeCard()
-Bike -> DatabaseManager : save()
-@enduml
+```mermaid
+sequenceDiagram
+    participant Rider
+    participant Bike
+    participant DatabaseManager
+    Rider->>Bike: chargeCard()
+    Bike->>DatabaseManager: save()
 ```
 
 `Rider` calls `Bike.chargeCard` — but the class diagram has no such association, and `DatabaseManager` is an invented lifeline. **Critique:** *"Could these objects even talk? Check the class diagram."*
@@ -329,26 +323,25 @@ The light cross-link to Week 4. A sequence message implies an association in the
 
 # The Critic's Corrected Sequence
 
-```plantuml
-@startuml
-actor Rider
-participant App
-participant RentalService
-participant PaymentService
-participant Bike
-Rider -> App : confirm rental
-App -> PaymentService : charge(rider)
-alt payment accepted
-  PaymentService --> App : ok
-  App -> RentalService : startRental(bikeId)
-  RentalService -> Bike : unlock()
-  Bike --> RentalService : unlocked
-  RentalService --> App : rentalStarted
-else payment declined
-  PaymentService --> App : declined
-  App --> Rider : rental refused
-end
-@enduml
+```mermaid
+sequenceDiagram
+    actor Rider
+    participant App
+    participant RentalService
+    participant PaymentService
+    participant Bike
+    Rider->>App: confirm rental
+    App->>PaymentService: charge(rider)
+    alt payment accepted
+        PaymentService-->>App: ok
+        App->>RentalService: startRental(bikeId)
+        RentalService->>Bike: unlock()
+        Bike-->>RentalService: unlocked
+        RentalService-->>App: rentalStarted
+    else payment declined
+        PaymentService-->>App: declined
+        App-->>Rider: rental refused
+    end
 ```
 
 Real messages, correct order, returns present, one failure path.

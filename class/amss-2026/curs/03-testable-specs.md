@@ -253,26 +253,21 @@ Quick pair check before moving on. Let two or three pairs call it. The reveal: i
 
 # The Loop
 
-```plantuml
-@startuml
-hide empty description
-state "Write / tighten the spec" as Spec
-state "AI writes a test" as Test
-state "Does the test pin the\nbehaviour you want?" as Check
-state "AI writes the code" as Code
-state "Run the test" as Run
-[*] --> Spec
-Spec --> Test
-Test --> Check
-Check --> Spec : no — spec too vague
-Check --> Code : yes
-Code --> Run
-Run --> [*]
-@enduml
+```mermaid
+flowchart LR
+    start(( )) --> Spec["Write / tighten the spec"]
+    Spec --> Test["AI writes a test"]
+    Test --> Check{"Does the test pin the<br/>behaviour you want?"}
+    Check -- "no — spec too vague" --> Spec
+    Check -- yes --> Code["AI writes the code"]
+    Code --> Run["Run the test"]
+    Run --> stop((( )))
+    style start fill:#000,stroke:#000
+    style stop fill:#000
 ```
 
 ::: notes
-This is a process flowchart, **not** a UML state machine (those are Week 7). It is drawn with plantuml's state primitives only because the build pipeline renders them reliably (graphviz `dot` is not installed). Do not teach the notation here — point at the back-edge: "no, spec too vague" → tighten the spec. That loop is the lecture.
+This is a plain process flowchart, **not** a UML state machine (those are Week 7) and not a formal UML activity diagram either — just boxes, one decision diamond, and arrows. Do not teach the notation here — point at the back-edge: "no, spec too vague" → tighten the spec. That loop is the lecture.
 :::
 
 ---

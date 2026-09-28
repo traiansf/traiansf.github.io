@@ -10,7 +10,7 @@
 
 - VS Code open, Continue.dev installed and configured against the canonical course endpoint (see `class/amss-2026/tooling/SETUP.md`).
 - Continue.dev mode set to **agentic chat**.
-- A scratch buffer or chat pane visible — the artifact here is a *list of patterns with rationale*; a PlantUML preview pane is useful for prompt #2's structure but not essential for #1.
+- A scratch buffer or chat pane visible — the artifact here is a *list of patterns with rationale*; a Mermaid preview (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) is useful for prompt #2's structure but not essential for #1.
 - Browser tab pre-opened to `class/amss-2026/curs/08-patterns-i-demo-fallback/01-fallback-overuse.png` in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
@@ -56,20 +56,20 @@ Forcing the problem before the pattern is the pivot. **Time:** ~1 min to type, ~
 
 The live AI output varies. This is the **dry-run-verified** reference the instructor confirms renders before delivery — the one justified pattern the critique converges toward:
 
-```plantuml
-@startuml
-interface FareStrategy {
-  + price(minutes)
-}
-class PeakFare
-class OffPeakFare
-class MemberFare
-class Rental
-FareStrategy <|.. PeakFare
-FareStrategy <|.. OffPeakFare
-FareStrategy <|.. MemberFare
-Rental --> FareStrategy
-@enduml
+```mermaid
+classDiagram
+  class FareStrategy {
+    <<interface>>
+    +price(minutes)
+  }
+  class PeakFare
+  class OffPeakFare
+  class MemberFare
+  class Rental
+  FareStrategy <|.. PeakFare
+  FareStrategy <|.. OffPeakFare
+  FareStrategy <|.. MemberFare
+  Rental --> FareStrategy
 ```
 
 Strategy is warranted — three interchangeable fare rules behind one interface, real recurring variation. Everything else AI proposed has no problem behind it. If the live output narrows to roughly this after prompt #2, the loop worked.

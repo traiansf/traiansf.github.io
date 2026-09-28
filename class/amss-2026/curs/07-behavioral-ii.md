@@ -80,23 +80,22 @@ The map. State machines are one object over time; activity diagrams are a proces
 
 > Live: ask AI for the lifecycle of a `Bike`. Watch for a state it can never reach, a state it can never leave, and a branch with no guard.
 
-**Prompt to AI:** *"Generate a UML state machine diagram (as PlantUML) for a bike in the city bike-sharing app: it can be available, reserved, in use, and under maintenance."*
+**Prompt to AI:** *"Generate a UML state machine diagram (as Mermaid) for a bike in the city bike-sharing app: it can be available, reserved, in use, and under maintenance."*
 
 ::: notes
-Switch to Continue.dev with a PlantUML preview pane — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/07-behavioral-ii-demo.md` for ~8 min. The near-certain failures: an orphan/dead-end state and a missed guard. Fallback: runbook §7.
+Switch to Continue.dev with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/07-behavioral-ii-demo.md` for ~8 min. The near-certain failures: an orphan/dead-end state and a missed guard. Fallback: runbook §7.
 :::
 
 ---
 
 # State Machine: States + Transitions
 
-```plantuml
-@startuml
-[*] --> Available
-Available --> Reserved : reserve
-Reserved --> InUse : unlock
-InUse --> Available : returnBike
-@enduml
+```mermaid
+stateDiagram-v2
+    [*] --> Available
+    Available --> Reserved : reserve
+    Reserved --> InUse : unlock
+    InUse --> Available : returnBike
 ```
 
 Boxes are **states**; arrows are **transitions** labelled by the **event** that fires them. `[*]` is the initial pseudo-state; a transition to `[*]` would be the final.
@@ -125,12 +124,11 @@ This is the Critique drill for state machines. Reachability and escapability are
 
 # Guards + Events
 
-```plantuml
-@startuml
-[*] --> Available
-Available --> Reserved : reserve [bike ok]
-Available --> Maintenance : reserve [fault flagged]
-@enduml
+```mermaid
+stateDiagram-v2
+    [*] --> Available
+    Available --> Reserved : reserve [bike ok]
+    Available --> Maintenance : reserve [fault flagged]
 ```
 
 A **guard** `[condition]` chooses between transitions on the **same event**. Without guards, two transitions on `reserve` are ambiguous — which one fires?
@@ -143,21 +141,23 @@ The guard sets up defect #3. Syntax: `event [guard] / action`. When one event ca
 
 # Activity Diagram: Actions + Flow
 
-```plantuml
-@startuml
-start
-:scan bike;
-if (available?) then (yes)
-  :charge rider;
-  :unlock bike;
-else (no)
-  :show "unavailable";
-endif
-stop
-@enduml
+```mermaid
+flowchart TD
+    start(( )) --> scan("scan bike")
+    scan --> d{"available?"}
+    d -- yes --> charge("charge rider")
+    charge --> unlock("unlock bike")
+    d -- no --> unavail("show &quot;unavailable&quot;")
+    unlock --> m{ }
+    unavail --> m
+    m --> stop((( )))
+    classDef initial fill:#000,stroke:#000
+    classDef final fill:#000,stroke:#fff,stroke-width:4px
+    class start initial
+    class stop final
 ```
 
-Rounded boxes are **actions**; the diamond is a **decision**; flow runs from `start` to `stop`.
+Rounded boxes are **actions**; the labelled diamond is a **decision** and the small empty diamond its **merge**; flow runs from the initial node (filled circle) to the final node (bullseye).
 
 ::: notes
 The activity floor on the rental workflow. The atoms: action, control flow, decision, initial/final. Note the if/else rejoins before stop — a decision that branches must merge. Adapts 2025's order-processing / check-in activity examples.
@@ -221,14 +221,13 @@ A quick pair beat right before the gallery. Let them try the reachable/escapable
 
 # Defect #1: Orphan / Unreachable State
 
-```plantuml
-@startuml
-[*] --> Available
-Available --> Reserved : reserve
-Reserved --> InUse : unlock
-InUse --> Available : returnBike
-Maintenance --> Available : repaired
-@enduml
+```mermaid
+stateDiagram-v2
+    [*] --> Available
+    Available --> Reserved : reserve
+    Reserved --> InUse : unlock
+    InUse --> Available : returnBike
+    Maintenance --> Available : repaired
 ```
 
 `Maintenance` has no transition *in* — nothing ever puts a bike there. **Critique:** *"How does a bike ever enter Maintenance? There's no path to it."*
@@ -241,13 +240,12 @@ The anchor defect. AI lists a state from the prompt ("under maintenance") but ne
 
 # Defect #2: Dead-End State
 
-```plantuml
-@startuml
-[*] --> Available
-Available --> Reserved : reserve
-Reserved --> InUse : unlock
-InUse --> Retired : decommission
-@enduml
+```mermaid
+stateDiagram-v2
+    [*] --> Available
+    Available --> Reserved : reserve
+    Reserved --> InUse : unlock
+    InUse --> Retired : decommission
 ```
 
 `Retired` has no way out and isn't a final state — the bike is stuck forever. **Critique:** *"Once Retired, what happens? Either give it an exit or make it a final state."*
@@ -260,12 +258,11 @@ The escapability failure. A non-final state with no outgoing transition is a dea
 
 # Defect #3: Missed Guard
 
-```plantuml
-@startuml
-[*] --> Available
-Available --> Reserved : reserve
-Available --> Maintenance : reserve
-@enduml
+```mermaid
+stateDiagram-v2
+    [*] --> Available
+    Available --> Reserved : reserve
+    Available --> Maintenance : reserve
 ```
 
 Two `reserve` transitions, no guards — which fires? **Critique:** *"Both on the same event with no condition. What decides? Add the guards."*
@@ -278,22 +275,26 @@ The third spec-named defect. Nondeterminism: one event, two targets, no guard to
 
 # Defect #4: Activity — Missing Merge / Fork Without Join
 
-```plantuml
-@startuml
-start
-:scan bike;
-if (available?) then (yes)
-  :charge rider;
-else (no)
-  :show "unavailable";
-endif
-fork
-  :unlock bike;
-fork again
-  :log rental;
-end fork
-stop
-@enduml
+```mermaid
+flowchart TD
+    start(( )) --> scan("scan bike")
+    scan --> d{"available?"}
+    d -- yes --> charge("charge rider")
+    d -- no --> unavail("show &quot;unavailable&quot;")
+    charge --> m{ }
+    unavail --> m
+    m --> fork[ ]
+    fork --> unlock("unlock bike")
+    fork --> log("log rental")
+    unlock --> join[ ]
+    log --> join
+    join --> stop((( )))
+    classDef initial fill:#000,stroke:#000
+    classDef final fill:#000,stroke:#fff,stroke-width:4px
+    classDef bar fill:#000,stroke:#000
+    class start initial
+    class stop final
+    class fork,join bar
 ```
 
 If AI branches without rejoining, or forks parallel flows that never synchronise, the workflow's control flow is broken. **Critique:** *"Where does this branch rejoin? Where does the fork join?"*
@@ -318,17 +319,16 @@ Both views share this defect. Kept textual — the absence of a start/end node i
 
 # The Critic's Corrected State Machine
 
-```plantuml
-@startuml
-[*] --> Available
-Available --> Reserved : reserve [bike ok]
-Available --> Maintenance : reserve [fault flagged]
-Reserved --> InUse : unlock
-InUse --> Available : returnBike
-InUse --> Maintenance : faultReported
-Maintenance --> Available : repaired
-Available --> [*] : decommission
-@enduml
+```mermaid
+stateDiagram-v2
+    [*] --> Available
+    Available --> Reserved : reserve [bike ok]
+    Available --> Maintenance : reserve [fault flagged]
+    Reserved --> InUse : unlock
+    InUse --> Available : returnBike
+    InUse --> Maintenance : faultReported
+    Maintenance --> Available : repaired
+    Available --> [*] : decommission
 ```
 
 Every state reachable *and* escapable, guards on the branch, initial and final present.

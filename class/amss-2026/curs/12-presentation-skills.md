@@ -109,12 +109,11 @@ Switch to Continue.dev. Run the runbook at `class/amss-2026/curs/12-presentation
 
 The examiner shows you **any** AI-generated diagram — possibly from another team's repo — and asks: *"What's wrong with this?"*
 
-```plantuml
-@startuml
-class Rental
-class Bike
-Rental "*" -- "*" Bike
-@enduml
+```mermaid
+classDiagram
+  class Rental
+  class Bike
+  Rental "*" -- "*" Bike
 ```
 
 You must find the defect on the spot, with no preparation.
@@ -177,17 +176,15 @@ The contrast pair for Rationale. "The AI suggested it" is the signature failing 
 
 The examiner asks: *"Show me the test for this requirement"* or *"Which requirement needs this class?"*
 
-```plantuml
-@startuml
-left to right direction
-rectangle "REQ-1" as R
-rectangle "UC: Rent Bike" as U
-rectangle "class Rental" as C
-rectangle "TEST: fare" as T
-R --> U
-U --> C
-C --> T
-@enduml
+```mermaid
+flowchart LR
+  R["REQ-1"]
+  U["UC: Rent Bike"]
+  C["class Rental"]
+  T["TEST: fare"]
+  R --> U
+  U --> C
+  C --> T
 ```
 
 You must walk the chain, either direction, on demand.

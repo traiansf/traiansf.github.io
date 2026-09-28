@@ -9,8 +9,8 @@
 ## Pre-class checklist
 
 - [ ] Seed `lab03/README.md` (brief + domain + the three flawed artifacts) into the course lab repo (template at the end of this file).
-- [ ] Ship the three artifacts as `.puml` files in `lab03/` so teams open them in their VS Code PlantUML preview (the same pane from W4 / Lab 2): `artifact-class.puml`, `artifact-package.puml`, `artifact-component.puml`.
-- [ ] Optional fallback: pre-render each `.puml` to PNG in `lab03/` in case a team's preview pane is down.
+- [ ] Ship the three artifacts in `lab03/`: the class diagram as Mermaid `artifact-class.mmd`; the package and component diagrams stay PlantUML (Mermaid cannot draw that notation) as `artifact-package.puml` and `artifact-component.puml`. Teams open the `.mmd` in VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension (the same preview from W4 / Lab 2), and the `.puml` files with the "PlantUML" extension (jebbs) — set it to render via the public PlantUML server, so no Java is needed.
+- [ ] Optional fallback: pre-render each artifact to PNG in `lab03/` in case a team's preview pane is down.
 - [ ] Assign team-ids (`t01`…`tNN`) and fill the roster table below; aim for teams of 3-5.
 - [ ] Confirm every team has push access to the lab repo (most still have the Lab 1/2 clone).
 - [ ] Have this runbook's **ground-truth tables** ready on your own screen (not projected) for the hunt-off.
@@ -25,51 +25,48 @@ Lifted from the 2025 parking-lot exercise (`../amss/lab/Lab03.md`) — a domain 
 
 ## Artifact 1 — Flawed CLASS diagram (hand to students)
 
-```plantuml
-@startuml
-hide empty members
+```mermaid
+classDiagram
+  class ParkingSystem {
+    -levels
+    -spots
+    -tickets
+    -payments
+    -cameras
+    +manageEverything()
+  }
+  class ParkingLot
+  class ParkingLevel
+  class ParkingSpot {
+    -isFree: boolean
+  }
+  class Vehicle {
+    -licensePlate: String
+  }
+  class Ticket {
+    -creationDate: Date
+    -paid: boolean
+  }
+  class Payment {
+    -amount: double
+    -kind: String
+  }
+  class DisplayBoard
+  class EntryBarrier
+  class ExitBarrier
+  class DatabaseManager
+  class SensorController
 
-class ParkingSystem {
-  - levels
-  - spots
-  - tickets
-  - payments
-  - cameras
-  + manageEverything()
-}
-class ParkingLot
-class ParkingLevel
-class ParkingSpot {
-  - isFree: boolean
-}
-class Vehicle {
-  - licensePlate: String
-}
-class Ticket {
-  - creationDate: Date
-  - paid: boolean
-}
-class Payment {
-  - amount: double
-  - kind: String
-}
-class DisplayBoard
-class EntryBarrier
-class ExitBarrier
-class DatabaseManager
-class SensorController
-
-ParkingLot "1" -- "1" ParkingLevel
-ParkingLevel -- ParkingSpot
-ParkingSpot --> "0..1" Vehicle
-Ticket "*" -- "*" Vehicle
-Ticket --> Payment
-DisplayBoard -- Vehicle
-ParkingSystem --> DatabaseManager
-ParkingSystem --> SensorController
-ParkingLot --> EntryBarrier
-ParkingLot --> ExitBarrier
-@enduml
+  ParkingLot "1" -- "1" ParkingLevel
+  ParkingLevel -- ParkingSpot
+  ParkingSpot --> "0..1" Vehicle
+  Ticket "*" -- "*" Vehicle
+  Ticket --> Payment
+  DisplayBoard -- Vehicle
+  ParkingSystem --> DatabaseManager
+  ParkingSystem --> SensorController
+  ParkingLot --> EntryBarrier
+  ParkingLot --> ExitBarrier
 ```
 
 ### Ground truth — class diagram (14 pts)
@@ -176,32 +173,30 @@ TicketComponent ..> MessageQueue
 
 Approximate right answers. A team need not have reconstructed these; judge whether they *caught the right defects*.
 
-```plantuml
-@startuml
-hide empty members
-class ParkingLot
-class ParkingLevel
-class ParkingSpot
-class Vehicle
-class Ticket
-class Payment
-class CashPayment
-class CardPayment
-class AutomatedBarrier
-class EntryBarrier
-class ExitBarrier
-class DisplayBoard
-Payment <|-- CashPayment
-Payment <|-- CardPayment
-AutomatedBarrier <|-- EntryBarrier
-AutomatedBarrier <|-- ExitBarrier
-ParkingLot "1" *-- "1..*" ParkingLevel
-ParkingLevel "1" *-- "1..*" ParkingSpot
-ParkingSpot o--> "0..1" Vehicle
-Vehicle --> "0..1" Ticket
-Ticket --> "0..1" Payment
-DisplayBoard --> ParkingLot
-@enduml
+```mermaid
+classDiagram
+  class ParkingLot
+  class ParkingLevel
+  class ParkingSpot
+  class Vehicle
+  class Ticket
+  class Payment
+  class CashPayment
+  class CardPayment
+  class AutomatedBarrier
+  class EntryBarrier
+  class ExitBarrier
+  class DisplayBoard
+  Payment <|-- CashPayment
+  Payment <|-- CardPayment
+  AutomatedBarrier <|-- EntryBarrier
+  AutomatedBarrier <|-- ExitBarrier
+  ParkingLot "1" *-- "1..*" ParkingLevel
+  ParkingLevel "1" *-- "1..*" ParkingSpot
+  ParkingSpot o--> "0..1" Vehicle
+  Vehicle --> "0..1" Ticket
+  Ticket --> "0..1" Payment
+  DisplayBoard --> ParkingLot
 ```
 
 - **Good package:** `ui ..> parking`, `barriers ..> parking`, `payments ..> parking` — all acyclic, all toward the domain; camera in `barriers`; no `database`, no `core`.
@@ -209,7 +204,7 @@ DisplayBoard --> ParkingLot
 
 ## Phase 1 — Brief facilitation (10 min)
 
-1. Form teams of 3-5; hand out team-ids + lab-repo URL; point them at `lab03/README.md` and the three `.puml` files.
+1. Form teams of 3-5; hand out team-ids + lab-repo URL; point them at `lab03/README.md` and the three artifact files (one `.mmd`, two `.puml`).
 2. Read the domain aloud once; stress it is honest — defects are in the artifacts.
 3. Put the combined W4+W5 read-order and the defect vocabulary on screen.
 4. State the scoring rule **before** the hunt: severity-weighted, false positives cost −1. Calibrate, don't spray.
@@ -285,8 +280,8 @@ Fill per offering.
 
 **Domain (honest — defects are in the artifacts, not here):** an airport parking lot. Multiple levels; each level has many parking spots, each with a free/occupied sensor. Multiple entrances and exits, each with a plate-reading camera. The entry barrier prints a ticket; the exit barrier opens only if the ticket is paid. Payment kiosks on each level; payment is by cash or card. Display boards at entrances show free spots, total and per level.
 
-**The three artifacts** (open each in your PlantUML preview):
-- `lab03/artifact-class.puml`
+**The three artifacts** (open the `.mmd` in your Mermaid preview and the `.puml` files in your PlantUML preview):
+- `lab03/artifact-class.mmd`
 - `lab03/artifact-package.puml`
 - `lab03/artifact-component.puml`
 

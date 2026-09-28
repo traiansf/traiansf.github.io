@@ -10,7 +10,7 @@
 
 - VS Code open, Continue.dev installed and configured against the canonical course endpoint (see `class/amss-2026/tooling/SETUP.md`).
 - Continue.dev mode set to **agentic chat**.
-- A **PlantUML preview pane** open in VS Code — students must SEE the rendered diagram to critique multiplicity and associations; raw PlantUML text is not enough.
+- A **Mermaid preview** open in VS Code (the built-in Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram to critique multiplicity and associations; raw Mermaid text is not enough.
 - Browser tab pre-opened to `class/amss-2026/curs/04-class-diagrams-demo-fallback/01-fallback-cycle1-diagram.png` in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
@@ -18,7 +18,7 @@
 
 Paste this into Continue.dev's chat (do **not** improvise):
 
-> *"Generate a UML class diagram (as PlantUML) for the city bike-sharing app: users rent and return bicycles at stations across a city; payment is by app; staff rebalance bikes between stations."*
+> *"Generate a UML class diagram (as Mermaid) for the city bike-sharing app: users rent and return bicycles at stations across a city; payment is by app; staff rebalance bikes between stations."*
 
 Render the result in the preview pane. **Time:** ~1 min to type, ~2-3 min for AI to generate + render.
 
@@ -57,18 +57,18 @@ Naming the domain rules is the pivot. Re-render. **Time:** ~1 min to type, ~2-3 
 
 The live AI output varies. This is the **dry-run-verified** reference the instructor confirms renders before delivery (spec gate §6.5) — the tightened domain model the critique converges toward:
 
-```plantuml
-@startuml
-class User
-class Rental
-class Bike
-class Station
-class Payment
-User "1" -- "*" Rental
-Rental "1" -- "1" Bike
-Rental "1" -- "1" Payment
-Station o-- "*" Bike
-@enduml
+```mermaid
+classDiagram
+    direction LR
+    class User
+    class Rental
+    class Bike
+    class Station
+    class Payment
+    User "1" -- "*" Rental
+    Rental "1" -- "1" Bike
+    Rental "1" -- "1" Payment
+    Station o-- "*" Bike
 ```
 
 Correct multiplicities (a rental is one bike, one user, one payment), Station–Bike as an aggregation, only domain classes. If the live output reaches something like this after prompt #2, the loop worked.

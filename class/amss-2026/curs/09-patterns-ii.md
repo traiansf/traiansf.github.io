@@ -96,18 +96,18 @@ The pivot of the whole lecture. AI knows the names fluently and the structures u
 
 # Adapter — the Signature
 
-```plantuml
-@startuml
-interface PaymentGateway {
-  + charge(amount)
-}
-class ExternalPayApi {
-  + makePayment(cents)
-}
-class PayApiAdapter
-PaymentGateway <|.. PayApiAdapter
-PayApiAdapter --> ExternalPayApi
-@enduml
+```mermaid
+classDiagram
+  class PaymentGateway {
+    <<interface>>
+    +charge(amount)
+  }
+  class ExternalPayApi {
+    +makePayment(cents)
+  }
+  class PayApiAdapter
+  PaymentGateway <|.. PayApiAdapter
+  PayApiAdapter --> ExternalPayApi
 ```
 
 **Applied** = the adapter implements *our* interface and translates to the external one. Bike-sharing: wrap an external payment API as a `PaymentGateway`.
@@ -120,19 +120,19 @@ Adapter's signature: implements the target interface, delegates to (and converts
 
 # Decorator — the Signature
 
-```plantuml
-@startuml
-interface Fare {
-  + price()
-}
-class BaseFare
-class FareDecorator
-class SurchargeFare
-Fare <|.. BaseFare
-Fare <|.. FareDecorator
-FareDecorator --> Fare : wraps
-FareDecorator <|-- SurchargeFare
-@enduml
+```mermaid
+classDiagram
+  class Fare {
+    <<interface>>
+    +price()
+  }
+  class BaseFare
+  class FareDecorator
+  class SurchargeFare
+  Fare <|.. BaseFare
+  Fare <|.. FareDecorator
+  FareDecorator --> Fare : wraps
+  FareDecorator <|-- SurchargeFare
 ```
 
 **Applied** = same interface, wraps a `Fare`, adds behaviour, and is **composable** (a decorator wraps another). Bike-sharing: a surcharge on a base fare.
@@ -145,22 +145,23 @@ Decorator's signature: implements the SAME interface it wraps, holds a reference
 
 # Visitor — the Signature
 
-```plantuml
-@startuml
-interface Vehicle {
-  + accept(v : Visitor)
-}
-interface Visitor {
-  + visit(b : Bike)
-  + visit(e : EBike)
-}
-class Bike
-class EBike
-Vehicle <|.. Bike
-Vehicle <|.. EBike
-Bike ..> Visitor : accept calls visit(this)
-EBike ..> Visitor : accept calls visit(this)
-@enduml
+```mermaid
+classDiagram
+  class Vehicle {
+    <<interface>>
+    +accept(v : Visitor)
+  }
+  class Visitor {
+    <<interface>>
+    +visit(b : Bike)
+    +visit(e : EBike)
+  }
+  class Bike
+  class EBike
+  Vehicle <|.. Bike
+  Vehicle <|.. EBike
+  Bike ..> Visitor : accept calls visit(this)
+  EBike ..> Visitor : accept calls visit(this)
 ```
 
 **Applied** = **double dispatch**: `vehicle.accept(v)` calls `v.visit(this)`. Adds operations without touching the vehicles. **No `instanceof`.**
@@ -223,16 +224,12 @@ The Decorator fails when it subclasses instead of wrapping, losing composability
 
 # Defect #3: Visitor Without Double Dispatch
 
-```plantuml
-@startuml
-class ReportVisitor {
-  + visit(v : Vehicle)
-}
-note bottom of ReportVisitor
-  if v instanceof Bike ...
-  else if v instanceof EBike ...
-end note
-@enduml
+```mermaid
+classDiagram
+  class ReportVisitor {
+    +visit(v : Vehicle)
+  }
+  note for ReportVisitor "if v instanceof Bike ...<br/>else if v instanceof EBike ..."
 ```
 
 A single `visit(Vehicle)` with an `instanceof` cascade — labeled Visitor, no `accept`, no double dispatch.
@@ -309,24 +306,25 @@ This IS the Critique drill for patterns. A repeatable verification beats being i
 
 # Applied, Not Labeled
 
-```plantuml
-@startuml
-interface Vehicle {
-  + accept(v : Visitor)
-}
-interface Visitor {
-  + visit(b : Bike)
-  + visit(e : EBike)
-}
-class Bike
-class EBike
-class ReportVisitor
-Vehicle <|.. Bike
-Vehicle <|.. EBike
-Visitor <|.. ReportVisitor
-Bike ..> Visitor : accept calls visit(this)
-EBike ..> Visitor : accept calls visit(this)
-@enduml
+```mermaid
+classDiagram
+  class Vehicle {
+    <<interface>>
+    +accept(v : Visitor)
+  }
+  class Visitor {
+    <<interface>>
+    +visit(b : Bike)
+    +visit(e : EBike)
+  }
+  class Bike
+  class EBike
+  class ReportVisitor
+  Vehicle <|.. Bike
+  Vehicle <|.. EBike
+  Visitor <|.. ReportVisitor
+  Bike ..> Visitor : accept calls visit(this)
+  EBike ..> Visitor : accept calls visit(this)
 ```
 
 The corrected Visitor: `accept` on each vehicle, `visit` per type, no `instanceof`. Structure present, benefit delivered, name correct.

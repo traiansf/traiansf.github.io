@@ -27,38 +27,38 @@ This is the canonical text — it goes into `lab02/README.md` and is on the brie
 
 The approximate right answer, for fast adjudication. Reveal at the close if useful.
 
-```plantuml
-@startuml
-class Library
-class Book {
-  - isbn
-  - title
-  - authors
-}
-class Copy {
-  - barcode
-  - condition
-}
-class Member {
-  - membershipNo
-  - name
-  - email
-}
-class StandardMember
-class StaffMember
-class Loan {
-  - startDate
-  - dueDate
-  - returnDate
-  - fine
-}
-Member <|-- StandardMember
-Member <|-- StaffMember
-Library o-- "*" Copy : holds
-Book "1" -- "*" Copy : has copies
-Member "1" -- "*" Loan
-Loan "*" -- "1" Copy
-@enduml
+```mermaid
+classDiagram
+    direction LR
+    class Library
+    class Book {
+        -isbn
+        -title
+        -authors
+    }
+    class Copy {
+        -barcode
+        -condition
+    }
+    class Member {
+        -membershipNo
+        -name
+        -email
+    }
+    class StandardMember
+    class StaffMember
+    class Loan {
+        -startDate
+        -dueDate
+        -returnDate
+        -fine
+    }
+    Member <|-- StandardMember
+    Member <|-- StaffMember
+    Library o-- "*" Copy : holds
+    Book "1" -- "*" Copy : has copies
+    Member "1" -- "*" Loan
+    Loan "*" -- "1" Copy
 ```
 
 Key correct decisions: Book and Copy are distinct; `Loan` reifies the borrow (one member, one copy); `Library o-- Copy` is aggregation; member kinds are subclasses. A student diagram need not match exactly — judge whether the critique log *caught the right things*, not whether the diagram is identical.
@@ -97,7 +97,7 @@ Watch the clock: if a student is behind at ~55 min, tell them one solid re-promp
 
 Apply per pushed branch. **Pass requires both:**
 
-1. `diagram.puml` (renders) and `critique-log.md` committed by deadline.
+1. `diagram.mmd` (renders) and `critique-log.md` committed by deadline.
 2. Log names at least 2 distinct W4 defects (wrong multiplicity, fake association, missing aggregation, invented class, god class) **and** gives a real re-prompt rationale (F3) for at least one iteration.
 
 **Redo (not fail):** vacuous log — no named defect, or no rationale.
@@ -145,12 +145,12 @@ A neighbourhood library runs a self-service kiosk.
 - The kiosk shows a member their open loans and any fines owed.
 
 **Starting prompt (Round 1):**
-> "Generate a UML class diagram (as PlantUML) for this library system. [paste the spec above]"
+> "Generate a UML class diagram (as Mermaid) for this library system. [paste the spec above]"
 
 **Structure:** bare prompt → critique with the W4 4-step read-order → re-prompt twice (name the domain rules; then drop invented infrastructure / god class). Keep your best diagram.
 
 **Deliverable**, on branch `lab02/<your-student-id>`:
-- `lab02/<student-id>/diagram.puml` — your best AI-driven class diagram (must render).
+- `lab02/<student-id>/diagram.mmd` — your best AI-driven Mermaid class diagram (must render; preview it in VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension, or with `mmdc -i diagram.mmd -o diagram.png`).
 - `lab02/<student-id>/critique-log.md` — 1 page max. One block per iteration: defects found (W4 name, where, severity); the re-prompt move and why; what changed. Close with one residual risk.
 - `lab02/<student-id>/transcript.md` — optional: your raw prompt/output trail.
 

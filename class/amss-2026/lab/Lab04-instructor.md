@@ -9,8 +9,8 @@
 ## Pre-class checklist
 
 - [ ] Seed `lab04/README.md` (brief + domain + the three flawed artifacts) into the course lab repo (template at the end of this file).
-- [ ] Ship the three artifacts as `.puml` files in `lab04/` so teams open them in their VS Code PlantUML preview: `artifact-sequence.puml`, `artifact-state.puml`, `artifact-activity.puml`.
-- [ ] Optional fallback: pre-render each `.puml` to PNG in `lab04/` in case a team's preview pane is down.
+- [ ] Ship the three artifacts as Mermaid `.mmd` files in `lab04/` so teams open them in VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension: `artifact-sequence.mmd`, `artifact-state.mmd`, `artifact-activity.mmd`.
+- [ ] Optional fallback: pre-render each `.mmd` to PNG in `lab04/` in case a team's preview pane is down.
 - [ ] Assign team-ids (`t01`…`tNN`) and fill the roster table below; aim for teams of 3-5.
 - [ ] Confirm every team has push access to the lab repo (most still have the Lab 1/2/3 clone).
 - [ ] Have this runbook's **ground-truth tables** ready on your own screen (not projected) for the hunt-off.
@@ -25,20 +25,19 @@ Lifted from the 2025 ATM lab (`../amss/lab/Lab04.md`) — a domain with a well-u
 
 ## Artifact 1 — Flawed SEQUENCE diagram (hand to students)
 
-```plantuml
-@startuml
-actor Customer
-participant ATM
-participant Bank
-participant FraudDetector
-participant Database
-Customer -> ATM : insertCard + PIN
-ATM -> ATM : dispense cash
-ATM -> FraudDetector : scoreRisk(customer)
-Customer -> Bank : debitAccount(amount)
-ATM -> Bank : debit(amount)
-ATM -> Database : log(transaction)
-@enduml
+```mermaid
+sequenceDiagram
+  actor Customer
+  participant ATM
+  participant Bank
+  participant FraudDetector
+  participant Database
+  Customer->>ATM: insertCard + PIN
+  ATM->>ATM: dispense cash
+  ATM->>FraudDetector: scoreRisk(customer)
+  Customer->>Bank: debitAccount(amount)
+  ATM->>Bank: debit(amount)
+  ATM->>Database: log(transaction)
 ```
 
 ### Ground truth — sequence (12 pts)
@@ -54,17 +53,15 @@ ATM -> Database : log(transaction)
 
 ## Artifact 2 — Flawed STATE diagram (hand to students)
 
-```plantuml
-@startuml
-hide empty description
-Idle --> VerifyCard : insertCard
-VerifyCard --> Active : checkPin
-VerifyCard --> Retained : checkPin
-Retained --> Idle : adminReset
-Active --> Dispensing : selectWithdraw
-Active --> Idle
-Blocked --> Idle : adminReset
-@enduml
+```mermaid
+stateDiagram-v2
+  Idle --> VerifyCard : insertCard
+  VerifyCard --> Active : checkPin
+  VerifyCard --> Retained : checkPin
+  Retained --> Idle : adminReset
+  Active --> Dispensing : selectWithdraw
+  Active --> Idle
+  Blocked --> Idle : adminReset
 ```
 
 ### Ground truth — state (11 pts)
@@ -81,34 +78,33 @@ Blocked --> Idle : adminReset
 
 ## Artifact 3 — Flawed ACTIVITY diagram (hand to students)
 
-```plantuml
-@startuml
-start
-:insert card;
-:enter PIN;
-if () then (ok)
-  :check balance;
-else (fail)
-  :show error;
-  detach
-endif
-fork
-  :dispense cash;
-fork again
-  :print receipt;
-  detach
-end fork
-@enduml
+```mermaid
+flowchart TD
+  start(( )) --> insert(insert card)
+  insert --> pin(enter PIN)
+  pin --> d1{ }
+  d1 -- ok --> check(check balance)
+  d1 -- fail --> err(show error)
+  check --> fork[ ]
+  fork --> cash(dispense cash)
+  fork --> receipt(print receipt)
+  cash --> join[ ]
+  classDef bar fill:#333,stroke:#333,color:#333
+  classDef initial fill:#000,stroke:#000
+  class fork,join bar
+  class start initial
 ```
+
+Mermaid has no UML activity notation, so this is a flowchart approximation: the filled circle is the initial node, the small dark boxes (`fork`, `join`) stand in for the fork/join bars, and a hollow double circle would be the final node (there is none here — that is defect A3).
 
 ### Ground truth — activity (10 pts)
 
 | # | Defect (catalogue name) | Where | Severity | Why |
 |---|---|---|---|---|
-| A1 | fork without join | the `print receipt` branch detaches; flows never all synchronise | **high (3)** | the parallel branches never rejoin — the workflow's end is undefined |
-| A2 | missing merge | the `fail` branch (`show error`) detaches, never rejoins the main flow | **high (3)** | a decision that branches must merge; this one dangles |
-| A3 | no final node | no `stop` anywhere | med (2) | the workflow never formally ends |
-| A4 | decision with no condition | the empty diamond (`if ()`, labelled ok/fail) | med (2) | the branch labels exist but nothing is actually being decided |
+| A1 | fork without join | the `print receipt` branch has no outgoing flow; only `dispense cash` reaches the join bar, so the flows never all synchronise | **high (3)** | the parallel branches never rejoin — the workflow's end is undefined |
+| A2 | missing merge | the `fail` branch (`show error`) has no outgoing flow, never rejoins the main flow | **high (3)** | a decision that branches must merge; this one dangles |
+| A3 | no final node | no final node anywhere (nothing flows out of the join bar) | med (2) | the workflow never formally ends |
+| A4 | decision with no condition | the empty diamond (no condition text, branches labelled ok/fail) | med (2) | the branch labels exist but nothing is actually being decided |
 
 **Total possible: 33 points** (sequence 12 + state 11 + activity 10), 15 defects.
 
@@ -116,77 +112,76 @@ end fork
 
 Approximate right answers. A team need not have reconstructed these; judge whether they *caught the right defects*.
 
-```plantuml
-@startuml
-actor Customer
-participant ATM
-participant Bank
-Customer -> ATM : insertCard
-Customer -> ATM : enterPIN
-ATM -> Bank : verify(pin)
-alt pin ok
-  Bank --> ATM : verified
-  Customer -> ATM : selectWithdraw(amount)
-  ATM -> Bank : authorize(amount)
-  alt funds sufficient
-    Bank --> ATM : approved
-    ATM -> ATM : dispenseCash
-    ATM --> Customer : cash + card
-  else insufficient
-    Bank --> ATM : declined
-    ATM --> Customer : card (no cash)
+```mermaid
+sequenceDiagram
+  actor Customer
+  participant ATM
+  participant Bank
+  Customer->>ATM: insertCard
+  Customer->>ATM: enterPIN
+  ATM->>Bank: verify(pin)
+  alt pin ok
+    Bank-->>ATM: verified
+    Customer->>ATM: selectWithdraw(amount)
+    ATM->>Bank: authorize(amount)
+    alt funds sufficient
+      Bank-->>ATM: approved
+      ATM->>ATM: dispenseCash
+      ATM-->>Customer: cash + card
+    else insufficient
+      Bank-->>ATM: declined
+      ATM-->>Customer: card (no cash)
+    end
+  else pin wrong
+    Bank-->>ATM: rejected
+    ATM-->>Customer: retry or retain
   end
-else pin wrong
-  Bank --> ATM : rejected
-  ATM --> Customer : retry or retain
-end
-@enduml
 ```
 
-```plantuml
-@startuml
-hide empty description
-[*] --> Idle
-Idle --> VerifyCard : insertCard
-VerifyCard --> Active : [pinCorrect]
-VerifyCard --> Retained : [tries >= 3] / retainCard
-VerifyCard --> VerifyCard : [invalidPin & tries < 3]
-Active --> Dispensing : selectWithdraw
-Dispensing --> Active : cashDispensed
-Active --> Idle : cancel / ejectCard
-Retained --> Idle : adminReset
-@enduml
+```mermaid
+stateDiagram-v2
+  [*] --> Idle
+  Idle --> VerifyCard : insertCard
+  VerifyCard --> Active : [pinCorrect]
+  VerifyCard --> Retained : [tries >= 3] / retainCard
+  VerifyCard --> VerifyCard : [invalidPin & tries < 3]
+  Active --> Dispensing : selectWithdraw
+  Dispensing --> Active : cashDispensed
+  Active --> Idle : cancel / ejectCard
+  Retained --> Idle : adminReset
 ```
 
-```plantuml
-@startuml
-start
-:insert card;
-:enter PIN;
-if (PIN valid?) then (yes)
-  :select withdraw;
-  if (funds sufficient?) then (yes)
-    fork
-      :dispense cash;
-    fork again
-      :print receipt;
-    end fork
-  else (no)
-    :show error;
-  endif
-else (no)
-  :retain or retry;
-endif
-:eject card;
-stop
-@enduml
+```mermaid
+flowchart TD
+  start(( )) --> insert(insert card)
+  insert --> pin(enter PIN)
+  pin --> d1{PIN valid?}
+  d1 -- yes --> sel(select withdraw)
+  sel --> d2{funds sufficient?}
+  d2 -- yes --> fork[ ]
+  fork --> cash(dispense cash)
+  fork --> receipt(print receipt)
+  cash --> join[ ]
+  receipt --> join
+  join --> m2{ }
+  d2 -- no --> err(show error)
+  err --> m2
+  d1 -- no --> retain(retain or retry)
+  m2 --> m1{ }
+  retain --> m1
+  m1 --> eject(eject card)
+  eject --> stop((( )))
+  classDef bar fill:#333,stroke:#333,color:#333
+  classDef initial fill:#000,stroke:#000
+  class fork,join bar
+  class start initial
 ```
 
 Key correct decisions: the sequence models both failure branches with returns; every state is reachable and escapable with guards on the branch and an initial pseudo-state; the activity's decisions merge, its fork joins, and it reaches a final.
 
 ## Phase 1 — Brief facilitation (10 min)
 
-1. Form teams of 3-5; hand out team-ids + lab-repo URL; point them at `lab04/README.md` and the three `.puml` files.
+1. Form teams of 3-5; hand out team-ids + lab-repo URL; point them at `lab04/README.md` and the three `.mmd` files.
 2. Read the domain aloud once; stress it is honest — defects are in the artifacts.
 3. Put the combined W6+W7 read-order and the defect vocabulary on screen.
 4. State the scoring rule **before** the hunt: severity-weighted, false positives cost a point. Calibrate, don't spray.
@@ -264,10 +259,10 @@ Fill per offering.
 
 **Domain (honest — defects are in the artifacts, not here):** an ATM. A customer inserts a card and enters a PIN; after 3 wrong PINs the card is retained. Once verified, the customer can withdraw cash: the ATM checks the balance with the bank, dispenses if funds suffice, and ejects the card. On insufficient funds or cancel, no cash is dispensed and the card is ejected. The ATM prints a receipt and returns to idle after each session (or on inactivity timeout).
 
-**The three artifacts** (open each in your PlantUML preview):
-- `lab04/artifact-sequence.puml`
-- `lab04/artifact-state.puml`
-- `lab04/artifact-activity.puml`
+**The three artifacts** (open each in your Mermaid preview):
+- `lab04/artifact-sequence.mmd`
+- `lab04/artifact-state.mmd`
+- `lab04/artifact-activity.mmd`
 
 **Your job:** find every planted defect; name it (W6/W7 catalogue), locate it, rate its severity (high/med/low), say why in one line.
 

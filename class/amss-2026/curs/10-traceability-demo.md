@@ -10,7 +10,7 @@
 
 - VS Code open, Continue.dev installed and configured against the canonical course endpoint (see `class/amss-2026/tooling/SETUP.md`).
 - Continue.dev mode set to **agentic chat**.
-- A scratch/chat pane visible — the artifact is a multi-layer text answer; a PlantUML preview helps for the sequence/class but is not essential.
+- A scratch/chat pane visible — the artifact is a multi-layer text answer; a Mermaid preview (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) helps for the sequence/class but is not essential.
 - Browser tab pre-opened to `class/amss-2026/curs/10-traceability-demo-fallback/01-fallback-broken-trace.png` in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
@@ -56,19 +56,17 @@ Demanding the explicit links is the pivot. Re-read. **Time:** ~1 min to type, ~2
 
 The live AI output varies. This is the **dry-run-verified** reference the instructor confirms before delivery — the consistent trace the critique converges toward:
 
-```plantuml
-@startuml
-left to right direction
-rectangle "REQ: reserve 15 min\n(expires, then released)" as R
-rectangle "UC: Reserve Bike" as U
-rectangle "class Reservation\n(rider, bike, expiry)" as C
-rectangle "reserve sequence\n+ Bike: Reserved state" as S
-rectangle "TEST: reservation\nexpires after 15 min" as T
-R --> U
-U --> C
-C --> S
-S --> T
-@enduml
+```mermaid
+flowchart LR
+  R["REQ: reserve 15 min<br/>(expires, then released)"]
+  U["UC: Reserve Bike"]
+  C["class Reservation<br/>(rider, bike, expiry)"]
+  S["reserve sequence<br/>+ Bike: Reserved state"]
+  T["TEST: reservation<br/>expires after 15 min"]
+  R --> U
+  U --> C
+  C --> S
+  S --> T
 ```
 
 Every layer encodes the 15-minute expiry; the test checks exactly that; nothing extra appears. If the live output reaches a consistent chain like this after prompt #2, the loop worked. Pivot into the deck's gallery — the live drift you saw is defect #4 of that gallery.

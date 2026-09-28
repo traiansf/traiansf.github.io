@@ -63,19 +63,17 @@ First of two Critique, Rationale, Traceability mentions. Traceability anchored t
 
 # The Full Trace
 
-```plantuml
-@startuml
-left to right direction
-rectangle "Requirement" as R
-rectangle "Use case" as U
-rectangle "Class" as C
-rectangle "Sequence /\nState" as S
-rectangle "Test" as T
-R --> U
-U --> C
-C --> S
-S --> T
-@enduml
+```mermaid
+flowchart LR
+  R["Requirement"]
+  U["Use case"]
+  C["Class"]
+  S["Sequence /<br/>State"]
+  T["Test"]
+  R --> U
+  U --> C
+  C --> S
+  S --> T
 ```
 
 Every node is an artifact you have built since Week 2. One chain, requirement to test.
@@ -88,19 +86,17 @@ The trace skeleton. Requirements (Week 2), use cases (Weeks 2/6), classes (Week 
 
 # A Worked Trace: "Rent a Bike"
 
-```plantuml
-@startuml
-left to right direction
-rectangle "REQ-1\nrent by app,\ncharged per minute" as R
-rectangle "UC: Rent Bike" as U
-rectangle "class Rental\n(1 rider, 1 bike)" as C
-rectangle "rent sequence\n+ Bike states" as S
-rectangle "TEST: 60-min\nrental fare" as T
-R --> U
-U --> C
-C --> S
-S --> T
-@enduml
+```mermaid
+flowchart LR
+  R["REQ-1<br/>rent by app,<br/>charged per minute"]
+  U["UC: Rent Bike"]
+  C["class Rental<br/>(1 rider, 1 bike)"]
+  S["rent sequence<br/>+ Bike states"]
+  T["TEST: 60-min<br/>rental fare"]
+  R --> U
+  U --> C
+  C --> S
+  S --> T
 ```
 
 The bike-sharing chain, concrete: the requirement is realised by the use case, the class, the behaviour — and verified by the test.
@@ -229,25 +225,23 @@ The maintenance failure. Traceability is not a one-time wiring; a change anywher
 
 # The Repaired Trace
 
-```plantuml
-@startuml
-left to right direction
-rectangle "REQ-1\nrent, per-minute" as R1
-rectangle "REQ-2\nreport damage" as R2
-rectangle "UC: Rent Bike" as U1
-rectangle "UC: Report Fault" as U2
-rectangle "class Rental\n+ Payment" as C
-rectangle "rent sequence\n+ Bike states" as S
-rectangle "TEST: per-minute\nfare" as T1
-rectangle "TEST: fault flow" as T2
-R1 --> U1
-R2 --> U2
-U1 --> C
-U2 --> C
-C --> S
-S --> T1
-S --> T2
-@enduml
+```mermaid
+flowchart LR
+  R1["REQ-1<br/>rent, per-minute"]
+  R2["REQ-2<br/>report damage"]
+  U1["UC: Rent Bike"]
+  U2["UC: Report Fault"]
+  C["class Rental<br/>+ Payment"]
+  S["rent sequence<br/>+ Bike states"]
+  T1["TEST: per-minute<br/>fare"]
+  T2["TEST: fault flow"]
+  R1 --> U1
+  R2 --> U2
+  U1 --> C
+  U2 --> C
+  C --> S
+  S --> T1
+  S --> T2
 ```
 
 Every requirement reaches a test; every artifact traces back; the layers agree.
@@ -275,17 +269,15 @@ This IS the Traceability drill. Forward walk catches orphan requirements; backwa
 
 # Your Turn: Walk a Broken Trace
 
-```plantuml
-@startuml
-left to right direction
-rectangle "REQ-1\nper-minute fare" as R
-rectangle "UC: Rent Bike" as U
-rectangle "class Rental\n+ Payment" as C
-rectangle "TEST: flat\n€3 fare" as T
-R --> U
-U --> C
-C --> T
-@enduml
+```mermaid
+flowchart LR
+  R["REQ-1<br/>per-minute fare"]
+  U["UC: Rent Bike"]
+  C["class Rental<br/>+ Payment"]
+  T["TEST: flat<br/>€3 fare"]
+  R --> U
+  U --> C
+  C --> T
 ```
 
 Pair up (2-3 min): walk this trace **forward** (REQ-1 to test) and **backward** (test to REQ-1). One link is broken — name which of the five defect types it is.

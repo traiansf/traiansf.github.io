@@ -10,7 +10,7 @@
 
 - VS Code open, Continue.dev installed and configured against the canonical course endpoint (see `class/amss-2026/tooling/SETUP.md`).
 - Continue.dev mode set to **agentic chat**.
-- A **PlantUML preview pane** open in VS Code — students must SEE the rendered diagram to read message order and returns; raw PlantUML text is not enough.
+- A **Mermaid preview** open in VS Code (the built-in Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram to read message order and returns; raw Mermaid text is not enough.
 - The W4 bike-sharing class diagram recallable (this sequence realises a use case over *those* objects — the cross-link in defect #5 needs it).
 - Browser tab pre-opened to `class/amss-2026/curs/06-behavioral-i-demo-fallback/01-fallback-cycle1-sequence.png` in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
@@ -19,7 +19,7 @@
 
 Paste this into Continue.dev's chat (do **not** improvise):
 
-> *"Generate a UML sequence diagram (as PlantUML) for renting a bike in the city bike-sharing app: a rider unlocks a bike at a station and is charged by app."*
+> *"Generate a UML sequence diagram (as Mermaid) for renting a bike in the city bike-sharing app: a rider unlocks a bike at a station and is charged by app."*
 
 Render the result in the preview pane. **Time:** ~1 min to type, ~2-3 min for AI to generate + render.
 
@@ -57,26 +57,25 @@ Naming the responsibilities and demanding the failure path is the pivot. Re-rend
 
 The live AI output varies. This is the **dry-run-verified** reference the instructor confirms renders before delivery — the corrected interaction the critique converges toward:
 
-```plantuml
-@startuml
-actor Rider
-participant App
-participant RentalService
-participant PaymentService
-participant Bike
-Rider -> App : confirm rental
-App -> PaymentService : charge(rider)
-alt payment accepted
-  PaymentService --> App : ok
-  App -> RentalService : startRental(bikeId)
-  RentalService -> Bike : unlock()
-  Bike --> RentalService : unlocked
-  RentalService --> App : rentalStarted
-else payment declined
-  PaymentService --> App : declined
-  App --> Rider : rental refused
-end
-@enduml
+```mermaid
+sequenceDiagram
+    actor Rider
+    participant App
+    participant RentalService
+    participant PaymentService
+    participant Bike
+    Rider->>App: confirm rental
+    App->>PaymentService: charge(rider)
+    alt payment accepted
+        PaymentService-->>App: ok
+        App->>RentalService: startRental(bikeId)
+        RentalService->>Bike: unlock()
+        Bike-->>RentalService: unlocked
+        RentalService-->>App: rentalStarted
+    else payment declined
+        PaymentService-->>App: declined
+        App-->>Rider: rental refused
+    end
 ```
 
 Real messages, correct order, returns present, the declined-payment branch modelled. If the live output reaches something like this after prompt #2, the loop worked.

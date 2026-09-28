@@ -80,25 +80,24 @@ First of two Critique, Rationale, Traceability mentions. Critique anchored this 
 
 > Live: drive AI to draw the structure. Watch the multiplicities, the associations, and what's missing.
 
-**Prompt to AI:** *"Generate a UML class diagram (as PlantUML) for the city bike-sharing app: users rent and return bicycles at stations across a city; payment is by app; staff rebalance bikes between stations."*
+**Prompt to AI:** *"Generate a UML class diagram (as Mermaid) for the city bike-sharing app: users rent and return bicycles at stations across a city; payment is by app; staff rebalance bikes between stations."*
 
 ::: notes
-Switch to Continue.dev with a PlantUML preview pane — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/04-class-diagrams-demo.md` for ~12-14 min. Fallback: runbook §8.
+Switch to Continue.dev with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/04-class-diagrams-demo.md` for ~12-14 min. Fallback: runbook §8.
 :::
 
 ---
 
 # A Class: Three Compartments
 
-```plantuml
-@startuml
-class Bike {
-  - id: String
-  - status: BikeStatus
-  + lock()
-  + unlock()
-}
-@enduml
+```mermaid
+classDiagram
+    class Bike {
+        -id : String
+        -status : BikeStatus
+        +lock()
+        +unlock()
+    }
 ```
 
 Name, attributes (data), operations (behaviour). `-` private, `+` public.
@@ -111,14 +110,13 @@ Adapts 2025's Book-class compartment example to the bike-sharing domain. The thr
 
 # Associations + Multiplicity
 
-```plantuml
-@startuml
-class User
-class Rental
-class Bike
-User "1" -- "*" Rental
-Rental "*" -- "1" Bike
-@enduml
+```mermaid
+classDiagram
+    class User
+    class Rental
+    class Bike
+    User "1" -- "*" Rental
+    Rental "*" -- "1" Bike
 ```
 
 Read it aloud: *one* user has *many* rentals; *many* rentals each reference *one* bike. Multiplicity is where AI most often lies.
@@ -131,15 +129,14 @@ The most defect-prone element. Drill reading multiplicity aloud — 1, *, 0..1, 
 
 # Aggregation vs Composition
 
-```plantuml
-@startuml
-class Station
-class Bike
-class Rental
-class Payment
-Station o-- "*" Bike : holds
-Rental *-- "1" Payment : includes
-@enduml
+```mermaid
+classDiagram
+    class Station
+    class Bike
+    class Rental
+    class Payment
+    Station o-- "*" Bike : holds
+    Rental *-- "1" Payment : includes
 ```
 
 - **Aggregation** (hollow diamond): a station *holds* bikes; bikes outlive the station.
@@ -153,14 +150,13 @@ Reuses 2025's aggregation/composition contrast. The lifetime distinction is what
 
 # Generalization (is-a)
 
-```plantuml
-@startuml
-class User
-class Rider
-class Staff
-User <|-- Rider
-User <|-- Staff
-@enduml
+```mermaid
+classDiagram
+    class User
+    class Rider
+    class Staff
+    User <|-- Rider
+    User <|-- Staff
 ```
 
 A `Rider` *is a* `User`; `Staff` *is a* `User`. The hollow triangle points at the parent.
@@ -189,18 +185,18 @@ Deliberate scope boundary (spec §5.4). Name them so students aren't lost when A
 
 # The Reading Floor, Together
 
-```plantuml
-@startuml
-class User
-class Rider
-class Rental
-class Bike
-class Station
-User <|-- Rider
-User "1" -- "*" Rental
-Rental "*" -- "1" Bike
-Station o-- "*" Bike : holds
-@enduml
+```mermaid
+classDiagram
+    direction LR
+    class User
+    class Rider
+    class Rental
+    class Bike
+    class Station
+    User <|-- Rider
+    User "1" -- "*" Rental
+    Rental "*" -- "1" Bike
+    Station o-- "*" Bike : holds
 ```
 
 One small diagram, all four elements. If you can read this, you can critique AI's.
@@ -235,12 +231,11 @@ Sets up the catalogue — Critique applied to structure. The three core defects 
 
 # Defect #1: Wrong Multiplicity
 
-```plantuml
-@startuml
-class Rental
-class Bike
-Rental "*" -- "*" Bike
-@enduml
+```mermaid
+classDiagram
+    class Rental
+    class Bike
+    Rental "*" -- "*" Bike
 ```
 
 Many-to-many? One rental is *one* bike. **Critique:** *"Read it aloud — can a single rental involve many bikes? Fix the number."*
@@ -277,22 +272,21 @@ The third spec-named core defect. AI flattens whole-part into plain associations
 
 # AI Over-Models
 
-```plantuml
-@startuml
-class BikeShareSystem {
-  - bikes
-  - stations
-  - users
-  - rentals
-  + doEverything()
-}
-class DatabaseManager
-class CacheController
-class NotificationService
-BikeShareSystem -- DatabaseManager
-BikeShareSystem -- CacheController
-BikeShareSystem -- NotificationService
-@enduml
+```mermaid
+classDiagram
+    class BikeShareSystem {
+        -bikes
+        -stations
+        -users
+        -rentals
+        +doEverything()
+    }
+    class DatabaseManager
+    class CacheController
+    class NotificationService
+    BikeShareSystem -- DatabaseManager
+    BikeShareSystem -- CacheController
+    BikeShareSystem -- NotificationService
 ```
 
 A **god class** plus **invented infrastructure** (`DatabaseManager`, `CacheController`) — implementation, not domain.
@@ -305,18 +299,18 @@ Reframes 2025's over-complicated diagram. AI over-models because it doesn't have
 
 # The Critic Simplifies
 
-```plantuml
-@startuml
-class User
-class Rental
-class Bike
-class Station
-class Payment
-User "1" -- "*" Rental
-Rental "1" -- "1" Bike
-Rental "1" -- "1" Payment
-Station o-- "*" Bike
-@enduml
+```mermaid
+classDiagram
+    direction LR
+    class User
+    class Rental
+    class Bike
+    class Station
+    class Payment
+    User "1" -- "*" Rental
+    Rental "1" -- "1" Bike
+    Rental "1" -- "1" Payment
+    Station o-- "*" Bike
 ```
 
 Same domain, only the classes that earn their place. **You saw defect #1 (multiplicity) live in the demo.**
@@ -382,7 +376,7 @@ Reinforces ownership, mirroring Week 3's "human closes the loop." The defense gr
 
 - Drive AI to produce a class diagram from a 1-page spec.
 - Iterate at least twice; log what changed and why.
-- Deliverable: the PlantUML diagram + a critique log (1 page max).
+- Deliverable: the Mermaid class diagram + a critique log (1 page max).
 - Commit to the course lab repo.
 
 ::: notes

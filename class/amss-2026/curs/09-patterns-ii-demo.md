@@ -4,13 +4,13 @@
 >
 > Design reference: the master spec's W9 row (`docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md` §2) — "pattern-level critique: was this applied or just labeled?"
 >
-> This demo's artifact is **AI's "Visitor" implementation** (PlantUML and/or code). The "aha" beat is *checking for double dispatch* — does each vehicle have `accept()` and the visitor a `visit()` per type, or is it a single method with an `instanceof` cascade wearing the name?
+> This demo's artifact is **AI's "Visitor" implementation** (Mermaid and/or code). The "aha" beat is *checking for double dispatch* — does each vehicle have `accept()` and the visitor a `visit()` per type, or is it a single method with an `instanceof` cascade wearing the name?
 
 ## 0. Setup (pre-class, ~1 min)
 
 - VS Code open, Continue.dev installed and configured against the canonical course endpoint (see `class/amss-2026/tooling/SETUP.md`).
 - Continue.dev mode set to **agentic chat**.
-- A PlantUML preview pane and/or a code pane visible — the tell (instanceof vs accept/visit) shows in either.
+- A Mermaid preview (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) and/or a code pane visible — the tell (instanceof vs accept/visit) shows in either.
 - Browser tab pre-opened to `class/amss-2026/curs/09-patterns-ii-demo-fallback/01-fallback-fake-visitor.png` in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
@@ -55,25 +55,26 @@ Demanding the mechanism is the pivot. Re-render. **Time:** ~1 min to type, ~2 mi
 
 The live AI output varies. This is the **dry-run-verified** reference the instructor confirms renders before delivery — the applied Visitor the critique converges toward:
 
-```plantuml
-@startuml
-interface Vehicle {
-  + accept(v : Visitor)
-}
-interface Visitor {
-  + visit(b : Bike)
-  + visit(e : EBike)
-  + visit(s : Scooter)
-}
-class Bike
-class EBike
-class Scooter
-class ReportVisitor
-Vehicle <|.. Bike
-Vehicle <|.. EBike
-Vehicle <|.. Scooter
-Visitor <|.. ReportVisitor
-@enduml
+```mermaid
+classDiagram
+  class Vehicle {
+    <<interface>>
+    +accept(v : Visitor)
+  }
+  class Visitor {
+    <<interface>>
+    +visit(b : Bike)
+    +visit(e : EBike)
+    +visit(s : Scooter)
+  }
+  class Bike
+  class EBike
+  class Scooter
+  class ReportVisitor
+  Vehicle <|.. Bike
+  Vehicle <|.. EBike
+  Vehicle <|.. Scooter
+  Visitor <|.. ReportVisitor
 ```
 
 `accept` on each vehicle calls back `visit(this)`; one `visit` per type; no `instanceof`. If the live output reaches this after prompt #2, the loop worked. Pivot into the deck's gallery — the live failure you just saw is defect #3 of that gallery (Visitor without double dispatch).

@@ -216,13 +216,11 @@ Closes the gallery by tying back to the course's founding split. A generator gra
 
 # Where AI Can Help
 
-```plantuml
-@startuml
-hide empty description
-[*] --> Available
-Available --> InUse : unlock
-InUse --> Maintenance : fault
-@enduml
+```mermaid
+stateDiagram-v2
+  [*] --> Available
+  Available --> InUse : unlock
+  InUse --> Maintenance : fault
 ```
 
 Narrow, checkable questions: *"Which states have no way out?"* -> AI flags `Maintenance`. *"Which states are unreachable?"* Conformance and consistency — mechanical, verifiable.

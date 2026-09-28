@@ -155,7 +155,7 @@ local mermaid = {
       return with_working_directory(tmpdir, function ()
         return pipe(
           self.execpath or 'mmdc',
-          {"--pdfFit", "--input", "-", "--output", "-", "-e", "svg"},
+          {"--input", "-", "--output", "-", "-e", file_extension},
           code
         ), mime_type
       end)
@@ -332,7 +332,7 @@ local default_engines = {
 
 --- Options for the output format of the given name.
 local function format_options (name)
-  local pdf2svg = name ~= 'latex' and name ~= 'context'
+  local pdf2svg = name ~= 'latex' and name ~= 'beamer' and name ~= 'context'
   local is_office_format = name == 'docx' or name == 'odt'
   -- Office formats seem to work better with PNG than with SVG.
   local preferred_mime_types = is_office_format

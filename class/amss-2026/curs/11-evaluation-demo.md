@@ -16,24 +16,24 @@
 
 ### The flawed diagram (paste verbatim)
 
-```plantuml
-@startuml
-class BikeShareSystem {
-  - bikes
-  - users
-  - rentals
-  + doEverything()
-}
-class User
-class Rental
-class Bike
-class Station
-class DatabaseManager
-User "*" -- "*" Rental
-Rental "*" -- "*" Bike
-Station -- Bike
-BikeShareSystem --> DatabaseManager
-@enduml
+```mermaid
+classDiagram
+  direction LR
+  class BikeShareSystem {
+    -bikes
+    -users
+    -rentals
+    +doEverything()
+  }
+  class User
+  class Rental
+  class Bike
+  class Station
+  class DatabaseManager
+  User "*" -- "*" Rental
+  Rental "*" -- "*" Bike
+  Station -- Bike
+  BikeShareSystem --> DatabaseManager
 ```
 
 Known ground-truth defects (from W4 / Lab 2): god class (`BikeShareSystem` + `doEverything`); wrong multiplicity (`User *--* Rental`, `Rental *--* Bike`); missing aggregation (`Station -- Bike` should be a holds-aggregation); invented infrastructure (`DatabaseManager`); fake/decorative association risk.

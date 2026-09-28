@@ -12,7 +12,7 @@ Three phases, 100 minutes — **you work solo this time.**
 2. **Drive-and-critique drill** (~70 min) — drive AI to a class diagram, critique it, re-prompt twice.
 3. **Share-out** (~20 min) — compare which defects the AI produced across the room.
 
-Deliverable: a PlantUML class diagram + a critique log (1 page max), committed to the course lab repo.
+Deliverable: a Mermaid class diagram + a critique log (1 page max), committed to the course lab repo.
 
 ::: notes
 The hands-on follow-through of the Week 4 lecture. In Week 4 you watched the architect-and-critic loop on a bike-sharing class diagram; today you run it yourself, alone, on a different domain. Solo — because the oral defense is individual and cold.
@@ -70,9 +70,9 @@ Two iterations is the Week 4 mandate ("iterate at least twice"). The student is 
 
 Send a deliberately bare prompt, pasting the spec:
 
-> *"Generate a UML class diagram (as PlantUML) for this library system. [paste the 1-page spec]"*
+> *"Generate a UML class diagram (as Mermaid) for this library system. [paste the 1-page spec]"*
 
-Render it, then run the **4-step read-order** (next slide) against it. Log every defect: its name, where it is, how bad it is.
+Render it (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension), then run the **4-step read-order** (next slide) against it. Log every defect: its name, where it is, how bad it is.
 
 ::: notes
 The bare prompt is on purpose — against an honest spec it reliably collapses title/copy, flattens the holds-aggregation, and over-models with infrastructure. If the draft looks suspiciously clean, use the defect card.
@@ -163,7 +163,7 @@ The signature catch is title-vs-copy: AI models one `Book` class and then cannot
 
 On branch `lab02/<student-id>`, commit:
 
-- `lab02/<student-id>/diagram.puml` — your best AI-driven PlantUML class diagram (must render).
+- `lab02/<student-id>/diagram.mmd` — your best AI-driven Mermaid class diagram (must render).
 - `lab02/<student-id>/critique-log.md` — 1 page max (next slide).
 - `lab02/<student-id>/transcript.md` — optional but recommended: your raw prompt/output trail.
 
@@ -195,7 +195,7 @@ The "why" line is the graded one. "The diagram was wrong, I asked again" is not 
 git clone <lab-repo-url>          # skip if you still have the Lab 1 clone
 git checkout -b lab02/<student-id>
 mkdir -p lab02/<student-id>
-# write diagram.puml and critique-log.md inside lab02/<student-id>/
+# write diagram.mmd and critique-log.md inside lab02/<student-id>/
 git add lab02/<student-id>
 git commit -m "Lab 2: <student-id> library kiosk class diagram + critique log"
 git push -u origin lab02/<student-id>
@@ -213,7 +213,7 @@ Substitute your real student-id everywhere `<student-id>` appears. You likely al
 
 Pass needs both:
 
-1. `diagram.puml` (renders) and `critique-log.md` both committed by the deadline.
+1. `diagram.mmd` (renders) and `critique-log.md` both committed by the deadline.
 2. Your log names **at least two** distinct Week 4 defects correctly **and** gives a real reason for at least one re-prompt (not just what you typed).
 
 A vacuous log ("the diagram was wrong, I fixed it") is a redo, not a fail. We grade your critique and reasoning — not the diagram's polish.

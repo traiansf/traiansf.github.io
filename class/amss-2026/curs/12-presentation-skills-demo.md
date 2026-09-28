@@ -17,16 +17,16 @@
 
 ### The design to paste
 
-```plantuml
-@startuml
-class User
-class Rental
-class Bike
-class FareStrategy
-User "1" -- "*" Rental
-Rental "*" -- "1" Bike
-Rental --> FareStrategy
-@enduml
+```mermaid
+classDiagram
+  direction LR
+  class User
+  class Rental
+  class Bike
+  class FareStrategy
+  User "1" -- "*" Rental
+  Rental "*" -- "1" Bike
+  Rental --> FareStrategy
 ```
 
 (A reasonable slice — but AI did not make these decisions, so it cannot say *why* they were made.)
