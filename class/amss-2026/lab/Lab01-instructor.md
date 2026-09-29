@@ -11,7 +11,7 @@
 - [ ] Seed `lab01/README.md` into the course lab repo (template at the end of this file).
 - [ ] Assign pair-ids (`p01`…`pNN`) and fill the roster table below.
 - [ ] Remind students (course channel, a few days before) to do `tooling/SETUP.md` at home: install Claude Code or Codex in VS Code and sign in with their own Claude Pro / ChatGPT Plus account. There are no credentials to distribute.
-- [ ] Check `tooling/template/` is current (`.claude/settings.json` pins Sonnet 5, low effort; `.codex/config.toml` pins the Codex equivalent).
+- [ ] Check `tooling/template/` is current (`.claude/settings.json` pins Sonnet 5, low effort; `.codex/config.toml` pins GPT-6 Sol, low effort; `AGENTS.md` keeps the "answer directly" line Codex needs).
 - [ ] Confirm every student has push access to the lab repo.
 
 ## Phase 1 — Onboarding facilitation (15 min)

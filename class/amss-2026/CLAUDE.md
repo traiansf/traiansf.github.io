@@ -43,7 +43,7 @@ Do NOT cross-include files from `../amss/`. The two trees are intentionally deco
 
 ## Tooling stack
 
-**Decided (September 2026), superseding spec §6's procurement options:** students bring a **Claude Pro** or **ChatGPT Plus** subscription and use **Claude Code** or **Codex** through their official VS Code extensions. No course endpoint, no Continue.dev. Course settings are pinned per repository by `tooling/template/` (`AGENTS.md` + `CLAUDE.md` importing it, `.claude/settings.json` = Sonnet 5 at low effort, `.codex/config.toml` = closest Codex equivalent, uncalibrated). Instructor demos run in Claude Code with the same settings.
+**Decided (September 2026), superseding spec §6's procurement options:** students bring a **Claude Pro** or **ChatGPT Plus** subscription and use **Claude Code** or **Codex** through their official VS Code extensions. No course endpoint, no Continue.dev. Course settings are pinned per repository by `tooling/template/` (`AGENTS.md` + `CLAUDE.md` importing it, `.claude/settings.json` = Sonnet 5 at low effort, `.codex/config.toml` = GPT-6 Sol at low effort, calibrated as the closest Codex equivalent; the `AGENTS.md` line telling the assistant to answer directly when no matching files exist is needed for Codex, which otherwise refuses design prompts in an empty repository). Instructor demos run in Claude Code with the same settings.
 
 Sonnet 5 / low was chosen by calibrating the runbooks' prompts across Haiku 4.5, Sonnet 5 and Opus 5.5 (see `tooling/README.md`): it gives workable first drafts that still leave defects to find. The demo runbooks' defect catalogues were rebuilt from that calibration — if the pinned model changes, re-calibrate and refresh them.
 
