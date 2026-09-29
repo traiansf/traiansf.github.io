@@ -141,7 +141,7 @@ The spec's framing: sequence diagrams as use-case realisations. This is also a t
 **Prompt to AI:** *"Generate a UML sequence diagram (as Mermaid) for renting a bike in the city bike-sharing app: a rider unlocks a bike at a station and is charged by app."*
 
 ::: notes
-Switch to Continue.dev with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/06-behavioral-i-demo.md` for ~12 min. The near-certain failures: a fabricated message and a missing failure path. Fallback: runbook §8.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/06-behavioral-i-demo.md` for ~12 min. Expect a missing failure path (no alt at all) and the real work hidden in self-calls on one opaque "Backend" lifeline, with no Rental ever created; fabricated messages are less likely unprompted with current models. Fallback: runbook §8.
 :::
 
 ---
@@ -178,7 +178,7 @@ Read top to bottom, and check:
 3. **Activation** — is it clear which object is executing at each step?
 
 ::: notes
-The Critique drill for sequences. Order and returns are where AI slips. A message that uses a result not yet returned is an impossible order; a call with no return leaves the caller hanging. Drill reading the arrows in sequence.
+The Critique drill for sequences. Order and returns are where older AI models slipped, and where hand-drawn sequences still do. A message that uses a result not yet returned is an impossible order; a call with no return leaves the caller hanging. Drill reading the arrows in sequence.
 :::
 
 ---
@@ -227,7 +227,7 @@ A sequence can read smoothly and still contain messages that never happen. The c
 > *"Does each message map to a real responsibility — or did AI invent it to connect the boxes?"*
 
 ::: notes
-Sets up the gallery — Critique applied to behaviour. The core defect is the fabricated message (spec: "where they fabricate messages"). Nothing on a sequence diagram forces a message to be real, so AI fills gaps with plausible-sounding calls.
+Sets up the gallery — Critique applied to behaviour. The classic defect is the fabricated message (spec: "where they fabricate messages"). Nothing on a sequence diagram forces a message to be real, so AI can fill gaps with plausible-sounding calls. Its quieter cousin, common with current models, is the opposite move: real work collapsed into a vague self-call ("Backend validates account") so no responsible object is visible — the same question catches both.
 :::
 
 ---
@@ -247,7 +247,7 @@ sequenceDiagram
 `FraudDetector.scoreRisk` — no requirement asked for it. **Critique:** *"What requirement does this message serve? Who is responsible for it? If nothing, it shouldn't be here."*
 
 ::: notes
-The anchor defect. AI adds a plausible-sounding step (fraud scoring, analytics, logging) that no requirement justifies. The critique walks the message back to a requirement and a responsible object; the unjustified one goes. This is Week 4's invented-class defect, now as an invented message.
+The classic defect — older and weaker models add these unprompted; current models do it less often, but ask for something "enterprise-grade" and such steps creep back in. AI adds a plausible-sounding step (fraud scoring, analytics, logging) that no requirement justifies. The critique walks the message back to a requirement and a responsible object; the unjustified one goes. This is Week 4's invented-class defect, now as an invented message.
 :::
 
 ---
@@ -374,7 +374,7 @@ read -> name the fabricated/missing messages -> re-prompt with the responsibilit
 Same architect-and-critic loop as Weeks 2-5 — now on an interaction.
 
 ::: notes
-The loop is the through-line. The scaffold that tightens AI output here is naming the responsibilities and demanding the failure path — "only messages a requirement justifies; add the payment-declined branch" — exactly the demo's prompt #2.
+The loop is the through-line. The scaffold that tightens AI output here is naming the responsibilities and demanding the failure path — "use the objects from our class diagram, show who creates the Rental; add the payment-declined and unlock-failed branches" — exactly the demo's second prompt.
 :::
 
 ---

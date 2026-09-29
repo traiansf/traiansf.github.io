@@ -95,12 +95,12 @@ The shape mirrors the trail itself. It keeps the student on the graded material 
 
 # Demo: Ask AI to Defend a Design
 
-> Live: paste a design and ask AI to defend it as if in the oral exam. Watch it invent a rationale it never had — and flatter.
+> Live: paste a design and ask AI to defend it as if in the oral exam. Watch it invent a rationale it never had — and claim the design is correct.
 
 **Prompt to AI:** *"Defend this bike-sharing design as if in an oral exam: why these choices, and is it correct? [paste a design]"*
 
 ::: notes
-Switch to Continue.dev. Run the runbook at `class/amss-2026/curs/12-presentation-skills-demo.md` for ~8 min. The point: AI fabricates confident rationale for decisions it didn't make, flatters, and flip-flops when challenged — it cannot defend YOUR design. This is why the defense is unaided. Fallback: runbook §6.
+Switch to the Claude Code panel (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/12-presentation-skills-demo.md` for ~8 min. The point: AI fabricates confident first-person rationale for decisions it didn't make ("I did that deliberately", "scoped out as a minimum viable product"), leans on generic textbook principles, and over-claims that the design is correct — in our September 2026 run it even misread the plain arrow to `FareStrategy` as a dependency while defending it. It cannot defend YOUR design. This is why the defense is unaided. Walk what actually appears. Fallback: runbook §6.
 :::
 
 ---

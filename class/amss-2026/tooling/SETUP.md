@@ -1,10 +1,9 @@
-# AMSS 2026 — Student Setup (~30 min)
+# AMSS 2026 — Student Setup (~20 min)
 
 ## Prerequisites
 
-- VS Code installed.
-- Git installed.
-- Course-issued model-endpoint credentials (handed out in Lab 1).
+- VS Code and Git installed.
+- **One** AI subscription: **Claude Pro** (for Claude Code) or **ChatGPT Plus** (for Codex).
 
 ## Steps
 
@@ -12,63 +11,43 @@
 
    ```bash
    git clone <course-repo-url> amss-2026
-   cd amss-2026/tooling
    ```
 
-2. **Install Continue.dev.**
+2. **Install your AI assistant in VS Code** — the one that matches your subscription.
 
-   In VS Code, open the Extensions panel and search "Continue". Install the
-   extension by Continue Dev, Inc.
+   - *Claude Pro:* in the Extensions panel, search "Claude Code" and install the extension by Anthropic. Open it from the Claude icon in the sidebar and sign in with your Claude account.
+   - *ChatGPT Plus:* in the Extensions panel, search "Codex" and install the extension by OpenAI. Open it from the sidebar and sign in with your ChatGPT account.
 
-3. **Install the diagram previews.**
-
-   Diagrams in this course are written as Mermaid (they also render directly
-   on GitHub). In the Extensions panel, install **Markdown Preview Mermaid
-   Support** (by Matt Bierner); then any ` ```mermaid ` block in a Markdown
-   file renders in VS Code's Markdown preview (Ctrl+Shift+V). The few
-   component and package diagrams use PlantUML — for those, install the
-   **PlantUML** extension (by jebbs) and set its render option to the
-   PlantUML server, so no Java install is needed.
-
-4. **Point Continue.dev at the canonical config.**
-
-   Copy `.continue/config.yaml` into your home directory's Continue config
-   location.
+3. **Add the course settings to every repository you work in** (lab repo, team project repo). Copy the contents of `tooling/template/` into the repository's root:
 
    ```bash
-   # Linux / macOS (run from amss-2026/tooling)
-   mkdir -p ~/.continue
-   cp .continue/config.yaml ~/.continue/config.yaml
+   # Linux / macOS / Git Bash (run from the root of your lab or project repo)
+   cp -r ../amss-2026/tooling/template/. .
    ```
 
    ```powershell
-   # Windows PowerShell (run from amss-2026\tooling)
-   New-Item -ItemType Directory -Force "$env:USERPROFILE\.continue"
-   Copy-Item .continue\config.yaml "$env:USERPROFILE\.continue\config.yaml"
+   # Windows PowerShell (run from the root of your lab or project repo)
+   Copy-Item -Recurse -Force ..\amss-2026\tooling\template\* .
    ```
 
-5. **Fill in the three `REPLACE_BEFORE_W1` placeholders** in your local copy
-   with the credentials handed out in Lab 1 (model name, apiBase, apiKey).
+   This adds `AGENTS.md` and `CLAUDE.md` (the course conventions, e.g. Mermaid for UML), `.claude/settings.json` (Claude Code: Sonnet 5, low effort) and `.codex/config.toml` (Codex). Commit them.
 
-6. **Smoke test.**
+4. **Install the diagram previews.**
 
-   Open any file in VS Code, hit the Continue keybinding (default: Ctrl+L),
-   and ask: "summarize this file in one sentence." If you get a response,
-   you're set.
+   Diagrams in this course are written as Mermaid (they also render directly on GitHub). In the Extensions panel, install **Markdown Preview Mermaid Support** (by Matt Bierner); then any ` ```mermaid ` block in a Markdown file renders in VS Code's Markdown preview (Ctrl+Shift+V). The few component and package diagrams use PlantUML — for those, install the **PlantUML** extension (by jebbs) and set its render option to the PlantUML server, so no Java install is needed.
+
+5. **Smoke test.** Open your repository in VS Code, open the assistant's panel and ask:
+
+   > *Generate a UML class diagram (as Mermaid) for a parking lot with levels and spots.*
+
+   You should get a Mermaid block that renders in the preview. Check the model: in Claude Code, type `/model` — it should show Sonnet 5 with low effort; in Codex, the model picker should show the model from `.codex/config.toml`.
 
 ## Troubleshooting
 
-- *Network error / 401:* check the apiKey was pasted without leading/trailing
-  whitespace.
-- *Model not found:* check the `model` field matches what the endpoint actually
-  serves (the Lab 1 handout names this).
-- *Off-campus / VPN issues with the institutional endpoint:* fall back to the
-  Gemini free-tier configuration in `config.yaml`'s comment header.
+- *The assistant ignores the course model:* make sure you opened the repository folder itself (the one containing `.claude/` and `.codex/`), not its parent. Codex asks you to trust the folder before it reads `.codex/config.toml`.
+- *Usage limit reached:* both subscriptions have rolling usage windows. Keep prompts focused; if you hit the limit during a lab, pair with a colleague.
+- *No subscription yet:* pair with a colleague for the first lab and sort it out before Lab 2.
 
-## What is NOT this setup
+## Why the course pins a model
 
-You may *also* use Claude Code, Copilot, Cursor on your own account — but
-graded artifacts (the directed-design narrative, defect log, TDD reflection)
-must reproduce on this canonical setup. In practice: do your work in either,
-but verify your final artifacts work when run through Continue.dev pointed
-at the course endpoint.
+Everyone uses the same model and effort level so that AI output is comparable across the cohort and reproducible during the oral defense. Do not change the model or effort for graded work. You may use any other tool for exploration, but graded artifacts must reproduce with the course settings.

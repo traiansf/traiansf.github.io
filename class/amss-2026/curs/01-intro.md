@@ -150,12 +150,12 @@ You will hear Critique, Rationale, Traceability named twice more today (in the S
 
 > **Tooling parity.**
 
-Every student uses the same canonical agentic tooling: one editor extension, one model endpoint, one config file.
+Everyone uses the same model and effort level — pinned by the course settings you copy into every repository.
 
-You may *also* use Claude Code, Copilot, Cursor on personal accounts — but graded artifacts must reproduce on the canonical setup.
+Other tools are fine for exploration — but graded artifacts must reproduce with the course settings.
 
 ::: notes
-Tooling parity is what lets the cohort learn from each other's defect logs. It also lets the examiner reproduce student work during oral defense. Practical detail in Lab 1.
+Tooling parity is what makes AI output comparable across the cohort, so students can learn from each other's defect logs. It also lets the examiner reproduce student work during the oral defense. Practical detail later today and in Lab 1.
 :::
 
 ---
@@ -182,7 +182,7 @@ This handoff slide stays up until the demo trigger replaces it. Pause briefly so
 **Prompt to AI:** *"Generate a UML class diagram for a small library kiosk: users borrow and return books; staff register returns; books can be reserved while on loan."*
 
 ::: notes
-Switch to Continue.dev. Run the runbook at `class/amss-2026/curs/01-intro-demo.md` for the full 12 min. This slide stays on screen as the lecture-side anchor — students glance back at the prompt while the diagram appears in the editor.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/01-intro-demo.md` for the full 12 min. This slide stays on screen as the lecture-side anchor — students glance back at the prompt while the diagram appears in the editor.
 
 If live AI fails, the runbook §6 covers the fallback path.
 :::
@@ -251,9 +251,9 @@ This last line is the Week 3 mantra. The required-but-ungraded TDD loop in the p
 
 **AI fails at:**
 
-- Wrong multiplicities (you saw one in the demo).
-- Fabricated classes with no behavior.
-- Conflating abstract concepts with concrete instances.
+- Conflating abstract concepts with concrete instances (a book title vs. a physical copy — watch for it in the demo).
+- Over-modelling: invented classes, attributes that duplicate associations.
+- Wrong multiplicities.
 
 ::: notes
 Week 4 = class diagrams. Week 5 = object/package/component/deployment. The demo we just did is the prototypical Week 4 exercise.
@@ -270,9 +270,9 @@ Week 4 = class diagrams. Week 5 = object/package/component/deployment. The demo 
 
 **AI fails at:**
 
-- Fabricating messages between objects that don't exist.
-- Missing guards on state transitions.
-- Orphan states / unreachable transitions.
+- Drawing only the happy path — no failures, no alternatives.
+- Missing transitions the spec needs; vague guards.
+- Operations that no participant actually owns.
 
 ::: notes
 Week 6 = use cases + sequence. Week 7 = state + activity.
@@ -291,7 +291,7 @@ Week 6 = use cases + sequence. Week 7 = state + activity.
 
 - Decorating code with patterns that solve nothing.
 - Overusing patterns where simple code would do.
-- Calling something "Visitor" when it's just an `if/else` on a type tag.
+- Clean-looking patterns that mishandle the edge cases (a peak-hour price for a ride that crosses the boundary).
 
 ::: notes
 Week 8 = pattern selection. Week 9 = pattern integration & critique. The critique frame is heavy here — many AI pattern applications look right and are wrong.
@@ -350,44 +350,44 @@ Second mention of Critique, Rationale, Traceability (first was in commitment #4)
 
 # What You Just Saw: The Course Tooling
 
-- **Editor:** VS Code with the Continue.dev extension.
-- **Endpoint:** the canonical course model endpoint (configured in `tooling/.continue/config.yaml`).
-- **Mode:** agentic chat — file-and-repo aware, not browser ChatGPT.
+- **Editor:** VS Code with **Claude Code** (Claude Pro subscription) or **Codex** (ChatGPT Plus subscription) — the official extensions, signed in with your own account.
+- **Course settings:** copied from `tooling/template/` into every lab and project repository — course conventions (Mermaid for UML) and the pinned model: **Sonnet 5, low effort**.
+- **Where it runs:** inside your repository — it reads and writes your files, not a browser chat.
 
 This is what every student in the cohort runs.
 
 ::: notes
-Refer back to the demo briefly. Don't re-introduce Continue.dev as if for the first time — students just watched it work.
+Refer back to the demo briefly — students just watched Claude Code work with exactly these settings. Don't re-introduce it as if for the first time.
 
-The actual canonical endpoint depends on the procurement decision (institutional `llm.fmi.unibuc.ro` / per-student Gemini free-tier / pooled paid API). Whichever it ends up being, the *config* is the same shape.
+Codex gets the closest equivalent setting from the same template, so either subscription works.
 :::
 
 ---
 
 # Where We Install: Lab 1
 
-- Lab 1 (Week 2): hands-on tooling onboarding. Don't try alone before then.
-- Setup guide: `tooling/SETUP.md` in the course repo.
-- Estimated time: ~30 min on a working laptop.
+- **Before Lab 1:** get a **Claude Pro** or **ChatGPT Plus** subscription — you need it in the lab.
+- Lab 1 (Week 2): hands-on tooling onboarding — install, copy the course settings, first run.
+- Setup guide: `tooling/SETUP.md` in the course repo (~20 min on a working laptop).
 
 ::: notes
-Lab 1 walks every student through install + first AI-driven requirements gathering. Pre-requisites: VS Code + Git. Course-issued endpoint credentials are handed out at the start of Lab 1.
+Lab 1 walks every student through install + first AI-driven requirements gathering. Pre-requisites: VS Code + Git + one of the two subscriptions. Students without a subscription on the day pair with a colleague for Lab 1 and sort it out before Lab 2.
 :::
 
 ---
 
 # Tooling Parity (BYO Allowed, On Top)
 
-You may also use, on your personal accounts:
+Parity = **same model, same effort level** for everyone (Sonnet 5, low effort, pinned by the course settings).
 
-- Claude Code, GitHub Copilot, Cursor — anything you have access to.
+For exploration, use anything you like — other models, higher effort, GitHub Copilot, Cursor.
 
-**But:** every graded artifact must reproduce on the canonical setup.
+**But:** every graded artifact must reproduce with the course settings. Don't change the model or effort for graded work.
 
-This is what lets the examiner reproduce your work during the oral defense.
+This is what keeps AI output comparable across the cohort — and lets the examiner reproduce your work during the oral defense.
 
 ::: notes
-Be explicit: BYO is a power-user upgrade, not a substitute. Students who only run their personal tools and skip the canonical setup will fail the oral defense's reproduction check.
+Be explicit: other tools are for exploration, not a substitute. Students who only run a stronger model or a different tool and skip the course settings will fail the oral defense's reproduction check.
 :::
 
 ---
@@ -495,7 +495,7 @@ Placeholder for now. Update this slide once the Teams channel is set up.
 # That's It For Today
 
 - Next week: requirements with AI.
-- Lab 1 (Week 2 lab slot): tooling onboarding + first AI-driven requirements drill.
+- Lab 1 (Week 2 lab slot): tooling onboarding + first AI-driven requirements drill — bring your Claude Pro or ChatGPT Plus subscription.
 
 Questions?
 

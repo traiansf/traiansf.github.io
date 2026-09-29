@@ -89,7 +89,7 @@ A pattern is **not a name** — it's a specific structure that delivers a specif
 The critic verifies the structure, then the name.
 
 ::: notes
-The pivot of the whole lecture. AI knows the names fluently and the structures unreliably. Every featured pattern next has a signature structure you can check for; the gallery shows the label without it. Set this up clearly.
+The pivot of the whole lecture. AI always knows the names; whether it built the structure varies — current models usually get the famous patterns right when asked directly, and slip on less common ones, on patterns added without a problem, and under constraints that fight the pattern. Weaker models slip more. Every featured pattern next has a signature structure you can check for; the gallery shows the label without it. Set this up clearly.
 :::
 
 ---
@@ -167,19 +167,19 @@ classDiagram
 **Applied** = **double dispatch**: `vehicle.accept(v)` calls `v.visit(this)`. Adds operations without touching the vehicles. **No `instanceof`.**
 
 ::: notes
-Visitor's signature is double dispatch: the element's accept() calls back the type-specific visit(). That is what removes the type switch. The tell of a fake Visitor is an instanceof/switch cascade — the demo surfaces exactly that.
+Visitor's signature is double dispatch: the element's accept() calls back the type-specific visit(). That is what removes the type switch. The tell of a fake Visitor is an instanceof/switch cascade — the check the demo runs first. In languages without overloading, `visitBike` / `visitEBike` with distinct names is still double dispatch.
 :::
 
 ---
 
 # Demo: Drive AI to "Apply" a Pattern
 
-> Live: ask AI to apply the Visitor pattern. Watch whether it builds double dispatch — or writes a switch on the type and calls it Visitor.
+> Live: ask AI to apply the Visitor pattern. Verify whether it built double dispatch — or wrote a switch on the type and called it Visitor. Then ask it for patterns we don't need, and verify again.
 
 **Prompt to AI:** *"Apply the Visitor pattern to compute a maintenance report across our vehicle types (Bike, EBike, Scooter) in the bike-sharing app."*
 
 ::: notes
-Switch to Continue.dev. Run the runbook at `class/amss-2026/curs/09-patterns-ii-demo.md` for ~8 min. The near-certain failure: a class with an instanceof/switch on vehicle type, labeled "Visitor", with no accept(). Then pivot to the gallery. Fallback: runbook §7.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/09-patterns-ii-demo.md` for ~8 min. Current models usually get this Visitor right first try — accept() on each vehicle, a visit per type, no instanceof — so the first beat is verifying the claim and saying it passes, plus the smaller issues (invented maintenance thresholds, duplicated rules). The second prompt asks it to add Adapter, Decorator and Proxy with no problem behind them; that output feeds the gallery. Live output varies — walk what actually appears. Fallback: runbook §7.
 :::
 
 ---
@@ -237,7 +237,7 @@ A single `visit(Vehicle)` with an `instanceof` cascade — labeled Visitor, no `
 **Critique:** *"Where is accept()? Where is the dispatch on type? This is the switch the pattern exists to remove."*
 
 ::: notes
-The anchor defect — and the demo's payload. A real Visitor has accept() on each element and overloaded visit() per type; the fake has one method with an instanceof cascade. The pattern's entire purpose (no type switch) is exactly what AI reintroduces.
+The classic defect. A real Visitor has accept() on each element and a visit() per type; the fake has one method with an instanceof cascade — the pattern's entire purpose (no type switch) reintroduced under its name. Weaker models produce it on request; current ones mostly don't for a plain request, but it returns under constraints that fight the pattern ("don't touch the vehicle classes") and in hand-written code. The Your Turn slide drills it.
 :::
 
 ---
@@ -330,7 +330,7 @@ classDiagram
 The corrected Visitor: `accept` on each vehicle, `visit` per type, no `instanceof`. Structure present, benefit delivered, name correct.
 
 ::: notes
-The critique result — the counterpart to the slide-13 fake. Contrast them side by side: the fake has one visit(Vehicle) + instanceof; the real has accept() on elements and visit() per type. This is what the demo's prompt #2 converges toward.
+The critique result — the counterpart to the slide-13 fake. Contrast them side by side: the fake has one visit(Vehicle) + instanceof; the real has accept() on elements and visit() per type. This is roughly what the demo's first answer looked like — which is why verifying includes confirming: a claim that checks out is a finding too.
 :::
 
 ---
@@ -342,14 +342,14 @@ read the claim -> check the signature structure -> re-prompt "show the structure
 Same architect-and-critic loop as Weeks 2-8 — now on a pattern claim.
 
 ::: notes
-The loop is the through-line. The scaffold that tightens AI output here is demanding the mechanism — "show accept/visit double dispatch, no instanceof" — exactly the demo's prompt #2. The pattern's signature is the constraint.
+The loop is the through-line. The scaffold that tightens AI output here is demanding the mechanism — "show accept/visit double dispatch, no instanceof"; for each added pattern, "show the signature and the problem it solves". The pattern's signature is the constraint, and the re-read checks each "I added X" against the code.
 :::
 
 ---
 
 # The Human Decides Whether the Pattern Is Real
 
-AI labels patterns fluently and builds them unreliably. Verifying that the structure is actually present — and delivers the benefit — is the architect-and-critic call.
+AI labels patterns fluently; whether it built them — this time — is something you verify, not assume. Checking that the structure is actually present — and delivers the benefit — is the architect-and-critic call.
 
 It's what the oral defense checks, and AI can't make it for you.
 

@@ -22,12 +22,12 @@ The hands-on follow-through of the Week 4 lecture. In Week 4 you watched the arc
 
 # Before You Start
 
-- Continue.dev already working from Lab 1 — same endpoint, same config.
+- Your assistant (Claude Code or Codex) already working from Lab 1 — same course settings: copy `tooling/template/` into the root of your lab repo if it is not there yet.
 - You receive at lab start: your **student-id**, the lab-repo URL, and the **1-page spec** (also in `lab02/README.md` on clone).
 - This is an **individual** lab. You play both roles — architect *and* critic — yourself.
 
 ::: notes
-No tooling onboarding this week; the endpoint was activated in Lab 1. Anyone whose endpoint regressed switches to the Gemini free-tier config now (tooling/SETUP.md).
+No tooling onboarding this week; you set up your assistant in Lab 1. Quick check before you start: in Claude Code, `/model` should show Sonnet 5, low effort (in Codex, the model picker should show the model from `.codex/config.toml`). No subscription yet, or usage limit hit → pair with a colleague on their laptop, but keep your own critique log.
 :::
 
 ---
@@ -75,7 +75,7 @@ Send a deliberately bare prompt, pasting the spec:
 Render it (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension), then run the **4-step read-order** (next slide) against it. Log every defect: its name, where it is, how bad it is.
 
 ::: notes
-The bare prompt is on purpose — against an honest spec it reliably collapses title/copy, flattens the holds-aggregation, and over-models with infrastructure. If the draft looks suspiciously clean, use the defect card.
+The bare prompt is on purpose. Expect a good-looking first draft: current assistants usually get the obvious structure right (title vs copy, member subclasses, one-copy-one-member loans). The defects that remain are subtler — a whole-part relationship on the wrong pair of classes, a missing class the spec does mention, a controller class that is not a domain concept, prose that says one thing while the diagram draws another. Read every line; if it still looks clean, use the defect card.
 :::
 
 ---
@@ -108,53 +108,55 @@ Name them with this vocabulary:
 - **God class** — one class that holds everything and does everything.
 
 ::: notes
-The Week 4 catalogue, verbatim. The critique log must use these names; the grading gate checks for at least two of them, correctly applied. The 7-item defect card later in this lab is just these five made concrete (title-vs-copy and is-a-as-attribute are instances of *invented class* / *wrong multiplicity* in this domain).
+The Week 4 catalogue, verbatim. The critique log must use these names; the grading gate checks for at least two of them, correctly applied. The defect card later in this lab is just these five made concrete for this domain (a misplaced whole-part is a *missing aggregation* on the right pair; a controller class is an *invented class*; title-vs-copy and is-a-as-attribute are instances of *wrong multiplicity* / *invented class*).
 :::
 
 ---
 
 # Re-prompt #1 — Name the Domain Rules
 
-Fix the worst defects by stating the rules the AI got wrong. For this domain, that is almost always:
+Fix the worst defects by stating the rules the AI got wrong — **the ones you actually logged**, quoted from the spec. For example, if the whole-part is on the wrong pair:
 
-> *"A Book is a title; a Copy is a physical item — model both. A loan is exactly one copy to one member. The library holds many copies that outlive any loan (aggregation)."*
+> *"The library holds its copies — model Library, with aggregation from Library to Copy. A Title groups copies but does not own them. A title may have zero copies on the shelf."*
+
+Or, if your draft collapsed title and copy: *"A Book is a title; a Copy is a physical item — model both. A loan is exactly one copy to one member."*
 
 Regenerate, re-read with the 4-step order, log what changed. **This is iteration 1.**
 
 ::: notes
-Naming the domain rules is the scaffold move from Week 4's demo prompt #2. The title-vs-copy split is the signature fix — it converts the wrong many-to-many into Member–Loan–Copy.
+Naming the domain rules is the scaffold move from Week 4's demo prompt #2. Don't paste a fix for a defect your draft doesn't have — the re-prompt must follow from your log. Then re-read the revision line by line: an assistant that says "fixed" has not necessarily fixed it, and fixes often introduce a small new defect.
 :::
 
 ---
 
 # Re-prompt #2 — Kill the Residue
 
-Second pass targets what the first usually leaves:
+Second pass targets what the first leaves — typically classes that are not domain concepts, and rules that live only in prose:
 
-> *"Drop any class that isn't a library-domain concept (no DatabaseManager, no god 'LibrarySystem'). Model member kinds as subclasses (standard / staff), not a type field."*
+> *"Drop any class that isn't a library-domain concept (a Kiosk controller, a DatabaseManager, a 'LibrarySystem'). If Loan is an association class, draw it as one. Model member kinds as subclasses (standard / staff), not a type field."*
 
 Regenerate, re-read, log. **This is iteration 2.** Then keep your best diagram.
 
 ::: notes
-Residual catalogue entries: invented infrastructure, the god class, and is-a-as-attribute. Two iterations is the floor, not the ceiling — but the gate wants both logged.
+Residual catalogue entries: invented class (here usually a controller or service class rather than a database), is-a-as-attribute, and claims in the assistant's notes that the diagram does not back up. Two iterations is the floor, not the ceiling — but the gate wants both logged.
 :::
 
 ---
 
 # Defect Card — Library Kiosk
 
-If the draft looks complete, stress these — name the closest Week 4 defect:
+If the draft looks complete, stress these — name the closest Week 4 defect. **Expect subtle ones:** the obvious structure is often right.
 
-- `Member "*" -- "*" Book` — **wrong multiplicity** (a loan is one copy to one member).
-- Book and Copy as one class — collapses title vs physical item.
-- `Library -- Copy` as a plain line — **missing aggregation** (the library *holds* copies).
-- A line to `Member` with no verb — **fake association**.
-- `LibrarySystem` with all the data + `doEverything()` — **god class**.
-- `DatabaseManager`, `CacheController` — **invented infrastructure**.
-- Member kind as `type: String` — is-a flattened to an attribute.
+- No `Library` class at all, yet the spec says the library *holds* copies — **missing aggregation**.
+- Aggregation drawn on `Title o-- Copy` instead of `Library o-- Copy` — **whole-part on the wrong pair**.
+- `Title "1" -- "1..*" Copy` — **wrong multiplicity**: must every title have a copy?
+- A `Kiosk` / `LibraryService` class full of operations — **invented class** (controller, not domain).
+- Notes say "Loan is an association class" / "composition" but the diagram draws something else — claim vs diagram.
+- `Member "*" -- "*" Book`, or Book and Copy as one class — **wrong multiplicity** / collapsed title vs copy.
+- `DatabaseManager`, a god `LibrarySystem`, member kind as `type: String` — rarer now, still check.
 
 ::: notes
-The signature catch is title-vs-copy: AI models one `Book` class and then cannot express "two members each borrow a copy of the same title", producing the bogus many-to-many. Surfacing that is the lab's payoff.
+The signature catch now is the misplaced whole-part: the assistant puts the aggregation between Title and Copy and never models the Library that actually holds the copies. Collapsing title and copy into one Book class (and the bogus many-to-many it forces) is the classic defect of weaker models — check for it, but don't expect it. Read the assistant's notes against the diagram, too: its prose often claims more than it draws.
 :::
 
 ---
@@ -233,7 +235,7 @@ Low-stakes literacy gate. The bar is on Critique (naming defects) and Rationale 
 The defects you tally are exactly what you critique every week — and in the oral defense.
 
 ::: notes
-Instructor pre-selects presenters by scanning pushed logs during the drill, aiming for variety across the five defects. The title-vs-copy catch is worth surfacing if anyone found it.
+Instructor pre-selects presenters by scanning pushed logs during the drill, aiming for variety across the five defects. The misplaced aggregation (Title–Copy instead of Library–Copy) is worth surfacing if anyone found it — it is the catch that separates reading from skimming.
 :::
 
 ---

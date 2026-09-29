@@ -82,12 +82,12 @@ First of two Critique, Rationale, Traceability mentions today (the second lands 
 
 # Demo: Bike-Sharing Requirements
 
-> Live AI requirements gathering. Watch for fabrication, vague NFRs, and over-spec'ing.
+> Live AI requirements gathering. Watch for fabrication, invented numbers, and over-spec'ing.
 
 **Prompt to AI:** *"Generate a requirements document for a city bike-sharing app: users rent and return bicycles at stations across a city; payment is by app; staff rebalance bikes between stations. Cover functional, non-functional, and domain requirements."*
 
 ::: notes
-Switch to Continue.dev with the markdown preview pane open. Run the runbook at `class/amss-2026/curs/02-requirements-demo.md` for the full 12-14 min. This slide stays on screen as the lecture-side anchor.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with the Markdown preview pane ready. Run the runbook at `class/amss-2026/curs/02-requirements-demo.md` for the full 12-14 min. This slide stays on screen as the lecture-side anchor.
 
 If live AI fails, the runbook §6 covers the fallback path.
 :::
@@ -112,7 +112,7 @@ Three side-by-side. Examples grounded in the bike-sharing scenario from the demo
 
 - AI fabricates user roles ("city hall liaison", "fleet operations manager") that weren't in your prompt.
 - AI conflates concerns: one FR bundles rent + return + report-stolen as a single bullet.
-- AI omits the boring core (login, list-bikes, view-history) and reaches for the dramatic edge (theft recovery).
+- AI adds features nobody asked for (guest rentals, promo codes, e-bikes, a lost-bike workflow) around the core — and they look just as authoritative.
 
 > Watch for: stakeholders that don't trace back to your prompt.
 
@@ -127,11 +127,14 @@ Foreshadows §5.6 failure-modes catalogue. Don't name "fabrication" yet — that
 - "The system shall be performant" — measurable as what?
 - "High availability" — 99%? 99.9%? Over what window?
 - "User-friendly" — by which standard? Tested how?
+- "50,000 concurrent users", "99.9% uptime" — measurable, but *who chose the number*?
 
 > If you can't write a test that proves it, it's not a requirement.
 
 ::: notes
 This line ("if you can't write a test...") foreshadows the Week 3 testable-specs mantra. Plant it here; Week 3 picks it up explicitly.
+
+The last bullet is what current models mostly do: in our dry run the NFRs came with precise thresholds, all invented. A testable number nobody agreed to is still a fabricated requirement.
 :::
 
 ---
@@ -145,7 +148,7 @@ This line ("if you can't write a test...") foreshadows the Week 3 testable-specs
 > Watch for: regulations cited without article numbers, or article numbers you can't look up.
 
 ::: notes
-The GDPR Article 47 detail — verify against the live AI output. Some models hallucinate plausible-looking citations; others don't. Adjust based on what the dry-run shows.
+The GDPR Article 47 detail — verify against the live AI output. Some models hallucinate plausible-looking citations; others don't. In our September 2026 dry run the model cited real standards (GBFS, PCI-DSS, WCAG) but presented a city data-sharing mandate as if it applied — the subtler version of the same failure.
 :::
 
 ---
@@ -305,6 +308,8 @@ Redis is not a requirement — it's an implementation. The actual requirement is
 
 ::: notes
 This conflates requirements with design. AI does it because training data conflates them. Be ruthless about cutting tech choices from requirements; they re-enter at architecture.
+
+Redis is the textbook example; current models rarely name a database. In our dry run the same failure looked like "offline unlocking via Bluetooth lock validation" and "biometric login" — same critique question.
 :::
 
 ---
@@ -331,10 +336,11 @@ Quick pair beat right after the catalogue. Let pairs commit to an answer before 
 
 The bike-sharing requirements doc cycle 1 had (pick what actually appeared):
 
+- Over-specification and invented features (very likely)
 - Fabricated stakeholders (likely)
-- Vague NFRs (very likely)
-- Over-specification (very likely)
-- Fabricated technology (possible)
+- Precise-looking but invented NFR numbers (likely)
+- Technology and standards written as requirements (likely)
+- Classic vague NFRs (a few)
 
 Cycle 2 — with the use-case scaffold — dropped most of them. **Scaffolds are how the architect-half corrects the critic-half's findings.**
 
@@ -367,7 +373,7 @@ No UML notation yet — just the vocabulary. "Use case" is a structural noun: a 
 Look at what happened in the demo:
 
 **Prompt #1 (flat):** "Generate requirements for a bike-sharing app."
-→ Long unstructured list, fabricated stakeholders, vague NFRs.
+→ Long, polished list (dozens of requirements), invented features and stakeholders, invented numbers.
 
 **Prompt #2 (use-case-scaffolded):** "Rewrite organized by use case. For each: who, success criterion, one NFR."
 → Tighter output. Each requirement now traces to one user goal.
@@ -401,7 +407,7 @@ Clean boundary. Students should not leave today thinking they know how to draw a
 - Deliverable: requirements doc + 5-line reflection on the failure modes you observed.
 - Commit to the course lab repo (instructions handed out at lab start).
 
-Bring a laptop with Continue.dev pre-installed per `tooling/SETUP.md`.
+Bring a laptop with VS Code and Git, and your Claude Pro or ChatGPT Plus subscription — setup per `tooling/SETUP.md`.
 
 ::: notes
 Lab 1 spec is its own document (forthcoming). Keep this slide high-level so it survives Lab 1 details landing late. Course-managed lab repo URL handed out in the lab itself.

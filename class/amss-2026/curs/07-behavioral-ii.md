@@ -9,7 +9,7 @@ date: "2026"
 1. Frame: from one interaction to a whole lifecycle
 2. Two views: state machines + activity diagrams
 3. Live opener: drive AI to a Bike state machine
-4. Reading critically: orphan states, dead ends, missed guards
+4. Reading critically: orphan states, dead ends, missed guards, missing journeys
 5. The behaviour read-order
 6. Bridge to Week 8 + Lab 4
 
@@ -40,7 +40,7 @@ One breath of recap. Week 6 was inter-object interaction over one path; today is
 Today's question: **can the object actually reach — and leave — every state the model claims?**
 
 ::: notes
-The bridge from Week 6. A sequence shows one successful path; it says nothing about all the states an object passes through or what happens on every branch. State machines and activity diagrams fill that in — and it's where AI strands states and forgets to merge.
+The bridge from Week 6. A sequence shows one successful path; it says nothing about all the states an object passes through or what happens on every branch. State machines and activity diagrams fill that in — and it's where AI can strand states, forget to merge, or quietly leave out a path the real domain needs.
 :::
 
 ---
@@ -78,12 +78,12 @@ The map. State machines are one object over time; activity diagrams are a proces
 
 # Demo: Drive AI to a Bike State Machine
 
-> Live: ask AI for the lifecycle of a `Bike`. Watch for a state it can never reach, a state it can never leave, and a branch with no guard.
+> Live: ask AI for the lifecycle of a `Bike`. Trace it: can a bike reach and leave every state? Can a rider do everything a real rider does? Is every branch decided by a condition you could check?
 
 **Prompt to AI:** *"Generate a UML state machine diagram (as Mermaid) for a bike in the city bike-sharing app: it can be available, reserved, in use, and under maintenance."*
 
 ::: notes
-Switch to Continue.dev with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/07-behavioral-ii-demo.md` for ~8 min. The near-certain failures: an orphan/dead-end state and a missed guard. Fallback: runbook §7.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/07-behavioral-ii-demo.md` for ~8 min. Current models usually wire every state they draw, so the structural check may come out clean — say so, then trace real journeys. Typical findings: no way to rent a bike without reserving it first, a fault that can only be reported on return, a vague guard such as "OK condition", or `event / action` notation used to mean two alternative events. Live output varies — walk what actually appears. Fallback: runbook §7.
 :::
 
 ---
@@ -113,11 +113,12 @@ Read every state, and ask:
 1. **Reachable?** Is there a path from the initial state to this one?
 2. **Escapable?** Does this state have a way out — or is it a final state?
 3. **Triggered?** Does every transition name the event that fires it?
+4. **Complete?** Can the object follow every journey the domain allows?
 
-A state you can't reach, or can't leave, is a defect.
+A state you can't reach, or can't leave, is a defect. So is a real journey with no path.
 
 ::: notes
-This is the Critique drill for state machines. Reachability and escapability are exactly what AI gets wrong — it adds a state and forgets to wire it in or out. Drill tracing paths from the initial state.
+This is the Critique drill for state machines. Reachability and escapability are the classic AI failure — a state added and never wired in or out. Current models mostly get that right, which moves the defect to question 4: a transition the domain needs that nobody drew. Drill tracing paths from the initial state, then tracing real user journeys.
 :::
 
 ---
@@ -134,7 +135,7 @@ stateDiagram-v2
 A **guard** `[condition]` chooses between transitions on the **same event**. Without guards, two transitions on `reserve` are ambiguous — which one fires?
 
 ::: notes
-The guard sets up defect #3. Syntax: `event [guard] / action`. When one event can lead to two states, a guard must decide; AI routinely draws both transitions on the same event with no guard, leaving the model nondeterministic.
+The guard sets up defect #3. Syntax: `event [guard] / action` — the part after the slash is an action the transition performs, not an alternative event. When one event can lead to two states, a guard must decide. Weaker models draw both transitions with no guard; current models usually add one, but it can be too vague to evaluate ("OK condition") — a guard nobody can check decides nothing.
 :::
 
 ---
@@ -174,7 +175,7 @@ The activity floor on the rental workflow. The atoms: action, control flow, deci
 Every split needs its matching rejoin.
 
 ::: notes
-The structural rules for activity diagrams. Decision pairs with merge; fork pairs with join. AI breaks these symmetries — branching without merging, forking without joining — which is defect #4. Keep it crisp; the floor is the symmetry rule.
+The structural rules for activity diagrams. Decision pairs with merge; fork pairs with join. Breaking these symmetries — branching without merging, forking without joining — is a classic AI slip and defect #4. Keep it crisp; the floor is the symmetry rule.
 :::
 
 ---
@@ -195,14 +196,14 @@ The Critique drill for activity diagrams. The symmetry checks (decision/merge, f
 
 ---
 
-# AI Draws Plausible Lifecycles — and Strands States
+# AI Draws Plausible Lifecycles — Check the Wiring
 
-A state machine can list all the right states and still be broken: a state nothing reaches, a state nothing leaves, a branch nothing decides. The critic question:
+A state machine can list all the right states and still be broken: a state nothing reaches, a state nothing leaves, a branch nothing decides — or a journey the domain needs that has no path. The critic question:
 
-> *"Can the object actually reach — and leave — every state, and is every branch decided?"*
+> *"Can the object actually reach — and leave — every state, is every branch decided, and can it do everything the domain requires?"*
 
 ::: notes
-Sets up the gallery — Critique applied to behaviour. The core defects are spec-named: orphan/unreachable states, and missed guards. AI lists states fluently but wires them carelessly, because a state box looks complete on its own.
+Sets up the gallery — Critique applied to behaviour. The classic, spec-named defects are orphan/unreachable states and missed guards; weaker models make them often, because a state box looks complete on its own. Current models tend to wire the states they draw and miss the transitions nobody asked for by name — defect #6. The gallery covers both.
 :::
 
 ---
@@ -233,7 +234,7 @@ stateDiagram-v2
 `Maintenance` has no transition *in* — nothing ever puts a bike there. **Critique:** *"How does a bike ever enter Maintenance? There's no path to it."*
 
 ::: notes
-The anchor defect. AI lists a state from the prompt ("under maintenance") but never wires an incoming transition, so it is unreachable. The fix is the missing transition (e.g. `InUse --> Maintenance : faultReported`).
+The classic defect. A model lists a state from the prompt ("under maintenance") but never wires an incoming transition, so it is unreachable — common in weaker models, rarer in current ones, and always worth the ten-second check. The fix is the missing transition (e.g. `InUse --> Maintenance : faultReported`).
 :::
 
 ---
@@ -268,7 +269,7 @@ stateDiagram-v2
 Two `reserve` transitions, no guards — which fires? **Critique:** *"Both on the same event with no condition. What decides? Add the guards."*
 
 ::: notes
-The third spec-named defect. Nondeterminism: one event, two targets, no guard to choose. AI draws every plausible transition and forgets that branching on one event needs guards. The fix: `[bike ok]` vs `[fault flagged]`.
+The third spec-named defect. Nondeterminism: one event, two targets, no guard to choose — the model draws every plausible transition and forgets that branching on one event needs guards. The fix: `[bike ok]` vs `[fault flagged]`. The near relative current models produce: a guard that exists but can't be evaluated (`[OK condition]`) — push for a condition a tester could check.
 :::
 
 ---
@@ -300,7 +301,7 @@ flowchart TD
 If AI branches without rejoining, or forks parallel flows that never synchronise, the workflow's control flow is broken. **Critique:** *"Where does this branch rejoin? Where does the fork join?"*
 
 ::: notes
-The activity-side payload. AI breaks decision/merge and fork/join symmetry. This slide shows the correct structure; the demo and gallery surface the broken version (a decision with no merge, or a fork with no join). Point at the symmetry rule from the floor.
+The activity-side payload: broken decision/merge and fork/join symmetry. This slide shows the correct structure; the critique describes the broken version (a decision with no merge, or a fork with no join). Point at the symmetry rule from the floor.
 :::
 
 ---
@@ -317,6 +318,24 @@ Both views share this defect. Kept textual — the absence of a start/end node i
 
 ---
 
+# Defect #6: A Journey With No Path
+
+```mermaid
+stateDiagram-v2
+    [*] --> Available
+    Available --> Reserved : reserve
+    Reserved --> InUse : unlock
+    InUse --> Available : returnBike
+```
+
+Every state reachable, every state escapable — and a rider who walks up to a free bike still can't take it. The only way into `InUse` is through `Reserved`. **Critique:** *"I unlock an available bike without reserving. Which transition is that?"*
+
+::: notes
+The defect current models actually produce: structurally clean, domain-incomplete. The reachability check passes; tracing a real journey (walk-up rental, a fault mid-ride) fails. The fix is the missing transition (`Available --> InUse : unlock`). This is why the read-order ends with the domain, not with the graph.
+:::
+
+---
+
 # The Critic's Corrected State Machine
 
 ```mermaid
@@ -324,17 +343,19 @@ stateDiagram-v2
     [*] --> Available
     Available --> Reserved : reserve [bike ok]
     Available --> Maintenance : reserve [fault flagged]
+    Available --> InUse : unlock
     Reserved --> InUse : unlock
+    Reserved --> Available : expire
     InUse --> Available : returnBike
     InUse --> Maintenance : faultReported
     Maintenance --> Available : repaired
     Available --> [*] : decommission
 ```
 
-Every state reachable *and* escapable, guards on the branch, initial and final present.
+Every state reachable *and* escapable, guards on the branch, walk-up rental and mid-ride faults covered, initial and final present.
 
 ::: notes
-The critique result — the counterpart to Week 4's "the critic simplifies." Maintenance now has a way in (faultReported) and out (repaired); the reserve branch is guarded; the final transition exists. This is what the demo's prompt #2 converges toward.
+The critique result — the counterpart to Week 4's "the critic simplifies." Maintenance has a way in (faultReported) and out (repaired); the reserve branch is guarded; a rider can unlock without reserving; a reservation can expire; the final transition exists. The demo's prompt #2 aims here — whatever the revision claims, re-check it against the render.
 :::
 
 ---
@@ -348,6 +369,7 @@ A fixed order, every time:
 3. Are there **guards** wherever one event branches?
 4. Does every **decision merge** and every **fork join**?
 5. Is there a path to a **final**?
+6. Does every **real journey** in the domain have a path?
 
 ::: notes
 This IS the Critique drill for behaviour, and the rubric Lab 4 will hand teams next week for the state/activity artifacts (the sequence read-order from Week 6 covers the third). A repeatable read-order beats ad-hoc staring.
@@ -357,12 +379,12 @@ This IS the Critique drill for behaviour, and the rubric Lab 4 will hand teams n
 
 # The Critique Loop on Lifecycles
 
-read -> name the orphan/unreachable/missed-guard -> re-prompt with the missing transitions + guards -> re-read.
+read -> name the orphan / missing transition / missed guard -> re-prompt with the missing transitions + guards -> re-read.
 
 Same architect-and-critic loop as Weeks 2-6 — now on a lifecycle and a workflow.
 
 ::: notes
-The loop is the through-line. The scaffold that tightens AI output here is naming the missing wiring — "how does a bike enter and leave Maintenance? guard the reserve branch" — exactly the demo's prompt #2.
+The loop is the through-line. The scaffold that tightens AI output here is naming the missing wiring — "a rider can unlock without reserving; a fault can be reported mid-ride; use guards a tester could check" — exactly the demo's prompt #2. The re-read matters: a revision can describe a fix it did not draw.
 :::
 
 ---
@@ -407,7 +429,7 @@ Clean handoff. Structure (Weeks 4-5) and behaviour (Weeks 6-7) are complete; Wee
 
 Today you drilled:
 
-- **Critique** — read an AI state machine and named its orphan states, dead ends, and missed guards.
+- **Critique** — read an AI state machine and checked it for orphan states, dead ends, missed guards, and journeys with no path.
 - **Traceability** — state and activity join the sequence as behavioural nodes in the full trace: requirement -> use case -> class -> sequence / state / activity -> test.
 
 Rationale (why you directed AI a certain way) lands in your project narrative.

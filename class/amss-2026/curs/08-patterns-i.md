@@ -40,7 +40,7 @@ One breath of recap. The models (structure, behaviour) are done; today is a judg
 Today's question: **does this pattern solve a real problem here — or is it decoration?**
 
 ::: notes
-The bridge. Patterns are reusable solutions, but only to problems that actually recur. AI treats patterns as a sign of sophistication and sprinkles them everywhere; the critic asks whether the problem the pattern solves is even present.
+The bridge. Patterns are reusable solutions, but only to problems that actually recur. AI tends to treat patterns as a sign of sophistication and adds them "for the future"; the critic asks whether the problem the pattern solves is even present — and whether the pattern gets the domain right.
 :::
 
 ---
@@ -56,7 +56,7 @@ From Week 1: in the oral defense, *unaided*, you must demonstrate:
 Today is **Rationale** at its sharpest: a pattern is only as good as the *reason* for it. "Why this pattern, or why none?" is the question the defense asks.
 
 ::: notes
-First of two Critique, Rationale, Traceability mentions. Patterns are where Rationale bites hardest — applying a pattern with no reason is the signature AI failure, and "I used Strategy because the tutorial did" fails the defense. Critique still applies (reading the suggestion), but rationale is the payload. Same wording in the close.
+First of two Critique, Rationale, Traceability mentions. Patterns are where Rationale bites hardest — applying a pattern with no reason is a common AI failure, and "I used Strategy because the tutorial did" fails the defense. Critique still applies (reading the suggestion), but rationale is the payload. Same wording in the close.
 :::
 
 ---
@@ -72,7 +72,7 @@ A **named, reusable solution to a recurring problem in a context** (Gang of Four
 A pattern is a tool for a problem — **not a goal in itself.**
 
 ::: notes
-The definition, reframed around the problem. The "consequences" part is the one AI ignores — every pattern adds indirection, which is only worth paying when the problem is real. Adapts 2025's "What are design patterns" framing.
+The definition, reframed around the problem. The "consequences" part is the one most easily skipped — AI may mention it in a sentence and move on — yet every pattern adds indirection, which is only worth paying when the problem is real. Adapts 2025's "What are design patterns" framing.
 :::
 
 ---
@@ -95,7 +95,7 @@ The Gang of Four (GoF) classification, lifted from 2025. The framing shift: this
 
 Where these *might* fit our domain:
 
-- **Strategy** — interchangeable fare rules (peak / off-peak / member).
+- **Strategy** — interchangeable fare rules (peak / off-peak rates).
 - **Observer** — riders notified when a station has bikes.
 - **State** — the `Bike` lifecycle from Week 7 (Available, Reserved, InUse…).
 - **Factory** — creating the right `Payment` (cash / card).
@@ -147,19 +147,19 @@ Every pattern adds **indirection** — more classes, more hops to follow.
 The question is never *"which pattern?"* It's *"is a pattern warranted at all?"*
 
 ::: notes
-The cost framing is what disarms overuse. AI never weighs the indirection cost because it doesn't pay it. Naming the cost out loud reframes the whole selection decision — most "should I use a pattern?" answers are "no".
+The cost framing is what disarms overuse. AI may name the trade-off in a line and still recommend the patterns — it doesn't pay the indirection; you do. Naming the cost out loud reframes the whole selection decision — most "should I use a pattern?" answers are "no".
 :::
 
 ---
 
 # Demo: Drive AI to Suggest Patterns
 
-> Live: ask AI which patterns to use for fare calculation. Watch how many it proposes — and whether each solves a problem that exists.
+> Live: ask AI which patterns to use for fare calculation. Watch how many it proposes, whether each solves a problem that exists — and what its design charges for a ride from 16:50 to 17:40.
 
 **Prompt to AI:** *"What design patterns should I use to implement fare calculation in the bike-sharing app? Rides are charged per minute, with peak / off-peak rates and a member discount."*
 
 ::: notes
-Switch to Continue.dev. Run the runbook at `class/amss-2026/curs/08-patterns-i-demo.md` for ~12 min. The near-certain failure: a stack of patterns (Strategy + Factory + Singleton + Observer…) where only Strategy is warranted, some merely labeled. Fallback: runbook §8.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/08-patterns-i-demo.md` for ~12 min. Current models give a restrained, plausible answer — typically Strategy plus Decorator plus an "optional" Factory, with a hedge that it may be overkill. The critique: what the optional extra absorbs, whether the Strategy (picked once by start time) prices a ride that crosses the peak boundary, and whether the prose matches the code. Live output varies — walk what actually appears. Fallback: runbook §8.
 :::
 
 ---
@@ -171,7 +171,7 @@ AI proposes patterns fluently, because patterns signal "good design." But a patt
 > *"What problem does this pattern solve here — and does that problem actually exist?"*
 
 ::: notes
-Sets up the gallery — Rationale applied to design. The core defects are overuse and decoration (spec: "AI overuses patterns / decorates without solving anything"). AI optimises for looking sophisticated, not for solving the problem at hand.
+Sets up the gallery — Rationale applied to design. The core defects are overuse and decoration (spec: "AI overuses patterns / decorates without solving anything"). Weaker models stack patterns wholesale; current ones are subtler — one "optional" extra, a "for later" justification, or a correct-looking pattern that mishandles the domain (defect #6).
 :::
 
 ---
@@ -196,7 +196,7 @@ classDiagram
 Four patterns to add two numbers. **Critique:** *"What recurring problem does each solve? Strip every pattern whose problem isn't here."*
 
 ::: notes
-The anchor defect. AI stacks patterns on a trivial need because more patterns "look" more engineered. The critique walks each one back to its problem; for a simple sum, none survive. Vivid as a diagram — the machinery dwarfs the work.
+The classic defect. A model stacks patterns on a trivial need because more patterns "look" more engineered — blatant in weaker models; in current ones it shrinks to a single "optional" Factory or a Decorator "for future promos", but the critique is the same. Walk each one back to its problem; for a simple sum, none survive. Vivid as a diagram — the machinery dwarfs the work.
 :::
 
 ---
@@ -208,7 +208,7 @@ A method with an `if peak / else off-peak` branch, **called "the Strategy patter
 **Critique:** *"Where's the Strategy interface? The interchangeable classes? A name isn't a pattern."*
 
 ::: notes
-The decoration defect, kept textual — the point is the absence of structure. AI labels an if/else a "Strategy" to claim the pattern without building it. Week 9 deepens this applied-vs-labeled critique; today, name it. The label without the structure is the tell.
+The decoration defect, kept textual — the point is the absence of structure. The classic slip (more common in weaker models and in hand-written student code): an if/else labeled "Strategy" to claim the pattern without building it. Week 9 deepens this applied-vs-labeled critique; today, name it. The label without the structure is the tell.
 :::
 
 ---
@@ -250,28 +250,46 @@ The vocabulary failure. AI uses pattern names loosely, so the design's self-desc
 
 ---
 
+# Defect #6: The Right Pattern, the Wrong Domain
+
+A textbook Strategy: `PeakRate` and `OffPeakRate` behind one interface, **picked once, by the ride's start time**.
+
+A ride from 16:50 (off-peak) to 17:40 (peak) is charged entirely at the off-peak rate — but rides are charged *per minute*.
+
+**Critique:** *"Price one awkward ride by hand. Does the structure absorb the variation that actually exists?"*
+
+::: notes
+The defect current models actually produce: the pattern is well chosen and correctly built, and the design is still wrong, because the selection point is in the wrong place. Pattern critique is not only "is it warranted?" and "is it applied?" — it is also "does it handle the domain's awkward case?" A good follow-up question: are peak/off-peak rates behaviour (Strategy) or just data (a rate per time band)?
+:::
+
+---
+
 # The Critic's Selection
 
 ```mermaid
 classDiagram
   class FareStrategy {
     <<interface>>
-    +price(minutes)
+    +rateAt(minute)
   }
   class PeakFare
   class OffPeakFare
-  class MemberFare
-  class Rental
+  class MemberDiscount {
+    +apply(fare)
+  }
+  class Rental {
+    +price()
+  }
   FareStrategy <|.. PeakFare
   FareStrategy <|.. OffPeakFare
-  FareStrategy <|.. MemberFare
-  Rental --> FareStrategy
+  Rental ..> FareStrategy : rate for each minute
+  Rental --> "0..1" MemberDiscount
 ```
 
-One pattern, justified: fare rules really vary (peak / off-peak / member), so **Strategy** earns its place. Everything else: no pattern.
+One pattern, justified: the rate really varies (peak / off-peak), so **Strategy** earns its place — picked per minute. The member discount is a separate axis: a plain step, not another pattern.
 
 ::: notes
-The critique result. Strategy is warranted because the variation is real and recurring — three interchangeable fare rules behind one interface. This is "applied, not labeled": the interface and the concrete classes exist. The demo's prompt #2 converges here.
+The critique result. Strategy is warranted because the variation is real and recurring — interchangeable rate rules behind one interface, chosen for each minute so a boundary-crossing ride pays both. The member discount applies at peak and off-peak alike, so it is independent of the rate; making it a third strategy would lose "member at peak". A Decorator would earn its place only once several stackable discounts exist. This is "applied, not labeled": the interface and the concrete classes exist. The demo's prompt #2 aims here.
 :::
 
 ---
@@ -284,6 +302,7 @@ A fixed order, every time:
 2. Does that problem **exist here** — recurring, with real variation?
 3. Is the pattern **actually applied** (the structure), or just **labeled**?
 4. Is the **indirection worth it**?
+5. Does the structure handle the domain's **awkward case**?
 
 ::: notes
 This IS the Rationale drill for design. A repeatable read-order beats being dazzled by pattern names. Students internalise it for Week 9's deeper critique and for defending their own project's design choices.
@@ -298,14 +317,14 @@ read -> name the overuse / decoration -> re-prompt "name the recurring problem f
 Same architect-and-critic loop as Weeks 2-7 — now on a design decision.
 
 ::: notes
-The loop is the through-line. The scaffold that tightens AI output here is forcing the problem before the pattern — "for each pattern, name the recurring problem and the variation it absorbs; drop any without one" — exactly the demo's prompt #2.
+The loop is the through-line. The scaffold that tightens AI output here is forcing the problem before the pattern, plus the awkward case — "a ride crosses the peak boundary; show how it is priced; name the variation each pattern absorbs today, drop any that only absorbs a future one" — exactly the demo's prompt #2. Then re-read: check the structure, not the summary.
 :::
 
 ---
 
 # The Human Decides Whether a Pattern Earns Its Place
 
-AI will apply a pattern to anything. Whether the problem *warrants* one — whether the indirection buys something — is the architect-and-critic call.
+AI will happily propose a pattern for almost anything. Whether the problem *warrants* one — whether the indirection buys something — is the architect-and-critic call.
 
 It's what the oral defense checks, and AI can't make it for you.
 
@@ -344,7 +363,7 @@ Clean handoff. Week 8 was selection (whether / cost / overuse); Week 9 is the sp
 Today you drilled:
 
 - **Rationale** — justified *why* a pattern (or none): named the problem before the solution.
-- **Critique** — read AI's pattern suggestions and named overuse, decoration, mislabeling.
+- **Critique** — read AI's pattern suggestions and tested them for overuse, decoration, mislabeling, and the domain's awkward case.
 
 Traceability: a correctly-named, justified pattern keeps the trace from problem to solution honest.
 

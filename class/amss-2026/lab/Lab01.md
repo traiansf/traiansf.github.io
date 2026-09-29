@@ -8,7 +8,7 @@ date: "2026"
 
 Three phases, 100 minutes:
 
-1. **Tooling onboarding** (~15 min) — activate your AI endpoint, confirm repo access.
+1. **Tooling onboarding** (~15 min) — sign in to your AI assistant, add the course settings, confirm repo access.
 2. **Requirements drill** (~60 min) — in pairs, drive AI to produce a requirements doc; critique it.
 3. **Share-out** (~25 min) — compare failure modes across the room.
 
@@ -22,8 +22,8 @@ This is the hands-on follow-through of the Week 2 lecture. The demo you watched 
 
 # Before You Start
 
-- Continue.dev installed per `tooling/SETUP.md` — you did this *before* lab.
-- You receive at lab start: your model-endpoint credentials, your **pair-id**, and the lab-repo URL.
+- Your AI assistant installed in VS Code per `tooling/SETUP.md` — **Claude Code** (Claude Pro) or **Codex** (ChatGPT Plus) — you did this *before* lab.
+- You receive at lab start: your **pair-id** and the lab-repo URL. There are no credentials to hand out: you sign in with your own subscription.
 - Find your partner. This is a pair lab.
 
 ::: notes
@@ -34,14 +34,18 @@ Anyone who didn't do SETUP.md at home will lose drill time installing now. Pair 
 
 # Phase 1 — Onboarding (15 min)
 
-1. Paste your three credentials (model, apiBase, apiKey) into `tooling/.continue/config.yaml`.
-2. Smoke test: open any file, press `Ctrl+L`, ask *"summarize this file"*. A coherent answer means the endpoint is live.
-3. Clone or pull the lab repo, create branch `lab01/<pair-id>`, and push a stub to confirm access.
+1. Open the assistant's panel in VS Code and **sign in** with your own account (Claude Code or Codex).
+2. Clone or pull the lab repo and create branch `lab01/<pair-id>`. **Copy the contents of `tooling/template/`** into the lab repo's root (commands in `tooling/SETUP.md`, step 3).
+3. **Smoke test:** open the lab repo folder in VS Code and ask the assistant for a Mermaid class diagram of a parking lot. It should render in the Markdown preview.
+4. **Check the model:** Claude Code → type `/model`, it must show **Sonnet 5, low effort**; Codex → the model picker must show the model from `.codex/config.toml`.
+5. Commit the template files and push the branch to confirm access.
 
-Stuck? Endpoint fails → switch to the Gemini free-tier config (`tooling/SETUP.md`). Continue broken → work on your partner's laptop.
+Stuck? No subscription yet, or usage limit hit → pair with a colleague and work on their laptop.
 
 ::: notes
-Goal of this phase: every pair ends with a working AI completion AND a pushed branch, so the only thing left at the end of the drill is committing real content.
+Goal of this phase: every pair ends with a working assistant on the course model AND a pushed branch, so the only thing left at the end of the drill is committing real content.
+
+Everyone runs the same model and effort level, pinned by the repository settings, so AI output is comparable across the room and reproducible in the oral defense. You may explore with other tools, but graded artifacts must reproduce with the course settings. If the model check shows something else, you probably opened the parent folder instead of the repo folder.
 :::
 
 ---
@@ -74,7 +78,7 @@ A single shared domain is deliberate: it makes the share-out a real side-by-side
 **A** re-prompts using a prompting move to fix what B found. **This re-prompt is required — iterate at least once.**
 
 ::: notes
-The bare prompt is on purpose — it reliably produces fabrication, vague NFRs, and omissions. If the draft looks suspiciously clean, the critic uses the edge-case card a few slides on.
+The bare prompt is on purpose. Expect a long, confident, well-organized draft: the usual problems are over-specification, invented features and regulations, invented numbers ("99% uptime", "10 seconds") and technology posing as requirements — not obvious gaps. If the draft looks suspiciously clean, the critic uses the edge-case card a few slides on.
 :::
 
 ---
@@ -83,7 +87,7 @@ The bare prompt is on purpose — it reliably produces fabrication, vague NFRs, 
 
 Now **B** drives and **A** critiques.
 
-Take a fresh angle: push for measurable acceptance criteria on each requirement, or negative-prompt away the fabricated technology A's round surfaced.
+Take a fresh angle: push for measurable acceptance criteria on each requirement, or negative-prompt away the fabricated technology, regulations and numbers A's round surfaced.
 
 Keep a running log of *what you asked the AI and why* — that's your Rationale evidence and the source of reflection line 3.
 
@@ -132,28 +136,27 @@ Five named modes — what AI wrongly **includes** or mis-states:
 Plus the flip side — **omission** — what AI silently **leaves out**.
 
 ::: notes
-The five named modes are from the Week 2 catalogue. Omission is the complement the catalogue doesn't name and the one a vending machine surfaces most. Your reflection may cite any of these six.
+The five named modes are from the Week 2 catalogue. Omission is the complement the catalogue doesn't name. On a vending machine, current assistants tend to over-cover rather than omit — fabrication and over-specification are the likely headline catches, with missing acceptance criteria close behind. Your reflection may cite any of these six.
 :::
 
 ---
 
 # Critic's Card — Vending Machine
 
-If the draft looks complete, stress these. Most are omissions:
+If the draft looks complete, stress these. Check each one — is it there, and is it *testable*?
 
-- Exact change unavailable / making change
-- Item sold out after selection
-- Two buyers grab the last item at once
-- Power loss mid-vend (paid, not dispensed)
-- Refund / cancel before dispense
-- Restock & cash audit (operator role)
-- *"Shall be fast / reliable"* — vague NFR
-- *"Use an SQL database / a specific coin mechanism"* — fabricated technology
+- Exact change unavailable, item sold out, cancel before dispense, power loss mid-vend — present? With an acceptance criterion?
+- Two buyers grab the last item at once — often missing
+- Numbers nobody gave you (*"99% uptime"*, *"within 10 seconds"*) — fabricated precision
+- Age checks, tax, safety certifications, privacy law — did you ask for any of it?
+- *"Card payment via EMV / NFC"* — fabricated technology
+- *"Operable without training"*, *"legible at typical distance"* — vague NFR
+- One requirement doing three jobs (restock + prices + inventory) — conflated
 
-A draft that omits these *is* failing — silently.
+A draft that *looks* thorough can still be unverifiable and full of things nobody asked for.
 
 ::: notes
-Hand this to the critic in each round. A "too-clean" draft that skips these is the most common and most dangerous result: the AI under-covers confidently.
+Hand this to the critic in each round. Current assistants usually cover the classic edge cases (exact change, sold out, cancel, power loss) but write them without acceptance criteria and pad the document with invented regulations, technology and numbers. The harder catch is over-specification: a long list feels complete, so nobody asks which items were actually requested.
 :::
 
 ---

@@ -85,7 +85,7 @@ The map. Deliberately rank the four: package and component are where decompositi
 **Prompt to AI:** *"Generate a UML component diagram (as PlantUML) for the city bike-sharing app from last week: rentals, stations, payments, and users."*
 
 ::: notes
-Switch to Continue.dev with a PlantUML preview pane — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/05-other-structural-demo.md` for ~8 min. The near-certain failure is over-decomposition (a component per class) plus invented infrastructure. Fallback: runbook §7.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a PlantUML preview pane — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/05-other-structural-demo.md` for ~8 min. Expect invented infrastructure (a gateway, a web portal, notifications, a database per service), services split into nested sub-components, and no declared interfaces — walk whichever appear. Fallback: runbook §7.
 :::
 
 ---
@@ -263,7 +263,7 @@ The god class scaled up to architecture. AI under-decomposes when the prompt is 
 A component **per class**, plus a repository per entity.
 
 ::: notes
-The opposite failure, and the one the live demo most often triggers. AI mistakes "more boxes" for "better architecture" — a microservice per class is ceremony, not decomposition. Show the boxes, then run the pair vote on the next slide before revealing the critique.
+The opposite failure, and the more common one with current models — though live it tends to show as each service split into nested sub-components rather than one box per class. AI mistakes "more boxes" for "better architecture" — a microservice per class is ceremony, not decomposition. Show the boxes, then run the pair vote on the next slide before revealing the critique.
 :::
 
 ---
@@ -298,7 +298,7 @@ RentalService ..> MessageQueue
 `DatabaseManager`, `CacheService`, `MessageQueue` — infrastructure nobody asked for. **Critique:** *"Is this in the requirements, or did AI assume an architecture?"*
 
 ::: notes
-Week 4's invented-class defect at architecture scale. AI pattern-matches "real system" to a stock cloud stack and bolts on caches, queues, and load balancers the spec never mentioned. The critique walks each box back to a requirement; the unjustified ones go.
+Week 4's invented-class defect at architecture scale. AI pattern-matches "real system" to a stock cloud stack and bolts on caches, queues, load balancers, API gateways and a database per service that the spec never mentioned — this is the defect the live demo is most likely to show. The critique walks each box back to a requirement; the unjustified ones go.
 :::
 
 ---
@@ -375,7 +375,7 @@ read -> name the bad split -> re-prompt with structural constraints -> re-read.
 Same architect-and-critic loop as Week 2 (requirements), Week 3 (tests), Week 4 (class diagram) — now on a decomposition.
 
 ::: notes
-The loop is the through-line. The scaffold that tightens AI output here is naming the structural rules — "group by domain capability, not by class; only components with real interfaces; no infrastructure I didn't ask for" — exactly the demo's prompt #2.
+The loop is the through-line. The scaffold that tightens AI output here is naming the structural rules — "no infrastructure I didn't ask for; group by domain capability, without nested splits; only components with real interfaces" — exactly the demo's second prompt. The same move fixes the missing context: "from last week" means nothing to the assistant unless you hand it last week's diagram.
 :::
 
 ---

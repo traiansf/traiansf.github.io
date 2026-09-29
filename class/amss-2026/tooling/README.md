@@ -1,32 +1,22 @@
-# AMSS 2026 — Canonical Agentic Tooling
+# AMSS 2026 — Course AI Tooling
 
-This directory holds the **single canonical setup** every student in the cohort runs:
-one editor extension, one model endpoint, one config file. The setup is designed
-to clone-and-run on any laptop with VS Code and ~30 minutes.
+Students drive an AI coding assistant inside VS Code and critique what it produces. The course supports two assistants, matching the two subscriptions students are expected to have:
+
+- **Claude Code** (Claude Pro) — official VS Code extension by Anthropic.
+- **Codex** (ChatGPT Plus) — official VS Code extension by OpenAI.
 
 ## What's here
 
-- `.continue/config.yaml` — Continue.dev configuration, ready to plug into a model endpoint.
-- `SETUP.md` — step-by-step student onboarding (~30 min).
+- `SETUP.md` — student step-by-step onboarding (~20 min).
+- `template/` — files every lab and project repository carries at its root:
+  - `AGENTS.md` — course conventions for the assistant (Mermaid for UML, …); `CLAUDE.md` imports it, Codex reads it directly.
+  - `.claude/settings.json` — pins Claude Code to **Sonnet 5, low effort**.
+  - `.codex/config.toml` — pins Codex to the closest equivalent.
 
-## Why this setup
+## Why this model and effort
 
-The course assumes **agentic** AI access (file-and-repo-aware tooling, not chat in
-a browser). Continue.dev is used as the baseline because it is open-source, runs
-inside VS Code, and supports any OpenAI-compatible endpoint — which means the
-*same* config works whether the cohort points at `llm.fmi.unibuc.ro`, Google
-Gemini's free tier, or a pooled paid endpoint via LiteLLM.
+The course needs output that is good enough to work with on the first try, yet still leaves students real defects to find and fix. A calibration in September 2026 ran the course's demo and lab prompts through Haiku 4.5, Sonnet 5 (low, medium) and Opus 5.5 (low, medium) and graded every answer against the runbooks' defect catalogues. Sonnet 5 at low effort never produced an unusable draft and left enough to critique in 10 of 14 prompts; the Opus settings were near the reference solutions on most modelling prompts. The Codex setting has not been calibrated yet.
 
-Students who BYO higher-end tooling (Claude Code, Copilot, Cursor) may use it on
-their own accounts, but graded artifacts must reproduce on this canonical setup.
+## Keep it in sync
 
-## Procurement options
-
-See the design spec, §6 "Tooling stack", for the three procurement paths
-(institutional self-hosted / per-student free-tier / pooled paid API) and the
-recommended order. Pick one before W1 and update the endpoint URL in
-`.continue/config.yaml`.
-
-## Reference
-
-Design spec: `../../amss/docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md`
+If the pinned model or effort changes, update `template/`, `SETUP.md`, the Lab 1 deck, and the Week 1 lecture's tooling slides together.

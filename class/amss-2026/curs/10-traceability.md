@@ -146,7 +146,7 @@ The maintenance discipline. Implicit links (matching names, shared intuition) dr
 **Prompt to AI:** *"For a new feature — a rider can reserve a bike for 15 minutes before pickup — give me the requirement, the use case, the class changes, the sequence, and a test."*
 
 ::: notes
-Switch to Continue.dev. Run the runbook at `class/amss-2026/curs/10-traceability-demo.md` for ~8 min. The near-certain failure: a layer that drifts — a test that checks something the requirement didn't state, or a class with no requirement, or the 15-minute timeout present in one layer and missing in another. Then pivot to the gallery. Fallback: runbook §7.
+Switch to the Claude Code panel (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/10-traceability-demo.md` for ~8 min. What to expect: the 15-minute value usually agrees across layers, but the joins break — the sequence or test calls operations the class changes never declared, and some requirement clauses (e.g. "unavailable to other riders", cancel) have no test. Walk the defects that actually appear, then pivot to the gallery. Fallback: runbook §7.
 :::
 
 ---

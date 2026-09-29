@@ -1,0 +1,5 @@
+# AMSS 2026 — course setting for Codex (ChatGPT Plus).
+# Chosen as the closest match to the Claude setting (Sonnet 5, low effort);
+# not yet calibrated against the course prompts.
+model = "gpt-6-sol"
+model_reasoning_effort = "low"

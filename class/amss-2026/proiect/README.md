@@ -111,4 +111,6 @@ Pentru sesiunea de restanțe, examenul scris testează același nivel ca apărar
 
 ## Unelte
 
-Toți studenții folosesc aceeași **setare agentică standardizată de curs** (o extensie de editor, un endpoint de model, un fișier de configurare), documentată în repository-ul cursului — vezi `tooling/SETUP.md`. Poți folosi unelte proprii mai puternice peste această bază, dar **artefactele notate trebuie să se reproducă pe setarea canonică**.
+Fiecare student folosește un asistent AI în VS Code, cu propriul abonament: **Claude Code** (extensia oficială Anthropic, cu Claude Pro) sau **Codex** (extensia oficială OpenAI, cu ChatGPT Plus). Setările cursului se află în `tooling/template/` și se copiază în rădăcina repository-ului de proiect: `AGENTS.md` și `CLAUDE.md` (convențiile cursului, de exemplu Mermaid pentru UML), `.claude/settings.json` (fixează Claude Code pe **Sonnet 5, efort redus**) și `.codex/config.toml` (echivalentul cel mai apropiat pentru Codex). Pașii sunt în `tooling/SETUP.md`.
+
+Toată lumea folosește același model și același nivel de efort, fixate de setările din repository, astfel încât output-ul AI să fie comparabil în toată cohorta și reproductibil la apărarea orală. Poți folosi și alte unelte pentru explorare, dar **artefactele notate trebuie să se reproducă cu setările cursului**.

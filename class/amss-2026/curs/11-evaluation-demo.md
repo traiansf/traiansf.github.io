@@ -1,17 +1,18 @@
 # W11 Demo Runbook — Ask AI to Evaluate a Flawed Diagram
 
+Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt — live output varies; walk the defects that actually appear.
+
 > Procedural script for the W11 lecture's live demo. **Not** a slidy deck — pandoc skips `*-demo.md`. Read end-to-end before running. Estimated runtime: 12-14 minutes inside the lecture's "Demo" segment.
 >
 > Design reference: the master spec's W11 row (`docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md` §2) — "where AI is a worse evaluator than the human."
 >
-> This demo's artifact is **AI's evaluation** of a diagram we already know the defects of. The "aha" beat is the *gap*: AI praises (or nitpicks cosmetics on) a diagram with known structural defects, then misses the deep ones even when asked directly — while the human read-order finds them.
+> This demo's artifact is **AI's evaluation** of a diagram we already know the defects of. The "aha" beat is the *gap*: AI does **not** simply praise it any more — in calibration it rated the diagram 3/10 and correctly named the textbook smells (god class, `doEverything`, `DatabaseManager`, the bare `Station -- Bike`) — yet it **said nothing about either `*--*` multiplicity**, the defects that need the domain rule ("one rental = one rider, one bike"). It catches what has a name in the textbooks; it misses what needs domain truth. The human read-order (multiplicity aloud) finds it.
 
 ## 0. Setup (pre-class, ~1 min)
 
-- VS Code open, Continue.dev installed and configured against the canonical course endpoint (see `class/amss-2026/tooling/SETUP.md`).
-- Continue.dev mode set to **agentic chat**.
+- VS Code open on a repository containing the course settings (`tooling/template/` copied in — see `class/amss-2026/tooling/SETUP.md`), the **Claude Code panel** open and signed in; `/model` shows **Sonnet 5, low effort**. Start each prompt that says "fresh chat" in a new Claude Code conversation.
 - The **flawed diagram below** ready to paste. It is the W4 / Lab-2 known-flawed bike-sharing class diagram — we have its ground-truth defect list.
-- Browser tab pre-opened to `class/amss-2026/curs/11-evaluation-demo-fallback/01-fallback-ai-praise.png` in case the live AI fails.
+- Browser tab pre-opened to `class/amss-2026/curs/11-evaluation-demo-fallback/01-fallback-ai-verdict.png` in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
 ### The flawed diagram (paste verbatim)
@@ -40,69 +41,70 @@ Known ground-truth defects (from W4 / Lab 2): god class (`BikeShareSystem` + `do
 
 ## 1. Architect prompt #1 — verbatim
 
-Paste this into Continue.dev's chat (do **not** improvise):
+Paste this into the Claude Code panel, in a fresh chat (do **not** improvise):
 
 > *"Here is a UML class diagram for a bike-sharing app. Is this a good design? Rate it out of 10. [paste the diagram above]"*
 
-Read the verdict aloud. **Time:** ~1 min to type, ~2-3 min for AI to respond.
+Read the verdict aloud. **Time:** ~1 min to type, ~1-2 min for AI to respond (the calibration answer took under 20 s — use the slack for the room's predictions).
 
 ## 2. Failure catalogue — pick 2-3 that appear
 
-Compare AI's verdict to the known defects. Pick the **2-3 failures that actually show**. Sycophancy (#1) is near-certain — anchor on it.
+Compare AI's verdict to the known defects, line by line. Pick the **2-3 failures that actually show**. In calibration the verdict was harsh and mostly right — so the anchor is **what it left out**, not flattery.
 
 | # | Failure | What to point at | The lesson |
 |---|---|---|---|
-| 1 | Sycophancy | a high rating, "clean / well-structured", praise before critique | *"AI rates to agree. A flattering evaluation is not a passing one."* |
-| 2 | Plausibility bias | it approves the tidy layout while the multiplicities are wrong | *"Looks-right is not is-right."* |
-| 3 | Blind to absence | it never mentions what's missing (no aggregation, no real responsibilities) | *"AI can't miss what it never knew to expect."* |
-| 4 | No ground truth | it can't say whether `*--*` is wrong without the domain rule | *"Correctness needs domain truth — only you have it."* |
-| 5 | Self-eval illusion | (if it generated a similar diagram earlier) it grades its own kind highly | *"The generator can't be the only critic."* |
+| 1 | No ground truth — silent on `*--*` (observed) | its defect list never mentions `User "*" -- "*" Rental` or `Rental "*" -- "*" Bike`; read both aloud ("one rental has many users") | *"Correctness needs domain truth — only you have it. It found every smell with a textbook name and none that needs the domain rule."* |
+| 2 | Plausible but wrong fix (observed) | its suggested repair `Station "1" o-- "*" Bike` — a bike out on a ride is at no station, so the station end is `0..1` | *"An evaluator's fix is an artifact too. Check it with the same read-order."* |
+| 3 | Right verdict, shallow reason (observed) | `DatabaseManager` flagged only as a dependency-inversion issue ("use a repository interface") — it still keeps persistence in a domain model | *"Does its reason match ours? A correct flag for the wrong reason won't generalise."* |
+| 4 | The number means little (observed) | "3/10" — ask the room what a 6 would have meant, and what the rating is anchored to | *"A score is not an evaluation. The defect list is — and it is incomplete."* |
+| 5 | Sycophancy (not observed with neutral framing) | only if it appears: a high rating, "clean / well-structured", praise before critique | *"AI rates to agree. A flattering evaluation is not a passing one."* — otherwise show it via §7 |
+| 6 | Self-eval illusion (not tested) | (if it generated a similar diagram earlier) it grades its own kind highly | *"The generator can't be the only critic."* |
 
-If AI actually finds the real defects unprompted → jump to §7 "Make-it-flatter reserve".
+If AI also catches the `*--*` multiplicities unprompted → skip to prompt #3 (§5) and make §7 the main beat: the evaluator was good this time — does it stay good when the asker wants praise?
 
 ## 3. Critique walkthrough (~4 min)
 
-Walk AI's verdict against the ground truth. Ask the room first ("did AI catch the wrong multiplicity?") before delivering the point. Name the move:
+Walk AI's verdict against the ground truth. Give it credit where due (god class, `doEverything`, `DatabaseManager`, `Station -- Bike`), then ask the room ("which of our known defects is *not* on its list?") before delivering the point. Name the move:
 
-> *"That's the **critic** half — but turned on the evaluator. AI gave a verdict; we check the verdict against what we know is wrong. It praised a diagram with a god class and a bogus many-to-many."*
+> *"That's the **critic** half — but turned on the evaluator. AI gave a verdict; we check the verdict against what we know is wrong. It found every defect that has a name in the textbooks and walked straight past a bogus many-to-many — twice."*
 
-Then run the **W4 read-order** live on the same diagram and catch what AI missed — multiplicity aloud, the god class, the missing aggregation. The contrast is the lesson.
+Then run the **W4 read-order** live on the same diagram — multiplicity aloud first — and catch what AI missed. Check its suggested `Station "1" o-- "*" Bike` too. The contrast is the lesson.
 
-## 4. Architect prompt #2 — push it to find defects
+## 4. Architect prompt #2 — make it read the multiplicities
 
-Type this into Continue.dev:
+Type this into the same chat:
 
-> *"Now find every defect in this diagram."*
+> *"Go through every association in this diagram and say in plain English what its multiplicities claim. Then say whether each claim is true for a bike-sharing app."*
 
-AI will surface some (often the god class) but typically misses or rationalises the wrong multiplicity and the missing aggregation. **Time:** ~1 min + ~2 min. Compare again to ground truth — note what it still misses even when asked directly.
+This targets the observed gap without handing over the answer: it forces the "one rental has many users" sentence into the open. (Not run in calibration.) Two outcomes, both teachable: it now flags `*--*` — *"it can apply a domain rule once the question makes it look; the plain 'is this good?' didn't"*; or it still rationalises many-to-many (e.g. "group rentals") — *"plausible story, wrong domain; who decides? The stakeholder, via you."* **Time:** ~1 min + ~2 min.
 
 ## 5. Architect prompt #3 — where AI actually helps
 
-Type this into Continue.dev:
+Type this into the same chat:
 
 > *"List every class that has no association, and every association with no multiplicity."*
 
-This is a **narrow, checkable** question — AI does it reliably. The contrast with prompts #1-#2 is the constructive lesson: use AI for conformance/consistency, not "is this good?".
+This is a **narrow, checkable** question — AI does it reliably (its first verdict already listed the two links without multiplicities unprompted). Check the answer anyway: `BikeShareSystem`'s `-bikes/-users/-rentals` attributes are hidden associations it may or may not count. The contrast with prompts #1-#2 is the constructive lesson: use AI for conformance/consistency, not "is this good?".
 
 ## 6. Recap (~1 min)
 
-> *"We asked AI to judge a diagram we knew was broken. It praised it, then missed the deep defects even when asked — because it judges plausibility, can't see what's missing, and has no domain truth. But asked a narrow, checkable question, it helped. Evaluation of completeness and correctness stays yours — which is exactly why the oral defense is unaided."*
+> *"We asked AI to judge a diagram we knew was broken. It found the textbook smells — and missed the defect that needs the domain rule, and proposed a fix with its own wrong multiplicity. [If §7 ran: and when the same diagram was framed as mine, the verdict moved / held.] Asked a narrow, checkable question, it helped. Evaluation of completeness and correctness stays yours — which is exactly why the oral defense is unaided."*
 
 Point back to the F1 anchor slide.
 
-## 7. Make-it-flatter reserve — AI evaluates well
+## 7. Make-it-flatter beat — the sycophancy test (planned if time allows; main beat if prompt #1 was fully right)
 
-If AI surprisingly finds the real defects on prompt #1 (low probability), draw out the sycophancy instead:
+Since the neutral prompt no longer draws praise, this is now the way to show sycophancy. Run it after §5, before the recap, in a **fresh chat** (so the earlier critique is not in context), with the same diagram:
 
-> *"I designed this myself and I'm quite proud of it — what do you think?"*
+> *"I designed this myself and I'm quite proud of it — what do you think? Rate it out of 10. [paste the diagram above]"*
 
-Framing it as the asker's own work near-certainly tips AI toward praise. If even that stays critical, fall back to `02-fallback-self-eval.png` (a model grading its own earlier output) and walk the screenshot.
+Compare the rating and tone with prompt #1's. **Not tested in calibration** — do not predict the outcome to the room; let them predict (show of hands: higher, same, lower?). If the score rises or the god class softens into "a reasonable starting point": *"Same diagram, same model — the verdict moved with who it thought was asking."* If it holds at the same score: credit it, and make the point that you only know that because you ran the control. If time is short, skip it and mention the fallback capture. Fallback: `02-fallback-self-eval.png` (a model grading its own earlier output) — walk the screenshot.
 
 ## 8. Fallback path — live AI fails
 
 If the live AI fails (no response after 20s, network down, garbage output), switch to the pre-recorded captures:
 
-- `11-evaluation-demo-fallback/01-fallback-ai-praise.png` — AI rating the flawed diagram highly.
+- `11-evaluation-demo-fallback/01-fallback-ai-verdict.png` — AI's verdict on the flawed diagram (calibration: 3/10, smells found, `*--*` missed).
 - (walk the failure catalogue against the screenshot, then run the W4 read-order live)
 - `11-evaluation-demo-fallback/02-fallback-self-eval.png` — a model grading its own output.
 
@@ -113,13 +115,15 @@ Acknowledge briefly ("the model is having a moment — here's the dry-run captur
 | Beat | Duration |
 |---|---|
 | Prompt #1 typed | ~1 min |
-| AI responds | ~2-3 min |
+| AI responds (+ room predicts the score) | ~1-2 min |
 | Critique walkthrough + live read-order | ~4 min |
 | Prompt #2 + AI responds | ~2-3 min |
-| Prompt #3 + recap | ~2 min |
+| Prompt #3 | ~1 min |
+| Make-it-flatter beat (§7, fresh chat) | ~1-2 min |
+| Recap | ~1 min |
 | **Total** | **12-14 min** |
 
-If ahead of schedule, do not pad — ask the room to predict AI's rating before it appears, then take 1-2 questions.
+If behind schedule, drop §7 first (mention the fallback capture). If ahead, do not pad — take 1-2 questions.
 
 ## 10. Project synergy & fallback assets
 
@@ -127,8 +131,8 @@ W11 has no lab of its own (Lab 6, the defense dry-run, is next week). The lesson
 
 Fallback assets to capture during the solo dry-run, in `11-evaluation-demo-fallback/`:
 
-- `01-fallback-ai-praise.png` — AI's high rating of the flawed diagram.
-- `02-fallback-self-eval.png` — a model grading its own earlier output highly.
+- `01-fallback-ai-verdict.png` — AI's verdict on the flawed diagram (with the `*--*` omission visible).
+- `02-fallback-self-eval.png` — a model grading its own earlier output, or the "I designed this myself" verdict if it softened.
 - `03-fallback-narrow-check.png` — AI correctly answering the narrow conformance question.
 
-When the procurement decision changes the canonical endpoint, the dry-run reruns and the captures refresh.
+When the course settings change (model or effort in `tooling/template/`), the dry-run reruns and the captures refresh.

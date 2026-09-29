@@ -86,7 +86,7 @@ First of two Critique, Rationale, Traceability mentions today (the second lands 
 **Prompt to AI:** *"Here's a requirement from last week's bike-sharing app: 'Users are charged for renting a bike.' Write a pytest test for the fare calculation."*
 
 ::: notes
-Switch to Continue.dev with an editor pane and a terminal pane visible. Run the runbook at `class/amss-2026/curs/03-testable-specs-demo.md` for ~12-14 min. This slide stays on screen as the lecture-side anchor. If live AI fails, the runbook §8 covers the fallback path.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with an editor pane and a terminal pane visible. Run the runbook at `class/amss-2026/curs/03-testable-specs-demo.md` for ~12-14 min. This slide stays on screen as the lecture-side anchor. If live AI fails, the runbook §8 covers the fallback path.
 :::
 
 ---
@@ -184,7 +184,7 @@ def test_fare():
 **Critique:** *"My spec never said €0.10/min. The AI guessed — and a teammate's AI would guess differently."*
 
 ::: notes
-The anchor failure mode — it's what fired in the demo's cycle 1. The guess looks authoritative; that's the trap. Re-reference whatever value the live model actually invented.
+The anchor failure mode — it's what fired in the demo's cycle 1. The guess looks authoritative; that's the trap. Re-reference whatever value the live model actually invented (in our September 2026 dry run: a €1 unlock fee plus €0.15/min). Current models often *say* they are assuming a pricing rule — and then hard-code it in the test anyway. The disclaimer stays in the chat; the guess stays in the test file.
 :::
 
 ---
@@ -202,6 +202,8 @@ def test_fare():
 
 ::: notes
 Green, but tests nothing. Students should learn to ask "what wrong code would still pass this?" — if the answer is "lots," the test is trivial.
+
+Current models rarely write `>= 0` outright. The version you'll meet is subtler: a test *named* `test_fare_rounds_to_two_decimals` that compares with `pytest.approx`, so it passes whether or not the code rounds. Same question: what wrong code still passes?
 :::
 
 ---
@@ -219,6 +221,8 @@ def test_fare():
 
 ::: notes
 The most seductive failure — it looks rigorous. But it can't catch a bug in the formula because it reuses the formula. Hand-compute expected values instead.
+
+A close cousin showed up in our dry run: asked only for a test, the AI also wrote the fare function, and the tests' expected values follow from that function's own default rates. Code and test agree with each other — neither is checked against the spec.
 :::
 
 ---
@@ -287,7 +291,7 @@ Say it plainly. The demo is its proof. This sentence is the bridge from requirem
 # Worked Example: The Fare Spec in Two Passes
 
 **Pass 1 (vague):** "Users are charged for renting a bike."
-→ AI invents €0.10/min. The test encodes a guess.
+→ AI invents a rate (in our dry run: €1 to unlock + €0.15/min). The test encodes a guess.
 
 **Pass 2 (tightened):** "Free first 30 min, then €0.10/min, capped at €5."
 → AI writes tests for 20 min, 30 min, 60 min, and the cap. Each pins a real decision.

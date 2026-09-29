@@ -83,7 +83,7 @@ First of two Critique, Rationale, Traceability mentions. Critique anchored this 
 **Prompt to AI:** *"Generate a UML class diagram (as Mermaid) for the city bike-sharing app: users rent and return bicycles at stations across a city; payment is by app; staff rebalance bikes between stations."*
 
 ::: notes
-Switch to Continue.dev with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/04-class-diagrams-demo.md` for ~12-14 min. Fallback: runbook §8.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/04-class-diagrams-demo.md` for ~12-14 min. Fallback: runbook §8.
 :::
 
 ---
@@ -241,14 +241,14 @@ classDiagram
 Many-to-many? One rental is *one* bike. **Critique:** *"Read it aloud — can a single rental involve many bikes? Fix the number."*
 
 ::: notes
-The anchor defect — it fired in the demo's cycle 1. Wrong multiplicity is invisible until you read it aloud against the domain.
+A classic defect — older and weaker models draw exactly this. Current models usually get Rental–Bike right, so the live slip tends to be subtler: `Station "1" -- "*" Bike` says every bike is always at a station, yet a bike being ridden is at none (the station end should be 0..1). Wrong multiplicity is invisible until you read it aloud against the domain.
 :::
 
 ---
 
 # Defect #2: Fake / Decorative Association
 
-A line between `User` and `Station` with no label, no verb, no meaning.
+A line between `User` and `App` labelled "uses" — or between `User` and `Station` with no label at all — recording no domain fact.
 
 **Critique:** *"What does this association mean? Name the verb. If you can't, the line shouldn't be there."*
 
@@ -292,7 +292,7 @@ classDiagram
 A **god class** plus **invented infrastructure** (`DatabaseManager`, `CacheController`) — implementation, not domain.
 
 ::: notes
-Reframes 2025's over-complicated diagram. AI over-models because it doesn't have to choose what matters. Defects #4 (invented class) and #5 (god class) together.
+Reframes 2025's over-complicated diagram. AI over-models because it doesn't have to choose what matters. Defects #4 (invented class) and #5 (god class) together. Current models rarely draw the god class, but invented and implementation classes are common: expect things like `App`, `GeoLocation`, or a `Dock` that duplicates the station, plus attributes such as `currentStationId` that repeat an association already on the diagram.
 :::
 
 ---
@@ -310,13 +310,13 @@ classDiagram
     User "1" -- "*" Rental
     Rental "1" -- "1" Bike
     Rental "1" -- "1" Payment
-    Station o-- "*" Bike
+    Station "0..1" o-- "*" Bike
 ```
 
-Same domain, only the classes that earn their place. **You saw defect #1 (multiplicity) live in the demo.**
+Same domain, only the classes that earn their place. **Compare with the demo's first draft: which classes and lines did the critic remove, and why?**
 
 ::: notes
-Reuses 2025's simplified diagram, reframed as the critique RESULT. The attribute-that-should-be-an-association defect (e.g. `User.rentals: String`) folds in here — the fix is the `User "1" -- "*" Rental` link. Ties the catalogue back to the demo. Note the `Rental "1" -- "1" Bike` reads 1-1 *within a single rental*, whereas earlier `Rental "*" -- "1" Bike` takes the bike's view across time — one bike participates in many rentals. Both are correct; the difference is the lifetime you scope the association to.
+Reuses 2025's simplified diagram, reframed as the critique RESULT. The attribute-that-should-be-an-association defect (e.g. `User.rentals: String`, or a `currentStationId` next to the Station–Bike line) folds in here — the fix is the `User "1" -- "*" Rental` link. Ties the catalogue back to the demo. Note the `Rental "1" -- "1" Bike` reads 1-1 *within a single rental*, whereas earlier `Rental "*" -- "1" Bike` takes the bike's view across time — one bike participates in many rentals. Both are correct; the difference is the lifetime you scope the association to.
 :::
 
 ---
@@ -343,7 +343,7 @@ read -> name the defects -> re-prompt with domain constraints -> re-read.
 Same architect-and-critic loop as Week 2 (requirements) and Week 3 (tests) — now on a diagram.
 
 ::: notes
-The loop is the through-line of the course. The scaffold that tightens AI output here is naming the domain rules (a rental is one bike) — exactly the demo's prompt #2.
+The loop is the through-line of the course. The scaffold that tightens AI output here is naming the domain rules (only domain classes; a station holds bikes; a ridden bike is at no station) — exactly the demo's second prompt. And the re-read is not optional: a revision can claim fixes it never made, so check each claimed change against the new diagram.
 :::
 
 ---

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code when working in the **AMSS 2026 sourc
 
 Source for **AMSS 2026 — Analiza și Modelarea Sistemelor Software (ediția AI-mediated)**, a complete redesign of the course around an architect-and-critic AI pedagogy. Students drive AI through the SDLC and critique its outputs; UML literacy remains central but as a reading-and-reviewing skill rather than a drawing skill.
 
-**Authoritative design document:** `../amss/docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md`. Read it before substantively editing lecture/lab content — it contains the pedagogical contract, the literacy floor (F1+F3+F4), the project rubric, and the procurement options for the agentic-AI tooling stack.
+**Authoritative design document:** `../amss/docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md`. Read it before substantively editing lecture/lab content — it contains the pedagogical contract, the literacy floor (F1+F3+F4), the project rubric, and the (now superseded — see "Tooling stack" below) procurement options for the agentic-AI tooling stack.
 
 ## Layout
 
@@ -15,7 +15,7 @@ Source for **AMSS 2026 — Analiza și Modelarea Sistemelor Software (ediția AI
 - `proiect/` — project description (`README.md` → `index.html`). Currently stubs.
 - `exam/` — written resit-exam template (`examen-2026.tex`). R2 format per spec §5.
 - `static/` — hand-maintained files that ship verbatim to `../amss2026/` (except `index.html`, whose unreleased entries are unlinked at build time). Currently: landing-page `index.html` plus empty `curs/index.html` and `lab/index.html` directory-listing blockers (parity with the 2025 tree). Add additional assets as needed.
-- `tooling/` — canonical agentic-AI setup distributed to students unchanged. Contains: `README.md` (orientation + procurement pointers), `SETUP.md` (student step-by-step ~30 min), `.continue/config.yaml` (Continue.dev config with three `REPLACE_BEFORE_W1` markers).
+- `tooling/` — course AI setup distributed to students unchanged. Contains: `README.md` (orientation + why this model), `SETUP.md` (student step-by-step ~20 min), `template/` (files copied into every lab/project repo root: `AGENTS.md`, `CLAUDE.md`, `.claude/settings.json`, `.codex/config.toml`).
 - `diagram/` — pandoc Lua filter for plantuml/graphviz code blocks (duplicate of `../amss/diagram/`, kept independent).
 - `include.mk`, `Makefile`, per-subdir Makefiles — same pipeline pattern as `../amss/`, but `BASE` defaults to `../amss2026`.
 
@@ -43,13 +43,14 @@ Do NOT cross-include files from `../amss/`. The two trees are intentionally deco
 
 ## Tooling stack
 
-Procurement decision (institutional `llm.fmi.unibuc.ro` / per-student Gemini free-tier / pooled paid API) is open. See spec §6 for the option matrix.
+**Decided (September 2026), superseding spec §6's procurement options:** students bring a **Claude Pro** or **ChatGPT Plus** subscription and use **Claude Code** or **Codex** through their official VS Code extensions. No course endpoint, no Continue.dev. Course settings are pinned per repository by `tooling/template/` (`AGENTS.md` + `CLAUDE.md` importing it, `.claude/settings.json` = Sonnet 5 at low effort, `.codex/config.toml` = closest Codex equivalent, uncalibrated). Instructor demos run in Claude Code with the same settings.
 
-**Pre-W1 replacement checklist** for the canonical setup at `tooling/`:
+Sonnet 5 / low was chosen by calibrating the runbooks' prompts across Haiku 4.5, Sonnet 5 and Opus 5.5 (see `tooling/README.md`): it gives workable first drafts that still leave defects to find. The demo runbooks' defect catalogues were rebuilt from that calibration — if the pinned model changes, re-calibrate and refresh them.
 
-- `tooling/.continue/config.yaml` — three `REPLACE_BEFORE_W1` markers (model, apiBase, apiKey).
+**Pre-W1 replacement checklist:**
+
 - `tooling/SETUP.md` — `<course-repo-url>` placeholder in Step 1 (clone command).
-- `static/index.html` — placeholder GitHub URL `https://github.com/traiansf/amss-2026-tooling` in the Tooling section.
+- `static/index.html` — the Tooling section links to `tooling/` in the public `traiansf.github.io` repo; repoint it if the course moves to its own repo.
 
 ## Relationship to the 2025 tree
 
