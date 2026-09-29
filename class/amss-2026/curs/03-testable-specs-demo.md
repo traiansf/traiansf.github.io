@@ -14,7 +14,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 - Claude Code panel open and signed in; `/model` shows **Sonnet 5, low effort** (the course settings). Claude Code may write `fare.py`/`test_fare.py` straight into the repository and will ask before running commands — approve the pytest run, or run it yourself in the terminal. Disable claude.ai connectors (`/mcp`) in the demo session: in the dry run the model opened both answers by talking about a document tool it had been offered.
 - An **editor pane** showing the test file as AI writes it, and a **terminal pane visible** — students must watch pytest run; the run is the payoff.
 - A scratch working directory with Python 3 and pytest installed and verified (`python3 -m pytest --version` returns a version).
-- Browser tab pre-opened to `class/amss-2026/curs/03-testable-specs-demo-fallback/01-fallback-cycle1-test.png` in case the live AI fails.
+- Fallback deck `class/amss-2026/curs/fallback/03-testable-specs-fallback.pdf` (or `.html`) pre-opened in case the live AI fails (see §8).
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -151,10 +151,12 @@ The spec-precision lesson lands even without a red test — the guess *is* the e
 
 If the live AI fails (no response after 20s, network down, model produces unrelated garbage), don't freeze. Switch to:
 
-- `03-testable-specs-demo-fallback/01-fallback-cycle1-test.png` — pre-recorded cycle-1 test with the invented-assumption defect.
-- (walk the critique catalogue against the screenshot)
-- `03-testable-specs-demo-fallback/02-fallback-cycle2-tests.png` — pre-recorded tightened tests + `fare` function.
-- `03-testable-specs-demo-fallback/03-fallback-pytest-green.png` — the passing run.
+the fallback deck `curs/fallback/03-testable-specs-fallback.pdf` (or `.html`; build with `make -C curs/fallback`) — real captures of this runbook's prompts, September 2026, course setting (Sonnet 5, low effort); the slide notes list what to point at.
+
+- "AI's answer — the test (1/3)" to "(3/3)" and "— what it said" — cycle-1 test with the invented-assumption defect ($1 unlock + $0.15/min, 5 free minutes, a $20 cap; rows 1, 6 and 7).
+- (walk the critique catalogue against it)
+- "AI's revised answer — the `fare` function", "— the tests (1/2)" and "(2/2)", "— what it said" — tightened tests + `fare` function after prompt #2, same session.
+- "The test run" — the passing pytest run (8 passed), verbatim.
 
 The pedagogical content is identical; only the live-typing is lost. Acknowledge it briefly ("the model is having a moment — here's what I captured during dry-run") and continue.
 
@@ -176,11 +178,6 @@ If the demo runs ahead, do not pad — use the AI-generation pauses to predict a
 
 This demo is the in-lecture instance of the loop each student runs for the project's required TDD-with-AI reflection (parent spec §4, per-student deliverable #4). The prompt-#2 pattern (tighten the spec with measurable rules → re-prompt for boundary-covering tests → run) is the method the reflection documents. W3 is a lecture-only week, so the synergy is to the project deliverable, not a same-week lab.
 
-Fallback assets captured during the solo dry-run (see spec §6.4). Files live alongside this runbook in `03-testable-specs-demo-fallback/`:
+Fallback assets: one instructor-only deck, never published: `curs/fallback/03-testable-specs-fallback.md` → `.pdf` / `.html` (`make -C curs/fallback`). Captured September 2026 with the course setting (Sonnet 5, low effort), prompt #1 + prompt #2 in one session — attempt 1. The capture had no file or shell tools, so the AI pasted `bikeshare/fare.py` and `tests/test_fare.py` instead of writing them; they were saved as named (plus the empty `bikeshare/__init__.py` it asked for) and run with `python -m pytest -q tests/test_fare.py` — 8 passed, shown verbatim on "The test run". No red run was captured: the cycle-1 answer wrote no implementation to run the new tests against, so show red live only if the live cycle 1 produced code. No separate reserve capture is needed: the §7 reserve is a framing line over the cycle-1 answer.
 
-- `01-fallback-cycle1-test.png` — AI's cycle-1 test from the vague prompt (invented-assumption defect visible).
-- `02-fallback-cycle2-tests.png` — AI's cycle-2 tests + `fare` function from the tightened spec.
-- `03-fallback-pytest-green.png` — terminal showing pytest passing.
-- `04-fallback-pytest-red.png` *(optional)* — boundary/cap tests failing against the cycle-1 guess, if the speaker plans to show an explicit red state.
-
-Recapture these with the course settings (Sonnet 5, low effort) whenever the pinned model changes; the September 2026 calibration output is a ready source for `01-fallback-cycle1-test.png`.
+Recapture with the course settings whenever the pinned model changes.

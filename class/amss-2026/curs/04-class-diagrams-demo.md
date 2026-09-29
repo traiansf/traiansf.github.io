@@ -12,7 +12,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 
 - VS Code open on a repository containing the course settings from `tooling/template/` (see `class/amss-2026/tooling/SETUP.md`); demo runs in the **Claude Code panel** with those settings (Sonnet 5, low effort). Check with `/model` before class.
 - A **Mermaid preview** open in VS Code (the built-in Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram to critique multiplicity and associations; raw Mermaid text is not enough.
-- Browser tab pre-opened to `class/amss-2026/curs/04-class-diagrams-demo-fallback/01-fallback-cycle1-diagram.png` in case the live AI fails.
+- Browser tab pre-opened to the fallback deck `class/amss-2026/curs/fallback/04-class-diagrams-fallback.html` (see §8) in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -105,15 +105,16 @@ If AI's first diagram is suspiciously clean (low probability — in calibration 
 
 (Revised after dry run; the revised wording was re-run once: ~38 s, a single class diagram of ~67 classes with no namespaces, renders — dense, so zoom and walk one area at a time.) Dry run (September 2026) of the original wording, which ended at "subsystems": the model left the class diagram behind. In ~26 s it answered with a layered `flowchart` (client channels, API gateway, Kafka event bus, Redis, machine-learning demand forecasting, IoT gateway, external providers — rendered fine) plus a 35-class `classDiagram` grouped in `namespace` blocks. That second diagram **did not render** — not a syntax error but a Mermaid layout crash ("Could not find a suitable point for the given distance") caused by multiplicity labels on edges between namespaces; dropping either the namespaces or the multiplicities makes it render. In the preview that is an error box where the class diagram should be, which loses the class-level critique on a class-diagram lecture — hence the added clause. Its content was worth critiquing: every class carries its own `…Id`, attributes are untyped, `Transfer "*" --> "2" Station` again loses source vs destination, `User "*" --> "*" Role`, `Admin --|> Staff`, and whole subsystems (`FraudAlert`, `DemandForecast`, `Promotion`, `Subscription`, `Vehicle`) no requirement asks for.
 
-Expect more invented infrastructure and over-modelling; a god class is less likely with current models, so don't promise one. If the live reply still uses namespaces and the preview errors, don't debug on stage — walk the invented subsystems from the text, or fall back to `03-fallback-make-it-fail.png`. If even that is clean, walk the screenshot.
+Expect more invented infrastructure and over-modelling; a god class is less likely with current models, so don't promise one. If the live reply still uses namespaces and the preview errors, don't debug on stage — walk the invented subsystems from the text, or fall back to the fallback deck's slides "AI's answer — the enterprise diagram" and "Zoom — lines from its Mermaid source" (§8). If even that is clean, walk the captured deck.
 
 ## 8. Fallback path — live AI fails
 
-If the live AI fails (no response after 20s, network down, garbage output), switch to the pre-recorded renders:
+If the live AI fails (no response after 20s, network down, garbage output), switch to the fallback deck `curs/fallback/04-class-diagrams-fallback.html` (present it in the browser: diagrams at full width; `.pdf` alongside, vector — zoom in). Captured September 2026 with the course setting (Claude Code, Sonnet 5, low effort, fresh session); the slide notes say what to point at, by catalogue number:
 
-- `04-class-diagrams-demo-fallback/01-fallback-cycle1-diagram.png` — seed diagram with ≥2 visible defects.
-- (walk the same defect catalogue against the screenshot)
-- `04-class-diagrams-demo-fallback/02-fallback-cycle2-revised.png` — post-critique revised diagram.
+- "AI's answer — the diagram" — cycle-1 diagram (first attempt): `Dock` beside `Station` (#1), status enums both as attribute types and as linked classes (#7), `PricingPlan`/`PaymentMethod` hierarchy/`batteryLevel` (#6).
+- (walk the same defect catalogue against it; "AI's answer — what it said" has its prose)
+- "AI's answer — the revised diagram" and "AI's answer — its change list" — after prompt #2 in the same session (first attempt): the aggregation and `0..1` done; for the re-check, `Member.plan` silently swapped for `PricingPlan`, enum types left undefined, `Staff.role` regressed to `String`.
+- "AI's answer — the enterprise diagram" + "Zoom — lines from its Mermaid source" — the §7 reserve after a fresh prompt #1 (first attempt): 61 classes, renders.
 
 Acknowledge briefly ("the model is having a moment — here's the dry-run capture") and continue. The pedagogical content is identical.
 
@@ -135,10 +136,10 @@ If ahead of schedule, do not pad — use generation/render pauses to predict alo
 
 This demo is the forerunner of Lab 2's drill (this week's lab): drive AI to a class diagram from a 1-page spec, iterate at least twice, keep a critique log (1 page max). The runbook's prompt #2 (domain-constraint scaffold) is the move Lab 2's critique log documents, and §2's defect catalogue is the vocabulary it uses.
 
-Fallback assets captured during the solo dry-run (spec §6.5), in `04-class-diagrams-demo-fallback/`:
+Fallback assets: the instructor-only deck `curs/fallback/04-class-diagrams-fallback.md` (built with `make -C curs/fallback` into `.html` and `.pdf` next to the source, never published), captured September 2026 with the course setting — each capture on the first attempt:
 
-- `01-fallback-cycle1-diagram.png` — rendered cycle-1 diagram with ≥2 defects.
-- `02-fallback-cycle2-revised.png` — rendered revised diagram.
-- `03-fallback-make-it-fail.png` — rendered over-modeled "enterprise architecture" output.
+- "AI's answer — the diagram" — cycle-1 diagram with ≥2 defects.
+- "AI's answer — the revised diagram" — revised diagram after prompt #2, same session.
+- "AI's answer — the enterprise diagram" — over-modelled "enterprise architecture" output (reserve).
 
-When the course settings pinned in `tooling/template/` (model, effort) change, the dry-run reruns and the PNGs refresh.
+When the course settings pinned in `tooling/template/` (model, effort) change, the dry-run reruns and the fallback deck is recaptured.

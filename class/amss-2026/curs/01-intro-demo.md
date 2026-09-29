@@ -11,7 +11,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 - VS Code open on a demo repository that contains the course settings from `class/amss-2026/tooling/template/` (see `class/amss-2026/tooling/SETUP.md`).
 - Claude Code panel open and signed in; `/model` shows **Sonnet 5, low effort** (the course settings).
 - Mermaid rendering ready: either VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension, or a terminal with `mmdc -i file.mmd -o out.png` available.
-- Browser tab pre-opened to `class/amss-2026/curs/01-intro-demo-fallback/01-fallback-cycle1-output.png` in case the live AI fails.
+- Fallback deck `class/amss-2026/curs/fallback/01-intro-fallback.pdf` (or `.html`) pre-opened in case the live AI fails (see §6).
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -84,9 +84,12 @@ Point back at the "two roles" slide from the frame segment.
 
 If at any point the live AI fails (no response after 20s, network down, model produces unrelated garbage), don't freeze. Switch to:
 
-- `01-fallback-cycle1-output.png` — pre-recorded seed AI output
-- (walk the same defect catalogue against the screenshot)
-- `02-fallback-cycle1-revised.png` — pre-recorded revised output
+the fallback deck `curs/fallback/01-intro-fallback.pdf` (or `.html`; build with `make -C curs/fallback`) — real captures of this runbook's prompts, September 2026, course setting (Sonnet 5, low effort); the slide notes list what to point at.
+
+- "AI's answer — the diagram" / "— what it said" — prompt #1's output (conflated `Book`, `BookStatus` with the "becomes RESERVED" quote, Staff as a bare dependency, a `Member`/`Staff` split, a `Kiosk` controller)
+- (walk the same defect catalogue against it)
+- "AI's revised answer — the diagram" / "— what it said" — the output after the example prompt #2 in §4, same session
+- "Reserve answer — the diagram" / "— what it said" — the §7 queue redo (for the make-it-fail path)
 
 The pedagogical content is identical; only the live-typing aspect is lost. Acknowledge it briefly ("the model is having a moment — here's what I captured during dry-run") and continue.
 
@@ -105,7 +108,7 @@ Dry run (September 2026): ~12 s, Mermaid rendered, plenty to critique. No separa
 
 Watch for the other shapes too if they appear: a `WaitingList` class, queue entries not linked to users, or id attributes (`userId`, `bookId`) duplicating associations (not seen in this dry run).
 
-If the make-it-fail also produces something clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
+If the make-it-fail also produces something clean, switch to the fallback deck's "Reserve answer — the diagram" slide and walk that (a captured run with a `ReservationQueue` class, a stored `position`, aggregation, and hold-expiry scope creep).
 
 ## 8. Time budget reconciliation
 
@@ -127,10 +130,9 @@ The demo doubles as the tooling preview. After the recap, the next segment ("Too
 
 ## 10. Fallback assets
 
-Captured during the solo dry-run (see spec §5.4). Files live alongside this runbook:
+One instructor-only deck, never published: `curs/fallback/01-intro-fallback.md` → `.pdf` / `.html` (`make -C curs/fallback`). Captured September 2026 with the course setting (Sonnet 5, low effort), no tools, a fresh session per chain:
 
-- `01-intro-demo-fallback/01-fallback-cycle1-output.png`
-- `01-intro-demo-fallback/02-fallback-cycle1-revised.png`
-- `01-intro-demo-fallback/03-fallback-make-it-fail.png`
+- Prompt #1 + example prompt #2, one session — attempt 2. Attempt 1 met the defect bar but had already split title and copy, so the scripted prompt #2 would have asked for a fix that was not on screen.
+- Prompt #1 + make-it-fail reserve, one session — attempt 1.
 
-Recapture these with the course settings (Sonnet 5, low effort) whenever the pinned model changes; the September 2026 calibration output is a ready source for `01-fallback-cycle1-output.png`.
+Recapture with the course settings whenever the pinned model changes.

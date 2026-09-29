@@ -11,7 +11,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 - VS Code open on a demo repository that contains the course settings from `class/amss-2026/tooling/template/` (see `class/amss-2026/tooling/SETUP.md`).
 - Claude Code panel open and signed in; `/model` shows **Sonnet 5, low effort** (the course settings).
 - Markdown preview pane ready in VS Code — the demo's artifact is text, not a diagram. If the assistant answers in the panel rather than writing a file, ask it to save the document as `requirements.md` and open that in the preview. Students need to read the requirements doc as it appears. In the dry run the model first tried a claude.ai document connector ("permission denied … putting it in chat instead") — disable claude.ai connectors (`/mcp`) in the demo session beforehand, or add "save it as requirements.md" to the prompt if that preamble appears.
-- Browser tab pre-opened to `class/amss-2026/curs/02-requirements-demo-fallback/01-fallback-cycle1-output.png` in case the live AI fails.
+- Fallback deck `class/amss-2026/curs/fallback/02-requirements-fallback.pdf` (or `.html`) pre-opened in case the live AI fails (see §6).
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -83,9 +83,12 @@ Point back at the "two roles" recap slide from the frame.
 
 If at any point the live AI fails (no response after 20s, network down, model produces unrelated garbage), don't freeze. Switch to:
 
-- `02-requirements-demo-fallback/01-fallback-cycle1-output.png` — pre-recorded seed AI output
-- (walk the same defect catalogue against the screenshot)
-- `02-requirements-demo-fallback/02-fallback-cycle1-revised.png` — pre-recorded revised output
+the fallback deck `curs/fallback/02-requirements-fallback.pdf` (or `.html`; build with `make -C curs/fallback`) — real captures of this runbook's prompts, September 2026, course setting (Sonnet 5, low effort); the slide notes list what to point at.
+
+- "AI's answer — scope and features", "— non-functional and domain", "— are e-bikes in scope?" — excerpts of prompt #1's output (81 requirements; rows 1-7 and 9 all visible)
+- (walk the same defect catalogue against it)
+- "AI's revised answer — by use case (1/2)" and "(2/2)" — the complete output after prompt #2, same session
+- "Reserve answer — it did the arithmetic" / "— guesses become requirements" — the §7 redo (for the make-it-fail path)
 
 The pedagogical content is identical; only the live-typing aspect is lost. Acknowledge it briefly ("the model is having a moment — here's what I captured during dry-run") and continue.
 
@@ -102,7 +105,7 @@ Dry run (September 2026): ~38 s, an even longer v2 (36 FRs, 15 NFRs, 16 domain r
 - A false "what changed" claim: "multi-region scaling is dropped" — v1 never mentioned multiple regions; and v1's "100,000 active users, 5,000 concurrent rentals" are now called "placeholders", though v1 stated them as requirements. *"Check the diff yourself — did v1 say that?"*
 - More invented features: predicted availability 15-30 minutes ahead, reservations capped at 20% of a station's bikes, transit-card integration as an open question; stakeholders still include the city authority, mechanics and finance.
 
-If the make-it-fail also produces something clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
+If the make-it-fail also produces something clean, switch to the fallback deck's "Reserve answer — it did the arithmetic" slide and walk that and the next one (a captured run: the 25-trips-per-bike arithmetic, then its own assumed sizing figures turned into hard requirements; no false "what changed" claim in that run).
 
 ## 8. Time budget reconciliation
 
@@ -124,10 +127,9 @@ The demo is the *forerunner* of Lab 1's hands-on drill. Students will replicate 
 
 ## 10. Fallback assets
 
-Captured during the solo dry-run (see spec §6.4). Files live alongside this runbook:
+One instructor-only deck, never published: `curs/fallback/02-requirements-fallback.md` → `.pdf` / `.html` (`make -C curs/fallback`). Captured September 2026 with the course setting (Sonnet 5, low effort), no tools, a fresh session per chain:
 
-- `02-requirements-demo-fallback/01-fallback-cycle1-output.png`
-- `02-requirements-demo-fallback/02-fallback-cycle1-revised.png`
-- `02-requirements-demo-fallback/03-fallback-make-it-fail.png`
+- Prompt #1 + prompt #2, one session — attempt 1.
+- Prompt #1 + make-it-fail reserve, one session — attempt 1.
 
-Recapture these with the course settings (Sonnet 5, low effort) whenever the pinned model changes; the September 2026 calibration output is a ready source for `01-fallback-cycle1-output.png`.
+Both answers opened with a line about a claude.ai document connector being unavailable (cut from the deck) — another reason to disable connectors before class. Recapture with the course settings whenever the pinned model changes.

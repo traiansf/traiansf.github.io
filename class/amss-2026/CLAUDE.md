@@ -10,7 +10,8 @@ Source for **AMSS 2026 — Analiza și Modelarea Sistemelor Software (ediția AI
 
 ## Layout
 
-- `curs/` — 14 lecture decks (`01-intro.md` through `14-final.md`). Currently stubs.
+- `curs/` — 14 lecture decks (`01-intro.md` through `14-final.md`) plus instructor demo runbooks (`*-demo.md`).
+- `curs/fallback/` — instructor-only fallback decks (`NN-…-fallback.md`): captured runs of each demo's prompts with the course setting, to switch to when the live AI fails. Built in place with `make fallback` (HTML + PDF next to the sources, committed), never published. Re-capture when the pinned model changes.
 - `lab/` — 7 lab decks (`Lab01.md` through `Lab07.md`). Currently stubs.
 - `proiect/` — project description (`README.md` → `index.html`). Currently stubs.
 - `exam/` — written resit-exam template (`examen-2026.tex`). R2 format per spec §5.

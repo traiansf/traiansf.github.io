@@ -66,6 +66,7 @@ make                       # everything, into ../amss2026
 make BASE=/tmp/preview     # local preview elsewhere
 make -j4                   # diagrams are slow (JVM / headless Chrome per block)
 make PREVIEW_ALL=1 BASE=/tmp/preview   # every deck, ignoring RELEASED
+make fallback              # instructor-only demo fallback decks, built in curs/fallback/ (never published)
 ```
 
 ## Revealing a week

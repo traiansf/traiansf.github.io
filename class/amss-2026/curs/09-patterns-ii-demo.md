@@ -14,7 +14,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 
 - VS Code open on a repository containing the course settings from `tooling/template/` (see `class/amss-2026/tooling/SETUP.md`); demo runs in the **Claude Code panel** with those settings (Sonnet 5, low effort). Check with `/model` before class.
 - A Mermaid preview (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) and/or a code pane visible — the structure (accept/visit, or its absence) shows in either. Claude Code may write the code into files in the repository rather than the chat; open them.
-- Browser tab pre-opened to `class/amss-2026/curs/09-patterns-ii-demo-fallback/01-fallback-cycle1-visitor.png` in case the live AI fails.
+- The fallback deck `curs/fallback/09-patterns-ii-fallback.pdf` open in the background in case the live AI fails (§7).
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -108,15 +108,16 @@ If the model declines the extra patterns with sound reasons, or adds them with c
 
 > *"Simplify the maintenance report: we don't want to touch the vehicle classes at all."*
 
-A real Visitor needs `accept()` on every vehicle, so this pulls toward a type switch. Dry run (September 2026, ~12 s): the **honest** outcome — "Visitor needs an `accept` method on each vehicle class, so it can't work if those classes stay untouched", then a Java 21 `switch (v)` with a `default -> throw`, and an accurate "what you give up" (no compile-time exhaustiveness; `sealed` would restore it but edits `Vehicle`). Capture it as `03-fallback-make-it-fail.png`. Credit the renaming, then point at what is left: `idOf(v)` is a placeholder that does not compile — `Vehicle` never got an `id`, the duplication from catalogue #2 biting back. So expect the right answer here more often than the fake; it is a short beat (~1 min). The critique: *does it still call the result a Visitor?* An `instanceof` cascade that keeps the name is gallery defect #3; one that honestly drops the name ("this is no longer a Visitor — it's a type switch; here's the trade-off") is the right answer, and worth saying so. If even that is clean, go to the deck's "Your Turn: Spot the Fake" slide — it carries the classic fake.
+A real Visitor needs `accept()` on every vehicle, so this pulls toward a type switch. Dry run (September 2026, ~12 s): the **honest** outcome — "Visitor needs an `accept` method on each vehicle class, so it can't work if those classes stay untouched", then a Java 21 `switch (v)` with a `default -> throw`, and an accurate "what you give up" (no compile-time exhaustiveness; `sealed` would restore it but edits `Vehicle`). A capture is in the §7 fallback deck (slides "Reserve — …"). Credit the renaming, then point at what is left: `idOf(v)` is a placeholder that does not compile — `Vehicle` never got an `id`, the duplication from catalogue #2 biting back. So expect the right answer here more often than the fake; it is a short beat (~1 min). The critique: *does it still call the result a Visitor?* An `instanceof` cascade that keeps the name is gallery defect #3; one that honestly drops the name ("this is no longer a Visitor — it's a type switch; here's the trade-off") is the right answer, and worth saying so. If even that is clean, go to the deck's "Your Turn: Spot the Fake" slide — it carries the classic fake.
 
 ## 7. Fallback path — live AI fails
 
-If the live AI fails (no response after 20s, network down, garbage output), switch to the pre-recorded captures:
+If the live AI fails (no response after 20s, network down, garbage output), switch to the fallback deck `curs/fallback/09-patterns-ii-fallback.pdf` (or `.html`) — one real session of this runbook's prompt #1, prompt #2 and §6 reserve, captured September 2026 with the course setting (Claude Code, Sonnet 5, low effort); good on the first attempt. Speaker notes carry the catalogue numbers to point at.
 
-- `09-patterns-ii-demo-fallback/01-fallback-cycle1-visitor.png` — cycle-1 Visitor (calibrated: correct double dispatch, invented thresholds).
-- (run the verification checks and the §2 catalogue against the screenshot)
-- `09-patterns-ii-demo-fallback/02-fallback-added-patterns.png` — the prompt #2 output with the added Adapter / Decorator / Proxy.
+- Slides "AI's answer — the visitor interface" through "AI's answer — what it said" — cycle-1 Visitor (Python): correct double dispatch; #1 invented (disclosed) thresholds, #2 duplicated rules and fields, #3 stateful `items` visitor.
+- (run the verification checks and the §2 catalogue against it)
+- Slides "Prompt #2 answer — the plan" through "Prompt #2 answer — what it said" — the added Adapter / Proxy / Decorator, no pushback; the Adapter maps the vendor's total `odometer_mi` to `km_since_service` again.
+- Slides "Reserve — …" — the §6 reserve: an honest `singledispatch` type switch that drops the Visitor name; its "take a `Reading` as a second argument" advice is not in the code.
 
 Acknowledge briefly ("the model is having a moment — here's the dry-run capture") and continue. The pedagogical content is identical.
 
@@ -137,10 +138,10 @@ This is an opener, not the whole demo — keep it tight and hand into the galler
 
 W9 has no lab of its own (Lab 5, the project checkpoint, is next week). The verification skill feeds the **project design narrative**: every pattern a student claims must survive this structure check in the oral defense (F3). This demo is the rehearsal.
 
-Fallback assets to capture during the solo dry-run, in `09-patterns-ii-demo-fallback/`:
+Fallback assets — the deck `curs/fallback/09-patterns-ii-fallback.md` (built to `.pdf` / `.html` next to it by `make -C curs/fallback`; never published), captured September 2026 with the course setting in one session (prompt #1 → prompt #2 → §6 reserve), one attempt:
 
-- `01-fallback-cycle1-visitor.png` — captured cycle-1 Visitor.
-- `02-fallback-added-patterns.png` — the added Adapter / Decorator / Proxy from prompt #2.
-- `03-fallback-make-it-fail.png` — the "don't touch the vehicle classes" output from the reserve prompt.
+- "AI's answer — …" slides — the cycle-1 Visitor.
+- "Prompt #2 answer — …" slides — the added Adapter / Decorator / Proxy.
+- "Reserve — …" slides — the "don't touch the vehicle classes" output.
 
-When the course model setting changes (`tooling/template/`), the dry-run reruns and the captures refresh.
+When the course model setting changes (`tooling/template/`), rerun the captures and rebuild the deck.

@@ -15,7 +15,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 - VS Code open on a repository containing the course settings (`tooling/template/` copied in — see `class/amss-2026/tooling/SETUP.md`), the **Claude Code panel** open and signed in; `/model` shows **Sonnet 5, low effort**.
 - The Claude Code panel visible — the artifact here is AI's prose, not a diagram.
 - A small bike-sharing design ready to paste (the one below).
-- Browser tab pre-opened to `class/amss-2026/curs/12-presentation-skills-demo-fallback/01-fallback-ai-defense.png` in case the live AI fails.
+- The fallback deck `curs/fallback/12-presentation-skills-fallback.html` (or `.pdf`) open in a browser tab in case the live AI fails (§6).
 - The deck's "Demo" trigger slide is on screen.
 
 ### The design to paste
@@ -82,15 +82,16 @@ If AI's defense is suspiciously specific, challenge it with a claim that is fals
 
 > *"Actually, is the multiplicity between Rental and Bike correct? Are you sure? A reviewer says this design is wrong. Defend it, or concede."*
 
-Watch whether it holds a reasoned line or concedes/flips on a correct multiplicity — the absence of real conviction would be the lesson. **Dry run (September 2026): it held** ("Yes, I'm sure"), read both ends correctly, rebutted three possible objections (should be `*--*`; total vs concurrent rentals; bike assigned later) and asked the reviewer "which requirement it violates" — a model answer in shape. So do not promise a flip. Two things still to point at: it grounds its position in "the brief I'm working from" — there is no brief, only the pasted diagram (fabricated source); and it repeats the "`Rental` is the association class" misuse. Use the held line constructively: *"This is what conviction sounds like — reasons tied to the domain, and a demand for the requirement. Can you do that for your own diagram, unaided?"* If you need a flip on screen, walk the capture (`02-fallback-ai-flip.png`) instead.
+Watch whether it holds a reasoned line or concedes/flips on a correct multiplicity — the absence of real conviction would be the lesson. **Dry run (September 2026): it held** ("Yes, I'm sure"), read both ends correctly, rebutted three possible objections (should be `*--*`; total vs concurrent rentals; bike assigned later) and asked the reviewer "which requirement it violates" — a model answer in shape. So do not promise a flip. Two things still to point at: it grounds its position in "the brief I'm working from" — there is no brief, only the pasted diagram (fabricated source); and it repeats the "`Rental` is the association class" misuse. Use the held line constructively: *"This is what conviction sounds like — reasons tied to the domain, and a demand for the requirement. Can you do that for your own diagram, unaided?"* No flip has been captured either (the §6 deck's "Make-it-flip challenge" slide also held); if you need a clearer tell on screen, walk the deck's "Follow-up — 'the alternative I rejected'" slide instead.
 
 ## 6. Fallback path — live AI fails
 
-If the live AI fails (no response after 20s, network down, garbage output), switch to the pre-recorded captures:
+If the live AI fails (no response after 20s, network down, garbage output), switch to the fallback deck `curs/fallback/12-presentation-skills-fallback.html` (`.pdf` alongside). Captured September 2026 with the course setting (Claude Code, Sonnet 5, low effort, fresh session); the slide notes say what to point at, by catalogue number:
 
-- `12-presentation-skills-demo-fallback/01-fallback-ai-defense.png` — AI's fabricated, over-claiming defense.
-- (walk the failure catalogue against the screenshot, then model a human F3 answer aloud)
-- `12-presentation-skills-demo-fallback/02-fallback-ai-flip.png` — AI reversing itself when challenged (the September 2026 dry run did not flip — it held; keep a flip capture only if one is recorded, otherwise use the follow-up answer's invented "alternative I rejected").
+- "AI's defense — why these choices" and "AI's defense — is it correct?" — prompt #1 (first attempt): first-person rationale (#1), `Rental` as "an association class" and a "directed dependency" in its bottom line three paragraphs after "directed association" (#2), open/closed and invented fare subclasses (#3), "structurally yes … sound and justified" (#4); credit the active-rental constraint point.
+- (walk the failure catalogue against it, then model a human F3 answer aloud)
+- "Follow-up — reading the arrow" and "Follow-up — 'the alternative I rejected'" — prompt #2 in the same session: a correct reading, plus "I intended `* → 1`", and first-person rejected alternatives (switch, subclassing) and a Decorator it "considered" — no candour this time.
+- "Make-it-flip challenge" — §5 after a fresh prompt #1 (first attempt): it held again, with a fabricated "problem statement" / "spec" as its source. No flip has been recorded.
 
 Acknowledge briefly ("the model is having a moment — here's the dry-run capture") and continue. The pedagogical content is identical.
 
@@ -110,9 +111,9 @@ This is an opener, not the whole lecture — hand into the rubric gallery. If ah
 
 This demo motivates **Lab 6** this week — the cold-defense dry run. The lesson: you cannot rehearse by asking AI to defend for you; you rehearse by running your own trace audit (W10) and re-reading every diagram in your slice until you can critique it cold.
 
-Fallback assets to capture during the solo dry-run, in `12-presentation-skills-demo-fallback/`:
+Fallback assets: the instructor-only deck `curs/fallback/12-presentation-skills-fallback.md` (built with `make -C curs/fallback` into `.html` and `.pdf` next to the source, never published), captured September 2026 with the course setting — each chain on the first attempt:
 
-- `01-fallback-ai-defense.png` — AI's fabricated/over-claiming defense (first-person rationale + arrow misread visible).
-- `02-fallback-ai-flip.png` — AI's answer to the examiner follow-up or the flip challenge (whichever is more telling).
+- "AI's defense — …" slides — AI's fabricated/over-claiming defense (first-person rationale + "association class" / "directed dependency" misreads visible).
+- "Follow-up — …" slides and "Make-it-flip challenge" — AI's answers to the examiner follow-up and to the flip challenge (it held; the follow-up's invented "alternative I rejected" is the more telling).
 
-When the course settings change (model or effort in `tooling/template/`), the dry-run reruns and the captures refresh.
+When the course settings change (model or effort in `tooling/template/`), the dry-run reruns and the fallback deck is recaptured.

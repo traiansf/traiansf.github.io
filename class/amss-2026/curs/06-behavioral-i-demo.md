@@ -13,7 +13,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 - VS Code open on a repository containing the course settings from `tooling/template/` (see `class/amss-2026/tooling/SETUP.md`); demo runs in the **Claude Code panel** with those settings (Sonnet 5, low effort). Check with `/model` before class.
 - A **Mermaid preview** open in VS Code (the built-in Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram to read message order and returns; raw Mermaid text is not enough.
 - The W4 bike-sharing class diagram recallable (this sequence realises a use case over *those* objects — the cross-link in defect #3 needs it).
-- Browser tab pre-opened to `class/amss-2026/curs/06-behavioral-i-demo-fallback/01-fallback-cycle1-sequence.png` in case the live AI fails.
+- Browser tab pre-opened to the fallback deck `class/amss-2026/curs/fallback/06-behavioral-i-fallback.html` (see §8) in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -113,15 +113,16 @@ Dry run (September 2026): the richest critique surface of the demo — ~25 s, re
 - **A branch that trails off** — CHALLENGE ends in a Note ("re-evaluated after step-up") and `verifyStepUp` never returns.
 - **Scope drift again** — the ride and the return are back.
 
-If even that is clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
+If even that is clean, fall back to the fallback deck's slides "AI's answer — the enterprise sequence", "Zoom — the fraud decision" and "Zoom — messages no requirement asked for" (§8) and walk the capture.
 
 ## 8. Fallback path — live AI fails
 
-If the live AI fails (no response after 20s, network down, garbage output), switch to the pre-recorded renders:
+If the live AI fails (no response after 20s, network down, garbage output), switch to the fallback deck `curs/fallback/06-behavioral-i-fallback.html` (present it in the browser: diagrams at full width, scroll the tall ones; `.pdf` alongside, vector — zoom in). Captured September 2026 with the course setting (Claude Code, Sonnet 5, low effort, fresh session); the slide notes say what to point at, by catalogue number:
 
-- `06-behavioral-i-demo-fallback/01-fallback-cycle1-sequence.png` — seed sequence with no failure path and responsibilities hidden in an opaque lifeline.
-- (walk the same defect catalogue against the screenshot)
-- `06-behavioral-i-demo-fallback/02-fallback-cycle2-revised.png` — post-critique revised sequence with the alt fragment.
+- "AI's answer — the sequence" — cycle-1 sequence (first attempt): `Backend->>Backend` self-calls and no `Rental` lifeline (#2/#3), ride and return drawn (#5), failure paths for ineligibility, declined authorisation and failed final charge but none for the unlock failing (#1, partial form). "AI's answer — what it said" has its prose.
+- (walk the same defect catalogue against it)
+- "AI's answer — the revised sequence" and "AI's answer — its change list" — after prompt #2 in the same session (first attempt): both requested `alt`s, authorise before unlock, `Station` creates the `Rental`; for the re-check, the ineligible-rider branch silently dropped, the `Rental` created before payment and drawn from the top, the "I couldn't see your class diagram" opener.
+- "AI's answer — the enterprise sequence" + the two "Zoom" slides — the §7 reserve after a fresh prompt #1 (first attempt): 13 participants, renders; the DENY branch falls through to the payment, no ALLOW branch.
 
 Acknowledge briefly ("the model is having a moment — here's the dry-run capture") and continue. The pedagogical content is identical.
 
@@ -143,10 +144,10 @@ If ahead of schedule, do not pad — use generation/render pauses to predict alo
 
 This demo is the forerunner of Lab 4's behavioural defect hunt (W8): teams receive flawed behavioural artifacts (sequence, state, activity) and compete to spot the most defects with severity ratings. The §2 defect catalogue is the vocabulary; the deck's sequence read-order is the rubric. (This week's lab, Lab 3, is the *structural* hunt — W4-W5 content.)
 
-Fallback assets to capture during the solo dry-run, in `06-behavioral-i-demo-fallback/`:
+Fallback assets: the instructor-only deck `curs/fallback/06-behavioral-i-fallback.md` (built with `make -C curs/fallback` into `.html` and `.pdf` next to the source, never published), captured September 2026 with the course setting — each capture on the first attempt:
 
-- `01-fallback-cycle1-sequence.png` — rendered cycle-1 sequence with no failure path and responsibilities hidden in an opaque lifeline.
-- `02-fallback-cycle2-revised.png` — rendered revised sequence with the alt fragment.
-- `03-fallback-make-it-fail.png` — rendered over-instrumented "enterprise-grade" output.
+- "AI's answer — the sequence" — cycle-1 sequence with responsibilities hidden in an opaque lifeline and no unlock-failure path.
+- "AI's answer — the revised sequence" — revised sequence with both `alt` fragments, after prompt #2 in the same session.
+- "AI's answer — the enterprise sequence" — over-instrumented "enterprise-grade" output (reserve).
 
-When the course settings pinned in `tooling/template/` (model, effort) change, the dry-run reruns and the PNGs refresh.
+When the course settings pinned in `tooling/template/` (model, effort) change, the dry-run reruns and the fallback deck is recaptured.

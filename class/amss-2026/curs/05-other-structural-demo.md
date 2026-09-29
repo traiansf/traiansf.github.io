@@ -13,7 +13,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 - VS Code open on a repository containing the course settings from `tooling/template/` (see `class/amss-2026/tooling/SETUP.md`); demo runs in the **Claude Code panel** with those settings (Sonnet 5, low effort). Check with `/model` before class. Start a **fresh session** — the prompt's "from last week" is left without context (see defect #5); if the assistant does find last week's diagram in the repository, #5 simply won't appear.
 - A **PlantUML preview pane** (PlantUML extension by jebbs, server render) open in VS Code — students must SEE the rendered diagram to judge the grain; raw PlantUML text is not enough.
 - The W4 bike-sharing class diagram visible or recallable (this demo decomposes *that* system — continuity matters).
-- Browser tab pre-opened to `class/amss-2026/curs/05-other-structural-demo-fallback/01-fallback-overdecomposed.png` in case the live AI fails.
+- Browser tab pre-opened to the fallback deck `class/amss-2026/curs/fallback/05-other-structural-fallback.html` (see §7) in case the live AI fails.
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -100,15 +100,16 @@ Expect more invented infrastructure (caches, queues, gateways) and finer splits.
 - **The first dependency cycles of the demo**, hidden behind the event bus: `Fleet --> Bus --> Maint ..> Fleet`, `Stations --> Bus --> Rebal ..> Stations`.
 - **The disclaimer** — "I invented the extra services … Trim anything your app doesn't need." Does saying so make an unjustified box acceptable? Whose job is the trimming?
 
-Rendered locally after the dry run (PlantUML 1.2026.8): it fails exactly where the reply itself warns — `Core Microservices ..> Metrics` (a package used as an endpoint). If the preview errors, delete those lines as it suggests (itself a beat: it knew its output might be broken). The diagram is dense: zoom and walk one package at a time. If even that is clean, fall back to the dry-run capture and walk the screenshot.
+Rendered locally after the dry run (PlantUML 1.2026.8): it fails exactly where the reply itself warns — `Core Microservices ..> Metrics` (a package used as an endpoint). If the preview errors, delete those lines as it suggests (itself a beat: it knew its output might be broken). The diagram is dense: zoom and walk one package at a time. If the live reserve fails or comes back clean, switch to the fallback deck's "AI's answer — the \"production-ready\" diagram" slide and walk that.
 
 ## 7. Fallback path — live AI fails
 
-If the live AI fails (no response after 20s, network down, garbage output), switch to the pre-recorded renders:
+If the live AI fails (no response after 20s, network down, garbage output), switch to the fallback deck `curs/fallback/05-other-structural-fallback.html` (present it in the browser: diagrams at full width; `.pdf` alongside, vector — zoom in). Captured September 2026 with the course setting (Claude Code, Sonnet 5, low effort, fresh session); both PlantUML diagrams render with local PlantUML; the slide notes say what to point at, by catalogue number:
 
-- `05-other-structural-demo-fallback/01-fallback-overdecomposed.png` — cycle-1 diagram with visible over-decomposition + invented infrastructure.
-- (walk the same defect catalogue against the screenshot)
-- `05-other-structural-demo-fallback/02-fallback-redecomposed.png` — post-critique revised diagram at the right grain.
+- "AI's answer — the diagram" — cycle-1 diagram (first attempt): invented gateway, client apps, notification service and four databases (#1), interface names only as arrow labels (#3), no bike or rebalancing part (#4); "AI's answer — what it said" has its "I don't have last week's session" opener (#5). Services stayed flat (#2 absent, as in the dry run).
+- (walk the same defect catalogue against it)
+- "AI's answer — the revised diagram" and "AI's answer — its design notes" — after prompt #2 in the same session (first attempt): four flat components with provided/required interfaces, one-way dependencies; for the re-check, "Stations owns the bikes" yet rebalancing is still absent, payment methods in `Users`, `IRentalService` with no consumer.
+- "AI's answer — the \"production-ready\" diagram" and the following "what it said" — the make-it-fail reserve (fresh session, first attempt): CDN, load balancer, gateway, Kafka, Redis, service mesh, Vault, Kubernetes, plus Fraud Detection, KYC and Support services; it admits the technology "defaults I picked".
 
 Acknowledge briefly ("the model is having a moment — here's the dry-run capture") and continue. The pedagogical content is identical.
 
@@ -128,9 +129,10 @@ This is an opener, not the whole demo — keep it tight and hand into the galler
 
 This demo is the forerunner of Lab 3 (next week): a team defect hunt on flawed structural artifacts (class, package, component). The defect catalogue in §2 is the vocabulary teams will use; the deck's read-order is the rubric.
 
-Fallback assets to capture during the solo dry-run, in `05-other-structural-demo-fallback/`:
+Fallback assets: the instructor-only deck `curs/fallback/05-other-structural-fallback.md` (built with `make -C curs/fallback` into `.html` and `.pdf` next to the source, never published), captured September 2026 with the course setting — each capture on the first attempt:
 
-- `01-fallback-overdecomposed.png` — rendered cycle-1 diagram with over-decomposition + invented infrastructure.
-- `02-fallback-redecomposed.png` — rendered revised diagram at the right grain.
+- "AI's answer — the diagram" — cycle-1 diagram with invented infrastructure (over-decomposition did not appear).
+- "AI's answer — the revised diagram" — revised diagram at the right grain, after prompt #2 in the same session.
+- "AI's answer — the \"production-ready\" diagram" — the make-it-fail reserve's infrastructure sprawl (fresh session).
 
-When the course settings pinned in `tooling/template/` (model, effort) change, the dry-run reruns and the PNGs refresh.
+When the course settings pinned in `tooling/template/` (model, effort) change, the dry-run reruns and the fallback deck is recaptured.

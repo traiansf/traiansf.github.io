@@ -5,12 +5,16 @@ AMSS_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 
 include $(AMSS_ROOT)/release.mk
 
-.PHONY: all clean curs lab proiect exam static prune
+.PHONY: all clean curs lab proiect exam static prune fallback
 
 all: curs lab proiect exam static prune
 
 curs lab proiect exam:
 	$(MAKE) -C $@
+
+# Instructor-only demo fallback decks, built in place (not part of `all`, never published).
+fallback:
+	$(MAKE) -C curs/fallback
 
 static:
 	@mkdir -p $(BASE)
@@ -34,3 +38,4 @@ clean:
 	$(MAKE) -C lab clean
 	$(MAKE) -C proiect clean
 	$(MAKE) -C exam clean
+	$(MAKE) -C curs/fallback clean

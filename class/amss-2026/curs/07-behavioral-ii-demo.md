@@ -14,7 +14,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 
 - VS Code open on a repository containing the course settings from `tooling/template/` (see `class/amss-2026/tooling/SETUP.md`); demo runs in the **Claude Code panel** with those settings (Sonnet 5, low effort). Check with `/model` before class.
 - A **Mermaid preview** open in VS Code (the built-in Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram to trace reachability; raw Mermaid text is not enough.
-- Browser tab pre-opened to `class/amss-2026/curs/07-behavioral-ii-demo-fallback/01-fallback-cycle1-states.png` in case the live AI fails.
+- The fallback deck `curs/fallback/07-behavioral-ii-fallback.pdf` open in the background in case the live AI fails (§7).
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -104,7 +104,7 @@ The calibrated first draft was near-reference on structure, so a fully clean dra
 
 > *"Add all the edge-case states: lost, stolen, reserved-but-expired, charging, low-battery. Model 'in use' as a composite state with Riding and Paused substates."*
 
-Dry run (September 2026, ~12 s, rendered): a rich surface — 10 states, ~35 transitions, a render dense enough that you must zoom and trace one question at a time (capture it as `03-fallback-make-it-fail.png`). What it yielded, in order of teaching value:
+Dry run (September 2026, ~12 s, rendered): a rich surface — 10 states, ~35 transitions, a render dense enough that you must zoom and trace one question at a time (a capture is in the fallback deck, slide "Reserve — the diagram"). What it yielded, in order of teaching value:
 
 - **Low battery overlapping `InUse`.** `InUse --> LowBattery : batteryLevel < critical` — the rental silently ends mid-ride. *"The battery dips on the way home. Is the rider still renting?"*
 - **Lost exit paths.** `Decommissioned` is reachable only from `Lost` / `Stolen`; the turn-1 `UnderMaintenance` had no retire path and still has none. *"An unrepairable bike — how does it leave the fleet?"*
@@ -112,15 +112,16 @@ Dry run (September 2026, ~12 s, rendered): a rich surface — 10 states, ~35 tra
 - **Notation.** `tamperAlert / geofenceBreach [unauthorized movement]` repeats the `/`-as-alternative misuse with the guard after the action; change events written as bare conditions (`batteryLevel < threshold`, UML: `when(...)`); overlapping `dockBike()` guards (`[battery low]` vs `[fault reported]`).
 - **Redundancy the model admits.** `Paused --> Lost` duplicates `InUse --> Lost` — a good "does the boundary transition cover substates?" check.
 
-Pick 2-3; the low-battery overlap is the anchor. If a reserve run is clean, praise it briefly and walk the fallback capture from §7 — the gallery carries the classic defects.
+Pick 2-3; the low-battery overlap is the anchor. If a reserve run is clean, praise it briefly and walk the reserve capture in the §7 fallback deck — the gallery carries the classic defects.
 
 ## 7. Fallback path — live AI fails
 
-If the live AI fails (no response after 20s, network down, garbage output), switch to the pre-recorded renders:
+If the live AI fails (no response after 20s, network down, garbage output), switch to the fallback deck `curs/fallback/07-behavioral-ii-fallback.pdf` (or `.html`) — real runs of this runbook's prompts, captured September 2026 with the course setting (Claude Code, Sonnet 5, low effort); each chain was good on the first attempt. Speaker notes carry the catalogue numbers to point at.
 
-- `07-behavioral-ii-demo-fallback/01-fallback-cycle1-states.png` — cycle-1 state machine (no walk-up transition, vague guard, notation misuse).
-- (walk the same defect catalogue against the screenshot)
-- `07-behavioral-ii-demo-fallback/02-fallback-cycle2-revised.png` — post-critique revised state machine.
+- Slide "AI's answer — the diagram" — cycle-1 state machine. In this capture walk-up is already drawn; it shows #4 (fault only on return — the AI even says so), #6 (overlapping `return()` guards), #3 (`cancel() / reservation timeout`) and a vague guard.
+- (walk the same defect catalogue against it)
+- Slide "AI's revision — the diagram" — the revision after prompt #2 (mid-ride fault as a self-transition, trigger on the initial transition, comma action lists).
+- Slide "Reserve — the diagram" — the §6 edge-case reserve (slash-as-alternative, bare change events, overlapping guards, partial `theftReported()` coverage).
 
 Acknowledge briefly ("the model is having a moment — here's the dry-run capture") and continue. The pedagogical content is identical.
 
@@ -141,10 +142,10 @@ This is an opener, not the whole demo — keep it tight and hand into the galler
 
 This demo is a forerunner of Lab 4 (next week, W8): a team defect hunt on flawed behavioural artifacts (sequence, state, activity). The §2 defect catalogue (observed plus classic) is the vocabulary; the deck's behaviour read-order is the rubric.
 
-Fallback assets to capture during the solo dry-run, in `07-behavioral-ii-demo-fallback/`:
+Fallback assets — the deck `curs/fallback/07-behavioral-ii-fallback.md` (built to `.pdf` / `.html` next to it by `make -C curs/fallback`; never published), captured September 2026 with the course setting, one attempt per chain:
 
-- `01-fallback-cycle1-states.png` — rendered cycle-1 state machine (calibrated: no walk-up transition, vague guard, `event / action` misuse).
-- `02-fallback-cycle2-revised.png` — rendered revised state machine.
-- `03-fallback-make-it-fail.png` — rendered output of the §6 reserve prompt.
+- "AI's answer — the diagram" / "— what it said" — prompt #1 (same session as the revision).
+- "AI's revision — the diagram" / "— what it said" — after prompt #2.
+- "Reserve — the diagram" / "— what it said" — the §6 reserve, in a fresh session after its own prompt #1.
 
-When the course model setting changes (`tooling/template/`), the dry-run reruns and the PNGs refresh.
+When the course model setting changes (`tooling/template/`), rerun the captures and rebuild the deck.

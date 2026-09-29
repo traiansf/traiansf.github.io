@@ -12,7 +12,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 
 - VS Code open on a repository containing the course settings (`tooling/template/` copied in — see `class/amss-2026/tooling/SETUP.md`), the **Claude Code panel** open and signed in; `/model` shows **Sonnet 5, low effort**.
 - The Claude Code panel visible — the artifact is a multi-layer text answer; a Mermaid preview (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) helps for the sequence/class but is not essential.
-- Browser tab pre-opened to `class/amss-2026/curs/10-traceability-demo-fallback/01-fallback-broken-trace.png` in case the live AI fails.
+- The fallback deck `curs/fallback/10-traceability-fallback.html` (or `.pdf`) open in a browser tab in case the live AI fails (§7).
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -100,15 +100,16 @@ If AI's first trace is fully consistent (unlikely — the calibration run had fo
 - **Dangling links:** tests call `demand.setSurge`, `tripRepo`, `loyalty.seed` / `balance`, `RiderBlockedException`; the sequence still calls `Bike.checkStatus`, which no class declares.
 - The original 15-minute tests are silently dropped from the new test list.
 
-Pick two (the fee and the fraud-review path are the quickest to show). If even that is clean, fall back to `02-fallback-make-it-fail.png` and walk the screenshot.
+Pick two (the fee and the fraud-review path are the quickest to show). If even that is clean, fall back to the §7 fallback deck's "Reserve —" slides and walk the capture.
 
 ## 7. Fallback path — live AI fails
 
-If the live AI fails (no response after 20s, network down, garbage output), switch to the pre-recorded captures:
+If the live AI fails (no response after 20s, network down, garbage output), switch to the fallback deck `curs/fallback/10-traceability-fallback.html` (present it in the browser; `.pdf` alongside, vector — zoom into the sequences). Captured September 2026 with the course setting (Claude Code, Sonnet 5, low effort, fresh session); the slide notes say what to point at, by catalogue number:
 
-- `10-traceability-demo-fallback/01-fallback-broken-trace.png` — cycle-1 trace with dangling links and an untested requirement clause.
-- (walk the same defect catalogue against the screenshot)
-- `10-traceability-demo-fallback/02-fallback-consistent-trace.png` — the repaired, consistent trace.
+- "AI's answer — requirements and use case", "— class changes", "— the sequence", "— the tests" — the cycle-1 trace (prompt #1 + #2 chain took 2 attempts: the first drew the class changes and the sequence only as ASCII art, no Mermaid). Dangling links (#1: `reserve(riderId, bikeId)` called with objects, `tripService`, the exceptions and `repo.save` never declared), the untested cancel clause the AI claims is covered (#2), gold-plating — one-per-rider rule, countdown, expiry job (#5), "convert reservation" sent to the service instead of `Reservation` (#7). Credit: the 15:00 boundary is tested.
+- (walk the same defect catalogue along the chain)
+- "Revised — requirements and class changes", "Revised — the sequence", "Revised — the trace links" — after prompt #2 in the same session. For the re-check: constructors still undeclared behind an "every operation is declared" claim, the expiry branch has no trigger, the holder check is a note rather than a guard, `isDue` listed but never called, R2 rewritten; credit its honest open question (late unlock before `expireDue()` runs).
+- "Make-it-fail reserve" and the "Reserve —" slides — §6 reserve after a fresh prompt #1 (first attempt): the fee nobody asked for, untested fraud rules, hard-coded thresholds, the holder check silently dropped from unlock, a test named for "expired and cancelled" that never cancels.
 
 Acknowledge briefly ("the model is having a moment — here's the dry-run capture") and continue. The pedagogical content is identical.
 
@@ -128,10 +129,10 @@ This is an opener, not the whole demo — keep it tight and hand into the galler
 
 This demo is the rehearsal for **Lab 5** this week — the project checkpoint defense, where each student walks **their own** project's trace. The §2 defect catalogue is exactly what examiners probe; the deck's audit order is the rubric. Tell students: run this audit on their own trace before the checkpoint.
 
-Fallback assets to capture during the solo dry-run, in `10-traceability-demo-fallback/`:
+Fallback assets: the instructor-only deck `curs/fallback/10-traceability-fallback.md` (built with `make -C curs/fallback` into `.html` and `.pdf` next to the source, never published), captured September 2026 with the course setting:
 
-- `01-fallback-broken-trace.png` — captured cycle-1 trace with dangling links + untested clause.
-- `02-fallback-consistent-trace.png` — the repaired trace after prompt #2.
-- `03-fallback-make-it-fail.png` — the gold-plated trace from the reserve prompt.
+- "AI's answer — …" slides — cycle-1 trace with dangling links + untested clause (2 attempts: the first had no Mermaid).
+- "Revised — …" slides — the repaired trace after prompt #2, same session (same chain).
+- "Make-it-fail reserve" + "Reserve — …" slides — the gold-plated trace from the reserve prompt (first attempt).
 
-When the course settings change (model or effort in `tooling/template/`), the dry-run reruns and the captures refresh.
+When the course settings change (model or effort in `tooling/template/`), the dry-run reruns and the fallback deck is recaptured.

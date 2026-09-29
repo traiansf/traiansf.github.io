@@ -14,7 +14,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 
 - VS Code open on a repository containing the course settings from `tooling/template/` (see `class/amss-2026/tooling/SETUP.md`); demo runs in the **Claude Code panel** with those settings (Sonnet 5, low effort). Check with `/model` before class.
 - A scratch buffer or chat pane visible — the artifact here is a *list of patterns with rationale*; a Mermaid preview (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) is useful for prompt #2's structure but not essential for #1.
-- Browser tab pre-opened to `class/amss-2026/curs/08-patterns-i-demo-fallback/01-fallback-overuse.png` in case the live AI fails.
+- The fallback deck `curs/fallback/08-patterns-i-fallback.pdf` open in the background in case the live AI fails (§8).
 - The deck's "Demo" trigger slide is on screen.
 
 ## 1. Architect prompt #1 — verbatim
@@ -111,22 +111,23 @@ The calibrated first answer was already restrained (two patterns plus an optiona
 
 > *"Make this enterprise-grade and future-proof with the full set of design patterns a senior architect would use."*
 
-Dry run (September 2026, ~21 s, long answer — budget ~1 min just to scroll it): the model **pushes back in prose and complies in the table**. It opens "I'm not adding every pattern", closes "building all of this on day one … would slow you down", yet lists ten patterns (Strategy, Specification, Composite, Chain of Responsibility, Factory + Repository, Builder, Value Object, Observer/outbox, Facade, Ports & Adapters) in a column literally headed "Future change it absorbs". Capture it as `03-fallback-make-it-fail.png`. What to point at:
+Dry run (September 2026, ~21 s, long answer — budget ~1 min just to scroll it): the model **pushes back in prose and complies in the table**. It opens "I'm not adding every pattern", closes "building all of this on day one … would slow you down", yet lists ten patterns (Strategy, Specification, Composite, Chain of Responsibility, Factory + Repository, Builder, Value Object, Observer/outbox, Facade, Ports & Adapters) in a column literally headed "Future change it absorbs". A capture is in the §8 fallback deck (slide "Reserve — \"patterns that earn their place\""). What to point at:
 
 - **Named, not applied.** Specification, Composite and Observer appear only in the table and the ASCII box diagram — nothing in the sketch implements them; "Factory + Repository" has a repository and no factory; `SegmentSplitter` is labelled "Iterator" but is a method returning segments.
 - **Mislabel.** The "Chain of Responsibility" is a sorted list where every adjustment runs — same stretch as defect #6.
 - **A bug the patterns hide.** `MemberDiscount` computes from `fare.subtotal`, so the "explicit, testable order" of adjustments does not affect it; and the tariff is picked once at `ride.start` — the boundary problem again, one level up.
 - **Which voice wins?** *"It says don't build this — and then builds it. Which part is the design?"*
 
-Walk each added pattern with the four selection questions. The lesson stands, sharpened: the model did not refuse a requirement with no problem behind it — it hedged. If a run is clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
+Walk each added pattern with the four selection questions. The lesson stands, sharpened: the model did not refuse a requirement with no problem behind it — it hedged. If a run is clean, switch to the reserve slides of the §8 fallback deck and walk the capture.
 
 ## 8. Fallback path — live AI fails
 
-If the live AI fails (no response after 20s, network down, garbage output), switch to the pre-recorded captures:
+If the live AI fails (no response after 20s, network down, garbage output), switch to the fallback deck `curs/fallback/08-patterns-i-fallback.pdf` (or `.html`) — real runs of this runbook's prompts, captured September 2026 with the course setting (Claude Code, Sonnet 5, low effort); each chain was good on the first attempt. Speaker notes carry the catalogue numbers to point at.
 
-- `08-patterns-i-demo-fallback/01-fallback-overuse.png` — cycle-1 suggestion list (calibrated: Strategy by start time, Decorator, optional Factory).
-- (walk the same defect catalogue against the screenshot)
-- `08-patterns-i-demo-fallback/02-fallback-strategy.png` — the narrowed, justified Strategy structure.
+- Slides "AI's answer — the patterns" and "AI's answer — the sketch" — cycle-1 suggestion list: Strategy, Decorator justified by "stack promos later" (#3), a wiring Factory (#2), hedges throughout (#5), and prose that disagrees with its sketch (#4). The sketch already prices each minute, so #1 does not appear — credit it.
+- (walk the same defect catalogue against it)
+- Slides "AI's revision — what each piece absorbs today" and "AI's revision — the remaining structure" — after prompt #2 it drops Strategy, Decorator and Factory for a `RateSchedule` rate table; the time zone from the first answer silently disappears.
+- Slide "Reserve — \"patterns that earn their place\"" — the §7 reserve (eleven patterns after "not from pattern count").
 
 Acknowledge briefly ("the model is having a moment — here's the dry-run capture") and continue. The pedagogical content is identical.
 
@@ -149,10 +150,10 @@ If ahead of schedule, do not pad — count the proposed patterns aloud and predi
 
 This week's lab (Lab 4) is the *behavioural* defect hunt (W6-W7 content), not patterns — so this demo does not feed Lab 4 directly. The selection skill feeds **W9** (the deeper applied-vs-labeled critique on specific patterns) and the **project design narrative**, where students must justify every pattern they apply (F3).
 
-Fallback assets to capture during the solo dry-run, in `08-patterns-i-demo-fallback/`:
+Fallback assets — the deck `curs/fallback/08-patterns-i-fallback.md` (built to `.pdf` / `.html` next to it by `make -C curs/fallback`; never published), captured September 2026 with the course setting, one attempt per chain:
 
-- `01-fallback-overuse.png` — captured cycle-1 suggestion list.
-- `02-fallback-strategy.png` — the narrowed Strategy structure after prompt #2.
-- `03-fallback-make-it-fail.png` — the over-engineered "enterprise-grade" output from the reserve prompt.
+- "AI's answer — …" slides — prompt #1 (same session as the revision).
+- "AI's revision — …" slides — after prompt #2 (worked boundary ride, keep/drop table, class diagram, code).
+- "Reserve — …" slides — the "enterprise-grade" §7 reserve, in a fresh session after its own prompt #1.
 
-When the course model setting changes (`tooling/template/`), the dry-run reruns and the captures refresh.
+When the course model setting changes (`tooling/template/`), rerun the captures and rebuild the deck.
