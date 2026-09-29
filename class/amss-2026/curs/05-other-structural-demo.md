@@ -28,15 +28,17 @@ Render the result in the preview pane. **Time:** ~1 min to type, ~2 min for AI t
 
 Walk the rendered diagram aloud. Pick the **2-3 defects that actually appear**. In calibration the model produced a stock microservice layout: invented infrastructure (#1) was the loudest defect — anchor on it — with moderate over-decomposition (#2) and no interfaces at all (#3). No cycles, no single god component.
 
+Dry run (September 2026), two fresh runs of prompt #1 (~11 s each): #1 recurred in both (`API Gateway`, a client app or operator dashboard, a `Notification Service`, one database per service, an external payment provider, once `Bike/Dock IoT Hardware`), and both times the model *labelled* its additions as assumptions — "remove them if they don't apply". #4 and #5 recurred; #5 is now announced up front ("I don't have last week's app or design in this session"). #2 did **not** recur — services stayed flat — and #3 showed in a variant: interface names such as `IUserAccount` and `IStationInfo` written as labels on dependency arrows, never drawn as provided/required interfaces.
+
 | # | Defect | What to point at | Critique question |
 |---|---|---|---|
 | 1 | Invented infrastructure | `API Gateway`, a `Web Portal` client, a `Notification Service`, a `database` per service (`User DB`, `Station DB`, `Rental DB`, `Payment DB`) — none in the four domains the prompt named | *"Is this in the requirements, or did AI assume an architecture? Walk each box back to the spec."* |
 | 2 | Over-decomposition (nested) | Every service split into sub-components (`Auth` + `Profile Management`, `Station Registry` + `Dock Availability`, `Billing` + `Payment Gateway Adapter`) | *"What boundary does each split earn? Could you replace `Dock Availability` without touching `Station Registry`?"* |
-| 3 | Components with no interfaces | Every arrow a bare `-->` between `...Service` boxes; no provided/required interface anywhere | *"Name what `Payment Service` provides and what `Rental Service` requires from it. If you can't, it's just a renamed class."* |
+| 3 | Components with no interfaces | Every arrow a bare `-->` between `...Service` boxes; no provided/required interface anywhere (dry run: interface names only as arrow labels, `Rentals ..> Stations : IStationInfo` — a name on a line is not a declared interface) | *"Name what `Payment Service` provides and what `Rental Service` requires from it. If you can't, it's just a renamed class."* |
 | 4 | Missing domain part | No bike/fleet component (bikes hidden as `Bike Tracking` inside `Rental Service`); staff rebalancing absent | *"Where do bikes and rebalancing live? Last week's class diagram had them — why did they vanish?"* |
 | 5 | Missing context | The model says it has no record of "last week" and builds a generic layout from the four nouns | *"What did it base this on? What should we have handed it — and whose job was that?"* |
 
-Also plausible, not seen in calibration: a dependency cycle (e.g. payments calling back into the UI) or the opposite failure, one `BikeShareApp` box holding everything (the deck's gallery covers both).
+Also plausible, not seen from prompt #1: a dependency cycle (the dry run's §6 reserve did produce cycles through an event bus) or the opposite failure, one `BikeShareApp` box holding everything (the deck's gallery covers both).
 
 If the diagram is suspiciously clean → jump to §6 "Make-it-fail reserve".
 
@@ -54,7 +56,13 @@ Type this into the Claude Code panel:
 
 > *"Revise it. Drop any infrastructure the prompt didn't mention — no API gateway, web portal, notification service, or per-service databases. Group by domain capability without nested sub-components — aim for a handful of parts, and say which part owns the bikes. Each component must declare the interfaces it provides and requires. Dependencies must point one way, with no cycles."*
 
-Not calibrated (only prompt #1 was run): as the render appears, check the claimed changes against the diagram — especially whether real provided/required interfaces appeared or just labels on arrows.
+Dry run (September 2026): it complied on every point, in ~11 s — gateway, clients, notification service and databases gone (the payment provider and actors too); four flat components `Users`, `Stations`, `Payments`, `Rentals`; each provides one interface drawn as a lollipop (`Users -0)- IUserAccounts`) and requires others through dashed `requires` arrows; dependencies one way (Rentals → Payments → Users, Rentals → Stations); a note saying Stations owns the bikes. Its summary matched the diagram — no false claims. So the re-check is quick; spend the time on what the constraints didn't cover:
+
+- *"Stations owns the bikes"* — yet a bike being ridden or rebalanced is at no station (last week's `0..1`), and rebalancing is still nowhere: defect #4 survives the revision.
+- Payment methods live in `Users`' interface, which is why `Payments` depends on `Users` — whose responsibility is a payment method?
+- `IRentals` is provided but nothing requires it — who calls it? That's the cost of deleting the client apps along with the infrastructure.
+
+Both PlantUML diagrams from prompt #2 rendered when checked locally after the dry run (PlantUML 1.2026.8). If a live preview ever rejects the `-0)-` connector, read the reply's provides/requires table aloud instead of debugging.
 
 Naming the structural rules is the pivot. Re-render. **Time:** ~1 min to type, ~2 min for AI to revise + render.
 
@@ -86,7 +94,13 @@ If AI's first diagram is already well-grained (low probability — in calibratio
 
 > *"Make this production-ready with all the supporting infrastructure and microservices."*
 
-Expect more invented infrastructure (caches, queues, gateways) and finer splits. If even that is clean, fall back to the dry-run capture and walk the screenshot.
+Expect more invented infrastructure (caches, queues, gateways) and finer splits. Dry run (September 2026): plenty to critique, in ~20 s — about 45 elements in 11 packages: CDN/WAF, load balancer, gateway, auth service, secrets manager, Kafka plus a dead-letter queue, nine data stores with product names, Prometheus/ELK/Jaeger/PagerDuty, and Kubernetes, a service mesh, a CI/CD pipeline and a container registry. Point at:
+
+- **Wrong diagram level** — Kubernetes, CI/CD and a container registry are deployment and build concerns, not runtime components (Week 5's deployment view, not a component view).
+- **The first dependency cycles of the demo**, hidden behind the event bus: `Fleet --> Bus --> Maint ..> Fleet`, `Stations --> Bus --> Rebal ..> Stations`.
+- **The disclaimer** — "I invented the extra services … Trim anything your app doesn't need." Does saying so make an unjustified box acceptable? Whose job is the trimming?
+
+Rendered locally after the dry run (PlantUML 1.2026.8): it fails exactly where the reply itself warns — `Core Microservices ..> Metrics` (a package used as an endpoint). If the preview errors, delete those lines as it suggests (itself a beat: it knew its output might be broken). The diagram is dense: zoom and walk one package at a time. If even that is clean, fall back to the dry-run capture and walk the screenshot.
 
 ## 7. Fallback path — live AI fails
 

@@ -141,7 +141,7 @@ The spec's framing: sequence diagrams as use-case realisations. This is also a t
 **Prompt to AI:** *"Generate a UML sequence diagram (as Mermaid) for renting a bike in the city bike-sharing app: a rider unlocks a bike at a station and is charged by app."*
 
 ::: notes
-Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/06-behavioral-i-demo.md` for ~12 min. Expect a missing failure path (no alt at all) and the real work hidden in self-calls on one opaque "Backend" lifeline, with no Rental ever created; fabricated messages are less likely unprompted with current models. Fallback: runbook §8.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/06-behavioral-i-demo.md` for ~12 min. Expect the real work hidden in self-calls on one opaque "Backend" lifeline, with no Rental ever created, and the ride and return drawn although only renting was asked; the failure path is often partial (a declined-payment branch may appear, a failed unlock rarely does) rather than absent; fabricated messages are less likely unprompted with current models. Fallback: runbook §8.
 :::
 
 ---
@@ -215,7 +215,7 @@ sequenceDiagram
 Real interactions have **failure paths**. The `alt` fragment shows the branch. AI usually draws only the happy path.
 
 ::: notes
-The alt fragment is the floor element AI most often omits. Payment declined, bike already taken, network down — these are the interactions that matter for correctness, and AI skips them because the happy path "looks complete." Anchor this; it's defect #4.
+The alt fragment is the floor element AI most often omits. Payment declined, bike already taken, network down — these are the interactions that matter for correctness, and AI skips them — or models only the obvious one, such as a declined payment — because the happy path "looks complete." Anchor this; it's defect #4.
 :::
 
 ---

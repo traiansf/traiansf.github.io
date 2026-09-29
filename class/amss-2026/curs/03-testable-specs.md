@@ -294,7 +294,7 @@ Say it plainly. The demo is its proof. This sentence is the bridge from requirem
 → AI invents a rate (in our dry run: €1 to unlock + €0.15/min). The test encodes a guess.
 
 **Pass 2 (tightened):** "Free first 30 min, then €0.10/min, capped at €5."
-→ AI writes tests for 20 min, 30 min, 60 min, and the cap. Each pins a real decision.
+→ AI writes tests for 20 min, exactly 30 min, and 90 min — which already hits the €5 cap. Each pins a real decision.
 
 ::: notes
 The tightening is the architect move; spotting the guess is the critic move. Same architect-and-critic loop as Week 2, now on tests. Refer back to the demo screen.

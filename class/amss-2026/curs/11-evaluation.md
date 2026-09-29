@@ -119,7 +119,7 @@ Metamodel kept brief (spec: "brief metamodel concepts"). The point students need
 In pairs, write down whether AI will (a) praise the flawed bike-sharing diagram, (b) nitpick cosmetics, or (c) catch the real defects — then we reveal live.
 
 ::: notes
-Quick prediction beat before the demo: have each pair commit to (a), (b), or (c) on paper. Collect a show of hands so the room is on record. Most rooms predict (a). Current models usually land nearer (c) with a gap — a harsh score and the textbook smells, but silence on the many-to-many multiplicities — so the reveal is "it caught more than you expected, and still missed the one that needs the domain". Either way they own a stake in the outcome. 60 seconds, then run the demo.
+Quick prediction beat before the demo: have each pair commit to (a), (b), or (c) on paper. Collect a show of hands so the room is on record. Most rooms predict (a). Current models land at (c) or close to it — a harsh score and the textbook smells; in one of our two September 2026 runs it was silent on the many-to-many multiplicities, in the other it caught them. So the reveal is "it caught more than you expected" — and then check what it missed or got wrong (its own fixes, its reasons). Either way they own a stake in the outcome. 60 seconds, then run the demo.
 :::
 
 ---
@@ -131,7 +131,7 @@ Quick prediction beat before the demo: have each pair commit to (a), (b), or (c)
 **Prompt to AI:** *"Here is a UML class diagram for a bike-sharing app. Is this a good design? Rate it. [paste a flawed diagram]"*
 
 ::: notes
-Switch to the Claude Code panel (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/11-evaluation-demo.md` for ~12 min. The diagram is the Week 4 / Lab 2 flawed one (wrong multiplicity, god class, invented infrastructure) — we know the ground truth. What to expect: not praise — in our September 2026 run it scored 3/10 and named the god class and the database manager — but it said nothing about either many-to-many multiplicity, and its suggested fix carried its own wrong multiplicity. Sycophancy is then tested by re-asking in a fresh chat framed as "I designed this myself". Walk what actually appears. Fallback: runbook §8.
+Switch to the Claude Code panel (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/11-evaluation-demo.md` for ~12 min. The diagram is the Week 4 / Lab 2 flawed one (wrong multiplicity, god class, invented infrastructure) — we know the ground truth. What to expect: not praise — in both our September 2026 runs it scored 3/10 and named the god class and the database manager. In one run it said nothing about either many-to-many multiplicity; in the other it flagged both — but its suggested fix for `Station -- Bike` still carried a wrong multiplicity (`"1"` at the station end, contradicting its own sentence about bikes in transit). Do not promise the multiplicity miss. Sycophancy is then tested by re-asking in a fresh chat framed as "I designed this myself". Walk what actually appears. Fallback: runbook §8.
 :::
 
 ---
@@ -157,7 +157,7 @@ Frame it as yours ("I made this") and the verdict can soften.
 **Lesson:** *AI rates to agree. A flattering evaluation is not a passing one.*
 
 ::: notes
-The classic evaluation pathology — AI mirrors the asker's apparent hope. Be honest with the room: current models rarely gush over a neutrally presented, textbook-flawed diagram (the demo's first verdict was harsh). The risk is highest when the work is framed as the asker's own, when the defects are subtle, or when the model is grading its own output — the demo's "I designed this myself" re-ask tests exactly that. The defence: never ask "is this good?"; ask for specific defects, neutrally framed.
+The classic evaluation pathology — AI mirrors the asker's apparent hope. Be honest with the room: current models rarely gush over a neutrally presented, textbook-flawed diagram (the demo's first verdict was harsh). The risk is highest when the work is framed as the asker's own, when the defects are subtle, or when the model is grading its own output — the demo's "I designed this myself" re-ask tests exactly that. In our September 2026 dry run the re-ask scored 4/10 against the neutral 3/10 and wrapped the same critique in praise ("your instinct is good") — a small shift, one run each, so it may be noise; the room sees whatever happens live. The defence: never ask "is this good?"; ask for specific defects, neutrally framed.
 :::
 
 ---
@@ -171,7 +171,7 @@ A clean diagram with a wrong multiplicity passes.
 **Lesson:** *Looks-right is not is-right. AI optimises for the first.*
 
 ::: notes
-AI was trained on what good artifacts look like, so it rates surface plausibility. A wrong `Member "*" -- "*" Book` in a tidy diagram sails through — the demo's `User "*" -- "*" Rental` is the live instance: flagged by no one but the human. This is why a human who reads the multiplicity aloud beats AI's gestalt impression. Reuse the Week 4 wrong-multiplicity example.
+AI was trained on what good artifacts look like, so it rates surface plausibility. A wrong `Member "*" -- "*" Book` in a tidy diagram sails through — the demo's `User "*" -- "*" Rental` is the live instance when the model misses it (it did in one of our two September 2026 runs, and caught it in the other — so the miss is a risk, not a certainty; the reliable defence is still the human reading it aloud). This is why a human who reads the multiplicity aloud beats AI's gestalt impression. Reuse the Week 4 wrong-multiplicity example.
 :::
 
 ---

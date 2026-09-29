@@ -26,14 +26,16 @@ Render the result in the preview pane. **Time:** ~1 min to type, ~2-3 min for AI
 
 ## 2. Defect catalogue — pick 2-3 from the menu
 
-Walk the rendered diagram aloud. Pick the **2-3 defects that actually appear**. #1 (only the happy path) appeared in calibration — anchor on it. The calibration draft was otherwise tidy: returns present, order causal, no fabricated fraud/logging step — so the second critique target is *where the work went* (#2/#3), not invented messages.
+Walk the rendered diagram aloud. Pick the **2-3 defects that actually appear**. #1 (only the happy path) appeared in calibration. The calibration draft was otherwise tidy: returns present, order causal, no fabricated fraud/logging step — so the second critique target is *where the work went* (#2/#3), not invented messages.
+
+Dry run (September 2026), two fresh runs of prompt #1 (~10 s each, both rendered): **#1 did not recur in its full form** — both drafts already had an `alt` for a declined payment authorisation (one also had invalid-account, bike-unavailable and failed-final-charge branches), but neither modelled the bike failing to unlock (one again only *offered* it in prose). #2, #3 and #5 recurred in both: `Backend->>Backend` self-calls for validation, "Create rental" and fare computation, no `Rental` lifeline, and the ride plus the return drawn although only renting was asked. So **anchor on #2/#3**, add #5, and use #1 in its partial form — *"which failures did it pick, and which did it leave out?"*
 
 | # | Defect | What to point at | Critique question |
 |---|---|---|---|
-| 1 | Only the happy path | No `alt` anywhere — payment never declined, unlock never fails, bike never already taken; the closing prose even *offers* "a variant showing failure paths" | *"What happens when the unlock fails? AI knows failure paths exist — it said so — so why aren't they on the diagram?"* |
+| 1 | Only the happy path | No `alt` anywhere — payment never declined, unlock never fails, bike never already taken; the closing prose even *offers* "a variant showing failure paths". Partial form (dry run): a payment-declined `alt` is present, but no branch for the bike failing to unlock — and the prose offers "a bike that fails to unlock" | *"What happens when the unlock fails? AI knows failure paths exist — it said so — so why aren't they on the diagram?"* |
 | 2 | Opaque self-call hiding responsibilities | `Backend->>Backend: Validate rider account & payment method`, `Backend->>Backend: Calculate ride duration & fare` | *"Which object actually validates, and which computes the fare? A self-call on 'Backend' tells the reader nothing."* |
 | 3 | Lifelines don't trace to the class diagram | `Backend Service`, `Payment Gateway` — but no `Rental` lifeline; no rental is ever created | *"Our class diagram has Rental and Payment. Where is the Rental created in this interaction? If it isn't, what did the ride update?"* |
-| 4 | Unhandled charge after the ride | `Backend->>Payment: Charge rider (amount)` only at the end, answered only by `Payment confirmed`; before unlock the payment method is "validated" by a self-call | *"The ride is over and the bike docked — what if this charge is declined now? Should payment be authorised before the unlock?"* |
+| 4 | Unhandled charge after the ride | `Backend->>Payment: Charge rider (amount)` only at the end, answered only by `Payment confirmed`; before unlock the payment method is "validated" by a self-call. Dry run: a deposit is now pre-authorised before the unlock, but in one of two runs the final `charge` at return still had no failure branch | *"The ride is over and the bike docked — what if this charge is declined now? Should payment be authorised before the unlock?"* |
 | 5 | Scope drift | The prompt asked for renting (unlock + charge); the diagram also models the ride and the return, and puts the charge there | *"Is 'return a bike' part of this use case, or a separate one? Which slice did we ask for?"* |
 
 Older/weaker models classically added a fabricated `FraudDetector`/`Logger` call, an impossible order, a missing return or a `DatabaseManager` lifeline; the deck keeps those as teaching examples, but this setting did not produce them unprompted.
@@ -54,7 +56,11 @@ Type this into the Claude Code panel:
 
 > *"Revise the sequence. Model only renting — stop once the ride has started. Replace the Backend's self-calls with the domain objects from our class diagram: show which object creates the Rental and which one handles the Payment. Authorise payment before the unlock, and add alt fragments for payment declined and for the bike failing to unlock. Every call that returns a result must show its dashed return."*
 
-Not calibrated (only prompt #1 was run): as the render appears, re-check each claim against the diagram — are both `alt` branches really there, and does a `Rental` lifeline actually appear?
+Dry run (September 2026): it did everything asked, rendered cleanly in ~14 s, and its bullet claims held up on re-check — stops at `rentalStarted`; no self-calls; `Payment` authorises before the unlock; nested `alt`s for payment declined and bike fails to unlock (with an unrequested but sensible `cancelAuthorization` when the unlock fails); `RentalController` creates the `Rental` only after the unlock succeeds; a dashed return for every call. Still re-check each claim live — are both `alt` branches really there, does a `Rental` lifeline actually appear? Note its opener: *"I don't have your class diagram, so I guessed the domain objects"* — a fresh session has no "our class diagram" (the Week 5 missing-context point again). What to point at:
+
+- `RentalController` is a controller, not a domain object, and `Account` isn't in our Week 4 diagram (we had `User`/`Member`) — the lifelines still don't trace to the structure (#3, weakened but alive).
+- `canRent()` always answers `eligible` — no branch for an ineligible rider, so the failure paths are only the two we named.
+- `Rental` is drawn as a lifeline from the top although it only comes into existence at the end (Mermaid's `create participant` would show the creation).
 
 Naming the responsibilities and demanding the failure path is the pivot. Re-render. **Time:** ~1 min to type, ~2-3 min for AI to revise + render.
 
@@ -93,11 +99,21 @@ Point back to the F1 anchor slide.
 
 ## 7. Make-it-fail reserve — AI produces a clean sequence
 
-If AI's first sequence is suspiciously complete (low probability — the calibration draft had no failure path at all), restore the critique surface:
+If AI's first sequence is suspiciously complete (the calibration draft had no failure path at all, but one of the two dry-run drafts had four failure branches — this reserve may well fire), restore the critique surface:
 
 > *"Make this enterprise-grade with full observability, fraud checks, and audit logging."*
 
-This invites messages no rental requirement justifies (fraud scoring, analytics, audit writes) and extra infrastructure lifelines — the deck's fabricated-message defect, produced on request. Ask the room which of them a requirement actually justifies. If even that is clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
+This invites messages no rental requirement justifies (fraud scoring, analytics, audit writes) and extra infrastructure lifelines — the deck's fabricated-message defect, produced on request. Ask the room which of them a requirement actually justifies.
+
+Dry run (September 2026): the richest critique surface of the demo — ~25 s, rendered, 13 lifelines (API gateway, fraud service, payment provider, IoT gateway, event bus, audit log, observability) and ~110 lines with ALLOW/CHALLENGE/DENY fraud branches, retries and idempotency keys. It is tall: zoom and pick two or three tells rather than reading it all:
+
+- **Messages no rental requirement justifies** — `RISK_DECISION` audit writes, bike telemetry streamed to fraud detection, `Obs-->>Obs: Evaluate SLOs`.
+- **Notation misuse** — dashed return arrows for fire-and-forget telemetry (`GW-->>Obs: span api.unlock…`, `Fraud-->>Obs`) that answer no call.
+- **A message from nowhere** — in the capture-failed branch `App-->>Rider: Payment pending`, although nothing ever told the App.
+- **A branch that trails off** — CHALLENGE ends in a Note ("re-evaluated after step-up") and `verifyStepUp` never returns.
+- **Scope drift again** — the ride and the return are back.
+
+If even that is clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
 
 ## 8. Fallback path — live AI fails
 

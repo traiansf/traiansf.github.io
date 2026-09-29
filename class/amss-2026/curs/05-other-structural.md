@@ -85,7 +85,7 @@ The map. Deliberately rank the four: package and component are where decompositi
 **Prompt to AI:** *"Generate a UML component diagram (as PlantUML) for the city bike-sharing app from last week: rentals, stations, payments, and users."*
 
 ::: notes
-Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a PlantUML preview pane — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/05-other-structural-demo.md` for ~8 min. Expect invented infrastructure (a gateway, a web portal, notifications, a database per service), services split into nested sub-components, and no declared interfaces — walk whichever appear. Fallback: runbook §7.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a PlantUML preview pane — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/05-other-structural-demo.md` for ~8 min. Expect invented infrastructure (a gateway, a web portal, notifications, a database per service), possibly services split into nested sub-components, and no declared interfaces (at most interface names written as labels on arrows) — walk whichever appear. Fallback: runbook §7.
 :::
 
 ---
@@ -263,7 +263,7 @@ The god class scaled up to architecture. AI under-decomposes when the prompt is 
 A component **per class**, plus a repository per entity.
 
 ::: notes
-The opposite failure, and the more common one with current models — though live it tends to show as each service split into nested sub-components rather than one box per class. AI mistakes "more boxes" for "better architecture" — a microservice per class is ceremony, not decomposition. Show the boxes, then run the pair vote on the next slide before revealing the critique.
+The opposite failure, and the more common one with current models — though live it shows as extra infrastructure boxes, sometimes as each service split into nested sub-components, rather than one box per class. AI mistakes "more boxes" for "better architecture" — a microservice per class is ceremony, not decomposition. Show the boxes, then run the pair vote on the next slide before revealing the critique.
 :::
 
 ---

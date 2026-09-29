@@ -8,7 +8,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 >
 > This demo's artifact is **AI's "Visitor" implementation** (Mermaid and/or code). The "aha" beat is *verifying the claim* — does each vehicle have `accept()` and the visitor a `visit` per type? — and then *stress-testing the design with patterns nobody needs*.
 >
-> **Calibration note:** at the course setting the first answer is essentially the reference — correct double dispatch (`accept` on each vehicle, `visitBike` / `visitEBike` / `visitScooter`, no `instanceof`) plus an accurate explanation of the Visitor trade-off. The instanceof-cascade "Visitor" did not appear (in any calibrated model). So the demo runs in two moves: **verify** the first answer (it passes — confirming a claim is part of verifying it), then run the former make-it-fail prompt as the **planned** prompt #2 (§4), which asks for patterns with no problem behind them. §6 holds a stronger reserve.
+> **Calibration note:** at the course setting the first answer is essentially the reference — correct double dispatch (`accept` on each vehicle, `visitBike` / `visitEBike` / `visitScooter`, no `instanceof`) plus an accurate explanation of the Visitor trade-off. The instanceof-cascade "Visitor" did not appear (in any calibrated model). So the demo runs in two moves: **verify** the first answer (it passes — confirming a claim is part of verifying it), then run the former make-it-fail prompt as the **planned** prompt #2 (§4), which asks for patterns with no problem behind them. §6 holds a stronger reserve. Prompt #2 and the §6 reserve were dry-run in September 2026 (notes in §2, §4, §6): prompt #2 complied without pushback and gave a good critique surface; the reserve came back honest.
 
 ## 0. Setup (pre-class, ~1 min)
 
@@ -38,6 +38,8 @@ Observed in calibration (Sonnet 5, low effort):
 | 3 | Stateful visitor | `accept` returns `void`; results pile up in a public mutable `entries` list | *"Run the report twice with the same visitor. What does the second report say?"* |
 | — | *Not a defect (check understanding)* | `visitBike(b)` / `visitEBike(e)` instead of an overloaded `visit(...)` | *"Is this still double dispatch?"* — yes; TypeScript has no overloading, so distinct names are the idiom. |
 
+Also seen in dry run (September 2026, two fresh runs of prompt #1 — one Python, one Java; both correct double dispatch): #1 recurred but was **disclosed** ("placeholder values I made up") — ask who replaces them, and where that is tracked; #2 recurred (chain-wear rule copied into `visit_bike` and `visit_ebike`; `id` / `kmSinceService` redeclared in every Java class); #3 appeared in the Python run (`items` list, `visit_*` returns nothing) but **not** in the Java run, which used a generic `VehicleVisitor<R>` returning a value — if so, credit it. Also: money as `float` in the Python run (`cost: float`, `$5.0`).
+
 Classic defects older/weaker models produce (not observed here — keep them for the gallery): a single `visit(Vehicle)` with an `instanceof` / `switch` cascade; no `accept()` on the vehicles; a `VisitorManager` with no structure behind the name.
 
 If the first answer *is* the classic fake → walk it (deck defect #3), then use the old double-dispatch scaffold as prompt #2: *"Show the double dispatch: each vehicle has accept(visitor) that calls back a visit method for its own type. No instanceof, no switch on type."*
@@ -56,14 +58,21 @@ Type this into the Claude Code panel:
 
 > *"Now also add Adapter, Decorator, and Proxy patterns to this design."*
 
-The prompt names patterns with no problem behind them — the Week 8 selection question meets the Week 9 signature check. Not calibrated; dry-run it and capture the result. Read what comes back with two questions per added pattern:
+The prompt names patterns with no problem behind them — the Week 8 selection question meets the Week 9 signature check. Read what comes back with two questions per added pattern:
 
 - *"What problem does it solve here?"* (Week 8) — an Adapter with nothing external to adapt, a Proxy that controls no access, a Decorator for a behaviour nobody asked for.
 - *"Is the signature there?"* (Week 9) — a "Proxy" that adds behaviour is a Decorator (gallery defect #4); a "Decorator" that cannot wrap another decorator is inheritance (defect #2); a class named after a pattern with no structure is theater (defect #5).
 
-If the model pushes back ("none of these fit here, because…"), that is the good answer — ask the room whether its reasons are right, and credit it. **Time:** ~2 min to type and respond — the prompt is one line.
+If the model pushes back ("none of these fit here, because…"), that is the good answer — ask the room whether its reasons are right, and credit it. **Time:** ~2 min to type and respond — the prompt is one line, but the answer is long (~25 s, ~150 lines of code); scroll straight to its "Where each pattern sits" table and open the three classes from there.
 
-**Critique beat — check the claims.** Across settings, follow-ups sometimes claim structure that is not in the code. For each "I added X", find the class and its signature before accepting it (~1 min).
+Dry run (September 2026): **no pushback** — all three added, each with an invented problem to justify it (a third-party `VendorScooter`, a remote telemetry service, logging and an "urgent surcharge"). Signatures were mostly real, so the critique is Week 8's question plus the details:
+
+- **Adapter** — `VendorScooterAdapter(Scooter)` converts the vendor's fields once in the constructor and stores `_vendor` without ever using it: a snapshot, not a delegating adapter. Worse, it maps the vendor's total `odometer_m` to `km_since_service` — a semantic bug the pattern label hides. *"Is odometer the same as kilometres since the last service? What does this bike's report now say?"*
+- **Decorator** — `VisitorDecorator` wraps and delegates properly and stacks (`LoggingVisitor(UrgentSurchargeVisitor(...))`): the signature holds. But `UrgentSurchargeVisitor` mutates `_inner.items[-1]` after the fact — it works only because the visitor is stateful (catalogue #3); the model itself flags the coupling.
+- **Proxy** — lazy load, TTL cache and a role check in front of `accept`: structurally a Proxy. Point at the role: it is a constructor argument defaulting to `"technician"`, so the proxy checks who *built* it, not who is calling. *"Who can run the report? Anyone who passes the right string."*
+- **Problem behind each?** None of the three exists in the prompt — the model supplied the problems. That is the Week 8 lesson in one line.
+
+**Critique beat — check the claims.** In the dry run the summary table matched the code (no false "I added X"); the design notes even admitted two limitations. Still, for each "I added X", find the class and its signature before accepting it (~1 min).
 
 ## 5. Reference solution (instructor's verified render target)
 
@@ -91,7 +100,7 @@ classDiagram
   Visitor <|.. ReportVisitor
 ```
 
-`accept` on each vehicle calls back its type's `visit`; one `visit` per type (distinct method names are fine in languages without overloading); no `instanceof`. At the calibrated setting the **first** answer already matches this — the verification in §2 is the beat. Pivot into the deck's gallery: the prompt #2 output maps to defects #2, #4 and #5 (whatever actually appeared); defect #3 (Visitor without double dispatch) is the classic fake that older/weaker models produce and the deck's "Your Turn" slide exercises.
+`accept` on each vehicle calls back its type's `visit`; one `visit` per type (distinct method names are fine in languages without overloading); no `instanceof`. At the calibrated setting the **first** answer already matches this — the verification in §2 is the beat. Pivot into the deck's gallery: the prompt #2 output maps to defects #2, #4 and #5 (whatever actually appeared — in the dry run, the snapshot Adapter was closest to defect #1, and the rest was "real signature, invented problem"); defect #3 (Visitor without double dispatch) is the classic fake that older/weaker models produce and the deck's "Your Turn" slide exercises.
 
 ## 6. Make-it-fail reserve — prompt #2 comes back clean
 
@@ -99,7 +108,7 @@ If the model declines the extra patterns with sound reasons, or adds them with c
 
 > *"Simplify the maintenance report: we don't want to touch the vehicle classes at all."*
 
-A real Visitor needs `accept()` on every vehicle, so this pulls toward a type switch. Not calibrated — dry-run it and capture the result (`03-fallback-make-it-fail.png`). The critique: *does it still call the result a Visitor?* An `instanceof` cascade that keeps the name is gallery defect #3; one that honestly drops the name ("this is no longer a Visitor — it's a type switch; here's the trade-off") is the right answer, and worth saying so. If even that is clean, go to the deck's "Your Turn: Spot the Fake" slide — it carries the classic fake.
+A real Visitor needs `accept()` on every vehicle, so this pulls toward a type switch. Dry run (September 2026, ~12 s): the **honest** outcome — "Visitor needs an `accept` method on each vehicle class, so it can't work if those classes stay untouched", then a Java 21 `switch (v)` with a `default -> throw`, and an accurate "what you give up" (no compile-time exhaustiveness; `sealed` would restore it but edits `Vehicle`). Capture it as `03-fallback-make-it-fail.png`. Credit the renaming, then point at what is left: `idOf(v)` is a placeholder that does not compile — `Vehicle` never got an `id`, the duplication from catalogue #2 biting back. So expect the right answer here more often than the fake; it is a short beat (~1 min). The critique: *does it still call the result a Visitor?* An `instanceof` cascade that keeps the name is gallery defect #3; one that honestly drops the name ("this is no longer a Visitor — it's a type switch; here's the trade-off") is the right answer, and worth saying so. If even that is clean, go to the deck's "Your Turn: Spot the Fake" slide — it carries the classic fake.
 
 ## 7. Fallback path — live AI fails
 

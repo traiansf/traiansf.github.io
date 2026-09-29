@@ -8,7 +8,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 >
 > This demo's artifact is a **rendered state machine**. The "aha" beat is *tracing the lifecycle against the domain* — the spec's classic failures (orphan states, dead ends, missed guards) plus the ones current models actually make: a transition the domain needs that nobody drew, a guard nobody can evaluate, a label that misuses the notation. It hands directly into the deck's defect gallery.
 >
-> **Calibration note:** at the course setting the first draft is near-reference on the classic defects — all four states reachable, initial and final present, the `returnBike` branch guarded. No orphan state appeared. The critique surface is subtler (see §2); §6's reserve is strengthened for a fully clean draft.
+> **Calibration note:** at the course setting the first draft is near-reference on the classic defects — all four states reachable, initial and final present, the `returnBike` branch guarded. No orphan state appeared. The critique surface is subtler (see §2); §6's reserve is strengthened for a fully clean draft. Prompt #2 and the §6 reserve were dry-run in September 2026 (notes in §2, §4, §6); in those runs prompt #1 already drew the walk-up transition.
 
 ## 0. Setup (pre-class, ~1 min)
 
@@ -39,6 +39,16 @@ Observed in calibration (Sonnet 5, low effort):
 | 4 | Missing mid-ride fault | Faults only reported on return (or when idle); nothing leaves `InUse` for a fault during the ride | *"The chain snaps mid-ride. What state is the bike in, and how does the ride end?"* |
 | 5 | Partial fault coverage | `flagForMaintenance()` only from `Available` — a reserved bike cannot be flagged | *"A reserved bike is found broken before pickup. Where does it go?"* |
 
+Also seen in dry run (September 2026, two fresh runs of prompt #1): **both runs already drew the walk-up transition** (`Available --> InUse : unlock() [walk-up rental]` / `[no reservation]`) and a `Reserved --> UnderMaintenance` path, so #1 and #5 may not appear. What recurred: #3 (`cancel() / reservation expires`, `cancelReservation() / timeout`), #4 (faults only on `return()` / `dockBike()`), vague guards (`[OK]`). New in the dry run:
+
+| # | Defect | What to point at | Critique question |
+|---|---|---|---|
+| 6 | Overlapping guards | `return() [docked at station]` and `return() [fault reported or damaged]` from `InUse` — a damaged bike that is docked satisfies both | *"The bike is docked *and* damaged. Which arrow fires? A state machine must not have to guess."* |
+| 7 | Guard/action order and dead guards | `reportIssue() / dockBike() [fault detected]` (UML order is `event [guard] / action`); `unlock() [no reservation]` on `Available`, where no reservation can exist | *"Read the label in UML order. And can that guard ever be false in this state?"* |
+| 8 | Missing final state | One run had no `[*]` end at all — no way to retire a bike | *"How does a bike ever leave the fleet?"* |
+
+If #1 is absent, anchor on #4 (the mid-ride fault) instead, and credit the walk-up arrow aloud.
+
 Classic defects older/weaker models produce (not observed here — check anyway, it takes ten seconds): orphan state with no transition in; dead-end non-final state; two transitions on one event with no guards; no `[*]` start or end.
 
 If the diagram is clean on all of the above → jump to §6 "Make-it-fail reserve".
@@ -59,7 +69,14 @@ Type this into the Claude Code panel:
 
 Naming the missing journeys is the pivot. Re-render. **Time:** ~1 min to type, ~2 min for AI to revise + render.
 
-**Critique beat — re-check the revision, don't trust the summary.** The calibration's follow-up (the older prompt #2, which asked only for Maintenance wiring and guards) applied what was asked and described it accurately — but left the missing `Available --> InUse` unnoticed and added a redundant guard (`reportFault() [mid-ride fault]` — the event already says it). It also sent the bike to `UnderMaintenance` mid-ride with no word on the rider. Across settings, follow-ups sometimes claim fixes that were not made. Tick each request against the new render, aloud: *"It says walk-up is added — show me the arrow."* Ask: *"The bike is in Maintenance mid-ride — where is the rider, and how is the rental closed?"*
+**Critique beat — re-check the revision, don't trust the summary.** Dry run (September 2026, this prompt, ~17 s, rendered): every request was applied and the "What changed" summary was accurate — no false fix claims. `cancel()` and `reservationTimeout()` split into two transitions, guards became checkable (`faultFlag == false`, `now < reservation.expiresAt`), walk-up and reserved-bike faults wired, initial and final kept. What it newly got wrong, and what to point at:
+
+- **Mid-ride fault as a self-transition.** `InUse --> InUse : reportFault() / setFaultFlag()` — the bike stays in use until docked, then `return()` splits on `faultFlag`. Ask: *"The chain snaps. Can the rider even reach a dock? Where does the rental end if they can't?"*
+- **Trigger on the initial transition.** `[*] --> Available : register() / dockAtStation()` — in UML the transition out of the initial pseudostate takes no trigger (at most an action). The summary even calls `[*]` "the initial state".
+- **Dead and redundant guards.** `faultFlag == false` on `Available`'s exits can never be false (a faulty bike is already in `UnderMaintenance`); `reservationTimeout() [now >= reservation.expiresAt]` repeats its event.
+- **Non-UML action lists.** `setFaultFlag() and createWorkOrder()` — UML sequences actions with `;`.
+
+Across settings, follow-ups sometimes claim fixes that were not made. Tick each request against the new render, aloud: *"It says walk-up is added — show me the arrow."* Then ask the chain-snaps question. The revised diagram is dense (13 transitions with long labels) — zoom the preview before tracing.
 
 ## 5. Reference solution (instructor's verified render target)
 
@@ -79,7 +96,7 @@ stateDiagram-v2
     Available --> [*] : decommission
 ```
 
-Every state reachable and escapable, walk-up rental and a mid-ride fault covered, the reserve branch guarded, initial and final present. If the live output reaches something like this after prompt #2, the loop worked. Pivot straight into the deck's defect gallery — the live defects map to gallery defect #6 (missing domain transition) and the guard discussion of defect #3; the classic orphan/dead-end entries (#1, #2) are what the structural check you just ran would have caught.
+Every state reachable and escapable, walk-up rental and a mid-ride fault covered, the reserve branch guarded, initial and final present. If the live output reaches something like this after prompt #2, the loop worked. Pivot straight into the deck's defect gallery — the live defects map to gallery defect #6 (missing domain transition — or the mid-ride fault, if walk-up was already drawn) and the guard discussion of defect #3; the classic orphan/dead-end entries (#1, #2) are what the structural check you just ran would have caught.
 
 ## 6. Make-it-fail reserve — AI produces a clean state machine
 
@@ -87,7 +104,15 @@ The calibrated first draft was near-reference on structure, so a fully clean dra
 
 > *"Add all the edge-case states: lost, stolen, reserved-but-expired, charging, low-battery. Model 'in use' as a composite state with Riding and Paused substates."*
 
-Not calibrated — dry-run it and capture the result (`03-fallback-make-it-fail.png`). Walk it with the full read-order: an edge-case state with no way in or out (can a stolen bike ever come back?), a low-battery condition modelled as a state that overlaps `InUse`, an event leaving the composite that the substates ignore. If even that is clean, praise it briefly and walk the fallback capture from §7 — the gallery carries the classic defects.
+Dry run (September 2026, ~12 s, rendered): a rich surface — 10 states, ~35 transitions, a render dense enough that you must zoom and trace one question at a time (capture it as `03-fallback-make-it-fail.png`). What it yielded, in order of teaching value:
+
+- **Low battery overlapping `InUse`.** `InUse --> LowBattery : batteryLevel < critical` — the rental silently ends mid-ride. *"The battery dips on the way home. Is the rider still renting?"*
+- **Lost exit paths.** `Decommissioned` is reachable only from `Lost` / `Stolen`; the turn-1 `UnderMaintenance` had no retire path and still has none. *"An unrepairable bike — how does it leave the fleet?"*
+- **Partial coverage.** `tamperAlert` leaves `Available`, `Reserved`, `InUse` but not `LowBattery`, `Charging`, `UnderMaintenance`; nothing takes a `Reserved` bike to `LowBattery`.
+- **Notation.** `tamperAlert / geofenceBreach [unauthorized movement]` repeats the `/`-as-alternative misuse with the guard after the action; change events written as bare conditions (`batteryLevel < threshold`, UML: `when(...)`); overlapping `dockBike()` guards (`[battery low]` vs `[fault reported]`).
+- **Redundancy the model admits.** `Paused --> Lost` duplicates `InUse --> Lost` — a good "does the boundary transition cover substates?" check.
+
+Pick 2-3; the low-battery overlap is the anchor. If a reserve run is clean, praise it briefly and walk the fallback capture from §7 — the gallery carries the classic defects.
 
 ## 7. Fallback path — live AI fails
 

@@ -237,7 +237,7 @@ A single `visit(Vehicle)` with an `instanceof` cascade — labeled Visitor, no `
 **Critique:** *"Where is accept()? Where is the dispatch on type? This is the switch the pattern exists to remove."*
 
 ::: notes
-The classic defect. A real Visitor has accept() on each element and a visit() per type; the fake has one method with an instanceof cascade — the pattern's entire purpose (no type switch) reintroduced under its name. Weaker models produce it on request; current ones mostly don't for a plain request, but it returns under constraints that fight the pattern ("don't touch the vehicle classes") and in hand-written code. The Your Turn slide drills it.
+The classic defect. A real Visitor has accept() on each element and a visit() per type; the fake has one method with an instanceof cascade — the pattern's entire purpose (no type switch) reintroduced under its name. Weaker models produce it on request; current ones mostly don't for a plain request, and it can return under constraints that fight the pattern ("don't touch the vehicle classes") and in hand-written code — though a current model given that constraint may instead honestly drop the name and call it a type switch, which is the right answer. The Your Turn slide drills it.
 :::
 
 ---

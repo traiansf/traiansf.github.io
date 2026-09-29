@@ -1,6 +1,6 @@
 # W1 Demo Runbook — Library Kiosk
 
-Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt — live output varies; walk the defects that actually appear.
+Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt — live output varies; walk the defects that actually appear. Prompt #2 and the make-it-fail reserve were dry-run the same month (fresh session each, follow-up in the same session, as in class).
 
 > Procedural script for the W1 lecture's live demo. **Not** a slidy deck — pandoc is configured to skip files matching `*-demo.md`. Read end-to-end before running. Estimated runtime: 12 minutes inside the lecture's "Demo" segment.
 >
@@ -35,6 +35,10 @@ Walk the diagram aloud. The calibration run produced a tidy-looking diagram (abs
 | 3 | Anemic class | `Staff` has only a dashed `..>` dependency to `Loan` (with multiplicities on a dependency) | *"What does Staff *know about*? Is `registers return` a lasting relationship or a one-off use — and why does a dependency have `0..*` on it?"* |
 | 4 | Generalisation that forbids a real case | `Person <|-- User`, `Person <|-- Staff` as disjoint subclasses | *"A librarian wants to borrow a book on her lunch break. Which class is she?"* |
 | 5 | Spare (older/weaker models; not seen in calibration) | `User 1..1 Loan`, a behaviourless `Library` container, or `Reservation` not linked to `User` | *"What if I'm borrowing two books at once?"* / *"What does this class actually do?"* |
+| 6 | Wrong multiplicity on the return link (also seen in dry run) | `Staff "1" --> "0..*" Loan : registers return` — a solid association instead of row 3's dependency, but `1` on the Staff end | *"I borrowed this book an hour ago. Which staff member has already registered its return?"* |
+| 7 | Same relationship drawn twice (also seen in dry run) | `Book "1" --> "0..1" Loan : current loan` *and* a bare `Loan --> Book`; enums both as an attribute type and as an association (`Book --> BookStatus`) | *"Are these two lines one relationship or two? If they can disagree, which one is true?"* |
+
+Dry run (September 2026): the two fresh runs of prompt #1 broadly reproduced rows 1-2 (conflated `Book`, `BookStatus`, which the model explained as "becomes `RESERVED` when reserved while on loan" — so it stops being `ON_LOAN`; quote that). Row 3 appeared in one run; the other gave rows 6-7 instead. Row 4 appeared once; the other run had `User <|-- Staff` (staff *are* users) plus a `Kiosk` controller class with only dependencies — ask *"can someone be staff without a library card?"* and *"what does `Kiosk` add that `User` and `Loan` don't already do?"*.
 
 If AI produces a diagram without rows 1-4 → jump to §7 "Make-it-fail reserve".
 
@@ -59,6 +63,12 @@ For example, if defects 1, 2, and 3 fired:
 Only ask for fixes to defects that are actually on screen. In calibration, the old scripted correction (asking for `0..*` loans, no `Library`, a `User`–`Reservation` link) targeted defects the model had not made: it said so honestly, then "fixed" the non-problem by adding a redundant `Reservation.userId` next to the existing association.
 
 Wait for AI to produce the revised Mermaid. Render it. **Re-check it, don't just admire it:** point at each requested change, and scan for new attributes that duplicate an association (like `userId`) or labels that now read backwards. A regression in the revision is a second critique beat, not a failure of the demo.
+
+Dry run (September 2026), example prompt above, answered in ~10 s, Mermaid rendered: all three requested fixes landed and the change summary was honest — `BookTitle` / `BookCopy` split (loans on copies, reservations on titles), `BookStatus` gone with availability derived from `returnDate`, and `Staff "0..1" --> "0..*" Loan` (it even fixed the `1` on the Staff end). No duplicated ids this time. The re-check beat is therefore about **what it changed that you did not ask for** and **what it left alone**:
+
+- Unasked removals: `ReservationStatus` was replaced by `cancelledDate` / `fulfilledDate` (nothing stops both being set), and `Staff.processReservation` silently disappeared. *"Did I ask for either?"*
+- New commitment: `BookTitle "1" *-- "1..*" BookCopy` — composition and at least one copy. *"A title we've ordered but not received yet — can it exist? And if we drop the title from the catalogue, do the physical copies vanish?"*
+- Untouched: the `Person <|-- User / Staff` split (row 4) is still there, because we didn't ask. The loop only fixes what the critic names.
 
 **Time:** ~1 min to type, ~30 s for AI to revise; spend the rest of the ~1-2 min on the re-check.
 
@@ -86,7 +96,14 @@ If AI's first output is suspiciously good, use this fallback prompt to restore t
 
 > *"Now redo this for a system where books can be reserved by multiple users in a queue."*
 
-Not calibrated. Expect a `WaitingList`/queue class; look for position numbers as primitive ints instead of an ordered association, queue entries not linked to users, or id attributes (`userId`, `bookId`) duplicating associations — the last one is the defect this setting produced most often across the calibration set. Critique against whatever appears.
+Dry run (September 2026): ~12 s, Mermaid rendered, plenty to critique. No separate queue class — the queue lived on `Reservation`. What to point at:
+
+- `int queuePosition` stored alongside `reservedAt`, with the model admitting positions "should be contiguous" and must be renumbered on every cancel. *"Two sources of truth for the order. Which wins when they disagree — and why store a number you have to keep renumbering?"*
+- `Book "1" o-- "0..*" Reservation : queue (ordered by queuePosition)` — aggregation for what is just an association, and the ordering hidden in a label instead of an `{ordered}` constraint.
+- The queue is per `Book`, and `Book` still conflates title and copy (row 1 survives): *"Three copies — one queue or three?"*
+- Scope creep: a hold-expiry flow (`holdExpiresAt`, `READY` / `EXPIRED`, `expire()`) nobody asked for, and `BookStatus` kept, with `RESERVED` renamed `ON_HOLD`.
+
+Watch for the other shapes too if they appear: a `WaitingList` class, queue entries not linked to users, or id attributes (`userId`, `bookId`) duplicating associations (not seen in this dry run).
 
 If the make-it-fail also produces something clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
 

@@ -133,12 +133,12 @@ Naming the domain rules is the scaffold move from Week 4's demo prompt #2. Don't
 
 Second pass targets what the first leaves — typically classes that are not domain concepts, and rules that live only in prose:
 
-> *"Drop any class that isn't a library-domain concept (a Kiosk controller, a DatabaseManager, a 'LibrarySystem'). If Loan is an association class, draw it as one. Model member kinds as subclasses (standard / staff), not a type field."*
+> *"Drop any class that isn't a library-domain concept (a Kiosk controller, a DatabaseManager, a 'LibrarySystem'). Is Loan an association class? Say why or why not — but draw it with plain Mermaid class syntax (Mermaid has no association-class notation). Model member kinds as subclasses (standard / staff), not a type field."*
 
 Regenerate, re-read, log. **This is iteration 2.** Then keep your best diagram.
 
 ::: notes
-Residual catalogue entries: invented class (here usually a controller or service class rather than a database), is-a-as-attribute, and claims in the assistant's notes that the diagram does not back up. Two iterations is the floor, not the ceiling — but the gate wants both logged.
+Residual catalogue entries: invented class (here usually a controller or service class rather than a database), is-a-as-attribute, and claims in the assistant's notes that the diagram does not back up. Asked to draw an association class in Mermaid, an assistant may invent syntax that does not render (Mermaid has none) — if your diagram fails to render, that is a defect to log, not a reason to trust the prose. Re-check the multiplicities after this pass too: removing a class can quietly change them. Two iterations is the floor, not the ceiling — but the gate wants both logged.
 :::
 
 ---

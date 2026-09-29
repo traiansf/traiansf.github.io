@@ -100,7 +100,7 @@ The shape mirrors the trail itself. It keeps the student on the graded material 
 **Prompt to AI:** *"Defend this bike-sharing design as if in an oral exam: why these choices, and is it correct? [paste a design]"*
 
 ::: notes
-Switch to the Claude Code panel (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/12-presentation-skills-demo.md` for ~8 min. The point: AI fabricates confident first-person rationale for decisions it didn't make ("I did that deliberately", "scoped out as a minimum viable product"), leans on generic textbook principles, and over-claims that the design is correct — in our September 2026 run it even misread the plain arrow to `FareStrategy` as a dependency while defending it. It cannot defend YOUR design. This is why the defense is unaided. Walk what actually appears. Fallback: runbook §6.
+Switch to the Claude Code panel (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/12-presentation-skills-demo.md` for ~8 min. The point: AI fabricates confident first-person rationale for decisions it didn't make ("I did that deliberately", "scoped out as a minimum viable product"), leans on generic textbook principles, and over-claims that the design is correct — in one September 2026 run it even misread the plain arrow to `FareStrategy` as a dependency while defending it (a later run read the arrow correctly but called the ordinary `Rental` class an "association class" — expect some notation slip, not necessarily that one). It cannot defend YOUR design. This is why the defense is unaided. Walk what actually appears. Fallback: runbook §6.
 :::
 
 ---

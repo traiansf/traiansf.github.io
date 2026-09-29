@@ -8,7 +8,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 >
 > This demo's artifact is a **list of pattern suggestions** (and ideally a sketch of each). The "aha" beat is *counting the patterns against the problems* — how many are proposed, how many solve a problem that exists, and whether the chosen pattern actually handles the domain.
 >
-> **Calibration note:** at the course setting the first answer is close to reference — Strategy for the rates, Decorator for the member discount, an "optional" Factory, a short code sketch, and a self-aware "this may be overkill" hedge. No stack of five patterns. The critique surface is the optional extra, the domain case the pattern mishandles (a ride crossing the peak boundary), and prose that disagrees with its own code (see §2).
+> **Calibration note:** at the course setting the first answer is close to reference — Strategy for the rates, Decorator for the member discount, an "optional" Factory, a short code sketch, and a self-aware "this may be overkill" hedge. No stack of five patterns. The critique surface is the optional extra, the domain case the pattern mishandles (a ride crossing the peak boundary), and prose that disagrees with its own code (see §2). Prompt #2 and the §7 reserve were dry-run in September 2026 (notes in §2, §4, §7); in those runs prompt #1 already handled the boundary, and prompt #2 narrowed to a rate table rather than Strategy.
 
 ## 0. Setup (pre-class, ~1 min)
 
@@ -39,6 +39,12 @@ Observed in calibration (Sonnet 5, low effort):
 | 4 | Prose and code disagree | Prose says `RateStrategy` and "wrap the base fare calculator"; code has `FareStrategy`, and the decorator wraps a strategy, not `FareCalculator` — which just forwards the call | *"Which one is the design? What does `FareCalculator` add besides a hop?"* |
 | 5 | Hedging hands the decision back | "Worth it once you expect more tiers… overkill if this is the only rule… a single function is fine too" | *"Both answers are offered. Which do you pick, and why? That reason is your Rationale."* |
 
+Also seen in dry run (September 2026, two fresh runs of prompt #1): **both runs already split a boundary-crossing ride into segments** (one in the sketch, one in prose: "a ride from 16:50 to 17:20 needs to be split"), so #1 may not appear — then anchor on #2/#3 and credit the split aloud. #2 (Factory "once you have more than one pricing context"), #3 (Decorator for "promo codes later") and #5 recurred. New:
+
+| # | Defect | What to point at | Critique question |
+|---|---|---|---|
+| 6 | Pattern name stretched | "An explicit ordered list of `FareAdjustment` objects, which is a light Chain of Responsibility" — every step runs; no handler passes or stops the request | *"In a Chain of Responsibility, who decides to stop? Here, does anyone?"* |
+
 A deeper question worth one sentence: peak/off-peak may be *data* (a rate per time band), not *behaviour* — is Strategy warranted at all? Classic defects older/weaker models produce (not observed here): a five-pattern stack (Singleton, Observer…), "Strategy" that is only an if/else, mislabelled patterns.
 
 If AI proposes only one well-justified pattern and handles the boundary → jump to §7 "Make-it-fail reserve".
@@ -59,7 +65,13 @@ Type this into the Claude Code panel:
 
 Forcing the awkward case and the problem before the pattern is the pivot. **Time:** ~1 min to type, ~2-3 min for AI to revise.
 
-**Critique beat — re-check the revision.** Not calibrated; across settings, follow-ups sometimes claim a fix the structure does not show. Check: does the diagram actually split the ride by minute or time band, or does the prose just say it does? Did the Factory (and the pass-through `FareCalculator`) go, or only get renamed?
+**Critique beat — re-check the revision.** Dry run (September 2026, ~22 s, Mermaid rendered): the prompt worked, and the model went further than the §5 reference. It priced a worked ride correctly (16:50–17:12: 10 off-peak + 12 peak minutes, $3.40, member $3.06), gave a keep/drop table, and explicitly **retracted Strategy, Decorator and Factory** — peak/off-peak "differ only in data", so one `RateSchedule` with `rateAt(minuteStart)` replaces the hierarchy. The retraction is honest: the class diagram has no leftover pattern classes. What to point at:
+
+- **Over-compliance.** It dropped "rate versioning and time zones" as "future" — but evaluating the peak window in the city's local time is a correctness concern *today*, not a variation. *"Is a time zone a variation we might have later, or a bug we have now?"*
+- **Hidden assumptions.** The peak window (17:00–19:00), the rates and "22 whole minutes" are invented; partial-minute rounding and a second (morning) peak window are silently out — `RateSchedule` holds one `peakWindow`.
+- **Where the split lives.** The diagram shows it only as a `rateAt(minuteStart)` method and an association label — the per-minute walk is prose. Fair enough for a class diagram; ask what test would prove it.
+
+Across settings, follow-ups sometimes claim a fix the structure does not show — tick the keep/drop table against the diagram. If a student defends Strategy against the rate table, that is the §5 debate — take it.
 
 ## 5. Reference solution (instructor's verified render target)
 
@@ -85,11 +97,11 @@ classDiagram
   Rental --> "0..1" MemberDiscount
 ```
 
-Strategy is warranted for the rate — interchangeable rate rules behind one interface, picked per minute so a ride crossing the peak boundary pays both. The member discount is an independent axis (it applies at peak and off-peak alike), so it is a plain step after pricing, not a third strategy; a Decorator earns its place only once several stackable discounts exist. No Factory, no pass-through calculator. If the live output narrows to roughly this after prompt #2, the loop worked. (If a student argues for a rate table instead of Strategy, that is a good answer — take it.)
+Strategy is warranted for the rate — interchangeable rate rules behind one interface, picked per minute so a ride crossing the peak boundary pays both. The member discount is an independent axis (it applies at peak and off-peak alike), so it is a plain step after pricing, not a third strategy; a Decorator earns its place only once several stackable discounts exist. No Factory, no pass-through calculator. If the live output narrows to roughly this after prompt #2, the loop worked. (If a student argues for a rate table instead of Strategy, that is a good answer — take it. In the September 2026 dry run the model itself landed on the rate table after prompt #2; then ask the room when Strategy *would* earn its place — rates that differ in rule, not just in number.)
 
 ## 6. Recap (~1 min)
 
-> *"One architect-critic cycle on a design decision. The first pass was plausible — textbook patterns, even a humble hedge; the critic half asked what problem each solves and priced one awkward ride, and found an optional extra and a pattern that charged the wrong rate; the architect half re-prompted with the awkward case and 'name the variation it absorbs today' — and it narrowed to Strategy, the one with real variation. Justifying a pattern by its problem is exactly the F3 skill the oral defense checks, and W9 deepens it into 'applied or just labeled?'"*
+> *"One architect-critic cycle on a design decision. The first pass was plausible — textbook patterns, even a humble hedge; the critic half asked what problem each solves and priced one awkward ride, and found an optional extra and a pattern that charged the wrong rate; the architect half re-prompted with the awkward case and 'name the variation it absorbs today' — and it narrowed to what has real variation today (Strategy, or just a rate table — say which one you got). Justifying a pattern by its problem is exactly the F3 skill the oral defense checks, and W9 deepens it into 'applied or just labeled?'"*
 
 Point back to the F3 anchor slide.
 
@@ -99,7 +111,14 @@ The calibrated first answer was already restrained (two patterns plus an optiona
 
 > *"Make this enterprise-grade and future-proof with the full set of design patterns a senior architect would use."*
 
-Not calibrated — dry-run it and capture the result. Expect added patterns with a "future" justification (Factory/Decorator "for later" persisted across every calibrated model); walk each with the four selection questions, and check whether the new pieces are applied or only named. Point out that the prompt asked for overuse — the lesson is that the model complies instead of pushing back on a requirement with no problem behind it. If even that is clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
+Dry run (September 2026, ~21 s, long answer — budget ~1 min just to scroll it): the model **pushes back in prose and complies in the table**. It opens "I'm not adding every pattern", closes "building all of this on day one … would slow you down", yet lists ten patterns (Strategy, Specification, Composite, Chain of Responsibility, Factory + Repository, Builder, Value Object, Observer/outbox, Facade, Ports & Adapters) in a column literally headed "Future change it absorbs". Capture it as `03-fallback-make-it-fail.png`. What to point at:
+
+- **Named, not applied.** Specification, Composite and Observer appear only in the table and the ASCII box diagram — nothing in the sketch implements them; "Factory + Repository" has a repository and no factory; `SegmentSplitter` is labelled "Iterator" but is a method returning segments.
+- **Mislabel.** The "Chain of Responsibility" is a sorted list where every adjustment runs — same stretch as defect #6.
+- **A bug the patterns hide.** `MemberDiscount` computes from `fare.subtotal`, so the "explicit, testable order" of adjustments does not affect it; and the tariff is picked once at `ride.start` — the boundary problem again, one level up.
+- **Which voice wins?** *"It says don't build this — and then builds it. Which part is the design?"*
+
+Walk each added pattern with the four selection questions. The lesson stands, sharpened: the model did not refuse a requirement with no problem behind it — it hedged. If a run is clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
 
 ## 8. Fallback path — live AI fails
 

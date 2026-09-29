@@ -159,7 +159,7 @@ The cost framing is what disarms overuse. AI may name the trade-off in a line an
 **Prompt to AI:** *"What design patterns should I use to implement fare calculation in the bike-sharing app? Rides are charged per minute, with peak / off-peak rates and a member discount."*
 
 ::: notes
-Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/08-patterns-i-demo.md` for ~12 min. Current models give a restrained, plausible answer — typically Strategy plus Decorator plus an "optional" Factory, with a hedge that it may be overkill. The critique: what the optional extra absorbs, whether the Strategy (picked once by start time) prices a ride that crosses the peak boundary, and whether the prose matches the code. Live output varies — walk what actually appears. Fallback: runbook §8.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/08-patterns-i-demo.md` for ~12 min. Current models give a restrained, plausible answer — typically Strategy plus Decorator plus an "optional" Factory, with a hedge that it may be overkill. The critique: what the optional extra absorbs, whether the design prices a ride that crosses the peak boundary (some runs pick the Strategy once by start time, others already split the ride), and whether the prose matches the code. Live output varies — walk what actually appears. Fallback: runbook §8.
 :::
 
 ---
@@ -259,7 +259,7 @@ A ride from 16:50 (off-peak) to 17:40 (peak) is charged entirely at the off-peak
 **Critique:** *"Price one awkward ride by hand. Does the structure absorb the variation that actually exists?"*
 
 ::: notes
-The defect current models actually produce: the pattern is well chosen and correctly built, and the design is still wrong, because the selection point is in the wrong place. Pattern critique is not only "is it warranted?" and "is it applied?" — it is also "does it handle the domain's awkward case?" A good follow-up question: are peak/off-peak rates behaviour (Strategy) or just data (a rate per time band)?
+A defect current models do produce (not every run): the pattern is well chosen and correctly built, and the design is still wrong, because the selection point is in the wrong place. Pattern critique is not only "is it warranted?" and "is it applied?" — it is also "does it handle the domain's awkward case?" A good follow-up question: are peak/off-peak rates behaviour (Strategy) or just data (a rate per time band)?
 :::
 
 ---
@@ -289,7 +289,7 @@ classDiagram
 One pattern, justified: the rate really varies (peak / off-peak), so **Strategy** earns its place — picked per minute. The member discount is a separate axis: a plain step, not another pattern.
 
 ::: notes
-The critique result. Strategy is warranted because the variation is real and recurring — interchangeable rate rules behind one interface, chosen for each minute so a boundary-crossing ride pays both. The member discount applies at peak and off-peak alike, so it is independent of the rate; making it a third strategy would lose "member at peak". A Decorator would earn its place only once several stackable discounts exist. This is "applied, not labeled": the interface and the concrete classes exist. The demo's prompt #2 aims here.
+The critique result. Strategy is warranted because the variation is real and recurring — interchangeable rate rules behind one interface, chosen for each minute so a boundary-crossing ride pays both. The member discount applies at peak and off-peak alike, so it is independent of the rate; making it a third strategy would lose "member at peak". A Decorator would earn its place only once several stackable discounts exist. This is "applied, not labeled": the interface and the concrete classes exist. The demo's prompt #2 aims here — though the model may go one step further and replace Strategy with a plain rate table, which is also a defensible answer.
 :::
 
 ---

@@ -83,7 +83,7 @@ The map. State machines are one object over time; activity diagrams are a proces
 **Prompt to AI:** *"Generate a UML state machine diagram (as Mermaid) for a bike in the city bike-sharing app: it can be available, reserved, in use, and under maintenance."*
 
 ::: notes
-Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/07-behavioral-ii-demo.md` for ~8 min. Current models usually wire every state they draw, so the structural check may come out clean — say so, then trace real journeys. Typical findings: no way to rent a bike without reserving it first, a fault that can only be reported on return, a vague guard such as "OK condition", or `event / action` notation used to mean two alternative events. Live output varies — walk what actually appears. Fallback: runbook §7.
+Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort) with a Mermaid preview open (VS Code's Markdown preview with the "Markdown Preview Mermaid Support" extension) — students must SEE the rendered diagram. Run the runbook at `class/amss-2026/curs/07-behavioral-ii-demo.md` for ~8 min. Current models usually wire every state they draw, so the structural check may come out clean — say so, then trace real journeys. Typical findings: a fault that can only be reported on return, no way to rent a bike without reserving it first (some runs draw it), overlapping guards on `return()`, a vague guard such as "OK condition", or `event / action` notation used to mean two alternative events. Live output varies — walk what actually appears. Fallback: runbook §7.
 :::
 
 ---
@@ -331,7 +331,7 @@ stateDiagram-v2
 Every state reachable, every state escapable — and a rider who walks up to a free bike still can't take it. The only way into `InUse` is through `Reserved`. **Critique:** *"I unlock an available bike without reserving. Which transition is that?"*
 
 ::: notes
-The defect current models actually produce: structurally clean, domain-incomplete. The reachability check passes; tracing a real journey (walk-up rental, a fault mid-ride) fails. The fix is the missing transition (`Available --> InUse : unlock`). This is why the read-order ends with the domain, not with the graph.
+A defect current models do produce (not every run): structurally clean, domain-incomplete. The reachability check passes; tracing a real journey (walk-up rental, a fault mid-ride) fails. The fix is the missing transition (`Available --> InUse : unlock`). This is why the read-order ends with the domain, not with the graph.
 :::
 
 ---

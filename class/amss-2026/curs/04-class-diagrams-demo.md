@@ -27,6 +27,8 @@ Render the result in the preview pane. **Time:** ~1 min to type, ~2-3 min for AI
 
 Walk the rendered diagram aloud. Pick the **2-3 defects that actually appear**. The calibration draft was large (12 classes) and over-modelled: invented/implementation classes (#1) and ids standing in for associations (#3) are the most visible — anchor on whichever shows. Rental–Bike and User–Rental multiplicities came out *correct*; don't promise a many-to-many.
 
+Dry run (September 2026), two fresh runs of prompt #1, both rendered: one reproduced the calibration picture (`MobileApp` with `User "1" --> "1" MobileApp : uses`, a `GeoLocation` class, `Dock` beside `Station` with *both* holding bikes, `Account` with `topUp()`, `Transfer "1" --> "2" Station`, and `Rental.startStation`/`endStation` attributes next to a `start/end at` line). The other was cleaner — 20 classes but no app class, only each class's *own* `id`, statuses as enums, `Dock "0..1" o-- "0..1" Bicycle` correct — so #1/#3/#5 barely showed and the visible defects were #6 (unrequested `PricingPlan`, a `PaymentMethod` hierarchy, `batteryLevel`) and the two rows marked "also seen in dry run" below.
+
 | # | Defect | What to point at | Critique question |
 |---|---|---|---|
 | 1 | Implementation / invented class | `App` (the client software, not a domain concept), `GeoLocation` (a value type), `Dock` holding bikes *alongside* `Station` hosting them (two paths to the same fact) | *"Is this a domain concept or an implementation detail? Walk it back to the prompt. Where does a bike 'live' — in a Dock or a Station?"* |
@@ -35,6 +37,8 @@ Walk the rendered diagram aloud. Pick the **2-3 defects that actually appear**. 
 | 4 | Missing aggregation | `Station "1" --> "0..*" Bicycle : hosts` as a plain association | *"A station holds bikes — is that a plain link, or a whole-part? Why isn't it an aggregation?"* |
 | 5 | Subtle multiplicity / role slip | Station end of Station–Bicycle is `"1"` — but a bike being ridden is at no station (should be `0..1`); `RebalancingTask --> "2" Station` loses which is source and which is destination | *"Read it aloud: 'every bike is at exactly one station.' Is that true mid-ride? Which of the two stations is the source?"* |
 | 6 | Unrequested scope / weak types | `Account` with `balance` and `topUp()` (prompt says only "payment is by app"), `MaintenanceRecord`, `batteryLevel`; every `status`/`type` a `String` | *"Which requirement asked for this? And what values can `status` take — why isn't it an enum?"* |
+| 7 | Same fact recorded twice (also seen in dry run) | Enumerations drawn as classes *and* linked by an association while also being attribute types (`Bicycle.type : BikeType` plus `Bicycle --> BikeType`; likewise `StaffRole`, `DockStatus`); `RebalanceTask.bikeCount` next to `moves "1..*" Bicycle`; `Station.capacity` next to its composed `Dock`s | *"Two places on the diagram say the same thing — which one is true when they disagree?"* |
+| 8 | Questionable whole-part (also seen in dry run) | `City "1" *-- "many" Station` as a composition; `Member o-- PaymentMethod` | *"The filled diamond says the stations die with the city record. Is that the domain?"* |
 
 Older/weaker models classically drew `Rental "*" -- "*" Bike` or a god class with a `DatabaseManager`; the deck keeps those as teaching examples, but this setting did not produce them.
 
@@ -56,7 +60,16 @@ Type this into the Claude Code panel:
 
 Naming the domain rules is the pivot. Re-render. **Time:** ~1 min to type, ~2-3 min for AI to revise + render.
 
-**Critique beat — re-check the revision, don't trust the summary.** Read the model's "Changes made" list against the new render, item by item. In calibration (an earlier wording of this prompt that also asked to "fix the multiplicities" of Rental) the follow-up: dropped `App`/`GeoLocation`/`Dock` and added the aggregation, but **claimed a multiplicity fix it never made** (Rental–Bike was already 1–1; nothing changed), drew the station end as `"1"` instead of `0..1`, **kept `Station.availableDocks` after deleting `Dock`**, and left `sourceStationId`/`destinationStationId` on `RebalancingTask`. It also added a good unrequested `Rental --> Station : ends at`. Ask the room: *"It says it fixed X — show me where."* Use the leftovers as the lead-in to §5. (Keep it inside the revise + render window — it does not extend the demo.)
+**Critique beat — re-check the revision, don't trust the summary.** Read the model's change list against the new render, item by item. In calibration (an earlier wording of this prompt that also asked to "fix the multiplicities" of Rental) the follow-up **claimed a multiplicity fix it never made**, drew the station end as `"1"` instead of `0..1`, kept `Station.availableDocks` after deleting `Dock`, and left `sourceStationId`/`destinationStationId` on `RebalancingTask`.
+
+Dry run (September 2026) of this wording: it did what was asked — `Dock`/`DockStatus` gone, `Station "0..1" o-- "*" Bicycle` exactly as the §5 reference, rendered cleanly in ~15 s — and made no false claim, though "no attribute now holds another object's id" was vacuous (that draft had only each class's own `id`, which it deleted anyway). The re-check is then about **what it changed without being asked, or without saying**:
+
+- It deleted `PaymentMethod`/`CreditCard`/`DigitalWallet` as "a payment-gateway concern" — "payment is by app" is no longer in the model. *"Does the business care how a rider pays? Domain or implementation?"*
+- The enum classes vanished from the drawing but `BikeType`, `BikeStatus`, `StaffRole`, `PaymentStatus`, `TaskStatus` are still used as attribute types — while `RentalStatus` disappeared together with `Rental.status`, not in its change list.
+- A new `Member "1" --> "*" Payment : pays` duplicates the path Member → Rental → Payment (defect #7 again, freshly introduced).
+- `bikeCount` still sits next to `moves "1..*" Bicycle`; `City` composition silently became aggregation.
+
+Ask the room: *"It says it did X — show me where. What did it change that it didn't mention?"* If the live run instead repeats the calibration's false claim, use that. Use the leftovers as the lead-in to §5. (Keep it inside the revise + render window — it does not extend the demo.)
 
 ## 5. Reference solution (instructor's verified render target)
 
@@ -86,11 +99,13 @@ Point back to the F1 anchor slide.
 
 ## 7. Make-it-fail reserve — AI produces a clean diagram
 
-If AI's first diagram is suspiciously clean (low probability — in calibration the first draft over-modelled at 12 classes), restore the critique surface:
+If AI's first diagram is suspiciously clean (low probability — in calibration the first draft over-modelled at 12 classes, and both dry-run drafts at 12 and 20), restore the critique surface:
 
-> *"Now expand this into a complete enterprise architecture with all supporting subsystems."*
+> *"Now expand this into a complete enterprise architecture with all supporting subsystems — keep it a single Mermaid class diagram, no namespaces."*
 
-Expect more invented infrastructure (services, controllers, gateways) and over-modelling; a god class is less likely with current models, so don't promise one. If even that is clean, fall back to `03-fallback-make-it-fail.png` and walk the screenshot.
+(Revised after dry run; the revised wording was re-run once: ~38 s, a single class diagram of ~67 classes with no namespaces, renders — dense, so zoom and walk one area at a time.) Dry run (September 2026) of the original wording, which ended at "subsystems": the model left the class diagram behind. In ~26 s it answered with a layered `flowchart` (client channels, API gateway, Kafka event bus, Redis, machine-learning demand forecasting, IoT gateway, external providers — rendered fine) plus a 35-class `classDiagram` grouped in `namespace` blocks. That second diagram **did not render** — not a syntax error but a Mermaid layout crash ("Could not find a suitable point for the given distance") caused by multiplicity labels on edges between namespaces; dropping either the namespaces or the multiplicities makes it render. In the preview that is an error box where the class diagram should be, which loses the class-level critique on a class-diagram lecture — hence the added clause. Its content was worth critiquing: every class carries its own `…Id`, attributes are untyped, `Transfer "*" --> "2" Station` again loses source vs destination, `User "*" --> "*" Role`, `Admin --|> Staff`, and whole subsystems (`FraudAlert`, `DemandForecast`, `Promotion`, `Subscription`, `Vehicle`) no requirement asks for.
+
+Expect more invented infrastructure and over-modelling; a god class is less likely with current models, so don't promise one. If the live reply still uses namespaces and the preview errors, don't debug on stage — walk the invented subsystems from the text, or fall back to `03-fallback-make-it-fail.png`. If even that is clean, walk the screenshot.
 
 ## 8. Fallback path — live AI fails
 

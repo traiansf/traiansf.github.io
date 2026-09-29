@@ -1,6 +1,6 @@
 # W3 Demo Runbook — Bike-Sharing Fare, Testable-Spec Loop
 
-Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt — live output varies; walk the defects that actually appear.
+Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt — live output varies; walk the defects that actually appear. Prompt #2 was dry-run the same month (fresh session, follow-up in the same session, as in class — but with no file or shell tools, so file writing and the pytest run were not exercised; the dry run's tests were checked separately and pass).
 
 > Procedural script for the W3 lecture's live demo. **Not** a slidy deck — pandoc is configured to skip files matching `*-demo.md` (filter installed during W1). Read end-to-end before running. Estimated runtime: 12-14 minutes inside the lecture's "Demo" segment.
 >
@@ -11,7 +11,7 @@ Calibrated September 2026 with Claude Sonnet 5 (low effort), one run per prompt 
 ## 0. Setup (pre-class, ~1 min)
 
 - VS Code open on a demo repository (the scratch directory below) that contains the course settings from `class/amss-2026/tooling/template/` (see `class/amss-2026/tooling/SETUP.md`).
-- Claude Code panel open and signed in; `/model` shows **Sonnet 5, low effort** (the course settings). Claude Code may write `fare.py`/`test_fare.py` straight into the repository and will ask before running commands — approve the pytest run, or run it yourself in the terminal.
+- Claude Code panel open and signed in; `/model` shows **Sonnet 5, low effort** (the course settings). Claude Code may write `fare.py`/`test_fare.py` straight into the repository and will ask before running commands — approve the pytest run, or run it yourself in the terminal. Disable claude.ai connectors (`/mcp`) in the demo session: in the dry run the model opened both answers by talking about a document tool it had been offered.
 - An **editor pane** showing the test file as AI writes it, and a **terminal pane visible** — students must watch pytest run; the run is the payoff.
 - A scratch working directory with Python 3 and pytest installed and verified (`python3 -m pytest --version` returns a version).
 - Browser tab pre-opened to `class/amss-2026/curs/03-testable-specs-demo-fallback/01-fallback-cycle1-test.png` in case the live AI fails.
@@ -40,9 +40,12 @@ In calibration the model (a) said in prose that it was *assuming* a common prici
 | 3 | Test name promises more than the assertion checks | `test_fare_rounds_to_two_decimals` asserts `pytest.approx(2.05)` — passes whether or not the code rounds | *"Delete the `round(...)` from the code. Does this test go red? Then what is it testing?"* |
 | 4 | Missing boundary | No free period, no cap, nothing at a cutoff — only 0, 7, 10, 20 minutes | *"What happens at exactly 30 minutes? The spec — and the test — are silent."* |
 | 5 | Faithfully encodes a wrong spec | Unbounded per-minute charging: a bike forgotten for a week (10,080 min) costs €1,513 | *"The test matches the (guessed) spec exactly — and the spec is the thing that's wrong."* |
-| 6 | Spare (older/weaker models; not seen in calibration) | Trivially-passing assertion (`assert fare(10) >= 0`) or no invalid-input case | *"Does this test fail for any wrong implementation? If not, it proves nothing."* |
+| 6 | Trivially-passing assertion (not seen in calibration; also seen in dry run) | `assert calculate_fare(1) > 0`, `assert calculate_fare(30) > calculate_fare(15)` (older models: `fare(10) >= 0`) | *"Does this test fail for any wrong implementation? If not, it proves nothing."* |
+| 7 | Expected values are formulas, not numbers (also seen in dry run) | `(10, UNLOCK_FEE + 10 * PER_MINUTE)` — the test restates the rule with its own constants instead of stating "€3.00" | *"If the formula is wrong, is the test wrong in exactly the same way? What number do I actually expect?"* |
 
 (Invalid input *was* covered in calibration: `calculate_fare(-5)` raises `ValueError`. Acknowledge it if it appears — critique is not only fault-finding.)
+
+Dry run (September 2026): a fresh run of prompt #1 (~13 s) reproduced rows 1, 4 and 5 and the "I assumed some rules, please check" disclaimer — but guessed **€1 unlock + €0.20/min** (calibration: €0.15/min), plus an invented "partial minutes round up" rule. Use that live: two runs, two prices, both with green-looking tests. Row 2 did *not* appear (no implementation; the tests import a non-existent `bikeshare.fare` and it said so); rows 6-7 appeared instead. It also listed good clarifying questions (free period? daily cap? e-bike rates?) — acknowledge them, then point out it wrote the test anyway.
 
 If AI produces a suspiciously precise, reasonable test → jump to §7 "Make-it-fail reserve (inverted)".
 
@@ -60,11 +63,18 @@ Type this into the Claude Code panel:
 
 > *"Refine the requirement: renting is free for the first 30 minutes, then €0.10 per minute, capped at €5 per calendar day. Now write pytest tests covering: a 20-minute ride (free), a 90-minute ride, exactly 30 minutes (boundary), and a ride that hits the daily cap. Then write the `fare` function and run the tests."*
 
-The tightened spec is *the* pedagogical pivot — the same AI now writes tests that pin the behaviour, because the requirement finally says what "charged" means. It directly targets the observed defects #1, #4 and #5 (invented rate, no boundary, no cap). Wait for AI to produce tests + code, then run them. **Re-check before celebrating green** (the follow-up was not calibrated): did the old €1 unlock fee or `rate_per_minute` defaults survive into the new function? Is there really a test at exactly 30 minutes? Are the expected values hand-computed numbers, not formulas copied from the code?
+The tightened spec is *the* pedagogical pivot — the same AI now writes tests that pin the behaviour, because the requirement finally says what "charged" means. It directly targets the observed defects #1, #4 and #5 (invented rate, no boundary, no cap). Wait for AI to produce tests + code, then run them. **Re-check before celebrating green**: did the old €1 unlock fee or `rate_per_minute` defaults survive into the new function? Is there really a test at exactly 30 minutes? Are the expected values hand-computed numbers, not formulas copied from the code?
 
-**Time:** ~1 min to type, ~3-4 min for AI to generate tests + code + run pytest.
+Dry run (September 2026), ~20 s: a clear improvement, and honest about its choices. No unlock fee survived; tests at 20, **30** and 31 minutes; hand-written `Decimal` values (so no float-money bug); it noticed that the 90-minute ride already hits the cap and added a 45-minute ride (€1.50) for the uncapped case. All its tests pass against its code. What to point at:
 
-**Note for the speaker (residual ambiguity, optional aside):** the tightened spec says "capped at €5 per calendar day," but a single `fare(minutes)` function models one rental, not a day's aggregate. A 90-minute ride already reaches the cap (60 paid min × €0.10 = €6 → capped to €5). If the room is sharp, surface this: *"even my 'tightened' spec is ambiguous — is the cap per ride or per day? The test forced that question too."* This reinforces the whole lecture but is optional; skip if time is tight.
+- It **resolved the per-ride vs per-day ambiguity itself** (see the note below): the cap is per calendar day, via a new `charged_today` parameter the caller must supply. It said so — good — but that is a product decision the spec owner should make. *"Who decided that? Is it what I meant?"*
+- The calendar day is still not modelled: `fare(600)` (a ten-hour ride) is €5.00 even if it crosses midnight, and a three-day ride also costs €5.00. *"Per calendar day — so which day does this ride belong to?"*
+- A wrong number in a test comment: `fare(90, charged_today=4.00)` is annotated "60 min would cost €3.00" — it's €6.00. The assertion is right, the comment is not; hand-computed numbers still need checking.
+- A second invented rule carried over from the first answer: partial minutes round up ("per started minute"), stated in the prose, not in the spec.
+
+**Time:** ~1 min to type, ~3-4 min for AI to generate tests + code + run pytest (generation took ~20 s in the dry run; the file writes and approved pytest run take the rest).
+
+**Note for the speaker (residual ambiguity, optional aside; in the dry run the model surfaced it itself — then just ask who should have decided):** the tightened spec says "capped at €5 per calendar day," but a single `fare(minutes)` function models one rental, not a day's aggregate. A 90-minute ride already reaches the cap (60 paid min × €0.10 = €6 → capped to €5). If the room is sharp, surface this: *"even my 'tightened' spec is ambiguous — is the cap per ride or per day? The test forced that question too."* This reinforces the whole lecture but is optional; skip if time is tight.
 
 ## 5. Reference solution (instructor's verified green target)
 
@@ -131,7 +141,7 @@ Point back at the loop diagram slide from the deck.
 
 ## 7. Make-it-fail reserve (inverted) — AI guesses a reasonable rule
 
-For this demo the *desired* outcome is the vague-spec exposure, not a green test. The reserve handles the opposite risk: AI's first test guesses a *reasonable* pricing rule and looks correct — which is exactly what the calibration run did (€1 unlock + €0.15/min, clean tests, a polite "adjust if your model differs"). Expect to use this framing.
+For this demo the *desired* outcome is the vague-spec exposure, not a green test. The reserve handles the opposite risk: AI's first test guesses a *reasonable* pricing rule and looks correct — which is exactly what the calibration run did (€1 unlock + €0.15/min, clean tests, a polite "adjust if your model differs") and the September 2026 dry run did again (€1 unlock + €0.20/min, "please check them against the real spec"). Expect to use this framing — and if you have both numbers, quote them: two runs, two different "reasonable" prices.
 
 > *"Notice it picked [the rule it picked — e.g. a €1 unlock fee plus €0.15 per minute]. Reasonable — but my spec never said that. Three teammates' AIs would pick three different rules, and all their tests would pass. That's exactly the problem: the test is only as precise as the spec behind it."*
 

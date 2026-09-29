@@ -25,18 +25,19 @@ Read the five layers aloud. **Time:** ~1 min to type, ~2 min for AI to respond.
 
 ## 2. Defect catalogue — pick the ones that appear
 
-Walk the chain requirement-to-test, then test-to-requirement. Pick the **2-3 defects that actually appear**. In calibration the 15-minute value was consistent in every layer (no drift) — the breaks were **dangling links** (#1 below) and **requirement clauses with no test** (#2). Anchor on those.
+Walk the chain requirement-to-test, then test-to-requirement. Pick the **2-3 defects that actually appear**. In calibration the 15-minute value was consistent in every layer (no drift) — the breaks were **dangling links** (#1 below) and **requirement clauses with no test** (#2). Anchor on those. The September 2026 dry run (two fresh runs of this prompt) reproduced #1, #2 and #5 both times; #3, #4 and #6 appeared in one run only.
 
 | # | Defect | What to point at | Critique question |
 |---|---|---|---|
-| 1 | Dangling link (observed) | the sequence calls `Bike.setStatus(...)` / `checkStatus()`, the test calls `service.setClock(...)`, `new ReservationService(clock)`, `ReservationExpiredException` — none declared in the class changes; `Rider` is used everywhere but never introduced | *"This message points at an operation that doesn't exist. Add it to the class, or fix the message."* |
-| 2 | Orphan requirement clause (observed) | the requirement says "unavailable to other riders" and the use case has a cancel flow — the single test covers only expiry | *"Walk each clause forward — where's the test for 'unavailable to other riders'? For cancel?"* |
-| 3 | Requirement not realised in the behaviour (observed) | `fulfillReservation(reservationId)` takes no rider — nothing in the sequence checks the unlocker is the rider who reserved; `Bike.unlock(rider)` is declared but never called | *"Show me the link that enforces 'unavailable to other riders'. Which message does it?"* |
+| 1 | Dangling link (observed; also seen in dry run) | the sequence calls `Bike.setStatus(...)` / `checkStatus()`, the test calls `service.setClock(...)`, `new ReservationService(clock)`, `ReservationExpiredException` — none declared in the class changes; `Rider` is used everywhere but never introduced. Dry run: `Rider`, `Clock`, `repo.save(...)`, `InMemoryReservationRepository`, the exceptions `BikeUnavailable` / `AlreadyReserved`, and a sequence step "bike -> IN_USE" with no operation behind it | *"This message points at an operation that doesn't exist. Add it to the class, or fix the message."* |
+| 2 | Orphan requirement clause (observed; also seen in dry run) | the requirement says "unavailable to other riders" and the use case has a cancel flow — the single test covers only expiry. Dry run: cancel and "a non-holder cannot unlock" appear only under "further tests to add" | *"Walk each clause forward — where's the test for 'unavailable to other riders'? For cancel?"* |
+| 3 | Requirement not realised in the behaviour (observed; in one of the two dry runs — the other declared a holder check in `RentalService.unlock`) | `fulfillReservation(reservationId)` takes no rider — nothing in the sequence checks the unlocker is the rider who reserved; `Bike.unlock(rider)` is declared but never called | *"Show me the link that enforces 'unavailable to other riders'. Which message does it?"* |
 | 4 | Duplicated responsibility (observed) | `Bike.reserve(rider)` and `ReservationService.createReservation(...)` both claim the same job; the sequence uses only the service | *"Two classes own 'reserve'. Which one does the sequence use — and why does the other exist?"* |
-| 5 | Orphan artifact / gold-plating (observed) | `ReservationExpiryScheduler`, the "notify rider" message on expiry, the countdown — no requirement asked for them | *"Walk this back — which requirement needs it? If none, why is it here?"* |
-| 6 | Test mismatch (mild, observed) | the test asserts an exception on fulfil-after-expiry (the requirement says "returns to the pool"); it tests 15 min **+1 s** but not the boundary at exactly 15:00 | *"Does this test verify exactly what the requirement says — no more, no less? What happens at 15:00 sharp?"* |
+| 5 | Orphan artifact / gold-plating (observed; also seen in dry run) | `ReservationExpiryScheduler`, the "notify rider" message on expiry, the countdown — no requirement asked for them. Dry run added "at most one reservation per rider" as a requirement of its own | *"Walk this back — which requirement needs it? If none, why is it here?"* |
+| 6 | Test mismatch (mild, observed; in one of the two dry runs — the other tested 14:59 and exactly 15:00) | the test asserts an exception on fulfil-after-expiry (the requirement says "returns to the pool"); it tests 15 min **+1 s** but not the boundary at exactly 15:00 | *"Does this test verify exactly what the requirement says — no more, no less? What happens at 15:00 sharp?"* |
+| 7 | Message to the wrong lifeline (also seen in dry run) | the ASCII sequence draws "create Reservation" and "reservation.fulfill()" as arrows ending on the `ExpiryScheduler` lifeline | *"Who receives this message? Is that object the one that owns the operation?"* |
 
-Also note: in calibration (no repository instruction files) the class and sequence came as pseudo-code, not diagrams. With the course `AGENTS.md` present, expect Mermaid; if you still get pseudo-code, that is itself a critique point (*"is this a UML sequence diagram?"*).
+Also note: in calibration and in the dry run (no repository instruction files) the class and sequence came as pseudo-code / ASCII art, not diagrams. With the course `AGENTS.md` present, expect Mermaid; if you still get pseudo-code, that is itself a critique point (*"is this a UML sequence diagram?"*).
 
 Drift of the 15-minute value between layers is the classic trace failure (older/weaker models produce it) — the deck's gallery covers it; do not promise it live. If the trace is suspiciously consistent → jump to §6 "Make-it-fail reserve".
 
@@ -55,6 +56,14 @@ Type this into the Claude Code panel:
 > *"Make the layers consistent: every operation the sequence or the test calls must be declared in the class changes, including Rider; every clause of the requirement — expiry, 'unavailable to other riders', cancel — must have a test; only the rider who reserved may unlock; drop anything no requirement asked for. Then list the trace links: requirement -> use case -> class -> sequence -> test."*
 
 Demanding the explicit links is the pivot. Re-walk the revision rather than trusting its link list: check that each newly declared operation is actually the one the sequence calls, and that the new tests really exercise the clauses they claim. Re-read. **Time:** ~1 min to type, ~2 min for AI to revise.
+
+**Dry run (September 2026):** prompt #2 did what it asked. It declared `Rider`, `Clock`, the constructors and both exceptions ("every operation used in section 4 or 5 is declared here" — nearly true); wrote one test per clause (reserve, other rider cannot reserve, other rider cannot unlock, holder unlock completes, cancel frees, expiry at 14:59 vs exactly 15:00); enforced holder-only unlock; dropped the scheduler, the repository, the one-per-rider rule and the `RESERVED` bike state; and produced a requirement -> use case -> class -> sequence -> test table. It also honestly flagged two open gaps (any rider may unlock an unreserved bike; nobody checks who cancels). The answer is long (~50 s to generate) — do not read it all: read the trace table and spot-check two rows. What to point at in the re-check:
+
+- **Over-pruning (the teachable regression).** "Drop anything no requirement asked for" also removed the availability check and the `RESERVED` state. `reserve` now checks only for an active reservation, so a rider can reserve a bike that is **in use** by someone else; and a reserved bike still reports `status == AVAILABLE` — its own test asserts that. *"Did the fix respect the requirement, or just the letter of my prompt?"*
+- **Hidden state, not a declared link.** The reserve sequence creates the `Reservation` but never stores it; `activeFor(bike)` then reads "the stored reservation". No attribute or operation holds it — a dangling link the "everything is declared" claim hides.
+- **Vacuous trace link.** Expiry's "sequence D" is "no messages: time passes". Is a sequence with no messages a realisation of the requirement, or a gap with a label?
+- Smaller: `ReservationStatus` is used by the tests but never declared as a type; tests say `is_active` / `expires_at` while the class says `isActive` / `expiresAt`; `cancel` has no guard, so cancelling a completed reservation mid-ride is allowed; it rewrote the requirement into R1-R5 (promoting "only the holder may unlock" into R3) — ask who approved the new requirement.
+- Still pseudo-code, not UML — same point as §2.
 
 ## 5. Reference solution (instructor's verified target)
 
@@ -81,7 +90,17 @@ If AI's first trace is fully consistent (unlikely — the calibration run had fo
 
 > *"Now add loyalty points, surge pricing, and fraud detection to this feature."*
 
-This is expected to introduce orphan artifacts (classes/tests with no requirement) and new dangling links — not tested in calibration, so check before promising it. If even that is clean, fall back to `02-fallback-make-it-fail.png` and walk the screenshot.
+**Dry run (September 2026):** it works — a rich critique surface in ~25 s (turn 1 of that run was itself already broken, with defects #1, #2, #5, #6 and #7). It wrote new requirements, a revised use case, five new service/value classes, a sequence and five Java tests, and broke the chain in exactly the ways the lecture names:
+
+- **Orphan concept:** loyalty redemption is "against the reservation fee" — no requirement ever said reservations cost anything.
+- **Layers disagree:** the use case says the fee is still charged on expiry, while its own open questions ask *whether* it should be.
+- **Test checks something else:** surge pricing locks "the reservation fee and trip rate", but the test asserts the trip rate equals the *reservation quote* total — fee and trip rate conflated.
+- **Assumptions baked into tests:** the 3.0x surge cap and "3 expiries -> block" are listed as "to confirm" / open questions, yet hard-coded in the tests.
+- **Orphan requirement clause:** the fraud "medium score requires extra verification" path has no operation, no sequence step and no test.
+- **Dangling links:** tests call `demand.setSurge`, `tripRepo`, `loyalty.seed` / `balance`, `RiderBlockedException`; the sequence still calls `Bike.checkStatus`, which no class declares.
+- The original 15-minute tests are silently dropped from the new test list.
+
+Pick two (the fee and the fraud-review path are the quickest to show). If even that is clean, fall back to `02-fallback-make-it-fail.png` and walk the screenshot.
 
 ## 7. Fallback path — live AI fails
 
