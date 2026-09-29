@@ -398,11 +398,21 @@ apărarea orală, într-o lucrare scrisă, fără AI în cameră (critică,
 raționament și trasabilitate, ca la apărarea orală). Vezi
 <code>../exam/examen-2026.pdf</code>.</p>
 <h2 id="unelte">Unelte</h2>
-<p>Toți studenții folosesc aceeași <strong>setare agentică standardizată
-de curs</strong> (o extensie de editor, un endpoint de model, un fișier
-de configurare), documentată în repository-ul cursului — vezi
-<code>tooling/SETUP.md</code>. Poți folosi unelte proprii mai puternice
-peste această bază, dar <strong>artefactele notate trebuie să se
-reproducă pe setarea canonică</strong>.</p>
+<p>Fiecare student folosește un asistent AI în VS Code, cu propriul
+abonament: <strong>Claude Code</strong> (extensia oficială Anthropic, cu
+Claude Pro) sau <strong>Codex</strong> (extensia oficială OpenAI, cu
+ChatGPT Plus). Setările cursului se află în
+<code>tooling/template/</code> și se copiază în rădăcina repository-ului
+de proiect: <code>AGENTS.md</code> și <code>CLAUDE.md</code>
+(convențiile cursului, de exemplu Mermaid pentru UML),
+<code>.claude/settings.json</code> (fixează Claude Code pe
+<strong>Sonnet 5, efort redus</strong>) și
+<code>.codex/config.toml</code> (echivalentul cel mai apropiat pentru
+Codex). Pașii sunt în <code>tooling/SETUP.md</code>.</p>
+<p>Toată lumea folosește același model și același nivel de efort, fixate
+de setările din repository, astfel încât output-ul AI să fie comparabil
+în toată cohorta și reproductibil la apărarea orală. Poți folosi și alte
+unelte pentru explorare, dar <strong>artefactele notate trebuie să se
+reproducă cu setările cursului</strong>.</p>
 </body>
 </html>

@@ -146,11 +146,10 @@ project: requirement → use case → class → state/sequence → test.</li>
 <blockquote>
 <p><strong>Tooling parity.</strong></p>
 </blockquote>
-<p>Every student uses the same canonical agentic tooling: one editor
-extension, one model endpoint, one config file.</p>
-<p>You may <em>also</em> use Claude Code, Copilot, Cursor on personal
-accounts — but graded artifacts must reproduce on the canonical
-setup.</p>
+<p>Everyone uses the same model and effort level — pinned by the course
+settings you copy into every repository.</p>
+<p>Other tools are fine for exploration — but graded artifacts must
+reproduce with the course settings.</p>
 </div>
 <div id="watch-for-both-moves" class="slide section level1">
 <h1>Watch For Both Moves</h1>
@@ -225,9 +224,11 @@ vague.</p>
 </ul>
 <p><strong>AI fails at:</strong></p>
 <ul>
-<li>Wrong multiplicities (you saw one in the demo).</li>
-<li>Fabricated classes with no behavior.</li>
-<li>Conflating abstract concepts with concrete instances.</li>
+<li>Conflating abstract concepts with concrete instances (a book title
+vs. a physical copy — watch for it in the demo).</li>
+<li>Over-modelling: invented classes, attributes that duplicate
+associations.</li>
+<li>Wrong multiplicities.</li>
 </ul>
 </div>
 <div id="behavioral-modeling-weeks-6-7-preview" class="slide section level1">
@@ -239,9 +240,9 @@ vague.</p>
 </ul>
 <p><strong>AI fails at:</strong></p>
 <ul>
-<li>Fabricating messages between objects that don’t exist.</li>
-<li>Missing guards on state transitions.</li>
-<li>Orphan states / unreachable transitions.</li>
+<li>Drawing only the happy path — no failures, no alternatives.</li>
+<li>Missing transitions the spec needs; vague guards.</li>
+<li>Operations that no participant actually owns.</li>
 </ul>
 </div>
 <div id="patterns-weeks-8-9-preview" class="slide section level1">
@@ -255,8 +256,8 @@ vague.</p>
 <ul>
 <li>Decorating code with patterns that solve nothing.</li>
 <li>Overusing patterns where simple code would do.</li>
-<li>Calling something “Visitor” when it’s just an <code>if/else</code>
-on a type tag.</li>
+<li>Clean-looking patterns that mishandle the edge cases (a peak-hour
+price for a ride that crosses the boundary).</li>
 </ul>
 </div>
 <div id="traceability-quality-evaluation-weeks-10-11-preview" class="slide section level1">
@@ -298,35 +299,41 @@ the next.</li>
 <div id="what-you-just-saw-the-course-tooling" class="slide section level1">
 <h1>What You Just Saw: The Course Tooling</h1>
 <ul>
-<li><strong>Editor:</strong> VS Code with the Continue.dev
-extension.</li>
-<li><strong>Endpoint:</strong> the canonical course model endpoint
-(configured in <code>tooling/.continue/config.yaml</code>).</li>
-<li><strong>Mode:</strong> agentic chat — file-and-repo aware, not
-browser ChatGPT.</li>
+<li><strong>Editor:</strong> VS Code with <strong>Claude Code</strong>
+(Claude Pro subscription) or <strong>Codex</strong> (ChatGPT Plus
+subscription) — the official extensions, signed in with your own
+account.</li>
+<li><strong>Course settings:</strong> copied from
+<code>tooling/template/</code> into every lab and project repository —
+course conventions (Mermaid for UML) and the pinned model:
+<strong>Sonnet 5, low effort</strong>.</li>
+<li><strong>Where it runs:</strong> inside your repository — it reads
+and writes your files, not a browser chat.</li>
 </ul>
 <p>This is what every student in the cohort runs.</p>
 </div>
 <div id="where-we-install-lab-1" class="slide section level1">
 <h1>Where We Install: Lab 1</h1>
 <ul>
-<li>Lab 1 (Week 2): hands-on tooling onboarding. Don’t try alone before
-then.</li>
-<li>Setup guide: <code>tooling/SETUP.md</code> in the course repo.</li>
-<li>Estimated time: ~30 min on a working laptop.</li>
+<li><strong>Before Lab 1:</strong> get a <strong>Claude Pro</strong> or
+<strong>ChatGPT Plus</strong> subscription — you need it in the
+lab.</li>
+<li>Lab 1 (Week 2): hands-on tooling onboarding — install, copy the
+course settings, first run.</li>
+<li>Setup guide: <code>tooling/SETUP.md</code> in the course repo (~20
+min on a working laptop).</li>
 </ul>
 </div>
 <div id="tooling-parity-byo-allowed-on-top" class="slide section level1">
 <h1>Tooling Parity (BYO Allowed, On Top)</h1>
-<p>You may also use, on your personal accounts:</p>
-<ul>
-<li>Claude Code, GitHub Copilot, Cursor — anything you have access
-to.</li>
-</ul>
-<p><strong>But:</strong> every graded artifact must reproduce on the
-canonical setup.</p>
-<p>This is what lets the examiner reproduce your work during the oral
-defense.</p>
+<p>Parity = <strong>same model, same effort level</strong> for everyone
+(Sonnet 5, low effort, pinned by the course settings).</p>
+<p>For exploration, use anything you like — other models, higher effort,
+GitHub Copilot, Cursor.</p>
+<p><strong>But:</strong> every graded artifact must reproduce with the
+course settings. Don’t change the model or effort for graded work.</p>
+<p>This is what keeps AI output comparable across the cohort — and lets
+the examiner reproduce your work during the oral defense.</p>
 </div>
 <div id="schedule" class="slide section level1">
 <h1>Schedule</h1>
@@ -437,7 +444,8 @@ announcement).</li>
 <ul>
 <li>Next week: requirements with AI.</li>
 <li>Lab 1 (Week 2 lab slot): tooling onboarding + first AI-driven
-requirements drill.</li>
+requirements drill — bring your Claude Pro or ChatGPT Plus
+subscription.</li>
 </ul>
 <p>Questions?</p>
 </div>

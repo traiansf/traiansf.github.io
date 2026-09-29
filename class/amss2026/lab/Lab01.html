@@ -105,8 +105,8 @@ Traian-Florin Șerbănuță
 <h1>Lab 1: Tooling Onboarding + Requirements with AI</h1>
 <p>Three phases, 100 minutes:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Tooling onboarding</strong> (~15 min) — activate your AI
-endpoint, confirm repo access.</li>
+<li><strong>Tooling onboarding</strong> (~15 min) — sign in to your AI
+assistant, add the course settings, confirm repo access.</li>
 <li><strong>Requirements drill</strong> (~60 min) — in pairs, drive AI
 to produce a requirements doc; critique it.</li>
 <li><strong>Share-out</strong> (~25 min) — compare failure modes across
@@ -118,28 +118,37 @@ the course lab repo.</p>
 <div id="before-you-start" class="slide section level1">
 <h1>Before You Start</h1>
 <ul>
-<li>Continue.dev installed per <code>tooling/SETUP.md</code> — you did
-this <em>before</em> lab.</li>
-<li>You receive at lab start: your model-endpoint credentials, your
-<strong>pair-id</strong>, and the lab-repo URL.</li>
+<li>Your AI assistant installed in VS Code per
+<code>tooling/SETUP.md</code> — <strong>Claude Code</strong> (Claude
+Pro) or <strong>Codex</strong> (ChatGPT Plus) — you did this
+<em>before</em> lab.</li>
+<li>You receive at lab start: your <strong>pair-id</strong> and the
+lab-repo URL. There are no credentials to hand out: you sign in with
+your own subscription.</li>
 <li>Find your partner. This is a pair lab.</li>
 </ul>
 </div>
 <div id="phase-1-onboarding-15-min" class="slide section level1">
 <h1>Phase 1 — Onboarding (15 min)</h1>
 <ol style="list-style-type: decimal">
-<li>Paste your three credentials (model, apiBase, apiKey) into
-<code>tooling/.continue/config.yaml</code>.</li>
-<li>Smoke test: open any file, press <code>Ctrl+L</code>, ask
-<em>“summarize this file”</em>. A coherent answer means the endpoint is
-live.</li>
-<li>Clone or pull the lab repo, create branch
-<code>lab01/&lt;pair-id&gt;</code>, and push a stub to confirm
+<li>Open the assistant’s panel in VS Code and <strong>sign in</strong>
+with your own account (Claude Code or Codex).</li>
+<li>Clone or pull the lab repo and create branch
+<code>lab01/&lt;pair-id&gt;</code>. <strong>Copy the contents of
+<code>tooling/template/</code></strong> into the lab repo’s root
+(commands in <code>tooling/SETUP.md</code>, step 3).</li>
+<li><strong>Smoke test:</strong> open the lab repo folder in VS Code and
+ask the assistant for a Mermaid class diagram of a parking lot. It
+should render in the Markdown preview.</li>
+<li><strong>Check the model:</strong> Claude Code → type
+<code>/model</code>, it must show <strong>Sonnet 5, low effort</strong>;
+Codex → the model picker must show the model from
+<code>.codex/config.toml</code>.</li>
+<li>Commit the template files and push the branch to confirm
 access.</li>
 </ol>
-<p>Stuck? Endpoint fails → switch to the Gemini free-tier config
-(<code>tooling/SETUP.md</code>). Continue broken → work on your
-partner’s laptop.</p>
+<p>Stuck? No subscription yet, or usage limit hit → pair with a
+colleague and work on their laptop.</p>
 </div>
 <div id="phase-2-the-drill-60-min" class="slide section level1">
 <h1>Phase 2 — The Drill (60 min)</h1>
@@ -171,8 +180,8 @@ once.</strong></p>
 <h1>Round 2 — swap: B drives, A critiques (~25 min)</h1>
 <p>Now <strong>B</strong> drives and <strong>A</strong> critiques.</p>
 <p>Take a fresh angle: push for measurable acceptance criteria on each
-requirement, or negative-prompt away the fabricated technology A’s round
-surfaced.</p>
+requirement, or negative-prompt away the fabricated technology,
+regulations and numbers A’s round surfaced.</p>
 <p>Keep a running log of <em>what you asked the AI and why</em> — that’s
 your Rationale evidence and the source of reflection line 3.</p>
 </div>
@@ -218,19 +227,24 @@ posing as requirements.</li>
 </div>
 <div id="critics-card-vending-machine" class="slide section level1">
 <h1>Critic’s Card — Vending Machine</h1>
-<p>If the draft looks complete, stress these. Most are omissions:</p>
+<p>If the draft looks complete, stress these. Check each one — is it
+there, and is it <em>testable</em>?</p>
 <ul>
-<li>Exact change unavailable / making change</li>
-<li>Item sold out after selection</li>
-<li>Two buyers grab the last item at once</li>
-<li>Power loss mid-vend (paid, not dispensed)</li>
-<li>Refund / cancel before dispense</li>
-<li>Restock &amp; cash audit (operator role)</li>
-<li><em>“Shall be fast / reliable”</em> — vague NFR</li>
-<li><em>“Use an SQL database / a specific coin mechanism”</em> —
-fabricated technology</li>
+<li>Exact change unavailable, item sold out, cancel before dispense,
+power loss mid-vend — present? With an acceptance criterion?</li>
+<li>Two buyers grab the last item at once — often missing</li>
+<li>Numbers nobody gave you (<em>“99% uptime”</em>, <em>“within 10
+seconds”</em>) — fabricated precision</li>
+<li>Age checks, tax, safety certifications, privacy law — did you ask
+for any of it?</li>
+<li><em>“Card payment via EMV / NFC”</em> — fabricated technology</li>
+<li><em>“Operable without training”</em>, <em>“legible at typical
+distance”</em> — vague NFR</li>
+<li>One requirement doing three jobs (restock + prices + inventory) —
+conflated</li>
 </ul>
-<p>A draft that omits these <em>is</em> failing — silently.</p>
+<p>A draft that <em>looks</em> thorough can still be unverifiable and
+full of things nobody asked for.</p>
 </div>
 <div id="deliverable" class="slide section level1">
 <h1>Deliverable</h1>
