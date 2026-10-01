@@ -161,7 +161,15 @@
         if (event.target === toc) toc.close();
       });
       document.body.appendChild(toc);
-      count.addEventListener('click', function () {
+      var byPointer = false;   // the outline was opened with a click or a tap
+      toc.addEventListener('close', function () {
+        // Closing returns the focus to the counter, where Space would open
+        // the outline again; after a pointer click the counter gives the
+        // focus up, like the other buttons in the bar.
+        if (byPointer && document.activeElement === count) count.blur();
+      });
+      count.addEventListener('click', function (event) {
+        byPointer = event.detail > 0;
         var here = paged ? index : firstVisible();
         tocLinks.forEach(function (link, i) {
           if (i === here) link.setAttribute('aria-current', 'true');
@@ -176,20 +184,60 @@
 
     // ---------- paged view ----------
 
-    // Parts that pandoc marks "incremental": the content after a pause
-    // (". . .") and the items of an incremental list.
-    function fragmentsOf(slide) {
+    // What waits for a step when a slide is reached with "next", as in the
+    // PDF: everything after a pause (". . .") and the items of an incremental
+    // list, except a first item with no pause before it. Pandoc wraps what
+    // follows a pause between the blocks of a slide in div.incremental;
+    // theme/amss.lua leaves a .deck-pause marker for a pause inside a column,
+    // a quotation or a list item. Returns the steps in order, each a list of
+    // elements shown together.
+    function stepsOf(slide) {
+      var body = slide.querySelector('.slide-body') || slide;
       var parts = [];
-      Array.prototype.forEach.call(slide.querySelectorAll('.incremental'), function (el) {
-        if (el.tagName === 'UL' || el.tagName === 'OL') parts.push.apply(parts, el.children);
-        else parts.push(el);
+      var states = [];   // the state in which parts[i] appears; 1 is the arrival
+      var state = 1;
+      function claim(el, at) {
+        var i = parts.indexOf(el);
+        if (i < 0) { parts.push(el); states.push(at); }
+        else states[i] = Math.max(states[i], at);   // the last pause before it decides
+      }
+      var marks = slide.querySelectorAll(
+        '.deck-pause, div.incremental, .incremental > li, .incremental > dt, .incremental > dd');
+      Array.prototype.forEach.call(marks, function (el) {
+        if (el.classList.contains('deck-pause')) {
+          state++;
+          for (var node = el; node && node !== body; node = node.parentNode) {
+            for (var later = node.nextElementSibling; later; later = later.nextElementSibling) claim(later, state);
+          }
+        } else if (el.tagName === 'DIV') {
+          claim(el, ++state);
+        } else if (el.tagName === 'DD') {
+          claim(el, state - 1);   // with its term
+        } else {
+          claim(el, state++);
+        }
       });
-      return parts;
+      var steps = [];
+      parts.forEach(function (el, i) {
+        if (states[i] > 1) (steps[states[i]] = steps[states[i]] || []).push(el);
+      });
+      return steps.filter(Boolean);   // in order, without the states nothing appears in
+    }
+
+    function reveal(group) {
+      group.forEach(function (el) { el.classList.remove('deck-wait'); });
     }
 
     function revealAll() {
-      waiting.forEach(function (el) { el.classList.remove('deck-wait'); });
+      waiting.forEach(reveal);
       waiting = [];
+    }
+
+    // aria-disabled rather than disabled: a disabled button that holds the
+    // focus can swallow the next key press.
+    function updateSteps() {
+      prev.setAttribute('aria-disabled', index === 0 ? 'true' : 'false');
+      next.setAttribute('aria-disabled', index === slides.length - 1 && !waiting.length ? 'true' : 'false');
     }
 
     function fit() {
@@ -211,17 +259,16 @@
       index = Math.max(0, Math.min(slides.length - 1, i));
       slides[index].classList.add('current');
       if (paged && stepwise) {
-        waiting = fragmentsOf(slides[index]);
-        waiting.forEach(function (el) { el.classList.add('deck-wait'); });
+        waiting = stepsOf(slides[index]);
+        waiting.forEach(function (group) {
+          group.forEach(function (el) { el.classList.add('deck-wait'); });
+        });
       }
 
       var position = text.position(index + 1, slides.length);
       count.textContent = paged ? (index + 1) + ' / ' + slides.length : text.toc;
       count.setAttribute('aria-label', paged ? text.toc + ' (' + position + ')' : text.toc);
-      // aria-disabled rather than disabled: a disabled button that holds the
-      // focus can swallow the next key press.
-      prev.setAttribute('aria-disabled', index === 0 ? 'true' : 'false');
-      next.setAttribute('aria-disabled', index === slides.length - 1 ? 'true' : 'false');
+      updateSteps();
       bar.style.setProperty('--progress',
         (paged && slides.length > 1 ? 100 * index / (slides.length - 1) : 0) + '%');
 
@@ -241,15 +288,28 @@
     }
 
     // With soft steps (Space, Page Up/Down), a slide taller than the window is
-    // scrolled through before the deck moves on.
+    // scrolled through before the deck moves on. What waits for a step is
+    // shown where it can be seen: a soft step scrolls down to it first, any
+    // other step brings it into the window.
     function step(direction, soft) {
+      var limit = root.scrollHeight - window.innerHeight;
+      var jump = 0.8 * window.innerHeight;
+      if (direction > 0 && waiting.length) {
+        var fold = window.innerHeight - bar.offsetHeight - 24;
+        var part = waiting[0][0];
+        if (soft && part.getBoundingClientRect().top > fold && window.scrollY < limit - 4) {
+          return window.scrollBy(0, jump);
+        }
+        reveal(waiting.shift());
+        updateSteps();
+        var top = part.getBoundingClientRect().top;
+        if (top < 0 || top > fold) window.scrollBy(0, top - 0.25 * window.innerHeight);
+        return;
+      }
       if (soft) {
-        var limit = root.scrollHeight - window.innerHeight;
-        var jump = 0.8 * window.innerHeight;
         if (direction > 0 && window.scrollY < limit - 4) return window.scrollBy(0, jump);
         if (direction < 0 && window.scrollY > 4) return window.scrollBy(0, -jump);
       }
-      if (direction > 0 && waiting.length) return waiting.shift().classList.remove('deck-wait');
       if (index + direction < 0 || index + direction >= slides.length) return;
       show(index + direction, direction > 0);
     }
@@ -303,10 +363,12 @@
       if (!paged || toc.open || event.defaultPrevented) return;
       if (event.altKey || event.ctrlKey || event.metaKey) return;
       var target = event.target.closest ? event.target : document.body;
-      if (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
+      // A ticked task-list box keeps the focus; only Space means something to it.
+      var checkbox = target.tagName === 'INPUT' && target.type === 'checkbox';
+      if (target.isContentEditable || (/^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName) && !checkbox)) return;
       var space = event.key === ' ';
       if (event.shiftKey && !space) return;                    // Shift+arrows extend a selection
-      if (space && target.closest('button, summary')) return;  // Space activates these
+      if (space && (checkbox || target.closest('button, summary'))) return;  // Space activates these
       var scroller = target.closest('pre, div.sourceCode, .table-wrap');
       if (scroller && scroller.scrollWidth > scroller.clientWidth && /^Arrow/.test(event.key)) return;
       switch (event.key) {

@@ -44,7 +44,7 @@ O ipoteză trebuie etichetată vizibil, cu consecința ei dacă se dovedește gr
 
 ### Scenarii
 
-Tratați fiecare scenariu independent, pornind de la starea inițială precizată în fișă. Nu transferați o rezervare sau o anulare dintr-un scenariu în altul.
+Tratați fiecare scenariu independent, pornind de la starea inițială precizată în fișa cu informațiile beneficiarului. Nu transferați o rezervare sau o anulare dintr-un scenariu în altul.
 
 | ID | Stare inițială și acțiune | Rezultat așteptat sau decizie deschisă | Informații verificate |
 |---|---|---|---|
@@ -90,7 +90,7 @@ Păstrați suficient din pachet și din răspuns pentru a stabili ce a fost revi
 
 ## Evaluarea de către om — minutele 60–78
 
-| Afirmația revizuirii și locul din variantă | Informație-sursă / scenariu / dovadă | Acceptare / respingere / amânare și motiv | Modificare sau decizie păstrată; reverificare |
+| Constatarea revizuirii și locul din variantă | Informație-sursă / scenariu / dovadă | Acceptare / respingere / amânare și motiv | Modificare sau decizie păstrată; reverificare |
 |---|---|---|---|
 | | | | |
 

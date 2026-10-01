@@ -238,7 +238,7 @@ Pentru fiecare constatare importantă pe care o rețineți, notați:
 
 Decizii: **acceptare**, **respingere** sau **amânare pentru clarificare**. Motivați.
 
-Modificați unde se justifică; reluați scenariul afectat pe versiunea revizuită.
+Modificați unde se justifică; reluați scenariul afectat pe versiunea modificată.
 
 ::: notes
 Constatările revizuirii cer dovezi atât în cerințele beneficiarului, cât și în varianta redactată. Evaluatorul poate să nu găsească nicio contradicție; studenții pot accepta această concluzie după ce explică verificările. Nu trebuie să inventeze defecte, să respingă ceva sau să trimită un prompt nou pentru un rezultat corect.
@@ -288,7 +288,7 @@ Beneficiarul propune acum:
 
 > „De mâine, o rezervare ar trebui să dureze cel mult 60 de minute.”
 
-Există deja o rezervare confirmată de 90 de minute pentru mâine (ziua D).
+Există deja o rezervare confirmată, cu durata de 90 de minute, pentru mâine (ziua D).
 
 Fără AI:
 
@@ -307,7 +307,7 @@ Pentru acest scenariu de schimbare, ziua-pilot D este mâine. Este o versiune no
 Fiecare pereche selectată explică unul dintre aspectele următoare:
 
 - o regulă pe care trebuie să o stabilească beneficiarul, deși părea o decizie tehnică;
-- o constatare a evaluatorului pe care au verificat-o prin dovezi;
+- o constatare a evaluatorului pe care a verificat-o prin dovezi;
 - o decizie corectă păstrată și scenariul care o susține.
 
 Predați fișierele comune și explicația fiecăruia la destinația anunțată de cadrul didactic.

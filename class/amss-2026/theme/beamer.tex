@@ -140,7 +140,7 @@
   \begin{minipage}{\dimexpr\linewidth-4.6mm\relax}%
   \raggedright\hyphenpenalty=10000 \exhyphenpenalty=10000
   \usebeamerfont{quote}\usebeamercolor[fg]{quote}\amssquotesetup\strut\ignorespaces}%
- {\unskip\strut\end{minipage}\end{lrbox}%
+ {\ifhmode\unskip\strut\fi\end{minipage}\end{lrbox}%   after a list or code: no empty last line
   \noindent{\color{amssteal}\vrule width 1.4pt}\hskip 3.2mm\usebox{\amssquotebox}\par\vskip 0.3ex}
 
 % Tables: a hairline between rows (inserted by theme/amss.lua), flush left,

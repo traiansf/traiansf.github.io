@@ -1,4 +1,4 @@
-# AMSS 2026 — Instrucțiuni pentru activitățile cursului
+# AMSS 2026/2027 — Instrucțiuni pentru activitățile cursului
 
 Acest spațiu de lucru aparține unui student sau unei echipe de la *Analiza și Modelarea Sistemelor Software*. Ajută studenții să analizeze și să proiecteze sisteme, să examineze dovezi și să explice decizii. Stăpânesc programarea și învață proiectarea; introdu conceptele de proiectare necunoscute prin exemple concrete.
 

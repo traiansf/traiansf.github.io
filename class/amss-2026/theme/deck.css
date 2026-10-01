@@ -173,6 +173,7 @@ body {
 .slide figcaption { color: var(--muted); font-size: 0.85em; }
 .slide hr { border: 0; border-top: 1px solid var(--line); margin: 1em 0; }
 .slide .nowrap { white-space: nowrap; }   /* ranges such as 10–12, marked by theme/amss.lua */
+.deck-pause { display: none; }            /* a pause inside a column or a list, for deck.js */
 
 /* The epigraph slide ("Ideea întâlnirii"): quotation, author, source. */
 .slide.epigraph blockquote {
@@ -262,7 +263,8 @@ body {
   html.paged .slide.current > .slide-body { grid-row: 3; font-size: calc(1em * var(--fit, 1)); }
   /* A diagram leaves room for its slide's text and shrinks with it. */
   html.paged .slide img, html.paged .slide svg { max-height: calc(58vh * var(--fit, 1)); object-fit: contain; }
-  /* What a pause (". . .") still holds back keeps its place in the layout. */
+  /* What a pause (". . .") or an incremental list still holds back keeps its
+     place in the layout. */
   html.paged .deck-wait { visibility: hidden; }
 
   html.paged .slide.titlepage.current {
@@ -338,6 +340,8 @@ html:not(.paged) .deck-paged-only { display: none; }
 .deck-toc {
   width: min(34rem, calc(100vw - 2rem));
   max-height: calc(100vh - 6rem);
+  /* The focused entry is scrolled into view below the sticky head. */
+  scroll-padding: 3.5rem 0 0.5rem;
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 0.5rem;

@@ -73,12 +73,15 @@
 
 % Quotations beside a teal bar. theme/amss.lua wraps the epigraph in
 % amssepigraph and its source line in amsssource. Footnotes inside a
-% quotation would be lost in the frame without \makesavenoteenv.
+% quotation would be lost in the frame without \makesavenoteenv. A quotation
+% is set ragged right, without hyphenation: it is short, and often a text
+% to be copied.
 \newenvironment{amssepigraph}{\large\bfseries\color{amssnavy}}{}
 \newenvironment{amsssource}{\begingroup\small\color{amssmuted}}{\par\endgroup}
 \renewenvironment{quote}{%
   \def\FrameCommand{{\color{amssteal}\vrule width 1.6pt}\hspace{9pt}}%
-  \MakeFramed{\advance\hsize-\width \FrameRestore}}%
+  \MakeFramed{\advance\hsize-\width \FrameRestore
+    \raggedright \hyphenpenalty=10000 \exhyphenpenalty=10000 }}%
  {\endMakeFramed}
 \makesavenoteenv{quote}
 

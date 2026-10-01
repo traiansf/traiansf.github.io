@@ -417,7 +417,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
     </script>
     <article class="prose">
 <p>Proiectul urmărește <strong>analiza unei probleme și construirea unei soluții de proiectare justificate</strong>. Echipa dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile. Dosarul de proiectare al echipei valorează <strong>5 puncte</strong>, iar înțelegerea individuală se evaluează printr-un <strong>examen grilă de 3 puncte</strong>. Prezența și punctul din oficiu completează nota până la 10.</p>
-<p>La finalul cursului, ar trebui să puteți analiza fără AI o problemă mică și necunoscută, să propuneți o soluție de proiectare, să explicați alternative și să urmăriți consecințele unei schimbări, folosind text, schițe sau pseudocod. AI vă poate ajuta să explorați și să produceți mai repede; voi răspundeți pentru cerințele, deciziile și dovezile pe care le acceptați.</p>
+<p>La finalul cursului, ar trebui să puteți, fără AI, să analizați o problemă mică și necunoscută, să propuneți o soluție de proiectare, să explicați alternative și să urmăriți consecințele unei schimbări, folosind text, schițe sau pseudocod. AI vă poate ajuta să explorați și să produceți mai repede; voi răspundeți pentru cerințele, deciziile și dovezile pe care le acceptați.</p>
 <h2 id="echipă-și-temă">Echipă și temă</h2>
 <ul>
 <li>Echipe de <strong><span class="nowrap">3–5</span> studenți</strong>, cu o soluție de proiectare comună și contribuții individuale identificabile.</li>
@@ -428,7 +428,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <ul>
 <li>numele echipei și componența ei;</li>
 <li>numele și descrierea proiectului, în <span class="nowrap">1–2</span> paragrafe;</li>
-<li>o justificare că tema are o dimensiune potrivită;</li>
+<li>o justificare a faptului că tema are o dimensiune potrivită;</li>
 <li><strong>linkul către repository-ul public al proiectului, pe GitHub sau GitLab</strong>.</li>
 </ul>
 <p>Repository-ul trebuie să fie creat și accesibil public în momentul anunțării proiectului.</p>
@@ -447,7 +447,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <p>Notați la trecerea dintre etape ce este stabilit, ce rămâne incert și ce ar putea impune o revizuire. O descoperire ulterioară poate justifica întoarcerea la o cerință sau la o decizie anterioară.</p>
 <p><strong>Nu sunt obligatorii nici aplicația funcțională, nici ciclul TDD (dezvoltare ghidată de teste).</strong> Puteți folosi modele executabile, simulări, teste sau prototipuri pentru a investiga o întrebare de proiectare. Explicați ce ați verificat, rezultatul și limitele verificării. Dacă implementați un prototip, porniți de la specificația și proiectarea revizuite și urmați apoi succesiunea implementare → teste → revizuire.</p>
 <h2 id="dosarul-de-proiectare-al-echipei-5-puncte">Dosarul de proiectare al echipei — 5 puncte</h2>
-<p>Păstrați dosarul în <strong>repository-ul public de pe GitHub sau GitLab anunțat pe Teams</strong>. Dosarul are o sinteză ușor de parcurs și legături către modelele și dovezile care susțin afirmațiile sale. Ca reper, urmăriți o <strong>sinteză de aproximativ două pagini</strong>; detaliile relevante pot rămâne în fișierele către care trimite aceasta.</p>
+<p>Păstrați dosarul în <strong>repository-ul public de pe GitHub sau GitLab anunțat pe Teams</strong>. Dosarul are o sinteză ușor de parcurs și legături către modelele și dovezile care susțin afirmațiile sale. Ca reper, <strong>sinteza are aproximativ două pagini</strong>; detaliile relevante pot rămâne în fișierele către care trimite aceasta.</p>
 <p>Sinteza trebuie să permită găsirea rapidă a problemei și a limitelor proiectului, a deciziilor principale, a justificărilor, a dovezilor și a incertitudinilor rămase. Includeți și o scurtă evidență a contribuțiilor membrilor echipei, cu legături către deciziile și materialele relevante.</p>
 <div class="table-wrap rubric">
 <table>
@@ -480,7 +480,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <td>Obligații și garanții ale operațiilor importante; reguli care trebuie să rămână adevărate; verificări și contraexemple relevante, legate de cerințe.</td>
 </tr>
 <tr>
-<td><strong>Stări și comportamente</strong></td>
+<td><strong>Stare și comportament</strong></td>
 <td style="text-align: right;">1</td>
 <td>Comportamente și tranziții permise, condiții și efecte; scenarii normale și excepționale care verifică modelul; concordanță cu regulile domeniului.</td>
 </tr>
@@ -490,7 +490,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <td>Cine răspunde de fiecare decizie sau comportament important; justificarea grupării responsabilităților, a dependențelor și a interfețelor, prin alternative și prin consecințele unei schimbări.</td>
 </tr>
 <tr>
-<td><strong>Total dosar de echipă</strong></td>
+<td><strong>Total dosar de proiectare</strong></td>
 <td style="text-align: right;"><strong>5</strong></td>
 <td>Dosarul se evaluează o singură dată pentru echipă.</td>
 </tr>
@@ -503,13 +503,13 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <p>Puteți alege instrumentele și modelele AI. Definiți explicit rolurile, de exemplu analist, proiectant și evaluator (agent de revizuire), și informațiile predate între ele. Înainte de a delega, formulați voi problema, constrângerile și criteriile după care veți judeca rezultatul.</p>
 <p>Includeți o revizuire într-o <strong>sesiune sau într-un context nou</strong>, care primește specificația și proiectarea curente, întrebările de verificat și criteriile de acceptare. Același model poate fi folosit într-un context separat. Agentul de revizuire trebuie să poată examina dovezile, inclusiv atunci când sinteza omite un detaliu important.</p>
 <p>Documentați concis o decizie importantă și parcursul revizuirii ei: ce a fost delegat, ce context a fost transmis, ce constatare ați verificat, ce ați acceptat sau respins și de ce. Legați explicația de versiunea relevantă a modelului și de un exemplu sau de altă dovadă verificabilă. Dacă revizuirea nu găsește un defect, arătați ce a fost verificat și ce concluzie permite verificarea; nu inventați greșeli pentru dosar.</p>
-<p>Fragmentele de conversație pot susține explicația. O transcriere integrală nu înlocuiește sinteza și raționamentul vostru. Indicați instrumentul și modelul folosite, în măsura în care această informație este disponibilă; evaluarea privește deciziile și dovezile, fără a cere reproducerea exactă a textului generat. Pentru pregătirea mediului, consultați <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">ghidul de pregătire a mediului de lucru</a>.</p>
+<p>Fragmentele de conversație pot susține explicația. O transcriere integrală nu înlocuiește sinteza și raționamentul vostru. Indicați instrumentul și modelul folosite, în măsura în care această informație este disponibilă; evaluarea privește deciziile și dovezile, fără a cere reproducerea exactă a textului generat. Consultați și <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">ghidul de pregătire a mediului de lucru</a>.</p>
 <h2 id="feedback-pe-parcursul-semestrului-și-laboratorul-deschis">Feedback pe parcursul semestrului și laboratorul deschis</h2>
 <p><strong>Echipa poate cere oricând feedback profesorului în timpul semestrului</strong>, prin canalul Teams al cursului sau în cadrul întâlnirilor. Includeți linkul către materialul relevant din repository și întrebarea pe care doriți să o clarificați. Feedbackul vă ajută să îmbunătățiți dosarul; nu există o evaluare intermediară programată sau un punctaj separat pentru această activitate.</p>
-<p>Doar <strong>ultimele două laboratoare</strong> sunt dedicate efectiv proiectului. Laboratoarele <span class="nowrap">1–5</span> tratează teme importante ale cursului, prin exerciții pe probleme distincte: înțelegere, specificare și revizuire (cursurile <span class="nowrap">1–2);</span> cerințe și modelarea domeniului <span class="nowrap">(3–4);</span> responsabilități, contracte și invariante <span class="nowrap">(5–6);</span> stări, comportament și interacțiuni <span class="nowrap">(7–8);</span> validare și abstractizare <span class="nowrap">(9–10).</span> Fiecare laborator are loc după predarea celor două cursuri asociate.</p>
-<p><strong>Laboratorul 6 este un laborator deschis:</strong> lucru individual la proiect, întrebări adresate profesorului și discuții între echipe. Folosiți timpul pentru întrebările și revizuirile de care are nevoie proiectul vostru, inclusiv întrebări de proiectare care ar fi fost discutate într-un atelier la curs. Laboratorul 6 urmează cursurile <span class="nowrap">11–12,</span> iar laboratorul 7, cursurile <span class="nowrap">13–14.</span> Nu există o prezentare obligatorie sau o repetiție de susținere.</p>
+<p>Doar <strong>ultimele două laboratoare</strong> sunt dedicate efectiv proiectului. Laboratoarele <span class="nowrap">1–5</span> tratează, prin exerciții pe probleme distincte, teme importante ale cursului: înțelegere, specificare și revizuire (cursurile <span class="nowrap">1–2);</span> cerințe și modelarea domeniului <span class="nowrap">(3–4);</span> responsabilități, contracte și invariante <span class="nowrap">(5–6);</span> stări, comportament și interacțiuni <span class="nowrap">(7–8);</span> validare și abstractizare <span class="nowrap">(9–10).</span> Fiecare laborator are loc după predarea celor două cursuri asociate.</p>
+<p><strong>Laboratorul 6 este un laborator deschis:</strong> lucru individual la proiect, întrebări adresate profesorului și discuții între echipe. Folosiți timpul pentru întrebările și revizuirile de care are nevoie proiectul vostru, inclusiv întrebări de proiectare care ar fi fost discutate într-un atelier la curs. Laboratorul 6 are loc după cursurile <span class="nowrap">11–12,</span> iar laboratorul 7, după cursurile <span class="nowrap">13–14.</span> Nu există o prezentare obligatorie sau o repetiție de susținere.</p>
 <h2 id="interviul-de-susținere-ultimul-laborator">Interviul de susținere — ultimul laborator</h2>
-<p>La <strong>laboratorul 7</strong>, profesorul definitivează punctajul pentru dosarul echipei printr-un <strong>interviu de aproximativ 8 minute</strong>, cu întrebări despre punctele neclare, la care echipa poate răspunde. Dosarul trebuie să fie disponibil pentru lectură înainte de interviu; termenul exact și programarea echipelor vor fi anunțate pe Teams.</p>
+<p>La <strong>laboratorul 7</strong>, profesorul definitivează punctajul pentru dosarul echipei printr-un <strong>interviu de aproximativ 8 minute</strong>, cu întrebări despre aspectele neclare, la care echipa poate răspunde. Dosarul trebuie să fie disponibil pentru lectură înainte de interviu; termenul exact și programarea echipelor vor fi anunțate pe Teams.</p>
 <p>Discuția pornește de la dosarul citit de profesor. Echipa poate consulta repository-ul și poate indica cerințele, deciziile, contribuțiile și dovezile relevante pentru clarificări. Nu este necesară pregătirea unei prezentări sau a unor diapozitive.</p>
 <p>Profesorul stabilește punctajul final de echipă pe <strong>cele cinci criterii ale dosarului</strong>, ținând cont de clarificările din interviu. Interviul nu are punctaj separat. Întrebările sunt adresate echipei; nu se organizează o examinare orală distinctă pentru fiecare student.</p>
 <h2 id="examen-grilă-individual-3-puncte">Examen grilă individual — 3 puncte</h2>
@@ -558,7 +558,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <p>Punctul de prezență se acordă proporțional cu participarea la <strong>cursuri și laboratoare</strong>, fiecare întâlnire având aceeași pondere:</p>
 <p><strong>Punctaj prezență = numărul întâlnirilor la care ați participat / numărul total al întâlnirilor desfășurate și contabilizate.</strong></p>
 <p>Pentru 14 cursuri și 7 laboratoare, numitorul este 21. Întâlnirile anulate nu intră în numitor; acesta reflectă întâlnirile efectiv desfășurate și contabilizate.</p>
-<p>În sesiunea de restanțe, nota se calculează astfel: <strong>9 puncte pentru examenul grilă + 1 punct din oficiu = 10</strong>. Examenul urmărește aceleași competențe de analiză și proiectare. Punctajele pentru dosarul de echipă și prezență nu se reportează în nota de la restanță.</p>
+<p>În sesiunea de restanțe, nota se calculează astfel: <strong>9 puncte pentru examenul grilă + 1 punct din oficiu = 10</strong>. Examenul urmărește aceleași competențe de analiză și proiectare. Punctajele pentru dosarul de proiectare și pentru prezență nu se reportează în nota de la restanță.</p>
     </article>
   </main>
   <footer class="wrap site-footer">

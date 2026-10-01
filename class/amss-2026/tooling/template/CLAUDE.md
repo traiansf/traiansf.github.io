@@ -1,4 +1,4 @@
-# AMSS 2026 — Instrucțiuni comune pentru curs
+# AMSS 2026/2027 — Instrucțiuni comune pentru curs
 
 Folosește instrucțiunile comune din AGENTS.md. Studentul alege instrumentul și modelul.
 

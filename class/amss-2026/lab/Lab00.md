@@ -26,7 +26,7 @@ Laboratorul 1, despre înțelegere, specificare și revizuire, se desfășoară 
 
 | Pas | Durată orientativă | Activitate |
 |-----|----------------|-----------------------------------------|
-| 1 | 10 minute | Găsește Teams, materialele și ghidul de pregătire. |
+| 1 | 10 minute | Găsește Teams, materialele și ghidul de pregătire a mediului de lucru. |
 | 2 | 15 minute | Amintește-ți o cerință neclară sau o schimbare dificilă. |
 | 3 | 20 de minute | Formulează întrebări care ar fi ajutat. |
 | 4–5 | 20 de minute | Pregătește un spațiu de lucru și verifică accesul la instrumente. |
@@ -42,7 +42,7 @@ Deschide:
 - [pagina cursului](https://traiansf.github.io/class/amss2026/);
 - [echipa Microsoft Teams](https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1) — cod `fswo4rl`;
 - [cerințele proiectului](https://traiansf.github.io/class/amss2026/proiect/);
-- [ghidul de pregătire a mediului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md).
+- [ghidul de pregătire a mediului de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md).
 
 Verifică dacă găsești schema de notare, cerințele pentru anunțarea temei și modul de a cere feedback. Nu este necesar să reții toate detaliile acum; important este să știi unde le găsești.
 
@@ -69,7 +69,7 @@ Pentru exemplul ales, răspunde:
 3. Cum ar putea răspunsul să schimbe ce construiești?
 4. Ce ai putea observa sau verifica pentru a decide dacă soluția ajută?
 
-Pentru exemplul notițelor, o întrebare utilă ar fi: „Cum cauți acum o notiță și în ce situație nu o găsești?” Dacă problema este o listă dezorganizată de linkuri, o căutare în textul tuturor documentelor poate fi o soluție disproporționată. Dacă colegul își amintește numai un fragment din document, ordonarea linkurilor poate să nu îi ajungă.
+Pentru exemplul notițelor, o întrebare utilă ar fi: „Cum cauți acum o notiță și în ce situație nu o găsești?” Dacă problema este o listă dezorganizată de linkuri, o căutare în textul tuturor documentelor poate fi o soluție disproporționată. Dacă însă colegul își amintește numai un fragment din document, ordonarea linkurilor poate să nu îi ajungă.
 
 Nu există o singură formulare corectă. Verifică dacă întrebarea ta poate schimba o decizie concretă. „Ce tehnologie folosim?” poate fi utilă mai târziu, dar nu clarifică singură nevoia colegului.
 
@@ -108,12 +108,14 @@ git commit -m "Adaug notitele de pregatire"
 git log --oneline
 ```
 
-Dacă Git îți cere identitatea autorului, configureaz-o pentru acest director folosind numele și adresa ta, apoi repetă comanda de commit:
+Dacă Git îți cere identitatea autorului, configureaz-o pentru acest director, folosind numele și adresa ta:
 
 ```bash
 git config user.name "Numele tau"
 git config user.email "adresa-ta@example.com"
 ```
+
+Apoi repetă comanda `git commit` de mai sus.
 
 Scopul este să vezi că poți salva și regăsi o versiune. Dacă Git nu este disponibil, păstrează fișierul și notează ce ajutor îți trebuie; nu trebuie să instalezi totul în această sesiune.
 
@@ -127,7 +129,7 @@ Dacă vrei, oferă-i exemplul didactic al notițelor și cere:
 
 Compară întrebările cu a ta. Poți explica în ce fel răspunsurile ar schimba o alegere?
 
-**Fără AI:** continuă cu întrebările din pasul 3. Activitatea rămâne completă fără acces la un asistent. Exercițiul tehnic de delegare și revizuire va fi introdus în cursul 2 și exersat în laboratorul 1.
+**Fără AI:** continuă cu întrebările din pasul 3. Activitatea rămâne completă fără acces la un asistent. Exercițiul tehnic de delegare și revizuire va fi introdus în cursul 2 și reluat în laboratorul 1.
 
 ## 6. Explorează idei de proiect și caută colegi de echipă
 

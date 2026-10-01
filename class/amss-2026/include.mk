@@ -5,6 +5,9 @@ endif
 AMSS_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 BASE_ORIGIN := $(origin BASE)
 BASE ?= $(abspath $(AMSS_ROOT)/../amss2026)
+ifeq ($(strip $(BASE)),)
+$(error BASE is empty: name the output directory, or leave BASE unset to build into ../amss2026)
+endif
 OUTDIR := $(BASE)/$(SUBDIR)
 THEME := $(AMSS_ROOT)/theme
 ASSETS := $(AMSS_ROOT)/static/assets

@@ -128,7 +128,7 @@ Echipele de **3–5 studenți** elaborează o soluție comună.
 
 **Livrabil:** o specificație și o soluție de proiectare revizuite. Modelele și prototipurile le pot susține; nu este obligatorie o aplicație funcțională.
 
-Lab 6: lucru deschis la proiect și discuții. Lab 7: interviu de echipă, în care se definitivează punctajul pentru dosar.
+Laboratorul 6 (laborator deschis): lucru la proiect și discuții. Laboratorul 7: interviu de echipă, în care se definitivează punctajul pentru dosar.
 
 ::: notes
 Repository-ul public pe GitHub sau GitLab se creează la anunțarea proiectului pe Teams; mesajul include linkul. Progresul și contribuțiile fiecărui membru trebuie să poată fi urmărite pe parcursul semestrului. Dezvoltarea și commit-urile pot fi asistate de AI; echipa verifică și își asumă conținutul. Numărul de commit-uri nu aduce puncte.
@@ -186,12 +186,12 @@ La curs, exemplele pregătite sau lucrul în perechi permit exersarea raționame
 
 # Înainte de laboratorul 1
 
-- Citiți [ghidul de pregătire](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md) și [convențiile de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md).
+- Citiți [ghidul de pregătire a mediului de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md) și [ghidul despre roluri, predarea sarcinilor și revizuire](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md).
 - Pregătiți accesul la asistentul ales și la fișierele comune.
 - Veți lucra în perechi, alternând rolurile.
 - Veți analiza singuri un enunț scurt înainte de a folosi AI.
 
-Primul livrabil descrie clar problema și deciziile încă neclarificate.
+Primul livrabil descrie clar problema și deciziile rămase deschise.
 
 ::: notes
 Ghidul complet al laboratorului 1 conține datele problemei și exercițiul. Studenții au nevoie de experiență de programare, dar nu de un curs anterior de UML sau proiectare. Nu le cereți să învețe un limbaj de diagrame pentru pregătirea inițială.
@@ -201,7 +201,7 @@ Ghidul complet al laboratorului 1 conține datele problemei și exercițiul. Stu
 
 # De ce studiem analiza și proiectarea?
 
-O implementare poate funcționa exact cum am cerut și totuși să rezolve problema greșită.
+O implementare poate să funcționeze exact cum am cerut și totuși să rezolve problema greșită.
 
 - Beneficiarii pot folosi același cuvânt pentru lucruri diferite.
 - O decizie locală poate îngreuna schimbările ulterioare.
@@ -233,9 +233,9 @@ Invitați experiențe concrete, fără a cere acces la conturi sau conversații 
 
 - Cursul 1: organizarea, așteptările și motivația.
 - Cursul 2: înțelegem o problemă înainte să delegăm o soluție.
-- Lab 1: aplicăm ideile celor două cursuri la rezervarea sălilor.
+- Laboratorul 1: aplicăm ideile celor două cursuri la rezervarea sălilor.
 - Fiecare laborator are loc după perechea de cursuri asociată.
-- Doar Lab 6 și Lab 7 sunt dedicate efectiv proiectelor.
+- Doar laboratoarele 6 și 7 sunt dedicate efectiv proiectelor.
 
 ---
 
@@ -262,7 +262,7 @@ Scanați codul QR sau deschideți linkul: [forms.gle/uHCXyFvxqQxsWWmH9](https://
 
 Ce experiență aveți? Ce știți deja și ce ați vrea să aprofundați?
 
-Completarea este voluntară și durează aproximativ 10–12 minute. Vom folosi răspunsurile pentru adaptarea conținutului.
+Completarea este facultativă și durează aproximativ 10–12 minute. Vom folosi răspunsurile pentru adaptarea conținutului.
 :::
 ::::::
 

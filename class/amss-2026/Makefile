@@ -1,5 +1,10 @@
 BASE_ORIGIN := $(origin BASE)
 BASE ?= ../amss2026
+# An empty BASE (BASE=$UNSET on the command line, say) would stand for the
+# root of the file system.
+ifeq ($(strip $(BASE)),)
+$(error BASE is empty: name the output directory, or leave BASE unset to build into ../amss2026)
+endif
 # A relative BASE given on the command line is resolved here, once: the
 # sub-makes run in their own directories and are handed the absolute path.
 override BASE := $(abspath $(BASE))

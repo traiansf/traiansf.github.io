@@ -1,4 +1,4 @@
-# AMSS 2026/2027 — Instrumente AI și predarea sarcinilor
+# AMSS 2026/2027 — Instrumente AI: roluri, predarea sarcinilor și revizuire
 
 Alege un asistent și un model la care ai acces. Poți urma modul de lucru al cursului printr-o conversație în browser, un asistent integrat în editor sau un instrument local. Evaluarea urmărește analiza, deciziile de proiectare și dovezile care le susțin. Nu este obligatoriu un anumit furnizor, abonament, model, nivel al efortului de raționament sau instrument pentru diagrame.
 

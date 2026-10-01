@@ -77,7 +77,7 @@ make fallback              # instructor-only prepared examples/captures in curs/
 
 `PREVIEW_ALL` refuses to run without `BASE`, so that unreleased decks cannot
 land in the published tree by accident. `BASE` may be relative to this
-directory.
+directory; an empty `BASE` (an unset shell variable, say) is refused.
 
 ## Revealing a week
 
@@ -121,7 +121,7 @@ them as prerequisites, so editing one rebuilds what depends on it.
 | File | Role |
 |---|---|
 | `theme/course.yaml` | course label and name shown on covers, page headers and footers |
-| `theme/amss.lua` | splits `AMSS 2026/2027 — Cursul 1: Titlu` into session and headline; marks the „Ideea întâlnirii” epigraph; in documents drops a repeated first heading and any `notes` blocks; wraps tables, keeps ranges such as `10–12` unbroken and avoids one-word last lines in decks |
+| `theme/amss.lua` | splits `AMSS 2026/2027 — Cursul 1: Titlu` into session and headline; marks the „Ideea întâlnirii” epigraph; in documents drops a repeated first heading and any `notes` blocks; wraps tables, keeps ranges such as `10–12` unbroken and avoids one-word last lines in decks; rules off table rows in PDF decks; marks pauses inside columns, quotations and lists for the HTML decks |
 | `theme/code.theme` | syntax colours with enough contrast on the code panel, for HTML and PDF |
 | `theme/deck.html`, `theme/deck.css`, `theme/deck.js` | HTML decks: template, styles, and the one-slide-at-a-time view |
 | `theme/beamer.tex` | PDF decks (16:9, 10 pt) |
@@ -134,14 +134,23 @@ keys, Page Up/Down, Space, Home/End or a swipe move between slides; the bar at
 the bottom has the outline, a switch to the all-slides view and the PDF. Text
 scales with the window, and the body of a slide that is still too tall shrinks
 until it fits. Pauses (`. . .`) and incremental lists are revealed step by
-step, as in the PDF. On a phone or a portrait window, without JavaScript, and
-in print, the slides flow as a column of cards. The view chosen with the
+step, as in the PDF: a pause holds back everything after it on the slide, also
+from inside a column, a quotation or a list item, and the first item of an
+incremental list shows at once unless a pause comes before it. Going back to a
+slide shows it complete. On a phone or a portrait window, without JavaScript,
+and in print, the slides flow as a column of cards. The view chosen with the
 switch lasts for the browser tab. `deck.html#5` (or the older `#(5)`) opens
 slide 5.
 
 A table in a document can be given a class for styling with an HTML comment
 on the line before it, as the project rubric does:
-`<!-- table-class: rubric -->`.
+`<!-- table-class: rubric -->`. Inside a list item, leave an empty line
+between the comment and the table.
+
+In a PDF deck the rows of a table are separated by hairlines, as in the HTML
+deck, when every row starts with a cell of plain text. A table with merged
+cells, or with a line break or a list in a first cell, keeps pandoc's plain
+look (rules above and below, and under the header).
 
 To check a change, build into a scratch directory and open the files:
 `make BASE=/tmp/preview` (released material) or

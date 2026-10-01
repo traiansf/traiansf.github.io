@@ -15,7 +15,7 @@ Identificatorul variantei de lucru: `fixture-A-v1`.
 - **A5 — Propunere de responsabilitate:** fiecare cerere citește disponibilitatea; dacă nu găsește un conflict, confirmă rezervarea ulterior. Cererile pot efectua acești pași independent. Nu este necesară altă coordonare.
 - **A6 — Anulare:** înainte de început, titularul cu identitatea verificată poate anula; intervalul devine liber. Încercarea altei persoane este respinsă fără a modifica rezervarea. Anularea la ora de început sau după aceasta rămâne o întrebare pentru beneficiar.
 - **A7 — Limite și întrebări:** exclude plățile, rezervările recurente, listele de așteptare, administrarea și notificările. Întreabă dacă un student poate avea rezervări suprapuse în săli diferite. Interfața și tehnologia de stocare rămân alegeri de proiectare.
-- **A8 — Sarcina următoare:** proiectează operațiile de rezervare/anulare; leagă regulile lor de informațiile furnizate și oprește pentru revizuire umană înainte de implementare.
+- **A8 — Sarcina următoare:** proiectează operațiile de rezervare/anulare; leagă regulile lor de informațiile furnizate și oprește-te pentru revizuire umană înainte de implementare.
 
 Cereți mai întâi unui coleg sau unui context separat să revizuiască propunerea față de sursă. Apoi analizați revizuirea pregătită de mai jos ca pe un alt set de afirmații de evaluat.
 
