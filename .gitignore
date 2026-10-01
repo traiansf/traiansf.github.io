@@ -12,3 +12,5 @@ class/amss2026/exam/*.fls
 class/amss2026/exam/*.fdb_latexmk
 class/amss2026/exam/*.out
 class/amss2026/exam/*.synctex.gz
+
+*.swp
