@@ -19,6 +19,24 @@ Week 8 asked whether a pattern is warranted. Today asks the next question: when 
 
 ---
 
+# Ideea întâlnirii
+
+> „De la o abstractizare dorim un mecanism care permite exprimarea detaliilor relevante și omiterea celor irelevante.”
+
+— **Barbara Liskov și Stephen Zilles**
+
+[Sursa: Programming with Abstract Data Types (1974)](https://gleitzman.com/media/docs/adt-liskov.pdf#page=2) · traducere din engleză
+
+::: notes
+Original: “What we desire from an abstraction is a mechanism which permits the expression of relevant details and the suppression of irrelevant details.”
+
+Copie a articolului original, The Meaning of Abstraction, pagina 51 (pagina PDF 2). Se păstrează atribuirea ambilor autori.
+
+Legătura cu tema: O abstractizare păstrează ce contează pentru problema tratată și ascunde detaliile care nu contează.
+:::
+
+---
+
 # Recap: Architect and Critic
 
 - **Architect / director:** drive AI through the software development lifecycle (SDLC).

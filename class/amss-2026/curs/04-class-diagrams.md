@@ -21,6 +21,24 @@ Authoring note: this lecture reshapes 2025's `class/amss/curs/02-class.md` (Book
 
 ---
 
+# Ideea întâlnirii
+
+> „Fiecare modul este apoi proiectat să ascundă o asemenea decizie față de celelalte.”
+
+— **David L. Parnas**
+
+[Sursa: On the Criteria To Be Used in Decomposing Systems into Modules](https://akkartik.name/parnas.pdf#page=6) · traducere din engleză
+
+::: notes
+Original: “Each module is then designed to hide such a decision from the others.”
+
+Articol original CACM 15(12), 1972, secțiunea Conclusion, pagina 1058 (pagina PDF 6). Decizia se referă la o alegere dificilă sau susceptibilă de schimbare.
+
+Legătura cu tema: Responsabilitățile și dependențele se organizează în jurul deciziilor pe care le protejează.
+:::
+
+---
+
 # Recap: Architect and Critic
 
 - **Architect / director:** drive AI through the software development lifecycle (SDLC).

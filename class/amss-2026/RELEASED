@@ -4,4 +4,5 @@
 # To reveal a week: add its lines, `make`, commit, push (see BUILD.md).
 # The project page (proiect/) and the sample exam (exam/) are always published.
 curs/01-intro
+lab/Lab00
 lab/Lab01

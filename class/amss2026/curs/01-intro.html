@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro-RO" xml:lang="ro-RO">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Traian-Florin Șerbănuță" />
   <meta name="date" content="2026-01-01" />
-  <title>AMSS 2026 — Lecture 1: Intro + the AI-mediated SDLC</title>
+  <title>AMSS 2026/2027 — Cursul 1: Organizare și motivație</title>
   <style type="text/css">
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,425 +29,215 @@ vertical-align: middle;
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">AMSS 2026 — Lecture 1: Intro + the AI-mediated
-SDLC</h1>
+  <h1 class="title">AMSS 2026/2027 — Cursul 1: Organizare și
+motivație</h1>
   <p class="author">
 Traian-Florin Șerbănuță
   </p>
   <p class="date">2026</p>
 </div>
-<div id="welcome" class="slide section level1">
-<h1>Welcome</h1>
-<ul>
-<li>AMSS 2026 — Analiza și Modelarea Sistemelor Software</li>
-<li><em>Ediția AI-mediated</em></li>
-<li>Instructor: Traian-Florin Șerbănuță</li>
-<li>Email: traian.serbanuta@unibuc.ro</li>
-<li>Semester: Fall 2026</li>
-</ul>
+<div id="bun-venit" class="slide section level1">
+<h1>Bun venit!</h1>
+<p><strong>AMSS — Analiza și Modelarea Sistemelor Software</strong></p>
+<p>Traian-Florin Șerbănuță · traian.serbanuta@unibuc.ro</p>
+<p><a href="https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&amp;tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1"><img role="img" aria-label="Alăturați-vă echipei cursului pe Microsoft Teams" src="data:image/png;base64,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" width="180" height="180" alt="Alăturați-vă echipei cursului pe Microsoft Teams" /></a></p>
+<p>Scanați codul sau apăsați pe el. <strong>Codul echipei:
+fswo4rl</strong></p>
 </div>
-<div id="todays-agenda" class="slide section level1">
-<h1>Today’s Agenda</h1>
-<ol style="list-style-type: decimal">
-<li>Frame: the architect-critic loop + 5 course commitments</li>
-<li>Live demo: an AI-driven design loop on a tiny scenario</li>
-<li>What AI changes at each software development lifecycle (SDLC)
-stage</li>
-<li>Tooling preview</li>
-<li>Course logistics</li>
-</ol>
-</div>
-<div id="ai-is-changing-the-sdlc" class="slide section level1">
-<h1>AI Is Changing the SDLC</h1>
-<ul>
-<li>Requirements, models, code, tests — all increasingly
-AI-generated.</li>
-<li>The skill is no longer <em>producing</em> artifacts. It’s
-<em>directing</em> AI to produce them and <em>judging</em> what comes
-back.</li>
-<li>This course teaches both halves.</li>
-</ul>
-</div>
-<div id="your-turn-have-you-already-done-this" class="slide section level1">
-<h1>Your Turn: Have You Already Done This?</h1>
-<p>Hands up: who has used AI to generate code, requirements, or tests
-for a course?</p>
-<p>Turn to your neighbour for 30 seconds: did you trust the output? How
-did you check it?</p>
-</div>
-<div id="the-architect-critic-loop" class="slide section level1">
-<h1>The Architect-Critic Loop</h1>
-<div class="incremental">
-<ul>
-<li><strong>Architect</strong> — drive AI through the SDLC. Prompt,
-redirect, choose what to keep.</li>
-<li><strong>Critic</strong> — read AI’s output. Spot fabrication. Spot
-wrong multiplicity. Spot decorative pattern application.</li>
-</ul>
-</div>
-</div>
-<div id="your-role-both-halves" class="slide section level1">
-<h1>Your Role: Both Halves</h1>
-<p>You are simultaneously:</p>
-<ul>
-<li><strong>Architect / director:</strong> drive the work</li>
-<li><strong>Critic / reviewer:</strong> read the work</li>
-</ul>
-<p>The architect-half makes you the owner of the design. The critic-half
-makes you the owner of the quality.</p>
-</div>
-<div id="five-course-commitments-15" class="slide section level1">
-<h1>Five Course Commitments (1/5)</h1>
+<div id="ideea-întâlnirii" class="slide section level1">
+<h1>Ideea întâlnirii</h1>
 <blockquote>
-<p><strong>AI is the default tool, not an exception.</strong></p>
+<p>„Controlul complexității este esența programării
+calculatoarelor.”</p>
 </blockquote>
-<p>Every artifact in this course — requirements, models, code, tests —
-is normally generated <em>with</em> AI. Your value-add is direction,
-judgment, and correction.</p>
+<p>— <strong>Brian W. Kernighan și P. J. Plauger</strong></p>
+<p><a href="https://shonan.nii.ac.jp/docs/No-042.pdf#page=8">Sursa:
+Software Tools (1976); confirmare în raportul NII Shonan nr. 42</a> ·
+traducere din engleză</p>
 </div>
-<div id="five-course-commitments-25" class="slide section level1">
-<h1>Five Course Commitments (2/5)</h1>
+<div id="întrebarea-de-la-care-pornim" class="slide section level1">
+<h1>Întrebarea de la care pornim</h1>
 <blockquote>
-<p><strong>The trail is graded, not the running system.</strong></p>
+<p>Poți explica problema și soluția de proiectare suficient de bine
+încât să îndrumi pe altcineva să o realizeze?</p>
 </blockquote>
-<p>What gets graded: directed-design narrative + final reviewed artifact
-set + oral defense. What does <em>not</em> get graded: running code, raw
-test pass-rates.</p>
-</div>
-<div id="five-course-commitments-35" class="slide section level1">
-<h1>Five Course Commitments (3/5)</h1>
-<blockquote>
-<p><strong>Implementation is a forcing function, not a
-deliverable.</strong></p>
-</blockquote>
-<p>Test-driven development (TDD) with AI is <em>required</em> for the
-project — but its output is <em>never</em> a grading line item.</p>
-<p>The reflection on what TDD revealed about your spec is what gets
-read.</p>
-</div>
-<div id="five-course-commitments-45" class="slide section level1">
-<h1>Five Course Commitments (4/5)</h1>
-<blockquote>
-<p><strong>Defensible literacy floor — Critique, Rationale,
-Traceability.</strong></p>
-</blockquote>
-<p>In the oral defense, <em>unaided</em>, you must demonstrate:</p>
+<p>La finalul cursului, ar trebui să puteți:</p>
 <ul>
-<li><strong>Critique</strong> — Read &amp; critique any AI-generated UML
-diagram on the spot.</li>
-<li><strong>Rationale</strong> — Articulate why you directed AI a
-certain way and what you accepted or rejected.</li>
-<li><strong>Traceability</strong> — Defend traceability across your
-project: requirement → use case → class → state/sequence → test.</li>
+<li>Analiza o problemă mică, nefamiliară.</li>
+<li>Propune o soluție de proiectare și explica alternativele.</li>
+<li>Raționa asupra consecințelor schimbării unei cerințe.</li>
+<li>Îndruma lucrul cu AI și evalua dovezile oferite.</li>
 </ul>
 </div>
-<div id="five-course-commitments-55" class="slide section level1">
-<h1>Five Course Commitments (5/5)</h1>
-<blockquote>
-<p><strong>Tooling parity.</strong></p>
-</blockquote>
-<p>Everyone uses the same model and effort level — pinned by the course
-settings you copy into every repository.</p>
-<p>Other tools are fine for exploration — but graded artifacts must
-reproduce with the course settings.</p>
-</div>
-<div id="watch-for-both-moves" class="slide section level1">
-<h1>Watch For Both Moves</h1>
-<p>In the demo coming up:</p>
+<div id="program-și-comunicare" class="slide section level1">
+<h1>Program și comunicare</h1>
 <ul>
-<li>When I’m typing prompts → that’s the <strong>architect</strong>
-move.</li>
-<li>When I’m reading AI’s output and pointing at problems → that’s the
-<strong>critic</strong> move.</li>
-</ul>
-<p>You’re going to do both halves yourself, starting in Lab 1.</p>
-</div>
-<div id="demo-library-kiosk" class="slide section level1">
-<h1>Demo: Library Kiosk</h1>
-<blockquote>
-<p>Live AI design loop. Watch the architect move and the critic
-move.</p>
-</blockquote>
-<p><strong>Prompt to AI:</strong> <em>“Generate a UML class diagram for
-a small library kiosk: users borrow and return books; staff register
-returns; books can be reserved while on loan.”</em></p>
-</div>
-<div id="what-ai-changes-at-each-sdlc-stage" class="slide section level1">
-<h1>What AI Changes at Each SDLC Stage</h1>
-<p>The next 7 slides walk the SDLC stage by stage.</p>
-<p>For each: <strong>what AI does well</strong> vs. <strong>where AI
-fails</strong>.</p>
-<p>This is also the rest of your semester — each stage previews a future
-week.</p>
-</div>
-<div id="requirements-gathering-week-2-preview" class="slide section level1">
-<h1>Requirements Gathering (Week 2 preview)</h1>
-<p><strong>AI does well:</strong></p>
-<ul>
-<li>Drafts long lists of plausible-looking requirements fast.</li>
-<li>Surfaces stakeholder roles and use cases you might not have
-considered.</li>
-</ul>
-<p><strong>AI fails at:</strong></p>
-<ul>
-<li>Fabricating non-functional requirements without grounding.</li>
-<li>Vague non-functional requirements (NFRs) (“the system shall be
-performant”).</li>
-<li>Over-specifying — generating 200 requirements where 20 would
-do.</li>
+<li><strong>14 săptămâni de curs</strong> și <strong>7
+laboratoare</strong>, de regulă o dată la două săptămâni.</li>
+<li><a href="../lab/Lab00.html">Laboratorul 0</a>: orientare opțională,
+disponibilă și pentru parcurgere individuală.</li>
+<li>Laboratorul 1 se desfășoară după cursurile 1 și 2.</li>
+<li>Materiale: <a href="https://traiansf.github.io/class/amss2026/">traiansf.github.io/class/amss2026</a>.</li>
+<li>Întrebări și anunțuri: echipa cursului pe Microsoft Teams.</li>
+<li>Consultații: cu programare prin e-mail.</li>
 </ul>
 </div>
-<div id="testspec-design-week-3-preview" class="slide section level1">
-<h1>Test/Spec Design (Week 3 preview)</h1>
-<p><strong>AI does well:</strong></p>
-<ul>
-<li>Generates test scaffolds from a clear specification.</li>
-<li>Surfaces edge cases the spec doesn’t mention.</li>
-</ul>
-<p><strong>AI fails at:</strong></p>
-<ul>
-<li>Producing tests for vague specs — they pass for the wrong
-reasons.</li>
-<li>Over-fitting tests to a particular implementation.</li>
-</ul>
-<blockquote>
-<p>If AI can’t produce a passing test from your spec, your spec is too
-vague.</p>
-</blockquote>
-</div>
-<div id="structural-modeling-weeks-4-5-preview" class="slide section level1">
-<h1>Structural Modeling (Weeks 4-5 preview)</h1>
-<p><strong>AI does well:</strong></p>
-<ul>
-<li>Drafts a class diagram from a one-page spec in seconds.</li>
-<li>Suggests reasonable class names and relationships.</li>
-</ul>
-<p><strong>AI fails at:</strong></p>
-<ul>
-<li>Conflating abstract concepts with concrete instances (a book title
-vs. a physical copy — watch for it in the demo).</li>
-<li>Over-modelling: invented classes, attributes that duplicate
-associations.</li>
-<li>Wrong multiplicities.</li>
-</ul>
-</div>
-<div id="behavioral-modeling-weeks-6-7-preview" class="slide section level1">
-<h1>Behavioral Modeling (Weeks 6-7 preview)</h1>
-<p><strong>AI does well:</strong></p>
-<ul>
-<li>Generates sequence diagrams for happy-path scenarios.</li>
-<li>Sketches state machines for object lifecycles.</li>
-</ul>
-<p><strong>AI fails at:</strong></p>
-<ul>
-<li>Drawing only the happy path — no failures, no alternatives.</li>
-<li>Missing transitions the spec needs; vague guards.</li>
-<li>Operations that no participant actually owns.</li>
-</ul>
-</div>
-<div id="patterns-weeks-8-9-preview" class="slide section level1">
-<h1>Patterns (Weeks 8-9 preview)</h1>
-<p><strong>AI does well:</strong></p>
-<ul>
-<li>Recognizes textbook pattern situations and applies them.</li>
-<li>Knows the Gang of Four (GoF) vocabulary.</li>
-</ul>
-<p><strong>AI fails at:</strong></p>
-<ul>
-<li>Decorating code with patterns that solve nothing.</li>
-<li>Overusing patterns where simple code would do.</li>
-<li>Clean-looking patterns that mishandle the edge cases (a peak-hour
-price for a ride that crosses the boundary).</li>
-</ul>
-</div>
-<div id="traceability-quality-evaluation-weeks-10-11-preview" class="slide section level1">
-<h1>Traceability, Quality &amp; Evaluation (Weeks 10-11 preview)</h1>
-<p><strong>AI does well:</strong></p>
-<ul>
-<li>Cross-references artifacts on demand.</li>
-<li>Spots structural gaps if asked the right question.</li>
-</ul>
-<p><strong>AI fails at:</strong></p>
-<ul>
-<li>Maintaining traceability across iterations.</li>
-<li>Self-evaluating its own output.</li>
-<li>Catching consistency issues without being prompted.</li>
-</ul>
-</div>
-<div id="coding-out-of-scope-here" class="slide section level1">
-<h1>Coding (Out of Scope Here)</h1>
-<p>Implementation is a <em>parallel course’s</em> domain — not ours.</p>
-<p>We use it as our <strong>forcing function</strong>: TDD-with-AI is
-required for the project, but its output is never graded.</p>
-<p>What gets read is your <em>reflection on what the loop
-revealed</em>.</p>
-</div>
-<div id="back-to-critique-rationale-traceability" class="slide section level1">
-<h1>Back to Critique, Rationale, Traceability</h1>
-<p>Every stage above gets evaluated through the same three
-abilities:</p>
-<ul>
-<li><strong>Critique</strong> — read &amp; critique what AI
-produced.</li>
-<li><strong>Rationale</strong> — articulate why you directed AI the way
-you did.</li>
-<li><strong>Traceability</strong> — defend the trace from one stage to
-the next.</li>
-</ul>
-<p>This is the literacy floor. The oral defense tests it directly.</p>
-</div>
-<div id="what-you-just-saw-the-course-tooling" class="slide section level1">
-<h1>What You Just Saw: The Course Tooling</h1>
-<ul>
-<li><strong>Editor:</strong> VS Code with <strong>Claude Code</strong>
-(Claude Pro subscription) or <strong>Codex</strong> (ChatGPT Plus
-subscription) — the official extensions, signed in with your own
-account.</li>
-<li><strong>Course settings:</strong> copied from
-<code>tooling/template/</code> into every lab and project repository —
-course conventions (Mermaid for UML) and the pinned model:
-<strong>Sonnet 5, low effort</strong>.</li>
-<li><strong>Where it runs:</strong> inside your repository — it reads
-and writes your files, not a browser chat.</li>
-</ul>
-<p>This is what every student in the cohort runs.</p>
-</div>
-<div id="where-we-install-lab-1" class="slide section level1">
-<h1>Where We Install: Lab 1</h1>
-<ul>
-<li><strong>Before Lab 1:</strong> get a <strong>Claude Pro</strong> or
-<strong>ChatGPT Plus</strong> subscription — you need it in the
-lab.</li>
-<li>Lab 1 (Week 2): hands-on tooling onboarding — install, copy the
-course settings, first run.</li>
-<li>Setup guide: <code>tooling/SETUP.md</code> in the course repo (~20
-min on a working laptop).</li>
-</ul>
-</div>
-<div id="tooling-parity-byo-allowed-on-top" class="slide section level1">
-<h1>Tooling Parity (BYO Allowed, On Top)</h1>
-<p>Parity = <strong>same model, same effort level</strong> for everyone
-(Sonnet 5, low effort, pinned by the course settings).</p>
-<p>For exploration, use anything you like — other models, higher effort,
-GitHub Copilot, Cursor.</p>
-<p><strong>But:</strong> every graded artifact must reproduce with the
-course settings. Don’t change the model or effort for graded work.</p>
-<p>This is what keeps AI output comparable across the cohort — and lets
-the examiner reproduce your work during the oral defense.</p>
-</div>
-<div id="schedule" class="slide section level1">
-<h1>Schedule</h1>
-<ul>
-<li><strong>14 teaching weeks</strong>: 12 lecture weeks (~100 min
-each), plus a project workshop (Week 13) and final presentations (Week
-14).</li>
-<li><strong>7 labs</strong>, biweekly (Weeks 2, 4, 6, 8, 10, 12, 14 —
-100 min each).</li>
-<li>Course landing page:
-<code>traiansf.github.io/class/amss2026/</code>.</li>
-</ul>
-</div>
-<div id="final-grade" class="slide section level1">
-<h1>Final Grade</h1>
+<div id="evaluare-10-puncte" class="slide section level1">
+<h1>Evaluare: 10 puncte</h1>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Points</th>
+<th>Componentă</th>
+<th align="right">Puncte</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Project</td>
-<td>8</td>
+<td>Dosar de proiectare al echipei</td>
+<td align="right">5</td>
 </tr>
 <tr>
-<td>Attendance</td>
-<td>1</td>
+<td>Examen grilă individual</td>
+<td align="right">3</td>
 </tr>
 <tr>
-<td><em>Din oficiu</em></td>
-<td>1</td>
+<td>Prezență</td>
+<td align="right">1</td>
 </tr>
 <tr>
-<td><strong>Total</strong></td>
-<td><strong>10</strong></td>
+<td>Din oficiu</td>
+<td align="right">1</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Restanță:</strong> 9 puncte pentru examenul grilă + 1 punct
+din oficiu.</p>
+<p>Feedback pentru proiect la cerere, pe parcursul semestrului. Nota pe
+dosar se definitivează printr-un interviu de echipă la ultimul
+laborator.</p>
 </div>
-<div id="the-project" class="slide section level1">
-<h1>The Project</h1>
+<div id="prezența-și-pregătirea-pentru-examen" class="slide section level1">
+<h1>Prezența și pregătirea pentru examen</h1>
+<p><strong>Punctajul pentru prezență:</strong> ședințe frecventate ÷
+ședințe de curs și laborator desfășurate pentru grupa voastră.</p>
+<p>Cursurile și laboratoarele au aceeași pondere: în mod normal, 14
+cursuri și 7 laboratoare.</p>
+<p><strong>Pregătiți-vă pentru întrebări bazate pe
+scenarii:</strong></p>
 <ul>
-<li><strong>Teams of 3-5 students.</strong></li>
-<li>Teams not formed by 1 November are randomized.</li>
-<li>Domain announced by <strong>31 October 2026</strong>.</li>
-<li>Multiple teams may share a domain — the directed-design trails
-differ.</li>
-<li>Each student owns a <strong>slice</strong> of their team’s
-system.</li>
-<li>December checkpoint (Lab 5): 1 pt. Remaining 7 pts across the oral
-defense, directed-design narrative + defect log, documentation, and
-design patterns — see the project rubric.</li>
+<li>Separați o cerință de o presupunere nejustificată.</li>
+<li>Identificați încălcarea unei invariante sau anticipați o tranziție
+permisă.</li>
+<li>Comparați soluții de proiectare în raport cu restricțiile date.</li>
 </ul>
 </div>
-<div id="oral-defense-critique-rationale-traceability" class="slide section level1">
-<h1>Oral Defense — Critique, Rationale, Traceability</h1>
-<p>Cold defense, 3 of 8 project points. <em>Unaided</em>, you must:</p>
+<div id="proiectul-de-echipă" class="slide section level1">
+<h1>Proiectul de echipă</h1>
+<p>Echipele de <strong>3–5 studenți</strong> elaborează o soluție
+comună.</p>
+<p><strong>Livrabil:</strong> o specificație și o soluție de proiectare
+revizuite. Modelele și prototipurile le pot susține; nu este obligatorie
+o aplicație funcțională.</p>
+<p>Lab 6: lucru deschis la proiect și discuții. Lab 7: interviu de
+echipă pentru definitivarea notei pe dosar.</p>
+<p>Fiecare student trebuie să poată explica:</p>
 <ul>
-<li><strong>Critique</strong> — Read &amp; critique any AI-generated UML
-diagram from any team’s repo.</li>
-<li><strong>Rationale</strong> — Articulate rationale for your own
-design decisions.</li>
-<li><strong>Traceability</strong> — Defend traceability across your
-project’s slices.</li>
-</ul>
-<p>This is the integrity check.</p>
-</div>
-<div id="resit-exam-restanță" class="slide section level1">
-<h1>Resit Exam (Restanță)</h1>
-<p>For students who fail the regular evaluation path:</p>
-<ul>
-<li>Single 90-min written paper.</li>
-<li>Format: critique an AI-generated artifact set + short-answer
-rationale + traceability walk.</li>
-<li><strong>No AI in the room.</strong></li>
-<li>Tests the same competence (Critique, Rationale, Traceability) as the
-oral defense.</li>
+<li>Problema și regulile relevante ale domeniului.</li>
+<li>Propria contribuție la proiectare și alternativele ei.</li>
+<li>Cum păstrează contractele și comportamentul regulile.</li>
+<li>Dovezile de validare și limitele lor.</li>
+<li>Impactul unei cerințe noi.</li>
 </ul>
 </div>
-<div id="academic-integrity" class="slide section level1">
-<h1>Academic Integrity</h1>
+<div id="ce-trebuie-să-rezulte-din-munca-voastră" class="slide section level1">
+<h1>Ce trebuie să rezulte din munca voastră</h1>
 <ul>
-<li>AI use is <strong>expected</strong> for almost every artifact in
-this course.</li>
-<li>The <em>directed-design narrative</em> is your record of what you
-did with AI.</li>
-<li>The <em>cold defense</em> is the integrity check — examiners verify
-you understand your own work.</li>
-<li>One-page statement attached to the syllabus (circulated before Week
-2).</li>
+<li>O specificație și o soluție de proiectare bine dezvoltate.</li>
+<li>Motivele deciziilor cu consecințe importante.</li>
+<li>Dovezi din scenarii, analiza modelelor sau un prototip cu scop
+precis.</li>
+<li>Sarcini predate explicit și constatări de revizuire pe care le-ați
+verificat.</li>
+<li>Capacitatea voastră de a raționa fără AI.</li>
+</ul>
+<p>Păstrați dovezile concise și legate de soluția propusă.</p>
+</div>
+<div id="unelte-și-organizarea-lucrului" class="slide section level1">
+<h1>Unelte și organizarea lucrului</h1>
+<ul>
+<li>Alegeți un asistent și un model AI la care aveți acces.</li>
+<li>Creați un repository public pe GitHub sau GitLab când anunțați
+proiectul pe Teams; păstrați progresul și contribuțiile membrilor pe tot
+parcursul semestrului.</li>
+<li>Definiți explicit rolurile de analist/proiectant și evaluator (agent
+de revizuire).</li>
+<li>Porniți revizuirea într-un context separat, cu sursele
+necesare.</li>
+<li>Pregătiți-vă să explicați soluția fără asistent.</li>
 </ul>
 </div>
-<div id="communication" class="slide section level1">
-<h1>Communication</h1>
+<div id="înainte-de-laboratorul-1" class="slide section level1">
+<h1>Înainte de laboratorul 1</h1>
 <ul>
-<li><em>Teams link / mailing list — to be circulated before Week
-2.</em></li>
-<li>Office hours: by appointment (email).</li>
-<li>Course repo: GitHub (link circulated with the team-formation
-announcement).</li>
+<li>Citiți ghidul de pregătire și convențiile de lucru.</li>
+<li>Pregătiți accesul la asistentul ales și la fișierele comune.</li>
+<li>Veți lucra în perechi, alternând responsabilitățile.</li>
+<li>Veți analiza singuri un enunț scurt înainte de a folosi AI.</li>
+</ul>
+<p>Primul livrabil descrie clar problema și deciziile încă
+neclarificate.</p>
+</div>
+<div id="de-ce-studiem-analiza-și-proiectarea" class="slide section level1">
+<h1>De ce studiem analiza și proiectarea?</h1>
+<p>O implementare poate funcționa exact cum am cerut și totuși să
+rezolve problema greșită.</p>
+<ul>
+<li>Beneficiarii pot folosi același cuvânt pentru lucruri diferite.</li>
+<li>O decizie locală poate îngreuna schimbările ulterioare.</li>
+<li>Un rezultat convingător are nevoie de dovezi verificabile.</li>
+</ul>
+<p>Vom învăța să formulăm întrebări, să comparăm soluții și să explicăm
+consecințele deciziilor.</p>
+</div>
+<div id="ce-schimbă-lucrul-cu-ai" class="slide section level1">
+<h1>Ce schimbă lucrul cu AI?</h1>
+<p>AI poate produce rapid variante, documente și cod. Alegerea
+problemei, verificarea rezultatului și asumarea deciziilor rămân ale
+voastre.</p>
+<p>Vrem să puteți explica de ce o soluție este potrivită și ce dovadă
+v-ar determina să o revizuiți.</p>
+<p><strong>Discuție:</strong> când ați acceptat un rezultat care părea
+corect? Cum ați putea să îl verificați mai bine?</p>
+</div>
+<div id="cum-se-leagă-întâlnirile" class="slide section level1">
+<h1>Cum se leagă întâlnirile?</h1>
+<ul>
+<li>Cursul 1: organizarea, așteptările și motivația.</li>
+<li>Cursul 2: înțelegem o problemă înainte să delegăm o soluție.</li>
+<li>Lab 1: aplicăm ideile celor două cursuri la rezervarea sălilor.</li>
+<li>Fiecare laborator urmează perechea de cursuri deja predată.</li>
+<li>Doar Lab 6 și Lab 7 sunt dedicate efectiv proiectelor.</li>
 </ul>
 </div>
-<div id="thats-it-for-today" class="slide section level1">
-<h1>That’s It For Today</h1>
-<ul>
-<li>Next week: requirements with AI.</li>
-<li>Lab 1 (Week 2 lab slot): tooling onboarding + first AI-driven
-requirements drill — bring your Claude Pro or ChatGPT Plus
-subscription.</li>
-</ul>
-<p>Questions?</p>
+<div id="pentru-întâlnirea-următoare" class="slide section level1">
+<h1>Pentru întâlnirea următoare</h1>
+<p>Pregătiți accesul la Teams, la materialele cursului și la asistentul
+ales.</p>
+<p>Gândiți-vă la o situație în care o întrebare pusă mai devreme ar fi
+schimbat soluția propusă.</p>
+<p><strong>Cursul 2:</strong> vom analiza cererea unei biblioteci, vom
+compara interpretări și vom verifica o soluție propusă cu ajutorul
+AI.</p>
+</div>
+<div id="experiența-și-așteptările-voastre" class="slide section level1">
+<h1>Experiența și așteptările voastre</h1>
+<p><a href="https://forms.gle/uHCXyFvxqQxsWWmH9"><img role="img" aria-label="Deschideți chestionarul de început de curs" src="data:image/png;base64,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" width="200" height="200" alt="Deschideți chestionarul de început de curs" /></a></p>
+<p><strong><a href="https://forms.gle/uHCXyFvxqQxsWWmH9">Completați
+chestionarul de început de curs</a></strong></p>
+<p>Scanați codul QR sau deschideți linkul: <a href="https://forms.gle/uHCXyFvxqQxsWWmH9">forms.gle/uHCXyFvxqQxsWWmH9</a>.</p>
+<p>Ce experiență aveți? Ce știți deja și ce ați vrea să aprofundați?</p>
+<p>Completarea este voluntară și durează aproximativ 10–12 minute. Vom
+folosi răspunsurile pentru adaptarea conținutului.</p>
 </div>
 </body>
 </html>

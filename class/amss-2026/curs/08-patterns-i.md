@@ -19,6 +19,24 @@ Weeks 4-7 modelled the system's structure and behaviour. Today shifts to a desig
 
 ---
 
+# Ideea întâlnirii
+
+> „[…] să arate prezența erorilor, dar niciodată absența lor.”
+
+— **Edsger W. Dijkstra**
+
+[Sursa: Concern for Correctness as a Guiding Principle for Program Composition — EWD288](https://www.cs.utexas.edu/~EWD/transcriptions/EWD02xx/EWD288.html) · traducere din engleză
+
+::: notes
+Original: “show the presence of bugs, but never to show their absence”
+
+Arhiva universitară a autorului, paragraful The first moral of this story. Fragment din afirmația despre testarea programelor; începutul omis este marcat.
+
+Legătura cu tema: Despre testare: exemplele pot expune o eroare, dar nu dovedesc singure corectitudinea pentru toate execuțiile. Distingeți testarea de demonstrație și de explorarea exhaustivă a unui model finit.
+:::
+
+---
+
 # Recap: Architect and Critic
 
 - **Architect / director:** drive AI through the software development lifecycle (SDLC).

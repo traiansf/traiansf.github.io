@@ -1,5 +1,7 @@
 # Lab 4 Instructor Runbook — Critique Session: Behavioral Artifacts
 
+> Planificare curentă: Lab 4, după cursurile 7–8, tratează stări, comportament și interacțiuni. Corpul de mai jos este material anterior, de rescris conform `docs/semester-roadmap.md`; nu reprezintă noul pachet de predare și nu autorizează cerințe sau prerechizite din cursuri ulterioare.
+
 > Instructor-facing companion to `Lab04.md`. **Not** a slidy deck — the lab Makefile filters `*-instructor.md` out of the published tree. Read end-to-end before the session.
 >
 > Design reference: the master spec's Lab 4 row (`docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md` §3) — "same format as Lab 3, on flawed behavioral artifacts." No per-lab spec file — this runbook is the working spec.
@@ -213,7 +215,7 @@ Watch the clock: a team behind at ~50 min should lock in what they have and rate
    - false positive (claim not in the table, after you adjudicate) -> minus 1;
    - no double-counting one defect under two names.
 3. **22-27 min:** each team reports its net score + nominates its **best catch** (highest-severity real defect) -> +1 bonus.
-4. **27-30 min:** crown the top team (ties -> who caught the highest-severity defect). Close: these are the defects you critique every week and in the oral defense; flawed behaviour propagates to tests and code. Bridge to W9 + Lab 5 (project checkpoint).
+4. **27-30 min:** discuss findings supported by source rules and evidence. Bridge to Courses 9–10 and Lab 5: model validation and abstraction. Lab 5 is a topic exercise on a supplied problem; there is no project checkpoint. This earlier lab still awaits its topic-based rewrite under the current roadmap.
 
 Adjudication calls you will face: a team lists S4 as two defects (fabricated message + invented FraudDetector lifeline) — count once. A team claims "no final state" on the state machine — not a defect here (see the note), neither credit nor penalise. A team flags something not in the tables — decide if it's genuinely wrong (award it) or a false positive (minus 1). The reference good artifacts settle most disputes fast.
 

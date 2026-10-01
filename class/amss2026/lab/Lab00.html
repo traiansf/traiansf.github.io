@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro-RO" xml:lang="ro-RO">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Traian-Florin Șerbănuță" />
+  <title>AMSS 2026/2027 — Laboratorul 0: Pregătire și orientare</title>
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+background-color: #1a1a1a;
+border: none;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; }
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; }
+code span.at { color: #7d9029; }
+code span.bn { color: #40a070; }
+code span.bu { color: #008000; }
+code span.cf { color: #007020; font-weight: bold; }
+code span.ch { color: #4070a0; }
+code span.cn { color: #880000; }
+code span.co { color: #60a0b0; font-style: italic; }
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; }
+code span.do { color: #ba2121; font-style: italic; }
+code span.dt { color: #902000; }
+code span.dv { color: #40a070; }
+code span.er { color: #ff0000; font-weight: bold; }
+code span.ex { }
+code span.fl { color: #40a070; }
+code span.fu { color: #06287e; }
+code span.im { color: #008000; font-weight: bold; }
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; }
+code span.kw { color: #007020; font-weight: bold; }
+code span.op { color: #666666; }
+code span.ot { color: #007020; }
+code span.pp { color: #bc7a00; }
+code span.sc { color: #4070a0; }
+code span.ss { color: #bb6688; }
+code span.st { color: #4070a0; }
+code span.va { color: #19177c; }
+code span.vs { color: #4070a0; }
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">AMSS 2026/2027 — Laboratorul 0: Pregătire și
+orientare</h1>
+<p class="author">Traian-Florin Șerbănuță</p>
+<p class="date">2026/2027</p>
+</header>
+<h1 id="laboratorul-0-pregătire-și-orientare">Laboratorul 0: Pregătire
+și orientare</h1>
+<p><strong>Participarea este opțională.</strong> Poți urma acest ghid în
+sala de laborator sau pe cont propriu, indiferent de grupă. Nu ai nevoie
+de cursul 2, de o echipă deja formată sau de experiență în
+proiectare.</p>
+<p>Scopul este să găsești materialele, să îți pregătești spațiul de
+lucru și să reflectezi la experiența ta. Alege pașii care îți sunt utili
+și revino la ceilalți când ai timp. Activitatea nu are un livrabil notat
+sau un termen de predare.</p>
+<p>Laboratorul 1, despre înțelegere, specificare și revizuire, se
+desfășoară <strong>după predarea cursurilor 1 și 2</strong>. Pentru o
+grupă care are întâlnirea imediat după primul curs, aceasta este Lab 0;
+Lab 1 poate avea loc în săptămâna 3. Programarea fiecărei grupe se
+anunță pe Teams.</p>
+<h2 id="ideea-întâlnirii">Ideea întâlnirii</h2>
+<blockquote>
+<p>„Informatica ar trebui să se ocupe de concepte, nu de limbaje.”</p>
+</blockquote>
+<p>— <strong>Leslie Lamport</strong></p>
+<p><a href="https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2">Sursa:
+Computation and State Machines (2008), prefață</a> · traducere din
+engleză</p>
+<!-- Original verificat: “Computer science should be about concepts, not languages.” Prefață, pagina PDF 2, manuscrisul de pe site-ul autorului. Legătura cu tema: uneltele sprijină învățarea; pregătirea lor nu înlocuiește înțelegerea. -->
+<h2 id="cum-poți-folosi-cele-90-de-minute">Cum poți folosi cele 90 de
+minute</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Durată orientativă</th>
+<th>Activitate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10 minute</td>
+<td>Găsește Teams, materialele și ghidul de pregătire.</td>
+</tr>
+<tr>
+<td>15 minute</td>
+<td>Amintește-ți o cerință neclară sau o schimbare dificilă.</td>
+</tr>
+<tr>
+<td>20 de minute</td>
+<td>Formulează întrebări care ar fi ajutat.</td>
+</tr>
+<tr>
+<td>20 de minute</td>
+<td>Pregătește un spațiu de lucru și verifică accesul la unelte.</td>
+</tr>
+<tr>
+<td>15 minute</td>
+<td>Explorează idei de proiect și posibili colegi de echipă.</td>
+</tr>
+<tr>
+<td>10 minute</td>
+<td>Notează întrebările și ce mai ai de pregătit.</td>
+</tr>
+</tbody>
+</table>
+<p>Poți împărți activitatea în sesiuni mai scurte. În sală, discuțiile
+se pot face în perechi și cu profesorul; individual, folosește
+întrebările și exemplele de mai jos. Nu este necesar să reproduci o
+discuție de grup.</p>
+<h2 id="găsește-informațiile-de-care-vei-avea-nevoie">1. Găsește
+informațiile de care vei avea nevoie</h2>
+<p>Deschide:</p>
+<ul>
+<li><a href="https://traiansf.github.io/class/amss2026/">pagina
+cursului</a>;</li>
+<li><a href="https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&amp;tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1">echipa
+Microsoft Teams</a> — cod <strong>fswo4rl</strong>;</li>
+<li><a href="../proiect/">cerințele proiectului</a>;</li>
+<li><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">ghidul
+de pregătire a mediului</a>.</li>
+</ul>
+<p>Verifică dacă găsești schema de notare, cerințele pentru anunțarea
+temei și modul de a cere feedback. Nu este necesar să reții toate
+detaliile acum; contează să știi unde revii pentru ele.</p>
+<p><strong>Dacă accesul nu funcționează:</strong> notează ce pagină sau
+serviciu nu poți deschide și cere ajutor profesorului. Poți continua
+partea de reflecție pe hârtie.</p>
+<h2 id="pornește-de-la-o-experiență-proprie">2. Pornește de la o
+experiență proprie</h2>
+<p>Alege o situație dintr-un proiect de facultate, de la serviciu sau
+dintr-o activitate personală:</p>
+<ul>
+<li>ai primit o cerință pe care oamenii au interpretat-o diferit;</li>
+<li>o modificare aparent mică a afectat mai multe părți ale
+soluției;</li>
+<li>un rezultat produs cu AI a părut corect, dar a necesitat
+verificare.</li>
+</ul>
+<p>Scrie câteva rânduri: ce se dorea, ce ați înțeles inițial și ce s-a
+întâmplat. Nu include informații confidențiale. Dacă lucrezi în pereche,
+comparați exemplele.</p>
+<p><strong>Dacă nu îți vine un exemplu:</strong> folosește această
+situație didactică: „Un coleg cere o pagină pe care să găsească mai ușor
+notițele cursurilor.” Nu presupune încă dacă vrea căutare, etichete, o
+listă de linkuri sau acces de pe telefon.</p>
+<h2 id="ce-întrebare-ar-fi-ajutat-mai-devreme">3. Ce întrebare ar fi
+ajutat mai devreme?</h2>
+<p>Pentru exemplul ales, răspunde:</p>
+<ol type="1">
+<li>Ce informație a lipsit sau a fost interpretată diferit?</li>
+<li>Ce întrebare ai fi pus înainte de a începe soluția?</li>
+<li>Cum ar putea răspunsul să schimbe ce construiți?</li>
+<li>Ce ai putea observa sau verifica pentru a decide dacă soluția
+ajută?</li>
+</ol>
+<p>Pentru exemplul notițelor, o întrebare utilă ar fi: „Cum cauți acum o
+notiță și în ce situație nu o găsești?” Dacă problema este o listă
+dezorganizată de linkuri, o căutare în textul tuturor documentelor poate
+fi o soluție prea mare. Dacă studentul își amintește numai un fragment
+din document, ordonarea linkurilor poate să nu îi ajungă.</p>
+<p>Nu există o singură formulare corectă. Verifică dacă întrebarea ta
+poate schimba o decizie concretă. „Ce tehnologie folosim?” poate fi
+utilă mai târziu, dar nu clarifică singură nevoia colegului.</p>
+<h2 id="pregătește-un-spațiu-simplu-de-lucru">4. Pregătește un spațiu
+simplu de lucru</h2>
+<p>Creează un director local pentru exercițiile cursului și un fișier
+<code>pregatire.md</code>. Poți folosi orice editor de text; sunt
+suficiente și notițe pe hârtie pentru această întâlnire.</p>
+<p>Un început posibil:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pregătirea mea pentru AMSS</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Experiența aleasă</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Ce se dorea și ce a fost neclar?</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Întrebarea care ar fi ajutat</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Ce aș întreba și ce decizie ar influența răspunsul?</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mediul de lucru</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Ce pot deschide și edita? Ce acces mai trebuie pregătit?</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Idei și întrebări</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Ce problemă aș vrea să explorez? Ce am nevoie să clarific?</span></code></pre></div>
+<p>Salvează fișierul, închide-l și deschide-l din nou. Verifică dacă
+modificările s-au păstrat. Notițele de pregătire pot rămâne locale; nu
+trebuie să anunți acum un proiect sau să publici acest fișier.</p>
+<h3 id="dacă-vrei-să-exersezi-git">Dacă vrei să exersezi Git</h3>
+<p>Acest pas este opțional. Într-un terminal deschis în directorul nou,
+poți înregistra fișierul:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pregatire.md</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Adaug notele de pregatire&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div>
+<p>Dacă Git îți cere identitatea autorului, configureaz-o pentru acest
+director folosind numele și adresa ta, apoi repetă comanda de
+commit:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.name <span class="st">&quot;Numele tau&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.email <span class="st">&quot;adresa-ta@example.com&quot;</span></span></code></pre></div>
+<p>Scopul este să vezi că poți salva și regăsi o versiune. Dacă Git nu
+este disponibil, păstrează fișierul și notează ce ajutor îți trebuie; nu
+trebuie să rezolvi toate instalările în această sesiune.</p>
+<h2 id="verifică-accesul-la-un-asistent-dacă-ai-unul">5. Verifică
+accesul la un asistent, dacă ai unul</h2>
+<p>Poți folosi un asistent în browser, în editor sau local, la care ai
+deja acces. Nu se cere un abonament plătit, un furnizor sau un model
+anume.</p>
+<p>Dacă vrei, oferă-i exemplul didactic al notițelor și cere: „Propune
+două întrebări de clarificare, fără să alegi o soluție sau să
+implementezi o aplicație.” Compară întrebările cu a ta. Poți explica în
+ce fel ar schimba răspunsurile o alegere?</p>
+<p><strong>Fără AI:</strong> continuă cu întrebările din pasul 3.
+Activitatea rămâne completă fără acces la un asistent. Exercițiul tehnic
+de delegare și revizuire va fi introdus în cursul 2 și exersat în Lab
+1.</p>
+<h2 id="explorează-idei-de-proiect-și-colegi-de-echipă">6. Explorează
+idei de proiect și colegi de echipă</h2>
+<p>Recitește <a href="../proiect/">cerințele proiectului</a>. Echipele
+au 3–5 membri și dezvoltă o specificație și o proiectare comună, cu
+contribuțiile membrilor identificabile.</p>
+<p>Notează, dacă dorești, una sau două probleme pe care ai vrea să le
+înțelegi mai bine. Pentru fiecare: cine are problema, ce decizie sau
+regulă pare interesantă și ce ai lăsa în afara unei prime variante.</p>
+<p>În sală poți discuta ideile cu colegii. Pe cont propriu, poți reveni
+la ele și poți căuta colegi pe Teams. Nu este necesar să alegi tema sau
+să formezi echipa în Lab 0. Când anunțați efectiv proiectul, includeți
+linkul către repository-ul public GitHub sau GitLab, creat la acel
+moment, conform cerințelor proiectului.</p>
+<h2 id="încheie-cu-o-verificare-personală">7. Încheie cu o verificare
+personală</h2>
+<ul>
+<li>Pot găsi materialele cursului, anunțurile și cerințele
+proiectului.</li>
+<li>Pot salva și regăsi notițele mele.</li>
+<li>Pot spune ce informație lipsea din exemplul ales și de ce
+contează.</li>
+<li>Știu ce acces sau unealtă mai trebuie pregătită.</li>
+<li>Am notat întrebările pe care vreau să le adresez profesorului.</li>
+</ul>
+<p>Păstrează notițele pentru tine sau folosește-le într-o discuție. Nu
+trebuie să le trimiți ca temă. Pentru ajutor, indică pe Teams pasul la
+care te-ai oprit și problema concretă.</p>
+<p><strong>Urmează:</strong> cursul 2, apoi Lab 1. Scenariul rezervării
+sălilor este păstrat pentru Lab 1, după introducerea tehnică.</p>
+<h2 id="chestionarul-de-început-de-curs">Chestionarul de început de
+curs</h2>
+<p>Profesorul va distribui pe Teams un chestionar despre experiență,
+cunoștințe și așteptări. Este voluntar și ne ajută să adaptăm conținutul
+cursului. Invitația se adresează tuturor grupelor. Rezervă aproximativ
+10–12 minute, separat de pașii ghidului; dacă linkul nu este încă
+disponibil, poți continua ghidul și reveni după anunț.</p>
+</body>
+</html>

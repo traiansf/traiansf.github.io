@@ -20,6 +20,24 @@ The second critique/red-team lab. Lab 3 hunted flawed structure (class, package,
 
 ---
 
+# Ideea întâlnirii
+
+> „O mare parte a informaticii se ocupă de mașini de stări.”
+
+— **Leslie Lamport**
+
+[Sursa: Computation and State Machines (2008)](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4) · traducere din engleză
+
+::: notes
+Original: “Much of computer science is about state machines.”
+
+Manuscris pe site-ul autorului, prima propoziție din Introduction, pagina numerotată 1 (pagina PDF 4).
+
+Legătura cu tema: Stările și tranzițiile oferă o reprezentare comună a comportamentului.
+:::
+
+---
+
 # The Flip: From Structure to Behaviour
 
 - **Lab 3:** you red-teamed flawed **structural** artifacts — class, package, component.
@@ -219,8 +237,8 @@ Low-stakes literacy gate, scored at the team level, identical to Lab 3. The bar 
 
 You have now red-teamed both **structure** (Lab 3) and **behaviour** (Lab 4) — naming defects and rating them cold is exactly the **Critique** skill the oral defense checks. Flawed behaviour propagates to tests and code.
 
-Next: **Week 9** deepens patterns; the labs now turn to **your own project** — **Lab 5** is the checkpoint defense.
+Next: **Courses 9–10** deepen model validation and abstraction; **Lab 5** applies these topics to a supplied problem. Only Labs 6–7 are dedicated to team projects.
 
 ::: notes
-Closer. Tie back to the literacy floor; the two critique labs (3, 4) complete the red-team arc. From here the labs shift to project work — Lab 5 is the intermediate checkpoint defense (Week 10). The severity-rated defect log is the through-line into the project's critique discipline.
+Closer. Connect lifecycle and interaction reasoning to the next topics: model validation and abstraction. Lab 5 uses a supplied problem, not a project checkpoint. Lab 6 is open project work and discussion; Lab 7 is the dossier clarification interview. This earlier lab still awaits its topic-based rewrite under the current roadmap.
 :::

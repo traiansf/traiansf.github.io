@@ -19,6 +19,24 @@ You have built, critiqued, and evaluated. Today is performing it under examinati
 
 ---
 
+# Ideea întâlnirii
+
+> „[…] să tratăm un program ca pe o operă literară, adresată oamenilor, nu unui calculator.”
+
+— **Donald E. Knuth**
+
+[Sursa: Literate Programming — prezentarea autorului](https://cs.stanford.edu/~knuth/lp.html) · traducere din engleză
+
+::: notes
+Original: “treat a program as a piece of literature, addressed to human beings rather than to a computer”
+
+Pagina autorului la Stanford, fragmentul din propoziția The main idea is to; începutul omis este marcat.
+
+Legătura cu tema: Sinteza și explicațiile trebuie să permită altui om să urmărească raționamentul.
+:::
+
+---
+
 # Recap: Architect and Critic
 
 - **Architect / director:** drive AI through the software development lifecycle (SDLC).

@@ -1,250 +1,338 @@
 ---
-title: "AMSS 2026 — Lab 1: Tooling Onboarding + Requirements with AI"
+title: "AMSS 2026/2027 — Laboratorul 1: Înțelegere, specificare, revizuire"
 author: "Traian-Florin Șerbănuță"
-date: "2026"
+date: "2026/2027"
+lang: ro-RO
 ---
 
-# Lab 1: Tooling Onboarding + Requirements with AI
+# Laboratorul 1: Înțelegere, specificare, revizuire
 
-Three phases, 100 minutes:
+**Rezervarea sălilor de studiu din campus · în perechi · 100 de minute**
 
-1. **Tooling onboarding** (~15 min) — sign in to your AI assistant, add the course settings, confirm repo access.
-2. **Requirements drill** (~60 min) — in pairs, drive AI to produce a requirements doc; critique it.
-3. **Share-out** (~25 min) — compare failure modes across the room.
+Explicați singuri problema, pregătiți o specificație cu limite clare,
+delegați o revizuire (review) și decideți ce afirmații sunt susținute de dovezi.
 
-Deliverable: a requirements doc + a 5-line reflection, committed to the course lab repo.
+La final: o descriere comună a problemei și explicația individuală a unei decizii de proiectare.
+
+Fișe: [informațiile beneficiarului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/scenario.md) · [fișa de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/worksheet.md)
 
 ::: notes
-This is the hands-on follow-through of the Week 2 lecture. The demo you watched (architect prompts AI, critic finds failure modes, architect re-prompts with a scaffold) is exactly what you do here, in pairs, on a different domain.
+după predarea cursurilor 1 și 2. Exercițiul transferă raționamentul introductiv despre înțelegere, scenarii și delegare din cursul 2 într-un domeniu nou; nu presupune predarea aprofundată a cerințelor din cursul 3. Studenții știu să programeze; introduceți explicit termenii de analiză și proiectare. Nu se cere implementarea unei aplicații.
 :::
 
 ---
 
-# Before You Start
+# Ideea întâlnirii
 
-- Your AI assistant installed in VS Code per `tooling/SETUP.md` — **Claude Code** (Claude Pro) or **Codex** (ChatGPT Plus) — you did this *before* lab.
-- You receive at lab start: your **pair-id** and the lab-repo URL. There are no credentials to hand out: you sign in with your own subscription.
-- Find your partner. This is a pair lab.
+> „Simplitatea este o condiție necesară pentru fiabilitate.”
+
+— **Edsger W. Dijkstra**
+
+[Sursa: How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html) · traducere din engleză
 
 ::: notes
-Anyone who didn't do SETUP.md at home will lose drill time installing now. Pair them with someone who did and have them catch up during onboarding.
+Original: “Simplicity is prerequisite for reliability.”
+
+Transcriere universitară, afirmația marcată ca adnotare manuscrisă; originalul este în arhiva Dijkstra de la UT Austin, EWD498.
+
+Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte de delegare.
 :::
 
 ---
 
-# Phase 1 — Onboarding (15 min)
+# Parcursul de azi
 
-1. Open the assistant's panel in VS Code and **sign in** with your own account (Claude Code or Codex).
-2. Clone or pull the lab repo and create branch `lab01/<pair-id>`. **Copy the contents of `tooling/template/`** into the lab repo's root (commands in `tooling/SETUP.md`, step 3).
-3. **Smoke test:** open the lab repo folder in VS Code and ask the assistant for a Mermaid class diagram of a parking lot. It should render in the Markdown preview.
-4. **Check the model:** Claude Code → type `/model`, it must show **Sonnet 5, low effort**; Codex → the model picker must show the model from `.codex/config.toml`.
-5. Commit the template files and push the branch to confirm access.
-
-Stuck? No subscription yet, or usage limit hit → pair with a colleague and work on their laptop.
+| Minute | Activitate |
+|---|---|
+| 0–8 | Analiză individuală, fără AI |
+| 8–16 | Compararea interpretărilor; clarificarea distincțiilor |
+| 16–26 | Pregătirea spațiului de lucru și a rolurilor |
+| 26–44 | Descrierea problemei și predarea sarcinii autorului |
+| 44–60 | Schimbarea rolurilor; revizuire independentă |
+| 60–78 | Evaluarea revizuirii și modificări justificate |
+| 78–90 | Argumentare individuală și o cerință nouă |
+| 90–100 | Prezentarea deciziilor și predarea lucrării |
 
 ::: notes
-Goal of this phase: every pair ends with a working assistant on the course model AND a pushed branch, so the only thing left at the end of the drill is committing real content.
-
-Everyone runs the same model and effort level, pinned by the repository settings, so AI output is comparable across the room and reproducible in the oral defense. You may explore with other tools, but graded artifacts must reproduce with the course settings. If the model check shows something else, you probably opened the parent folder instead of the repo folder.
+Distribuiți scenario.md și worksheet.md din lab/scenarios/lab01/ înainte de a începe. Oferiți aceste fișiere sursă sau copii tipărite; nu sunt prezentări publicate separat. Folosiți prepared-fixture.md dacă accesul la instrumente nu funcționează. Dacă timpul este limitat, păstrați perioadele de lucru fără ajutor și de revizuire.
 :::
 
 ---
 
-# Phase 2 — The Drill (60 min)
+# Cerințele beneficiarului
 
-**Domain: a vending machine.** Same for every pair.
+Campusul dorește ca studenții să poată rezerva **Alder** sau **Birch** pentru studiu.
 
-You alternate two roles:
+- **F1:** o singură zi viitoare pentru pilot, **D**; ambele săli sunt deschise 09:00–17:00.
+- **F2:** un serviciu al universității furnizează identitatea verificată a studentului; sălile sunt deja configurate.
+- **F3:** o rezervare indică un student, o sală și un interval în D; începutul precedă sfârșitul, în programul sălii.
+- **F8:** administrarea sălilor, plățile, rezervările recurente, listele de așteptare și notificările sunt excluse.
 
-- **Architect** — drives the AI (writes the prompts).
-- **Critic** — reads the AI's output and names what's wrong or missing.
-
-Swap roles between the two rounds, so you both practice both.
+Fișa este sursa informațiilor convenite. Întrebările nu stabilesc reguli noi.
 
 ::: notes
-A single shared domain is deliberate: it makes the share-out a real side-by-side comparison of how the same prompt failed differently across pairs.
+Identificatorii informațiilor corespund celor din scenario.md. Citiți fișa completă, inclusiv F4–F7 și întrebările deschise, înainte de a evalua un material. „Exclus” descrie limitele acestui exercițiu.
 :::
 
 ---
 
-# Round 1 — A drives, B critiques (~25 min)
+# Reguli pe care le putem verifica
 
-**A** sends this starting prompt (deliberately bare):
+- **F4:** rezervările confirmate pentru **aceeași sală** nu se pot suprapune. Una poate începe când se termină alta.
+- **F5:** două cereri simultane în conflict nu pot fi ambele confirmate. Pentru o sală liberă, dacă sunt altfel valide, una se confirmă și cealaltă se respinge pentru conflict; nu s-a stabilit care are prioritate.
+- **F6:** titularul poate anula înainte de început; intervalul devine liber. Alt student nu poate anula rezervarea.
+- **F7:** o rezervare reușită primește un cod; o respingere indică regula convenită care nu este respectată.
 
-> *"Generate a requirements document for a vending machine. Cover functional, non-functional, and domain requirements."*
-
-**B** reads the output and names failure modes (see the next slides). Log each one.
-
-**A** re-prompts using a prompting move to fix what B found. **This re-prompt is required — iterate at least once.**
+Anularea de la ora de început și rezervările suprapuse ale aceluiași student în săli diferite rămân întrebări deschise.
 
 ::: notes
-The bare prompt is on purpose. Expect a long, confident, well-organized draft: the usual problems are over-specification, invented features and regulations, invented numbers ("99% uptime", "10 seconds") and technology posing as requirements — not obvious gaps. If the draft looks suspiciously clean, the critic uses the edge-case card a few slides on.
+F5 permite discutarea unei responsabilități care impune o regulă pentru mai multe cereri. Nu prescrie blocări, baze de date, clase sau o soluție de instalare. Astăzi sunt suficiente o responsabilitate precisă și un scenariu.
 :::
 
 ---
 
-# Round 2 — swap: B drives, A critiques (~25 min)
+# Mai întâi: analiza proprie (0–8)
 
-Now **B** drives and **A** critiques.
+Lucrați individual, fără AI. Păstrați aceste notițe inițiale.
 
-Take a fresh angle: push for measurable acceptance criteria on each requirement, or negative-prompt away the fabricated technology, regulations and numbers A's round surfaced.
+1. Formulați scopul și limitele în cuvintele voastre.
+2. Explicați ce este o sală și ce este o rezervare.
+3. Dați o cerere acceptată și una respinsă, fiecare justificată printr-o informație din fișă.
+4. Numiți o întrebare pe care ați pune-o înainte de a extinde soluția.
 
-Keep a running log of *what you asked the AI and why* — that's your Rationale evidence and the source of reflection line 3.
+Folosiți propoziții, un tabel mic, o schiță sau pseudocod.
 
 ::: notes
-Running short? Round 2 is optional. Round 1 (which contains the required re-prompt) plus the reflection is the minimum.
+Dați studenților fișa completă de la început și începeți imediat această activitate. Nu demonstrați mai întâi un răspuns. La minutul 8, cereți o distincție și o incertitudine. Păstrați notițele inițiale când studenții își revizuiesc interpretarea.
 :::
 
 ---
 
-# Finalize + Commit (last 10 min)
+# Patru tipuri de afirmații
 
-- Keep the best requirements doc you drove the AI to — your tightest iteration, not the first draft.
-- Write the 5-line reflection (template a few slides on).
-- Commit and push to your pair branch.
+| Tip | Exemplu |
+|---|---|
+| Cerință convenită | F4: rezervările confirmate pentru aceeași sală nu se suprapun. |
+| Consecință dedusă | Alder rezervată 10:00–11:00 intră în conflict cu o cerere pentru Alder 10:30–11:30. |
+| Alegere de proiectare | O operație de rezervare răspunde de verificarea conflictului și de confirmare. |
+| Regulă încă neclarificată | Poate un student avea rezervări suprapuse în săli diferite? |
+
+O propunere devine cerință convenită doar după acceptarea ei de către beneficiar.
 
 ::: notes
-Don't polish the AI output by hand. The lab assesses how you *drove and critiqued* the AI, not how well you hand-edited its text.
+O ipoteză este un răspuns provizoriu la o întrebare deschisă, etichetat explicit, cu consecințele sale. Studenții pot alege o ipoteză pentru explorare, dar nu o pot prezenta drept aprobată. Un model al domeniului descrie concepte și reguli; nu trebuie să fie o proiectare a claselor.
 :::
 
 ---
 
-# Three Prompting Moves (from Week 2)
+# De la regulă la responsabilitate
 
-- **Scaffolded** — *"organized by use case; each use case is one user goal; list FR / NFR / domain per case."*
-- **Role priming** — *"act as a requirements engineer for vending hardware."*
-- **Negative prompting** — *"no technology choices; no invented payment methods or hardware."*
+**Concept al domeniului:** o rezervare leagă un student, o sală și un interval.
 
-Use at least one when you re-prompt.
+**Invariantă:** o regulă care trebuie să rămână adevărată — aici, fără rezervări confirmate suprapuse pentru aceeași sală.
+
+**Responsabilitate:** o parte a sistemului propus trebuie să impună această regulă la fiecare confirmare.
+
+Discutați: de ce poate fi insuficient „verifică disponibilitatea, apoi confirmă mai târziu”?
 
 ::: notes
-These are the three moves from the Week 2 "This Is What Lab 1 Drills" slide. The scaffolded move is the one the lecture demo pivoted on.
+Desenați două cereri care observă ambele „liber” înainte ca vreuna să fie confirmată. Invarianta privește rezultatul combinat. O responsabilitate poate aparține unei funcții, unui serviciu, unui obiect sau unei operații asupra datelor. Studenții nu trebuie să implementeze controlul concurenței; formulați garanția cerută și păstrați o verificare a implementării în sarcina predată.
+
+Exercițiul bibliotecii presupunea explicit operații executate pe rând. Aceste cerințe includ explicit cereri simultane în F5, deci garanția cerută este mai puternică. Diferența provine din limitele declarate ale problemei, nu dintr-un defect al exemplului anterior.
 :::
 
 ---
 
-# Failure Modes to Catch (from Week 2)
+# Spațiul de lucru și rolurile (16–26)
 
-Five named modes — what AI wrongly **includes** or mis-states:
+- Deschideți fișele și creați o copie de lucru comună.
+- Alegeți orice instrument și model AI disponibil. Notați-le, dacă sunt cunoscute.
+- Pregătiți o **sesiune de autor** și o **sesiune separată de revizuire**.
+- **A:** îndrumă autorul. **B:** verifică afirmațiile față de informațiile beneficiarului.
+- La minutul 44, schimbați: **B** îndrumă evaluatorul; **A** verifică dovezile.
 
-- **Fabrication** — invented stakeholders, features, or regulations.
-- **Over-specification** — dozens of requirements where a handful suffice.
-- **Vague NFRs** (non-functional requirements) — "fast", "reliable" with no measurable threshold.
-- **Conflated requirements** — one requirement bundling several concerns.
-- **Fabricated technology** — implementation choices posing as requirements.
-
-Plus the flip side — **omission** — what AI silently **leaves out**.
+Dacă AI nu este disponibil, folosiți [exemplul pregătit](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/prepared-fixture.md) și o revizuire separată între colegi.
 
 ::: notes
-The five named modes are from the Week 2 catalogue. Omission is the complement the catalogue doesn't name. On a vending machine, current assistants tend to over-cover rather than omit — fabrication and over-specification are the likely headline catches, with missing acceptance criteria close behind. Your reflection may cite any of these six.
+Configurarea practică este în tooling/SETUP.md. Nu se cere o achiziție sau un model prestabilit. O conversație nouă este suficientă; se poate folosi același instrument/model. Fișierele comune sau istoricul preluat automat pot transmite contextul autorului: dați evaluatorului doar pachetul ales explicit. Pentru lucrul fără acces la AI, schimbați pachetele cu o pereche vecină dacă ambii parteneri au redactat deja varianta de lucru.
+
+Perechile care termină pregătirea mai devreme își compară notițele inițiale și identifică o regulă încă neclarificată, în timp ce cadrul didactic ajută cu accesul. Nu este necesară aprobarea cadrului didactic pentru a trece la etapa următoare la momentul anunțat.
 :::
 
 ---
 
-# Critic's Card — Vending Machine
+# Predarea sarcinii: un mic contract
 
-If the draft looks complete, stress these. Check each one — is it there, and is it *testable*?
+Predarea sarcinii și a contextului (handoff) către autor precizează:
 
-- Exact change unavailable, item sold out, cancel before dispense, power loss mid-vend — present? With an acceptance criterion?
-- Two buyers grab the last item at once — often missing
-- Numbers nobody gave you (*"99% uptime"*, *"within 10 seconds"*) — fabricated precision
-- Age checks, tax, safety certifications, privacy law — did you ask for any of it?
-- *"Card payment via EMV / NFC"* — fabricated technology
-- *"Operable without training"*, *"legible at typical distance"* — vague NFR
-- One requirement doing three jobs (restock + prices + inventory) — conflated
+- **Intrări:** informațiile exacte ale beneficiarului și analiza inițială.
+- **Sarcină:** o descriere concisă a problemei și planul pasului următor.
+- **Limite:** etichetează propunerile și întrebările; nu inventa reguli.
+- **Dovezi:** citează sursele lângă cerințe și scenarii.
+- **Punct de oprire:** trimite omului deciziile nerezolvate înainte de a continua.
 
-A draft that *looks* thorough can still be unverifiable and full of things nobody asked for.
+Salvați o copie a variantei rezultate pentru revizuire.
 
 ::: notes
-Hand this to the critic in each round. Current assistants usually cover the classic edge cases (exact change, sold out, cancel, power loss) but write them without acceptance criteria and pad the document with invented regulations, technology and numbers. The harder catch is over-specification: a long list feels complete, so nobody asks which items were actually requested.
+Studenții pot redacta sau edita singuri descrierea. Predarea sarcinii definește munca delegată, nu obligația de a accepta textul generat. Copia poate fi un fișier, o versiune salvată sau un commit. Evaluatorul trebuie să știe ce versiune a revizuit. Sarcina se oprește înainte de implementare.
 :::
 
 ---
 
-# Deliverable
+# Promptul autorului (26–44)
 
-On branch `lab01/<pair-id>`, commit:
+> Acționează ca asistent de analiză. Folosind doar informațiile beneficiarului și notițele atașate, redactează scopul, limitele, conceptele domeniului, regulile, scenariile de acceptare și întrebările deschise. Citează identificatorii informațiilor. Marchează separat propunerile de proiectare. Cere clarificări unde lipsesc reguli; nu răspunde în numele beneficiarului. Propune o sarcină următoare de proiectare, cu limite, intrări, responsabilități, verificări și un punct de oprire. Nu o implementa.
 
-- `lab01/<pair-id>/requirements.md` — your best AI-driven requirements doc.
-- `lab01/<pair-id>/reflection.md` — exactly 5 lines (next slide).
-- `lab01/<pair-id>/log.md` — optional but recommended: your prompt/critique log.
+Citiți rezultatul. Acceptați, editați sau cereți o corectare **cu un motiv**.
 
 ::: notes
-The log is your raw Rationale evidence. It's optional for the gate but it's what we look at if a reflection is borderline.
+Fișa de lucru conține promptul de copiat. Dacă rezultatul este corect, păstrați-l și explicați verificările care susțin această concluzie. Dacă este prea lung, cereți un rezumat care păstrează trimiterile la informații/scenarii și verificați o afirmație importantă din rezumat față de textul complet. Nu cereți erori fabricate.
+
+Sunt suficiente puncte scurte. Păstrați o singură descriere comună și citați identificatorii informațiilor/scenariilor din ea în predarea sarcinii și în revizuire, fără a copia același material în mai multe secțiuni.
 :::
 
 ---
 
-# The 5-Line Reflection
+# Scenarii care disting regulile
 
-One line each:
+Fiecare rând este un **caz independent**, cu o singură rezervare confirmată inițial: **Alder, 10:00–11:00**.
 
-1. Worst failure mode you saw (name it) + where it appeared.
-2. A second failure mode + why it was easy or hard to catch.
-3. What you changed in the re-prompt — and **why** (this is Rationale).
-4. What improved (or didn't) after iterating.
-5. One requirement the AI never got right — the residual risk.
+| Cerere sau acțiune | Rezultat așteptat | Sursă |
+|---|---|---|
+| Alder, 10:30–11:30 | Respingere: conflict | F4 |
+| Alder, 11:00–12:00 | Acceptare* | F3–F4 |
+| Birch, 10:30–11:30, alt student | Acceptare* | F3–F4 |
+| Alt student anulează | Respingere; fără modificări | F6 |
+
+\* După verificarea celorlalte condiții convenite.
+
+Adăugați câte un caz pentru cereri simultane și pentru anulare.
 
 ::: notes
-Five lines, not five paragraphs. Naming the mode and giving the reason matters more than length.
+„Alt student” evită regula încă neclarificată pentru rezervări în săli diferite. Precizați starea inițială și celelalte condiții convenite pentru fiecare scenariu. Scenariile suplimentare trebuie să verifice reguli relevante; numărul lor nu este obiectivul.
 :::
 
 ---
 
-# How to Submit
+# Revizuire separată (44–60)
 
-```bash
-git checkout lab01/<pair-id>      # the branch you created in onboarding
-mkdir -p lab01/<pair-id>
-# write requirements.md and reflection.md inside lab01/<pair-id>/
-git add lab01/<pair-id>
-git commit -m "Lab 1: <pair-id> vending machine requirements + reflection"
-git push -u origin lab01/<pair-id>
-```
+Începeți într-un context nou. Furnizați **informațiile, versiunea salvată și criteriile**:
 
-Push fails? Paste both files into the shared doc / email the instructor, then fix git after class.
+> Revizuiește descrierea problemei față de informațiile furnizate. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile susținute de dovezi. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.
+
+Furnizați intrările convenite, nu conversația autorului.
 
 ::: notes
-Substitute your real pair-id everywhere `<pair-id>` appears. The clone was done in onboarding; this is the branch + commit + push.
+Un context separat nu garantează o judecată corectă. Același model poate repeta aceeași ipoteză. Urmează evaluarea de către om. Dacă instrumentele nu funcționează, un coleg folosește același pachet și aceleași criterii pentru revizuire.
 :::
 
 ---
 
-# Grading — Pass / Redo
+# Verificați constatările (60–78)
 
-Pass needs both:
+Pentru fiecare afirmație importantă păstrată, notați:
 
-1. Both files committed by the deadline.
-2. Your reflection names **at least 2 failure modes** correctly **and** line 3 gives a real reason for your re-prompt (not just what you typed).
+| Constatarea revizuirii | Dovezi | Decizia omului |
+|---|---|---|
+| „Varianta respinge greșit rezervările adiacente.” | F4 permite adiacența; verificați regula citată. | Acceptați dacă varianta chiar respinge adiacența. |
+| „Este necesară o bază de date relațională.” | Nicio informație nu prescrie stocarea. | Tratați-o ca propunere opțională de proiectare. |
 
-A vacuous reflection ("AI was wrong, we fixed it") is a redo, not a fail. We grade your critique and reasoning — not the AI's output quality.
+Decizii: **acceptare**, **respingere** sau **amânare pentru clarificare**. Motivați.
+
+Modificați unde se justifică; reluați scenariul afectat pe versiunea revizuită.
 
 ::: notes
-Low-stakes onboarding gate. The bar is on the literacy floor (Critique — naming the failure modes; Rationale — the why), not on how polished the requirements doc is.
+Constatările revizuirii cer dovezi atât în cerințele beneficiarului, cât și în varianta redactată. Evaluatorul poate să nu găsească nicio contradicție; studenții pot accepta această concluzie după ce explică verificările. Nu trebuie să inventeze defecte, să respingă ceva sau să trimită un prompt nou pentru un rezultat corect.
 :::
 
 ---
 
-# Phase 3 — Share-out (25 min)
+# Ce sarcină putem preda în continuare?
 
-- A few pairs present their worst failure mode + the move that fixed it.
-- We tally, live, which failure modes hit the most pairs.
-- Same domain, same starting prompt, every pair in the room → a real failure-mode map.
+Propuneți o **sarcină de proiectare**, în limitele descrierii acceptate azi:
 
-The modes you tally are exactly what you'll critique every week.
+- clarificați limita anulării și regula rezervărilor în săli diferite;
+- atribuiți responsabilitatea verificării și confirmării rezervării;
+- descrieți rezultatele rezervării/anulării care păstrează F4–F6;
+- validați scenariile și evidențiați ipotezele neclarificate;
+- opriți pentru revizuire umană înainte de implementare.
+
+Precizați versiunea de intrare, rezultatul așteptat și dovezile cerute.
 
 ::: notes
-Instructor pre-selects presenting pairs by scanning pushed reflections during the drill. The live tally is the payoff of everyone sharing one domain.
+Verificarea unei specificații și a unei proiectări substanțiale este un principiu al cursului. Laboratorul 1 începe acest proces. O regulă neclarificată poate bloca ramura afectată, în timp ce partea convenită continuă. Planul cu limite clare identifică explicit această delimitare.
 :::
 
 ---
 
-# Why This Matters
+# Lucru comun, dovezi individuale
 
-If requirements are fabricated, every downstream artifact inherits it — class diagrams (Lab 2), tests (Week 3), all of it.
+**Comun:** descriere concisă, sarcină următoare delimitată și evidența revizuirii cu deciziile oamenilor.
 
-Today you drilled **Critique** (read & critique AI output) and **Rationale** (say *why* you directed the AI). Next: Lab 2 turns requirements into class diagrams.
+**Individual, fără AI:** păstrați analiza inițială și explicați:
+
+- o decizie pe care o puteți apăra printr-o informație și un scenariu;
+- o alternativă plauzibilă sau o ipoteză neclarificată;
+- ce trebuie reconsiderat la schimbarea de pe diapozitivul următor.
+
+Folosiți fișa de lucru. Păstrați fragmentele necesare justificării deciziilor.
 
 ::: notes
-Closer. Tie back to the literacy floor and forward to Lab 2. Traceability is seeded here — fabrication propagating downstream is the traceability argument.
+Fișiere sugerate: brief.md, review.md, individual/<student-id>.md în lab01/<pair-id>/, în spațiul de lucru furnizat. Orice format echivalent, cu autorii identificați clar, este acceptabil. Schema de notare a cursului este 5 puncte pentru dosarul de proiectare, 3 pentru examenul grilă, 1 pentru prezență și 1 din oficiu. Acest laborator furnizează dovezi formative, fără o notă numerică separată.
+:::
+
+---
+
+# Cerință nouă: răspuns individual (78–90)
+
+Beneficiarul propune acum:
+
+> „De mâine, o rezervare ar trebui să dureze cel mult 60 de minute.”
+
+Există deja o rezervare aprobată de 90 de minute pentru mâine.
+
+Fără AI:
+
+1. Explicați ce este nou și ce decizii anterioare sunt afectate.
+2. Identificați regula lipsă pentru rezervările existente.
+3. Comparați două răspunsuri justificabile și dați un scenariu care le distinge.
+
+::: notes
+Pentru acest scenariu de schimbare, ziua-pilot D este mâine. Este o versiune nouă a cerințelor, nu un defect ascuns în versiunea inițială. Exceptarea rezervărilor existente și aplicarea limitei după o tranziție convenită sunt reguli posibile. Nu anulați sau scurtați implicit o rezervare existentă. Explicați consecințele și cereți aprobarea regulii.
+:::
+
+---
+
+# Prezentare și predare (90–100)
+
+Fiecare pereche selectată explică unul dintre aspectele următoare:
+
+- o regulă de decis de beneficiar care părea o decizie tehnică;
+- o afirmație a evaluatorului pe care au verificat-o prin dovezi;
+- o decizie corectă păstrată și scenariul care o susține.
+
+Predați fișierele comune și explicația fiecăruia la destinația anunțată de cadrul didactic.
+
+Dacă predarea nu funcționează, folosiți canalul alternativ anunțat.
+
+::: notes
+Alegeți raționamente diferite, inclusiv o variantă generată corectă. Nu recompensați numărul cel mai mare de defecte. Încheiați cu un student care distinge o cerință, o ipoteză și o alegere de proiectare. Operațiile cu depozitul de cod nu trebuie să consume timpul exercițiului.
+:::
+
+---
+
+# Dovezi ale înțelegerii
+
+Lucrarea este pregătită pentru feedback când:
+
+- informațiile, ipotezele, întrebările și alegerile de proiectare se disting;
+- cerințele și scenariile respectă informațiile beneficiarului;
+- sarcina predată are limite, rezultat și punct de revizuire clare;
+- afirmațiile evaluatorului au dovezi și o decizie umană;
+- fiecare partener explică o alegere și raționează despre schimbare fără ajutor.
+
+Urmează: aprofundarea modelului domeniului și atribuirea responsabilităților.
+
+::: notes
+Oferiți feedback punctual pentru revizuire acolo unde lipsesc dovezi. Evaluați judecata prin explicații și verificări, nu prin instrument, lungimea rezultatului sau aspectul unei diagrame.
 :::

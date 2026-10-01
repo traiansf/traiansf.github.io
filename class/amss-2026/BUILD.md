@@ -66,7 +66,7 @@ make                       # everything, into ../amss2026
 make BASE=/tmp/preview     # local preview elsewhere
 make -j4                   # diagrams are slow (JVM / headless Chrome per block)
 make PREVIEW_ALL=1 BASE=/tmp/preview   # every deck, ignoring RELEASED
-make fallback              # instructor-only demo fallback decks, built in curs/fallback/ (never published)
+make fallback              # instructor-only prepared examples/captures in curs/fallback/ (never published)
 ```
 
 ## Revealing a week
@@ -88,3 +88,7 @@ entry for a deck carries `data-release="<dir>/<basename>"`; new decks need it.
 
 Only the published site is gated: the sources (including `*-instructor.md`)
 live in this public repository.
+
+## Optional orientation guide
+
+`lab/Lab00` is released as a continuous HTML guide and printable PDF using explicit rules in `lab/Makefile`, rather than slide output. Questionnaire import tables live in `questionnaires/`; they are instructor resources, not automatically published forms.

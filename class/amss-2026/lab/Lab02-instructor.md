@@ -1,5 +1,7 @@
 # Lab 2 Instructor Runbook — Class Diagrams from Spec
 
+> Planificare curentă: Lab 2, după cursurile 3–4, tratează cerințe și modelarea domeniului. Corpul de mai jos este material anterior, de rescris conform `docs/semester-roadmap.md`; nu reprezintă noul pachet de predare și nu autorizează cerințe sau prerechizite din cursuri ulterioare.
+
 > Instructor-facing companion to `Lab02.md`. **Not** a slidy deck — the lab Makefile filters `*-instructor.md` out of the published tree. Read end-to-end before the session.
 >
 > Spec: `docs/superpowers/specs/2026-06-01-amss-2026-lab2-design.md`.

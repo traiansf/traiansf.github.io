@@ -20,6 +20,24 @@ The hands-on follow-through of the Week 4 lecture. In Week 4 you watched the arc
 
 ---
 
+# Ideea întâlnirii
+
+> „Un sistem de abstractizări care descrie aspecte selectate ale unui domeniu […]”
+
+— **Eric Evans**
+
+[Sursa: Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) · traducere din engleză
+
+::: notes
+Original: “A system of abstractions that describes selected aspects of a domain”
+
+Publicația autorului, Definitions, intrarea model, pagina PDF 6. Fragmentul se oprește după domain; omisiunea finalului este marcată.
+
+Legătura cu tema: Un model selectează aspectele relevante ale domeniului, fără a copia totul sau a prescrie clase.
+:::
+
+---
+
 # Before You Start
 
 - Your assistant (Claude Code or Codex) already working from Lab 1 — same course settings: copy `tooling/template/` into the root of your lab repo if it is not there yet.

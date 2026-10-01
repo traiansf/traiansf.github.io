@@ -1,504 +1,257 @@
 ---
-title: "AMSS 2026 — Lecture 1: Intro + the AI-mediated SDLC"
+title: "AMSS 2026/2027 — Cursul 1: Organizare și motivație"
 author: "Traian-Florin Șerbănuță"
 date: "2026"
+lang: ro-RO
 ---
 
-# Welcome
+# Bun venit!
 
-- AMSS 2026 — Analiza și Modelarea Sistemelor Software
-- *Ediția AI-mediated*
-- Instructor: Traian-Florin Șerbănuță
-- Email: traian.serbanuta@unibuc.ro
-- Semester: Fall 2026
+**AMSS — Analiza și Modelarea Sistemelor Software**
+
+Traian-Florin Șerbănuță · traian.serbanuta@unibuc.ro
+
+[![Alăturați-vă echipei cursului pe Microsoft Teams](../static/assets/amss-2026-teams-qr.png){width=180px height=180px}](https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1)
+
+Scanați codul sau apăsați pe el. **Codul echipei: fswo4rl**
 
 ::: notes
-Welcome students. Brief self-introduction. Note that this is a redesigned course — students who have heard about previous AMSS editions from older students should expect a different shape.
+Urați bun venit studenților de la master. Presupuneți experiență de programare în mai multe paradigme, dar introduceți de la bază vocabularul proiectării. Lăsați-le un moment să intre pe Teams.
+
+Ritm orientativ: 70–80 de minute. Bun venit și obiective 10; organizare și evaluare 20; proiect și unelte 20; motivație și discuție 20; pregătirea întâlnirii următoare 10. Acest curs este administrativ și motivațional. Exemplul tehnic al bibliotecii și demonstrația AI se desfășoară în cursul 2.
 :::
 
 ---
 
-# Today's Agenda
+# Ideea întâlnirii
 
-1. Frame: the architect-critic loop + 5 course commitments
-2. Live demo: an AI-driven design loop on a tiny scenario
-3. What AI changes at each software development lifecycle (SDLC) stage
-4. Tooling preview
-5. Course logistics
+> „Controlul complexității este esența programării calculatoarelor.”
+
+— **Brian W. Kernighan și P. J. Plauger**
+
+[Sursa: Software Tools (1976); confirmare în raportul NII Shonan nr. 42](https://shonan.nii.ac.jp/docs/No-042.pdf#page=8) · traducere din engleză
 
 ::: notes
-Tell students: today is the framing day. Week 2 is where the work begins — Lab 1 has hands-on tooling onboarding, and Week 2 covers requirements with AI.
+Original: “Controlling complexity is the essence of computer programming.”
 
-This lecture deliberately ends earlier than 100 minutes. There is room for questions throughout.
+Raport NII, pagina numerotată 7 (pagina PDF 8), rezumatul lui Johan Georg Granström. Sursă secundară academică: citează explicit cartea și ambii autori; nu este o scanare verificată a paginii originale.
+
+Legătura cu tema: Motivația cursului: reducerea complexității prin înțelegere și decizii explicite.
 :::
 
 ---
 
-# AI Is Changing the SDLC
+# Întrebarea de la care pornim
 
-- Requirements, models, code, tests — all increasingly AI-generated.
-- The skill is no longer *producing* artifacts. It's *directing* AI to produce them and *judging* what comes back.
-- This course teaches both halves.
+> Poți explica problema și soluția de proiectare suficient de bine încât să îndrumi pe altcineva să o realizeze?
+
+La finalul cursului, ar trebui să puteți:
+
+- Analiza o problemă mică, nefamiliară.
+- Propune o soluție de proiectare și explica alternativele.
+- Raționa asupra consecințelor schimbării unei cerințe.
+- Îndruma lucrul cu AI și evalua dovezile oferite.
 
 ::: notes
-Set the stage. Many students have used ChatGPT or similar in courses. Today we name what they've already been doing implicitly and turn it into a discipline.
+Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, tabele sau pseudocod. Vom preda cunoștințele de proiectare necesare acestor judecăți. Fluența în programare nu oferă automat aceste cunoștințe.
 :::
 
 ---
 
-# Your Turn: Have You Already Done This?
+# Program și comunicare
 
-Hands up: who has used AI to generate code, requirements, or tests for a course?
-
-Turn to your neighbour for 30 seconds: did you trust the output? How did you check it?
+- **14 săptămâni de curs** și **7 laboratoare**, de regulă o dată la două săptămâni.
+- [Laboratorul 0](../lab/Lab00.html): orientare opțională, disponibilă și pentru parcurgere individuală.
+- Laboratorul 1 se desfășoară după cursurile 1 și 2.
+- Materiale: [traiansf.github.io/class/amss2026](https://traiansf.github.io/class/amss2026/).
+- Întrebări și anunțuri: echipa cursului pe Microsoft Teams.
+- Consultații: cu programare prin e-mail.
 
 ::: notes
-This surfaces that students are already acting as architect-and-critic without naming it. Take a quick show of hands, let pairs talk for 30 seconds, then bridge straight into the loop: that instinct to check the output *is* the critic move.
+Programați fiecare laborator după predarea ambelor cursuri asociate. Întâlnirea imediat după primul curs este Laboratorul 0, opțional; Laboratorul 1 poate avea loc în săptămâna 3, conform orarului grupei. Indicați linkul și codul Teams de pe primul slide. Orele fiecărei grupe se anunță pe canalul cursului.
+
+Primul laborator folosește o problemă de rezervare a sălilor, astfel încât studenții să aplice, după cursul 2, raționamentul învățat într-un alt domeniu. Laboratorul se programează după ambele cursuri ale perechii, nu înainte de cursul 2.
 :::
 
 ---
 
-# The Architect-Critic Loop
+# Evaluare: 10 puncte
+
+| Componentă | Puncte |
+|---|---:|
+| Dosar de proiectare al echipei | 5 |
+| Examen grilă individual | 3 |
+| Prezență | 1 |
+| Din oficiu | 1 |
+
+**Restanță:** 9 puncte pentru examenul grilă + 1 punct din oficiu.
+
+Feedback pentru proiect la cerere, pe parcursul semestrului. Nota pe dosar se definitivează printr-un interviu de echipă la ultimul laborator.
 
 ::: notes
-This is the central mental model of the course. Name it now; refer back to it constantly across the next 13 weeks.
-:::
+Cele cinci puncte ale dosarului acoperă formularea problemei și cerințele, modelarea domeniului, atribuirea responsabilităților, contractele și invariantele, respectiv stările și comportamentul. Dovezile de validare, alternativele și raționamentul despre schimbare susțin aceste criterii. Detaliile sunt pe pagina proiectului.
 
-. . .
+Examenul grilă folosește scenarii, cerințe, contracte și modele mici date în enunț. Evaluează raționamentul, nu memorarea notațiilor pentru diagrame. Restanța este o cale separată: nouă puncte la examen și un punct din oficiu, fără reportarea punctajelor pentru dosar sau prezență.
 
-- **Architect** — drive AI through the SDLC. Prompt, redirect, choose what to keep.
-- **Critic** — read AI's output. Spot fabrication. Spot wrong multiplicity. Spot decorative pattern application.
-
-::: notes
-The slidy `. . .` produces an incremental reveal: the title appears first, then the two roles. Lets you set up the concept before naming the roles.
-:::
-
----
-
-# Your Role: Both Halves
-
-You are simultaneously:
-
-- **Architect / director:** drive the work
-- **Critic / reviewer:** read the work
-
-The architect-half makes you the owner of the design.
-The critic-half makes you the owner of the quality.
-
-::: notes
-Why both? Pure-critic students stay passive; pure-architect students coast on AI output. The architect-and-critic loop forces both halves and produces a trail of decisions that's hard to fake. (This rationale is in parent spec §1's "Design rationale".)
+La aproximativ 100 de studenți și un singur cadru didactic, organizați discuții scurte cu echipele în laboratoarele existente. Exercițiile individuale fără AI au rol formativ; nu introduceți o notă separată pentru fiecare activitate.
 :::
 
 ---
 
-# Five Course Commitments (1/5)
+# Prezența și pregătirea pentru examen
 
-> **AI is the default tool, not an exception.**
+**Punctajul pentru prezență:** ședințe frecventate ÷ ședințe de curs și laborator desfășurate pentru grupa voastră.
 
-Every artifact in this course — requirements, models, code, tests — is normally generated *with* AI. Your value-add is direction, judgment, and correction.
+Cursurile și laboratoarele au aceeași pondere: în mod normal, 14 cursuri și 7 laboratoare.
+
+**Pregătiți-vă pentru întrebări bazate pe scenarii:**
+
+- Separați o cerință de o presupunere nejustificată.
+- Identificați încălcarea unei invariante sau anticipați o tranziție permisă.
+- Comparați soluții de proiectare în raport cu restricțiile date.
 
 ::: notes
-This reverses the AMSS 2025 rule that explicitly forbade auto-generated artifacts. State the reversal plainly so students don't carry old assumptions in.
+Folosiți numărul ședințelor efectiv desfășurate, astfel încât anulările să nu scadă punctajul. Numitorul include cursurile comune și laboratoarele grupei studentului, nu toate cele trei grupe. Punctajul este între zero și unu. Dosarul de proiectare se notează o singură dată pentru fiecare echipă, iar examenul grilă individual.
 :::
 
 ---
 
-# Five Course Commitments (2/5)
+# Proiectul de echipă
 
-> **The trail is graded, not the running system.**
+Echipele de **3–5 studenți** elaborează o soluție comună.
 
-What gets graded: directed-design narrative + final reviewed artifact set + oral defense.
-What does *not* get graded: running code, raw test pass-rates.
+**Livrabil:** o specificație și o soluție de proiectare revizuite. Modelele și prototipurile le pot susține; nu este obligatorie o aplicație funcțională.
+
+Lab 6: lucru deschis la proiect și discuții. Lab 7: interviu de echipă pentru definitivarea notei pe dosar.
+
+Fiecare student trebuie să poată explica:
+
+- Problema și regulile relevante ale domeniului.
+- Propria contribuție la proiectare și alternativele ei.
+- Cum păstrează contractele și comportamentul regulile.
+- Dovezile de validare și limitele lor.
+- Impactul unei cerințe noi.
 
 ::: notes
-The grade lives in *what you did to AI's output*, not in the output itself. Code-quality grading is the parallel implementation course's job.
+Repository-ul public pe GitHub sau GitLab se creează la anunțarea proiectului pe Teams; mesajul include linkul. Progresul și contribuțiile fiecărui membru trebuie să poată fi urmărite pe parcursul semestrului. Dezvoltarea și commit-urile pot fi asistate de AI; echipa verifică și își asumă conținutul. Numărul de commit-uri nu aduce puncte.
+
+Proiectare comună, competențe individuale. Studenții trebuie să înțeleagă suficient din întregul sistem ca să explice unde se încadrează contribuția lor; nu trebuie să memoreze toate detaliile implementării colegilor.
+
+Modelele și prototipurile pot susține argumentarea. Nu este obligatorie o aplicație funcțională. Reprezentările se aleg pentru ceea ce explică; nu există cote obligatorii de diagrame UML sau de șabloane de proiectare (design patterns).
 :::
 
 ---
 
-# Five Course Commitments (3/5)
+# Ce trebuie să rezulte din munca voastră
 
-> **Implementation is a forcing function, not a deliverable.**
+- O specificație și o soluție de proiectare bine dezvoltate.
+- Motivele deciziilor cu consecințe importante.
+- Dovezi din scenarii, analiza modelelor sau un prototip cu scop precis.
+- Sarcini predate explicit și constatări de revizuire pe care le-ați verificat.
+- Capacitatea voastră de a raționa fără AI.
 
-Test-driven development (TDD) with AI is *required* for the project — but its output is *never* a grading line item.
-
-The reflection on what TDD revealed about your spec is what gets read.
+Păstrați dovezile concise și legate de soluția propusă.
 
 ::: notes
-Why required-but-ungraded? Writing a testable spec is harder than writing a vague one. AI-generated tests against vague specs reveal gaps fast. We want the forcing function without competing with the parallel course's code grading.
+Dosarul echipei se evaluează o singură dată. Un examen grilă individual, bazat pe scenarii, verifică raționamentul asupra problemelor și soluțiilor furnizate. Exercițiile de la curs antrenează și construirea unei soluții fără AI. Nu reutilizați cerințele vechi privind numărul de diagrame, de șabloane sau de defecte și nici reproducerea rezultatului unui model AI.
 :::
 
 ---
 
-# Five Course Commitments (4/5)
+# Unelte și organizarea lucrului
 
-> **Defensible literacy floor — Critique, Rationale, Traceability.**
-
-In the oral defense, *unaided*, you must demonstrate:
-
-- **Critique** — Read & critique any AI-generated UML diagram on the spot.
-- **Rationale** — Articulate why you directed AI a certain way and what you accepted or rejected.
-- **Traceability** — Defend traceability across your project: requirement → use case → class → state/sequence → test.
+- Alegeți un asistent și un model AI la care aveți acces.
+- Creați un repository public pe GitHub sau GitLab când anunțați proiectul pe Teams; păstrați progresul și contribuțiile membrilor pe tot parcursul semestrului.
+- Definiți explicit rolurile de analist/proiectant și evaluator (agent de revizuire).
+- Porniți revizuirea într-un context separat, cu sursele necesare.
+- Pregătiți-vă să explicați soluția fără asistent.
 
 ::: notes
-You will hear Critique, Rationale, Traceability named twice more today (in the SDLC walkthrough and in the oral-defense rubric). Deliberate repetition. This is the spine of the course.
+Folosiți tooling/SETUP.md și tooling/README.md. Nu impunem un abonament plătit, un furnizor, un editor, un model sau un nivel de efort anume. Contextele separate pot fi folosite succesiv.
+
+La curs, exemplele pregătite sau lucrul în perechi permit exersarea raționamentului dacă o unealtă nu este disponibilă. Un exemplu pregătit nu trebuie prezentat drept rezultatul unei rulări efectuate de student.
 :::
 
 ---
 
-# Five Course Commitments (5/5)
+# Înainte de laboratorul 1
 
-> **Tooling parity.**
+- Citiți ghidul de pregătire și convențiile de lucru.
+- Pregătiți accesul la asistentul ales și la fișierele comune.
+- Veți lucra în perechi, alternând responsabilitățile.
+- Veți analiza singuri un enunț scurt înainte de a folosi AI.
 
-Everyone uses the same model and effort level — pinned by the course settings you copy into every repository.
-
-Other tools are fine for exploration — but graded artifacts must reproduce with the course settings.
+Primul livrabil descrie clar problema și deciziile încă neclarificate.
 
 ::: notes
-Tooling parity is what makes AI output comparable across the cohort, so students can learn from each other's defect logs. It also lets the examiner reproduce student work during the oral defense. Practical detail later today and in Lab 1.
+Ghidul complet al laboratorului 1 conține datele problemei și exercițiul. Studenții au nevoie de experiență de programare, dar nu de un curs anterior de UML sau proiectare. Nu le cereți să învețe un limbaj de diagrame pentru pregătirea inițială.
+:::
+
+
+---
+
+# De ce studiem analiza și proiectarea?
+
+O implementare poate funcționa exact cum am cerut și totuși să rezolve problema greșită.
+
+- Beneficiarii pot folosi același cuvânt pentru lucruri diferite.
+- O decizie locală poate îngreuna schimbările ulterioare.
+- Un rezultat convingător are nevoie de dovezi verificabile.
+
+Vom învăța să formulăm întrebări, să comparăm soluții și să explicăm consecințele deciziilor.
+
+::: notes
+Cereți un exemplu din experiența studenților: o cerință interpretată diferit sau o modificare aparent mică, dar dificilă. Discutați ce ar fi ajutat înainte de implementare. Nu începeți aici predarea modelelor, contractelor sau diagramelor.
 :::
 
 ---
 
-# Watch For Both Moves
+# Ce schimbă lucrul cu AI?
 
-In the demo coming up:
+AI poate produce rapid variante, documente și cod. Alegerea problemei, verificarea rezultatului și asumarea deciziilor rămân ale voastre.
 
-- When I'm typing prompts → that's the **architect** move.
-- When I'm reading AI's output and pointing at problems → that's the **critic** move.
+Vrem să puteți explica de ce o soluție este potrivită și ce dovadă v-ar determina să o revizuiți.
 
-You're going to do both halves yourself, starting in Lab 1.
+**Discuție:** când ați acceptat un rezultat care părea corect? Cum ați putea să îl verificați mai bine?
 
 ::: notes
-This handoff slide stays up until the demo trigger replaces it. Pause briefly so students can shift from listening to watching.
+Invitați experiențe concrete, fără a cere acces la conturi sau conversații private. Alegeți și un exemplu în care asistentul a ajutat. Scopul este motivarea judecății proprii și a învățării principiilor, nu demonstrarea unei greșeli previzibile a modelului.
 :::
 
 ---
 
-# Demo: Library Kiosk
+# Cum se leagă întâlnirile?
 
-> Live AI design loop. Watch the architect move and the critic move.
-
-**Prompt to AI:** *"Generate a UML class diagram for a small library kiosk: users borrow and return books; staff register returns; books can be reserved while on loan."*
-
-::: notes
-Switch to the Claude Code panel in VS Code (course settings: Sonnet 5, low effort). Run the runbook at `class/amss-2026/curs/01-intro-demo.md` for the full 12 min. This slide stays on screen as the lecture-side anchor — students glance back at the prompt while the diagram appears in the editor.
-
-If live AI fails, the runbook §6 covers the fallback path.
-:::
+- Cursul 1: organizarea, așteptările și motivația.
+- Cursul 2: înțelegem o problemă înainte să delegăm o soluție.
+- Lab 1: aplicăm ideile celor două cursuri la rezervarea sălilor.
+- Fiecare laborator urmează perechea de cursuri deja predată.
+- Doar Lab 6 și Lab 7 sunt dedicate efectiv proiectelor.
 
 ---
 
-# What AI Changes at Each SDLC Stage
+# Pentru întâlnirea următoare
 
-The next 7 slides walk the SDLC stage by stage.
+Pregătiți accesul la Teams, la materialele cursului și la asistentul ales.
 
-For each: **what AI does well** vs. **where AI fails**.
+Gândiți-vă la o situație în care o întrebare pusă mai devreme ar fi schimbat soluția propusă.
 
-This is also the rest of your semester — each stage previews a future week.
-
-::: notes
-Section opener. Brief — students just came back from a demo, give them a beat to reset before the survey.
-:::
+**Cursul 2:** vom analiza cererea unei biblioteci, vom compara interpretări și vom verifica o soluție propusă cu ajutorul AI.
 
 ---
 
-# Requirements Gathering (Week 2 preview)
+# Experiența și așteptările voastre
 
-**AI does well:**
+[![Deschideți chestionarul de început de curs](../static/assets/amss-2026-initial-form-qr.png){width=200px height=200px}](https://forms.gle/uHCXyFvxqQxsWWmH9)
 
-- Drafts long lists of plausible-looking requirements fast.
-- Surfaces stakeholder roles and use cases you might not have considered.
+**[Completați chestionarul de început de curs](https://forms.gle/uHCXyFvxqQxsWWmH9)**
 
-**AI fails at:**
+Scanați codul QR sau deschideți linkul: [forms.gle/uHCXyFvxqQxsWWmH9](https://forms.gle/uHCXyFvxqQxsWWmH9).
 
-- Fabricating non-functional requirements without grounding.
-- Vague non-functional requirements (NFRs) ("the system shall be performant").
-- Over-specifying — generating 200 requirements where 20 would do.
+Ce experiență aveți? Ce știți deja și ce ați vrea să aprofundați?
 
-::: notes
-Week 2 lecture covers the failure modes in detail. Lab 1 is a hands-on requirements drill.
-:::
-
----
-
-# Test/Spec Design (Week 3 preview)
-
-**AI does well:**
-
-- Generates test scaffolds from a clear specification.
-- Surfaces edge cases the spec doesn't mention.
-
-**AI fails at:**
-
-- Producing tests for vague specs — they pass for the wrong reasons.
-- Over-fitting tests to a particular implementation.
-
-> If AI can't produce a passing test from your spec, your spec is too vague.
+Completarea este voluntară și durează aproximativ 10–12 minute. Vom folosi răspunsurile pentru adaptarea conținutului.
 
 ::: notes
-This last line is the Week 3 mantra. The required-but-ungraded TDD loop in the project hangs on this idea.
-:::
-
----
-
-# Structural Modeling (Weeks 4-5 preview)
-
-**AI does well:**
-
-- Drafts a class diagram from a one-page spec in seconds.
-- Suggests reasonable class names and relationships.
-
-**AI fails at:**
-
-- Conflating abstract concepts with concrete instances (a book title vs. a physical copy — watch for it in the demo).
-- Over-modelling: invented classes, attributes that duplicate associations.
-- Wrong multiplicities.
-
-::: notes
-Week 4 = class diagrams. Week 5 = object/package/component/deployment. The demo we just did is the prototypical Week 4 exercise.
-:::
-
----
-
-# Behavioral Modeling (Weeks 6-7 preview)
-
-**AI does well:**
-
-- Generates sequence diagrams for happy-path scenarios.
-- Sketches state machines for object lifecycles.
-
-**AI fails at:**
-
-- Drawing only the happy path — no failures, no alternatives.
-- Missing transitions the spec needs; vague guards.
-- Operations that no participant actually owns.
-
-::: notes
-Week 6 = use cases + sequence. Week 7 = state + activity.
-:::
-
----
-
-# Patterns (Weeks 8-9 preview)
-
-**AI does well:**
-
-- Recognizes textbook pattern situations and applies them.
-- Knows the Gang of Four (GoF) vocabulary.
-
-**AI fails at:**
-
-- Decorating code with patterns that solve nothing.
-- Overusing patterns where simple code would do.
-- Clean-looking patterns that mishandle the edge cases (a peak-hour price for a ride that crosses the boundary).
-
-::: notes
-Week 8 = pattern selection. Week 9 = pattern integration & critique. The critique frame is heavy here — many AI pattern applications look right and are wrong.
-:::
-
----
-
-# Traceability, Quality & Evaluation (Weeks 10-11 preview)
-
-**AI does well:**
-
-- Cross-references artifacts on demand.
-- Spots structural gaps if asked the right question.
-
-**AI fails at:**
-
-- Maintaining traceability across iterations.
-- Self-evaluating its own output.
-- Catching consistency issues without being prompted.
-
-::: notes
-Week 10 = the full trace (requirement → use case → class → state/sequence → test). Week 11 = quality criteria + simulation. Traceability (defensible traceability) is anchored here.
-:::
-
----
-
-# Coding (Out of Scope Here)
-
-Implementation is a *parallel course's* domain — not ours.
-
-We use it as our **forcing function**: TDD-with-AI is required for the project, but its output is never graded.
-
-What gets read is your *reflection on what the loop revealed*.
-
-::: notes
-This is the third commitment again, in concrete form. Recap briefly so students understand why they will write code but it won't be graded.
-:::
-
----
-
-# Back to Critique, Rationale, Traceability
-
-Every stage above gets evaluated through the same three abilities:
-
-- **Critique** — read & critique what AI produced.
-- **Rationale** — articulate why you directed AI the way you did.
-- **Traceability** — defend the trace from one stage to the next.
-
-This is the literacy floor. The oral defense tests it directly.
-
-::: notes
-Second mention of Critique, Rationale, Traceability (first was in commitment #4). Deliberate repetition — say it the same way each time.
-:::
-
----
-
-# What You Just Saw: The Course Tooling
-
-- **Editor:** VS Code with **Claude Code** (Claude Pro subscription) or **Codex** (ChatGPT Plus subscription) — the official extensions, signed in with your own account.
-- **Course settings:** copied from `tooling/template/` into every lab and project repository — course conventions (Mermaid for UML) and the pinned model: **Sonnet 5, low effort**.
-- **Where it runs:** inside your repository — it reads and writes your files, not a browser chat.
-
-This is what every student in the cohort runs.
-
-::: notes
-Refer back to the demo briefly — students just watched Claude Code work with exactly these settings. Don't re-introduce it as if for the first time.
-
-Codex gets the closest equivalent setting from the same template, so either subscription works.
-:::
-
----
-
-# Where We Install: Lab 1
-
-- **Before Lab 1:** get a **Claude Pro** or **ChatGPT Plus** subscription — you need it in the lab.
-- Lab 1 (Week 2): hands-on tooling onboarding — install, copy the course settings, first run.
-- Setup guide: `tooling/SETUP.md` in the course repo (~20 min on a working laptop).
-
-::: notes
-Lab 1 walks every student through install + first AI-driven requirements gathering. Pre-requisites: VS Code + Git + one of the two subscriptions. Students without a subscription on the day pair with a colleague for Lab 1 and sort it out before Lab 2.
-:::
-
----
-
-# Tooling Parity (BYO Allowed, On Top)
-
-Parity = **same model, same effort level** for everyone (Sonnet 5, low effort, pinned by the course settings).
-
-For exploration, use anything you like — other models, higher effort, GitHub Copilot, Cursor.
-
-**But:** every graded artifact must reproduce with the course settings. Don't change the model or effort for graded work.
-
-This is what keeps AI output comparable across the cohort — and lets the examiner reproduce your work during the oral defense.
-
-::: notes
-Be explicit: other tools are for exploration, not a substitute. Students who only run a stronger model or a different tool and skip the course settings will fail the oral defense's reproduction check.
-:::
-
----
-
-# Schedule
-
-- **14 teaching weeks**: 12 lecture weeks (~100 min each), plus a project workshop (Week 13) and final presentations (Week 14).
-- **7 labs**, biweekly (Weeks 2, 4, 6, 8, 10, 12, 14 — 100 min each).
-- Course landing page: `traiansf.github.io/class/amss2026/`.
-
-::: notes
-Walk the schedule briefly. Note that lab weeks alternate — students don't have a lab every week.
-:::
-
----
-
-# Final Grade
-
-| Component | Points |
-|---|---|
-| Project | 8 |
-| Attendance | 1 |
-| *Din oficiu* | 1 |
-| **Total** | **10** |
-
-::: notes
-*Din oficiu* = mandatory by university convention; everyone gets it. Real differentiation lives in the project's 8 points.
-:::
-
----
-
-# The Project
-
-- **Teams of 3-5 students.**
-- Teams not formed by 1 November are randomized.
-- Domain announced by **31 October 2026**.
-- Multiple teams may share a domain — the directed-design trails differ.
-- Each student owns a **slice** of their team's system.
-- December checkpoint (Lab 5): 1 pt. Remaining 7 pts across the oral defense, directed-design narrative + defect log, documentation, and design patterns — see the project rubric.
-
-::: notes
-Project README has the full rubric. Slice ownership is what makes the cold-defense work — every student must be able to walk their own slice end-to-end.
-:::
-
----
-
-# Oral Defense — Critique, Rationale, Traceability
-
-Cold defense, 3 of 8 project points. *Unaided*, you must:
-
-- **Critique** — Read & critique any AI-generated UML diagram from any team's repo.
-- **Rationale** — Articulate rationale for your own design decisions.
-- **Traceability** — Defend traceability across your project's slices.
-
-This is the integrity check.
-
-::: notes
-Third mention of Critique, Rationale, Traceability. State it the same way you stated it in the frame and in the SDLC-changes transition.
-
-Cold-defense means examiners may pick a teammate's slice and ask you to walk it. Impossible to fake without genuine team-wide traceability awareness.
-:::
-
----
-
-# Resit Exam (Restanță)
-
-For students who fail the regular evaluation path:
-
-- Single 90-min written paper.
-- Format: critique an AI-generated artifact set + short-answer rationale + traceability walk.
-- **No AI in the room.**
-- Tests the same competence (Critique, Rationale, Traceability) as the oral defense.
-
-::: notes
-Template at `exam/examen-2026.tex` (built to PDF). The resit is a fallback path, not a different skillset.
-:::
-
----
-
-# Academic Integrity
-
-- AI use is **expected** for almost every artifact in this course.
-- The *directed-design narrative* is your record of what you did with AI.
-- The *cold defense* is the integrity check — examiners verify you understand your own work.
-- One-page statement attached to the syllabus (circulated before Week 2).
-
-::: notes
-Be explicit: AI use is not "cheating" in this course; it's the assignment. What's not OK: outsourcing the *direction* and *judgment*. The oral defense surfaces that gap immediately.
-:::
-
----
-
-# Communication
-
-- *Teams link / mailing list — to be circulated before Week 2.*
-- Office hours: by appointment (email).
-- Course repo: GitHub (link circulated with the team-formation announcement).
-
-::: notes
-Placeholder for now. Update this slide once the Teams channel is set up.
-:::
-
----
-
-# That's It For Today
-
-- Next week: requirements with AI.
-- Lab 1 (Week 2 lab slot): tooling onboarding + first AI-driven requirements drill — bring your Claude Pro or ChatGPT Plus subscription.
-
-Questions?
-
-::: notes
-Closer slide. Open the floor for questions; don't run out the clock.
+Invitația se adresează tuturor grupelor. La finalul semestrului vom reveni cu un chestionar despre învățare și îmbunătățiri.
 :::

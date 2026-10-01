@@ -20,6 +20,24 @@ Week 14 shares its slot with Lab 7. Keep the lecture portion short — a retrosp
 
 ---
 
+# Ideea întâlnirii
+
+> „Simplitatea nu precedă complexitatea, ci îi urmează.”
+
+— **Alan J. Perlis**
+
+[Sursa: Epigrams in Programming — epigrama 31](https://www.cs.yale.edu/homes/perlis-alan/quotes.html) · traducere din engleză
+
+::: notes
+Original: “Simplicity does not precede complexity, but follows it.”
+
+Pagina autorului la Yale, epigrama 31; sursa indică SIGPLAN, septembrie 1982.
+
+Legătura cu tema: Reflecție asupra felului în care analiza și proiectarea produc o soluție mai simplă.
+:::
+
+---
+
 # The Semester in One Line
 
 You learned to be the **architect and critic** of an AI-mediated design:
@@ -138,3 +156,13 @@ That's the skill that lasts. Good luck with your defenses — and beyond.
 ::: notes
 Course closer. Genuine and short. The architect-and-critic competence outlives any particular model or tool. No trailing slide separator after this one.
 :::
+
+---
+
+# Feedback pentru ediția următoare
+
+Chestionarul final va fi anunțat pe Teams pentru toate grupele.
+
+Ce puteți explica mai bine acum? Ce activități v-au ajutat? Ce merită schimbat?
+
+Completarea este voluntară și durează aproximativ 10–12 minute.

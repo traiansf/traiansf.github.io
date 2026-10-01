@@ -176,243 +176,291 @@ vertical-align: middle;
 <p class="date">2026</p>
 </header>
 <h1 id="proiect-amss-2026">Proiect AMSS 2026</h1>
-<p>Proiectul de echipă este coloana vertebrală a evaluării: <strong>8
-din cele 10 puncte</strong> ale notei finale. Spre deosebire de edițiile
-anterioare, ceea ce se notează nu este sistemul care rulează, ci
-<strong>traseul deciziilor de arhitect și critic</strong> — felul în
-care ai dirijat AI prin ciclul de dezvoltare și ce ai corectat la ce a
-produs.</p>
-<blockquote>
-<p>Sistemul nu trebuie să ruleze impecabil. Trebuie să demonstrezi că
-<em>tu</em> ai condus designul și că <em>tu</em> poți citi, critica și
-apăra fiecare artefact.</p>
-</blockquote>
-<h2 id="rolul-tău-arhitect-și-critic">Rolul tău: arhitect și critic</h2>
-<p>Pe tot parcursul proiectului joci două roluri simultan:</p>
-<ul>
-<li><strong>Arhitect / director.</strong> Conduci AI prin ciclul de
-dezvoltare software (SDLC) — aduni cerințe, generezi modele, alegi
-pattern-uri, produci teste și cod.</li>
-<li><strong>Critic / recenzent.</strong> Citești critic ce produce AI —
-identifici defectele (fabricație, multiplicități greșite, stări orfane,
-pattern-uri aplicate decorativ) și propui corecții.</li>
-</ul>
-<p>Trei consecințe pe care trebuie să le internalizezi:</p>
-<ol type="1">
-<li><strong>AI este unealta implicită, nu o excepție.</strong> Fiecare
-artefact (cerințe, modele, cod, teste) se generează în mod normal
-<em>cu</em> AI. Valoarea ta este direcția, judecata și corectarea.</li>
-<li><strong>Se notează traseul, nu sistemul.</strong> Se evaluează:
-narativul de design dirijat, setul final de artefacte revizuite și
-apărarea orală. <em>Nu</em> se notează: codul care rulează, rata brută
-de teste trecute, diagrame desenate de mână.</li>
-<li><strong>Implementarea este o pârghie, nu un livrabil.</strong> Bucla
-de dezvoltare ghidată de teste (TDD) cu AI este obligatorie, dar nota
-stă în <em>documentarea</em> a ceea ce a dezvăluit bucla despre precizia
-specificației — nu în faptul că livrezi cod care merge.</li>
-</ol>
+<p>Proiectul urmărește <strong>analiza unei probleme și construirea unui
+design justificat</strong>. Echipa dezvoltă o specificație și un design
+comun, cu contribuțiile membrilor identificabile. Dosarul de design al
+echipei valorează <strong>5 puncte</strong>, iar înțelegerea individuală
+se evaluează printr-un <strong>examen grilă de 3 puncte</strong>.
+Prezența și punctul din oficiu completează nota până la 10.</p>
+<p>La finalul cursului, ar trebui să poți analiza fără AI o problemă
+mică și necunoscută, să propui un design, să explici alternative și să
+urmărești consecințele unei schimbări, folosind text, schițe sau
+pseudocod. AI te poate ajuta să explorezi și să produci mai repede; tu
+răspunzi pentru cerințele, deciziile și dovezile pe care le accepți.</p>
 <h2 id="echipă-și-temă">Echipă și temă</h2>
 <ul>
-<li>Echipe de <strong>3–5 studenți</strong>.</li>
-<li>Tema aleasă până pe <strong>31 octombrie 2026</strong>. Studenții
-fără echipă/temă la <strong>1 noiembrie</strong> vor fi distribuiți
+<li>Echipe de <strong>3–5 studenți</strong>, cu un design comun și
+contribuții individuale identificabile.</li>
+<li>Tema se alege până pe <strong>31 octombrie 2026</strong>. Studenții
+fără echipă sau temă la <strong>1 noiembrie</strong> vor fi distribuiți
 aleator.</li>
-<li>Mai multe echipe pot alege aceeași temă — traseele lor de design
-dirijat vor diferi oricum. Dacă prea multe echipe aleg exact aceeași
-temă, unele pot fi rugate să schimbe.</li>
+<li>Mai multe echipe pot alege aceeași temă. Dacă prea multe echipe aleg
+exact aceeași temă, unele pot fi rugate să schimbe.</li>
 </ul>
-<p>Alegerea se anunță pe canalul cursului, printr-un mesaj al liderului
-de echipă care conține:</p>
-<ul>
-<li>numele echipei;</li>
-<li>componența echipei;</li>
-<li>numele și o descriere sumară a proiectului (1–2 paragrafe);</li>
-<li>un argument că tema este suficient de complexă, dar nu prea
-complexă.</li>
-</ul>
-<h2 id="livrabile-per-echipă">Livrabile per echipă</h2>
-<p>Toate artefactele, jurnalele și transcripturile trăiesc într-un
-<strong>repository de proiect</strong> pe organizația de curs
-(GitHub/GitLab), public în cohortă.</p>
-<ul>
-<li><strong>Model de ansamblu al sistemului</strong> — o singură
-diagramă la nivel înalt, pregătită împreună, care arată întregul sistem
-și cum se încadrează sliceul fiecărui student.</li>
-<li><strong>Document comun de cerințe</strong> — fiecare cerință
-trasabilă către unul sau mai multe sliceuri individuale.</li>
-<li><strong>Prezentare finală</strong> — susținută împreună în săptămâna
-14 + Lab 7: fiecare student își prezintă sliceul, iar echipa prezintă
-ansamblul.</li>
-</ul>
-<h2 id="livrabile-per-student">Livrabile per student</h2>
-<p>Fiecare student deține un <strong>slice</strong> coerent al
-sistemului și produce, în repository-ul echipei:</p>
+<p>Alegerea se anunță pe canalul Teams al cursului, printr-un mesaj al
+liderului de echipă care conține numele echipei, componența ei, numele
+și descrierea proiectului în 1–2 paragrafe, un argument privind
+dimensiunea potrivită a temei și <strong>linkul către repository-ul
+public al proiectului, pe GitHub sau GitLab</strong>. Repository-ul
+trebuie să fie creat și accesibil public în momentul anunțării
+proiectului.</p>
+<p>Folosiți acest repository pe parcursul întregului semestru, astfel
+încât istoricul modificărilor să permită urmărirea progresului și a
+contribuției fiecărui membru. Publicați treptat cerințele, modelele,
+deciziile, revizuirile și dovezile, cu autorii contribuțiilor
+identificabili; un singur upload la final nu arată parcursul
+proiectului. Pentru lucrul comun, consemnați membrii care au contribuit
+și rolul lor în deciziile relevante. Numărul de commit-uri nu este un
+criteriu de notare.</p>
+<p><strong>Dezvoltarea materialelor și efectuarea commit-urilor pot fi
+asistate de AI. Echipa răspunde pentru conținutul publicat, verifică
+modificările și își asumă cerințele, deciziile și dovezile din
+repository.</strong> Un commit efectuat de un asistent nu înlocuiește
+identificarea contribuției membrilor echipei.</p>
+<p>Alegeți o problemă cu reguli, decizii și comportamente care merită
+analizate. Limitați explicit scopul: o problemă bine delimitată permite
+un design argumentat și verificabil. Împărțiți munca astfel încât
+fiecare student să contribuie la decizii importante, păstrând coerența
+întregului.</p>
+<h2 id="parcursul-proiectului">Parcursul proiectului</h2>
+<p>Construiți o <strong>specificație și un design substanțial înainte de
+implementare</strong>. Parcurgeți explicit următoarele întrebări:</p>
 <ol type="1">
-<li><strong>Narativ de design dirijat.</strong> Traseul conversației cu
-AI / transcriptul agentului care arată cerințele adunate, modelele
-generate, deciziile luate, prompturile care <em>nu</em> au funcționat,
-output-urile respinse și iterațiile. Jumătatea de <em>arhitect</em>
-făcută vizibilă. <em>Format: un narativ în markdown cu fragmente de
-transcript citate — nu un dump brut de chat.</em></li>
-<li><strong>Defect log.</strong> Problemele prinse în timpul generării
-cu AI, de-a lungul SDLC: severitate, ce a greșit AI și cum ai corectat.
-Jumătatea de <em>critic</em> făcută vizibilă. <em>Minim: 5 defecte
-substanțiale, acoperind atât artefacte structurale, cât și
-comportamentale.</em></li>
-<li><strong>Două diagrame UML pentru slice</strong> — una
-<strong>structurală</strong> (de regulă de clasă) și una
-<strong>comportamentală</strong> (use case / secvență / stare /
-activitate), de tipuri diferite. Generate de AI, revizuite și corectate
-de tine.
-<ul>
-<li><strong>Regula „fără diagrame auto-generate” din 2025 este
-inversată.</strong> Generarea cu AI este acum implicită; <em>traseul de
-revizuire</em> — ce ai schimbat și de ce — este noua dovadă a muncii
-tale.</li>
-</ul></li>
-<li><strong>Reflecție TDD-cu-AI</strong> (≤ 2 pagini). Rulezi bucla pe
-cel puțin o caracteristică a sliceului: specificație → AI generează
-teste → AI generează cod → testele trec/cad → <em>ce au dezvăluit
-eșecurile despre specificație</em>. Codul este un produs secundar; se
-citește reflecția.</li>
-<li><strong>Cel puțin un design pattern</strong> aplicat în slice, cu
-motivație (echipa, în total, ≥ 2 pattern-uri). <strong>Aplicat, nu doar
-etichetat</strong> — structura pattern-ului trebuie să fie prezentă, nu
-doar numele (vezi săptămânile 8–9).</li>
+<li><strong>Ce problemă rezolvăm?</strong> Identificați beneficiarii,
+obiectivele, limitele sistemului, cerințele, ipotezele și întrebările
+deschise. Separați regulile confirmate de propunerile echipei sau ale
+AI.</li>
+<li><strong>Cum înțelegem domeniul?</strong> Definiți conceptele,
+identitatea, relațiile și regulile relevante. Modelul domeniului poate
+preceda orice alegere de clase, funcții sau structuri de date.</li>
+<li><strong>Ce design propunem?</strong> Atribuiți responsabilități,
+descrieți contracte, invariante și comportamente, apoi justificați
+limitele și dependențele dintre părți.</li>
+<li><strong>Ce dovezi susțin designul?</strong> Parcurgeți scenarii
+normale și excepționale, verificați proprietăți și comparați o
+alternativă relevantă. Analizați efectul unei schimbări de cerință.</li>
+<li><strong>Ce revizuim înainte de predare?</strong> Obțineți o analiză
+într-un context separat, verificați constatările și actualizați
+specificația, designul și sinteza în consecință.</li>
 </ol>
-<h2 id="apărarea-orală-critică-raționament-trasabilitate">Apărarea orală
-(Critică / Raționament / Trasabilitate)</h2>
-<p>În săptămâna 14, fiecare student susține o <strong>apărare la rece,
-neasistată</strong> — fără AI în cameră. Aceasta este verificarea de
-integritate a proiectului și valorează <strong>3 din 8 puncte</strong>.
-Trebuie să demonstrezi:</p>
-<ul>
-<li><strong>Critică — Citește și critică pe loc.</strong> Dată orice
-diagramă UML generată de AI (din repository-ul <em>oricărei</em>
-echipe), identifici defecte, elemente lipsă, relații greșite.</li>
-<li><strong>Raționament — Articulează raționamentul.</strong> Explici de
-ce ai dirijat AI într-un anume fel și ce ai acceptat sau respins.</li>
-<li><strong>Trasabilitate — Apără trasabilitatea.</strong> Navighezi
-proiectul tău cap-coadă: cerință → use case → clasă → stare/secvență →
-test.</li>
-</ul>
-<p>Cursul din săptămâna 10 (trasabilitate) și cel din săptămâna 12
-(prezentare și apărare) te pregătesc direct pentru acest moment; Lab 6
-este repetiția la rece.</p>
-<h2 id="barem-8-puncte">Barem (8 puncte)</h2>
+<p>Notați la trecerea dintre etape ce este stabilit, ce rămâne incert și
+ce ar putea impune o revizuire. O descoperire ulterioară poate justifica
+întoarcerea la o cerință sau la o decizie anterioară.</p>
+<p><strong>Nu se cere o aplicație funcțională sau o buclă TDD
+obligatorie.</strong> Puteți folosi modele executabile, simulări, teste
+sau prototipuri pentru a investiga o întrebare de design. Explicați ce
+ați verificat, rezultatul și limitele verificării. Dacă implementați un
+prototip, porniți de la specificația și designul revizuite și urmăriți
+apoi implementare → teste → review.</p>
+<h2 id="dosarul-de-design-al-echipei-5-puncte">Dosarul de design al
+echipei — 5 puncte</h2>
+<p>Păstrați dosarul în <strong>repository-ul public de pe GitHub sau
+GitLab anunțat pe Teams</strong>. Dosarul are o sinteză ușor de parcurs
+și legături către modelele și dovezile care susțin afirmațiile sale. Ca
+reper, urmăriți o <strong>sinteză de aproximativ două pagini</strong>;
+detaliile relevante pot rămâne în fișierele către care trimite
+aceasta.</p>
+<p>Sinteza trebuie să permită găsirea rapidă a problemei și limitelor
+proiectului, a deciziilor principale, a justificărilor, a dovezilor și a
+incertitudinilor rămase. Includeți și o scurtă evidență a contribuțiilor
+membrilor echipei, cu legături către deciziile și materialele
+relevante.</p>
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
 </colgroup>
 <thead>
 <tr>
-<th>Componentă</th>
-<th>Puncte</th>
-<th>Evaluat pe</th>
+<th>Criteriu</th>
+<th style="text-align: right;">Puncte</th>
+<th>Ce trebuie să putem verifica</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Apărare orală</strong> (săptămâna 14)</td>
-<td><strong>3</strong></td>
-<td>Critică, raționament și trasabilitate demonstrate <em>la rece</em>:
-citești și critici orice diagramă, articulezi raționamentul sliceului,
-aperi trasabilitatea. <em>Verificarea de integritate.</em></td>
+<td><strong>Încadrarea problemei și cerințe</strong></td>
+<td style="text-align: right;">1</td>
+<td>Beneficiari, obiective și limite clare; cerințe verificabile;
+ipoteze și întrebări deschise explicite; exemple de acceptare și
+impactul schimbării unei cerințe.</td>
 </tr>
 <tr>
-<td><strong>Narativ de design + defect log</strong></td>
-<td><strong>2</strong></td>
-<td>Traseul vizibil al muncii de arhitect/critic. Înlocuiește vechea
-linie „diagrame” — diagramele sunt acum output-uri AI ușoare; contează
-ce ai <em>făcut</em> cu ele.</td>
+<td><strong>Modelarea domeniului</strong></td>
+<td style="text-align: right;">1</td>
+<td>Concepte, identități, relații și reguli coerente cu problema;
+exemple care verifică distincțiile importante; justificarea alegerilor
+față de alternative.</td>
 </tr>
 <tr>
-<td><strong>Calitatea documentației</strong></td>
-<td><strong>1</strong></td>
-<td>Coerența modelului de ansamblu, trasabilitatea cerințelor,
-claritatea prezentării, igiena repository-ului.</td>
+<td><strong>Contracte și invariante</strong></td>
+<td style="text-align: right;">1</td>
+<td>Obligații și garanții ale operațiilor importante; reguli care
+trebuie să rămână adevărate; verificări și contraexemple relevante,
+legate de cerințe.</td>
 </tr>
 <tr>
-<td><strong>Design patterns</strong></td>
-<td><strong>1</strong></td>
-<td>Au fost pattern-urile alese deliberat, sau le-a decorat AI peste
-cod? Evaluat prin lentila designului dirijat.</td>
+<td><strong>Stări și comportamente</strong></td>
+<td style="text-align: right;">1</td>
+<td>Comportamente și tranziții permise, condiții și efecte; scenarii
+normale și excepționale care verifică modelul; consecvență cu regulile
+domeniului.</td>
 </tr>
 <tr>
-<td><strong>Checkpoint decembrie</strong> (Lab 5)</td>
-<td><strong>1</strong></td>
-<td>Poartă de 1 punct; fiecare student face o apărare la rece de 3
-minute a progresului sliceului.</td>
+<td><strong>Responsabilități, coeziune și cuplare</strong></td>
+<td style="text-align: right;">1</td>
+<td>Cine deține fiecare decizie sau comportament important; justificarea
+grupării responsabilităților, dependențelor și interfețelor prin
+alternative și consecințele unei schimbări.</td>
+</tr>
+<tr>
+<td><strong>Total dosar de echipă</strong></td>
+<td style="text-align: right;"><strong>5</strong></td>
+<td>Dosarul se evaluează o singură dată pentru echipă.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="tdd-cu-ai">TDD-cu-AI</h2>
-<p>Bucla TDD-cu-AI este <strong>obligatorie</strong> pentru cel puțin o
-caracteristică din sliceul fiecărui student — dar este <strong>explicit
-în afara baremului</strong>.</p>
-<p>De ce obligatorie, dar nenotată: a scrie o specificație testabilă
-este mai greu decât a scrie una vagă, iar testele generate de AI dintr-o
-specificație vagă dezvăluie rapid lacunele. Bucla este o pârghie asupra
-preciziei specificației. Implementarea propriu-zisă se notează la cursul
-paralel; aici nu re-notăm cod pe ușa din spate.</p>
-<p>Se citește <strong>reflecția</strong> (ce a dezvăluit bucla), iar
-creditul se acordă la linia „narativ de design”, nu separat ca o notă de
-cod.</p>
-<h2 id="checkpoint-lab-5-decembrie">Checkpoint (Lab 5, decembrie)</h2>
-<p>La ultimul laborator înainte de vacanța de iarnă, fiecare student
-susține o <strong>apărare la rece de 3 minute</strong> a progresului
-sliceului său, iar echipa prezintă o parte din modelul de ansamblu.
-Poartă de <strong>1 punct</strong>, păstrată din cursul anterior. Este o
-repetiție a apărării finale: dacă ți-ai parcurs propriul traseu și ai
-reparat legăturile rupte, treci curat.</p>
-<h2 id="cum-te-pregătesc-cursurile-și-laboratoarele">Cum te pregătesc
-cursurile și laboratoarele</h2>
-<p>Proiectul este integrarea întregului semestru — fiecare etapă a SDLC
-a fost antrenată undeva:</p>
-<ul>
-<li><strong>Cerințe</strong> — săptămâna 2 + Lab 1 (onboarding unelte +
-cerințe cu AI).</li>
-<li><strong>Specificații testabile / TDD</strong> — săptămâna 3.</li>
-<li><strong>Diagrame structurale</strong> — săptămâna 4 (clasă) +
-săptămâna 5 (alte vederi) + Lab 2.</li>
-<li><strong>Diagrame comportamentale</strong> — săptămâna 6 (use case +
-secvență) + săptămâna 7 (stare + activitate).</li>
-<li><strong>Critică / red-team</strong> — Lab 3 (structural) + Lab 4
-(comportamental).</li>
-<li><strong>Design patterns</strong> — săptămâna 8 (selecție) +
-săptămâna 9 (aplicat vs etichetat).</li>
-<li><strong>Trasabilitate</strong> — săptămâna 10 + checkpoint-ul din
-Lab 5.</li>
-<li><strong>Prezentare și apărare</strong> — săptămâna 12 + repetiția
-din Lab 6.</li>
-<li><strong>Prezentări finale</strong> — săptămâna 14 + Lab 7.</li>
-</ul>
+<p>Validarea, dovezile, compararea alternativelor și analiza schimbării
+se evaluează în cadrul celor cinci criterii. Explicați ce susține
+fiecare verificare și care sunt limitele ei; aceste aspecte fac parte
+din calitatea fiecărei decizii de analiză sau design.</p>
+<p>Alegeți reprezentări potrivite întrebărilor: glosar, exemple, tabel
+de responsabilități, contracte, tabel de tranziții, schițe, pseudocod,
+diagrame sau modele executabile. Folosiți identificatori și legături
+simple pentru a urmări o cerință până la decizia și verificarea ei.
+<strong>Nu există cote de diagrame UML, design patterns sau defecte
+descoperite.</strong> Claritatea, justificarea și coerența contează în
+evaluare; volumul documentației sau al conversațiilor nu aduce puncte
+suplimentare.</p>
+<h2 id="lucrul-cu-ai-și-dovezile-de-review">Lucrul cu AI și dovezile de
+review</h2>
+<p>Puteți alege uneltele și modelele AI. Definiți explicit rolurile, de
+exemplu analist, proiectant și recenzent, și informațiile predate între
+ele. Înainte de a delega, formulați voi problema, constrângerile și
+criteriile după care veți judeca rezultatul.</p>
+<p>Includeți o revizuire într-o <strong>sesiune sau într-un context
+nou</strong>, care primește specificația și designul curente,
+întrebările de verificat și criteriile de acceptare. Același model poate
+fi folosit într-un context separat. Recenzentul trebuie să poată examina
+dovezile, inclusiv atunci când sinteza omite un detaliu important.</p>
+<p>Documentați concis o decizie importantă și parcursul revizuirii ei:
+ce a fost delegat, ce context a fost transmis, ce constatare ați
+verificat, ce ați acceptat sau respins și de ce. Legați explicația de
+versiunea relevantă a modelului și de un exemplu sau de altă dovadă
+verificabilă. Dacă review-ul nu găsește un defect, arătați ce a fost
+verificat și ce concluzie permite verificarea; nu inventați greșeli
+pentru dosar.</p>
+<p>Fragmentele de conversație pot susține explicația. Un transcript
+integral nu înlocuiește sinteza și raționamentul vostru. Indicați
+instrumentul și modelul folosit, în măsura în care această informație
+este disponibilă; evaluarea privește deciziile și dovezile, fără a cere
+reproducerea exactă a textului generat. Pentru pregătirea mediului,
+consultați <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">ghidul
+de configurare</a>.</p>
+<h2 id="feedback-pe-parcursul-semestrului-și-laboratorul-deschis">Feedback
+pe parcursul semestrului și laboratorul deschis</h2>
+<p><strong>Echipa poate cere oricând feedback profesorului în timpul
+semestrului</strong>, prin canalul Teams al cursului sau în cadrul
+întâlnirilor. Includeți linkul către materialul relevant din repository
+și întrebarea pe care doriți să o clarificați. Feedback-ul vă ajută să
+îmbunătățiți dosarul; nu există un checkpoint programat sau un punctaj
+separat pentru această activitate.</p>
+<p>Doar <strong>ultimele două laboratoare</strong> sunt dedicate efectiv
+proiectului. Laboratoarele 1–5 tratează teme importante ale cursului,
+prin exerciții pe probleme distincte: înțelegere, specificare și
+revizuire (cursurile 1–2); cerințe și modelarea domeniului (3–4);
+responsabilități, contracte și invariante (5–6); stări, comportament și
+interacțiuni (7–8); validare și abstractizare (9–10). Fiecare laborator
+are loc după predarea celor două cursuri asociate.</p>
+<p><strong>Lab 6 este un laborator deschis:</strong> lucru individual la
+proiect, întrebări adresate profesorului și discuții între echipe.
+Folosiți timpul pentru întrebările și revizuirile de care are nevoie
+proiectul vostru, inclusiv întrebări de proiectare care ar fi fost
+discutate într-un atelier la curs. Lab 6 urmează cursurile 11–12; Lab 7
+urmează cursurile 13–14. Nu există o prezentare obligatorie sau o
+repetiție de susținere.</p>
+<h2 id="interviul-de-susținere-ultimul-laborator">Interviul de susținere
+— ultimul laborator</h2>
+<p>La <strong>Lab 7</strong>, profesorul definitivează nota pe dosarul
+echipei printr-un <strong>interviu de aproximativ 8 minute</strong>, cu
+întrebări asupra punctelor neclare, la care echipa poate răspunde.
+Dosarul trebuie să fie disponibil pentru lectură înainte de interviu;
+termenul exact și programarea echipelor vor fi anunțate pe Teams.</p>
+<p>Discuția pornește de la dosarul citit de profesor. Echipa poate
+consulta repository-ul și poate indica cerințele, deciziile,
+contribuțiile și dovezile relevante pentru clarificări. Nu este necesară
+pregătirea unei prezentări sau a unor slide-uri.</p>
+<p>Profesorul stabilește punctajul final de echipă pe <strong>cele cinci
+criterii ale dosarului</strong>, ținând cont de clarificările din
+interviu. Interviul nu are punctaj separat. Întrebările sunt adresate
+echipei; nu se organizează o examinare orală distinctă pentru fiecare
+student.</p>
+<h2 id="examen-grilă-individual-3-puncte">Examen grilă individual — 3
+puncte</h2>
+<p>Examenul verifică aplicarea principiilor de analiză și design în
+<strong>scenarii scurte</strong>, individual și fără AI. Întrebările
+urmăresc interpretarea cerințelor, modelarea domeniului,
+responsabilitățile și dependențele, contractele și invariantele, stările
+și comportamentele, precum și dovezile de validare.</p>
+<p>Pregătiți-vă să identificați o ipoteză nejustificată, să comparați
+variante de design, să interpretați un contraexemplu sau să urmăriți
+efectele unei schimbări. Evaluarea privește raționamentul aplicat
+situației descrise, fără întrebări de memorare a detaliilor unei
+notații. Formatul detaliat și condițiile de organizare vor fi anunțate
+separat.</p>
 <h2 id="nota-finală">Nota finală</h2>
-<p>8 (proiect) + 1 (prezență) + 1 (din oficiu) =
-<strong>10</strong>.</p>
-<h2 id="examen-scris-restanță">Examen scris (restanță)</h2>
-<p>Pentru sesiunea de restanțe, examenul scris testează același nivel ca
-apărarea orală, într-o lucrare scrisă, fără AI în cameră (critică,
-raționament și trasabilitate, ca la apărarea orală). Vezi
-<code>../exam/examen-2026.pdf</code>.</p>
-<h2 id="unelte">Unelte</h2>
-<p>Fiecare student folosește un asistent AI în VS Code, cu propriul
-abonament: <strong>Claude Code</strong> (extensia oficială Anthropic, cu
-Claude Pro) sau <strong>Codex</strong> (extensia oficială OpenAI, cu
-ChatGPT Plus). Setările cursului se află în
-<code>tooling/template/</code> și se copiază în rădăcina repository-ului
-de proiect: <code>AGENTS.md</code> și <code>CLAUDE.md</code>
-(convențiile cursului, de exemplu Mermaid pentru UML),
-<code>.claude/settings.json</code> (fixează Claude Code pe
-<strong>Sonnet 5, efort redus</strong>) și
-<code>.codex/config.toml</code> (echivalentul cel mai apropiat pentru
-Codex). Pașii sunt în <code>tooling/SETUP.md</code>.</p>
-<p>Toată lumea folosește același model și același nivel de efort, fixate
-de setările din repository, astfel încât output-ul AI să fie comparabil
-în toată cohorta și reproductibil la apărarea orală. Poți folosi și alte
-unelte pentru explorare, dar <strong>artefactele notate trebuie să se
-reproducă cu setările cursului</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Componentă</th>
+<th style="text-align: right;">Puncte</th>
+<th>Nivel de evaluare</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dosar de design</td>
+<td style="text-align: right;">5</td>
+<td>Echipă</td>
+</tr>
+<tr>
+<td>Examen grilă</td>
+<td style="text-align: right;">3</td>
+<td>Individual</td>
+</tr>
+<tr>
+<td>Prezență</td>
+<td style="text-align: right;">1</td>
+<td>Individual</td>
+</tr>
+<tr>
+<td>Din oficiu</td>
+<td style="text-align: right;">1</td>
+<td>Individual</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Pentru dosar se acordă un punctaj de echipă; examenul grilă și
+prezența se contabilizează individual.</p>
+<p>Punctul de prezență se acordă proporțional pentru participarea la
+<strong>cursuri și laboratoare</strong>, fiecare întâlnire având aceeași
+pondere:</p>
+<p><strong>Punctaj prezență = numărul întâlnirilor la care ai participat
+/ numărul total al întâlnirilor desfășurate și
+contabilizate.</strong></p>
+<p>Pentru 14 cursuri și 7 laboratoare, numitorul este 21. Întâlnirile
+anulate nu intră în numitor; acesta reflectă întâlnirile efectiv
+desfășurate și contabilizate.</p>
+<p>În sesiunea de restanțe, nota se calculează astfel: <strong>9 puncte
+pentru examenul grilă + 1 punct din oficiu = 10</strong>. Examenul
+urmărește aceleași competențe de analiză și design. Punctajele pentru
+dosarul de echipă și prezență nu se reportează în nota de la
+restanță.</p>
 </body>
 </html>

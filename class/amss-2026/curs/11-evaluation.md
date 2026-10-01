@@ -19,6 +19,24 @@ The course used AI to generate and YOU to judge. Today turns to evaluation itsel
 
 ---
 
+# Ideea întâlnirii
+
+> „Dacă gândești fără să scrii, doar ai impresia că gândești.”
+
+— **Leslie Lamport**
+
+[Sursa: Interviu Developing Dev — Why writing improves your thinking](https://www.developing.dev/p/turing-award-winner-on-working-with) · traducere din engleză
+
+::: notes
+Original: “If you’re thinking without writing, you only think you’re thinking.”
+
+Interviu primar cu transcript: 00:54:45, intervievatorul reproduce citatul; Lamport îl explică de la 00:54:59. Secțiunea Why writing improves your thinking.
+
+Legătura cu tema: Scrierea face deciziile inspectabile; un rezumat trebuie să păstreze legătura cu dovezile.
+:::
+
+---
+
 # Recap: Architect and Critic
 
 - **Architect / director:** drive AI through the software development lifecycle (SDLC).

@@ -1,5 +1,5 @@
-# Instructor-only fallback decks: captured live-demo outputs to switch to when the
-# live AI fails. Built next to their sources, never into the published site:
+# Instructor-only fallback decks: prepared teaching examples or labeled captures
+# to use when live AI is unavailable. Built next to their sources, never published:
 #   make -C curs/fallback        (or `make fallback` from the tree root)
 override BASE := $(abspath ../..)
 SUBDIR = curs/fallback

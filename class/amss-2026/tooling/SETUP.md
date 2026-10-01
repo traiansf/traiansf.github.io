@@ -1,53 +1,67 @@
-# AMSS 2026 — Student Setup (~20 min)
+# AMSS 2026 — Pregătirea mediului de lucru
 
-## Prerequisites
+Ai nevoie de un mediu în care să citești și să editezi fișierele cursului și de acces la un asistent ales de tine atunci când exercițiul folosește AI. Folosește instrumente la care ai deja acces. Nu este obligatoriu un abonament plătit, un anumit model, editor sau extensie pentru diagrame.
 
-- VS Code and Git installed.
-- **One** AI subscription: **Claude Pro** (for Claude Code) or **ChatGPT Plus** (for Codex).
+## 1. Obține materialele
 
-## Steps
+Folosește fișierele furnizate pentru curs sau laborator ori clonează depozitul public cu sursele cursului:
 
-1. **Clone the course repo.**
+```bash
+git clone https://github.com/traiansf/traiansf.github.io.git
+cd traiansf.github.io/class/amss-2026
+```
 
-   ```bash
-   git clone <course-repo-url> amss-2026
-   ```
+Depozitul conține și alte cursuri, precum și materiale ale site-ului. Lucrează cu fișierele indicate din `class/amss-2026`. Dacă nu folosești Git, poți începe cu un director de fișiere furnizat de cadrul didactic.
 
-2. **Install your AI assistant in VS Code** — the one that matches your subscription.
+Pentru activitatea proprie, folosește spațiul de lucru al laboratorului sau depozitul echipei indicat de cadrul didactic. Păstrează o copie a descrierii inițiale a problemei, analiza ta inițială, versiunile succesive ale artefactelor și dovezile revizuirii (review). Dacă folosești Git, identifică versiunile revizuite prin commit-uri; altfel, salvează versiuni cu nume clare.
 
-   - *Claude Pro:* in the Extensions panel, search "Claude Code" and install the extension by Anthropic. Open it from the Claude icon in the sidebar and sign in with your Claude account.
-   - *ChatGPT Plus:* in the Extensions panel, search "Codex" and install the extension by OpenAI. Open it from the sidebar and sign in with your ChatGPT account.
+## 2. Pregătește asistentul
 
-3. **Add the course settings to every repository you work in** (lab repo, team project repo). Copy the contents of `tooling/template/` into the repository's root:
+Deschide spațiul de lucru indicat în editorul cu asistentul ales sau furnizează fișierele/textul relevant într-o conversație din browser ori într-o aplicație locală. Verifică la ce materiale are acces asistentul; simpla menționare a unui fișier local într-un prompt din browser nu îi furnizează conținutul.
 
-   ```bash
-   # Linux / macOS / Git Bash (run from the root of your lab or project repo)
-   cp -r ../amss-2026/tooling/template/. .
-   ```
+Citește [instrucțiunile cursului](template/AGENTS.md). Furnizează-le în conversație sau integrează-le în instrucțiunile folosite deja de depozitul tău. Păstrează îndrumările existente, specifice proiectului. Poți folosi aceste instrucțiuni cu orice asistent.
 
-   ```powershell
-   # Windows PowerShell (run from the root of your lab or project repo)
-   Copy-Item -Recurse -Force ..\amss-2026\tooling\template\* .
-   ```
+Fișierele din `template/` sunt opționale. Copiază numai fișierele de care ai nevoie, după ce verifici destinația. Șabloanele de configurare pentru furnizori nu conțin setări de model impuse de curs. Păstrează configurația personală și datele de autentificare separat de materialele partajate ale cursului. Configurația de proiect Codex este o modalitate opțională de a adăuga setări pentru proiect; consultă [documentația oficială de configurare](https://learn.chatgpt.com/docs/config-file/config-basic) dacă alegi să o folosești.
 
-   This adds `AGENTS.md` and `CLAUDE.md` (the course conventions, e.g. Mermaid for UML), `.claude/settings.json` (Claude Code: Sonnet 5, low effort) and `.codex/config.toml` (Codex). Commit them.
+## 3. Încearcă o sarcină scurtă de analiză
 
-4. **Install the diagram previews.**
+Înainte de a folosi AI, scrie câteva rânduri cu propria analiză a acestei descrieri a problemei:
 
-   Diagrams in this course are written as Mermaid (they also render directly on GitHub). In the Extensions panel, install **Markdown Preview Mermaid Support** (by Matt Bierner); then any ` ```mermaid ` block in a Markdown file renders in VS Code's Markdown preview (Ctrl+Shift+V). The few component and package diagrams use PlantUML — for those, install the **PlantUML** extension (by jebbs) and set its render option to the PlantUML server, so no Java install is needed.
+> Un departament dorește ca studenții să poată rezerva săli de studiu pentru a-și planifica lucrul în grup.
 
-5. **Smoke test.** Open your repository in VS Code, open the assistant's panel and ask:
+Identifică un obiectiv, o întrebare pe care ai adresa-o departamentului și o ipoteză pe care nu ar trebui să o adopți fără să o precizezi. Apoi oferă asistentului descrierea problemei și notițele tale:
 
-   > *Generate a UML class diagram (as Mermaid) for a parking lot with levels and spots.*
+> Lucrează ca analist. Separă faptele furnizate de ipoteze. Identifică problema, limitele posibile ale soluției și întrebările fără răspuns despre regulile de funcționare. Propune două exemple concrete de acceptare, marcând orice rezultat așteptat care nu este încă stabilit. Explică o consecință a unei ipoteze. Oprește-te înainte de proiectarea unei aplicații.
 
-   You should get a Mermaid block that renders in the preview. Check the model: in Claude Code, type `/model` — it should show Sonnet 5 with low effort; in Codex, the model picker should show the model from `.codex/config.toml`.
+Citește răspunsul. Marchează o contribuție utilă și o afirmație care necesită confirmare. Salvează descrierea problemei, notițele tale și rezultatul; le vei transmite unui agent de revizuire.
 
-## Troubleshooting
+Dacă nu poți folosi un asistent, utilizează această **propunere didactică pregătită** pentru exercițiul de revizuire. Este intenționat incompletă și nu reprezintă un răspuns AI înregistrat:
 
-- *The assistant ignores the course model:* make sure you opened the repository folder itself (the one containing `.claude/` and `.codex/`), not its parent. Codex asks you to trust the folder before it reads `.codex/config.toml`.
-- *Usage limit reached:* both subscriptions have rolling usage windows. Keep prompts focused; if you hit the limit during a lab, pair with a colleague.
-- *No subscription yet:* pair with a colleague for the first lab and sort it out before Lab 2.
+> Obiectiv: să ajute grupurile să își planifice timpul de studiu. Reguli propuse: fiecare student poate avea o singură rezervare, iar fiecare rezervare durează o oră. Exemplu de acceptare: un student selectează o sală disponibilă pentru mâine și primește confirmarea.
 
-## Why the course pins a model
+Compară fiecare afirmație cu descrierea inițială a problemei. Identifică regulile de funcționare care necesită răspunsuri de la beneficiar și ce ar trebui să precizeze un exemplu de acceptare util.
 
-Everyone uses the same model and effort level so that AI output is comparable across the cohort and reproducible during the oral defense. Do not change the model or effort for graded work. You may use any other tool for exploration, but graded artifacts must reproduce with the course settings.
+## 4. Pornește un context separat pentru revizuire
+
+Deschide o sesiune sau o conversație nouă, cu același asistent sau cu altul. Furnizează explicit descrierea inițială a problemei, notițele tale, propunerea salvată și această sarcină de revizuire:
+
+> Lucrează ca agent de revizuire. Compară propunerea cu descrierea inițială a problemei. Verifică dacă introduce reguli de funcționare care nu au fost furnizate, ascunde o întrebare nerezolvată sau oferă un exemplu de acceptare fără un rezultat așteptat clar. Pentru fiecare constatare, indică textul relevant și explică o consecință concretă. Distinge un defect de o întrebare pentru beneficiar sau de o îmbunătățire opțională. Dacă o afirmație este justificată, precizează dovezile care o susțin. Nu rescrie încă propunerea.
+
+Evaluează tu constatările. Consemnează o constatare pe care o accepți sau o respingi și motivul, ori explică de ce propunerea poate rămâne în forma actuală. Revizuiește analiza unde este justificat și salvează un rezumat pentru predarea unei sarcini (handoff) către etapa următoare, cu tot contextul necesar. Mediul de lucru este pregătit dacă poți verifica datele de intrare și rezultatele și poți explica o decizie; nu este necesar să obții un anumit răspuns de la model.
+
+## 5. Aplică modul de lucru în activitățile cursului
+
+Urmează [îndrumările despre roluri, predarea sarcinilor și dovezi](README.md). Elaborează și revizuiește specificația și proiectarea înainte de o implementare substanțială. Folosește un model executabil mic sau un prototip atunci când ajută la rezolvarea unei întrebări concrete; proiectul cursului nu impune o aplicație funcțională.
+
+În lucrul în echipă, partajați proiectarea curentă și dovezile care o susțin. Fiecare student trebuie să poată explica independent raționamentul. Folosiți reprezentarea care clarifică întrebarea: text, tabele, schițe, pseudocod sau diagrame.
+
+## Dacă mediul de lucru nu este disponibil
+
+- **Nu ai acces la un asistent sau ai atins o limită de utilizare:** continuă singur analiza inițială și examinează critic exemplul pregătit pentru exercițiu. Consemnează că ai revizuit un exemplu pregătit. Anunță cadrul didactic pentru a organiza o revizuire separată între colegi sau cu un asistent disponibil; nu pretinde că ai efectuat o execuție AI pe care nu ai realizat-o.
+- **Asistentul nu poate citi fișiere:** copiază sau atașează descrierea problemei și secțiunile relevante ale artefactelor, cu identificatorii versiunilor.
+- **Noul agent de revizuire nu are context:** furnizează explicit rezumatul de predare și sursele inițiale. Nu presupune că știe conversația anterioară.
+- **O diagramă nu se afișează:** exprimă aceleași relații sau același comportament într-un tabel ori într-o schiță, astfel încât analiza să poată continua.
+
+## Orientare opțională
+
+[Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/Lab00.html) oferă pași simpli pentru acces, salvarea notițelor și verificarea uneltelor, inclusiv alternative fără AI. Poate fi parcurs individual. Exercițiile tehnice de analiză și proiectare urmează după cursul 2.

@@ -1,5 +1,7 @@
 # Lab 3 Instructor Runbook — Critique Session: Structural Artifacts
 
+> Planificare curentă: Lab 3, după cursurile 5–6, tratează responsabilități, contracte și invariante. Corpul de mai jos este material anterior, de rescris conform `docs/semester-roadmap.md`; nu reprezintă noul pachet de predare și nu autorizează cerințe sau prerechizite din cursuri ulterioare.
+
 > Instructor-facing companion to `Lab03.md`. **Not** a slidy deck — the lab Makefile filters `*-instructor.md` out of the published tree. Read end-to-end before the session.
 >
 > Design reference: the master spec's Lab 3 row (`docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md` §3). No per-lab spec file — this runbook is the working spec.
