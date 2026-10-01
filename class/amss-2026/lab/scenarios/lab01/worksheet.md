@@ -68,7 +68,7 @@ Adăugați un scenariu când distinge o regulă sau o alternativă importantă. 
 - **Verificările și dovezile de returnat:**
 - **Punctul de revizuire umană înainte de implementare:**
 
-## Predarea sarcinii autorului (handoff) — minutele 26–44
+## Predarea sarcinii către autor (handoff) — minutele 26–44
 
 Studentul A îndrumă autorul; studentul B verifică față de sursă. Atașați toate informațiile scenariului și notițele voastre. Autorul poate ajuta la structurarea înțelegerii; voi rămâneți responsabili pentru decizii.
 
@@ -78,7 +78,7 @@ Dacă rezultatul este lung, cereți un rezumat scurt care păstrează trimiteril
 
 Salvați o copie a variantei de lucru. Poate fi o copie de fișier, o versiune salvată sau un commit.
 
-Identificatorul variantei revizuite: __________
+Identificatorul variantei supuse revizuirii: __________
 
 ## Predarea sarcinii pentru revizuire independentă — minutele 44–60
 
@@ -101,7 +101,7 @@ Nu există un număr obligatoriu de defecte, corectări sau prompturi repetate. 
 Scrieți independent, cu numele vostru:
 
 - O decizie pe care o pot apăra, informația care o susține și un scenariu care o verifică:
-- O alternativă plauzibilă sau o ipoteză neclarificată și consecința ei:
+- O alternativă plauzibilă sau o ipoteză neconfirmată și consecința ei:
 - Răspunsul meu la schimbarea anunțată de cadrul didactic: deciziile afectate, regula lipsă și două răspunsuri posibile, cu un scenariu care le distinge:
 
 Cadrul didactic anunță schimbarea la minutul 78. Raționamentul vostru constituie dovada, nu o soluție finală șlefuită.
@@ -118,4 +118,4 @@ lab01/<pair-id>/
   individual/<student-b-id>.md
 ```
 
-Fișierele individuale conțin atât notițele inițiale, cât și explicațiile finale. Un format echivalent, cu autorii identificați clar, este acceptabil. Predați la destinația anunțată în laborator; folosiți canalul alternativ anunțat dacă accesul la depozitul de cod nu funcționează. Nu se cer transcrieri suplimentare ale conversațiilor.
+Fișierele individuale conțin atât notițele inițiale, cât și explicațiile finale. Un format echivalent, cu autorii identificați clar, este acceptabil. Predați la destinația anunțată în laborator; folosiți canalul alternativ anunțat dacă accesul la repository nu funcționează. Nu se cer transcrieri suplimentare ale conversațiilor.

@@ -2,3 +2,7 @@
 # A document's own metadata takes precedence over these values.
 course-label: "AMSS 2026/2027"
 course-name: "Analiza și Modelarea Sistemelor Software"
+# Footer of the continuous documents; the course page (static/index.html)
+# states the same by hand.
+instructor-url: "https://traiansf.github.io/"
+affiliation: "Facultatea de Matematică și Informatică, Universitatea din București"

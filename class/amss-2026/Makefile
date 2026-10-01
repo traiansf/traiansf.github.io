@@ -1,5 +1,8 @@
+BASE_ORIGIN := $(origin BASE)
 BASE ?= ../amss2026
-export BASE := $(abspath $(BASE))
+# A relative BASE given on the command line is resolved here, once: the
+# sub-makes run in their own directories and are handed the absolute path.
+override BASE := $(abspath $(BASE))
 
 AMSS_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 
@@ -10,7 +13,7 @@ include $(AMSS_ROOT)/release.mk
 all: curs lab proiect exam static prune
 
 curs lab proiect exam:
-	$(MAKE) -C $@
+	$(MAKE) -C $@ BASE=$(BASE)
 
 # Instructor-only demo fallback decks, built in place (not part of `all`, never published).
 fallback:
@@ -34,8 +37,8 @@ ifndef PREVIEW_ALL
 endif
 
 clean:
-	$(MAKE) -C curs clean
-	$(MAKE) -C lab clean
-	$(MAKE) -C proiect clean
-	$(MAKE) -C exam clean
+	$(MAKE) -C curs clean BASE=$(BASE)
+	$(MAKE) -C lab clean BASE=$(BASE)
+	$(MAKE) -C proiect clean BASE=$(BASE)
+	$(MAKE) -C exam clean BASE=$(BASE)
 	$(MAKE) -C curs/fallback clean

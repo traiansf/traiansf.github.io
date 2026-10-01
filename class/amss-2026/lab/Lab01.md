@@ -13,7 +13,7 @@ delegați o revizuire (review) și decideți ce afirmații sunt susținute de do
 
 La final: o descriere comună a problemei și explicația individuală a unei decizii de proiectare.
 
-Fișe: [informațiile beneficiarului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/scenario.md) · [fișa de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/worksheet.md)
+Fișe: [informațiile beneficiarului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/scenario.md)&nbsp;· [fișa de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/worksheet.md)
 
 ::: notes
 Laboratorul se desfășoară după predarea cursurilor 1 și 2. Exercițiul transferă raționamentul introductiv despre înțelegere, scenarii și delegare din cursul 2 într-un domeniu nou; nu presupune predarea aprofundată a cerințelor din cursul 3. Studenții știu să programeze; introduceți explicit termenii de analiză și proiectare. Nu se cere implementarea unei aplicații.
@@ -27,7 +27,7 @@ Laboratorul se desfășoară după predarea cursurilor 1 și 2. Exercițiul tran
 
 — **Edsger W. Dijkstra**
 
-[Sursa: How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html) · traducere din engleză
+[Sursa: How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html)&nbsp;· traducere din engleză
 
 ::: notes
 Original: “Simplicity is prerequisite for reliability.”
@@ -46,7 +46,7 @@ Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte 
 | 0–8 | Analiză individuală, fără AI |
 | 8–16 | Compararea interpretărilor; clarificarea distincțiilor |
 | 16–26 | Pregătirea spațiului de lucru și a rolurilor |
-| 26–44 | Descrierea problemei și predarea sarcinii autorului |
+| 26–44 | Descrierea problemei și predarea sarcinii către autor |
 | 44–60 | Schimbarea rolurilor; revizuire independentă |
 | 60–78 | Evaluarea revizuirii și modificări justificate |
 | 78–90 | Argumentare individuală și o cerință nouă |
@@ -58,13 +58,13 @@ Distribuiți scenario.md și worksheet.md din lab/scenarios/lab01/ înainte de a
 
 ---
 
-# Cerințele beneficiarului
+# Informațiile beneficiarului
 
-Campusul dorește ca studenții să poată rezerva **Alder** sau **Birch** pentru studiu.
+Campusul dorește ca studenții să poată rezerva sala **Alder** sau sala **Birch** pentru studiu.
 
 - **F1:** o singură zi viitoare pentru pilot, **D**; ambele săli sunt deschise 09:00–17:00.
 - **F2:** un serviciu al universității furnizează identitatea verificată a studentului; sălile sunt deja configurate.
-- **F3:** o rezervare indică un student, o sală și un interval în D; începutul precedă sfârșitul, în programul sălii.
+- **F3:** o cerere indică un student, o sală și un interval în D; începutul precedă sfârșitul, iar intervalul se încadrează în programul sălii.
 - **F8:** administrarea sălilor, plățile, rezervările recurente, listele de așteptare și notificările sunt excluse.
 
 Fișa este sursa informațiilor convenite. Întrebările nu stabilesc reguli noi.
@@ -82,7 +82,7 @@ Identificatorii informațiilor corespund celor din scenario.md. Citiți fișa co
 - **F6:** titularul poate anula înainte de început; intervalul devine liber. Alt student nu poate anula rezervarea.
 - **F7:** o rezervare reușită primește un cod; o respingere indică regula convenită care nu este respectată.
 
-Anularea de la ora de început și rezervările suprapuse ale aceluiași student în săli diferite rămân întrebări deschise.
+Anularea la ora de început sau după aceasta și rezervările suprapuse ale aceluiași student în săli diferite rămân întrebări deschise.
 
 ::: notes
 F5 permite discutarea unei responsabilități care impune o regulă pentru mai multe cereri. Nu prescrie blocări, baze de date, clase sau o soluție de instalare. Astăzi sunt suficiente o responsabilitate precisă și un scenariu.
@@ -94,10 +94,10 @@ F5 permite discutarea unei responsabilități care impune o regulă pentru mai m
 
 Lucrați individual, fără AI. Păstrați aceste notițe inițiale.
 
-1. Formulați scopul și limitele în cuvintele voastre.
+1. Formulați scopul și limitele cu propriile cuvinte.
 2. Explicați ce este o sală și ce este o rezervare.
-3. Dați o cerere acceptată și una respinsă, fiecare justificată printr-o informație din fișă.
-4. Numiți o întrebare pe care ați pune-o înainte de a extinde soluția.
+3. Dați un exemplu de cerere acceptată și unul de cerere respinsă, fiecare justificat printr-o informație din fișă.
+4. Formulați o întrebare pe care ați pune-o înainte de a extinde soluția.
 
 Folosiți propoziții, un tabel mic, o schiță sau pseudocod.
 
@@ -110,7 +110,7 @@ Dați studenților fișa completă de la început și începeți imediat aceast�
 # Patru tipuri de afirmații
 
 | Tip | Exemplu |
-|---|---|
+|------|--------------|
 | Cerință convenită | F4: rezervările confirmate pentru aceeași sală nu se suprapun. |
 | Consecință dedusă | Alder rezervată 10:00–11:00 intră în conflict cu o cerere pentru Alder 10:30–11:30. |
 | Alegere de proiectare | O operație de rezervare răspunde de verificarea conflictului și de confirmare. |
@@ -148,7 +148,7 @@ Exercițiul bibliotecii presupunea explicit operații executate pe rând. Aceste
 - Alegeți orice instrument și model AI disponibil. Notați-le, dacă sunt cunoscute.
 - Pregătiți o **sesiune de autor** și o **sesiune separată de revizuire**.
 - **A:** îndrumă autorul. **B:** verifică afirmațiile față de informațiile beneficiarului.
-- La minutul 44, schimbați: **B** îndrumă evaluatorul; **A** verifică dovezile.
+- La minutul 44, schimbați rolurile: **B** îndrumă evaluatorul; **A** verifică dovezile.
 
 Dacă AI nu este disponibil, folosiți [exemplul pregătit](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/prepared-fixture.md) și o revizuire separată între colegi.
 
@@ -182,7 +182,7 @@ Studenții pot redacta sau edita singuri descrierea. Predarea sarcinii defineșt
 
 > Acționează ca asistent de analiză. Folosind doar informațiile beneficiarului și notițele atașate, redactează scopul, limitele, conceptele domeniului, regulile, scenariile de acceptare și întrebările deschise. Citează identificatorii informațiilor. Marchează separat propunerile de proiectare. Cere clarificări unde lipsesc reguli; nu răspunde în numele beneficiarului. Propune o sarcină următoare de proiectare, cu limite, intrări, responsabilități, verificări și un punct de oprire. Nu o implementa.
 
-Citiți rezultatul. Acceptați, editați sau cereți o corectare **cu un motiv**.
+Citiți rezultatul. Acceptați, editați sau cereți o corectare, **motivând decizia**.
 
 ::: notes
 Fișa de lucru conține promptul de copiat. Dacă rezultatul este corect, păstrați-l și explicați verificările care susțin această concluzie. Dacă este prea lung, cereți un rezumat care păstrează trimiterile la informații/scenarii și verificați o afirmație importantă din rezumat față de textul complet. Nu cereți erori fabricate.
@@ -194,7 +194,7 @@ Sunt suficiente puncte scurte. Păstrați o singură descriere comună și cita�
 
 # Scenarii care disting regulile
 
-Fiecare rând este un **caz independent**, cu o singură rezervare confirmată inițial: **Alder, 10:00–11:00**.
+Fiecare rând este un **caz independent**, cu o singură rezervare confirmată inițial: **Alder,&nbsp;10:00–11:00**.
 
 | Cerere sau acțiune | Rezultat așteptat | Sursă |
 |---|---|---|
@@ -229,7 +229,7 @@ Un context separat nu garantează o judecată corectă. Același model poate rep
 
 # Verificați constatările (60–78)
 
-Pentru fiecare afirmație importantă păstrată, notați:
+Pentru fiecare constatare importantă pe care o rețineți, notați:
 
 | Constatarea revizuirii | Dovezi | Decizia omului |
 |---|---|---|
@@ -251,10 +251,10 @@ Constatările revizuirii cer dovezi atât în cerințele beneficiarului, cât ș
 Propuneți o **sarcină de proiectare**, în limitele descrierii acceptate azi:
 
 - clarificați limita anulării și regula rezervărilor în săli diferite;
-- atribuiți responsabilitatea verificării și confirmării rezervării;
+- atribuiți responsabilitatea verificării și a confirmării rezervării;
 - descrieți rezultatele rezervării/anulării care păstrează F4–F6;
-- validați scenariile și evidențiați ipotezele neclarificate;
-- opriți pentru revizuire umană înainte de implementare.
+- validați scenariile și evidențiați ipotezele neconfirmate;
+- opriți-vă pentru revizuire umană înainte de implementare.
 
 Precizați versiunea de intrare, rezultatul așteptat și dovezile cerute.
 
@@ -271,7 +271,7 @@ Verificarea unei specificații și a unei proiectări substanțiale este un prin
 **Individual, fără AI:** păstrați analiza inițială și explicați:
 
 - o decizie pe care o puteți apăra printr-o informație și un scenariu;
-- o alternativă plauzibilă sau o ipoteză neclarificată;
+- o alternativă plauzibilă sau o ipoteză neconfirmată;
 - ce trebuie reconsiderat la schimbarea de pe diapozitivul următor.
 
 Folosiți fișa de lucru. Păstrați fragmentele necesare justificării deciziilor.
@@ -288,7 +288,7 @@ Beneficiarul propune acum:
 
 > „De mâine, o rezervare ar trebui să dureze cel mult 60 de minute.”
 
-Există deja o rezervare aprobată de 90 de minute pentru mâine.
+Există deja o rezervare confirmată de 90 de minute pentru mâine (ziua D).
 
 Fără AI:
 
@@ -306,8 +306,8 @@ Pentru acest scenariu de schimbare, ziua-pilot D este mâine. Este o versiune no
 
 Fiecare pereche selectată explică unul dintre aspectele următoare:
 
-- o regulă de decis de beneficiar care părea o decizie tehnică;
-- o afirmație a evaluatorului pe care au verificat-o prin dovezi;
+- o regulă pe care trebuie să o stabilească beneficiarul, deși părea o decizie tehnică;
+- o constatare a evaluatorului pe care au verificat-o prin dovezi;
 - o decizie corectă păstrată și scenariul care o susține.
 
 Predați fișierele comune și explicația fiecăruia la destinația anunțată de cadrul didactic.
@@ -327,10 +327,10 @@ Lucrarea este pregătită pentru feedback când:
 - informațiile, ipotezele, întrebările și alegerile de proiectare se disting;
 - cerințele și scenariile respectă informațiile beneficiarului;
 - sarcina predată are limite, rezultat și punct de revizuire clare;
-- afirmațiile evaluatorului au dovezi și o decizie umană;
+- constatările evaluatorului au dovezi și o decizie umană;
 - fiecare partener explică o alegere și raționează despre schimbare fără ajutor.
 
-Urmează: aprofundarea modelului domeniului și atribuirea responsabilităților.
+Urmează: formularea problemei și cerințele, apoi modelarea domeniului.
 
 ::: notes
 Oferiți feedback punctual pentru revizuire acolo unde lipsesc dovezi. Evaluați judecata prin explicații și verificări, nu prin instrument, lungimea rezultatului sau aspectul unei diagrame.

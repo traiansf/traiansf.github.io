@@ -1,25 +1,25 @@
-# AMSS 2026 — Pregătirea mediului de lucru
+# AMSS 2026/2027 — Pregătirea mediului de lucru
 
 Ai nevoie de un mediu în care să citești și să editezi fișierele cursului și de acces la un asistent ales de tine atunci când exercițiul folosește AI. Folosește instrumente la care ai deja acces. Nu este obligatoriu un abonament plătit, un anumit model, editor sau extensie pentru diagrame.
 
 ## 1. Obține materialele
 
-Folosește fișierele furnizate pentru curs sau laborator ori clonează depozitul public cu sursele cursului:
+Folosește fișierele furnizate pentru curs sau laborator ori clonează repository-ul public cu sursele cursului:
 
 ```bash
 git clone https://github.com/traiansf/traiansf.github.io.git
 cd traiansf.github.io/class/amss-2026
 ```
 
-Depozitul conține și alte cursuri, precum și materiale ale site-ului. Lucrează cu fișierele indicate din `class/amss-2026`. Dacă nu folosești Git, poți începe cu un director de fișiere furnizat de cadrul didactic.
+Repository-ul conține și alte cursuri, precum și materiale ale site-ului. Lucrează cu fișierele indicate din `class/amss-2026`. Dacă nu folosești Git, poți începe cu un director de fișiere furnizat de cadrul didactic.
 
-Pentru activitatea proprie, folosește spațiul de lucru al laboratorului sau depozitul echipei indicat de cadrul didactic. Păstrează o copie a descrierii inițiale a problemei, analiza ta inițială, versiunile succesive ale artefactelor și dovezile revizuirii (review). Dacă folosești Git, identifică versiunile revizuite prin commit-uri; altfel, salvează versiuni cu nume clare.
+Pentru activitatea proprie, folosește spațiul de lucru al laboratorului sau repository-ul echipei indicat de cadrul didactic. Păstrează o copie a descrierii inițiale a problemei, analiza ta inițială, versiunile succesive ale artefactelor și dovezile revizuirii (review). Dacă folosești Git, identifică versiunile revizuite prin commituri; altfel, salvează versiuni cu nume clare.
 
 ## 2. Pregătește asistentul
 
 Deschide spațiul de lucru indicat în editorul cu asistentul ales sau furnizează fișierele/textul relevant într-o conversație din browser ori într-o aplicație locală. Verifică la ce materiale are acces asistentul; simpla menționare a unui fișier local într-un prompt din browser nu îi furnizează conținutul.
 
-Citește [instrucțiunile cursului](template/AGENTS.md). Furnizează-le în conversație sau integrează-le în instrucțiunile folosite deja de depozitul tău. Păstrează îndrumările existente, specifice proiectului. Poți folosi aceste instrucțiuni cu orice asistent.
+Citește [instrucțiunile cursului](template/AGENTS.md). Furnizează-le în conversație sau integrează-le în instrucțiunile folosite deja de repository-ul tău. Păstrează îndrumările existente, specifice proiectului. Poți folosi aceste instrucțiuni cu orice asistent.
 
 Fișierele din `template/` sunt opționale. Copiază numai fișierele de care ai nevoie, după ce verifici destinația. Șabloanele de configurare pentru furnizori nu conțin setări de model impuse de curs. Păstrează configurația personală și datele de autentificare separat de materialele partajate ale cursului. Configurația de proiect Codex este o modalitate opțională de a adăuga setări pentru proiect; consultă [documentația oficială de configurare](https://learn.chatgpt.com/docs/config-file/config-basic) dacă alegi să o folosești.
 
@@ -64,4 +64,4 @@ Urmează [îndrumările despre roluri, predarea sarcinilor și dovezi](README.md
 
 ## Orientare opțională
 
-[Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/Lab00.html) oferă pași simpli pentru acces, salvarea notițelor și verificarea uneltelor, inclusiv alternative fără AI. Poate fi parcurs individual. Exercițiile tehnice de analiză și proiectare urmează după cursul 2.
+[Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/Lab00.html) oferă pași simpli pentru acces, salvarea notițelor și verificarea instrumentelor, inclusiv alternative fără AI. Poate fi parcurs individual. Exercițiile tehnice de analiză și proiectare urmează după cursul 2.

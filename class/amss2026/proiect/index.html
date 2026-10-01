@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0a2145">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Traian-Florin Șerbănuță">
   <title>AMSS 2026/2027 — Proiectul de echipă</title>
@@ -54,6 +55,8 @@ vertical-align: middle;
 --header-bg: #0b1a33;
 --focus: #ffb454;
 }
+
+.site-header, .doc-bar { border-bottom: 1px solid var(--line); }
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
@@ -81,18 +84,30 @@ position: absolute; width: 1px; height: 1px; overflow: hidden;
 clip-path: inset(50%); white-space: nowrap;
 }
 
+.nowrap { white-space: nowrap; }
+
 .site-header { background: var(--header-bg); color: var(--header-text); }
 .site-header a { color: inherit; }
 .site-header a:hover { color: inherit; text-decoration-thickness: 3px; }
 .site-header :focus-visible { outline-color: #ffffff; }
-.intro { display: grid; gap: 1rem; align-items: center; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+
+.intro {
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 0.6rem 0.9rem;
+align-items: center;
+padding-top: 1.1rem;
+padding-bottom: 1.25rem;
+}
+.intro > div { display: contents; }
 .intro .logo {
-width: 5.5rem; height: auto;
-padding: 0.4rem;
-border-radius: 0.75rem;
+width: 3.5rem; height: auto;
+padding: 0.2rem;
+border-radius: 0.5rem;
 background: #ffffff;
 }
 .intro h1 {
+grid-column: 1 / -1;
 margin: 0;
 font-size: clamp(1.75rem, 5.2vw, 2.6rem);
 line-height: 1.12;
@@ -100,15 +115,19 @@ letter-spacing: -0.015em;
 text-wrap: balance;
 }
 .intro p { margin: 0; }
-.intro .edition { margin-bottom: 0.35rem; color: var(--header-accent); font-weight: 600; }
-.intro .tagline { margin-top: 0.6rem; font-size: 1.1rem; line-height: 1.4; opacity: 0.95; }
+.intro .edition { color: var(--header-accent); font-weight: 600; }
+.intro .tagline { grid-column: 1 / -1; font-size: 1rem; line-height: 1.4; opacity: 0.95; }
 .site-header nav { background: rgba(0, 0, 0, 0.22); }
-.site-header nav ul { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: 0; padding: 0; list-style: none; }
-.site-header nav a { display: inline-block; min-height: 2.75rem; padding: 0.7rem 0; font-weight: 600; text-decoration: none; }
+.site-header nav ul { display: flex; flex-wrap: wrap; gap: 0 0.05rem; margin: 0 0 0 -0.6rem; padding: 0; list-style: none; }
+.site-header nav a { display: inline-block; min-height: 2.75rem; padding: 0.7rem 0.6rem; font-weight: 600; text-decoration: none; }
 .site-header nav a:hover { text-decoration: underline; }
+.site-header nav a:focus-visible { outline-offset: -5px; }
 @media (min-width: 40rem) {
-.intro { grid-template-columns: auto 1fr; gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
-.intro .logo { width: 9.5rem; padding: 0.5rem; }
+.intro { gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.intro > div { display: block; }
+.intro .logo { width: 9.5rem; padding: 0.5rem; border-radius: 0.75rem; }
+.intro .edition { margin-bottom: 0.35rem; }
+.intro .tagline { margin-top: 0.6rem; font-size: 1.1rem; }
 }
 
 .home main { padding-bottom: 3rem; }
@@ -122,38 +141,46 @@ font-size: 1.5rem;
 line-height: 1.25;
 }
 .home p { margin: 0.5rem 0; }
-.home .lead { max-width: 46rem; color: var(--muted); }
+.home .lead { max-width: 38rem; color: var(--muted); }
 
-.schedule { width: 100%; border-collapse: collapse; }
+.schedule { width: 100%; margin-top: 1rem; border-collapse: collapse; }
 .schedule th {
-padding: 0 0 0.5rem;
+padding: 0 0 0.5rem 2.3rem; 
 color: var(--muted);
 font-size: 0.95rem;
 font-weight: 600;
 text-align: left;
 }
+.schedule th + th { padding-left: 4.3rem; }
 .schedule td { padding: 0.7rem 0; border-top: 1px solid var(--line); vertical-align: top; }
-.schedule td + td, .schedule th + th { padding-left: 2rem; }
+.schedule td + td { padding-left: 2rem; }
 .schedule ol { margin: 0; padding: 0 0 0 2.1rem; }
 .schedule li { padding: 0.15rem 0 0.15rem 0.2rem; }
 .schedule li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
 .schedule li.locked { color: var(--muted); }
 .schedule .format {
+display: inline-block;
+min-width: 2.75rem;
 margin-left: 0.4rem;
-padding: 0.05rem 0.4rem;
+padding: 0.15rem 0.5rem;
 border: 1px solid var(--line);
 border-radius: 0.3rem;
 font-size: 0.8rem;
 font-weight: 600;
+line-height: 1.4;
+text-align: center;
 text-decoration: none;
 white-space: nowrap;
 }
 .schedule .format:hover { border-color: currentColor; }
 .schedule .note { display: block; color: var(--muted); font-size: 0.9rem; }
-@media (min-width: 48rem) {
+@media print, (min-width: 48rem) {
 .schedule th:first-child, .schedule td:first-child { width: 54%; }
 }
-@media (max-width: 47.99rem) {
+@media screen and (min-width: 48rem) and (max-width: 59.99rem) {
+.schedule th:first-child, .schedule td:first-child { width: 50%; }
+}
+@media screen and (max-width: 47.99rem) {
 .schedule thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .schedule, .schedule tbody, .schedule tr, .schedule td { display: block; }
 .schedule tr { padding: 0.7rem 0; border-top: 1px solid var(--line); }
@@ -177,10 +204,13 @@ font-weight: 600;
 .facts { margin: 0; }
 .facts > div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
 .facts > div:last-child { border-bottom: 0; }
+
+.facts > div:target { box-shadow: -0.75rem 0 0 var(--bg), -1rem 0 0 var(--accent); }
 .facts dt { color: var(--brand); font-weight: 700; }
 .facts dd { margin: 0.2rem 0 0; }
 .facts dd > :first-child { margin-top: 0; }
 .facts dd > :last-child { margin-bottom: 0; }
+.facts dd > p { max-width: 38rem; }
 .facts ul { margin: 0.4rem 0; padding-left: 1.25rem; }
 .facts li + li { margin-top: 0.25rem; }
 .facts li::marker { color: var(--accent); }
@@ -191,11 +221,12 @@ font-weight: 600;
 .points { border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .points th, .points td { padding: 0.2rem 0; border-bottom: 1px solid var(--line); font-weight: 400; text-align: left; }
 .points td { padding-left: 2rem; text-align: right; white-space: nowrap; }
+.points tr:first-child > * { padding-top: 0; }
 .points tr:last-child th, .points tr:last-child td { border-bottom: 0; }
-.points tfoot th, .points tfoot td { border-top: 2px solid var(--line); font-weight: 700; }
 code.join { padding: 0.1rem 0.4rem; border-radius: 0.3rem; background: var(--surface); font-size: 0.95em; font-weight: 700; }
-.site-header code.join { background: rgba(255, 255, 255, 0.14); }
-.site-footer { margin-top: 1rem; padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+
+.site-footer { margin-top: 1rem; padding-bottom: 2.5rem; color: var(--muted); font-size: 0.95rem; }
+.site-footer::before { content: ""; display: block; margin-bottom: 1.5rem; border-top: 1px solid var(--line); }
 .site-footer p { margin: 0.2rem 0; }
 
 .doc-bar { background: var(--header-bg); color: var(--header-text); }
@@ -212,7 +243,7 @@ background: #ffffff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACA
 .doc-bar :focus-visible { outline-color: #ffffff; }
 .doc main { padding-top: 2.25rem; padding-bottom: 2rem; }
 .doc-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 3rem; }
-.doc-layout > * { min-width: 0; max-width: 44rem; }
+.doc-layout > * { min-width: 0; max-width: 40rem; }
 .prose { font-size: 1.0625rem; line-height: 1.65; overflow-wrap: break-word; }
 .doc-title { margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--line); }
 .doc-title .session { margin: 0 0 0.3rem; color: var(--accent); font-size: 1.1rem; font-weight: 700; }
@@ -227,7 +258,7 @@ text-wrap: balance;
 .doc-title .byline { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.95rem; }
 .doc-title .formats { margin: 0.3rem 0 0; font-size: 0.95rem; font-weight: 600; }
 .prose h2 { margin: 2.4rem 0 0.7rem; color: var(--brand); font-size: 1.45rem; line-height: 1.25; letter-spacing: -0.005em; text-wrap: balance; }
-.prose h3 { margin: 1.8rem 0 0.5rem; color: var(--brand); font-size: 1.15rem; line-height: 1.3; }
+.prose h3 { margin: 2rem 0 0.5rem; color: var(--brand); font-size: 1.2rem; line-height: 1.3; }
 .prose h4 { margin: 1.5rem 0 0.4rem; color: var(--brand); font-size: 1rem; }
 .prose p { margin: 0 0 1rem; }
 .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.5rem; }
@@ -241,15 +272,27 @@ text-wrap: balance;
 .prose blockquote { margin: 0 0 1rem; padding: 0.1rem 0 0.1rem 1rem; border-left: 0.25rem solid var(--accent); }
 .prose blockquote > :last-child { margin-bottom: 0; }
 
-.prose .epigraph + blockquote { color: var(--brand); font-size: 1.3rem; font-weight: 600; line-height: 1.35; text-wrap: balance; }
+.prose h2.epigraph { margin-bottom: 0.6rem; color: var(--muted); font-size: 1.05rem; letter-spacing: 0; }
+.prose .epigraph + blockquote { color: var(--brand); font-size: 1.4rem; font-weight: 600; line-height: 1.3; text-wrap: balance; }
 .prose .epigraph + blockquote + p { margin-bottom: 0.2rem; }
 .prose .epigraph + blockquote + p + p { color: var(--muted); font-size: 0.9rem; }
+
 .table-wrap { margin: 0 0 1.25rem; overflow-x: auto; }
-.prose table { width: 100%; border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.prose table { width: auto; min-width: min(100%, 22rem); border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
 .prose th, .prose td { padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .prose th:last-child, .prose td:last-child { padding-right: 0; }
 .prose thead th { border-bottom: 2px solid var(--brand); color: var(--brand); }
 .prose caption { margin-bottom: 0.4rem; color: var(--muted); text-align: left; }
+
+@media (max-width: 36rem) {
+.rubric thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.rubric table, .rubric tbody { display: block; width: 100%; }
+.rubric tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.25rem 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+.rubric tr:first-child { border-top: 2px solid var(--brand); }
+.rubric td { display: block; padding: 0; border: 0; }
+.rubric td:nth-child(2)::after { content: " p."; color: var(--muted); font-weight: 400; }
+.rubric td:nth-child(3) { grid-column: 1 / -1; font-size: 1rem; }
+}
 .prose code { padding: 0.1em 0.25em; border-radius: 0.25em; background: var(--surface); font-size: 0.9em; }
 
 .prose pre, .prose div.sourceCode {
@@ -262,31 +305,43 @@ background: var(--surface);
 .prose pre { padding: 0.8rem 1rem; font-size: 0.9rem; line-height: 1.5; }
 .prose pre code { padding: 0; background: none; font-size: 1em; }
 .prose div.sourceCode > pre { margin: 0; overflow: visible; border: 0; background: none; }
-.prose ul.task-list { padding-left: 0.2rem; }
-.prose ul.task-list li { display: flex; gap: 0.6rem; align-items: baseline; }
-.prose ul.task-list input[type="checkbox"] { flex: none; width: 1rem; height: 1rem; margin: 0; accent-color: var(--accent); transform: translateY(0.12rem); }
+@media (max-width: 36rem) {
+
+.prose pre.markdown > code.sourceCode { white-space: pre-wrap; }
+}
+
+.prose ul.task-list { padding-left: 0; }
+.prose ul.task-list li { display: block; }
+.prose ul.task-list label { display: flex; gap: 0.6rem; align-items: baseline; }
+.prose ul.task-list input[type="checkbox"] { flex: none; width: 1.05rem; height: 1.05rem; margin: 0; accent-color: var(--accent); transform: translateY(0.15rem); }
 
 .doc-toc { margin: 0 0 1.75rem; border: 1px solid var(--line); border-radius: 0.5rem; font-size: 0.95rem; line-height: 1.4; }
 .doc-toc summary { padding: 0.7rem 1rem; color: var(--muted); font-weight: 700; cursor: pointer; }
-.doc-toc nav { padding: 0 1rem 0.9rem; }
+.doc-toc nav { padding: 0 1rem 0.6rem; }
 .doc-toc ul { margin: 0; padding: 0; list-style: none; }
-.doc-toc li + li { margin-top: 0.45rem; }
 .doc-toc ul ul { display: none; }
-.doc-toc a { text-decoration: none; }
+.doc-toc a { display: block; padding: 0.35rem 0; text-decoration: none; }
 .doc-toc a:hover { text-decoration: underline; }
+@media (min-width: 45rem) and (max-width: 61.99rem) {
+
+.doc main.wrap, .doc .site-footer, .doc .doc-bar .wrap { max-width: 42.5rem; }
+}
 @media (min-width: 62rem) {
-.doc-layout { grid-template-columns: minmax(0, 44rem) minmax(0, 1fr); grid-template-rows: auto 1fr; }
+.doc-layout { grid-template-columns: minmax(0, 40rem) minmax(0, 1fr); grid-template-rows: auto 1fr; }
 .doc-title { grid-column: 1; grid-row: 1; }
 .doc-layout > .prose { grid-column: 1; grid-row: 2; }
 .doc-toc {
 grid-column: 2; grid-row: 1 / span 2;
 position: sticky; top: 1.5rem; align-self: start;
 max-height: calc(100vh - 3rem); overflow-y: auto;
-margin: 0.4rem 0 0;
+margin: 0;
+padding: 0.5rem 0.5rem 0.5rem 0; 
 border: 0; border-left: 2px solid var(--line); border-radius: 0;
 }
-.doc-toc summary { padding: 0 0 0.6rem 1.1rem; }
+.doc-toc summary { margin-left: 1.1rem; padding: 0 0 0.5rem; }
 .doc-toc nav { padding: 0 0 0 1.1rem; }
+.doc-toc a { padding: 0.22rem 0; }
+.doc-toc :focus-visible { outline-offset: 2px; }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -301,18 +356,25 @@ border: 0; border-left: 2px solid var(--line); border-radius: 0;
 @media (prefers-contrast: more) {
 :root { --muted: var(--text); --line: currentColor; }
 }
+@media (forced-colors: active) {
+
+.intro .logo, .doc-bar a::before { forced-color-adjust: none; }
+}
 @media print {
 :root { --bg: #ffffff; --surface: #f3f7f8; --text: #000000; --muted: #333333; --line: #999999; --brand: #0a2145; --accent: #065a5a; }
 body { font-size: 10.5pt; }
 .site-header, .doc-bar { background: none; color: #000000; border-bottom: 2px solid #000000; }
-.site-header nav, .skip-link, .doc-toc { display: none; }
+.site-header nav, .skip-link, .doc-toc, .doc-title .formats { display: none; }
 .intro .edition { color: #000000; }
 .doc-bar .course { color: #000000; }
 a { color: #000000; }
 .prose a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; overflow-wrap: anywhere; }
+.prose a[href*="teams."]::after { content: none; } 
 .prose { max-width: none; font-size: inherit; }
 h2, h3 { break-after: avoid; }
-pre, table, blockquote { break-inside: avoid; }
+pre, table, blockquote, .site-footer { break-inside: avoid; }
+.schedule { break-inside: auto; }
+.schedule tr { break-inside: avoid; }
 }
 </style>
 </head>
@@ -335,54 +397,59 @@ pre, table, blockquote { break-inside: avoid; }
         <ul>
         <li><a href="#echipă-și-temă" id="toc-echipă-și-temă">Echipă și temă</a></li>
         <li><a href="#parcursul-proiectului" id="toc-parcursul-proiectului">Parcursul proiectului</a></li>
-        <li><a href="#dosarul-de-proiectare-al-echipei-5-puncte" id="toc-dosarul-de-proiectare-al-echipei-5-puncte">Dosarul de proiectare al echipei — 5 puncte</a></li>
+        <li><a href="#dosarul-de-proiectare-al-echipei-5-puncte" id="toc-dosarul-de-proiectare-al-echipei-5-puncte">Dosarul de proiectare al echipei — 5 puncte</a></li>
         <li><a href="#lucrul-cu-ai-și-dovezile-de-revizuire" id="toc-lucrul-cu-ai-și-dovezile-de-revizuire">Lucrul cu AI și dovezile de revizuire</a></li>
         <li><a href="#feedback-pe-parcursul-semestrului-și-laboratorul-deschis" id="toc-feedback-pe-parcursul-semestrului-și-laboratorul-deschis">Feedback pe parcursul semestrului și laboratorul deschis</a></li>
-        <li><a href="#interviul-de-susținere-ultimul-laborator" id="toc-interviul-de-susținere-ultimul-laborator">Interviul de susținere — ultimul laborator</a></li>
-        <li><a href="#examen-grilă-individual-3-puncte" id="toc-examen-grilă-individual-3-puncte">Examen grilă individual — 3 puncte</a></li>
+        <li><a href="#interviul-de-susținere-ultimul-laborator" id="toc-interviul-de-susținere-ultimul-laborator">Interviul de susținere — ultimul laborator</a></li>
+        <li><a href="#examen-grilă-individual-3-puncte" id="toc-examen-grilă-individual-3-puncte">Examen grilă individual — 3 puncte</a></li>
         <li><a href="#nota-finală" id="toc-nota-finală">Nota finală</a></li>
         </ul>
       </nav>
     </details>
     <script>
-      // The outline stays open beside the text on wide screens (static/amss.css).
-      if (matchMedia('(min-width: 62rem)').matches) document.getElementById('toc').open = true;
+      // The outline is open beside the text on a wide window and collapsed above
+      // it on a narrow one (static/amss.css), also after a resize or rotation.
+      (function (toc, wide) {
+        function sync() { toc.open = wide.matches; }
+        sync();
+        if (wide.addEventListener) wide.addEventListener('change', sync);
+      })(document.getElementById('toc'), matchMedia('(min-width: 62rem)'));
     </script>
     <article class="prose">
 <p>Proiectul urmărește <strong>analiza unei probleme și construirea unei soluții de proiectare justificate</strong>. Echipa dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile. Dosarul de proiectare al echipei valorează <strong>5 puncte</strong>, iar înțelegerea individuală se evaluează printr-un <strong>examen grilă de 3 puncte</strong>. Prezența și punctul din oficiu completează nota până la 10.</p>
-<p>La finalul cursului, ar trebui să poți analiza fără AI o problemă mică și necunoscută, să propui o soluție de proiectare, să explici alternative și să urmărești consecințele unei schimbări, folosind text, schițe sau pseudocod. AI te poate ajuta să explorezi și să produci mai repede; tu răspunzi pentru cerințele, deciziile și dovezile pe care le accepți.</p>
+<p>La finalul cursului, ar trebui să puteți analiza fără AI o problemă mică și necunoscută, să propuneți o soluție de proiectare, să explicați alternative și să urmăriți consecințele unei schimbări, folosind text, schițe sau pseudocod. AI vă poate ajuta să explorați și să produceți mai repede; voi răspundeți pentru cerințele, deciziile și dovezile pe care le acceptați.</p>
 <h2 id="echipă-și-temă">Echipă și temă</h2>
 <ul>
-<li>Echipe de <strong>3–5 studenți</strong>, cu o soluție de proiectare comună și contribuții individuale identificabile.</li>
-<li>Tema se alege până pe <strong>31 octombrie 2026</strong>. Studenții fără echipă sau temă la <strong>1 noiembrie</strong> vor fi distribuiți aleator.</li>
-<li>Mai multe echipe pot alege aceeași temă. Dacă prea multe echipe aleg exact aceeași temă, unele pot fi rugate să schimbe.</li>
+<li>Echipe de <strong><span class="nowrap">3–5</span> studenți</strong>, cu o soluție de proiectare comună și contribuții individuale identificabile.</li>
+<li>Tema se alege până la <strong>31 octombrie 2026</strong>. Studenții fără echipă sau temă la <strong>1 noiembrie</strong> vor fi repartizați aleatoriu.</li>
+<li>Mai multe echipe pot alege aceeași temă. Dacă prea multe echipe aleg exact aceeași temă, unele pot fi rugate să o schimbe.</li>
 </ul>
 <p>Alegerea se anunță pe canalul Teams al cursului, printr-un mesaj al liderului de echipă, care conține:</p>
 <ul>
 <li>numele echipei și componența ei;</li>
-<li>numele și descrierea proiectului, în 1–2 paragrafe;</li>
-<li>un argument privind dimensiunea potrivită a temei;</li>
+<li>numele și descrierea proiectului, în <span class="nowrap">1–2</span> paragrafe;</li>
+<li>o justificare că tema are o dimensiune potrivită;</li>
 <li><strong>linkul către repository-ul public al proiectului, pe GitHub sau GitLab</strong>.</li>
 </ul>
 <p>Repository-ul trebuie să fie creat și accesibil public în momentul anunțării proiectului.</p>
-<p>Folosiți acest repository pe parcursul întregului semestru, astfel încât istoricul modificărilor să permită urmărirea progresului și a contribuției fiecărui membru. Publicați treptat cerințele, modelele, deciziile, revizuirile și dovezile, cu autorii contribuțiilor identificabili; o singură încărcare la final nu arată parcursul proiectului. Pentru lucrul comun, consemnați membrii care au contribuit și rolul lor în deciziile relevante. Numărul de commit-uri nu este un criteriu de notare.</p>
-<p><strong>Dezvoltarea materialelor și efectuarea commit-urilor pot fi asistate de AI. Echipa răspunde pentru conținutul publicat, verifică modificările și își asumă cerințele, deciziile și dovezile din repository.</strong> Un commit efectuat de un asistent nu înlocuiește identificarea contribuției membrilor echipei.</p>
-<p>Alegeți o problemă cu reguli, decizii și comportamente care merită analizate. Limitați explicit scopul: o problemă bine delimitată permite o proiectare argumentată și verificabilă. Împărțiți munca astfel încât fiecare student să contribuie la decizii importante, păstrând coerența întregului.</p>
+<p>Folosiți acest repository pe parcursul întregului semestru, astfel încât istoricul modificărilor să permită urmărirea progresului și a contribuției fiecărui membru. Publicați treptat cerințele, modelele, deciziile, revizuirile și dovezile, cu autorii contribuțiilor identificabili; o singură încărcare la final nu arată parcursul proiectului. Pentru lucrul comun, consemnați membrii care au contribuit și rolul lor în deciziile relevante. Numărul de commituri nu este un criteriu de notare.</p>
+<p><strong>Dezvoltarea materialelor și efectuarea commiturilor pot fi asistate de AI. Echipa răspunde pentru conținutul publicat, verifică modificările și își asumă cerințele, deciziile și dovezile din repository.</strong> Un commit efectuat de un asistent nu înlocuiește identificarea contribuției membrilor echipei.</p>
+<p>Alegeți o problemă cu reguli, decizii și comportamente care merită analizate. Stabiliți explicit limitele proiectului: o problemă bine delimitată permite o soluție de proiectare argumentată și verificabilă. Împărțiți munca astfel încât fiecare student să contribuie la decizii importante, păstrând coerența întregului.</p>
 <h2 id="parcursul-proiectului">Parcursul proiectului</h2>
-<p>Construiți o <strong>specificație și o proiectare substanțiale înainte de implementare</strong>. Parcurgeți explicit următoarele întrebări:</p>
+<p>Elaborați o <strong>specificație și o soluție de proiectare substanțiale înainte de implementare</strong>. Parcurgeți explicit următoarele întrebări:</p>
 <ol type="1">
 <li><strong>Ce problemă rezolvăm?</strong> Identificați beneficiarii, obiectivele, limitele sistemului, cerințele, ipotezele și întrebările deschise. Separați regulile confirmate de propunerile echipei sau ale AI.</li>
 <li><strong>Cum înțelegem domeniul?</strong> Definiți conceptele, identitatea, relațiile și regulile relevante. Modelul domeniului poate preceda orice alegere de clase, funcții sau structuri de date.</li>
 <li><strong>Ce soluție de proiectare propunem?</strong> Atribuiți responsabilități, descrieți contracte, invariante și comportamente, apoi justificați limitele și dependențele dintre părți.</li>
-<li><strong>Ce dovezi susțin proiectarea?</strong> Parcurgeți scenarii normale și excepționale, verificați proprietăți și comparați o alternativă relevantă. Analizați efectul unei schimbări de cerință.</li>
-<li><strong>Ce revizuim înainte de predare?</strong> Obțineți o analiză într-un context separat, verificați constatările și actualizați specificația, proiectarea și sinteza în consecință.</li>
+<li><strong>Ce dovezi susțin proiectarea?</strong> Parcurgeți scenarii normale și excepționale, verificați proprietăți și comparați soluția cu o alternativă relevantă. Analizați efectul unei schimbări de cerință.</li>
+<li><strong>Ce revizuim înainte de predare?</strong> Obțineți o revizuire într-un context separat, verificați constatările și actualizați specificația, proiectarea și sinteza în consecință.</li>
 </ol>
 <p>Notați la trecerea dintre etape ce este stabilit, ce rămâne incert și ce ar putea impune o revizuire. O descoperire ulterioară poate justifica întoarcerea la o cerință sau la o decizie anterioară.</p>
-<p><strong>Nu se cere o aplicație funcțională sau o buclă TDD obligatorie.</strong> Puteți folosi modele executabile, simulări, teste sau prototipuri pentru a investiga o întrebare de proiectare. Explicați ce ați verificat, rezultatul și limitele verificării. Dacă implementați un prototip, porniți de la specificația și proiectarea revizuite și urmăriți apoi implementare → teste → revizuire.</p>
-<h2 id="dosarul-de-proiectare-al-echipei-5-puncte">Dosarul de proiectare al echipei — 5 puncte</h2>
+<p><strong>Nu sunt obligatorii nici aplicația funcțională, nici ciclul TDD (dezvoltare ghidată de teste).</strong> Puteți folosi modele executabile, simulări, teste sau prototipuri pentru a investiga o întrebare de proiectare. Explicați ce ați verificat, rezultatul și limitele verificării. Dacă implementați un prototip, porniți de la specificația și proiectarea revizuite și urmați apoi succesiunea implementare → teste → revizuire.</p>
+<h2 id="dosarul-de-proiectare-al-echipei-5-puncte">Dosarul de proiectare al echipei — 5 puncte</h2>
 <p>Păstrați dosarul în <strong>repository-ul public de pe GitHub sau GitLab anunțat pe Teams</strong>. Dosarul are o sinteză ușor de parcurs și legături către modelele și dovezile care susțin afirmațiile sale. Ca reper, urmăriți o <strong>sinteză de aproximativ două pagini</strong>; detaliile relevante pot rămâne în fișierele către care trimite aceasta.</p>
-<p>Sinteza trebuie să permită găsirea rapidă a problemei și limitelor proiectului, a deciziilor principale, a justificărilor, a dovezilor și a incertitudinilor rămase. Includeți și o scurtă evidență a contribuțiilor membrilor echipei, cu legături către deciziile și materialele relevante.</p>
-<div class="table-wrap">
+<p>Sinteza trebuie să permită găsirea rapidă a problemei și a limitelor proiectului, a deciziilor principale, a justificărilor, a dovezilor și a incertitudinilor rămase. Includeți și o scurtă evidență a contribuțiilor membrilor echipei, cu legături către deciziile și materialele relevante.</p>
+<div class="table-wrap rubric">
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -398,7 +465,7 @@ pre, table, blockquote { break-inside: avoid; }
 </thead>
 <tbody>
 <tr>
-<td><strong>Încadrarea problemei și cerințe</strong></td>
+<td><strong>Formularea problemei și cerințe</strong></td>
 <td style="text-align: right;">1</td>
 <td>Beneficiari, obiective și limite clare; cerințe verificabile; ipoteze și întrebări deschise explicite; exemple de acceptare și impactul schimbării unei cerințe.</td>
 </tr>
@@ -415,12 +482,12 @@ pre, table, blockquote { break-inside: avoid; }
 <tr>
 <td><strong>Stări și comportamente</strong></td>
 <td style="text-align: right;">1</td>
-<td>Comportamente și tranziții permise, condiții și efecte; scenarii normale și excepționale care verifică modelul; consecvență cu regulile domeniului.</td>
+<td>Comportamente și tranziții permise, condiții și efecte; scenarii normale și excepționale care verifică modelul; concordanță cu regulile domeniului.</td>
 </tr>
 <tr>
 <td><strong>Responsabilități, coeziune și cuplare</strong></td>
 <td style="text-align: right;">1</td>
-<td>Cine deține fiecare decizie sau comportament important; justificarea grupării responsabilităților, dependențelor și interfețelor prin alternative și consecințele unei schimbări.</td>
+<td>Cine răspunde de fiecare decizie sau comportament important; justificarea grupării responsabilităților, a dependențelor și a interfețelor, prin alternative și prin consecințele unei schimbări.</td>
 </tr>
 <tr>
 <td><strong>Total dosar de echipă</strong></td>
@@ -430,22 +497,22 @@ pre, table, blockquote { break-inside: avoid; }
 </tbody>
 </table>
 </div>
-<p>Validarea, dovezile, compararea alternativelor și analiza schimbării se evaluează în cadrul celor cinci criterii. Explicați ce susține fiecare verificare și care sunt limitele ei; aceste aspecte fac parte din calitatea fiecărei decizii de analiză sau proiectare.</p>
-<p>Alegeți reprezentări potrivite întrebărilor: glosar, exemple, tabel de responsabilități, contracte, tabel de tranziții, schițe, pseudocod, diagrame sau modele executabile. Folosiți identificatori și legături simple pentru a urmări o cerință până la decizia și verificarea ei. <strong>Nu există cote de diagrame UML, șabloane de proiectare (design patterns) sau defecte descoperite.</strong> Claritatea, justificarea și coerența contează în evaluare; volumul documentației sau al conversațiilor nu aduce puncte suplimentare.</p>
+<p>Validarea, dovezile, compararea alternativelor și analiza schimbării se evaluează în cadrul celor cinci criterii. Explicați ce arată fiecare verificare și care sunt limitele ei; aceste aspecte fac parte din calitatea fiecărei decizii de analiză sau proiectare.</p>
+<p>Alegeți reprezentări potrivite întrebărilor: glosar, exemple, tabel de responsabilități, contracte, tabel de tranziții, schițe, pseudocod, diagrame sau modele executabile. Folosiți identificatori și legături simple pentru a urmări o cerință până la decizia și verificarea ei. <strong>Nu există cote de diagrame UML, de șabloane de proiectare (design patterns) sau de defecte descoperite.</strong> Claritatea, justificarea și coerența contează în evaluare; volumul documentației sau al conversațiilor nu aduce puncte suplimentare.</p>
 <h2 id="lucrul-cu-ai-și-dovezile-de-revizuire">Lucrul cu AI și dovezile de revizuire</h2>
-<p>Puteți alege uneltele și modelele AI. Definiți explicit rolurile, de exemplu analist, proiectant și evaluator (agent de revizuire), și informațiile predate între ele. Înainte de a delega, formulați voi problema, constrângerile și criteriile după care veți judeca rezultatul.</p>
-<p>Includeți o revizuire într-o <strong>sesiune sau într-un context nou</strong>, care primește specificația și proiectarea curente, întrebările de verificat și criteriile de acceptare. Același model poate fi folosit într-un context separat. Evaluatorul trebuie să poată examina dovezile, inclusiv atunci când sinteza omite un detaliu important.</p>
+<p>Puteți alege instrumentele și modelele AI. Definiți explicit rolurile, de exemplu analist, proiectant și evaluator (agent de revizuire), și informațiile predate între ele. Înainte de a delega, formulați voi problema, constrângerile și criteriile după care veți judeca rezultatul.</p>
+<p>Includeți o revizuire într-o <strong>sesiune sau într-un context nou</strong>, care primește specificația și proiectarea curente, întrebările de verificat și criteriile de acceptare. Același model poate fi folosit într-un context separat. Agentul de revizuire trebuie să poată examina dovezile, inclusiv atunci când sinteza omite un detaliu important.</p>
 <p>Documentați concis o decizie importantă și parcursul revizuirii ei: ce a fost delegat, ce context a fost transmis, ce constatare ați verificat, ce ați acceptat sau respins și de ce. Legați explicația de versiunea relevantă a modelului și de un exemplu sau de altă dovadă verificabilă. Dacă revizuirea nu găsește un defect, arătați ce a fost verificat și ce concluzie permite verificarea; nu inventați greșeli pentru dosar.</p>
-<p>Fragmentele de conversație pot susține explicația. O transcriere integrală nu înlocuiește sinteza și raționamentul vostru. Indicați instrumentul și modelul folosit, în măsura în care această informație este disponibilă; evaluarea privește deciziile și dovezile, fără a cere reproducerea exactă a textului generat. Pentru pregătirea mediului, consultați <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">ghidul de configurare</a>.</p>
+<p>Fragmentele de conversație pot susține explicația. O transcriere integrală nu înlocuiește sinteza și raționamentul vostru. Indicați instrumentul și modelul folosite, în măsura în care această informație este disponibilă; evaluarea privește deciziile și dovezile, fără a cere reproducerea exactă a textului generat. Pentru pregătirea mediului, consultați <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">ghidul de pregătire a mediului de lucru</a>.</p>
 <h2 id="feedback-pe-parcursul-semestrului-și-laboratorul-deschis">Feedback pe parcursul semestrului și laboratorul deschis</h2>
-<p><strong>Echipa poate cere oricând feedback profesorului în timpul semestrului</strong>, prin canalul Teams al cursului sau în cadrul întâlnirilor. Includeți linkul către materialul relevant din repository și întrebarea pe care doriți să o clarificați. Feedback-ul vă ajută să îmbunătățiți dosarul; nu există o evaluare intermediară programată sau un punctaj separat pentru această activitate.</p>
-<p>Doar <strong>ultimele două laboratoare</strong> sunt dedicate efectiv proiectului. Laboratoarele 1–5 tratează teme importante ale cursului, prin exerciții pe probleme distincte: înțelegere, specificare și revizuire (cursurile 1–2); cerințe și modelarea domeniului (3–4); responsabilități, contracte și invariante (5–6); stări, comportament și interacțiuni (7–8); validare și abstractizare (9–10). Fiecare laborator are loc după predarea celor două cursuri asociate.</p>
-<p><strong>Lab 6 este un laborator deschis:</strong> lucru individual la proiect, întrebări adresate profesorului și discuții între echipe. Folosiți timpul pentru întrebările și revizuirile de care are nevoie proiectul vostru, inclusiv întrebări de proiectare care ar fi fost discutate într-un atelier la curs. Lab 6 urmează cursurile 11–12; Lab 7 urmează cursurile 13–14. Nu există o prezentare obligatorie sau o repetiție de susținere.</p>
-<h2 id="interviul-de-susținere-ultimul-laborator">Interviul de susținere — ultimul laborator</h2>
-<p>La <strong>Lab 7</strong>, profesorul definitivează nota pe dosarul echipei printr-un <strong>interviu de aproximativ 8 minute</strong>, cu întrebări asupra punctelor neclare, la care echipa poate răspunde. Dosarul trebuie să fie disponibil pentru lectură înainte de interviu; termenul exact și programarea echipelor vor fi anunțate pe Teams.</p>
-<p>Discuția pornește de la dosarul citit de profesor. Echipa poate consulta repository-ul și poate indica cerințele, deciziile, contribuțiile și dovezile relevante pentru clarificări. Nu este necesară pregătirea unei prezentări sau a unor slide-uri.</p>
+<p><strong>Echipa poate cere oricând feedback profesorului în timpul semestrului</strong>, prin canalul Teams al cursului sau în cadrul întâlnirilor. Includeți linkul către materialul relevant din repository și întrebarea pe care doriți să o clarificați. Feedbackul vă ajută să îmbunătățiți dosarul; nu există o evaluare intermediară programată sau un punctaj separat pentru această activitate.</p>
+<p>Doar <strong>ultimele două laboratoare</strong> sunt dedicate efectiv proiectului. Laboratoarele <span class="nowrap">1–5</span> tratează teme importante ale cursului, prin exerciții pe probleme distincte: înțelegere, specificare și revizuire (cursurile <span class="nowrap">1–2);</span> cerințe și modelarea domeniului <span class="nowrap">(3–4);</span> responsabilități, contracte și invariante <span class="nowrap">(5–6);</span> stări, comportament și interacțiuni <span class="nowrap">(7–8);</span> validare și abstractizare <span class="nowrap">(9–10).</span> Fiecare laborator are loc după predarea celor două cursuri asociate.</p>
+<p><strong>Laboratorul 6 este un laborator deschis:</strong> lucru individual la proiect, întrebări adresate profesorului și discuții între echipe. Folosiți timpul pentru întrebările și revizuirile de care are nevoie proiectul vostru, inclusiv întrebări de proiectare care ar fi fost discutate într-un atelier la curs. Laboratorul 6 urmează cursurile <span class="nowrap">11–12,</span> iar laboratorul 7, cursurile <span class="nowrap">13–14.</span> Nu există o prezentare obligatorie sau o repetiție de susținere.</p>
+<h2 id="interviul-de-susținere-ultimul-laborator">Interviul de susținere — ultimul laborator</h2>
+<p>La <strong>laboratorul 7</strong>, profesorul definitivează punctajul pentru dosarul echipei printr-un <strong>interviu de aproximativ 8 minute</strong>, cu întrebări despre punctele neclare, la care echipa poate răspunde. Dosarul trebuie să fie disponibil pentru lectură înainte de interviu; termenul exact și programarea echipelor vor fi anunțate pe Teams.</p>
+<p>Discuția pornește de la dosarul citit de profesor. Echipa poate consulta repository-ul și poate indica cerințele, deciziile, contribuțiile și dovezile relevante pentru clarificări. Nu este necesară pregătirea unei prezentări sau a unor diapozitive.</p>
 <p>Profesorul stabilește punctajul final de echipă pe <strong>cele cinci criterii ale dosarului</strong>, ținând cont de clarificările din interviu. Interviul nu are punctaj separat. Întrebările sunt adresate echipei; nu se organizează o examinare orală distinctă pentru fiecare student.</p>
-<h2 id="examen-grilă-individual-3-puncte">Examen grilă individual — 3 puncte</h2>
+<h2 id="examen-grilă-individual-3-puncte">Examen grilă individual — 3 puncte</h2>
 <p>Examenul verifică aplicarea principiilor de analiză și proiectare în <strong>scenarii scurte</strong>, individual și fără AI. Întrebările urmăresc interpretarea cerințelor, modelarea domeniului, responsabilitățile și dependențele, contractele și invariantele, stările și comportamentele, precum și dovezile de validare.</p>
 <p>Pregătiți-vă să identificați o ipoteză nejustificată, să comparați variante de proiectare, să interpretați un contraexemplu sau să urmăriți efectele unei schimbări. Evaluarea privește raționamentul aplicat situației descrise, fără întrebări de memorare a detaliilor unei notații. Formatul detaliat și condițiile de organizare vor fi anunțate separat.</p>
 <h2 id="nota-finală">Nota finală</h2>
@@ -488,15 +555,15 @@ pre, table, blockquote { break-inside: avoid; }
 </table>
 </div>
 <p>Pentru dosar se acordă un punctaj de echipă; examenul grilă și prezența se contabilizează individual.</p>
-<p>Punctul de prezență se acordă proporțional pentru participarea la <strong>cursuri și laboratoare</strong>, fiecare întâlnire având aceeași pondere:</p>
-<p><strong>Punctaj prezență = numărul întâlnirilor la care ai participat / numărul total al întâlnirilor desfășurate și contabilizate.</strong></p>
+<p>Punctul de prezență se acordă proporțional cu participarea la <strong>cursuri și laboratoare</strong>, fiecare întâlnire având aceeași pondere:</p>
+<p><strong>Punctaj prezență = numărul întâlnirilor la care ați participat / numărul total al întâlnirilor desfășurate și contabilizate.</strong></p>
 <p>Pentru 14 cursuri și 7 laboratoare, numitorul este 21. Întâlnirile anulate nu intră în numitor; acesta reflectă întâlnirile efectiv desfășurate și contabilizate.</p>
 <p>În sesiunea de restanțe, nota se calculează astfel: <strong>9 puncte pentru examenul grilă + 1 punct din oficiu = 10</strong>. Examenul urmărește aceleași competențe de analiză și proiectare. Punctajele pentru dosarul de echipă și prezență nu se reportează în nota de la restanță.</p>
     </article>
   </main>
   <footer class="wrap site-footer">
     <p><a href="../">AMSS 2026/2027: pagina cursului</a></p>
-    <p>Traian-Florin Șerbănuță</p>
+    <p><a href="https://traiansf.github.io/">Traian-Florin Șerbănuță</a>, Facultatea de Matematică și Informatică, Universitatea din București</p>
   </footer>
 </body>
 </html>

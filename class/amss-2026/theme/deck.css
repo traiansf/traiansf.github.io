@@ -46,7 +46,10 @@ body {
   border-radius: 0.5rem;
   overflow-wrap: break-word;
   counter-increment: slide;
+  scroll-margin-top: 1rem;
 }
+/* A slide takes the focus after a jump from the outline (deck.js). */
+.slide:focus { outline: none; }
 
 .slide::after {
   content: counter(slide);
@@ -87,6 +90,9 @@ body {
 .slide h3 { margin: 0.9em 0 0.3em; color: var(--navy); font-size: 1em; }
 
 .slide p { margin: 0 0 0.7em; }
+/* Fewer one-word last lines where the browser supports it; theme/amss.lua
+   also ties the last two words of longer paragraphs. */
+.slide p, .slide li, .slide td, .slide blockquote { text-wrap: pretty; }
 .slide strong { color: var(--navy); font-weight: 700; }
 
 .slide a { color: var(--teal); text-decoration-thickness: 0.06em; text-underline-offset: 0.16em; }
@@ -112,6 +118,7 @@ body {
   background: var(--teal);
 }
 .slide ul ul > li::before { background: none; box-shadow: inset 0 0 0 0.09em var(--teal); }
+.slide ul.task-list > li::before { content: none; }   /* the checkbox is the marker */
 .slide ol > li::marker { color: var(--teal); font-weight: 700; }
 
 .slide blockquote {
@@ -122,8 +129,9 @@ body {
 }
 .slide blockquote > :last-child { margin-bottom: 0; }
 
+/* theme/amss.lua wraps each table, so a wide one scrolls inside its slide. */
+.slide .table-wrap { margin: 0 0 0.8em; overflow-x: auto; }
 .slide table {
-  margin: 0 0 0.8em;
   border-collapse: collapse;
   font-size: 0.92em;
   font-variant-numeric: tabular-nums;
@@ -151,6 +159,7 @@ body {
 .slide div.sourceCode > pre { margin: 0; overflow: visible; border: 0; background: none; }
 
 .slide img, .slide svg { max-width: 100%; height: auto; }
+/* The slidy writer puts align="center" on the columns; keep the text left. */
 .slide div.columns { gap: 2em; align-items: center; text-align: start; }
 .slide div.column { min-width: 0; }
 .slide div.column > :last-child { margin-bottom: 0; }
@@ -163,6 +172,7 @@ body {
 .slide figure { margin: 0 0 0.8em; }
 .slide figcaption { color: var(--muted); font-size: 0.85em; }
 .slide hr { border: 0; border-top: 1px solid var(--line); margin: 1em 0; }
+.slide .nowrap { white-space: nowrap; }   /* ranges such as 10–12, marked by theme/amss.lua */
 
 /* The epigraph slide ("Ideea întâlnirii"): quotation, author, source. */
 .slide.epigraph blockquote {
@@ -201,6 +211,7 @@ body {
   background: #ffffff;
 }
 .slide.titlepage p { margin: 0; }
+.slide.titlepage a { color: var(--teal-light); }
 .slide.titlepage .course { margin-bottom: 0.2em; color: var(--teal-light); font-size: 0.95em; font-weight: 600; }
 .slide.titlepage h1 {
   margin: 0 0 0.55em;
@@ -222,44 +233,49 @@ body {
   .slide.titlepage .logo { margin-bottom: 1.25rem; }
 }
 
-/* ---------- one slide at a time (html.paged, set by deck.js) ---------- */
+/* ---------- one slide at a time (html.paged; screens only) ---------- */
 
-html.paged { background: var(--paper); }
-html.paged body {
-  --deck-size: clamp(0.95rem, min(3.9vh, 2.3vw), 3.25rem);
-  padding: 0 0 var(--bar);
-}
-html.paged .slide { display: none; }
-html.paged .slide.current {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto minmax(0, 1.6fr);
-  grid-template-columns: minmax(0, 1fr);
-  max-width: none;
-  min-height: calc(100vh - var(--bar));
-  min-height: calc(100dvh - var(--bar));
-  margin: 0;
-  padding: 4.5vh max(5vw, calc((100vw - 46em) / 2)) 3vh;
-  border: 0;
-  border-radius: 0;
-  font-size: calc(var(--deck-size) * var(--fit, 1));
-  line-height: 1.4;
-}
-html.paged .slide::after { content: none; }
-html.paged .slide.current > h1 { grid-row: 1; }
-html.paged .slide.current > .slide-body { grid-row: 3; }
-/* A diagram leaves room for its slide's text, and shrinks with it (--fit). */
-html.paged .slide img, html.paged .slide svg { max-height: calc(58vh * var(--fit, 1)); }
+@media screen {
+  html.paged { background: var(--paper); }
+  html.paged body {
+    --deck-size: clamp(0.95rem, min(3.9vh, 2.3vw), 6rem);
+    padding: 0 0 var(--bar);
+  }
+  html.paged .slide { display: none; }
+  html.paged .slide.current {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto minmax(0, 1.6fr);
+    grid-template-columns: minmax(0, 1fr);
+    max-width: none;
+    min-height: calc(100vh - var(--bar));
+    min-height: calc(100dvh - var(--bar));
+    margin: 0;
+    padding: 4.5vh max(5vw, calc((100vw - 46 * var(--deck-size)) / 2)) 3vh;
+    border: 0;
+    border-radius: 0;
+    font-size: var(--deck-size);
+    line-height: 1.4;
+  }
+  html.paged .slide::after { content: none; }
+  html.paged .slide.current > h1 { grid-row: 1; }
+  /* deck.js lowers --fit until a full slide fits; the title keeps its size. */
+  html.paged .slide.current > .slide-body { grid-row: 3; font-size: calc(1em * var(--fit, 1)); }
+  /* A diagram leaves room for its slide's text and shrinks with it. */
+  html.paged .slide img, html.paged .slide svg { max-height: calc(58vh * var(--fit, 1)); object-fit: contain; }
+  /* What a pause (". . .") still holds back keeps its place in the layout. */
+  html.paged .deck-wait { visibility: hidden; }
 
-html.paged .slide.titlepage.current {
-  grid-template-rows: none;
-  grid-template-columns: auto minmax(0, 1fr);
-  column-gap: 5vw;
-  padding-top: 6vh;
-  padding-bottom: 6vh;
+  html.paged .slide.titlepage.current {
+    grid-template-rows: none;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 5vw;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+  }
+  html.paged .slide.titlepage > h1 { grid-row: auto; }
+  html.paged .slide.titlepage .logo { width: 10em; max-height: none; }
+  html.paged .slide.titlepage h1 { font-size: 2.4em; }
 }
-html.paged .slide.titlepage > h1 { grid-row: auto; }
-html.paged .slide.titlepage .logo { width: 10em; max-height: none; }
-html.paged .slide.titlepage h1 { font-size: 2.4em; }
 
 /* ---------- bar and outline (built by deck.js) ---------- */
 
@@ -288,7 +304,7 @@ html.paged .slide.titlepage h1 { font-size: 2.4em; }
   height: 2px;
   background: var(--teal);
 }
-.deck-bar a, .deck-bar button {
+.deck-bar a, .deck-bar button, .deck-close {
   display: inline-flex;
   align-items: center;
   min-height: 2rem;
@@ -302,25 +318,46 @@ html.paged .slide.titlepage h1 { font-size: 2.4em; }
   white-space: nowrap;
   cursor: pointer;
 }
-.deck-bar a:hover, .deck-bar button:hover { background: var(--surface); color: var(--navy); }
+.deck-bar a:hover, .deck-bar button:hover, .deck-close:hover { background: var(--surface); color: var(--navy); }
+.deck-bar [aria-disabled="true"] { opacity: 0.35; cursor: default; }
+.deck-bar [aria-disabled="true"]:hover { background: none; color: inherit; }
 .deck-bar .deck-home { color: var(--navy); font-weight: 700; }
 .deck-bar .deck-step { padding: 0 0.7rem; font-size: 1.15rem; }
-.deck-bar .deck-count { font-variant-numeric: tabular-nums; }
+.deck-bar .deck-count { min-width: 4.6rem; justify-content: center; font-variant-numeric: tabular-nums; }
 .deck-bar .deck-gap { flex: 1; }
 html:not(.paged) .deck-paged-only { display: none; }
 
+@media (max-width: 30rem) {
+  /* Everything stays reachable on a phone: the course label gives way first. */
+  .deck-bar { gap: 0; padding: 0 0.25rem; }
+  .deck-bar a, .deck-bar button { padding: 0 0.4rem; }
+  .deck-bar .deck-count { min-width: 0; }
+  .deck-bar .deck-home { display: block; flex: 0 1 auto; min-width: 3.2rem; overflow: hidden; line-height: 2rem; text-overflow: ellipsis; }
+}
+
 .deck-toc {
   width: min(34rem, calc(100vw - 2rem));
-  max-height: min(34rem, calc(100vh - 6rem));
+  max-height: calc(100vh - 6rem);
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 0.5rem;
   color: var(--ink);
   font: 1rem/1.4 var(--sans);
 }
-.deck-toc-body { padding: 1rem 1.25rem 1.25rem; }
+.deck-toc-body { padding: 0 1.25rem 1.25rem; }
 .deck-toc::backdrop { background: rgba(10, 33, 69, 0.4); }
-.deck-toc h2 { margin: 0 0 0.6rem; color: var(--navy); font-size: 1.1rem; }
+.deck-toc-head {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 -1.25rem 0.4rem;
+  padding: 0.7rem 0.75rem 0.4rem 1.25rem;
+  background: var(--paper);
+}
+.deck-toc h2 { margin: 0; color: var(--navy); font-size: 1.1rem; }
+.deck-close { color: var(--muted); font-size: 1.4rem; line-height: 1; }
 .deck-toc ol { margin: 0; padding-left: 2rem; }
 .deck-toc li { margin: 0; }
 .deck-toc li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -341,31 +378,22 @@ html:not(.paged) .deck-paged-only { display: none; }
 /* ---------- print: a handout of all slides ---------- */
 
 @media print {
-  html, html.paged { background: #ffffff; }
-  body, html.paged body { padding: 0; font-size: 10.5pt; }
+  html { background: #ffffff; }
+  body { padding: 0; font-size: 10.5pt; }
   .deck-bar, .deck-toc { display: none !important; }
-  .slide, html.paged .slide, html.paged .slide.current {
-    display: block;
+  .slide {
     max-width: none;
-    min-height: 0;
     margin: 0 0 6mm;
     padding: 5mm 7mm;
     border: 1px solid #9aa7ab;
     border-radius: 0;
-    font-size: inherit;
-    line-height: 1.4;
     break-inside: avoid;
   }
-  .slide::after { content: counter(slide); }
-  .slide.titlepage, html.paged .slide.titlepage.current {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    background: #ffffff;
-    color: #000000;
-    border: 2px solid var(--navy);
-  }
+  /* Bullets and the title accent are backgrounds: ask for them to be printed. */
+  .slide ul > li::before, .slide h1::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide.titlepage { background: #ffffff; color: #000000; border: 2px solid var(--navy); }
   .slide.titlepage h1, .slide.titlepage .author { color: var(--navy); }
   .slide.titlepage .course, .slide.titlepage .session { color: var(--teal-strong); }
-  .slide.titlepage .logo, html.paged .slide.titlepage .logo { width: 28mm; padding: 0; }
+  .slide.titlepage .logo { width: 28mm; padding: 0; }
   .slide a { color: inherit; }
 }

@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0a2145">
   <meta name="generator" content="pandoc">
 $for(author-meta)$
   <meta name="author" content="$author-meta$">
@@ -66,8 +67,13 @@ $if(toc)$
       </nav>
     </details>
     <script>
-      // The outline stays open beside the text on wide screens (static/amss.css).
-      if (matchMedia('(min-width: 62rem)').matches) document.getElementById('toc').open = true;
+      // The outline is open beside the text on a wide window and collapsed above
+      // it on a narrow one (static/amss.css), also after a resize or rotation.
+      (function (toc, wide) {
+        function sync() { toc.open = wide.matches; }
+        sync();
+        if (wide.addEventListener) wide.addEventListener('change', sync);
+      })(document.getElementById('toc'), matchMedia('(min-width: 62rem)'));
     </script>
 $endif$
     <article class="prose">
@@ -85,7 +91,7 @@ $if(home-url)$
     <p><a href="$home-url$">$course-label$: pagina cursului</a></p>
 $endif$
 $if(author)$
-    <p>$for(author)$$author$$sep$, $endfor$</p>
+    <p>$if(instructor-url)$<a href="$instructor-url$">$endif$$for(author)$$author$$sep$, $endfor$$if(instructor-url)$</a>$endif$$if(affiliation)$, $affiliation$$endif$</p>
 $endif$
   </footer>
 </body>

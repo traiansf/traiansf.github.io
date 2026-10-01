@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a2145">
   <meta name="generator" content="pandoc">
 $for(author-meta)$
   <meta name="author" content="$author-meta$">
@@ -23,10 +24,12 @@ $endfor$
 $if(deck-js)$
   <script>
     // Choose the view before the first paint; theme/deck.js does the rest.
+    // One slide at a time suits a wide, landscape window; a phone, a portrait
+    // tablet or a narrow half-screen window gets the flowing cards.
     (function (root) {
       var view = null;
-      try { view = localStorage.getItem('amss-deck-view'); } catch (error) { /* private mode */ }
-      var wide = matchMedia('(min-width: 48em) and (min-height: 26em)').matches;
+      try { view = sessionStorage.getItem('amss-deck-view'); } catch (error) { /* private mode */ }
+      var wide = matchMedia('(min-width: 48em) and (min-height: 26em) and (min-aspect-ratio: 6/5)').matches;
       if (view ? view === 'paged' : wide) root.classList.add('paged');
     })(document.documentElement);
   </script>
@@ -44,7 +47,8 @@ $include-before$
 $endfor$
 <main>
 $if(title)$
-<div class="slide titlepage">
+$-- "current" from the start: the cover shows while the rest of a long deck loads.
+<div class="slide titlepage current">
 $if(logo-path)$
   <img class="logo" src="$logo-path$" width="480" height="520" alt="$if(course-label)$$course-label$$endif$">
 $endif$

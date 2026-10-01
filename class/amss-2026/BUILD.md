@@ -14,7 +14,7 @@ network access. See [Course look](#course-look).
 | Tool | Used for | Notes |
 |---|---|---|
 | GNU make + POSIX shell | driving the build | recipes use `mkdir -p`, `rm -f`, `cp -R`, `cd … &&` |
-| pandoc ≥ 3.0 | md → HTML / beamer | |
+| pandoc ≥ 3.5 | md → HTML / beamer | tested with 3.6; older releases lack template fields the PDF cover and footer use |
 | TeX Live (lualatex, beamer, fontspec, Latin Modern) | PDFs, exam | also `tikz`, `etoolbox`, `framed`, `fancyhdr` (in the packages listed below) |
 | Noto Sans, Noto Sans Mono (optional) | PDF text | used when installed (TeX Live `noto`, or system fonts); otherwise the PDFs keep Latin Modern |
 | `rsvg-convert` | SVG images in PDFs | ships with the Windows pandoc installer; `librsvg2-bin` on Linux |
@@ -30,7 +30,7 @@ npm install -g @mermaid-js/mermaid-cli
 npx puppeteer browsers install chrome-headless-shell
 ```
 
-Distribution pandoc/plantuml packages can be old; if `pandoc --version` is < 3.0
+Distribution pandoc/plantuml packages can be old; if `pandoc --version` is < 3.5
 or `plantuml -tpdf` fails, install the upstream release (pandoc `.deb`,
 `plantuml.jar` + a `plantuml` shell wrapper on `PATH`).
 
@@ -75,6 +75,10 @@ make PREVIEW_ALL=1 BASE=/tmp/preview   # every deck, ignoring RELEASED
 make fallback              # instructor-only prepared examples/captures in curs/fallback/ (never published)
 ```
 
+`PREVIEW_ALL` refuses to run without `BASE`, so that unreleased decks cannot
+land in the published tree by accident. `BASE` may be relative to this
+directory.
+
 ## Revealing a week
 
 Lecture and lab decks are published week by week. `RELEASED` lists the decks
@@ -117,19 +121,27 @@ them as prerequisites, so editing one rebuilds what depends on it.
 | File | Role |
 |---|---|
 | `theme/course.yaml` | course label and name shown on covers, page headers and footers |
-| `theme/amss.lua` | splits `AMSS 2026/2027 — Cursul 1: Titlu` into session and headline; marks the „Ideea întâlnirii” epigraph; drops a repeated first heading and wraps tables in documents |
+| `theme/amss.lua` | splits `AMSS 2026/2027 — Cursul 1: Titlu` into session and headline; marks the „Ideea întâlnirii” epigraph; in documents drops a repeated first heading and any `notes` blocks; wraps tables, keeps ranges such as `10–12` unbroken and avoids one-word last lines in decks |
+| `theme/code.theme` | syntax colours with enough contrast on the code panel, for HTML and PDF |
 | `theme/deck.html`, `theme/deck.css`, `theme/deck.js` | HTML decks: template, styles, and the one-slide-at-a-time view |
 | `theme/beamer.tex` | PDF decks (16:9, 10 pt) |
 | `theme/doc.html`, `static/amss.css` | continuous documents (Lab 0, project page); the stylesheet is also linked by the course page |
 | `theme/article.tex` | Lab 0 PDF (A4) |
 | `static/assets/amss-2026-logo-480.webp`, `…-logo-360.png`, `…-mark-64.png` | logo sizes derived from `amss-2026-logo.png` for HTML covers, PDF covers and the favicon |
 
-An HTML deck opens one slide at a time on a wide window: arrow keys, Page
-Up/Down, Space, Home/End or a swipe move between slides; the bar at the bottom
-has the outline, a switch to the all-slides view and the PDF. Text scales with
-the window, and a slide that is still too tall shrinks until it fits. On a
-narrow screen, without JavaScript, and in print, the slides flow as a column
-of cards. `deck.html#5` (or the older `#(5)`) opens slide 5.
+An HTML deck opens one slide at a time on a wide, landscape window: arrow
+keys, Page Up/Down, Space, Home/End or a swipe move between slides; the bar at
+the bottom has the outline, a switch to the all-slides view and the PDF. Text
+scales with the window, and the body of a slide that is still too tall shrinks
+until it fits. Pauses (`. . .`) and incremental lists are revealed step by
+step, as in the PDF. On a phone or a portrait window, without JavaScript, and
+in print, the slides flow as a column of cards. The view chosen with the
+switch lasts for the browser tab. `deck.html#5` (or the older `#(5)`) opens
+slide 5.
+
+A table in a document can be given a class for styling with an HTML comment
+on the line before it, as the project rubric does:
+`<!-- table-class: rubric -->`.
 
 To check a change, build into a scratch directory and open the files:
 `make BASE=/tmp/preview` (released material) or

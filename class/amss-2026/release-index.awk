@@ -3,7 +3,7 @@
 # RELEASED is replaced by its title without links. The page explains that such
 # titles are not available yet; screen readers also get "(în curând)".
 
-FNR == NR {
+FILENAME == ARGV[1] {
   sub(/\r$/, ""); sub(/#.*/, "")
   if (NF) released[$1] = 1
   next

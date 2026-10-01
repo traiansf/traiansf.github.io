@@ -4,6 +4,7 @@
 \usepackage{tikz}
 \usepackage{etoolbox}
 \usepackage{framed}
+\usepackage{colortbl}
 
 \definecolor{amssnavy}{HTML}{0A2145}
 \definecolor{amssteal}{HTML}{087373}
@@ -13,8 +14,8 @@
 \definecolor{amssline}{HTML}{D5E0E3}
 \definecolor{shadecolor}{HTML}{F3F7F8}
 
-% Characters the text font lacks (such as → in Noto Sans) come from DejaVu
-% Sans, if installed, and from Latin Modern Math.
+% Characters the text font lacks (such as → in Noto Sans, or ≥ in Latin
+% Modern Sans) come from DejaVu, if installed, and from Latin Modern Math.
 \ifLuaTeX
   \IfFontExistsTF{DejaVu Sans}%
     {\directlua{luaotfload.add_fallback("amssfallback", {"DejaVu Sans:mode=node;", "Latin Modern Math:mode=node;"})}}%
@@ -22,8 +23,12 @@
   \IfFontExistsTF{DejaVu Sans Mono}%
     {\directlua{luaotfload.add_fallback("amssmonofallback", {"DejaVu Sans Mono:mode=node;", "Latin Modern Math:mode=node;"})}}%
     {\directlua{luaotfload.add_fallback("amssmonofallback", {"Latin Modern Math:mode=node;"})}}
-  \IfFontExistsTF{Noto Sans}{\setsansfont{Noto Sans}[Scale=0.94,RawFeature={fallback=amssfallback}]}{}
-  \IfFontExistsTF{Noto Sans Mono}{\setmonofont{Noto Sans Mono}[Scale=0.84,RawFeature={fallback=amssmonofallback}]}{}
+  \IfFontExistsTF{Noto Sans}%
+    {\setsansfont{Noto Sans}[Scale=0.94,RawFeature={fallback=amssfallback}]}%
+    {\setsansfont{Latin Modern Sans}[RawFeature={fallback=amssfallback}]}
+  \IfFontExistsTF{Noto Sans Mono}%
+    {\setmonofont{Noto Sans Mono}[Scale=0.9,RawFeature={fallback=amssmonofallback}]}%
+    {\setmonofont{Latin Modern Mono}[RawFeature={fallback=amssmonofallback}]}
 \fi
 
 \frenchspacing
@@ -46,13 +51,16 @@
 \setbeamerfont{subtitle}{size=\large,series=\bfseries}
 \setbeamerfont{institute}{size=\small,series=\bfseries}
 
-% Frame title over a hairline that starts with a short teal segment.
+% Frame title over a hairline that starts with a short teal segment. The
+% struts give every title line the same height and depth, so the rule sits at
+% the same place on every frame.
+\newcommand{\amsstitlestrut}{\rule[-0.3\baselineskip]{0pt}{1.08\baselineskip}}
 \setbeamertemplate{frametitle}{%
-  \nointerlineskip\vskip 4mm
+  \nointerlineskip\vskip 2.9mm
   \begin{beamercolorbox}[wd=\paperwidth]{frametitle}%
     \leftskip=\amssmargin \rightskip=\amssmargin plus 1fil\relax
-    \usebeamerfont{frametitle}\insertframetitle\par
-    \nointerlineskip\vskip 1.8mm
+    \usebeamerfont{frametitle}\amsstitlestrut\insertframetitle\amsstitlestrut\par
+    \nointerlineskip\vskip 0.4mm
     \moveright\amssmargin\hbox{%
       \textcolor{amssteal}{\rule{12mm}{1.1pt}}%
       \textcolor{amssline}{\rule{\dimexpr\paperwidth-2\amssmargin-12mm\relax}{0.4pt}}}%
@@ -61,7 +69,6 @@
 
 % Course label and frame number; the cover has neither.
 \newif\ifamsscover
-\AtBeginEnvironment{frame}{\global\amsscoverfalse}
 \setbeamertemplate{footline}{%
   \ifamsscover\else
     \leavevmode\hbox to\paperwidth{%
@@ -72,22 +79,28 @@
     \vskip 3.5mm
   \fi}
 
-% Cover: logo on a white plate, then course, session, title and author.
+% Cover: logo on a white plate, then session, title, course and author, on
+% navy. The flag is cleared once the cover page has been shipped out.
 \setbeamertemplate{background canvas}{%
   \ifamsscover\color{amssnavy}\vrule width\paperwidth height\paperheight\fi}
 \makeatletter
 \setbeamertemplate{title page}{%
   \global\amsscovertrue
+  \AddToHookNext{shipout/after}{\global\amsscoverfalse}%
+  % Beamer keeps room for the footline, which the cover does not have.
+  \vskip\footheight plus .5fill\relax
   \ifx\inserttitlegraphic\@empty\else
     \begin{minipage}[c]{40mm}%
-      \tikz\node[fill=white,rounded corners=2.2mm,inner sep=2.4mm]{\inserttitlegraphic};%
+      \tikz\node[fill=white,rounded corners=2.2mm,inner sep=2.4mm]{\resizebox{34mm}{!}{\inserttitlegraphic}};%
     \end{minipage}\hfill
   \fi
   \begin{minipage}[c]{\dimexpr\textwidth-46mm\relax}\raggedright
     \ifx\insertsubtitle\@empty\else
       {\usebeamerfont{subtitle}\color{amsstealight}\insertsubtitle\par}\vskip 1.5mm
     \fi
-    {\usebeamerfont{title}\color{white}\inserttitle\par}%
+    {\usebeamerfont{title}\color{white}%
+     \rightskip=0pt plus 0.45\linewidth \parfillskip=0pt plus 0.45\linewidth\relax
+     \inserttitle\par}%
     \vskip 6mm
     \ifx\insertinstitute\@empty\else
       {\usebeamerfont{institute}\color{amsstealight}\insertinstitute\par}\vskip 1mm
@@ -111,22 +124,28 @@
 \appto\@minipagerestore{\setlength{\parskip}{\amssparskip}}
 \makeatother
 
-% Quotations: upright text beside a teal bar; larger on the epigraph slide,
-% where theme/amss.lua wraps the quotation in amssepigraph.
+% Quotations: upright, ragged-right, unhyphenated text beside a teal bar.
+% theme/amss.lua wraps the epigraph in amssepigraph (larger, with balanced
+% lines) and its source line in amsssource (small and muted).
 \newcommand{\amssquotesetup}{}
 \newenvironment{amssepigraph}{%
   \setbeamercolor{quote}{fg=amssnavy}%
   \setbeamerfont{quote}{shape=\upshape,series=\bfseries,size=\Large}%
-  \renewcommand{\amssquotesetup}{\raggedright\hyphenpenalty=10000 }}{\par\vskip 1.5mm}
+  \renewcommand{\amssquotesetup}{\rightskip=0pt plus 0.45\linewidth \parfillskip=0pt plus 0.45\linewidth\relax}}%
+ {\par\vskip 1.5mm}
+\newenvironment{amsssource}{\begingroup\footnotesize\color{amssmuted}}{\par\endgroup}
 \newsavebox{\amssquotebox}
 \renewenvironment{quote}{%
   \par\begin{lrbox}{\amssquotebox}%
   \begin{minipage}{\dimexpr\linewidth-4.6mm\relax}%
-  \usebeamerfont{quote}\usebeamercolor[fg]{quote}\amssquotesetup\ignorespaces}%
- {\end{minipage}\end{lrbox}%
-  \noindent{\color{amssteal}\vrule width 1.4pt}\hskip 3.2mm\usebox{\amssquotebox}\par}
+  \raggedright\hyphenpenalty=10000 \exhyphenpenalty=10000
+  \usebeamerfont{quote}\usebeamercolor[fg]{quote}\amssquotesetup\strut\ignorespaces}%
+ {\unskip\strut\end{minipage}\end{lrbox}%
+  \noindent{\color{amssteal}\vrule width 1.4pt}\hskip 3.2mm\usebox{\amssquotebox}\par\vskip 0.3ex}
 
-% Code on a tinted panel; tables flush left, with a little more air.
+% Tables: a hairline between rows (inserted by theme/amss.lua), flush left,
+% with a little more air. Code sits on a tinted panel.
+\newcommand{\amssrowrule}{\arrayrulecolor{amssline}\specialrule{0.4pt}{0.35ex}{0.35ex}\arrayrulecolor{amssink}}
 \makeatletter
 \AtBeginDocument{%
   \@ifundefined{Shaded}{}{%

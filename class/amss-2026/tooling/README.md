@@ -1,11 +1,11 @@
-# AMSS 2026 — Instrumente AI și predarea sarcinilor
+# AMSS 2026/2027 — Instrumente AI și predarea sarcinilor
 
 Alege un asistent și un model la care ai acces. Poți urma modul de lucru al cursului printr-o conversație în browser, un asistent integrat în editor sau un instrument local. Evaluarea urmărește analiza, deciziile de proiectare și dovezile care le susțin. Nu este obligatoriu un anumit furnizor, abonament, model, nivel al efortului de raționament sau instrument pentru diagrame.
 
 ## Începe de aici
 
 - [SETUP.md](SETUP.md): obține materialele, pregătește spațiul de lucru și exersează predarea unei sarcini (handoff), cu contextul necesar, de la analiză la revizuire (review).
-- [template/AGENTS.md](template/AGENTS.md): instrucțiuni pe care le poți folosi cu orice asistent. Integrează-le în instrucțiunile existente din depozitul Git (repository) sau furnizează-le direct într-o conversație.
+- [template/AGENTS.md](template/AGENTS.md): instrucțiuni pe care le poți folosi cu orice asistent. Integrează-le în instrucțiunile existente din repository sau furnizează-le direct într-o conversație.
 - `template/CLAUDE.md`: un punct de intrare opțional către aceleași instrucțiuni.
 - `template/.claude/settings.json` și `template/.codex/config.toml`: fișiere de configurare opționale, fără setări. Nu selectează un model sau un nivel al efortului de raționament. Păstrează setările existente; nu le suprascrie prin copierea întregului director de șabloane.
 
@@ -36,7 +36,7 @@ O predare concisă ar trebui să precizeze:
 4. Constrângerile, scenariile, invariantele și celelalte criterii de revizuire relevante.
 5. Dovezile deja disponibile și ce mai trebuie verificat.
 
-Păstrează rezumatul scurt și include trimiteri la dovezile detaliate. Oferă agentului de revizuire atât materialul-sursă, cât și rezumatul, astfel încât să poată identifica informații lipsă sau denaturate. Dacă instrumentul nu poate deschide fișierele din depozit, copiază sau atașează conținutul lor relevant.
+Păstrează rezumatul scurt și include trimiteri la dovezile detaliate. Oferă agentului de revizuire atât materialul-sursă, cât și rezumatul, astfel încât să poată identifica informații lipsă sau denaturate. Dacă instrumentul nu poate deschide fișierele din repository, copiază sau atașează conținutul lor relevant.
 
 ## Dovezi de păstrat
 

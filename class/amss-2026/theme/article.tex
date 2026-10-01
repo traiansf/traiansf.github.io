@@ -3,6 +3,7 @@
 % installed; otherwise the text falls back to Latin Modern Sans.
 \usepackage{framed}
 \usepackage{fancyhdr}
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 
 \definecolor{amssnavy}{HTML}{0A2145}
 \definecolor{amssteal}{HTML}{087373}
@@ -10,8 +11,8 @@
 \definecolor{amssline}{HTML}{D5E0E3}
 \definecolor{shadecolor}{HTML}{F3F7F8}
 
-% Characters the text font lacks (such as → in Noto Sans) come from DejaVu
-% Sans, if installed, and from Latin Modern Math.
+% Characters the text font lacks (such as → in Noto Sans, or ≥ in Latin
+% Modern Sans) come from DejaVu, if installed, and from Latin Modern Math.
 \ifLuaTeX
   \IfFontExistsTF{DejaVu Sans}%
     {\directlua{luaotfload.add_fallback("amssfallback", {"DejaVu Sans:mode=node;", "Latin Modern Math:mode=node;"})}}%
@@ -22,8 +23,11 @@
   \IfFontExistsTF{Noto Sans}{%
     \setmainfont{Noto Sans}[Scale=0.93,RawFeature={fallback=amssfallback}]%
     \setsansfont{Noto Sans}[Scale=0.93,RawFeature={fallback=amssfallback}]}{%
-    \renewcommand{\familydefault}{\sfdefault}}
-  \IfFontExistsTF{Noto Sans Mono}{\setmonofont{Noto Sans Mono}[Scale=0.84,RawFeature={fallback=amssmonofallback}]}{}
+    \setmainfont{Latin Modern Sans}[RawFeature={fallback=amssfallback}]%
+    \setsansfont{Latin Modern Sans}[RawFeature={fallback=amssfallback}]}
+  \IfFontExistsTF{Noto Sans Mono}%
+    {\setmonofont{Noto Sans Mono}[Scale=0.88,RawFeature={fallback=amssmonofallback}]}%
+    {\setmonofont{Latin Modern Mono}[RawFeature={fallback=amssmonofallback}]}
 \fi
 \linespread{1.08}
 \frenchspacing
@@ -37,6 +41,7 @@
 \newcommand{\subtitle}[1]{\renewcommand{\amsscourse}{#1}}
 \renewcommand{\maketitle}{%
   {\raggedright
+   \def\and{\unskip, }%                    several authors: a comma-separated line
    \ifx\amsscourse\@empty\else
      {\small\bfseries\color{amssteal}\amsscourse\par}\vskip 2.5mm
    \fi
@@ -66,12 +71,16 @@
     \renewenvironment{Shaded}{\begin{snugshade}\small}{\end{snugshade}}}}
 \makeatother
 
-% Quotations beside a teal bar; theme/amss.lua wraps the epigraph in amssepigraph.
+% Quotations beside a teal bar. theme/amss.lua wraps the epigraph in
+% amssepigraph and its source line in amsssource. Footnotes inside a
+% quotation would be lost in the frame without \makesavenoteenv.
 \newenvironment{amssepigraph}{\large\bfseries\color{amssnavy}}{}
+\newenvironment{amsssource}{\begingroup\small\color{amssmuted}}{\par\endgroup}
 \renewenvironment{quote}{%
   \def\FrameCommand{{\color{amssteal}\vrule width 1.6pt}\hspace{9pt}}%
   \MakeFramed{\advance\hsize-\width \FrameRestore}}%
  {\endMakeFramed}
+\makesavenoteenv{quote}
 
 \renewcommand{\labelitemi}{\textcolor{amssteal}{\textbullet}}
 \renewcommand{\tightlist}{\setlength{\itemsep}{0.3ex}\setlength{\parskip}{0pt}}

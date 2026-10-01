@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0a2145">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Traian-Florin Șerbănuță">
   <title>AMSS 2026/2027 — Laboratorul 0: Pregătire și orientare</title>
@@ -119,6 +120,8 @@ code span.wa { color: #4a5a60; font-weight: bold; font-style: italic; }
 --header-bg: #0b1a33;
 --focus: #ffb454;
 }
+
+.site-header, .doc-bar { border-bottom: 1px solid var(--line); }
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
@@ -146,18 +149,30 @@ position: absolute; width: 1px; height: 1px; overflow: hidden;
 clip-path: inset(50%); white-space: nowrap;
 }
 
+.nowrap { white-space: nowrap; }
+
 .site-header { background: var(--header-bg); color: var(--header-text); }
 .site-header a { color: inherit; }
 .site-header a:hover { color: inherit; text-decoration-thickness: 3px; }
 .site-header :focus-visible { outline-color: #ffffff; }
-.intro { display: grid; gap: 1rem; align-items: center; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+
+.intro {
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 0.6rem 0.9rem;
+align-items: center;
+padding-top: 1.1rem;
+padding-bottom: 1.25rem;
+}
+.intro > div { display: contents; }
 .intro .logo {
-width: 5.5rem; height: auto;
-padding: 0.4rem;
-border-radius: 0.75rem;
+width: 3.5rem; height: auto;
+padding: 0.2rem;
+border-radius: 0.5rem;
 background: #ffffff;
 }
 .intro h1 {
+grid-column: 1 / -1;
 margin: 0;
 font-size: clamp(1.75rem, 5.2vw, 2.6rem);
 line-height: 1.12;
@@ -165,15 +180,19 @@ letter-spacing: -0.015em;
 text-wrap: balance;
 }
 .intro p { margin: 0; }
-.intro .edition { margin-bottom: 0.35rem; color: var(--header-accent); font-weight: 600; }
-.intro .tagline { margin-top: 0.6rem; font-size: 1.1rem; line-height: 1.4; opacity: 0.95; }
+.intro .edition { color: var(--header-accent); font-weight: 600; }
+.intro .tagline { grid-column: 1 / -1; font-size: 1rem; line-height: 1.4; opacity: 0.95; }
 .site-header nav { background: rgba(0, 0, 0, 0.22); }
-.site-header nav ul { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: 0; padding: 0; list-style: none; }
-.site-header nav a { display: inline-block; min-height: 2.75rem; padding: 0.7rem 0; font-weight: 600; text-decoration: none; }
+.site-header nav ul { display: flex; flex-wrap: wrap; gap: 0 0.05rem; margin: 0 0 0 -0.6rem; padding: 0; list-style: none; }
+.site-header nav a { display: inline-block; min-height: 2.75rem; padding: 0.7rem 0.6rem; font-weight: 600; text-decoration: none; }
 .site-header nav a:hover { text-decoration: underline; }
+.site-header nav a:focus-visible { outline-offset: -5px; }
 @media (min-width: 40rem) {
-.intro { grid-template-columns: auto 1fr; gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
-.intro .logo { width: 9.5rem; padding: 0.5rem; }
+.intro { gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.intro > div { display: block; }
+.intro .logo { width: 9.5rem; padding: 0.5rem; border-radius: 0.75rem; }
+.intro .edition { margin-bottom: 0.35rem; }
+.intro .tagline { margin-top: 0.6rem; font-size: 1.1rem; }
 }
 
 .home main { padding-bottom: 3rem; }
@@ -187,38 +206,46 @@ font-size: 1.5rem;
 line-height: 1.25;
 }
 .home p { margin: 0.5rem 0; }
-.home .lead { max-width: 46rem; color: var(--muted); }
+.home .lead { max-width: 38rem; color: var(--muted); }
 
-.schedule { width: 100%; border-collapse: collapse; }
+.schedule { width: 100%; margin-top: 1rem; border-collapse: collapse; }
 .schedule th {
-padding: 0 0 0.5rem;
+padding: 0 0 0.5rem 2.3rem; 
 color: var(--muted);
 font-size: 0.95rem;
 font-weight: 600;
 text-align: left;
 }
+.schedule th + th { padding-left: 4.3rem; }
 .schedule td { padding: 0.7rem 0; border-top: 1px solid var(--line); vertical-align: top; }
-.schedule td + td, .schedule th + th { padding-left: 2rem; }
+.schedule td + td { padding-left: 2rem; }
 .schedule ol { margin: 0; padding: 0 0 0 2.1rem; }
 .schedule li { padding: 0.15rem 0 0.15rem 0.2rem; }
 .schedule li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
 .schedule li.locked { color: var(--muted); }
 .schedule .format {
+display: inline-block;
+min-width: 2.75rem;
 margin-left: 0.4rem;
-padding: 0.05rem 0.4rem;
+padding: 0.15rem 0.5rem;
 border: 1px solid var(--line);
 border-radius: 0.3rem;
 font-size: 0.8rem;
 font-weight: 600;
+line-height: 1.4;
+text-align: center;
 text-decoration: none;
 white-space: nowrap;
 }
 .schedule .format:hover { border-color: currentColor; }
 .schedule .note { display: block; color: var(--muted); font-size: 0.9rem; }
-@media (min-width: 48rem) {
+@media print, (min-width: 48rem) {
 .schedule th:first-child, .schedule td:first-child { width: 54%; }
 }
-@media (max-width: 47.99rem) {
+@media screen and (min-width: 48rem) and (max-width: 59.99rem) {
+.schedule th:first-child, .schedule td:first-child { width: 50%; }
+}
+@media screen and (max-width: 47.99rem) {
 .schedule thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .schedule, .schedule tbody, .schedule tr, .schedule td { display: block; }
 .schedule tr { padding: 0.7rem 0; border-top: 1px solid var(--line); }
@@ -242,10 +269,13 @@ font-weight: 600;
 .facts { margin: 0; }
 .facts > div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
 .facts > div:last-child { border-bottom: 0; }
+
+.facts > div:target { box-shadow: -0.75rem 0 0 var(--bg), -1rem 0 0 var(--accent); }
 .facts dt { color: var(--brand); font-weight: 700; }
 .facts dd { margin: 0.2rem 0 0; }
 .facts dd > :first-child { margin-top: 0; }
 .facts dd > :last-child { margin-bottom: 0; }
+.facts dd > p { max-width: 38rem; }
 .facts ul { margin: 0.4rem 0; padding-left: 1.25rem; }
 .facts li + li { margin-top: 0.25rem; }
 .facts li::marker { color: var(--accent); }
@@ -256,11 +286,12 @@ font-weight: 600;
 .points { border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .points th, .points td { padding: 0.2rem 0; border-bottom: 1px solid var(--line); font-weight: 400; text-align: left; }
 .points td { padding-left: 2rem; text-align: right; white-space: nowrap; }
+.points tr:first-child > * { padding-top: 0; }
 .points tr:last-child th, .points tr:last-child td { border-bottom: 0; }
-.points tfoot th, .points tfoot td { border-top: 2px solid var(--line); font-weight: 700; }
 code.join { padding: 0.1rem 0.4rem; border-radius: 0.3rem; background: var(--surface); font-size: 0.95em; font-weight: 700; }
-.site-header code.join { background: rgba(255, 255, 255, 0.14); }
-.site-footer { margin-top: 1rem; padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+
+.site-footer { margin-top: 1rem; padding-bottom: 2.5rem; color: var(--muted); font-size: 0.95rem; }
+.site-footer::before { content: ""; display: block; margin-bottom: 1.5rem; border-top: 1px solid var(--line); }
 .site-footer p { margin: 0.2rem 0; }
 
 .doc-bar { background: var(--header-bg); color: var(--header-text); }
@@ -277,7 +308,7 @@ background: #ffffff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACA
 .doc-bar :focus-visible { outline-color: #ffffff; }
 .doc main { padding-top: 2.25rem; padding-bottom: 2rem; }
 .doc-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 3rem; }
-.doc-layout > * { min-width: 0; max-width: 44rem; }
+.doc-layout > * { min-width: 0; max-width: 40rem; }
 .prose { font-size: 1.0625rem; line-height: 1.65; overflow-wrap: break-word; }
 .doc-title { margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--line); }
 .doc-title .session { margin: 0 0 0.3rem; color: var(--accent); font-size: 1.1rem; font-weight: 700; }
@@ -292,7 +323,7 @@ text-wrap: balance;
 .doc-title .byline { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.95rem; }
 .doc-title .formats { margin: 0.3rem 0 0; font-size: 0.95rem; font-weight: 600; }
 .prose h2 { margin: 2.4rem 0 0.7rem; color: var(--brand); font-size: 1.45rem; line-height: 1.25; letter-spacing: -0.005em; text-wrap: balance; }
-.prose h3 { margin: 1.8rem 0 0.5rem; color: var(--brand); font-size: 1.15rem; line-height: 1.3; }
+.prose h3 { margin: 2rem 0 0.5rem; color: var(--brand); font-size: 1.2rem; line-height: 1.3; }
 .prose h4 { margin: 1.5rem 0 0.4rem; color: var(--brand); font-size: 1rem; }
 .prose p { margin: 0 0 1rem; }
 .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.5rem; }
@@ -306,15 +337,27 @@ text-wrap: balance;
 .prose blockquote { margin: 0 0 1rem; padding: 0.1rem 0 0.1rem 1rem; border-left: 0.25rem solid var(--accent); }
 .prose blockquote > :last-child { margin-bottom: 0; }
 
-.prose .epigraph + blockquote { color: var(--brand); font-size: 1.3rem; font-weight: 600; line-height: 1.35; text-wrap: balance; }
+.prose h2.epigraph { margin-bottom: 0.6rem; color: var(--muted); font-size: 1.05rem; letter-spacing: 0; }
+.prose .epigraph + blockquote { color: var(--brand); font-size: 1.4rem; font-weight: 600; line-height: 1.3; text-wrap: balance; }
 .prose .epigraph + blockquote + p { margin-bottom: 0.2rem; }
 .prose .epigraph + blockquote + p + p { color: var(--muted); font-size: 0.9rem; }
+
 .table-wrap { margin: 0 0 1.25rem; overflow-x: auto; }
-.prose table { width: 100%; border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.prose table { width: auto; min-width: min(100%, 22rem); border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
 .prose th, .prose td { padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .prose th:last-child, .prose td:last-child { padding-right: 0; }
 .prose thead th { border-bottom: 2px solid var(--brand); color: var(--brand); }
 .prose caption { margin-bottom: 0.4rem; color: var(--muted); text-align: left; }
+
+@media (max-width: 36rem) {
+.rubric thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.rubric table, .rubric tbody { display: block; width: 100%; }
+.rubric tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.25rem 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+.rubric tr:first-child { border-top: 2px solid var(--brand); }
+.rubric td { display: block; padding: 0; border: 0; }
+.rubric td:nth-child(2)::after { content: " p."; color: var(--muted); font-weight: 400; }
+.rubric td:nth-child(3) { grid-column: 1 / -1; font-size: 1rem; }
+}
 .prose code { padding: 0.1em 0.25em; border-radius: 0.25em; background: var(--surface); font-size: 0.9em; }
 
 .prose pre, .prose div.sourceCode {
@@ -327,31 +370,43 @@ background: var(--surface);
 .prose pre { padding: 0.8rem 1rem; font-size: 0.9rem; line-height: 1.5; }
 .prose pre code { padding: 0; background: none; font-size: 1em; }
 .prose div.sourceCode > pre { margin: 0; overflow: visible; border: 0; background: none; }
-.prose ul.task-list { padding-left: 0.2rem; }
-.prose ul.task-list li { display: flex; gap: 0.6rem; align-items: baseline; }
-.prose ul.task-list input[type="checkbox"] { flex: none; width: 1rem; height: 1rem; margin: 0; accent-color: var(--accent); transform: translateY(0.12rem); }
+@media (max-width: 36rem) {
+
+.prose pre.markdown > code.sourceCode { white-space: pre-wrap; }
+}
+
+.prose ul.task-list { padding-left: 0; }
+.prose ul.task-list li { display: block; }
+.prose ul.task-list label { display: flex; gap: 0.6rem; align-items: baseline; }
+.prose ul.task-list input[type="checkbox"] { flex: none; width: 1.05rem; height: 1.05rem; margin: 0; accent-color: var(--accent); transform: translateY(0.15rem); }
 
 .doc-toc { margin: 0 0 1.75rem; border: 1px solid var(--line); border-radius: 0.5rem; font-size: 0.95rem; line-height: 1.4; }
 .doc-toc summary { padding: 0.7rem 1rem; color: var(--muted); font-weight: 700; cursor: pointer; }
-.doc-toc nav { padding: 0 1rem 0.9rem; }
+.doc-toc nav { padding: 0 1rem 0.6rem; }
 .doc-toc ul { margin: 0; padding: 0; list-style: none; }
-.doc-toc li + li { margin-top: 0.45rem; }
 .doc-toc ul ul { display: none; }
-.doc-toc a { text-decoration: none; }
+.doc-toc a { display: block; padding: 0.35rem 0; text-decoration: none; }
 .doc-toc a:hover { text-decoration: underline; }
+@media (min-width: 45rem) and (max-width: 61.99rem) {
+
+.doc main.wrap, .doc .site-footer, .doc .doc-bar .wrap { max-width: 42.5rem; }
+}
 @media (min-width: 62rem) {
-.doc-layout { grid-template-columns: minmax(0, 44rem) minmax(0, 1fr); grid-template-rows: auto 1fr; }
+.doc-layout { grid-template-columns: minmax(0, 40rem) minmax(0, 1fr); grid-template-rows: auto 1fr; }
 .doc-title { grid-column: 1; grid-row: 1; }
 .doc-layout > .prose { grid-column: 1; grid-row: 2; }
 .doc-toc {
 grid-column: 2; grid-row: 1 / span 2;
 position: sticky; top: 1.5rem; align-self: start;
 max-height: calc(100vh - 3rem); overflow-y: auto;
-margin: 0.4rem 0 0;
+margin: 0;
+padding: 0.5rem 0.5rem 0.5rem 0; 
 border: 0; border-left: 2px solid var(--line); border-radius: 0;
 }
-.doc-toc summary { padding: 0 0 0.6rem 1.1rem; }
+.doc-toc summary { margin-left: 1.1rem; padding: 0 0 0.5rem; }
 .doc-toc nav { padding: 0 0 0 1.1rem; }
+.doc-toc a { padding: 0.22rem 0; }
+.doc-toc :focus-visible { outline-offset: 2px; }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -366,18 +421,25 @@ border: 0; border-left: 2px solid var(--line); border-radius: 0;
 @media (prefers-contrast: more) {
 :root { --muted: var(--text); --line: currentColor; }
 }
+@media (forced-colors: active) {
+
+.intro .logo, .doc-bar a::before { forced-color-adjust: none; }
+}
 @media print {
 :root { --bg: #ffffff; --surface: #f3f7f8; --text: #000000; --muted: #333333; --line: #999999; --brand: #0a2145; --accent: #065a5a; }
 body { font-size: 10.5pt; }
 .site-header, .doc-bar { background: none; color: #000000; border-bottom: 2px solid #000000; }
-.site-header nav, .skip-link, .doc-toc { display: none; }
+.site-header nav, .skip-link, .doc-toc, .doc-title .formats { display: none; }
 .intro .edition { color: #000000; }
 .doc-bar .course { color: #000000; }
 a { color: #000000; }
 .prose a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; overflow-wrap: anywhere; }
+.prose a[href*="teams."]::after { content: none; } 
 .prose { max-width: none; font-size: inherit; }
 h2, h3 { break-after: avoid; }
-pre, table, blockquote { break-inside: avoid; }
+pre, table, blockquote, .site-footer { break-inside: avoid; }
+.schedule { break-inside: auto; }
+.schedule tr { break-inside: avoid; }
 }
 </style>
 </head>
@@ -407,34 +469,39 @@ pre, table, blockquote { break-inside: avoid; }
         <li><a href="#ce-întrebare-ar-fi-ajutat-mai-devreme" id="toc-ce-întrebare-ar-fi-ajutat-mai-devreme">3. Ce întrebare ar fi ajutat mai devreme?</a></li>
         <li><a href="#pregătește-un-spațiu-simplu-de-lucru" id="toc-pregătește-un-spațiu-simplu-de-lucru">4. Pregătește un spațiu simplu de lucru</a></li>
         <li><a href="#verifică-accesul-la-un-asistent-dacă-ai-unul" id="toc-verifică-accesul-la-un-asistent-dacă-ai-unul">5. Verifică accesul la un asistent, dacă ai unul</a></li>
-        <li><a href="#explorează-idei-de-proiect-și-colegi-de-echipă" id="toc-explorează-idei-de-proiect-și-colegi-de-echipă">6. Explorează idei de proiect și colegi de echipă</a></li>
+        <li><a href="#explorează-idei-de-proiect-și-caută-colegi-de-echipă" id="toc-explorează-idei-de-proiect-și-caută-colegi-de-echipă">6. Explorează idei de proiect și caută colegi de echipă</a></li>
         <li><a href="#încheie-cu-o-verificare-personală" id="toc-încheie-cu-o-verificare-personală">7. Încheie cu o verificare personală</a></li>
         <li><a href="#chestionarul-de-început-de-curs" id="toc-chestionarul-de-început-de-curs">Chestionarul de început de curs</a></li>
         </ul>
       </nav>
     </details>
     <script>
-      // The outline stays open beside the text on wide screens (static/amss.css).
-      if (matchMedia('(min-width: 62rem)').matches) document.getElementById('toc').open = true;
+      // The outline is open beside the text on a wide window and collapsed above
+      // it on a narrow one (static/amss.css), also after a resize or rotation.
+      (function (toc, wide) {
+        function sync() { toc.open = wide.matches; }
+        sync();
+        if (wide.addEventListener) wide.addEventListener('change', sync);
+      })(document.getElementById('toc'), matchMedia('(min-width: 62rem)'));
     </script>
     <article class="prose">
 <p><strong>Participarea este opțională.</strong> Poți urma acest ghid în sala de laborator sau pe cont propriu, indiferent de grupă. Nu ai nevoie de cursul 2, de o echipă deja formată sau de experiență în proiectare.</p>
 <p>Scopul este să găsești materialele, să îți pregătești spațiul de lucru și să reflectezi la experiența ta. Alege pașii care îți sunt utili și revino la ceilalți când ai timp. Activitatea nu are un livrabil notat sau un termen de predare.</p>
-<p>Laboratorul 1, despre înțelegere, specificare și revizuire, se desfășoară <strong>după predarea cursurilor 1 și 2</strong>. Pentru o grupă care are întâlnirea imediat după primul curs, aceasta este Lab 0; Lab 1 poate avea loc în săptămâna 3. Programarea fiecărei grupe se anunță pe Teams.</p>
+<p>Laboratorul 1, despre înțelegere, specificare și revizuire, se desfășoară <strong>după predarea cursurilor 1 și 2</strong>. Pentru o grupă care are întâlnirea imediat după primul curs, aceasta este laboratorul 0; laboratorul 1 poate avea loc în săptămâna 3. Programarea fiecărei grupe se anunță pe Teams.</p>
 <h2 class="epigraph" id="ideea-întâlnirii">Ideea întâlnirii</h2>
 <blockquote>
 <p>„Informatica ar trebui să se ocupe de concepte, nu de limbaje.”</p>
 </blockquote>
 <p>— <strong>Leslie Lamport</strong></p>
-<p><a href="https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2">Sursa: Computation and State Machines (2008), prefață</a> · traducere din engleză</p>
+<p><a href="https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2">Sursa: Computation and State Machines (2008), prefață</a> · traducere din engleză</p>
 <!-- Original verificat: “Computer science should be about concepts, not languages.” Prefață, pagina PDF 2, manuscrisul de pe site-ul autorului. Legătura cu tema: uneltele sprijină învățarea; pregătirea lor nu înlocuiește înțelegerea. -->
 <h2 id="cum-poți-folosi-cele-90-de-minute">Cum poți folosi cele 90 de minute</h2>
 <div class="table-wrap">
 <table>
 <colgroup>
 <col style="width: 8%" />
-<col style="width: 22%" />
-<col style="width: 69%" />
+<col style="width: 25%" />
+<col style="width: 66%" />
 </colgroup>
 <thead>
 <tr>
@@ -460,14 +527,14 @@ pre, table, blockquote { break-inside: avoid; }
 <td>Formulează întrebări care ar fi ajutat.</td>
 </tr>
 <tr>
-<td>4–5</td>
+<td><span class="nowrap">4–5</span></td>
 <td>20 de minute</td>
-<td>Pregătește un spațiu de lucru și verifică accesul la unelte.</td>
+<td>Pregătește un spațiu de lucru și verifică accesul la instrumente.</td>
 </tr>
 <tr>
 <td>6</td>
 <td>15 minute</td>
-<td>Explorează idei de proiect și posibili colegi de echipă.</td>
+<td>Explorează idei de proiect și caută colegi de echipă.</td>
 </tr>
 <tr>
 <td>7</td>
@@ -477,16 +544,16 @@ pre, table, blockquote { break-inside: avoid; }
 </tbody>
 </table>
 </div>
-<p>Poți împărți activitatea în sesiuni mai scurte. În sală, discuțiile se pot face în perechi și cu profesorul; individual, folosește întrebările și exemplele de mai jos. Nu este necesar să reproduci o discuție de grup.</p>
+<p>Poți împărți activitatea în sesiuni mai scurte. În sală, discuțiile pot avea loc în perechi și cu profesorul; individual, folosește întrebările și exemplele de mai jos. Nu este necesar să reproduci o discuție de grup.</p>
 <h2 id="găsește-informațiile-de-care-vei-avea-nevoie">1. Găsește informațiile de care vei avea nevoie</h2>
 <p>Deschide:</p>
 <ul>
 <li><a href="https://traiansf.github.io/class/amss2026/">pagina cursului</a>;</li>
-<li><a href="https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&amp;tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1">echipa Microsoft Teams</a> — cod <strong>fswo4rl</strong>;</li>
+<li><a href="https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&amp;tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1">echipa Microsoft Teams</a> — cod <code>fswo4rl</code>;</li>
 <li><a href="https://traiansf.github.io/class/amss2026/proiect/">cerințele proiectului</a>;</li>
 <li><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">ghidul de pregătire a mediului</a>.</li>
 </ul>
-<p>Verifică dacă găsești schema de notare, cerințele pentru anunțarea temei și modul de a cere feedback. Nu este necesar să reții toate detaliile acum; contează să știi unde revii pentru ele.</p>
+<p>Verifică dacă găsești schema de notare, cerințele pentru anunțarea temei și modul de a cere feedback. Nu este necesar să reții toate detaliile acum; important este să știi unde le găsești.</p>
 <p><strong>Dacă accesul nu funcționează:</strong> notează ce pagină sau serviciu nu poți deschide și cere ajutor profesorului. Poți continua partea de reflecție pe hârtie.</p>
 <h2 id="pornește-de-la-o-experiență-proprie">2. Pornește de la o experiență proprie</h2>
 <p>Alege o situație dintr-un proiect de facultate, de la serviciu sau dintr-o activitate personală:</p>
@@ -495,17 +562,17 @@ pre, table, blockquote { break-inside: avoid; }
 <li>o modificare aparent mică a afectat mai multe părți ale soluției;</li>
 <li>un rezultat produs cu AI a părut corect, dar a necesitat verificare.</li>
 </ul>
-<p>Scrie câteva rânduri: ce se dorea, ce ați înțeles inițial și ce s-a întâmplat. Nu include informații confidențiale. Dacă lucrezi în pereche, comparați exemplele.</p>
-<p><strong>Dacă nu îți vine un exemplu:</strong> folosește această situație didactică: „Un coleg cere o pagină pe care să găsească mai ușor notițele cursurilor.” Nu presupune încă dacă vrea căutare, etichete, o listă de linkuri sau acces de pe telefon.</p>
+<p>Scrie câteva rânduri: ce se dorea, ce ai înțeles inițial și ce s-a întâmplat. Nu include informații confidențiale. Dacă lucrezi în pereche, comparați exemplele.</p>
+<p><strong>Dacă nu îți vine în minte niciun exemplu:</strong> folosește această situație didactică: „Un coleg cere o pagină pe care să găsească mai ușor notițele cursurilor.” Nu presupune încă nimic despre ce vrea: căutare, etichete, o listă de linkuri sau acces de pe telefon.</p>
 <h2 id="ce-întrebare-ar-fi-ajutat-mai-devreme">3. Ce întrebare ar fi ajutat mai devreme?</h2>
 <p>Pentru exemplul ales, răspunde:</p>
 <ol type="1">
 <li>Ce informație a lipsit sau a fost interpretată diferit?</li>
-<li>Ce întrebare ai fi pus înainte de a începe soluția?</li>
-<li>Cum ar putea răspunsul să schimbe ce construiți?</li>
+<li>Ce întrebare ai fi pus înainte de a începe lucrul la soluție?</li>
+<li>Cum ar putea răspunsul să schimbe ce construiești?</li>
 <li>Ce ai putea observa sau verifica pentru a decide dacă soluția ajută?</li>
 </ol>
-<p>Pentru exemplul notițelor, o întrebare utilă ar fi: „Cum cauți acum o notiță și în ce situație nu o găsești?” Dacă problema este o listă dezorganizată de linkuri, o căutare în textul tuturor documentelor poate fi o soluție prea mare. Dacă studentul își amintește numai un fragment din document, ordonarea linkurilor poate să nu îi ajungă.</p>
+<p>Pentru exemplul notițelor, o întrebare utilă ar fi: „Cum cauți acum o notiță și în ce situație nu o găsești?” Dacă problema este o listă dezorganizată de linkuri, o căutare în textul tuturor documentelor poate fi o soluție disproporționată. Dacă colegul își amintește numai un fragment din document, ordonarea linkurilor poate să nu îi ajungă.</p>
 <p>Nu există o singură formulare corectă. Verifică dacă întrebarea ta poate schimba o decizie concretă. „Ce tehnologie folosim?” poate fi utilă mai târziu, dar nu clarifică singură nevoia colegului.</p>
 <h2 id="pregătește-un-spațiu-simplu-de-lucru">4. Pregătește un spațiu simplu de lucru</h2>
 <p>Creează un director local pentru exercițiile cursului și un fișier <code>pregatire.md</code>. Poți folosi orice editor de text; sunt suficiente și notițe pe hârtie pentru această întâlnire.</p>
@@ -516,53 +583,53 @@ pre, table, blockquote { break-inside: avoid; }
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Ce se dorea și ce a fost neclar?</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Întrebarea care ar fi ajutat</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Ce aș întreba și ce decizie ar influența răspunsul?</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Ce aș întreba și ce decizie ar fi influențată de răspuns?</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mediul de lucru</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Ce pot deschide și edita? Ce acces mai trebuie pregătit?</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Idei și întrebări</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Ce problemă aș vrea să explorez? Ce am nevoie să clarific?</span></code></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Ce problemă aș vrea să explorez? Ce trebuie să clarific?</span></code></pre></div>
 <p>Salvează fișierul, închide-l și deschide-l din nou. Verifică dacă modificările s-au păstrat. Notițele de pregătire pot rămâne locale; nu trebuie să anunți acum un proiect sau să publici acest fișier.</p>
-<h3 id="dacă-vrei-să-exersezi-git">Dacă vrei să exersezi Git</h3>
+<h3 id="dacă-vrei-să-exersezi-lucrul-cu-git">Dacă vrei să exersezi lucrul cu Git</h3>
 <p>Acest pas este opțional. Într-un terminal deschis în directorul nou, poți înregistra fișierul:</p>
 <div class="sourceCode" id="cb2" tabindex="0"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pregatire.md</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Adaug notele de pregatire&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Adaug notitele de pregatire&quot;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div>
 <p>Dacă Git îți cere identitatea autorului, configureaz-o pentru acest director folosind numele și adresa ta, apoi repetă comanda de commit:</p>
 <div class="sourceCode" id="cb3" tabindex="0"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.name <span class="st">&quot;Numele tau&quot;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.email <span class="st">&quot;adresa-ta@example.com&quot;</span></span></code></pre></div>
-<p>Scopul este să vezi că poți salva și regăsi o versiune. Dacă Git nu este disponibil, păstrează fișierul și notează ce ajutor îți trebuie; nu trebuie să rezolvi toate instalările în această sesiune.</p>
+<p>Scopul este să vezi că poți salva și regăsi o versiune. Dacă Git nu este disponibil, păstrează fișierul și notează ce ajutor îți trebuie; nu trebuie să instalezi totul în această sesiune.</p>
 <h2 id="verifică-accesul-la-un-asistent-dacă-ai-unul">5. Verifică accesul la un asistent, dacă ai unul</h2>
 <p>Poți folosi un asistent în browser, în editor sau local, la care ai deja acces. Nu se cere un abonament plătit, un furnizor sau un model anume.</p>
 <p>Dacă vrei, oferă-i exemplul didactic al notițelor și cere:</p>
 <blockquote>
 <p>Propune două întrebări de clarificare, fără să alegi o soluție sau să implementezi o aplicație.</p>
 </blockquote>
-<p>Compară întrebările cu a ta. Poți explica în ce fel ar schimba răspunsurile o alegere?</p>
-<p><strong>Fără AI:</strong> continuă cu întrebările din pasul 3. Activitatea rămâne completă fără acces la un asistent. Exercițiul tehnic de delegare și revizuire va fi introdus în cursul 2 și exersat în Lab 1.</p>
-<h2 id="explorează-idei-de-proiect-și-colegi-de-echipă">6. Explorează idei de proiect și colegi de echipă</h2>
-<p>Recitește <a href="https://traiansf.github.io/class/amss2026/proiect/">cerințele proiectului</a>. Echipele au 3–5 membri și dezvoltă o specificație și o proiectare comună, cu contribuțiile membrilor identificabile.</p>
+<p>Compară întrebările cu a ta. Poți explica în ce fel răspunsurile ar schimba o alegere?</p>
+<p><strong>Fără AI:</strong> continuă cu întrebările din pasul 3. Activitatea rămâne completă fără acces la un asistent. Exercițiul tehnic de delegare și revizuire va fi introdus în cursul 2 și exersat în laboratorul 1.</p>
+<h2 id="explorează-idei-de-proiect-și-caută-colegi-de-echipă">6. Explorează idei de proiect și caută colegi de echipă</h2>
+<p>Recitește <a href="https://traiansf.github.io/class/amss2026/proiect/">cerințele proiectului</a>. Echipele au <span class="nowrap">3–5</span> membri și dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile.</p>
 <p>Notează, dacă dorești, una sau două probleme pe care ai vrea să le înțelegi mai bine. Pentru fiecare: cine are problema, ce decizie sau regulă pare interesantă și ce ai lăsa în afara unei prime variante.</p>
-<p>În sală poți discuta ideile cu colegii. Pe cont propriu, poți reveni la ele și poți căuta colegi pe Teams. Nu este necesar să alegi tema sau să formezi echipa în Lab 0. Când anunțați efectiv proiectul, includeți linkul către repository-ul public GitHub sau GitLab, creat la acel moment, conform cerințelor proiectului.</p>
+<p>În sală poți discuta ideile cu colegii. Pe cont propriu, poți reveni la ele și poți căuta colegi pe Teams. Nu este necesar să alegi tema sau să formezi echipa în laboratorul 0. Când anunțați efectiv proiectul, includeți linkul către repository-ul public de pe GitHub sau GitLab, creat la acel moment, conform cerințelor proiectului.</p>
 <h2 id="încheie-cu-o-verificare-personală">7. Încheie cu o verificare personală</h2>
 <ul class="task-list">
 <li><label><input type="checkbox"></input>Pot găsi materialele cursului, anunțurile și cerințele proiectului.</label></li>
 <li><label><input type="checkbox"></input>Pot salva și regăsi notițele mele.</label></li>
 <li><label><input type="checkbox"></input>Pot spune ce informație lipsea din exemplul ales și de ce contează.</label></li>
-<li><label><input type="checkbox"></input>Știu ce acces sau unealtă mai trebuie pregătită.</label></li>
+<li><label><input type="checkbox"></input>Știu ce acces sau instrument mai trebuie pregătit.</label></li>
 <li><label><input type="checkbox"></input>Am notat întrebările pe care vreau să le adresez profesorului.</label></li>
 </ul>
 <p>Păstrează notițele pentru tine sau folosește-le într-o discuție. Nu trebuie să le trimiți ca temă. Pentru ajutor, indică pe Teams pasul la care te-ai oprit și problema concretă.</p>
-<p><strong>Urmează:</strong> cursul 2, apoi Lab 1. Scenariul rezervării sălilor este păstrat pentru Lab 1, după introducerea tehnică.</p>
+<p><strong>Urmează:</strong> cursul 2, apoi laboratorul 1. Scenariul rezervării sălilor este păstrat pentru laboratorul 1, după introducerea tehnică.</p>
 <h2 id="chestionarul-de-început-de-curs">Chestionarul de început de curs</h2>
-<p>Profesorul distribuie pe Teams un chestionar despre experiență, cunoștințe și așteptări; îl poți deschide și direct, la <a href="https://forms.gle/uHCXyFvxqQxsWWmH9">forms.gle/uHCXyFvxqQxsWWmH9</a>. Este voluntar și ne ajută să adaptăm conținutul cursului. Invitația se adresează tuturor grupelor. Rezervă aproximativ 10–12 minute, separat de pașii ghidului.</p>
+<p>Profesorul distribuie pe Teams un chestionar despre experiență, cunoștințe și așteptări; îl poți deschide și direct, la <a href="https://forms.gle/uHCXyFvxqQxsWWmH9">forms.gle/uHCXyFvxqQxsWWmH9</a>. Este facultativ și ne ajută să adaptăm conținutul cursului. Invitația se adresează tuturor grupelor. Rezervă aproximativ <span class="nowrap">10–12</span> minute, separat de pașii ghidului.</p>
     </article>
   </main>
   <footer class="wrap site-footer">
     <p><a href="../">AMSS 2026/2027: pagina cursului</a></p>
-    <p>Traian-Florin Șerbănuță</p>
+    <p><a href="https://traiansf.github.io/">Traian-Florin Șerbănuță</a>, Facultatea de Matematică și Informatică, Universitatea din București</p>
   </footer>
 </body>
 </html>
