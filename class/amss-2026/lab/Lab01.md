@@ -5,9 +5,9 @@ date: "2026/2027"
 lang: ro-RO
 ---
 
-# Laboratorul 1: Înțelegere, specificare, revizuire
+# Rezervarea sălilor de studiu din campus
 
-**Rezervarea sălilor de studiu din campus · în perechi · 100 de minute**
+**În perechi · 100 de minute**
 
 Explicați singuri problema, pregătiți o specificație cu limite clare,
 delegați o revizuire (review) și decideți ce afirmații sunt susținute de dovezi.
@@ -17,7 +17,7 @@ La final: o descriere comună a problemei și explicația individuală a unei de
 Fișe: [informațiile beneficiarului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/scenario.md) · [fișa de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/worksheet.md)
 
 ::: notes
-după predarea cursurilor 1 și 2. Exercițiul transferă raționamentul introductiv despre înțelegere, scenarii și delegare din cursul 2 într-un domeniu nou; nu presupune predarea aprofundată a cerințelor din cursul 3. Studenții știu să programeze; introduceți explicit termenii de analiză și proiectare. Nu se cere implementarea unei aplicații.
+Laboratorul se desfășoară după predarea cursurilor 1 și 2. Exercițiul transferă raționamentul introductiv despre înțelegere, scenarii și delegare din cursul 2 într-un domeniu nou; nu presupune predarea aprofundată a cerințelor din cursul 3. Studenții știu să programeze; introduceți explicit termenii de analiză și proiectare. Nu se cere implementarea unei aplicații.
 :::
 
 ---

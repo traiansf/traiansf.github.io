@@ -68,6 +68,7 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - Preserve the Teams QR code, URL, and team code `fswo4rl` on Lecture 1's welcome slide.
 - Lecture 1 focuses on administration and motivation. Its former technical library content is expanded into Lecture 2; do not run that technical exercise in Lecture 1. Useful project-workshop questions may be discussed on request in the open Lab 6.
 - Avoid internal instructor abbreviations in student-facing material.
+- Presentation conventions the theme relies on: titles follow `AMSS 2026/2027 — Cursul N: Titlu` (the cover shows session and title separately, so the first slide should not repeat them); the epigraph slide is titled „Ideea întâlnirii”; a QR code shares its slide with the text through pandoc `columns`; links between published pages are absolute, so they also work from the PDFs. After changing a deck or the theme, check that every slide still fits in both the HTML and the PDF.
 
 ## Layout and implementation state
 
@@ -79,7 +80,8 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - `lab/scenarios/lab01/`: student facts, worksheet, and prepared alternatives.
 - `proiect/`: Romanian project requirements and assessment.
 - `tooling/`: portable setup and workflow; optional templates preserve student tool/model choices.
-- `static/`: landing page and assets copied into published output.
+- `static/`: landing page, shared stylesheet (`amss.css`), and assets copied into published output.
+- `theme/`: the course look — pandoc templates, styles, and script for HTML decks and documents, LaTeX headers for the PDFs, and the Lua filter that prepares titles and epigraphs. See `BUILD.md`, “Course look”.
 - `exam/`: earlier resit material, awaiting alignment with the new course.
 - `../amss2026/`: generated site, built directly from the course sources; do not maintain a separate `output/redesign-preview/` copy.
 
@@ -87,7 +89,7 @@ Later lecture filenames currently retain their earlier names to avoid unnecessar
 
 ## Build and release
 
-Pandoc builds Slidy HTML and Beamer PDF (LuaLaTeX). The diagram filter supports optional PlantUML/Mermaid diagrams. Keep build changes portable across Linux and Windows; see `BUILD.md`.
+Pandoc builds self-contained HTML decks (the `slidy` writer with the course template and script in `theme/`, not the Slidy runtime) and Beamer PDF (LuaLaTeX, 16:9). The diagram filter supports optional PlantUML/Mermaid diagrams. Keep build changes portable across Linux and Windows; see `BUILD.md`.
 
 ```
 make

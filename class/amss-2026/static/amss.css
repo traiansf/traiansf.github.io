@@ -1,0 +1,333 @@
+/* AMSS 2026/2027: styles for the course page (static/index.html) and for the
+   continuous documents built with theme/doc.html (Lab 0, the project page).
+   The palette comes from the course logo; the layout vocabulary follows the
+   instructor's homepage. Slide decks use theme/deck.css. */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f3f7f8;
+  --text: #1d2a2e;
+  --muted: #4a5a60;
+  --line: #d5e0e3;
+  --brand: #0a2145;          /* logo navy; headings */
+  --accent: #087373;         /* logo teal; 5.6:1 on --bg */
+  --accent-strong: #065a5a;
+  --header-bg: #0a2145;
+  --header-text: #ffffff;
+  --header-accent: #8fd6d2;
+  --focus: #b35c00;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, "DejaVu Sans", sans-serif;
+  --mono: ui-monospace, Consolas, "Cascadia Mono", "DejaVu Sans Mono", "Liberation Mono", Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #11181b;
+    --surface: #182125;
+    --text: #e8eff1;
+    --muted: #a9b9be;
+    --line: #2b3a3f;
+    --brand: #f2f6f7;
+    --accent: #6fcac6;       /* 9.4:1 on --bg */
+    --accent-strong: #a5e3df;
+    --header-bg: #0b1a33;
+    --focus: #ffb454;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 1rem/1.6 var(--sans);
+}
+
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { color: var(--accent-strong); text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+code, pre, kbd, samp { font-family: var(--mono); }
+button, input, select, textarea { font-family: inherit; }
+
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
+
+.skip-link {
+  position: absolute; left: 0.5rem; top: -4rem; z-index: 10;
+  padding: 0.6rem 1rem;
+  border: 2px solid var(--focus); border-radius: 0.4rem;
+  background: var(--bg); color: var(--text);
+}
+.skip-link:focus { top: 0.5rem; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ---------- header of the course page ---------- */
+
+.site-header { background: var(--header-bg); color: var(--header-text); }
+.site-header a { color: inherit; }
+.site-header a:hover { color: inherit; text-decoration-thickness: 3px; }
+.site-header :focus-visible { outline-color: #ffffff; }
+
+.intro { display: grid; gap: 1rem; align-items: center; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.intro .logo {
+  width: 5.5rem; height: auto;
+  padding: 0.4rem;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+.intro h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 5.2vw, 2.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.intro p { margin: 0; }
+.intro .edition { margin-bottom: 0.35rem; color: var(--header-accent); font-weight: 600; }
+.intro .tagline { margin-top: 0.6rem; font-size: 1.1rem; line-height: 1.4; opacity: 0.95; }
+
+.site-header nav { background: rgba(0, 0, 0, 0.22); }
+.site-header nav ul { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin: 0; padding: 0; list-style: none; }
+.site-header nav a { display: inline-block; min-height: 2.75rem; padding: 0.7rem 0; font-weight: 600; text-decoration: none; }
+.site-header nav a:hover { text-decoration: underline; }
+
+@media (min-width: 40rem) {
+  .intro { grid-template-columns: auto 1fr; gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .intro .logo { width: 9.5rem; padding: 0.5rem; }
+}
+
+/* ---------- sections of the course page ---------- */
+
+.home main { padding-bottom: 3rem; }
+.home section { padding-top: 2.5rem; }
+.home h2 {
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--line);
+  color: var(--brand);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+.home p { margin: 0.5rem 0; }
+.home .lead { max-width: 46rem; color: var(--muted); }
+
+/* The semester: each row pairs two lectures with the lab that follows them. */
+.schedule { width: 100%; border-collapse: collapse; }
+.schedule th {
+  padding: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: left;
+}
+.schedule td { padding: 0.7rem 0; border-top: 1px solid var(--line); vertical-align: top; }
+.schedule td + td, .schedule th + th { padding-left: 2rem; }
+.schedule ol { margin: 0; padding: 0 0 0 2.1rem; }
+.schedule li { padding: 0.15rem 0 0.15rem 0.2rem; }
+.schedule li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+.schedule li.locked { color: var(--muted); }
+.schedule .format {
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.schedule .format:hover { border-color: currentColor; }
+.schedule .note { display: block; color: var(--muted); font-size: 0.9rem; }
+
+@media (min-width: 48rem) {
+  .schedule th:first-child, .schedule td:first-child { width: 54%; }
+}
+@media (max-width: 47.99rem) {
+  .schedule thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .schedule, .schedule tbody, .schedule tr, .schedule td { display: block; }
+  .schedule tr { padding: 0.7rem 0; border-top: 1px solid var(--line); }
+  .schedule td { padding: 0; border: 0; }
+  .schedule td + td {
+    margin: 0.5rem 0 0 0.6rem;
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 0.4rem 0.4rem 0;
+    background: var(--surface);
+  }
+  .schedule td + td::before {
+    content: "Laborator";
+    display: block;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}
+
+/* Label on the left, details on the right, as in the homepage's entries. */
+.facts { margin: 0; }
+.facts > div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.facts > div:last-child { border-bottom: 0; }
+.facts dt { color: var(--brand); font-weight: 700; }
+.facts dd { margin: 0.2rem 0 0; }
+.facts dd > :first-child { margin-top: 0; }
+.facts dd > :last-child { margin-bottom: 0; }
+.facts ul { margin: 0.4rem 0; padding-left: 1.25rem; }
+.facts li + li { margin-top: 0.25rem; }
+.facts li::marker { color: var(--accent); }
+
+@media (min-width: 40rem) {
+  .facts > div { display: grid; grid-template-columns: 11rem 1fr; gap: 0 1.5rem; }
+  .facts dd { margin-top: 0; }
+}
+
+.points { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.points th, .points td { padding: 0.2rem 0; border-bottom: 1px solid var(--line); font-weight: 400; text-align: left; }
+.points td { padding-left: 2rem; text-align: right; white-space: nowrap; }
+.points tr:last-child th, .points tr:last-child td { border-bottom: 0; }
+.points tfoot th, .points tfoot td { border-top: 2px solid var(--line); font-weight: 700; }
+
+code.join { padding: 0.1rem 0.4rem; border-radius: 0.3rem; background: var(--surface); font-size: 0.95em; font-weight: 700; }
+.site-header code.join { background: rgba(255, 255, 255, 0.14); }
+
+.site-footer { margin-top: 1rem; padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+.site-footer p { margin: 0.2rem 0; }
+
+/* ---------- continuous documents (theme/doc.html) ---------- */
+
+.doc-bar { background: var(--header-bg); color: var(--header-text); }
+.doc-bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1rem; min-height: 3.25rem; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.doc-bar a { display: inline-flex; align-items: center; gap: 0.6rem; color: inherit; font-weight: 700; text-decoration: none; }
+.doc-bar a:hover { color: inherit; text-decoration: underline; }
+.doc-bar a::before {
+  content: "";
+  width: 2rem; height: 2rem;
+  border-radius: 0.35rem;
+  background: #ffffff url("assets/amss-2026-mark-64.png") center / 1.7rem no-repeat;
+}
+.doc-bar .course { color: var(--header-accent); font-size: 0.95rem; }
+.doc-bar :focus-visible { outline-color: #ffffff; }
+
+.doc main { padding-top: 2.25rem; padding-bottom: 2rem; }
+.doc-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 3rem; }
+.doc-layout > * { min-width: 0; max-width: 44rem; }
+.prose { font-size: 1.0625rem; line-height: 1.65; overflow-wrap: break-word; }
+
+.doc-title { margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--line); }
+.doc-title .session { margin: 0 0 0.3rem; color: var(--accent); font-size: 1.1rem; font-weight: 700; }
+.doc-title h1 {
+  margin: 0;
+  color: var(--brand);
+  font-size: clamp(1.9rem, 5.5vw, 2.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.doc-title .byline { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.95rem; }
+.doc-title .formats { margin: 0.3rem 0 0; font-size: 0.95rem; font-weight: 600; }
+
+.prose h2 { margin: 2.4rem 0 0.7rem; color: var(--brand); font-size: 1.45rem; line-height: 1.25; letter-spacing: -0.005em; text-wrap: balance; }
+.prose h3 { margin: 1.8rem 0 0.5rem; color: var(--brand); font-size: 1.15rem; line-height: 1.3; }
+.prose h4 { margin: 1.5rem 0 0.4rem; color: var(--brand); font-size: 1rem; }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+.prose li + li { margin-top: 0.3rem; }
+.prose li > ul, .prose li > ol { margin: 0.3rem 0 0; }
+.prose ul > li::marker { color: var(--accent); }
+.prose ol > li::marker { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+.prose strong { color: var(--brand); }
+.prose hr { margin: 2rem 0; border: 0; border-top: 1px solid var(--line); }
+.prose img { max-width: 100%; height: auto; }
+
+.prose blockquote { margin: 0 0 1rem; padding: 0.1rem 0 0.1rem 1rem; border-left: 0.25rem solid var(--accent); }
+.prose blockquote > :last-child { margin-bottom: 0; }
+
+/* The epigraph ("Ideea întâlnirii"): quotation, author, source. */
+.prose .epigraph + blockquote { color: var(--brand); font-size: 1.3rem; font-weight: 600; line-height: 1.35; text-wrap: balance; }
+.prose .epigraph + blockquote + p { margin-bottom: 0.2rem; }
+.prose .epigraph + blockquote + p + p { color: var(--muted); font-size: 0.9rem; }
+
+.table-wrap { margin: 0 0 1.25rem; overflow-x: auto; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.prose th, .prose td { padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.prose th:last-child, .prose td:last-child { padding-right: 0; }
+.prose thead th { border-bottom: 2px solid var(--brand); color: var(--brand); }
+.prose caption { margin-bottom: 0.4rem; color: var(--muted); text-align: left; }
+
+.prose code { padding: 0.1em 0.25em; border-radius: 0.25em; background: var(--surface); font-size: 0.9em; }
+/* The code panel is the element that takes the focus (theme/amss.lua): the
+   wrapper pandoc adds around highlighted code, or else the pre itself. */
+.prose pre, .prose div.sourceCode {
+  margin: 0 0 1.1rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--surface);
+}
+.prose pre { padding: 0.8rem 1rem; font-size: 0.9rem; line-height: 1.5; }
+.prose pre code { padding: 0; background: none; font-size: 1em; }
+.prose div.sourceCode > pre { margin: 0; overflow: visible; border: 0; background: none; }
+
+.prose ul.task-list { padding-left: 0.2rem; }
+.prose ul.task-list li { display: flex; gap: 0.6rem; align-items: baseline; }
+.prose ul.task-list input[type="checkbox"] { flex: none; width: 1rem; height: 1rem; margin: 0; accent-color: var(--accent); transform: translateY(0.12rem); }
+
+/* The outline: a collapsed box under the title, or a column beside the text. */
+.doc-toc { margin: 0 0 1.75rem; border: 1px solid var(--line); border-radius: 0.5rem; font-size: 0.95rem; line-height: 1.4; }
+.doc-toc summary { padding: 0.7rem 1rem; color: var(--muted); font-weight: 700; cursor: pointer; }
+.doc-toc nav { padding: 0 1rem 0.9rem; }
+.doc-toc ul { margin: 0; padding: 0; list-style: none; }
+.doc-toc li + li { margin-top: 0.45rem; }
+.doc-toc ul ul { display: none; }
+.doc-toc a { text-decoration: none; }
+.doc-toc a:hover { text-decoration: underline; }
+
+@media (min-width: 62rem) {
+  .doc-layout { grid-template-columns: minmax(0, 44rem) minmax(0, 1fr); grid-template-rows: auto 1fr; }
+  .doc-title { grid-column: 1; grid-row: 1; }
+  .doc-layout > .prose { grid-column: 1; grid-row: 2; }
+  .doc-toc {
+    grid-column: 2; grid-row: 1 / span 2;
+    position: sticky; top: 1.5rem; align-self: start;
+    max-height: calc(100vh - 3rem); overflow-y: auto;
+    margin: 0.4rem 0 0;
+    border: 0; border-left: 2px solid var(--line); border-radius: 0;
+  }
+  .doc-toc summary { padding: 0 0 0.6rem 1.1rem; }
+  .doc-toc nav { padding: 0 0 0 1.1rem; }
+}
+
+/* Pandoc's syntax colours assume a light page. */
+@media (prefers-color-scheme: dark) {
+  .prose code span { color: inherit; }
+  .prose code span.kw, .prose code span.cf, .prose code span.im, .prose code span.ot { color: #7fc8e8; }
+  .prose code span.fu, .prose code span.bu, .prose code span.ex { color: #a9c7ff; }
+  .prose code span.st, .prose code span.ch, .prose code span.vs, .prose code span.sc { color: #a8d8a0; }
+  .prose code span.co, .prose code span.an, .prose code span.cv, .prose code span.do { color: #9aabb0; }
+  .prose code span.dv, .prose code span.fl, .prose code span.bn, .prose code span.cn { color: #f0b98d; }
+  .prose code span.at, .prose code span.va, .prose code span.dt { color: #d7c58a; }
+}
+
+@media (prefers-contrast: more) {
+  :root { --muted: var(--text); --line: currentColor; }
+}
+
+@media print {
+  :root { --bg: #ffffff; --surface: #f3f7f8; --text: #000000; --muted: #333333; --line: #999999; --brand: #0a2145; --accent: #065a5a; }
+  body { font-size: 10.5pt; }
+  .site-header, .doc-bar { background: none; color: #000000; border-bottom: 2px solid #000000; }
+  .site-header nav, .skip-link, .doc-toc { display: none; }
+  .intro .edition { color: #000000; }
+  .doc-bar .course { color: #000000; }
+  a { color: #000000; }
+  .prose a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; overflow-wrap: anywhere; }
+  .prose { max-width: none; font-size: inherit; }
+  h2, h3 { break-after: avoid; }
+  pre, table, blockquote { break-inside: avoid; }
+}

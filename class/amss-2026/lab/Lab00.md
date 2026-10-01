@@ -25,14 +25,14 @@ Laboratorul 1, despre înțelegere, specificare și revizuire, se desfășoară 
 
 ## Cum poți folosi cele 90 de minute
 
-| Durată orientativă | Activitate |
-|---|---|
-| 10 minute | Găsește Teams, materialele și ghidul de pregătire. |
-| 15 minute | Amintește-ți o cerință neclară sau o schimbare dificilă. |
-| 20 de minute | Formulează întrebări care ar fi ajutat. |
-| 20 de minute | Pregătește un spațiu de lucru și verifică accesul la unelte. |
-| 15 minute | Explorează idei de proiect și posibili colegi de echipă. |
-| 10 minute | Notează întrebările și ce mai ai de pregătit. |
+| Pas | Durată orientativă | Activitate |
+|-----|-------------|-----------------------------------------|
+| 1 | 10 minute | Găsește Teams, materialele și ghidul de pregătire. |
+| 2 | 15 minute | Amintește-ți o cerință neclară sau o schimbare dificilă. |
+| 3 | 20 de minute | Formulează întrebări care ar fi ajutat. |
+| 4–5 | 20 de minute | Pregătește un spațiu de lucru și verifică accesul la unelte. |
+| 6 | 15 minute | Explorează idei de proiect și posibili colegi de echipă. |
+| 7 | 10 minute | Notează întrebările și ce mai ai de pregătit. |
 
 Poți împărți activitatea în sesiuni mai scurte. În sală, discuțiile se pot face în perechi și cu profesorul; individual, folosește întrebările și exemplele de mai jos. Nu este necesar să reproduci o discuție de grup.
 
@@ -42,7 +42,7 @@ Deschide:
 
 - [pagina cursului](https://traiansf.github.io/class/amss2026/);
 - [echipa Microsoft Teams](https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1) — cod **fswo4rl**;
-- [cerințele proiectului](../proiect/);
+- [cerințele proiectului](https://traiansf.github.io/class/amss2026/proiect/);
 - [ghidul de pregătire a mediului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md).
 
 Verifică dacă găsești schema de notare, cerințele pentru anunțarea temei și modul de a cere feedback. Nu este necesar să reții toate detaliile acum; contează să știi unde revii pentru ele.
@@ -122,13 +122,17 @@ Scopul este să vezi că poți salva și regăsi o versiune. Dacă Git nu este d
 
 Poți folosi un asistent în browser, în editor sau local, la care ai deja acces. Nu se cere un abonament plătit, un furnizor sau un model anume.
 
-Dacă vrei, oferă-i exemplul didactic al notițelor și cere: „Propune două întrebări de clarificare, fără să alegi o soluție sau să implementezi o aplicație.” Compară întrebările cu a ta. Poți explica în ce fel ar schimba răspunsurile o alegere?
+Dacă vrei, oferă-i exemplul didactic al notițelor și cere:
+
+> Propune două întrebări de clarificare, fără să alegi o soluție sau să implementezi o aplicație.
+
+Compară întrebările cu a ta. Poți explica în ce fel ar schimba răspunsurile o alegere?
 
 **Fără AI:** continuă cu întrebările din pasul 3. Activitatea rămâne completă fără acces la un asistent. Exercițiul tehnic de delegare și revizuire va fi introdus în cursul 2 și exersat în Lab 1.
 
 ## 6. Explorează idei de proiect și colegi de echipă
 
-Recitește [cerințele proiectului](../proiect/). Echipele au 3–5 membri și dezvoltă o specificație și o proiectare comună, cu contribuțiile membrilor identificabile.
+Recitește [cerințele proiectului](https://traiansf.github.io/class/amss2026/proiect/). Echipele au 3–5 membri și dezvoltă o specificație și o proiectare comună, cu contribuțiile membrilor identificabile.
 
 Notează, dacă dorești, una sau două probleme pe care ai vrea să le înțelegi mai bine. Pentru fiecare: cine are problema, ce decizie sau regulă pare interesantă și ce ai lăsa în afara unei prime variante.
 
@@ -136,11 +140,11 @@ Notează, dacă dorești, una sau două probleme pe care ai vrea să le înțele
 
 ## 7. Încheie cu o verificare personală
 
-- Pot găsi materialele cursului, anunțurile și cerințele proiectului.
-- Pot salva și regăsi notițele mele.
-- Pot spune ce informație lipsea din exemplul ales și de ce contează.
-- Știu ce acces sau unealtă mai trebuie pregătită.
-- Am notat întrebările pe care vreau să le adresez profesorului.
+- [ ] Pot găsi materialele cursului, anunțurile și cerințele proiectului.
+- [ ] Pot salva și regăsi notițele mele.
+- [ ] Pot spune ce informație lipsea din exemplul ales și de ce contează.
+- [ ] Știu ce acces sau unealtă mai trebuie pregătită.
+- [ ] Am notat întrebările pe care vreau să le adresez profesorului.
 
 Păstrează notițele pentru tine sau folosește-le într-o discuție. Nu trebuie să le trimiți ca temă. Pentru ajutor, indică pe Teams pasul la care te-ai oprit și problema concretă.
 
@@ -148,4 +152,4 @@ Păstrează notițele pentru tine sau folosește-le într-o discuție. Nu trebui
 
 ## Chestionarul de început de curs
 
-Profesorul va distribui pe Teams un chestionar despre experiență, cunoștințe și așteptări. Este voluntar și ne ajută să adaptăm conținutul cursului. Invitația se adresează tuturor grupelor. Rezervă aproximativ 10–12 minute, separat de pașii ghidului; dacă linkul nu este încă disponibil, poți continua ghidul și reveni după anunț.
+Profesorul distribuie pe Teams un chestionar despre experiență, cunoștințe și așteptări; îl poți deschide și direct, la [forms.gle/uHCXyFvxqQxsWWmH9](https://forms.gle/uHCXyFvxqQxsWWmH9). Este voluntar și ne ajută să adaptăm conținutul cursului. Invitația se adresează tuturor grupelor. Rezervă aproximativ 10–12 minute, separat de pașii ghidului.

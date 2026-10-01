@@ -1,0 +1,4 @@
+# Course identity shown by the templates in theme/ (passed with --metadata-file).
+# A document's own metadata takes precedence over these values.
+course-label: "AMSS 2026/2027"
+course-name: "Analiza și Modelarea Sistemelor Software"

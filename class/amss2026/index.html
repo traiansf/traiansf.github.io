@@ -2,62 +2,207 @@
 <html lang="ro">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#0a2145" />
     <title>AMSS 2026/2027 — Analiza și Modelarea Sistemelor Software</title>
-    <style>li.locked { color: #777; }</style>
+    <meta name="description" content="Pagina cursului Analiza și Modelarea Sistemelor Software (AMSS), anul universitar 2026/2027: cursuri, laboratoare, proiect, evaluare și instrumente." />
+    <meta name="author" content="Traian-Florin Șerbănuță" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AMSS 2026/2027 — Analiza și Modelarea Sistemelor Software" />
+    <meta property="og:description" content="Principii de analiză și proiectare a sistemelor software, cu asistență AI: cursuri, laboratoare, proiect și evaluare." />
+    <meta property="og:url" content="https://traiansf.github.io/class/amss2026/" />
+    <meta property="og:image" content="https://traiansf.github.io/class/amss2026/assets/amss-2026-logo-on-white.png" />
+    <link rel="icon" type="image/png" href="assets/amss-2026-mark-64.png" />
+    <link rel="stylesheet" href="amss.css" />
   </head>
-  <body>
-    <h1>AMSS 2026/2027</h1>
-    <p><i>Principii de analiză și proiectare a sistemelor software, cu asistență AI</i></p>
+  <body class="home">
+    <a class="skip-link" href="#main">Sari la conținut</a>
 
-    <h2>Curs</h2>
-    <ol>
-      <li data-release="curs/01-intro"><a href="curs/01-intro.html">Organizare și motivație</a> [<a href="curs/01-intro.pdf">PDF</a>]</li>
-      <li class="locked">Înțelegem înainte de a delega <i>(în curând)</i></li>
-      <li class="locked">Formularea problemei și cerințe <i>(în curând)</i></li>
-      <li class="locked">Modelarea domeniului <i>(în curând)</i></li>
-      <li class="locked">Responsabilități, coeziune și cuplare <i>(în curând)</i></li>
-      <li class="locked">Contracte și invariante <i>(în curând)</i></li>
-      <li class="locked">Stare și comportament <i>(în curând)</i></li>
-      <li class="locked">Interacțiuni, fluxuri de lucru și limite <i>(în curând)</i></li>
-      <li class="locked">Validarea și analiza modelelor <i>(în curând)</i></li>
-      <li class="locked">Abstractizare și proiectare pentru schimbare <i>(în curând)</i></li>
-      <li class="locked">Evoluția unui sistem existent <i>(în curând)</i></li>
-      <li class="locked">Coerență și supravegherea sarcinilor delegate <i>(în curând)</i></li>
-      <li class="locked">Sinteza și explicarea proiectării <i>(în curând)</i></li>
-      <li class="locked">Examen grilă și reflecție asupra cursului <i>(în curând)</i></li>
-    </ol>
+    <header class="site-header">
+      <div class="wrap intro">
+        <img class="logo" src="assets/amss-2026-logo-480.webp" width="480" height="520" alt="Sigla cursului AMSS 2026" />
+        <div>
+          <p class="edition">AMSS, anul universitar 2026/2027</p>
+          <h1>Analiza și Modelarea Sistemelor Software</h1>
+          <p class="tagline">Principii de analiză și proiectare a sistemelor software, cu asistență AI</p>
+        </div>
+      </div>
+      <nav aria-label="Secțiuni">
+        <div class="wrap">
+          <ul>
+            <li><a href="#materiale">Cursuri și laboratoare</a></li>
+            <li><a href="#evaluare">Evaluare</a></li>
+            <li><a href="#proiect">Proiect</a></li>
+            <li><a href="#instrumente">Instrumente</a></li>
+            <li><a href="#comunicare">Comunicare</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
-    <h2>Laborator</h2>
-    <p>Fiecare laborator 1–7 are loc după predarea celor două cursuri asociate: 1–2, 3–4, și așa mai departe. Programarea fiecărei grupe se anunță pe Teams.</p>
-    <ol start="0">
-      <li data-release="lab/Lab00"><a href="lab/Lab00.html">Pregătire și orientare — opțional, de parcurs și individual</a> [<a href="lab/Lab00.pdf">PDF</a>]</li>
-      <li data-release="lab/Lab01"><a href="lab/Lab01.html">Înțelegere, specificare, revizuire</a> [<a href="lab/Lab01.pdf">PDF</a>]</li>
-      <li class="locked">Cerințe și modelarea domeniului <i>(în curând)</i></li>
-      <li class="locked">Responsabilități, contracte și invariante <i>(în curând)</i></li>
-      <li class="locked">Stări, comportament și interacțiuni <i>(în curând)</i></li>
-      <li class="locked">Validare și abstractizare <i>(în curând)</i></li>
-      <li class="locked">Laborator deschis pentru proiect <i>(în curând)</i></li>
-      <li class="locked">Interviu de susținere a proiectului <i>(în curând)</i></li>
-    </ol>
+    <main id="main" class="wrap">
+      <section id="materiale" aria-labelledby="h-materiale">
+        <h2 id="h-materiale">Cursuri și laboratoare</h2>
+        <p class="lead">Fiecare laborator are loc după cele două cursuri alături de care este listat; programarea fiecărei grupe se anunță pe Teams. Materialele se publică pe parcursul semestrului: titlurile fără link nu sunt încă disponibile.</p>
 
-    <h2>Proiect</h2>
-    <ul>
-      <li><a href="proiect/">Pagina dedicată</a></li>
-    </ul>
+        <!-- Each deck entry is a single <li> line with a data-release key (dir/basename);
+             release-index.awk shows the entries missing from RELEASED without links. -->
+        <table class="schedule">
+          <thead>
+            <tr>
+              <th scope="col">Curs</th>
+              <th scope="col">Laborator</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ol start="1">
+                  <li data-release="curs/01-intro"><a href="curs/01-intro.html">Organizare și motivație</a> <a class="format" href="curs/01-intro.pdf">PDF</a></li>
+                  <li class="locked">Înțelegem înainte de a delega<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+              <td>
+                <ol start="0">
+                  <li data-release="lab/Lab00"><a href="lab/Lab00.html">Pregătire și orientare</a> <a class="format" href="lab/Lab00.pdf">PDF</a> <span class="note">opțional, după cursul 1; se poate parcurge și individual</span></li>
+                  <li data-release="lab/Lab01"><a href="lab/Lab01.html">Înțelegere, specificare, revizuire</a> <a class="format" href="lab/Lab01.pdf">PDF</a></li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ol start="3">
+                  <li class="locked">Formularea problemei și cerințe<span class="visually-hidden"> (în curând)</span></li>
+                  <li class="locked">Modelarea domeniului<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+              <td>
+                <ol start="2">
+                  <li class="locked">Cerințe și modelarea domeniului<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ol start="5">
+                  <li class="locked">Responsabilități, coeziune și cuplare<span class="visually-hidden"> (în curând)</span></li>
+                  <li class="locked">Contracte și invariante<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+              <td>
+                <ol start="3">
+                  <li class="locked">Responsabilități, contracte și invariante<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ol start="7">
+                  <li class="locked">Stare și comportament<span class="visually-hidden"> (în curând)</span></li>
+                  <li class="locked">Interacțiuni, fluxuri de lucru și limite<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+              <td>
+                <ol start="4">
+                  <li class="locked">Stări, comportament și interacțiuni<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ol start="9">
+                  <li class="locked">Validarea și analiza modelelor<span class="visually-hidden"> (în curând)</span></li>
+                  <li class="locked">Abstractizare și proiectare pentru schimbare<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+              <td>
+                <ol start="5">
+                  <li class="locked">Validare și abstractizare<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ol start="11">
+                  <li class="locked">Evoluția unui sistem existent<span class="visually-hidden"> (în curând)</span></li>
+                  <li class="locked">Coerență și supravegherea sarcinilor delegate<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+              <td>
+                <ol start="6">
+                  <li class="locked">Laborator deschis pentru proiect<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ol start="13">
+                  <li class="locked">Sinteza și explicarea proiectării<span class="visually-hidden"> (în curând)</span></li>
+                  <li class="locked">Examen grilă și reflecție asupra cursului<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+              <td>
+                <ol start="7">
+                  <li class="locked">Interviu de susținere a proiectului<span class="visually-hidden"> (în curând)</span></li>
+                </ol>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-    <h2>Examen restanță</h2>
-    <ul>
-      <li>Examen grilă: 9 puncte + 1 punct din oficiu. Punctajele de proiect și prezență nu se reportează. Materialele actualizate vor fi anunțate pe Teams.</li>
-    </ul>
+      <section aria-labelledby="h-organizare">
+        <h2 id="h-organizare">Organizare</h2>
+        <dl class="facts">
+          <div id="evaluare">
+            <dt>Evaluare</dt>
+            <dd>
+              <table class="points">
+                <tbody>
+                  <tr><th scope="row">Dosarul de proiectare al echipei</th><td>5 puncte</td></tr>
+                  <tr><th scope="row">Examen grilă individual</th><td>3 puncte</td></tr>
+                  <tr><th scope="row">Prezență la cursuri și laboratoare</th><td>1 punct</td></tr>
+                  <tr><th scope="row">Din oficiu</th><td>1 punct</td></tr>
+                </tbody>
+              </table>
+              <p>La restanță: examen grilă de 9 puncte și 1 punct din oficiu. Punctajele pentru dosar și prezență nu se reportează. Materialele actualizate vor fi anunțate pe Teams.</p>
+              <p><a href="proiect/#nota-finală">Cum se calculează nota finală</a></p>
+            </dd>
+          </div>
+          <div id="proiect">
+            <dt>Proiect</dt>
+            <dd>
+              <p>Echipe de 3–5 studenți elaborează o specificație și o soluție de proiectare, într-un repository public. Tema se anunță pe Teams până pe 31 octombrie 2026. Nota pe dosar se definitivează printr-un interviu de echipă, la ultimul laborator.</p>
+              <p><a href="proiect/">Cerințele proiectului și criteriile de evaluare</a></p>
+            </dd>
+          </div>
+          <div id="instrumente">
+            <dt>Instrumente</dt>
+            <dd>
+              <p>Asistentul și modelul AI sunt la alegere; nu este necesar un abonament plătit.</p>
+              <ul>
+                <li><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">Pregătirea mediului de lucru</a></li>
+                <li><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md">Roluri, predarea sarcinilor și revizuire</a></li>
+              </ul>
+            </dd>
+          </div>
+          <div id="comunicare">
+            <dt>Comunicare</dt>
+            <dd>
+              <ul>
+                <li>Anunțuri și întrebări: <a href="https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&amp;tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1">echipa Microsoft Teams a cursului</a>, cod <code class="join">fswo4rl</code></li>
+                <li>Consultații: cu programare prin e-mail, la <a href="mailto:traian.serbanuta@unibuc.ro">traian.serbanuta@unibuc.ro</a></li>
+                <li><a href="https://forms.gle/uHCXyFvxqQxsWWmH9">Chestionarul de început de curs</a>: voluntar, 10–12 minute</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </section>
+    </main>
 
-    <h2>Instrumente</h2>
-    <ul>
-      <li><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">Pregătirea uneltelor</a> — asistent și model la alegere; <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md">roluri, predarea sarcinilor și revizuire</a>.</li>
-    </ul>
-
-    <h2>Comunicare</h2>
-    <ul>
-      <li><a href="https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&amp;tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1">Echipa Microsoft Teams a cursului</a> — cod: <strong>fswo4rl</strong>.</li>
-    </ul>
+    <footer class="wrap site-footer">
+      <p><a href="https://traiansf.github.io/">Traian-Florin Șerbănuță</a>, Facultatea de Matematică și Informatică, Universitatea din București</p>
+    </footer>
   </body>
 </html>

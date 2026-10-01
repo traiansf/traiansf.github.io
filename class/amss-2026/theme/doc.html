@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="generator" content="pandoc">
+$for(author-meta)$
+  <meta name="author" content="$author-meta$">
+$endfor$
+$if(description-meta)$
+  <meta name="description" content="$description-meta$">
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+$if(favicon)$
+  <link rel="icon" type="image/png" href="$favicon$">
+$endif$
+  <style>
+    $styles.html()$
+  </style>
+$for(css)$
+  <link rel="stylesheet" href="$css$">
+$endfor$
+$if(math)$
+  $math$
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body class="doc">
+  <a class="skip-link" href="#main">Sari la conținut</a>
+  <header class="doc-bar">
+    <div class="wrap">
+$if(home-url)$
+      <a href="$home-url$">$course-label$</a>
+$else$
+      <strong>$course-label$</strong>
+$endif$
+$if(course-name)$
+      <span class="course">$course-name$</span>
+$endif$
+    </div>
+  </header>
+  <main id="main" class="wrap doc-layout">
+    <header class="doc-title">
+$if(session)$
+      <p class="session">$session$</p>
+$endif$
+      <h1>$headline$</h1>
+$if(subtitle)$
+      <p class="subtitle">$subtitle$</p>
+$endif$
+$if(author)$
+      <p class="byline">$for(author)$$author$$sep$, $endfor$</p>
+$endif$
+$if(pdf-url)$
+      <p class="formats"><a href="$pdf-url$">Versiunea PDF, pentru tipărire</a></p>
+$endif$
+    </header>
+$if(toc)$
+    <details class="doc-toc" id="toc">
+      <summary>$if(toc-title)$$toc-title$$else$Pe această pagină$endif$</summary>
+      <nav aria-label="$if(toc-title)$$toc-title$$else$Pe această pagină$endif$">
+        $table-of-contents$
+      </nav>
+    </details>
+    <script>
+      // The outline stays open beside the text on wide screens (static/amss.css).
+      if (matchMedia('(min-width: 62rem)').matches) document.getElementById('toc').open = true;
+    </script>
+$endif$
+    <article class="prose">
+$for(include-before)$
+$include-before$
+$endfor$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
+    </article>
+  </main>
+  <footer class="wrap site-footer">
+$if(home-url)$
+    <p><a href="$home-url$">$course-label$: pagina cursului</a></p>
+$endif$
+$if(author)$
+    <p>$for(author)$$author$$sep$, $endfor$</p>
+$endif$
+  </footer>
+</body>
+</html>

@@ -9,10 +9,10 @@ TARGETS = $(HTMLS) $(PDFS)
 include ../include.mk
 
 # Lab 0 is a self-study guide: continuous HTML and printable PDF, from one source.
-$(OUTDIR)/Lab00.html: Lab00.md Makefile
+$(OUTDIR)/Lab00.html: Lab00.md Makefile $(DOC_HTML_DEPS)
 	@mkdir -p $(dir $@)
-	pandoc $(OPTIONS) -s -o $@ $<
+	pandoc $(DOC_HTML_OPTIONS) -V pdf-url=Lab00.pdf -o $@ $<
 
-$(OUTDIR)/Lab00.pdf: Lab00.md Makefile
+$(OUTDIR)/Lab00.pdf: Lab00.md Makefile $(DOC_PDF_DEPS)
 	@mkdir -p $(dir $@)
-	pandoc --pdf-engine=lualatex $(OPTIONS) -o $@ $<
+	pandoc $(DOC_PDF_OPTIONS) -o $@ $<

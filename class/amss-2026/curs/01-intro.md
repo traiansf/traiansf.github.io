@@ -1,19 +1,26 @@
 ---
 title: "AMSS 2026/2027 — Cursul 1: Organizare și motivație"
 author: "Traian-Florin Șerbănuță"
-date: "2026"
+date: "2026/2027"
 lang: ro-RO
 ---
 
 # Bun venit!
 
+:::::: {.columns align=center}
+::: {.column width="32%"}
+[![Alăturați-vă echipei cursului pe Microsoft Teams](../static/assets/amss-2026-teams-qr.png){width=100%}](https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1)
+:::
+::: {.column width="68%"}
 **AMSS — Analiza și Modelarea Sistemelor Software**
 
-Traian-Florin Șerbănuță · traian.serbanuta@unibuc.ro
+Traian-Florin Șerbănuță · <traian.serbanuta@unibuc.ro>
 
-[![Alăturați-vă echipei cursului pe Microsoft Teams](../static/assets/amss-2026-teams-qr.png){width=180px height=180px}](https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1)
+Echipa cursului pe Microsoft Teams: scanați codul sau apăsați pe el.
 
-Scanați codul sau apăsați pe el. **Codul echipei: fswo4rl**
+**Codul echipei: fswo4rl**
+:::
+::::::
 
 ::: notes
 Urați bun venit studenților de la master. Presupuneți experiență de programare în mai multe paradigme, dar introduceți de la bază vocabularul proiectării. Lăsați-le un moment să intre pe Teams.
@@ -61,7 +68,7 @@ Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, 
 # Program și comunicare
 
 - **14 săptămâni de curs** și **7 laboratoare**, de regulă o dată la două săptămâni.
-- [Laboratorul 0](../lab/Lab00.html): orientare opțională, disponibilă și pentru parcurgere individuală.
+- [Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/Lab00.html): orientare opțională, disponibilă și pentru parcurgere individuală.
 - Laboratorul 1 se desfășoară după cursurile 1 și 2.
 - Materiale: [traiansf.github.io/class/amss2026](https://traiansf.github.io/class/amss2026/).
 - Întrebări și anunțuri: echipa cursului pe Microsoft Teams.
@@ -176,7 +183,7 @@ La curs, exemplele pregătite sau lucrul în perechi permit exersarea raționame
 
 # Înainte de laboratorul 1
 
-- Citiți ghidul de pregătire și convențiile de lucru.
+- Citiți [ghidul de pregătire](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md) și [convențiile de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md).
 - Pregătiți accesul la asistentul ales și la fișierele comune.
 - Veți lucra în perechi, alternând responsabilitățile.
 - Veți analiza singuri un enunț scurt înainte de a folosi AI.
@@ -186,7 +193,6 @@ Primul livrabil descrie clar problema și deciziile încă neclarificate.
 ::: notes
 Ghidul complet al laboratorului 1 conține datele problemei și exercițiul. Studenții au nevoie de experiență de programare, dar nu de un curs anterior de UML sau proiectare. Nu le cereți să învețe un limbaj de diagrame pentru pregătirea inițială.
 :::
-
 
 ---
 
@@ -242,8 +248,11 @@ Gândiți-vă la o situație în care o întrebare pusă mai devreme ar fi schim
 
 # Experiența și așteptările voastre
 
-[![Deschideți chestionarul de început de curs](../static/assets/amss-2026-initial-form-qr.png){width=200px height=200px}](https://forms.gle/uHCXyFvxqQxsWWmH9)
-
+:::::: {.columns align=center}
+::: {.column width="32%"}
+[![Deschideți chestionarul de început de curs](../static/assets/amss-2026-initial-form-qr.png){width=100%}](https://forms.gle/uHCXyFvxqQxsWWmH9)
+:::
+::: {.column width="68%"}
 **[Completați chestionarul de început de curs](https://forms.gle/uHCXyFvxqQxsWWmH9)**
 
 Scanați codul QR sau deschideți linkul: [forms.gle/uHCXyFvxqQxsWWmH9](https://forms.gle/uHCXyFvxqQxsWWmH9).
@@ -251,6 +260,8 @@ Scanați codul QR sau deschideți linkul: [forms.gle/uHCXyFvxqQxsWWmH9](https://
 Ce experiență aveți? Ce știți deja și ce ați vrea să aprofundați?
 
 Completarea este voluntară și durează aproximativ 10–12 minute. Vom folosi răspunsurile pentru adaptarea conținutului.
+:::
+::::::
 
 ::: notes
 Invitația se adresează tuturor grupelor. La finalul semestrului vom reveni cu un chestionar despre învățare și îmbunătățiri.

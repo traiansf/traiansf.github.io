@@ -1,0 +1,136 @@
+% AMSS course look for the beamer decks (see include.mk). The palette is shared
+% with static/amss.css and theme/deck.css. Noto Sans is used when it is
+% installed; otherwise the default Latin Modern Sans remains.
+\usepackage{tikz}
+\usepackage{etoolbox}
+\usepackage{framed}
+
+\definecolor{amssnavy}{HTML}{0A2145}
+\definecolor{amssteal}{HTML}{087373}
+\definecolor{amsstealight}{HTML}{8FD6D2}
+\definecolor{amssink}{HTML}{1D2A2E}
+\definecolor{amssmuted}{HTML}{4A5A60}
+\definecolor{amssline}{HTML}{D5E0E3}
+\definecolor{shadecolor}{HTML}{F3F7F8}
+
+% Characters the text font lacks (such as → in Noto Sans) come from DejaVu
+% Sans, if installed, and from Latin Modern Math.
+\ifLuaTeX
+  \IfFontExistsTF{DejaVu Sans}%
+    {\directlua{luaotfload.add_fallback("amssfallback", {"DejaVu Sans:mode=node;", "Latin Modern Math:mode=node;"})}}%
+    {\directlua{luaotfload.add_fallback("amssfallback", {"Latin Modern Math:mode=node;"})}}
+  \IfFontExistsTF{DejaVu Sans Mono}%
+    {\directlua{luaotfload.add_fallback("amssmonofallback", {"DejaVu Sans Mono:mode=node;", "Latin Modern Math:mode=node;"})}}%
+    {\directlua{luaotfload.add_fallback("amssmonofallback", {"Latin Modern Math:mode=node;"})}}
+  \IfFontExistsTF{Noto Sans}{\setsansfont{Noto Sans}[Scale=0.94,RawFeature={fallback=amssfallback}]}{}
+  \IfFontExistsTF{Noto Sans Mono}{\setmonofont{Noto Sans Mono}[Scale=0.84,RawFeature={fallback=amssmonofallback}]}{}
+\fi
+
+\frenchspacing
+
+\newdimen\amssmargin
+\amssmargin=12mm
+\setbeamersize{text margin left=\amssmargin,text margin right=\amssmargin}
+
+\setbeamercolor{normal text}{fg=amssink,bg=white}
+\setbeamercolor{structure}{fg=amssteal}
+\setbeamercolor{frametitle}{fg=amssnavy}
+\setbeamercolor{block title}{fg=amssnavy}
+\setbeamercolor{footline}{fg=amssmuted}
+\setbeamercolor{quote}{fg=amssink}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
+\setbeamerfont{quote}{shape=\upshape}
+\setbeamerfont{footline}{size=\scriptsize}
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamerfont{subtitle}{size=\large,series=\bfseries}
+\setbeamerfont{institute}{size=\small,series=\bfseries}
+
+% Frame title over a hairline that starts with a short teal segment.
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip\vskip 4mm
+  \begin{beamercolorbox}[wd=\paperwidth]{frametitle}%
+    \leftskip=\amssmargin \rightskip=\amssmargin plus 1fil\relax
+    \usebeamerfont{frametitle}\insertframetitle\par
+    \nointerlineskip\vskip 1.8mm
+    \moveright\amssmargin\hbox{%
+      \textcolor{amssteal}{\rule{12mm}{1.1pt}}%
+      \textcolor{amssline}{\rule{\dimexpr\paperwidth-2\amssmargin-12mm\relax}{0.4pt}}}%
+  \end{beamercolorbox}%
+  \vskip 1mm}
+
+% Course label and frame number; the cover has neither.
+\newif\ifamsscover
+\AtBeginEnvironment{frame}{\global\amsscoverfalse}
+\setbeamertemplate{footline}{%
+  \ifamsscover\else
+    \leavevmode\hbox to\paperwidth{%
+      \hskip\amssmargin
+      \usebeamerfont{footline}\usebeamercolor[fg]{footline}%
+      \insertshortinstitute\hfill\insertframenumber\,/\,\inserttotalframenumber
+      \hskip\amssmargin}%
+    \vskip 3.5mm
+  \fi}
+
+% Cover: logo on a white plate, then course, session, title and author.
+\setbeamertemplate{background canvas}{%
+  \ifamsscover\color{amssnavy}\vrule width\paperwidth height\paperheight\fi}
+\makeatletter
+\setbeamertemplate{title page}{%
+  \global\amsscovertrue
+  \ifx\inserttitlegraphic\@empty\else
+    \begin{minipage}[c]{40mm}%
+      \tikz\node[fill=white,rounded corners=2.2mm,inner sep=2.4mm]{\inserttitlegraphic};%
+    \end{minipage}\hfill
+  \fi
+  \begin{minipage}[c]{\dimexpr\textwidth-46mm\relax}\raggedright
+    \ifx\insertsubtitle\@empty\else
+      {\usebeamerfont{subtitle}\color{amsstealight}\insertsubtitle\par}\vskip 1.5mm
+    \fi
+    {\usebeamerfont{title}\color{white}\inserttitle\par}%
+    \vskip 6mm
+    \ifx\insertinstitute\@empty\else
+      {\usebeamerfont{institute}\color{amsstealight}\insertinstitute\par}\vskip 1mm
+    \fi
+    {\usebeamerfont{author}\color{white}\insertauthor\par}%
+  \end{minipage}}
+\makeatother
+
+% Bullets echo the rounded nodes of the course logo.
+\setbeamertemplate{itemize item}{\tikz[baseline=-0.1ex]\fill[amssteal,rounded corners=0.12ex] (0,0) rectangle (0.62ex,0.62ex);}
+\setbeamertemplate{itemize subitem}{\tikz[baseline=-0.1ex]\draw[amssteal,line width=0.12ex,rounded corners=0.1ex] (0,0) rectangle (0.52ex,0.52ex);}
+\setbeamertemplate{itemize subsubitem}{\textcolor{amssteal}{--}}
+\setbeamertemplate{enumerate item}{\textcolor{amssteal}{\bfseries\insertenumlabel.}}
+\setbeamertemplate{enumerate subitem}{\textcolor{amssteal}{\insertenumlabel.\insertsubenumlabel}}
+\renewcommand{\tightlist}{\setlength{\itemsep}{0.45ex}\setlength{\parskip}{0pt}}
+
+% Paragraphs keep their spacing inside columns (minipages reset \parskip).
+\makeatletter
+\newlength{\amssparskip}
+\AtBeginDocument{\setlength{\amssparskip}{\parskip}}
+\appto\@minipagerestore{\setlength{\parskip}{\amssparskip}}
+\makeatother
+
+% Quotations: upright text beside a teal bar; larger on the epigraph slide,
+% where theme/amss.lua wraps the quotation in amssepigraph.
+\newcommand{\amssquotesetup}{}
+\newenvironment{amssepigraph}{%
+  \setbeamercolor{quote}{fg=amssnavy}%
+  \setbeamerfont{quote}{shape=\upshape,series=\bfseries,size=\Large}%
+  \renewcommand{\amssquotesetup}{\raggedright\hyphenpenalty=10000 }}{\par\vskip 1.5mm}
+\newsavebox{\amssquotebox}
+\renewenvironment{quote}{%
+  \par\begin{lrbox}{\amssquotebox}%
+  \begin{minipage}{\dimexpr\linewidth-4.6mm\relax}%
+  \usebeamerfont{quote}\usebeamercolor[fg]{quote}\amssquotesetup\ignorespaces}%
+ {\end{minipage}\end{lrbox}%
+  \noindent{\color{amssteal}\vrule width 1.4pt}\hskip 3.2mm\usebox{\amssquotebox}\par}
+
+% Code on a tinted panel; tables flush left, with a little more air.
+\makeatletter
+\AtBeginDocument{%
+  \@ifundefined{Shaded}{}{%
+    \renewenvironment{Shaded}{\begin{snugshade}\small}{\end{snugshade}}}%
+  \@ifpackageloaded{longtable}{\setlength{\LTleft}{0pt}\setlength{\LTright}{\fill}}{}}
+\makeatother
+\renewcommand{\arraystretch}{1.2}
