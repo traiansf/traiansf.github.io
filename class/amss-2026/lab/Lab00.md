@@ -1,7 +1,6 @@
 ---
 title: "AMSS 2026/2027 — Laboratorul 0: Pregătire și orientare"
 author: "Traian-Florin Șerbănuță"
-date: "2026/2027"
 lang: ro-RO
 ---
 

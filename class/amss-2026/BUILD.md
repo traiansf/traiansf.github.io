@@ -97,6 +97,13 @@ entry for a deck is a single `<li>` line carrying
 Only the published site is gated: the sources (including `*-instructor.md`)
 live in this public repository.
 
+After a push, check that the site was deployed: the repository's Actions tab
+shows the “pages build and deployment” run. GitHub Pages runs Jekyll over the
+whole repository, these sources included, so a Markdown file can break the
+deployment of the entire site. Known trap: a front-matter `date:` that is not a
+real date (for example `2026/2027`) makes the build fail. The templates do not
+show `date`, so leave it out.
+
 ## Optional orientation guide
 
 `lab/Lab00` is released as a continuous HTML guide and printable PDF using explicit rules in `lab/Makefile`, rather than slide output. Questionnaire import tables live in `questionnaires/`; they are instructor resources, not automatically published forms.

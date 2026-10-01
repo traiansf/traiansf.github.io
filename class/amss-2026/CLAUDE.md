@@ -68,6 +68,7 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - Preserve the Teams QR code, URL, and team code `fswo4rl` on Lecture 1's welcome slide.
 - Lecture 1 focuses on administration and motivation. Its former technical library content is expanded into Lecture 2; do not run that technical exercise in Lecture 1. Useful project-workshop questions may be discussed on request in the open Lab 6.
 - Avoid internal instructor abbreviations in student-facing material.
+- Leave `date:` out of the front matter. GitHub Pages runs Jekyll over the whole repository, sources included, and a value that is not a real date (such as `2026/2027`) fails the Pages build, so nothing gets deployed; the templates do not display the date.
 - Presentation conventions the theme relies on: titles follow `AMSS 2026/2027 — Cursul N: Titlu` (the cover shows session and title separately, so the first slide should not repeat them); the epigraph slide is titled „Ideea întâlnirii”; a QR code shares its slide with the text through pandoc `columns`; links between published pages are absolute, so they also work from the PDFs. After changing a deck or the theme, check that every slide still fits in both the HTML and the PDF.
 
 ## Layout and implementation state

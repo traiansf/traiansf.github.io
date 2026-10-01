@@ -1,7 +1,6 @@
 ---
 title: "AMSS 2026/2027 — Proiectul de echipă"
 author: "Traian-Florin Șerbănuță"
-date: "2026/2027"
 lang: ro-RO
 ---
 

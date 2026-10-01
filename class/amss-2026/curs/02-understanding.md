@@ -1,7 +1,6 @@
 ---
 title: "AMSS 2026/2027 — Cursul 2: Înțelegem înainte de a delega"
 author: "Traian-Florin Șerbănuță"
-date: "2026/2027"
 lang: ro-RO
 ---
 
