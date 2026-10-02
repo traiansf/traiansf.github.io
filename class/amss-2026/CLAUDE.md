@@ -8,6 +8,8 @@ Read [docs/redesign-2026-2027.md](docs/redesign-2026-2027.md) for the instructor
 
 The earlier design at `../amss/docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md` is historical. Its UML-centered curriculum, pinned tooling, mandatory TDD, pattern quotas, and individual oral-defense requirements have been superseded.
 
+[docs/open-questions.md](docs/open-questions.md) lists the points the instructor still has to decide (attendance formula, Lab 7 title, unclear phrases on the project page, and others), each with the files it touches, plus what to align before Labs 6–7 are released and the checks nobody has done yet. Read it before editing a passage it names; do not settle those points on your own, raise them with the instructor, and delete an item once it is decided and the materials are changed.
+
 ## Pedagogical contract
 
 The course teaches analysis and design principles. Its highest priorities are:
@@ -70,7 +72,7 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - Avoid internal instructor abbreviations in student-facing material.
 - Leave `date:` out of the front matter. GitHub Pages runs Jekyll over the whole repository, sources included, and a value that is not a real date (such as `2026/2027`) fails the Pages build, so nothing gets deployed; the templates do not display the date.
 - Presentation conventions the theme relies on: titles follow `AMSS 2026/2027 — Cursul N: Titlu` (the cover shows session and title separately, so the first slide should not repeat them); the epigraph slide is titled „Ideea întâlnirii”; a QR code shares its slide with the text through pandoc `columns`; links between published pages are absolute, so they also work from the PDFs. After changing a deck or the theme, check that every slide still fits in both the HTML and the PDF.
-- Unreleased decks have not been brought to these conventions yet. Before adding one to `RELEASED`, align its title, first slide, front matter and terminology with the released materials. Labs 6–7 restate the project rubric and must use the criterion names and terms of `proiect/README.md` (they still say „Lab 6/7”, „Stări și comportamente”, „Total dosar de echipă”, „punctele neclare”).
+- Unreleased decks have not been brought to these conventions yet. Before adding one to `RELEASED`, align its title, first slide, front matter and terminology with the released materials. Labs 6–7 restate the project rubric and must use the criterion names and terms of `proiect/README.md`; the list of what to change is in `docs/open-questions.md`.
 
 ## Layout and implementation state
 
