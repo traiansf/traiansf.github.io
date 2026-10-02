@@ -8,7 +8,7 @@ date: "2026"
 
 Folosiți timpul pentru:
 
-- lucru individual la proiect;
+- finalizarea proiectului;
 - întrebări adresate profesorului;
 - discuții între echipe.
 
@@ -16,7 +16,7 @@ După cursurile 11–12, alegeți activitățile potrivite stării proiectului v
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Dacă gândești fără să scrii, doar ai impresia că gândești.”
 
@@ -49,7 +49,7 @@ Puteți cere feedback profesorului oricând în timpul semestrului, inclusiv pe 
 | Minute | Organizare |
 |---|---|
 | 0–5 | Deschidem spațiul de lucru și stabilim întrebările. |
-| 5–90 | Lucru individual, întrebări către profesor și discuții între echipe. |
+| 5–90 | Finalizarea proiectului, întrebări către profesor și discuții între echipe. |
 | 90–100 | Salvăm progresul și stabilim pașii următori. |
 
 Intervalele organizează timpul disponibil; nu impun livrabile suplimentare sau o ordine obligatorie a activităților.
@@ -62,4 +62,4 @@ Intervalele organizează timpul disponibil; nu impun livrabile suplimentare sau 
 
 Dezvoltarea și commit-urile pot fi asistate de AI. Echipa verifică și își asumă conținutul publicat. Numărul de commit-uri nu aduce puncte.
 
-Laboratorul nu are punctaj separat. La Lab 7, profesorul definitivează nota pe dosar printr-un interviu despre punctele neclare.
+Laboratorul nu are punctaj separat. La Lab 7, profesorul definitivează nota pe dosar printr-un interviu despre punctele neclare. Dosarul din repository trebuie definitivat cu aproximativ o săptămână înainte de interviu.

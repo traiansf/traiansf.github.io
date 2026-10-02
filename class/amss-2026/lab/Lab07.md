@@ -4,7 +4,7 @@ author: "Traian-Florin Șerbănuță"
 date: "2026"
 ---
 
-# Lab 7: Interviu de susținere a dosarului
+# Lab 7: Interviu de susținere a proiectului
 
 Profesorul citește dosarul înainte de laborator și definitivează nota echipei prin întrebări asupra punctelor neclare, la care echipa poate răspunde.
 
@@ -14,7 +14,7 @@ Nu pregătiți o prezentare sau slide-uri.
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Nu veni cu idei bune dacă nu ești dispus să îți asumi responsabilitatea pentru ele.”
 
@@ -34,8 +34,8 @@ Legătura cu tema: Echipa explică și își asumă deciziile din dosar, inclusi
 
 # Înainte de interviu
 
-- Puneți dosarul și dovezile în repository-ul public al proiectului.
-- Respectați termenul de predare anunțat pe Teams, pentru a permite lectura înainte de interviu.
+- Puneți dosarul și materialele care îl susțin în repository-ul public al proiectului.
+- Definitivați repository-ul cu aproximativ o săptămână înainte de interviu, pentru a permite lectura dosarului; termenul exact este anunțat pe Teams.
 - Pregătiți accesul rapid de la sinteză la cerințe, decizii și verificări.
 - Păstrați evidența contribuțiilor membrilor și istoricul progresului.
 
@@ -50,7 +50,7 @@ Profesorul indică punctele care au nevoie de clarificare. Echipa poate consulta
 Exemple de întrebări:
 
 - Ce cerință justifică această alegere?
-- În ce condiții se păstrează această invariantă?
+- În ce condiții se păstrează acest invariant?
 - Ce arată scenariul de verificare și ce nu acoperă?
 - Cum se leagă această responsabilitate de comportamentul descris?
 

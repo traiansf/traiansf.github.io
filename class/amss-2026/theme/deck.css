@@ -175,7 +175,7 @@ body {
 .slide .nowrap { white-space: nowrap; }   /* ranges such as 10–12, marked by theme/amss.lua */
 .deck-pause { display: none; }            /* where the source has a pause (". . ."), for deck.js */
 
-/* The epigraph slide ("Ideea întâlnirii"): quotation, author, source. */
+/* The epigraph slide ("Citatul zilei"): quotation, author, source. */
 .slide.epigraph blockquote {
   padding-left: 0.7em;
   color: var(--navy);

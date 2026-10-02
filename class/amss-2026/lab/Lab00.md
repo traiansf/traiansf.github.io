@@ -12,7 +12,7 @@ Scopul este să găsești materialele, să îți pregătești spațiul de lucru 
 
 Laboratorul 1, despre înțelegere, specificare și revizuire, se desfășoară **după predarea cursurilor 1 și 2**. Pentru o grupă care are întâlnirea imediat după primul curs, aceasta este laboratorul 0; laboratorul 1 poate avea loc în săptămâna 3. Programarea fiecărei grupe se anunță pe Teams.
 
-## Ideea întâlnirii
+## Citatul zilei
 
 > „Informatica ar trebui să se ocupe de concepte, nu de limbaje.”
 

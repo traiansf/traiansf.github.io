@@ -8,7 +8,7 @@ When a point is settled, change the materials it names and delete it from this f
 
 ### 1. Attendance: what counts in the denominator
 
-- **Where:** `proiect/README.md` („Punctaj prezență = …”, „Pentru 14 cursuri și 7 laboratoare, numitorul este 21”, lines 112–116); `curs/01-intro.md`, slide „Prezența și pregătirea pentru examen” (lines 110–112) and its notes (line 121); `static/index.html` („Prezență la cursuri și laboratoare”, line 165); the assessment section of `CLAUDE.md`.
+- **Where:** `proiect/README.md` („Punctaj prezență = …”, „Pentru 14 cursuri și 7 laboratoare, numitorul este 21”, lines 112–116); `curs/01-intro.md`, slide „Prezența și pregătirea pentru examinare” (lines 115–117) and its notes (line 126); `static/index.html` („Prezență la cursuri și laboratoare”, line 165); the assessment section of `CLAUDE.md`.
 - **Question:** two meetings are not covered by the formula.
   - *Lab 0* is optional and takes place only in some groups. The slide counts „întâlniri de curs și laborator desfășurate pentru grupa voastră”, which read literally includes it; „7 laboratoare” excludes it.
   - *Week 14* is planned as exam and reflection (`docs/semester-roadmap.md`). Is it one of the 14 lectures for attendance?
@@ -16,7 +16,7 @@ When a point is settled, change the materials it names and delete it from this f
 
 ### 2. Lab 7: „susținere a proiectului” or „a dosarului”
 
-- **Where:** `static/index.html` line 147 says „Interviu de susținere a proiectului”; `lab/Lab07.md` says „… a dosarului” in its front-matter title (its first slide repeats the name and has to follow); `proiect/README.md` has the section „Interviul de susținere — ultimul laborator” and speaks of „dosar” throughout; `docs/semester-roadmap.md` calls it “Dossier interview”.
+- **Where:** `static/index.html` line 147 says „Interviu de susținere a proiectului”; `lab/Lab07.md` says „… a dosarului” in its front-matter title, while its first slide now says „… a proiectului” (the instructor's edit of October 2026); `proiect/README.md` has the section „Interviul de susținere — ultimul laborator” and speaks of „dosar” throughout; `docs/semester-roadmap.md` calls it “Dossier interview”.
 - **Question:** which noun names the session. Use it in all of these places.
 
 ### 3. Lab 1: the kinds of statements differ between the slide and the worksheet
@@ -24,12 +24,11 @@ When a point is settled, change the materials it names and delete it from this f
 - **Where:** `lab/Lab01.md`, slide „Patru tipuri de afirmații” (lines 110–119): cerință convenită, consecință dedusă, alegere de proiectare, regulă încă neclarificată. `lab/scenarios/lab01/worksheet.md` line 39: „Informație convenită / consecință / ipoteză / întrebare / propunere de proiectare”. `lab/scenarios/lab01/scenario.md` line 48: „informații/ipoteze/întrebări”.
 - **Question:** four categories or five, and under which names. „Ipoteză” is on the worksheet and in the slide's notes (line 122) but not on the slide; „alegere de proiectare” and „propunere de proiectare” name the same thing.
 
-### 4. Project page: four phrases that can be read in two ways
+### 4. Project page: three phrases that can be read in two ways
 
-All in `proiect/README.md`; the second and third also appear in `lab/Lab06.md` (lines 11 and 15).
+All in `proiect/README.md`; the second also appears in `lab/Lab06.md` (line 15).
 
 - **„versiunea relevantă a modelului”** (line 74). The sentence before it is about delegation and context, the next paragraph about „instrumentul și modelul folosite”, so „model” can be the AI model or the design model. If the design model is meant, „versiunea relevantă a modelului de proiectare” removes the doubt.
-- **„lucru individual la proiect”** (line 84). The project is a team project. If it means that each team works on its own project, „lucrul fiecărei echipe la proiectul ei” says so; if students really work alone in that lab, the page should say how that fits the team dossier. `CLAUDE.md` and the roadmap use “individual project work” too.
 - **„întrebări de proiectare care ar fi fost discutate într-un atelier la curs”** (line 84). The workshop lecture was retired, so students have no such workshop to compare with. The clause can simply go.
 - **„Studenții fără echipă sau temă la 1 noiembrie vor fi repartizați aleatoriu”** (line 16). It covers a student without a team. What happens to a complete team that has not announced a topic by the deadline?
 
@@ -45,7 +44,7 @@ All in `proiect/README.md`; the second and third also appear in `lab/Lab06.md` (
 
 ### 7. The questionnaire is „voluntar” in the form and „facultativ” on the pages
 
-- **Where:** the live Google Form and `questionnaires/README.md` (lines 9, 13, 17) say „Completarea este voluntară”; `curs/01-intro.md` (line 266), `lab/Lab00.md` (line 156) and `static/index.html` (line 196) say „facultativ(ă)”.
+- **Where:** the live Google Form and `questionnaires/README.md` (lines 9, 13, 17) say „Completarea este voluntară”; `curs/01-intro.md` (line 275), `lab/Lab00.md` (line 156) and `static/index.html` (line 196) say „facultativ(ă)”.
 - **Question:** near-synonyms, so the difference may be acceptable. To align, edit the form by hand in Google Forms and the two descriptions in `questionnaires/README.md`; the unreleased `curs/14-final.md` (line 168) also says „voluntară”.
 
 ### 8. Terms used side by side

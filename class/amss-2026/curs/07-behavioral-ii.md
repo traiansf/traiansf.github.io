@@ -19,7 +19,7 @@ Week 6 modelled one interaction (a sequence). Today we model an object's whole l
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Orice organizație care proiectează un sistem (în sens larg) va produce o proiectare a cărei structură reproduce structura de comunicare a organizației.”
 

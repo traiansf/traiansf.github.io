@@ -2,7 +2,7 @@
 
 Instructor working document. The confirmed allocation is **5 points for the team design dossier + 3 points for an individual scenario-based multiple-choice examination + 1 point for attendance + 1 automatic point**. There is no scheduled checkpoint, separately graded individual decision note, or mandatory per-student oral defense. Teams may request feedback throughout the semester. The instructor pre-reads each dossier and finalizes its five-point team score in a Lab 7 interview about unclear points, using the published dossier criteria; the interview carries no separate score.
 
-The confirmed resit allocation is **9 points for a scenario-based multiple-choice examination + 1 automatic point**. Dossier and attendance scores do not carry over. The resit must sample the breadth of the course individually, including reasoning about design alternatives, validation, and change.
+The confirmed resit allocation, which also applies to grade-improvement attempts (restanță / mărire), is **9 points for a scenario-based multiple-choice examination + 1 automatic point**. Dossier and attendance scores do not carry over. The resit must sample the breadth of the course individually, including reasoning about design alternatives, validation, and change.
 
 The question count, duration, scoring details, and rubric anchors below are proposals to rehearse and finalize before announcing them to students. The examination tests reasoning about supplied problems and artifacts. Constructing a design remains the team dossier's central task; unaided constructive design and change reasoning continue as formative classroom practice. Multiple-choice performance alone does not establish that a student can independently construct a complete design.
 

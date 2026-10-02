@@ -20,7 +20,7 @@ The first critique/red-team lab. Lab 2 had you drive AI and critique your own ou
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Precondiția obligă clientul; postcondiția obligă furnizorul.”
 

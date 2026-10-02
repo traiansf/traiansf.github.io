@@ -19,7 +19,7 @@ The course used AI to generate and YOU to judge. Today turns to evaluation itsel
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Dacă gândești fără să scrii, doar ai impresia că gândești.”
 

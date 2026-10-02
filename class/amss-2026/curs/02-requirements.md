@@ -22,7 +22,7 @@ No re-introduction. Students saw who I was in Week 1. Open straight into structu
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Cea mai dificilă parte a construirii unui sistem software este să decidem exact ce să construim.”
 

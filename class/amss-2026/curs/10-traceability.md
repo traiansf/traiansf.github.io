@@ -19,7 +19,7 @@ Weeks 2-9 built every artifact type. Today is the chain that connects them: requ
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Refactorizarea este o tehnică disciplinată de restructurare a unui corp de cod existent, modificându-i structura internă fără a-i schimba comportamentul extern.”
 

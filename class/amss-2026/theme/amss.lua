@@ -7,7 +7,7 @@
 -- * Hands the course identity from course.yaml to the PDF builds through
 --   fields the default LaTeX templates already print: `institute` on the
 --   beamer cover and footline, `subtitle` above the title of a document.
--- * Marks the "Ideea întâlnirii" heading with the class `epigraph`, so the
+-- * Marks the "Citatul zilei" heading with the class `epigraph`, so the
 --   quotation that follows is typeset as an epigraph.
 -- * In continuous documents (Lab 0, the project page), drops a leading
 --   level-1 heading that repeats the title and any instructor notes.
@@ -34,7 +34,7 @@ local is_deck = is_beamer or is_slidy
 local EM_DASH = '\u{2014}'
 local EN_DASH = 0x2013
 local NBSP = '\u{a0}'
-local EPIGRAPH_TITLE = 'Ideea întâlnirii'
+local EPIGRAPH_TITLE = 'Citatul zilei'
 
 local full_title, short_title, headline
 

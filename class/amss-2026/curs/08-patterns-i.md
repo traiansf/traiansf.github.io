@@ -19,7 +19,7 @@ Weeks 4-7 modelled the system's structure and behaviour. Today shifts to a desig
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „[…] să arate prezența erorilor, dar niciodată absența lor.”
 

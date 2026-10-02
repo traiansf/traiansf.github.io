@@ -14,7 +14,7 @@ Lucrăm pe o problemă furnizată, distinctă de proiectele echipelor. Nu presup
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „[…] să arate prezența erorilor, dar niciodată absența lor.”
 

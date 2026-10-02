@@ -20,7 +20,7 @@ Week 14 shares its slot with Lab 7. Keep the lecture portion short — a retrosp
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Simplitatea nu precedă complexitatea, ci îi urmează.”
 

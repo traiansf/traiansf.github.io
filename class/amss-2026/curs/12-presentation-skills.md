@@ -19,7 +19,7 @@ You have built, critiqued, and evaluated. Today is performing it under examinati
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „[…] să tratăm un program ca pe o operă literară, adresată oamenilor, nu unui calculator.”
 

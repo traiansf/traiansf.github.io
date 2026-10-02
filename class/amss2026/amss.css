@@ -282,7 +282,7 @@ code.join { padding: 0.1rem 0.4rem; border-radius: 0.3rem; background: var(--sur
 .prose blockquote { margin: 0 0 1rem; padding: 0.1rem 0 0.1rem 1rem; border-left: 0.25rem solid var(--accent); }
 .prose blockquote > :last-child { margin-bottom: 0; }
 
-/* The epigraph ("Ideea întâlnirii"): a quiet label, then quotation, author, source. */
+/* The epigraph ("Citatul zilei"): a quiet label, then quotation, author, source. */
 .prose h2.epigraph { margin-bottom: 0.6rem; color: var(--muted); font-size: 1.05rem; letter-spacing: 0; }
 .prose .epigraph + blockquote { color: var(--brand); font-size: 1.4rem; font-weight: 600; line-height: 1.3; }
 .prose .epigraph + blockquote p { text-wrap: balance; }

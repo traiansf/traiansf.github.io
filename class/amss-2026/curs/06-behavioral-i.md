@@ -19,7 +19,7 @@ Weeks 4-5 modelled what the parts are; today we model how they interact over tim
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „O mare parte a informaticii se ocupă de mașini de stări.”
 

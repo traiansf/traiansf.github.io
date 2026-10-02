@@ -19,7 +19,7 @@ Week 8 asked whether a pattern is warranted. Today asks the next question: when 
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „De la o abstractizare dorim un mecanism care permite exprimarea detaliilor relevante și omiterea celor irelevante.”
 

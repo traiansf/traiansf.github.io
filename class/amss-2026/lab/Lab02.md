@@ -20,7 +20,7 @@ The hands-on follow-through of the Week 4 lecture. In Week 4 you watched the arc
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Un sistem de abstractizări care descrie aspecte selectate ale unui domeniu […]”
 

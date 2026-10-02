@@ -20,7 +20,7 @@ The second critique/red-team lab. Lab 3 hunted flawed structure (class, package,
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „O mare parte a informaticii se ocupă de mașini de stări.”
 

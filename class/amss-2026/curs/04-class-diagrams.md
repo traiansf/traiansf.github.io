@@ -21,7 +21,7 @@ Authoring note: this lecture reshapes 2025's `class/amss/curs/02-class.md` (Book
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Fiecare modul este apoi proiectat să ascundă o asemenea decizie față de celelalte.”
 

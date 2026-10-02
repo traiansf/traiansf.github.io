@@ -16,7 +16,7 @@ Astăzi analizăm o problemă mică, comparăm decizii și verificăm ce anume l
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Simplitatea este o condiție necesară pentru fiabilitate.”
 
@@ -159,7 +159,7 @@ Anticipați coeziunea: păstrați împreună deciziile necesare acestei responsa
 
 # Contracte și invariante: reguli verificabile
 
-**Invariantă:** un exemplar are cel mult un împrumut activ.
+**Invariant:** un exemplar are cel mult un împrumut activ.
 
 **Operația de împrumutare:**
 
@@ -169,9 +169,9 @@ Anticipați coeziunea: păstrați împreună deciziile necesare acestei responsa
 **Contraexemplu de exclus:** două împrumuturi active acceptate pentru același exemplar.
 
 ::: notes
-O invariantă este o condiție care trebuie să fie adevărată în stările valide relevante. Un contract precizează obligațiile și rezultatele observabile ale unei operații. Vom defini mai precis precondițiile, postcondițiile, comportamentul la eșec și sensul unei „stări valide”.
+Un invariant este o condiție care trebuie să fie adevărată în stările valide relevante. Un contract precizează obligațiile și rezultatele observabile ale unei operații. Vom defini mai precis precondițiile, postcondițiile, comportamentul la eșec și sensul unei „stări valide”.
 
-Distingeți această condiție a domeniului de o proiectare completă pentru concurență. Dacă încercările concurente de împrumutare intră în domeniul de aplicare, planul de implementare trebuie să explice cum păstrează invarianta.
+Distingeți această condiție a domeniului de o proiectare completă pentru concurență. Dacă încercările concurente de împrumutare intră în domeniul de aplicare, planul de implementare trebuie să explice cum păstrează invariantul.
 :::
 
 ---

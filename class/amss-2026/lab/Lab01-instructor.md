@@ -8,7 +8,7 @@ Ghid pentru cadrul didactic, asociat cu [prezentarea laboratorului](Lab01.md). F
 
 Fiecare student ar trebui să distingă o cerință, o consecință dedusă, o ipoteză, o regulă încă neclarificată de beneficiar și o propunere de proiectare. Perechea pregătește o descriere a problemei cu limite clare și predări explicite ale sarcinilor și contextului (handoff); fiecare student explică o alegere și raționează despre o cerință nouă fără AI.
 
-Laboratorul introduce conceptele domeniului, o invariantă și atribuirea responsabilităților prin analiza cerințelor. Nu încearcă să predea aprofundat toate cele cinci priorități ale cursului într-o singură întâlnire. Studenții întâlnesc comportamentul prin scenarii de rezervare/anulare și recunosc că revizuirea (review) specificației și a proiectării precedă implementarea.
+Laboratorul introduce conceptele domeniului, un invariant și atribuirea responsabilităților prin analiza cerințelor. Nu încearcă să predea aprofundat toate cele cinci priorități ale cursului într-o singură întâlnire. Studenții întâlnesc comportamentul prin scenarii de rezervare/anulare și recunosc că revizuirea (review) specificației și a proiectării precedă implementarea.
 
 ## Materiale și pregătire
 
@@ -39,7 +39,7 @@ Nu cereți o aplicație, teste într-un cadru de programare, sintaxă UML, un ș
 | Minute | Activitate | Intervenția cadrului didactic |
 |---|---|---|
 | 0–8 | Analiză fără ajutor | Dați imediat fișa completă. Fiecare student scrie scopul/limitele, distincția sală–rezervare, o cerere acceptată, una respinsă și o întrebare. Încă fără AI sau răspuns demonstrat. |
-| 8–16 | Comparare și clarificarea distincțiilor | Cereți două interpretări diferite. Predați informație/consecință/alegere de proiectare/întrebare deschisă și sensul unei invariante. Urmăriți două cereri în conflict pentru a arăta de ce verificarea disponibilității pe fiecare cerere necesită o garanție mai puternică. |
+| 8–16 | Comparare și clarificarea distincțiilor | Cereți două interpretări diferite. Predați informație/consecință/alegere de proiectare/întrebare deschisă și sensul unui invariant. Urmăriți două cereri în conflict pentru a arăta de ce verificarea disponibilității pe fiecare cerere necesită o garanție mai puternică. |
 | 16–26 | Spațiul de lucru și rolurile | Confirmați accesul la fișa de lucru. A îndrumă autorul; B verifică sursele. Pregătiți un context separat de revizuire. Până la minutul 26, treceți perechile cu dificultăți de acces la varianta fără AI. |
 | 26–44 | Descriere comună și predarea sarcinii autorului | Treceți pe la perechi: întrebați „De unde provine regula?” și „Ce rezultat stabilește scenariul?”. Păstrați o copie a variantei înainte de revizuire. |
 | 44–60 | Schimbarea rolurilor; revizuire separată | B îndrumă revizuirea; A verifică afirmațiile evaluatorului. Evaluatorul primește informațiile, versiunea salvată și criteriile. Observați dacă pachetul este suficient fără istoricul autorului. |
@@ -177,11 +177,11 @@ La minutul 78, spuneți:
 
 Un răspuns solid:
 
-> Limita este o regulă nouă propusă; nu făcea parte din cerințele inițiale. Afectează acceptarea rezervării, scenariile și posibil invarianta rezervărilor confirmate. Trebuie să clarific dacă limita se aplică doar cererilor făcute după adoptare sau și rezervărilor deja aprobate. Exceptarea rezervării existente păstrează promisiunea făcută titularului, aplicând limita cererilor noi. Aplicarea la rezervările existente cere o tranziție convenită și o decizie despre titularii afectați; nu le-aș scurta sau anula implicit rezervarea. Rezervarea existentă de 90 de minute distinge aceste reguli, iar o cerere nouă de 90 de minute trebuie verificată potrivit regulii alese.
+> Limita este o regulă nouă propusă; nu făcea parte din cerințele inițiale. Afectează acceptarea rezervării, scenariile și posibil invariantul rezervărilor confirmate. Trebuie să clarific dacă limita se aplică doar cererilor făcute după adoptare sau și rezervărilor deja aprobate. Exceptarea rezervării existente păstrează promisiunea făcută titularului, aplicând limita cererilor noi. Aplicarea la rezervările existente cere o tranziție convenită și o decizie despre titularii afectați; nu le-aș scurta sau anula implicit rezervarea. Rezervarea existentă de 90 de minute distinge aceste reguli, iar o cerere nouă de 90 de minute trebuie verificată potrivit regulii alese.
 
 Alte răspunsuri solide pot propune o dată ulterioară de intrare în vigoare, pot căuta un interval mai scurt de înlocuire cu acordul titularului sau pot identifica o a treia opțiune. Esențiale sunt recunoașterea cerinței schimbate, urmărirea consecințelor ei și refuzul de a inventa regula de tranziție lipsă.
 
-Dacă se alege exceptarea rezervărilor existente, „toate rezervările confirmate durează cel mult 60 de minute” nu este invarianta globală corectă. Studenții pot formula în schimb regula pentru rezervările nou acceptate după momentul intrării în vigoare. Este o extensie utilă pentru studenții care termină mai devreme, nu o condiție pentru finalizarea laboratorului 1.
+Dacă se alege exceptarea rezervărilor existente, „toate rezervările confirmate durează cel mult 60 de minute” nu este invariantul global corect. Studenții pot formula în schimb regula pentru rezervările nou acceptate după momentul intrării în vigoare. Este o extensie utilă pentru studenții care termină mai devreme, nu o condiție pentru finalizarea laboratorului 1.
 
 Un răspuns slab este „adaugă `duration <= 60` și șterge rezervările vechi nevalide”: ignoră autoritatea beneficiarului și angajamentele existente. Oferiți feedback întrebând ce regulă aprobată autorizează ștergerea.
 

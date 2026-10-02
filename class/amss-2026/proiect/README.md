@@ -8,7 +8,7 @@ lang: ro-RO
 
 Proiectul urmărește **analiza unei probleme și construirea unei soluții de proiectare justificate**. Echipa dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile. Dosarul de proiectare al echipei valorează **5&nbsp;puncte**, iar înțelegerea individuală se evaluează printr-un **examen grilă de 3&nbsp;puncte**. Prezența și punctul din oficiu completează nota până la 10.
 
-La finalul cursului, ar trebui să puteți, fără AI, să analizați o problemă mică și necunoscută, să propuneți o soluție de proiectare, să explicați alternative și să urmăriți consecințele unei schimbări, folosind text, schițe sau pseudocod. AI vă poate ajuta să explorați și să produceți mai repede; voi răspundeți pentru cerințele, deciziile și rezultatele pe care le acceptați.
+La finalul cursului, ar trebui să puteți, fără AI, să analizați o problemă (mică) necunoscută, să propuneți o soluție de proiectare, să explicați alternative și să urmăriți consecințele unei schimbări, folosind text, schițe sau pseudocod. AI vă poate ajuta să explorați și să produceți mai repede; voi răspundeți pentru cerințele, deciziile și rezultatele pe care le acceptați.
 
 ## Echipă și temă
 
@@ -81,11 +81,11 @@ Fragmentele de conversație pot susține explicația. O transcriere integrală n
 
 Doar **ultimele două laboratoare** sunt dedicate efectiv proiectului. Laboratoarele 1–5 tratează, prin exerciții pe probleme distincte, teme importante ale cursului: înțelegere, specificare și revizuire (cursurile 1–2); cerințe și modelarea domeniului (3–4); responsabilități, contracte și invariante (5–6); stări, comportament și interacțiuni (7–8); validare și abstractizare (9–10). Fiecare laborator are loc după predarea celor două cursuri asociate.
 
-**Laboratorul 6 este un laborator deschis:** lucru individual la proiect, întrebări adresate profesorului și discuții între echipe. Folosiți timpul pentru întrebările și revizuirile de care are nevoie proiectul vostru, inclusiv întrebări de proiectare care ar fi fost discutate într-un atelier la curs. Laboratorul 6 are loc după cursurile 11–12, iar laboratorul 7, după cursurile 13–14. Nu există o prezentare obligatorie sau o repetiție de susținere.
+**Laboratorul 6 este un laborator deschis:** finalizarea proiectului, întrebări adresate profesorului și discuții între echipe. Folosiți timpul pentru întrebările și revizuirile de care mai are nevoie proiectul vostru, inclusiv întrebări de proiectare care ar fi fost discutate într-un atelier la curs. Laboratorul 6 are loc după cursurile 11–12, iar laboratorul 7, după cursurile 13–14. Nu există o prezentare obligatorie sau o repetiție de susținere.
 
 ## Interviul de susținere&nbsp;— ultimul laborator
 
-La **laboratorul 7**, profesorul definitivează punctajul pentru dosarul echipei printr-un **interviu de aproximativ 8&nbsp;minute**, cu întrebări despre aspectele neclare, la care echipa poate răspunde. Dosarul trebuie să fie disponibil pentru lectură înainte de interviu; termenul exact și programarea echipelor vor fi anunțate pe Teams.
+La **laboratorul 7**, profesorul definitivează punctajul pentru dosarul echipei printr-un **interviu de aproximativ 8&nbsp;minute**, cu întrebări despre aspectele neclare, la care echipa poate răspunde. Dosarul din repository-ul public trebuie să fie definitivat cu aproximativ o săptămână înainte de interviu, pentru a putea fi citit; termenul exact și programarea echipelor vor fi anunțate pe Teams.
 
 Discuția pornește de la dosarul citit de profesor. Echipa poate consulta repository-ul și poate indica cerințele, deciziile, contribuțiile și verificările relevante pentru clarificări. Nu este necesară pregătirea unei prezentări sau a unor diapozitive.
 
@@ -115,4 +115,4 @@ Punctul de prezență se acordă proporțional cu participarea la **cursuri și 
 
 Pentru 14&nbsp;cursuri și 7&nbsp;laboratoare, numitorul este 21. Întâlnirile anulate nu intră în numitor; acesta reflectă întâlnirile efectiv desfășurate și contabilizate.
 
-În sesiunea de restanțe, nota se calculează astfel: **9&nbsp;puncte pentru examenul grilă + 1&nbsp;punct din oficiu = 10**. Examenul urmărește aceleași competențe de analiză și proiectare. Punctajele pentru dosarul de proiectare și pentru prezență nu se reportează în nota de la restanță.
+La restanță sau la mărire, nota se calculează astfel: **9&nbsp;puncte pentru examenul grilă + 1&nbsp;punct din oficiu = 10**. Examenul urmărește aceleași competențe de analiză și proiectare. Punctajele pentru dosarul de proiectare și pentru prezență nu se reportează în această notă.

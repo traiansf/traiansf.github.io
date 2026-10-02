@@ -30,18 +30,16 @@ Ritm orientativ: 70–80 de minute. Bun venit și obiective 10; organizare și e
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Controlul complexității este esența programării calculatoarelor.”
+> Original: “Controlling complexity is the essence of computer programming.”
 
 — **Brian W. Kernighan și P. J. Plauger**
 
-[Sursa: Software Tools (1976); confirmare în raportul NII Shonan nr. 42](https://shonan.nii.ac.jp/docs/No-042.pdf#page=8)&nbsp;· traducere din engleză
+[Sursa: Software Tools in Pascal (1981), p. 311](https://seriouscomputerist.atariverse.com/media/pdf/book/Software%20Tools%20in%20Pascal.pdf#page=320)
 
 ::: notes
-Original: “Controlling complexity is the essence of computer programming.”
-
-Raport NII, pagina numerotată 7 (pagina PDF 8), rezumatul lui Johan Georg Granström. Sursă secundară academică: citează explicit cartea și ambii autori; nu este o scanare verificată a paginii originale.
 
 Legătura cu tema: Motivația cursului: reducerea complexității prin înțelegere și decizii explicite.
 :::
@@ -54,10 +52,10 @@ Legătura cu tema: Motivația cursului: reducerea complexității prin înțeleg
 
 La finalul cursului, ar trebui să puteți:
 
-- analiza o problemă mică, necunoscută;
+- analiza o problemă (mică) necunoscută;
 - propune o soluție de proiectare și explica alternativele;
 - raționa asupra consecințelor schimbării unei cerințe;
-- îndruma lucrul cu AI și evalua dovezile oferite.
+- îndruma lucrul cu AI și evalua justificările oferite.
 
 ::: notes
 Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, tabele sau pseudocod. Vom preda cunoștințele de proiectare necesare acestor judecăți. Fluența în programare nu oferă automat aceste cunoștințe.
@@ -67,12 +65,19 @@ Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, 
 
 # Program și comunicare
 
+:::::: {.columns align=center}
+::: {.column width="70%"}
 - **14&nbsp;săptămâni de curs** și **7&nbsp;laboratoare**, de regulă o dată la două săptămâni.
 - [Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/Lab00.html): orientare opțională, disponibilă și pentru parcurgere individuală.
 - Laboratorul 1 se desfășoară după cursurile 1 și 2.
-- Materiale: [traiansf.github.io/class/amss2026](https://traiansf.github.io/class/amss2026/).
+- Materiale: [traiansf.github.io/class/amss2026](https://traiansf.github.io/class/amss2026/) (codul&nbsp;QR alăturat).
 - Întrebări și anunțuri: echipa cursului pe Microsoft Teams.
-- Consultații: cu programare prin e-mail.
+- Consultații (online): cu programare prin mesaj individual pe MS Teams.
+:::
+::: {.column width="26%"}
+[![Deschideți pagina cursului](../static/assets/amss-2026-site-qr.png){width=100%}](https://traiansf.github.io/class/amss2026/)
+:::
+::::::
 
 ::: notes
 Programați fiecare laborator după predarea ambelor cursuri asociate. Întâlnirea imediat după primul curs este Laboratorul 0, opțional; Laboratorul 1 poate avea loc în săptămâna 3, conform orarului grupei. Indicați linkul și codul Teams de pe primul slide. Orele fiecărei grupe se anunță pe canalul cursului.
@@ -91,21 +96,21 @@ Primul laborator folosește o problemă de rezervare a sălilor, astfel încât 
 | Prezență | 1 |
 | Din oficiu | 1 |
 
-**Restanță:** 9&nbsp;puncte pentru examenul grilă + 1&nbsp;punct din oficiu.
+**Restanță / mărire:** 9&nbsp;puncte pentru examenul grilă + 1&nbsp;punct din oficiu.
 
 Feedback pentru proiect la cerere, pe parcursul semestrului. Punctajul pentru dosar se definitivează printr-un interviu de echipă la ultimul laborator.
 
 ::: notes
-Cele cinci puncte ale dosarului acoperă formularea problemei și cerințele, modelarea domeniului, atribuirea responsabilităților, contractele și invariantele, respectiv starea și comportamentul. Dovezile de validare, alternativele și raționamentul despre schimbare susțin aceste criterii. Detaliile sunt pe pagina proiectului.
+Cele cinci puncte ale dosarului acoperă formularea problemei și cerințele, modelarea domeniului, atribuirea responsabilităților, contractele și invariantele, respectiv starea și comportamentul. Rezultatele validării, alternativele și raționamentul despre schimbare susțin aceste criterii. Detaliile sunt pe pagina proiectului.
 
-Examenul grilă folosește scenarii, cerințe, contracte și modele mici date în enunț. Evaluează raționamentul, nu memorarea notațiilor pentru diagrame. Restanța este o cale separată: nouă puncte la examen și un punct din oficiu, fără reportarea punctajelor pentru dosar sau prezență.
+Examenul grilă folosește scenarii, cerințe, contracte și modele mici date în enunț. Evaluează raționamentul, nu memorarea notațiilor pentru diagrame. Restanța și mărirea urmează o cale separată: nouă puncte la examen și un punct din oficiu, fără reportarea punctajelor pentru dosar sau prezență.
 
 La aproximativ 100 de studenți și un singur cadru didactic, organizați discuții scurte cu echipele în laboratoarele existente. Exercițiile individuale fără AI au rol formativ; nu introduceți o notă separată pentru fiecare activitate.
 :::
 
 ---
 
-# Prezența și pregătirea pentru examen
+# Prezența și pregătirea pentru examinare
 
 **Punctajul pentru prezență:** întâlniri la care ați participat ÷ întâlniri de curs și laborator desfășurate pentru grupa voastră.
 
@@ -114,7 +119,7 @@ Fiecare întâlnire, de curs sau de laborator, are aceeași pondere; în mod nor
 **Pregătiți-vă pentru întrebări bazate pe scenarii:**
 
 - Separați o cerință de o ipoteză nejustificată.
-- Identificați încălcarea unei invariante sau anticipați o tranziție permisă.
+- Identificați încălcarea unui invariant sau anticipați o tranziție permisă.
 - Comparați soluții de proiectare în raport cu constrângerile date.
 
 ::: notes
@@ -129,7 +134,11 @@ Echipele de **3–5&nbsp;studenți** elaborează o soluție comună.
 
 **Livrabil:** o specificație și o soluție de proiectare revizuite. Modelele și prototipurile le pot susține; nu este obligatorie o aplicație funcțională.
 
-Laboratorul 6 (laborator deschis): lucru la proiect și discuții. Laboratorul 7: interviu de echipă, în care se definitivează punctajul pentru dosar.
+Laboratorul 6 (laborator deschis): finalizarea proiectului și discuții. Laboratorul 7: interviu de echipă, în care se definitivează punctajul pentru dosar.
+
+Livrabilul (repository public) trebuie să fie definitivat cu ~1 săptămână înainte de interviu.
+
+**Pagină cu detalii:** [traiansf.github.io/class/amss2026/proiect](https://traiansf.github.io/class/amss2026/proiect).
 
 ::: notes
 Repository-ul public pe GitHub sau GitLab se creează la anunțarea proiectului pe Teams; mesajul include linkul. Progresul și contribuțiile fiecărui membru trebuie să poată fi urmărite pe parcursul semestrului. Dezvoltarea și commit-urile pot fi asistate de AI; echipa verifică și își asumă conținutul. Numărul de commit-uri nu aduce puncte.
@@ -144,7 +153,7 @@ Modelele și prototipurile pot susține argumentarea. Nu este obligatorie o apli
 - Problema și regulile relevante ale domeniului.
 - Propria contribuție la proiectare și alternativele ei.
 - Cum sunt respectate regulile prin contracte și comportament.
-- Dovezile de validare și limitele lor.
+- Rezultatele validării și limitele lor.
 - Impactul unei cerințe noi.
 
 ::: notes
@@ -157,11 +166,11 @@ Proiectare comună, competențe individuale. Studenții trebuie să înțeleagă
 
 - O specificație și o soluție de proiectare bine dezvoltate.
 - Motivele deciziilor cu consecințe importante.
-- Dovezi din scenarii, din analiza modelelor sau dintr-un prototip cu scop precis.
+- Verificări prin scenarii, prin analiza modelelor sau printr-un prototip cu scop precis.
 - Sarcini predate explicit și constatări de revizuire pe care le-ați verificat.
 - Capacitatea voastră de a raționa fără AI.
 
-Păstrați dovezile concise și legate de soluția propusă.
+Păstrați verificările concise și legate de soluția propusă.
 
 ::: notes
 Dosarul echipei se evaluează o singură dată. Un examen grilă individual, bazat pe scenarii, verifică raționamentul asupra problemelor și soluțiilor furnizate. Exercițiile de la curs antrenează și construirea unei soluții fără AI. Nu reutilizați cerințele vechi privind numărul de diagrame, de șabloane sau de defecte și nici reproducerea rezultatului unui model AI.
@@ -206,7 +215,7 @@ O implementare poate să funcționeze exact cum am cerut și totuși să&nbsp;re
 
 - Beneficiarii pot folosi același cuvânt pentru lucruri diferite.
 - O decizie locală poate îngreuna schimbările ulterioare.
-- Un rezultat convingător are nevoie de dovezi verificabile.
+- Un rezultat convingător trebuie să poată fi verificat.
 
 Vom învăța să formulăm întrebări, să comparăm soluții și să explicăm consecințele deciziilor.
 
@@ -220,7 +229,7 @@ Cereți un exemplu din experiența studenților: o cerință interpretată difer
 
 AI poate produce rapid variante, documente și cod. Alegerea problemei, verificarea rezultatului și asumarea deciziilor rămân ale voastre.
 
-Vrem să puteți explica de ce o soluție este potrivită și ce dovadă v-ar determina să o revizuiți.
+Vrem să puteți explica de ce o soluție este potrivită și ce constatare v-ar determina să o revizuiți.
 
 **Discuție:** când ați acceptat un rezultat care părea corect? Cum ați putea să îl verificați mai bine?
 
@@ -234,7 +243,7 @@ Invitați experiențe concrete, fără a cere acces la conturi sau conversații 
 
 - Cursul 1: organizarea, așteptările și motivația.
 - Cursul 2: înțelegem o problemă înainte să delegăm o soluție.
-- Laboratorul 1: aplicăm ideile celor două cursuri la rezervarea sălilor.
+- Laboratorul 1: aplicăm ideile celor două cursuri unei probleme concrete.
 - Fiecare laborator are loc după perechea de cursuri asociată.
 - Doar laboratoarele 6 și 7 sunt dedicate efectiv proiectelor.
 
@@ -246,7 +255,7 @@ Pregătiți accesul la Teams, la materialele cursului și la asistentul ales.
 
 Gândiți-vă la o situație în care o întrebare pusă mai devreme ar fi schimbat soluția propusă.
 
-**Cursul 2:** vom analiza cererea unei biblioteci, vom compara interpretări și vom verifica o soluție propusă cu ajutorul AI.
+**Cursul 2:** o bibliotecă ne cere un terminal pentru împrumutul și returnarea cărților. Vom analiza cererea, vom compara interpretări ale ei și vom verifica o soluție propusă de un asistent AI.
 
 ---
 

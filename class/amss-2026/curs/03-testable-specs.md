@@ -21,7 +21,7 @@ Authoring note (spec gate §6.10): this lecture is authored fresh. It does **not
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Un sistem de abstractizări care descrie aspecte selectate ale unui domeniu […]”
 

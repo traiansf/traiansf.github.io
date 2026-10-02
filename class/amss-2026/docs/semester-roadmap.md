@@ -14,7 +14,7 @@ Every proposed demo needs an authored brief with confirmed rules and exclusions,
 
 The approved ten-point assessment allocation is five points for the shared team design dossier, three for an individual multiple-choice exam, one for attendance, and one automatic point. A sole instructor teaches approximately 100 students in three lab groups. There is no scheduled checkpoint; teams may request feedback throughout the semester. Classroom exercises are formative. The final team interview clarifies unclear dossier points and finalizes its score, without a separate score or per-student oral exam.
 
-The multiple-choice exam assesses reasoning about supplied problems, requirements, models, and changes. It does not directly demonstrate that each student can construct a complete design independently: individual design construction remains part of formative unaided exercises, while construction is assessed through the shared team dossier. Plan scenario-based choices that require interpreting evidence and consequences. Exam timing and item count remain proposals; no question bank is authored in this roadmap. The resit is a separate route: nine points for a multiple-choice exam plus one automatic point, without dossier or attendance marks carried over.
+The multiple-choice exam assesses reasoning about supplied problems, requirements, models, and changes. It does not directly demonstrate that each student can construct a complete design independently: individual design construction remains part of formative unaided exercises, while construction is assessed through the shared team dossier. Plan scenario-based choices that require interpreting evidence and consequences. Exam timing and item count remain proposals; no question bank is authored in this roadmap. The resit, also used for grade improvement (restanță / mărire), is a separate route: nine points for a multiple-choice exam plus one automatic point, without dossier or attendance marks carried over.
 
 ## Lectures
 
@@ -26,7 +26,7 @@ Durations below are instructor planning notes. Each full lecture in Weeks 3–13
 
 **Outcomes:** understand schedule, grading, attendance, project responsibilities, repository requirements, feedback access, and tool choice; explain why understanding a problem and checking evidence matter even with AI assistance.
 
-**Sequence, 70–80 minutes:** welcome and goals 10; organization and assessment 20; project and tools 20; motivation and student experiences 20; preparation for the next meeting 10. Keep the Teams QR code, URL, and code. No technical library demo in this session. Use [Lecture 1](../curs/01-intro.md) and its [guide](../curs/01-intro-demo.md).
+**Sequence, 70–80 minutes:** welcome and goals 10; organization and assessment 20; project and tools 20; motivation and student experiences 20; preparation for the next meeting 10. Keep the Teams QR code, URL, and code, and the course-page QR code on the schedule slide. Consultations are online, arranged through an individual Teams message. The slides announce Lab 1 as a concrete problem, without naming its domain, and say that the deliverable must be final about one week before the Lab 7 interview. No technical library demo in this session. Use [Lecture 1](../curs/01-intro.md) and its [guide](../curs/01-intro-demo.md).
 
 ### Week 2 — Understanding before delegating
 
@@ -226,13 +226,13 @@ Use the room-booking [student lab](../lab/Lab01.md), [instructor guide](../lab/L
 
 ### Lab 6, after Courses 11–12 — Open project lab
 
-**Input:** each project's public repository, current dossier and evidence, and questions selected by students. **Purpose:** individual work on the project, questions to the instructor, and discussion between teams. Students choose activities according to their project's needs; there is no required rehearsal, presentation, or review rotation.
+**Input:** each project's public repository, current dossier and evidence, and questions selected by students. **Purpose:** finishing the project, questions to the instructor, and discussion between teams. Students choose activities according to their project's needs; there is no required rehearsal, presentation, or review rotation.
 **100 minutes:** opening and questions 5; open work and discussions 85; save progress and next steps 10. These intervals organize room time, not mandatory deliverables. The instructor circulates and answers requests; unresolved questions may continue on Teams.
 **Evidence:** progress, decisions, and revisions recorded in the public repository with identifiable contributions. This session adds no separately graded submission.
 
 ### Lab 7, after Courses 13–14 — Dossier interview
 
-**Input:** team dossiers and supporting evidence, pre-read by the instructor, with questions about unclear points. Announce the dossier deadline and interview slots on Teams. **Purpose:** the team answers clarification questions and the instructor finalizes its five-point dossier score on the published criteria. **Foundations:** the complete course.
+**Input:** team dossiers and supporting evidence, pre-read by the instructor, with questions about unclear points. The deliverable (the public repository) must be final about one week before the interview; announce the exact deadline and interview slots on Teams. **Purpose:** the team answers clarification questions and the instructor finalizes its five-point dossier score on the published criteria. **Foundations:** the complete course.
 **100-minute allocation:** group introduction 5; scheduled team reviews and feedback 88; wrap-up 7. At eight minutes per team, 7–11 teams use 56–88 minutes; any unallocated review time supports common feedback and questions. The remaining time in the two-hour slot provides transition buffer.
 **Interview format:** start directly with instructor questions about unclear dossier points; let the team answer and navigate supporting evidence, then give closing feedback. No prepared presentation or slides are required. Pre-reading keeps this feasible for a sole instructor. Check actual enrolment and team count before publishing slots; eleven interviews leave little in-session slack.
 **Evidence:** shared design version, validation and review evidence, and concise assessor notes tied to the dossier rubric. The interview has no separate score. Team scores do not depend on hearing every member orally, and no live regeneration of AI artifacts is required. The separate individual multiple-choice exam is not administered again during this discussion.
@@ -252,7 +252,7 @@ These are reuse targets, not a claim that the old decks already teach the new se
 | [Traceability](../curs/10-traceability.md) and [Evaluation](../curs/11-evaluation.md), with demos/fallbacks | Weeks 9 and 12 | Reuse consistency and review criteria; add executable-model evidence and source-grounded review of summaries. |
 | [Presentation skills](../curs/12-presentation-skills.md), [Final](../curs/14-final.md) | Weeks 13–14 | Reuse rationale and unfamiliar questions for learning; replace mandatory individual oral defenses with feasible team reviews and an individual scenario-based multiple-choice exam. |
 | [Lab 2](../lab/Lab02.md), [Lab 3](../lab/Lab03.md), [Lab 4](../lab/Lab04.md), with instructor guides | Labs 2–4 | Reuse comparisons and prepared examples; replace notation-based defect hunts with explicit source rules and evidence. |
-| [Lab 5](../lab/Lab05.md), [Lab 6](../lab/Lab06.md), [Lab 7](../lab/Lab07.md), with instructor guides | Labs 5–7 | Lab 5 practices validation and abstraction on a supplied problem; Lab 6 is open individual project work and discussion; Lab 7 is the clarification interview finalizing the five-point dossier score. |
+| [Lab 5](../lab/Lab05.md), [Lab 6](../lab/Lab06.md), [Lab 7](../lab/Lab07.md), with instructor guides | Labs 5–7 | Lab 5 practices validation and abstraction on a supplied problem; Lab 6 is an open session for finishing the project and discussion; Lab 7 is the clarification interview finalizing the five-point dossier score. |
 
 Develop the next package in teaching order: Course 3, then Course 4 with Lab 2, then Courses 5–6 with Lab 3. Prototype Course 9's small explorer early enough to validate its bounds and repair before writing its slides. For each session, finish the source brief and reference reasoning first, then the demo and labeled fallback, student exercise, deck with notes, and delivery checks. Keep unfinished sessions unpublished under the existing `RELEASED` mechanism; this roadmap does not change release state.
 

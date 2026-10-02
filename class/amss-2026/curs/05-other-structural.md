@@ -19,7 +19,7 @@ Week 4 pinned one class diagram; today we widen to how the whole system is carve
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Precondiția obligă clientul; postcondiția obligă furnizorul.”
 

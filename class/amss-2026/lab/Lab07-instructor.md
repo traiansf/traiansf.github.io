@@ -4,7 +4,7 @@ Lab 7 se programează după cursurile 13–14; orarul exact al examenului se anu
 
 ## Înainte de laborator
 
-Anunțați pe Teams termenul de disponibilitate a dosarului și programarea echipelor. Citiți fiecare dosar și materialele necesare înainte de interviu. Notați punctele neclare și o evaluare provizorie pe cele cinci criterii din `proiect/README.md`.
+Anunțați pe Teams programarea echipelor și termenul de definitivare a dosarului, cu aproximativ o săptămână înainte de interviu. Citiți fiecare dosar și materialele necesare înainte de interviu. Notați punctele neclare și o evaluare provizorie pe cele cinci criterii din `proiect/README.md`.
 
 Verificați repository-ul public GitHub/GitLab anunțat la alegerea proiectului, istoricul progresului și evidența contribuțiilor. Commit-urile asistate de AI sunt permise; urmăriți contribuțiile și asumarea echipei, nu numărul de commit-uri.
 

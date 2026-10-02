@@ -33,7 +33,7 @@ Furnizați enunțul complet, cu clarificări, apoi folosiți:
 
 > Acționează ca analist și proiectant. Citește enunțul bibliotecii, inclusiv R1–R6 și S1–S5. Produce un document compact de proiectare pentru această parte delimitată a sistemului, nu o aplicație.
 >
-> Identifică conceptele și distincțiile relevante ale domeniului; atribuie responsabilitățile pentru cele trei operații; enunță invarianta împrumutului activ și rezultatele în caz de succes/respingere; parcurge scenariile furnizate folosind proiectarea ta. Citează identificatorii regulilor care susțin deciziile cu consecințe importante.
+> Identifică conceptele și distincțiile relevante ale domeniului; atribuie responsabilitățile pentru cele trei operații; enunță invariantul împrumutului activ și rezultatele în caz de succes/respingere; parcurge scenariile furnizate folosind proiectarea ta. Citează identificatorii regulilor care susțin deciziile cu consecințe importante.
 >
 > Separă cerințele confirmate, alegerile de proiectare și întrebările deschise. Respectă excluderile precizate. Folosește proză, tabele sau pseudocod scurt; folosește o diagramă numai dacă aceasta clarifică un aspect. Păstrează rezultatul suficient de scurt pentru a putea fi examinat la curs. Încheie precizând ce este pregătit pentru etapa următoare și ce nu este acoperit de această afirmație.
 

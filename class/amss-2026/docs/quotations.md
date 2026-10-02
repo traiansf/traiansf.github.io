@@ -1,12 +1,12 @@
 # Citatele cursurilor și laboratoarelor AMSS 2026/2027
 
-Verificate la 1 octombrie 2026. Fiecare prezentare are un citat în română, marcat ca traducere, autorul și un link către sursă. Formularea originală, reperul și legătura cu tema sunt în notele slide-ului „Ideea întâlnirii”. Fragmentele scurtate au omisiunile marcate. Nu modificați formularea fără reverificarea sursei.
+Verificate la 1 octombrie 2026. Fiecare prezentare are, pe slide-ul „Citatul zilei”, un citat în română, autorul și un link către sursă. În Cursul 1, formularea originală apare pe slide, sub traducere, iar sursa indică lucrarea și pagina; legătura cu tema este în note. În celelalte prezentări, citatul este marcat ca traducere, iar formularea originală, reperul și legătura cu tema sunt în notele slide-ului. Fragmentele scurtate au omisiunile marcate. Nu modificați formularea fără reverificarea sursei.
 
 Inventarul urmează ordinea nouă a cursurilor; prefixele fișierelor vechi nu sunt numerele săptămânilor. Introducerea citatului nu înseamnă că un material nerevizuit este finalizat sau publicat.
 
 | Întâlnire | Fișier | Autor | Sursă |
 |---|---|---|---|
-| Cursul 1 | [01-intro.md](../curs/01-intro.md) | Brian W. Kernighan și P. J. Plauger | [Software Tools (1976); confirmare în raportul NII Shonan nr. 42](https://shonan.nii.ac.jp/docs/No-042.pdf#page=8) |
+| Cursul 1 | [01-intro.md](../curs/01-intro.md) | Brian W. Kernighan și P. J. Plauger | [Software Tools in Pascal (1981), p. 311](https://seriouscomputerist.atariverse.com/media/pdf/book/Software%20Tools%20in%20Pascal.pdf#page=320) |
 | Cursul 2 | [02-understanding.md](../curs/02-understanding.md) | Edsger W. Dijkstra | [How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html) |
 | Cursul 3 | [02-requirements.md](../curs/02-requirements.md) | Frederick P. Brooks, Jr. | [No Silver Bullet — Essence and Accident in Software Engineering](https://worrydream.com/refs/Brooks_1986_-_No_Silver_Bullet.pdf#page=13) |
 | Cursul 4 | [03-testable-specs.md](../curs/03-testable-specs.md) | Eric Evans | [Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) |
@@ -30,7 +30,7 @@ Inventarul urmează ordinea nouă a cursurilor; prefixele fișierelor vechi nu s
 
 ## Repere și verificare
 
-- **Brian W. Kernighan și P. J. Plauger — Software Tools (1976); confirmare în raportul NII Shonan nr. 42:** Raport NII, pagina numerotată 7 (pagina PDF 8), rezumatul lui Johan Georg Granström. Sursă secundară academică: citează explicit cartea și ambii autori; nu este o scanare verificată a paginii originale.
+- **Brian W. Kernighan și P. J. Plauger — Software Tools in Pascal (1981), p. 311:** Copie scanată a cărții, Epilogue, pagina tipărită 311 (pagina PDF 320); formularea a fost verificată în textul scanării la 2 octombrie 2026. Verificarea anterioară, prin raportul NII Shonan nr. 42 (pagina numerotată 7, rezumatul lui Johan Georg Granström), atribuie aceeași propoziție cărții Software Tools (1976); pagina din ediția din 1976 nu a fost verificată.
 - **Edsger W. Dijkstra — How do we tell truths that might hurt? — EWD498:** Transcriere universitară, afirmația marcată ca adnotare manuscrisă; originalul este în arhiva Dijkstra de la UT Austin, EWD498.
 - **Frederick P. Brooks, Jr. — No Silver Bullet — Essence and Accident in Software Engineering:** Textul original, secțiunea Requirements refinement and rapid prototyping, pagina numerotată 13 (pagina PDF 13).
 - **Eric Evans — Domain-Driven Design Reference — definiția modelului:** Publicația autorului, Definitions, intrarea model, pagina PDF 6. Fragmentul se oprește după domain; omisiunea finalului este marcată.
@@ -46,6 +46,6 @@ Inventarul urmează ordinea nouă a cursurilor; prefixele fișierelor vechi nu s
 - **Alan J. Perlis — Epigrams in Programming — epigrama 31:** Pagina autorului la Yale, epigrama 31; sursa indică SIGPLAN, septembrie 1982.
 - **Alan J. Perlis — Epigrams in Programming — epigrama 95:** Pagina autorului la Yale, epigrama 95; sursa indică SIGPLAN, septembrie 1982.
 
-Citatul propus de instructor este confirmat printr-o sursă academică secundară NII, care îl atribuie cărții scrise de Kernighan și Plauger. Nu pretindem verificarea unei scanări originale a paginii din carte. Citatul despre simplitate al lui Dijkstra apare ca adnotare manuscrisă în transcrierea de la University of Virginia; transcrierea principală UT Austin omite această adnotare.
+Citatul propus de instructor este verificat în scanarea cărții Software Tools in Pascal (1981), la pagina 311. Nu pretindem verificarea paginii din Software Tools (1976), căreia sursa secundară NII îi atribuie aceeași propoziție. Citatul despre simplitate al lui Dijkstra apare ca adnotare manuscrisă în transcrierea de la University of Virginia; transcrierea principală UT Austin omite această adnotare.
 
 Laboratorul 0: Leslie Lamport, „Informatica ar trebui să se ocupe de concepte, nu de limbaje.” Traducere; originalul și contextul sunt în comentariul ghidului. Sursă primară verificată: [Specifying Systems, prefață, pagina PDF 2](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2).

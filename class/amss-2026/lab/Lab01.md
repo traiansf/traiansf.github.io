@@ -21,7 +21,7 @@ Laboratorul se desfășoară după predarea cursurilor 1 și 2. Exercițiul tran
 
 ---
 
-# Ideea întâlnirii
+# Citatul zilei
 
 > „Simplitatea este o condiție necesară pentru fiabilitate.”
 
@@ -128,14 +128,14 @@ O ipoteză este un răspuns provizoriu la o întrebare deschisă, etichetat expl
 
 **Concept al domeniului:** o rezervare leagă un student, o sală și un interval.
 
-**Invariantă:** o regulă care trebuie să rămână adevărată — aici, fără rezervări confirmate suprapuse pentru aceeași sală.
+**Invariant:** o regulă care trebuie să rămână adevărată — aici, fără rezervări confirmate suprapuse pentru aceeași sală.
 
 **Responsabilitate:** o parte a sistemului propus trebuie să impună această regulă la fiecare confirmare.
 
 Discutați: de ce poate fi insuficient „verifică disponibilitatea, apoi confirmă mai târziu”?
 
 ::: notes
-Desenați două cereri care observă ambele „liber” înainte ca vreuna să fie confirmată. Invarianta privește rezultatul combinat. O responsabilitate poate aparține unei funcții, unui serviciu, unui obiect sau unei operații asupra datelor. Studenții nu trebuie să implementeze controlul concurenței; formulați garanția cerută și păstrați o verificare a implementării în sarcina predată.
+Desenați două cereri care observă ambele „liber” înainte ca vreuna să fie confirmată. Invariantul privește rezultatul combinat. O responsabilitate poate aparține unei funcții, unui serviciu, unui obiect sau unei operații asupra datelor. Studenții nu trebuie să implementeze controlul concurenței; formulați garanția cerută și păstrați o verificare a implementării în sarcina predată.
 
 Exercițiul bibliotecii presupunea explicit operații executate pe rând. Aceste cerințe includ explicit cereri simultane în F5, deci garanția cerută este mai puternică. Diferența provine din limitele declarate ale problemei, nu dintr-un defect al exemplului anterior.
 :::
