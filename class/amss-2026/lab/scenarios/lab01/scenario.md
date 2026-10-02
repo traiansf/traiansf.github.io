@@ -50,4 +50,4 @@ Pentru fiecare scenariu, precizați rezultatul așteptat sau decizia încă desc
 4. Decideți ce afirmații ale revizuirii sunt susținute; modificați doar unde se justifică și explicați ce rămâne neclarificat.
 5. Explicați individual o decizie și răspundeți la cerința nouă anunțată de cadrul didactic, fără AI.
 
-Alegeți o reprezentare care face raționamentul clar. Nu se cere o aplicație executabilă. Folosiți [fișa de lucru](worksheet.md) pentru organizarea dovezilor. Dacă instrumentele nu sunt disponibile, cadrul didactic va furniza [exemplul pregătit](prepared-fixture.md); notați această proveniență.
+Alegeți o reprezentare care face raționamentul clar. Nu se cere o aplicație executabilă. Folosiți [fișa de lucru](worksheet.md) pentru organizarea rezultatelor. Dacă instrumentele nu sunt disponibile, cadrul didactic va furniza [exemplul pregătit](prepared-fixture.md); notați această proveniență.

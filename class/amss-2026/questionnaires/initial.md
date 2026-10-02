@@ -115,7 +115,7 @@ Alege răspunsul care ți se pare cel mai potrivit. Nu căuta răspunsul și nu 
 - Numărul de clase UML
 - Nu știu încă
 
-## D3 — Un agent AI propune un model coerent și spune că toate testele trec. Ce dovadă ai cere înainte de a accepta concluzia?
+## D3 — Un agent AI propune un model coerent și spune că toate testele trec. Ce ai cere înainte de a accepta concluzia?
 
 Alege răspunsul care ți se pare cel mai potrivit. Nu căuta răspunsul și nu folosi AI; „Nu știu încă” este util.
 

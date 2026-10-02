@@ -50,7 +50,7 @@ Ce proprietăți verificăm? Unde păstrăm regula comună și ce poate varia?
 | 10–30 | Formulați proprietățile și limitele modelului. |
 | 30–55 | Examinați și rulați verificările furnizate sau parcurgeți explicit scenarii manuale. |
 | 55–75 | Comparați proiectări când apare un al treilea format. |
-| 75–90 | Revizuiți separat decizia și dovezile ei. |
+| 75–90 | Revizuiți separat decizia și justificarea ei. |
 | 90–100 | Explicați alegerea și limitele verificării. |
 
 ---

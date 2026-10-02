@@ -13,7 +13,7 @@ cd traiansf.github.io/class/amss-2026
 
 Repository-ul conține și alte cursuri, precum și materiale ale site-ului. Lucrează cu fișierele indicate din `class/amss-2026`. Dacă nu folosești Git, poți începe cu un director de fișiere furnizat de cadrul didactic.
 
-Pentru activitatea proprie, folosește spațiul de lucru al laboratorului sau repository-ul echipei indicat de cadrul didactic. Păstrează o copie a descrierii inițiale a problemei, analiza ta inițială, versiunile succesive ale artefactelor și dovezile revizuirii (review). Dacă folosești Git, identifică versiunile revizuite prin commituri; altfel, salvează versiuni cu nume clare.
+Pentru activitatea proprie, folosește spațiul de lucru al laboratorului sau repository-ul echipei indicat de cadrul didactic. Păstrează o copie a descrierii inițiale a problemei, analiza ta inițială, versiunile succesive ale artefactelor și rezultatele revizuirii (review). Dacă folosești Git, identifică versiunile revizuite prin commituri; altfel, salvează versiuni cu nume clare.
 
 ## 2. Pregătește asistentul
 
@@ -45,7 +45,7 @@ Compară fiecare afirmație cu descrierea inițială a problemei. Identifică re
 
 Deschide o sesiune sau o conversație nouă, cu același asistent sau cu altul. Furnizează explicit descrierea inițială a problemei, notițele tale, propunerea salvată și această sarcină de revizuire:
 
-> Lucrează ca agent de revizuire. Compară propunerea cu descrierea inițială a problemei. Verifică dacă introduce reguli de funcționare care nu au fost furnizate, ascunde o întrebare nerezolvată sau oferă un exemplu de acceptare fără un rezultat așteptat clar. Pentru fiecare constatare, indică textul relevant și explică o consecință concretă. Distinge un defect de o întrebare pentru beneficiar sau de o îmbunătățire opțională. Dacă o afirmație este justificată, precizează dovezile care o susțin. Nu rescrie încă propunerea.
+> Lucrează ca agent de revizuire. Compară propunerea cu descrierea inițială a problemei. Verifică dacă introduce reguli de funcționare care nu au fost furnizate, ascunde o întrebare nerezolvată sau oferă un exemplu de acceptare fără un rezultat așteptat clar. Pentru fiecare constatare, indică textul relevant și explică o consecință concretă. Distinge un defect de o întrebare pentru beneficiar sau de o îmbunătățire opțională. Dacă o afirmație este justificată, precizează ce anume o susține. Nu rescrie încă propunerea.
 
 Evaluează tu constatările. Consemnează o constatare pe care o accepți sau o respingi și motivul, ori explică de ce propunerea poate rămâne în forma actuală. Revizuiește analiza unde este justificat și salvează un rezumat pentru predarea unei sarcini (handoff) către etapa următoare, cu tot contextul necesar. Mediul de lucru este pregătit dacă poți verifica datele de intrare și rezultatele și poți explica o decizie; nu este necesar să obții un anumit răspuns de la model.
 
@@ -53,7 +53,7 @@ Evaluează tu constatările. Consemnează o constatare pe care o accepți sau o 
 
 Urmează [ghidul despre roluri, predarea sarcinilor și revizuire](README.md). Elaborează și revizuiește specificația și proiectarea înainte de o implementare substanțială. Folosește un model executabil mic sau un prototip atunci când ajută la rezolvarea unei întrebări concrete; proiectul cursului nu impune o aplicație funcțională.
 
-În lucrul în echipă, partajați proiectarea curentă și dovezile care o susțin. Fiecare student trebuie să poată explica independent raționamentul. Folosiți reprezentarea care clarifică întrebarea: text, tabele, schițe, pseudocod sau diagrame.
+În lucrul în echipă, partajați proiectarea curentă și verificările care o susțin. Fiecare student trebuie să poată explica independent raționamentul. Folosiți reprezentarea care clarifică întrebarea: text, tabele, schițe, pseudocod sau diagrame.
 
 ## Dacă mediul de lucru nu este disponibil
 

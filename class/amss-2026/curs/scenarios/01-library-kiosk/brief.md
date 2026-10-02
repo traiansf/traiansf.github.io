@@ -49,4 +49,4 @@ Starea inițială: titlul T are exemplarele C1 și C2; membrii M1, M2 și M3 exi
 
 ## Exercițiu de încheiere
 
-Fără AI, explicați de ce titlul și exemplarul sunt distincte, enunțați o regulă pe care împrumutul trebuie să o păstreze și precizați ce dovezi ați cere înainte de a accepta o constatare dintr-o revizuire (review).
+Fără AI, explicați de ce titlul și exemplarul sunt distincte, enunțați o regulă pe care împrumutul trebuie să o păstreze și precizați ce justificare ați cere înainte de a accepta o constatare dintr-o revizuire (review).

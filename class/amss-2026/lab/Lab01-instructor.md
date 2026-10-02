@@ -4,7 +4,7 @@ Ghid pentru cadrul didactic, asociat cu [prezentarea laboratorului](Lab01.md). F
 
 **Planificare:** după cursurile 1 și 2. Aplicați introducerea tehnică din cursul 2; teoria aprofundată a cerințelor din cursul 3 nu este un prerechizit. **Durată:** 100 de minute. **Participanți:** aproximativ 100 de studenți în trei grupe de laborator; aceeași activitate se desfășoară separat cu fiecare grupă. Studenții programează fluent, dar sunt începători în analiză și proiectare. Exercițiul este formativ; distribuția revizuită a punctajului cursului nu este definită aici.
 
-## Dovezile de învățare urmărite
+## Rezultatele învățării urmărite
 
 Fiecare student ar trebui să distingă o cerință, o consecință dedusă, o ipoteză, o regulă încă neclarificată de beneficiar și o propunere de proiectare. Perechea pregătește o descriere a problemei cu limite clare și predări explicite ale sarcinilor și contextului (handoff); fiecare student explică o alegere și raționează despre o cerință nouă fără AI.
 
@@ -15,7 +15,7 @@ Laboratorul introduce conceptele domeniului, o invariantă și atribuirea respon
 Distribuiți:
 
 - [Fișa scenariului](scenarios/lab01/scenario.md): informațiile complete ale beneficiarului și scenariile.
-- [Fișa de lucru](scenarios/lab01/worksheet.md): notițe individuale, descriere comună, predarea sarcinilor și dovezile revizuirii.
+- [Fișa de lucru](scenarios/lab01/worksheet.md): notițe individuale, descriere comună, predarea sarcinilor și evidența revizuirii.
 - [Exemplul pregătit](scenarios/lab01/prepared-fixture.md): alternativă pentru lucrul fără AI; se dezvăluie după analiza inițială fără ajutor.
 
 Aceste fișiere sunt fișe sursă, nepublicate automat de fișierul Makefile al prezentărilor. Puneți-le în spațiul de lucru anunțat pentru laborator sau distribuiți copii tipărite. Păstrați soluțiile de referință din acest ghid doar pentru cadrul didactic pe durata activității.
@@ -25,7 +25,7 @@ Prezentarea pentru studenți trimite direct la scenariu și la fișa de lucru di
 Înainte de fiecare grupă:
 
 1. Stabiliți destinația predării, termenul și un canal alternativ accesibil. Aveți fișele disponibile local; tipărirea lor este suficientă pentru lucrul fără acces la instrumente.
-2. Atribuiți identificatori perechilor și asigurați-vă că fiecare partener poate păstra o notiță cu autor identificat. Este acceptabil și un grup de trei: rotiți îndrumarea autorului, verificarea dovezilor și îndrumarea revizuirii, astfel încât toți trei să vorbească și să scrie individual.
+2. Atribuiți identificatori perechilor și asigurați-vă că fiecare partener poate păstra o notiță cu autor identificat. Este acceptabil și un grup de trei: rotiți îndrumarea autorului, verificarea afirmațiilor și îndrumarea revizuirii, astfel încât toți trei să vorbească și să scrie individual.
 3. Faceți accesul la depozitul de cod opțional pentru parcurgerea exercițiului. Dacă folosiți un depozit, furnizați adresa și convenția pentru ramuri. Nu petreceți laboratorul instalând instrumentul unui anumit furnizor.
 4. Cereți studenților să vină cu orice instrument AI pe care îl folosesc deja, dacă au acces; îndrumați întrebările practice de configurare către tooling/SETUP.md. Alegerea instrumentului/modelului este liberă. O conversație nouă poate furniza contextul separat de revizuire.
 5. Pregătiți-vă să explicați informațiile-sursă și să spuneți „nu s-a convenit; notați întrebarea” când studenții întreabă dincolo de ele. Nu inventați o regulă nouă pentru o pereche, evaluând apoi altă pereche după ea.
@@ -42,8 +42,8 @@ Nu cereți o aplicație, teste într-un cadru de programare, sintaxă UML, un ș
 | 8–16 | Comparare și clarificarea distincțiilor | Cereți două interpretări diferite. Predați informație/consecință/alegere de proiectare/întrebare deschisă și sensul unei invariante. Urmăriți două cereri în conflict pentru a arăta de ce verificarea disponibilității pe fiecare cerere necesită o garanție mai puternică. |
 | 16–26 | Spațiul de lucru și rolurile | Confirmați accesul la fișa de lucru. A îndrumă autorul; B verifică sursele. Pregătiți un context separat de revizuire. Până la minutul 26, treceți perechile cu dificultăți de acces la varianta fără AI. |
 | 26–44 | Descriere comună și predarea sarcinii autorului | Treceți pe la perechi: întrebați „De unde provine regula?” și „Ce rezultat stabilește scenariul?”. Păstrați o copie a variantei înainte de revizuire. |
-| 44–60 | Schimbarea rolurilor; revizuire separată | B îndrumă revizuirea; A verifică dovezile. Evaluatorul primește informațiile, versiunea salvată și criteriile. Observați dacă pachetul este suficient fără istoricul autorului. |
-| 60–78 | Evaluare umană și modificări | Studenții acceptă, resping sau amână afirmațiile importante ale revizuirii, cu dovezi din sursă. Reiau scenariile afectate. Variantele corecte pot rămâne neschimbate. |
+| 44–60 | Schimbarea rolurilor; revizuire separată | B îndrumă revizuirea; A verifică afirmațiile evaluatorului. Evaluatorul primește informațiile, versiunea salvată și criteriile. Observați dacă pachetul este suficient fără istoricul autorului. |
+| 60–78 | Evaluare umană și modificări | Studenții acceptă, resping sau amână afirmațiile importante ale revizuirii, cu trimiteri la sursă. Reiau scenariile afectate. Variantele corecte pot rămâne neschimbate. |
 | 78–90 | Argumentare individuală și schimbare | Opriți asistenții. Fiecare student explică o decizie și răspunde independent la noul scenariu cu durată maximă. |
 | 90–100 | Prezentare și colectare | Invitați două sau trei exemple concise, inclusiv o decizie justificată păstrată. Colectați lucrarea comună și toate notițele individuale. |
 
@@ -53,7 +53,7 @@ Etapele de pregătire și de evaluare a revizuirii lasă timp pentru a trece pe 
 
 Limitați efortul de redactare: sunt suficiente puncte scurte într-o singură descriere comună. Evidența revizuirii și sarcina predată trebuie să citeze informațiile, scenariile și versiunea acesteia, fără a le duplica textul complet. Notițele inițiale și raționamentul final individual rămân atribuite clar, dar nu constituie examinări orale separate.
 
-Dacă rămâneți în urmă, scurtați prezentarea finală sau folosiți o propunere deja pregătită. Păstrați analiza individuală inițială, revizuirea separată, evaluarea umană și răspunsul individual la schimbare. Nu eliminați dovezile care disting învățarea de copiere.
+Dacă rămâneți în urmă, scurtați prezentarea finală sau folosiți o propunere deja pregătită. Păstrați analiza individuală inițială, revizuirea separată, evaluarea umană și răspunsul individual la schimbare. Nu eliminați elementele care disting învățarea de copiere.
 
 ## Rolul beneficiarului
 
@@ -75,7 +75,7 @@ Explicați explicit diferența față de cursul 1 în privința concurenței: ex
 
 Autorul și evaluatorul pot folosi orice instrumente/modele disponibile. Notați ce s-a folosit, dacă se cunoaște. Un context separat de revizuire înseamnă o conversație nouă sau un context echivalent care conține pachetul ales explicit, fără conversația autorului. Pentru agenții care încarcă automat fișiere, expuneți informațiile și versiunea alese, nu conversația de lucru a autorului.
 
-Un evaluator separat este o altă sursă de afirmații. Poate fi de acord dintr-un motiv bun, poate dezaproba greșit sau poate rata o problemă reală. Cereți în fiecare caz o decizie umană susținută de dovezi.
+Un evaluator separat este o altă sursă de afirmații. Poate fi de acord dintr-un motiv bun, poate dezaproba greșit sau poate rata o problemă reală. Cereți în fiecare caz o decizie umană justificată.
 
 Dacă un rezultat lung copleșește perechea, cereți un rezumat concis care păstrează identificatorii surselor, apoi verificați o afirmație importantă din rezumat față de varianta completă. Rezumatul ajută navigarea; nu elimină nevoia de a verifica detaliile importante.
 
@@ -86,10 +86,10 @@ După analiza inițială, atribuiți exemplul A sau B. Spuneți explicit studen�
 - Perechile adaptează propunerea pregătită la propria descriere și scriu aceeași sarcină pentru autor pe care ar fi folosit-o cu AI.
 - Schimbați informațiile-sursă, versiunea salvată și criteriile de revizuire cu o pereche vecină. Perechea care primește pachetul îl revizuiește fără a asculta întâi raționamentul autorilor. În fiecare pereche, schimbați persoana care îndrumă etapa următoare.
 - Pentru varianta A, lăsați studenții să producă propria revizuire înainte de a dezvălui revizuirea pregătită. Apoi evaluați și afirmațiile acesteia.
-- Pentru varianta B, cereți dovezi ale corectitudinii și ale limitelor rămase. Nu cereți studenților să inventeze o greșeală.
+- Pentru varianta B, cereți justificarea corectitudinii și precizarea limitelor rămase. Nu cereți studenților să inventeze o greșeală.
 - Dacă o singură pereche lucrează fără AI, cadrul didactic sau o altă pereche poate îndeplini rolul de evaluator separat.
 
-Notați „exemplu pregătit + revizuire între colegi”. Este un exercițiu echivalent de specificare și revizuire, nu o dovadă că un agent a executat sarcina predată.
+Notați „exemplu pregătit + revizuire între colegi”. Este un exercițiu echivalent de specificare și revizuire, nu o confirmare că un agent a executat sarcina predată.
 
 ## Descriere de referință a problemei
 
@@ -118,7 +118,7 @@ O înregistrare cu starea „anulată” este o alegere de proiectare. Ștergere
 
 **O propunere utilă de proiectare:** o singură decizie de rezervare răspunde de validarea regulilor pentru timp/sală și de confirmarea unei rezervări fără conflict, ca decizie indivizibilă față de deciziile concurente. O proiectare ulterioară trebuie să explice mecanismul și verificarea lui. O tranzacție în baza de date, o operație serializată sau un alt mecanism potrivit pot fi luate în considerare ulterior; astăzi nu se cere un anumit mecanism.
 
-**Sarcina următoare, cu limite clare:** pornind de la versiunea acceptată a descrierii și tabelul scenariilor, proiectați rezultatele rezervării/anulării și responsabilitățile de impunere a regulilor. Identificați cazurile care cer răspunsuri la Q1/Q2. Returnați o reprezentare care explică rezultatele normale, respinse și anulate, garanția de concurență încă de validat și dovezile din scenarii. Opriți pentru revizuire umană înainte de implementare.
+**Sarcina următoare, cu limite clare:** pornind de la versiunea acceptată a descrierii și tabelul scenariilor, proiectați rezultatele rezervării/anulării și responsabilitățile de impunere a regulilor. Identificați cazurile care cer răspunsuri la Q1/Q2. Returnați o reprezentare care explică rezultatele normale, respinse și anulate, garanția de concurență încă de validat și verificările prin scenarii. Opriți pentru revizuire umană înainte de implementare.
 
 ## Soluțiile scenariilor
 
@@ -149,11 +149,11 @@ Aceste parcurgeri verifică interpretarea cerințelor. Nu demonstrează că toat
 - A5 nu stabilește F5. Contraexemplu: Ana citește „liber”; Ben citește „liber”; Ana confirmă; Ben confirmă. Ambele verificări independente trec, dar rezultatul combinat încalcă F4/F5. Cereți o decizie de rezervare indivizibilă față de deciziile concurente, lăsând alegerea mecanismului pentru pasul următor de proiectare.
 - A6 respectă regulile de anulare furnizate și consemnează cazul neclarificat al limitei temporale.
 - A7 păstrează limitele și etichetează corect o întrebare deschisă. Tehnologia rămâne de ales.
-- A8 are un punct de revizuire potrivit, dar pentru o predare completă a sarcinii ar trebui să includă explicit dovezile așteptate și regulile încă neclarificate.
+- A8 are un punct de revizuire potrivit, dar pentru o predare completă a sarcinii ar trebui să includă explicit verificările așteptate și regulile încă neclarificate.
 
 ### Revizuirea pregătită a variantei A
 
-| Afirmație | Judecata omului | Dovezi/acțiune |
+| Afirmație | Judecata omului | Verificare/acțiune |
 |---|---|---|
 | R1 | Acceptare. | A3 inventează o limită obligatorie; Q3 o lasă neaprobată. Revizuiți regula și verificați o cerere de 90 de minute, într-un interval liber din program. |
 | R2 | Acceptare. | A4 respinge S3. Corectați predicatul/formularea și reluați S2 și S3. |
@@ -161,7 +161,7 @@ Aceste parcurgeri verifică interpretarea cerințelor. Nu demonstrează că toat
 | R4 | Respingere ca modificare obligatorie. | Sursa nu impune stocare relațională. Aceasta poate fi o alternativă opțională ulterior. |
 | R5 | Acceptarea constatării justificate. | S6 și S7 susțin A6; Q2 rămâne deschisă. Nu este necesar un prompt nou de corectare. |
 
-Aceste soluții ilustrează atât acceptarea, cât și respingerea afirmațiilor evaluatorului. Nu punctați studenții după numărul defectelor raportate. Un răspuns care citează R1–R5 fără a explica dovezile din sursă nu demonstrează suficient o judecată independentă.
+Aceste soluții ilustrează atât acceptarea, cât și respingerea afirmațiilor evaluatorului. Nu punctați studenții după numărul defectelor raportate. Un răspuns care citează R1–R5 fără a explica legătura cu sursa nu demonstrează suficient o judecată independentă.
 
 ### Varianta B
 
@@ -179,7 +179,7 @@ Un răspuns solid:
 
 > Limita este o regulă nouă propusă; nu făcea parte din cerințele inițiale. Afectează acceptarea rezervării, scenariile și posibil invarianta rezervărilor confirmate. Trebuie să clarific dacă limita se aplică doar cererilor făcute după adoptare sau și rezervărilor deja aprobate. Exceptarea rezervării existente păstrează promisiunea făcută titularului, aplicând limita cererilor noi. Aplicarea la rezervările existente cere o tranziție convenită și o decizie despre titularii afectați; nu le-aș scurta sau anula implicit rezervarea. Rezervarea existentă de 90 de minute distinge aceste reguli, iar o cerere nouă de 90 de minute trebuie verificată potrivit regulii alese.
 
-Alte răspunsuri solide pot propune o dată ulterioară de intrare în vigoare, pot căuta un interval mai scurt de înlocuire cu acordul titularului sau pot identifica o a treia opțiune. Dovada esențială este recunoașterea cerinței schimbate, urmărirea consecințelor ei și refuzul de a inventa regula de tranziție lipsă.
+Alte răspunsuri solide pot propune o dată ulterioară de intrare în vigoare, pot căuta un interval mai scurt de înlocuire cu acordul titularului sau pot identifica o a treia opțiune. Esențiale sunt recunoașterea cerinței schimbate, urmărirea consecințelor ei și refuzul de a inventa regula de tranziție lipsă.
 
 Dacă se alege exceptarea rezervărilor existente, „toate rezervările confirmate durează cel mult 60 de minute” nu este invarianta globală corectă. Studenții pot formula în schimb regula pentru rezervările nou acceptate după momentul intrării în vigoare. Este o extensie utilă pentru studenții care termină mai devreme, nu o condiție pentru finalizarea laboratorului 1.
 
@@ -189,18 +189,18 @@ Un răspuns slab este „adaugă `duration <= 60` și șterge rezervările vechi
 
 Folosiți aceste observații pentru feedback punctual; aici nu se stabilește o notă numerică sau o condiție pentru promovarea cursului.
 
-| Dovadă | Pregătită pentru discuția de feedback | Necesită revizuire |
+| Aspect urmărit | Pregătită pentru discuția de feedback | Necesită revizuire |
 |---|---|---|
 | Formularea problemei | Scop delimitat și informații/întrebări/alegeri distincte. | Reguli adăugate prezentate drept convenite; lipsa limitelor sistemului. |
 | Model și scenarii | Distincție sală/rezervare; rezultate așteptate legate de informațiile-sursă. | Se presupune global o singură rezervare pe sală; se ignoră adiacența sau titularul. |
 | Predarea sarcinilor | Versiunea de intrare, limitele, rezultatul, verificările și punctul de oprire pentru revizuire. | „Fă să fie corect” fără limite sau sursă; implementare delegată înainte de clarificarea întrebărilor de proiectare. |
 | Revizuire | Afirmație verificată față de variantă și sursă; decizie umană explicată. | Evaluator acceptat doar pe baza autorității; preferință opțională de proiectare tratată drept contradicție. |
-| Raționament individual | Studentul poate explica fără ajutor o regulă, o alternativă și o consecință a schimbării. | Repetă materialul comun fără a identifica dovezi sau decizii afectate. |
+| Raționament individual | Studentul poate explica fără ajutor o regulă, o alternativă și o consecință a schimbării. | Repetă materialul comun fără a identifica justificări sau decizii afectate. |
 
 Un student poate demonstra rezultatele cu o primă variantă corectă și fără un prompt nou de corectare. Un student fără acces la AI poate demonstra același raționament. Cereți explicații suplimentare despre notițele proprii fiecărui student pentru care autorul sau înțelegerea sunt neclare.
 
 ## Legătura de încheiere
 
-Întrebați: „Ce decizie trebuie să ia beneficiarul, ce decizie puteți lua voi ca proiectanți și ce dovezi ați cere celui care preia sarcina următoare?”
+Întrebați: „Ce decizie trebuie să ia beneficiarul, ce decizie puteți lua voi ca proiectanți și ce verificări ați cere celui care preia sarcina următoare?”
 
 Legați răspunsurile de modelele domeniului și responsabilitățile din tema următoare. Evitați promisiunea că laboratoarele viitoare vor cere o anumită diagramă, un instrument fix sau o aplicație implementată.

@@ -132,7 +132,7 @@ Legați fiecare rezultat de R2–R5. Referința completă explică comportamentu
 
 **Afirmația B:** „Proiectarea de referință este greșită deoarece solicitările nu blochează împrumuturile.”
 
-Care afirmație este susținută de dovezi?
+Care afirmație este susținută de enunț?
 
 Pentru fiecare, citați o regulă și un scenariu.
 
@@ -144,7 +144,7 @@ Ambele afirmații sunt create pentru acest exercițiu. A este susținută de R1�
 
 # Decideți cum tratați o constatare
 
-| Constatare | Dovezi | Decizie |
+| Constatare | Verificare | Decizie |
 |---|---|---|
 | Lipsește identitatea exemplarului | R1–R3; S1/S4 | Corectați proiectarea |
 | Solicitările trebuie să blocheze împrumuturile | Contrazisă de R5; S2 | Nu o acceptați ca defect |

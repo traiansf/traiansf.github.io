@@ -8,7 +8,7 @@ lang: ro-RO
 
 Ce trebuie să înțelegem înainte de a cere unei persoane sau unui asistent să propună o soluție?
 
-Astăzi analizăm o problemă mică, comparăm decizii și verificăm ce dovezi le susțin.
+Astăzi analizăm o problemă mică, comparăm decizii și verificăm ce anume le susține.
 
 ::: notes
 100 de minute: analiză inițială și întrebări 15; clarificări și delimitare 15; concepte și responsabilități 20; contracte și scenarii 15; delegare și revizuire 20; schimbare și sinteză 10; exercițiu final 5. Aspectele administrative au fost discutate în cursul 1. Acesta este un prim contact cu principiile care vor fi aprofundate în cursurile următoare. Lab 1 se desfășoară după acest curs.
@@ -309,7 +309,7 @@ Vom:
 1. Furniza unui analist/proiectant enunțul clarificat al bibliotecii.
 2. Verifica conceptele, regulile și responsabilitățile propuse.
 3. Furniza unui evaluator, într-un context nou, enunțul și soluția.
-4. Decide ce constatări sunt susținute de dovezi.
+4. Decide ce constatări sunt susținute de enunț.
 
 **Sarcina voastră:** explicați o decizie acceptată și puneți la încercare o afirmație.
 
@@ -338,7 +338,7 @@ Un evaluator afirmă:
 ::: notes
 În acest exercițiu, constatarea contrazice limitele declarate: solicitările înregistrate nu alocă exemplare și nu blochează împrumutarea. Faptul că soluția permite împrumutarea nu reprezintă un defect.
 
-Un agent separat oferă încă o ocazie de revizuire, nu o garanție de independență sau corectitudine. Dați-i enunțul sursă și criteriile; evaluați dovezile. Același model poate fi folosit într-o sesiune nouă.
+Un agent separat oferă încă o ocazie de revizuire, nu o garanție de independență sau corectitudine. Dați-i enunțul sursă și criteriile; evaluați voi ce susține fiecare constatare. Același model poate fi folosit într-o sesiune nouă.
 :::
 
 ---
@@ -352,7 +352,7 @@ Cereți o sinteză concisă despre:
 - Întrebările și riscurile încă neclarificate.
 - Verificările efectuate și ce anume stabilesc.
 
-Apoi urmăriți o afirmație importantă până la cerința, detaliul de proiectare sau dovada de validare care o susține.
+Apoi urmăriți o afirmație importantă până la cerința, detaliul de proiectare sau verificarea care o susține.
 
 ::: notes
 Aceasta este aplicarea ideii de a coordona o echipă. Studenții nu trebuie să citească fiecare token cu aceeași atenție, dar au nevoie de un model mental al sistemului și de acces la detaliile importante.
@@ -378,7 +378,7 @@ Corectarea ulterioară a conceptului poate impune schimbarea tuturor celor patru
 ::: notes
 Explicați costul unei erori timpurii urmărindu-i consecințele, nu printr-un multiplicator numeric fără justificare. De aceea investim în cerințe și proiectare înainte de a delega implementarea de amploare.
 
-Dacă dovezile ulterioare expun o problemă, revedeți decizia inițială și actualizați ceea ce depinde de ea.
+Dacă verificările ulterioare expun o problemă, revedeți decizia inițială și actualizați ceea ce depinde de ea.
 :::
 
 ---
@@ -443,12 +443,12 @@ Fără AI, scrieți trei răspunsuri scurte:
 
 1. De ce distingem un titlu de un exemplar fizic?
 2. Ce trebuie să rămână adevărat după un împrumut acceptat?
-3. Ce dovezi ați cere înainte de a accepta o constatare dintr-o revizuire?
+3. Ce justificare ați cere înainte de a accepta o constatare dintr-o revizuire?
 
 **Cursul următor:** formularea problemei și cerințele.
 
 ::: notes
-Răspunsuri așteptate: exemplarele au identitate și stare de împrumut independente, iar solicitările privesc titluri; cel mult un împrumut activ pentru fiecare exemplar, cu noul împrumut legat de exemplarul și membrul selectați; o cerință sursă și un scenariu concret sau altă dovadă verificabilă.
+Răspunsuri așteptate: exemplarele au identitate și stare de împrumut independente, iar solicitările privesc titluri; cel mult un împrumut activ pentru fiecare exemplar, cu noul împrumut legat de exemplarul și membrul selectați; o cerință sursă și un scenariu concret sau altă justificare verificabilă.
 
-Acceptați și alte invariante sau dovezi justificate. „Pentru că așa spune un șablon” sau „agentul a fost de acord” nu sunt argumente suficiente. Folosiți răspunsurile pentru a pregăti întâlnirea următoare; exercițiul nu introduce o nouă regulă de notare a participării.
+Acceptați și alte invariante sau justificări, dacă sunt argumentate. „Pentru că așa spune un șablon” sau „agentul a fost de acord” nu sunt argumente suficiente. Folosiți răspunsurile pentru a pregăti întâlnirea următoare; exercițiul nu introduce o nouă regulă de notare a participării.
 :::

@@ -32,7 +32,7 @@ Original: “If you’re thinking without writing, you only think you’re think
 
 Interviu primar cu transcript: 00:54:45, intervievatorul reproduce citatul; Lamport îl explică de la 00:54:59. Secțiunea Why writing improves your thinking.
 
-Legătura cu tema: Scrierea face deciziile inspectabile; un rezumat trebuie să păstreze legătura cu dovezile.
+Legătura cu tema: Scrierea face deciziile inspectabile; un rezumat trebuie să păstreze legătura cu sursele și verificările.
 :::
 
 ---

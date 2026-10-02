@@ -30,7 +30,7 @@ Datele de intrare sunt identificatori cunoscuți, iar operațiile sunt procesate
 - **Returnare — `Return(copy)`:** dacă există un împrumut activ, îl închide și îl păstrează în istoric. Altfel, respinge operația și lasă împrumuturile neschimbate. Solicitările rămân neschimbate. R3 și R5.
 - **Solicitare — `Request(title, member)`:** dacă perechea nu există, o înregistrează. Altfel, respinge operația și lasă solicitările neschimbate. Împrumuturile rămân neschimbate. R4 și R5.
 
-## Dovezi din scenarii
+## Verificări prin scenarii
 
 Folosiți starea inițială și ramurile independente precizate în enunț: S2–S4 continuă fiecare separat S1; S5 pornește fără solicitări existente.
 
@@ -44,7 +44,7 @@ Aceste parcurgeri explică comportamentul proiectării de referință. Nu consti
 
 ## Constatări din revizuire (review) de discutat
 
-**Defect susținut de dovezi:** „O singură stare pe un titlu nu poate reprezenta S2. R1 permite împrumutarea independentă a exemplarelor, iar R5 permite existența simultană a unei solicitări pentru titlu.” Explicați distincțiile lipsă înainte de a alege corecția.
+**Defect susținut de enunț:** „O singură stare pe un titlu nu poate reprezenta S2. R1 permite împrumutarea independentă a exemplarelor, iar R5 permite existența simultană a unei solicitări pentru titlu.” Explicați distincțiile lipsă înainte de a alege corecția.
 
 **Constatare nesusținută:** „O solicitare activă pentru un titlu trebuie să blocheze orice împrumut.” R5 precizează explicit contrariul în acest exercițiu. Agentul de revizuire poate propune o regulă pentru viitor, dar aceasta nu este o cerință a părții studiate.
 

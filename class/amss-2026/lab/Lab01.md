@@ -9,7 +9,7 @@ lang: ro-RO
 **În perechi · 100 de minute**
 
 Explicați singuri problema, pregătiți o specificație cu limite clare,
-delegați o revizuire (review) și decideți ce afirmații sunt susținute de dovezi.
+delegați o revizuire (review) și decideți ce afirmații sunt întemeiate.
 
 La final: o descriere comună a problemei și explicația individuală a unei decizii de proiectare.
 
@@ -148,7 +148,7 @@ Exercițiul bibliotecii presupunea explicit operații executate pe rând. Aceste
 - Alegeți orice instrument și model AI disponibil. Notați-le, dacă sunt cunoscute.
 - Pregătiți o **sesiune de autor** și o **sesiune separată de revizuire**.
 - **A:** îndrumă autorul. **B:** verifică afirmațiile față de informațiile beneficiarului.
-- La minutul 44, schimbați rolurile: **B** îndrumă evaluatorul; **A** verifică dovezile.
+- La minutul 44, schimbați rolurile: **B** îndrumă evaluatorul; **A** verifică afirmațiile acestuia.
 
 Dacă AI nu este disponibil, folosiți [exemplul pregătit](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/prepared-fixture.md) și o revizuire separată între colegi.
 
@@ -167,7 +167,7 @@ Predarea sarcinii și a contextului (handoff) către autor precizează:
 - **Intrări:** informațiile exacte ale beneficiarului și analiza inițială.
 - **Sarcină:** o descriere concisă a problemei și planul pasului următor.
 - **Limite:** etichetează propunerile și întrebările; nu inventa reguli.
-- **Dovezi:** citează sursele lângă cerințe și scenarii.
+- **Justificări:** citează sursele lângă cerințe și scenarii.
 - **Punct de oprire:** trimite omului deciziile nerezolvate înainte de a continua.
 
 Salvați o copie a variantei rezultate pentru revizuire.
@@ -217,7 +217,7 @@ Adăugați câte un caz pentru cereri simultane și pentru anulare.
 
 Începeți într-un context nou. Furnizați **informațiile, versiunea salvată și criteriile**:
 
-> Revizuiește descrierea problemei față de informațiile furnizate. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile susținute de dovezi. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.
+> Revizuiește descrierea problemei față de informațiile furnizate. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile susținute de informațiile furnizate. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.
 
 Furnizați intrările convenite, nu conversația autorului.
 
@@ -231,7 +231,7 @@ Un context separat nu garantează o judecată corectă. Același model poate rep
 
 Pentru fiecare constatare importantă pe care o rețineți, notați:
 
-| Constatarea revizuirii | Dovezi | Decizia omului |
+| Constatarea revizuirii | Verificare | Decizia omului |
 |---|---|---|
 | „Varianta respinge greșit rezervările adiacente.” | F4 permite adiacența; verificați regula citată. | Acceptați dacă varianta chiar respinge adiacența. |
 | „Este necesară o bază de date relațională.” | Nicio informație nu prescrie stocarea. | Tratați-o ca propunere opțională de proiectare. |
@@ -241,7 +241,7 @@ Decizii: **acceptare**, **respingere** sau **amânare pentru clarificare**. Moti
 Modificați unde se justifică; reluați scenariul afectat pe noua versiune.
 
 ::: notes
-Constatările revizuirii cer dovezi atât în cerințele beneficiarului, cât și în varianta redactată. Evaluatorul poate să nu găsească nicio contradicție; studenții pot accepta această concluzie după ce explică verificările. Nu trebuie să inventeze defecte, să respingă ceva sau să trimită un prompt nou pentru un rezultat corect.
+Constatările revizuirii trebuie verificate atât față de cerințele beneficiarului, cât și față de varianta redactată. Evaluatorul poate să nu găsească nicio contradicție; studenții pot accepta această concluzie după ce explică verificările. Nu trebuie să inventeze defecte, să respingă ceva sau să trimită un prompt nou pentru un rezultat corect.
 :::
 
 ---
@@ -256,7 +256,7 @@ Propuneți o **sarcină de proiectare**, în limitele descrierii acceptate azi:
 - validați scenariile și evidențiați ipotezele neconfirmate;
 - opriți-vă pentru revizuire umană înainte de implementare.
 
-Precizați versiunea de intrare, rezultatul așteptat și dovezile cerute.
+Precizați versiunea de intrare, rezultatul așteptat și verificările cerute.
 
 ::: notes
 Verificarea unei specificații și a unei proiectări substanțiale este un principiu al cursului. Laboratorul 1 începe acest proces. O regulă neclarificată poate bloca ramura afectată, în timp ce partea convenită continuă. Planul cu limite clare identifică explicit această delimitare.
@@ -264,7 +264,7 @@ Verificarea unei specificații și a unei proiectări substanțiale este un prin
 
 ---
 
-# Lucru comun, dovezi individuale
+# Lucru comun, explicații individuale
 
 **Comun:** descriere concisă, sarcină următoare delimitată și evidența revizuirii cu deciziile oamenilor.
 
@@ -277,7 +277,7 @@ Verificarea unei specificații și a unei proiectări substanțiale este un prin
 Folosiți fișa de lucru. Păstrați fragmentele necesare justificării deciziilor.
 
 ::: notes
-Fișiere sugerate: brief.md, review.md, individual/<student-id>.md în lab01/<pair-id>/, în spațiul de lucru furnizat. Orice format echivalent, cu autorii identificați clar, este acceptabil. Schema de notare a cursului este 5 puncte pentru dosarul de proiectare, 3 pentru examenul grilă, 1 pentru prezență și 1 din oficiu. Acest laborator furnizează dovezi formative, fără o notă numerică separată.
+Fișiere sugerate: brief.md, review.md, individual/<student-id>.md în lab01/<pair-id>/, în spațiul de lucru furnizat. Orice format echivalent, cu autorii identificați clar, este acceptabil. Schema de notare a cursului este 5 puncte pentru dosarul de proiectare, 3 pentru examenul grilă, 1 pentru prezență și 1 din oficiu. Acest laborator are rol formativ, fără o notă numerică separată.
 :::
 
 ---
@@ -307,7 +307,7 @@ Pentru acest scenariu de schimbare, ziua-pilot D este mâine. Este o versiune no
 Fiecare pereche selectată explică unul dintre aspectele următoare:
 
 - o regulă pe care trebuie să o stabilească beneficiarul, deși părea o decizie tehnică;
-- o constatare a evaluatorului pe care perechea a verificat-o prin dovezi;
+- o constatare a evaluatorului pe care perechea a verificat-o față de sursă;
 - o decizie corectă păstrată și scenariul care o susține.
 
 Predați fișierele comune și explicația fiecăruia la destinația anunțată de cadrul didactic.
@@ -320,18 +320,18 @@ Alegeți raționamente diferite, inclusiv o variantă generată corectă. Nu rec
 
 ---
 
-# Dovezi ale înțelegerii
+# Ce arată că ați înțeles
 
 Lucrarea este pregătită pentru feedback când:
 
 - informațiile, ipotezele, întrebările și alegerile de proiectare se disting;
 - cerințele și scenariile respectă informațiile beneficiarului;
 - sarcina predată are limite, rezultat și punct de revizuire clare;
-- constatările evaluatorului au dovezi și o decizie umană;
+- constatările evaluatorului sunt verificate și au o decizie umană;
 - fiecare partener explică o alegere și raționează despre schimbare fără ajutor.
 
 Urmează: formularea problemei și cerințele, apoi modelarea domeniului.
 
 ::: notes
-Oferiți feedback punctual pentru revizuire acolo unde lipsesc dovezi. Evaluați judecata prin explicații și verificări, nu prin instrument, lungimea rezultatului sau aspectul unei diagrame.
+Oferiți feedback punctual pentru revizuire acolo unde lipsesc justificări. Evaluați judecata prin explicații și verificări, nu prin instrument, lungimea rezultatului sau aspectul unei diagrame.
 :::

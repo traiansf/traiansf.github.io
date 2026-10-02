@@ -6,7 +6,7 @@ Mod de lucru: asistent AI / exemplu pregătit + revizuire între colegi / altul:
 
 Instrument/model, dacă sunt cunoscute: __________  Context de revizuire sau coleg evaluator: __________
 
-Fișa oferă un punct de plecare. Sunt suficiente puncte scurte; adaptați structura dacă o altă reprezentare comunică mai clar aceleași dovezi. Păstrați o singură descriere comună a problemei și citați identificatorii informațiilor/scenariilor din ea la predarea sarcinii și în evidența revizuirii, fără a copia aceleași reguli în mai multe secțiuni.
+Fișa oferă un punct de plecare. Sunt suficiente puncte scurte; adaptați structura dacă o altă reprezentare comunică mai clar aceleași informații. Păstrați o singură descriere comună a problemei și citați identificatorii informațiilor/scenariilor din ea la predarea sarcinii și în evidența revizuirii, fără a copia aceleași reguli în mai multe secțiuni.
 
 ## Notițe inițiale individuale — fără AI, primele 8 minute
 
@@ -65,7 +65,7 @@ Adăugați un scenariu când distinge o regulă sau o alternativă importantă. 
 - **Sarcina și reprezentarea/rezultatul așteptat:**
 - **Regulile pe care responsabilitățile propuse trebuie să le păstreze:**
 - **Întrebările care blochează o parte a lucrului:**
-- **Verificările și dovezile de returnat:**
+- **Verificările și rezultatele de returnat:**
 - **Punctul de revizuire umană înainte de implementare:**
 
 ## Predarea sarcinii către autor (handoff) — minutele 26–44
@@ -82,19 +82,19 @@ Identificatorul variantei supuse revizuirii: __________
 
 ## Predarea sarcinii pentru revizuire independentă — minutele 44–60
 
-Schimbați rolurile: studentul B îndrumă evaluatorul; studentul A verifică dovezile. Deschideți un context nou și furnizați doar informațiile-sursă, varianta fixată și criteriile. Se permite același instrument/model; nu reutilizați conversația autorului. Dacă este necesar, schimbați acest pachet cu o pereche vecină pentru revizuire între colegi.
+Schimbați rolurile: studentul B îndrumă evaluatorul; studentul A verifică afirmațiile acestuia. Deschideți un context nou și furnizați doar informațiile-sursă, varianta fixată și criteriile. Se permite același instrument/model; nu reutilizați conversația autorului. Dacă este necesar, schimbați acest pachet cu o pereche vecină pentru revizuire între colegi.
 
-> Revizuiește descrierea problemei față de informațiile furnizate. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile susținute de dovezi. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.
+> Revizuiește descrierea problemei față de informațiile furnizate. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile susținute de informațiile furnizate. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.
 
 Păstrați suficient din pachet și din răspuns pentru a stabili ce a fost revizuit și de ce ați acționat. Nu sunt necesare exporturi complete ale conversațiilor.
 
 ## Evaluarea de către om — minutele 60–78
 
-| Constatarea revizuirii și locul din variantă | Informație-sursă / scenariu / dovadă | Acceptare / respingere / amânare și motiv | Modificare sau decizie păstrată; reverificare |
+| Constatarea revizuirii și locul din variantă | Informație-sursă / scenariu / altă verificare | Acceptare / respingere / amânare și motiv | Modificare sau decizie păstrată; reverificare |
 |---|---|---|---|
 | | | | |
 
-Nu există un număr obligatoriu de defecte, corectări sau prompturi repetate. O concluzie justificată că varianta este corectă reprezintă o dovadă utilă. Distingeți verificarea revizuirii de simplul acord cu ea.
+Nu există un număr obligatoriu de defecte, corectări sau prompturi repetate. O concluzie justificată că varianta este corectă este un rezultat util. Distingeți verificarea revizuirii de simplul acord cu ea.
 
 ## Explicație individuală — fără AI, minutele 78–90
 
@@ -104,7 +104,7 @@ Scrieți independent, cu numele vostru:
 - O alternativă plauzibilă sau o ipoteză neconfirmată și consecința ei:
 - Răspunsul meu la schimbarea anunțată de cadrul didactic: deciziile afectate, regula lipsă și două răspunsuri posibile, cu un scenariu care le distinge:
 
-Cadrul didactic anunță schimbarea la minutul 78. Raționamentul vostru constituie dovada, nu o soluție finală șlefuită.
+Cadrul didactic anunță schimbarea la minutul 78. Contează raționamentul vostru, nu o soluție finală șlefuită.
 
 ## Predarea lucrării
 

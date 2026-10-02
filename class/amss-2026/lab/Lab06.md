@@ -29,14 +29,14 @@ Original: “If you’re thinking without writing, you only think you’re think
 
 Interviu primar cu transcript: 00:54:45, intervievatorul reproduce citatul; Lamport îl explică de la 00:54:59. Secțiunea Why writing improves your thinking.
 
-Legătura cu tema: Scrierea face deciziile inspectabile; un rezumat trebuie să păstreze legătura cu dovezile.
+Legătura cu tema: Scrierea face deciziile inspectabile; un rezumat trebuie să păstreze legătura cu sursele și verificările.
 :::
 
 ---
 
 # Pregătiți accesul la proiect
 
-Deschideți repository-ul public de pe GitHub sau GitLab anunțat pe Teams, cu dosarul și dovezile curente.
+Deschideți repository-ul public de pe GitHub sau GitLab anunțat pe Teams, cu dosarul și materialele curente.
 
 Pentru o întrebare, indicați cerința sau decizia relevantă, ce este neclar și ce variante ați luat în calcul.
 

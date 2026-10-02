@@ -45,7 +45,7 @@ Pentru un asistent care lucrează cu fișiere, cereți `design-brief.md` în spa
 
 Arătați o decizie despre concepte, un contract și un scenariu.
 
-| Întrebare | Sursă/dovadă |
+| Întrebare | Unde verificăm |
 |---|---|
 | Este clar dacă „o carte” desemnează un titlu sau un exemplar? | R1 și S1 |
 | Pot coexista două exemplare împrumutate independent și o solicitare pentru titlu? | R2, R4–R5 și S2 |
@@ -60,7 +60,7 @@ Alegeți întrebările cu consecințe importante care se potrivesc răspunsului 
 
 **Dacă există un defect semnificativ:** cereți studenților scenariul care îl evidențiază. Formulați o corecție punctuală susținută de enunț, apoi verificați din nou regula afectată și încă un scenariu.
 
-**Dacă există o alegere de proiectare nerezolvată:** comparați alternative plauzibile și identificați dovezile care ar ajuta la alegerea uneia. Nu inventați o regulă a beneficiarului doar pentru a închide discuția.
+**Dacă există o alegere de proiectare nerezolvată:** comparați alternative plauzibile și identificați informațiile care ar ajuta la alegerea uneia. Nu inventați o regulă a beneficiarului doar pentru a închide discuția.
 
 ## 4. Predarea sarcinii și a contextului către un agent de revizuire (handoff) (3–4 minute)
 
@@ -70,7 +70,7 @@ Deschideți contextul separat. Furnizați enunțul original și documentul de pr
 >
 > Verifică distincțiile din domeniu, responsabilitatea pentru regula împrumutului activ, rezultatele operațiilor, consistența cu scenariile și afirmația că proiectarea este pregătită pentru etapa următoare.
 >
-> Pentru fiecare constatare semnificativă, identifică regula din enunț, afirmația relevantă din proiectare și un contraexemplu concret sau alte dovezi verificabile. Distinge un defect de o alternativă opțională de proiectare și de o întrebare despre o extindere viitoare. Dacă nu găsești niciun defect semnificativ, precizează ce ai verificat și ce nu stabilește revizuirea. Nu adăuga cerințe excluse prin R6.
+> Pentru fiecare constatare semnificativă, identifică regula din enunț, afirmația relevantă din proiectare și un contraexemplu concret sau altă justificare verificabilă. Distinge un defect de o alternativă opțională de proiectare și de o întrebare despre o extindere viitoare. Dacă nu găsești niciun defect semnificativ, precizează ce ai verificat și ce nu stabilește revizuirea. Nu adăuga cerințe excluse prin R6.
 
 Contextul nou poate folosi același model. Explicați că separarea face explicită predarea sarcinii și a contextului; nu garantează o revizuire imparțială sau corectă.
 
@@ -78,7 +78,7 @@ Contextul nou poate folosi același model. Explicați că separarea face explici
 
 Alegeți o constatare din răspunsul primit. Cereți studenților să o clasifice ca:
 
-- defect susținut de dovezi;
+- defect susținut de enunț;
 - alternativă rezonabilă ale cărei avantaje și dezavantaje trebuie cântărite;
 - afirmație nesusținută; sau
 - întrebare din afara domeniului de lucru actual.
@@ -93,11 +93,11 @@ Potrivit R5, această afirmație nu susține existența unui defect. O regulă d
 
 Consemnați pe scurt decizia:
 
-| Afirmație | Dovezi verificate | Decizie |
+| Afirmație | Ce am verificat | Decizie |
 |---|---|---|
 | O solicitare ar trebui să blocheze împrumutul | R5 și S2 precizează coexistența | Nu este acceptată ca defect; doar o posibilă regulă viitoare |
 
-Folosiți în schimb o constatare reală, susținută de dovezi, dacă apare. Nu există un număr obligatoriu de defecte.
+Folosiți în schimb o constatare reală, susținută de enunț, dacă apare. Nu există un număr obligatoriu de defecte.
 
 ## 6. Încheierea predării sarcinii (1 minut)
 
@@ -107,7 +107,7 @@ Folosiți în schimb o constatare reală, susținută de dovezi, dacă apare. Nu
 
 Răspuns așteptat: să elaboreze un plan detaliat pentru partea specificată, folosind conceptele, responsabilitățile, contractele operațiilor și scenariile convenite; să nu considere rezolvate alocarea, concurența, autentificarea sau punerea în producție.
 
-Un rezumat scurt trebuie să trimită la regulile din enunț și la detaliile proiectării. Cereți unui student să urmărească o afirmație din rezumat până la acele dovezi.
+Un rezumat scurt trebuie să trimită la regulile din enunț și la detaliile proiectării. Cereți unui student să urmărească o afirmație din rezumat până la acele surse.
 
 Reveniți la diapozitivele „Verificăm și revizuirea” și „Păstrăm o imagine de ansamblu verificabilă” din curs. Folosiți-le pentru recapitulare; nu repetați întregul exercițiu.
 
@@ -117,7 +117,7 @@ Deschideți prezentarea de rezervă și spuneți:
 
 > „Acesta este un exemplu pregătit pentru predare. Ne permite să exersăm același raționament fără să așteptăm generarea în direct.”
 
-Prezentarea conține o proiectare intenționat incompletă, un contraexemplu, o corecție de referință, o constatare de revizuire susținută de dovezi și una nesusținută. Studenții efectuează aceleași verificări pe baza regulilor și scenariilor. Referința pregătită este o soluție acceptabilă, nu un model obligatoriu de obiecte.
+Prezentarea conține o proiectare intenționat incompletă, un contraexemplu, o corecție de referință, o constatare de revizuire susținută de enunț și una nesusținută. Studenții efectuează aceleași verificări pe baza regulilor și scenariilor. Referința pregătită este o soluție acceptabilă, nu un model obligatoriu de obiecte.
 
 ## Gestionarea abaterilor frecvente
 
@@ -126,13 +126,13 @@ Prezentarea conține o proiectare intenționat incompletă, un contraexemplu, o 
 - **Agentul recomandă un anumit framework sau tipar de proiectare:** întrebați ce cerință sau variație îl justifică. Păstrați-l numai dacă beneficiul poate fi explicat.
 - **Studenții resping o proiectare pentru că nu are diagramă:** întrebați la ce întrebare nu pot răspunde. Adăugați o reprezentare doar pentru a clarifica acea întrebare.
 - **Agentul de revizuire inventează cerințe de producție:** distingeți o cerință reală de extindere de un defect al exercițiului delimitat.
-- **Toate rezultatele generate sunt corecte:** cereți studenților să explice dovezile și limitele afirmației. Aceasta este o delegare reușită.
+- **Toate rezultatele generate sunt corecte:** cereți studenților să explice ce susține afirmația și care îi sunt limitele. Aceasta este o delegare reușită.
 
 ## Listă de verificare pentru repetiție
 
 - R1–R6 și S1–S5 sunt vizibile pentru ambele roluri.
 - Proiectarea de referință nu se află în contextul inițial al proiectantului.
-- Enunțul, detaliile selectate din proiectare și dovezile din revizuire încap pe ecran.
+- Enunțul, detaliile selectate din proiectare și constatările revizuirii încap pe ecran.
 - Varianta de rezervă este disponibilă local și etichetată clar ca exemplu pregătit.
 - Codul QR Teams și codul echipei rămân pe diapozitivul de bun venit al cursului.
 - Demonstrația se încheie cu o decizie de proiectare care poate fi examinată, nu doar cu acceptarea verdictului unui agent.
