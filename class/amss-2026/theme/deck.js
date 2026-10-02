@@ -71,7 +71,7 @@
     // slides: word joiners around the dash of a short word.
     function unbroken(title) {
       return title.replace(/\S+/g, function (word) {
-        return word.length > 24 ? word : word.replace(/([^–])–(?=[^–])/g, '$1⁠–⁠');
+        return word.length > 24 ? word : word.replace(/([^–])–(?=[^–])/g, '$1\u2060–\u2060');
       });
     }
 
@@ -128,6 +128,7 @@
     // The switch names the other view; a phone shows the short form (deck.css).
     function labelView() {
       view.textContent = '';
+      view.title = paged ? text.all : text.one;
       view.appendChild(make('span', 'deck-long', paged ? text.all : text.one));
       view.appendChild(make('span', 'deck-short', paged ? text.allShort : text.oneShort));
     }
@@ -199,6 +200,7 @@
         });
         toc.showModal();
         tocLinks[here].focus();
+        tocLinks[here].scrollIntoView({ block: 'nearest' });
       });
     } else {
       count.disabled = true;

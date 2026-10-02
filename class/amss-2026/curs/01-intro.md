@@ -96,7 +96,7 @@ Primul laborator folosește o problemă de rezervare a sălilor, astfel încât 
 Feedback pentru proiect la cerere, pe parcursul semestrului. Punctajul pentru dosar se definitivează printr-un interviu de echipă la ultimul laborator.
 
 ::: notes
-Cele cinci puncte ale dosarului acoperă formularea problemei și cerințele, modelarea domeniului, atribuirea responsabilităților, contractele și invariantele, respectiv stările și comportamentul. Dovezile de validare, alternativele și raționamentul despre schimbare susțin aceste criterii. Detaliile sunt pe pagina proiectului.
+Cele cinci puncte ale dosarului acoperă formularea problemei și cerințele, modelarea domeniului, atribuirea responsabilităților, contractele și invariantele, respectiv starea și comportamentul. Dovezile de validare, alternativele și raționamentul despre schimbare susțin aceste criterii. Detaliile sunt pe pagina proiectului.
 
 Examenul grilă folosește scenarii, cerințe, contracte și modele mici date în enunț. Evaluează raționamentul, nu memorarea notațiilor pentru diagrame. Restanța este o cale separată: nouă puncte la examen și un punct din oficiu, fără reportarea punctajelor pentru dosar sau prezență.
 

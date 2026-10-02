@@ -99,8 +99,11 @@
       {\usebeamerfont{subtitle}\color{amsstealight}\insertsubtitle\par}\vskip 1.5mm
     \fi
     {\usebeamerfont{title}\color{white}%
-     % Lines of similar length, as on the HTML cover: no single word on the last one.
+     % Lines of similar length, as on the HTML cover: no single word on the last
+     % one. The word spaces are rigid, so that a title a little wider than the
+     % line is broken instead of being squeezed onto it.
      \rightskip=0pt plus 0.7\linewidth \parfillskip=0pt
+     \spaceskip=\fontdimen2\font \xspaceskip=\spaceskip
      \hyphenpenalty=10000 \exhyphenpenalty=10000\relax
      \inserttitle\par}%
     \vskip 6mm

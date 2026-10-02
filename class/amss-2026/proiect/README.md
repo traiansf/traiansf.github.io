@@ -6,7 +6,7 @@ lang: ro-RO
 
 # Proiectul de echipă
 
-Proiectul urmărește **analiza unei probleme și construirea unei soluții de proiectare justificate**. Echipa dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile. Dosarul de proiectare al echipei valorează **5 puncte**, iar înțelegerea individuală se evaluează printr-un **examen grilă de 3 puncte**. Prezența și punctul din oficiu completează nota până la 10.
+Proiectul urmărește **analiza unei probleme și construirea unei soluții de proiectare justificate**. Echipa dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile. Dosarul de proiectare al echipei valorează **5&nbsp;puncte**, iar înțelegerea individuală se evaluează printr-un **examen grilă de 3&nbsp;puncte**. Prezența și punctul din oficiu completează nota până la 10.
 
 La finalul cursului, ar trebui să puteți, fără AI, să analizați o problemă mică și necunoscută, să propuneți o soluție de proiectare, să explicați alternative și să urmăriți consecințele unei schimbări, folosind text, schițe sau pseudocod. AI vă poate ajuta să explorați și să produceți mai repede; voi răspundeți pentru cerințele, deciziile și dovezile pe care le acceptați.
 
@@ -113,6 +113,6 @@ Punctul de prezență se acordă proporțional cu participarea la **cursuri și 
 
 **Punctaj prezență = numărul întâlnirilor la care ați participat / numărul total al întâlnirilor desfășurate și contabilizate.**
 
-Pentru 14 cursuri și 7 laboratoare, numitorul este 21. Întâlnirile anulate nu intră în numitor; acesta reflectă întâlnirile efectiv desfășurate și contabilizate.
+Pentru 14&nbsp;cursuri și 7&nbsp;laboratoare, numitorul este 21. Întâlnirile anulate nu intră în numitor; acesta reflectă întâlnirile efectiv desfășurate și contabilizate.
 
 În sesiunea de restanțe, nota se calculează astfel: **9&nbsp;puncte pentru examenul grilă + 1&nbsp;punct din oficiu = 10**. Examenul urmărește aceleași competențe de analiză și proiectare. Punctajele pentru dosarul de proiectare și pentru prezență nu se reportează în nota de la restanță.

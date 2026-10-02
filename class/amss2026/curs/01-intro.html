@@ -269,6 +269,10 @@ padding-bottom: 6vh;
 html.paged .slide.titlepage .logo { width: 10em; max-height: none; }
 html.paged .slide.titlepage h1 { font-size: 2.4em; }
 }
+@media screen and (max-width: 30rem) {
+
+html.paged .slide.titlepage.current { grid-template-columns: minmax(0, 1fr); }
+}
 
 .deck-bar {
 position: fixed;
@@ -312,8 +316,8 @@ cursor: pointer;
 .deck-bar a:hover, .deck-bar button:hover, .deck-close:hover { background: var(--surface); color: var(--navy); }
 .deck-bar [aria-disabled="true"] { opacity: 0.35; cursor: default; }
 .deck-bar [aria-disabled="true"]:hover { background: none; color: inherit; }
-.deck-bar .deck-home { color: var(--navy); font-weight: 700; }
-.deck-bar .deck-more { white-space: pre; } 
+
+.deck-bar .deck-home { display: block; color: var(--navy); font-weight: 700; line-height: 2rem; }
 .deck-bar .deck-short { display: none; }
 .deck-bar .deck-step { padding: 0 0.7rem; font-size: 1.15rem; }
 .deck-bar .deck-count { min-width: 4.6rem; justify-content: center; font-variant-numeric: tabular-nums; }
@@ -324,7 +328,7 @@ html:not(.paged) .deck-paged-only { display: none; }
 .deck-bar { gap: 0; padding: 0 0.25rem; }
 .deck-bar a, .deck-bar button { padding: 0 0.4rem; }
 .deck-bar .deck-count { min-width: 3.5rem; padding: 0; }
-.deck-bar .deck-home { display: block; flex: 0 1 auto; min-width: 3.2rem; overflow: hidden; line-height: 2rem; text-overflow: ellipsis; }
+.deck-bar .deck-home { flex: 0 1 auto; min-width: 3.2rem; overflow: hidden; text-overflow: ellipsis; }
 .deck-bar .deck-more, .deck-bar .deck-long { display: none; }
 .deck-bar .deck-short { display: inline; }
 }
@@ -387,6 +391,7 @@ break-inside: avoid;
 .slide.titlepage h1, .slide.titlepage .author { color: var(--navy); }
 .slide.titlepage .course, .slide.titlepage .session { color: var(--teal-strong); }
 .slide.titlepage .logo { width: 28mm; padding: 0; }
+.slide div.column img { max-width: 45mm; } 
 .slide a { color: inherit; }
 }
 </style>
@@ -668,7 +673,7 @@ break-inside: avoid;
     // slides: word joiners around the dash of a short word.
     function unbroken(title) {
       return title.replace(/\S+/g, function (word) {
-        return word.length > 24 ? word : word.replace(/([^–])–(?=[^–])/g, '$1⁠–⁠');
+        return word.length > 24 ? word : word.replace(/([^–])–(?=[^–])/g, '$1\u2060–\u2060');
       });
     }
 
@@ -725,6 +730,7 @@ break-inside: avoid;
     // The switch names the other view; a phone shows the short form (deck.css).
     function labelView() {
       view.textContent = '';
+      view.title = paged ? text.all : text.one;
       view.appendChild(make('span', 'deck-long', paged ? text.all : text.one));
       view.appendChild(make('span', 'deck-short', paged ? text.allShort : text.oneShort));
     }
@@ -796,6 +802,7 @@ break-inside: avoid;
         });
         toc.showModal();
         tocLinks[here].focus();
+        tocLinks[here].scrollIntoView({ block: 'nearest' });
       });
     } else {
       count.disabled = true;
