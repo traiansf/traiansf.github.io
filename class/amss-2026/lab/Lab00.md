@@ -15,12 +15,14 @@ Laboratorul 1, despre înțelegere, specificare și revizuire, se desfășoară 
 ## Citatul zilei
 
 > „Informatica ar trebui să se ocupe de concepte, nu de limbaje.”
+>
+> Original: “Computer science should be about concepts, not languages.”
 
 — **Leslie Lamport**
 
-[Sursa: Computation and State Machines (2008), prefață](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2)&nbsp;· traducere din engleză
+[Sursa: Computation and State Machines (2008), prefață](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2)
 
-<!-- Original verificat: “Computer science should be about concepts, not languages.” Prefață, pagina PDF 2, manuscrisul de pe site-ul autorului. Legătura cu tema: uneltele sprijină învățarea; pregătirea lor nu înlocuiește înțelegerea. -->
+<!-- Original verificat în prefață, pagina PDF 2, manuscrisul de pe site-ul autorului. Legătura cu tema: uneltele sprijină învățarea; pregătirea lor nu înlocuiește înțelegerea. -->
 
 ## Cum poți folosi cele 90 de minute
 

@@ -131,13 +131,15 @@
 
 % Quotations: upright, ragged-right, unhyphenated text beside a teal bar.
 % theme/amss.lua wraps the epigraph in amssepigraph (larger, with balanced
-% lines) and its source line in amsssource (small and muted).
+% lines), the original wording under a translation in amssoriginal (small
+% and muted) and the source line in amsssource (small and muted).
 \newcommand{\amssquotesetup}{}
 \newenvironment{amssepigraph}{%
   \setbeamercolor{quote}{fg=amssnavy}%
   \setbeamerfont{quote}{shape=\upshape,series=\bfseries,size=\Large}%
   \renewcommand{\amssquotesetup}{\rightskip=0pt plus 0.45\linewidth \parfillskip=0pt plus 0.45\linewidth\relax}}%
  {\par\vskip 1.5mm}
+\newenvironment{amssoriginal}{\par\vskip 1.6mm\mdseries\small\color{amssmuted}}{\par}
 \newenvironment{amsssource}{\begingroup\footnotesize\color{amssmuted}}{\par\endgroup}
 \newsavebox{\amssquotebox}
 \renewenvironment{quote}{%

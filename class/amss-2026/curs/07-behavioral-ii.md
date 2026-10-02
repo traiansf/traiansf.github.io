@@ -22,14 +22,14 @@ Week 6 modelled one interaction (a sequence). Today we model an object's whole l
 # Citatul zilei
 
 > „Orice organizație care proiectează un sistem (în sens larg) va produce o proiectare a cărei structură reproduce structura de comunicare a organizației.”
+>
+> Original: “Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.”
 
 — **Melvin E. Conway**
 
-[Sursa: Conway’s Law — formularea autorului](https://www.melconway.com/Home/Conways_Law.html) · traducere din engleză
+[Sursa: Conway’s Law — formularea autorului](https://www.melconway.com/Home/Conways_Law.html)
 
 ::: notes
-Original: “Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.”
-
 Pagina autorului, formularea introdusă prin Here is one form of the paper's thesis; distingeți formularea aceasta de variantele din alte surse.
 
 Legătura cu tema: Comunicarea și coordonarea influențează interfețele și limitele dintre părți.

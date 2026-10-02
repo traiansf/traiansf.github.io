@@ -25,14 +25,14 @@ No re-introduction. Students saw who I was in Week 1. Open straight into structu
 # Citatul zilei
 
 > „Cea mai dificilă parte a construirii unui sistem software este să decidem exact ce să construim.”
+>
+> Original: “The hardest single part of building a software system is deciding precisely what to build.”
 
 — **Frederick P. Brooks, Jr.**
 
-[Sursa: No Silver Bullet — Essence and Accident in Software Engineering](https://worrydream.com/refs/Brooks_1986_-_No_Silver_Bullet.pdf#page=13) · traducere din engleză
+[Sursa: No Silver Bullet — Essence and Accident in Software Engineering](https://worrydream.com/refs/Brooks_1986_-_No_Silver_Bullet.pdf#page=13)
 
 ::: notes
-Original: “The hardest single part of building a software system is deciding precisely what to build.”
-
 Textul original, secțiunea Requirements refinement and rapid prototyping, pagina numerotată 13 (pagina PDF 13).
 
 Legătura cu tema: Definirea problemei și clarificarea cerințelor înainte de construirea soluției.

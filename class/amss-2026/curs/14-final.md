@@ -23,14 +23,14 @@ Week 14 shares its slot with Lab 7. Keep the lecture portion short — a retrosp
 # Citatul zilei
 
 > „Simplitatea nu precedă complexitatea, ci îi urmează.”
+>
+> Original: “Simplicity does not precede complexity, but follows it.”
 
 — **Alan J. Perlis**
 
-[Sursa: Epigrams in Programming — epigrama 31](https://www.cs.yale.edu/homes/perlis-alan/quotes.html) · traducere din engleză
+[Sursa: Epigrams in Programming — epigrama 31](https://www.cs.yale.edu/homes/perlis-alan/quotes.html)
 
 ::: notes
-Original: “Simplicity does not precede complexity, but follows it.”
-
 Pagina autorului la Yale, epigrama 31; sursa indică SIGPLAN, septembrie 1982.
 
 Legătura cu tema: Reflecție asupra felului în care analiza și proiectarea produc o soluție mai simplă.

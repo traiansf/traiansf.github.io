@@ -22,14 +22,14 @@ Weeks 2-9 built every artifact type. Today is the chain that connects them: requ
 # Citatul zilei
 
 > „Refactorizarea este o tehnică disciplinată de restructurare a unui corp de cod existent, modificându-i structura internă fără a-i schimba comportamentul extern.”
+>
+> Original: “Refactoring is a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior.”
 
 — **Martin Fowler**
 
-[Sursa: Refactoring — definiția autorului](https://refactoring.com/) · traducere din engleză
+[Sursa: Refactoring — definiția autorului](https://refactoring.com/)
 
 ::: notes
-Original: “Refactoring is a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior.”
-
 Site-ul autorului, definiția de la începutul paginii. Nu confundați refactorizarea cu o schimbare de cerință sau orice formă de restructurare.
 
 Legătura cu tema: Revizuirea structurii unui sistem și păstrarea comportamentului convenit.

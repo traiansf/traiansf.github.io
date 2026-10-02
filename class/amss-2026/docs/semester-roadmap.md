@@ -230,7 +230,7 @@ Use the room-booking [student lab](../lab/Lab01.md), [instructor guide](../lab/L
 **100 minutes:** opening and questions 5; open work and discussions 85; save progress and next steps 10. These intervals organize room time, not mandatory deliverables. The instructor circulates and answers requests; unresolved questions may continue on Teams.
 **Evidence:** progress, decisions, and revisions recorded in the public repository with identifiable contributions. This session adds no separately graded submission.
 
-### Lab 7, after Courses 13–14 — Dossier interview
+### Lab 7, after Courses 13–14 — Project interview („Interviu de susținere a proiectului”)
 
 **Input:** team dossiers and supporting evidence, pre-read by the instructor, with questions about unclear points. The deliverable (the public repository) must be final about one week before the interview; announce the exact deadline and interview slots on Teams. **Purpose:** the team answers clarification questions and the instructor finalizes its five-point dossier score on the published criteria. **Foundations:** the complete course.
 **100-minute allocation:** group introduction 5; scheduled team reviews and feedback 88; wrap-up 7. At eight minutes per team, 7–11 teams use 56–88 minutes; any unallocated review time supports common feedback and questions. The remaining time in the two-hour slot provides transition buffer.

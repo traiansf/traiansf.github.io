@@ -1,4 +1,4 @@
-# Lab 7 — Ghid: interviul de susținere a dosarului
+# Lab 7 — Ghid: interviul de susținere a proiectului
 
 Lab 7 se programează după cursurile 13–14; orarul exact al examenului se anunță separat.
 

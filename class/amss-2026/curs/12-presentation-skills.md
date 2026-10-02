@@ -22,14 +22,14 @@ You have built, critiqued, and evaluated. Today is performing it under examinati
 # Citatul zilei
 
 > „[…] să tratăm un program ca pe o operă literară, adresată oamenilor, nu unui calculator.”
+>
+> Original: “treat a program as a piece of literature, addressed to human beings rather than to a computer”
 
 — **Donald E. Knuth**
 
-[Sursa: Literate Programming — prezentarea autorului](https://cs.stanford.edu/~knuth/lp.html) · traducere din engleză
+[Sursa: Literate Programming — prezentarea autorului](https://cs.stanford.edu/~knuth/lp.html)
 
 ::: notes
-Original: “treat a program as a piece of literature, addressed to human beings rather than to a computer”
-
 Pagina autorului la Stanford, fragmentul din propoziția The main idea is to; începutul omis este marcat.
 
 Legătura cu tema: Sinteza și explicațiile trebuie să permită altui om să urmărească raționamentul.

@@ -185,6 +185,8 @@ body {
 }
 /* On the paragraph itself: the rule for .slide p above would win otherwise. */
 .slide.epigraph blockquote p { text-wrap: balance; }
+/* The original wording, under the translation. */
+.slide.epigraph blockquote p + p { margin-top: 0.7em; color: var(--muted); font-size: 0.6em; font-weight: 400; }
 .slide.epigraph blockquote + p { margin-bottom: 0.25em; }
 .slide.epigraph blockquote + p + p { color: var(--muted); font-size: 0.82em; }
 

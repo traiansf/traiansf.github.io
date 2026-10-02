@@ -19,14 +19,14 @@ Astăzi analizăm o problemă mică, comparăm decizii și verificăm ce anume l
 # Citatul zilei
 
 > „Simplitatea este o condiție necesară pentru fiabilitate.”
+>
+> Original: “Simplicity is prerequisite for reliability.”
 
 — **Edsger W. Dijkstra**
 
-[Sursa: How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html) · traducere din engleză
+[Sursa: How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html)
 
 ::: notes
-Original: “Simplicity is prerequisite for reliability.”
-
 Transcriere universitară, afirmația marcată ca adnotare manuscrisă; originalul este în arhiva Dijkstra de la UT Austin, EWD498.
 
 Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte de delegare.

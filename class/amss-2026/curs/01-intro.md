@@ -33,6 +33,7 @@ Ritm orientativ: 70–80 de minute. Bun venit și obiective 10; organizare și e
 # Citatul zilei
 
 > „Controlul complexității este esența programării calculatoarelor.”
+>
 > Original: “Controlling complexity is the essence of computer programming.”
 
 — **Brian W. Kernighan și P. J. Plauger**

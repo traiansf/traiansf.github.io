@@ -23,14 +23,14 @@ The first critique/red-team lab. Lab 2 had you drive AI and critique your own ou
 # Citatul zilei
 
 > „Precondiția obligă clientul; postcondiția obligă furnizorul.”
+>
+> Original: “The precondition binds the client, the postcondition binds the supplier.”
 
 — **Bertrand Meyer**
 
-[Sursa: Object-Oriented Software Construction, ediția a doua](https://bertrandmeyer.com/wp-content/upLoads/OOSC2.pdf) · traducere din engleză
+[Sursa: Object-Oriented Software Construction, ediția a doua](https://bertrandmeyer.com/wp-content/upLoads/OOSC2.pdf)
 
 ::: notes
-Original: “The precondition binds the client, the postcondition binds the supplier.”
-
 Cartea pusă la dispoziție pe site-ul autorului, §25.3, Using assertions, pagina tipărită 873. Formularea a fost verificată în fragmentul indexat al sursei originale; reperul sigur este pagina tipărită, nu numerotarea PDF.
 
 Legătura cu tema: Contractele disting obligațiile apelantului de garanțiile operației.

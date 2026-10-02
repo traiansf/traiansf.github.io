@@ -19,14 +19,14 @@ După cursurile 11–12, alegeți activitățile potrivite stării proiectului v
 # Citatul zilei
 
 > „Dacă gândești fără să scrii, doar ai impresia că gândești.”
+>
+> Original: “If you’re thinking without writing, you only think you’re thinking.”
 
 — **Leslie Lamport**
 
-[Sursa: Interviu Developing Dev — Why writing improves your thinking](https://www.developing.dev/p/turing-award-winner-on-working-with) · traducere din engleză
+[Sursa: Interviu Developing Dev — Why writing improves your thinking](https://www.developing.dev/p/turing-award-winner-on-working-with)
 
 ::: notes
-Original: “If you’re thinking without writing, you only think you’re thinking.”
-
 Interviu primar cu transcript: 00:54:45, intervievatorul reproduce citatul; Lamport îl explică de la 00:54:59. Secțiunea Why writing improves your thinking.
 
 Legătura cu tema: Scrierea face deciziile inspectabile; un rezumat trebuie să păstreze legătura cu sursele și verificările.

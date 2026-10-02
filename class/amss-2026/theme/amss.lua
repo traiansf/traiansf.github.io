@@ -8,7 +8,9 @@
 --   fields the default LaTeX templates already print: `institute` on the
 --   beamer cover and footline, `subtitle` above the title of a document.
 -- * Marks the "Citatul zilei" heading with the class `epigraph`, so the
---   quotation that follows is typeset as an epigraph.
+--   quotation that follows is typeset as an epigraph. Its further
+--   paragraphs (the original wording of a translated quotation) are set
+--   smaller.
 -- * In continuous documents (Lab 0, the project page), drops a leading
 --   level-1 heading that repeats the title and any instructor notes.
 -- * In HTML, wraps tables so that a wide one can scroll, lets code blocks
@@ -309,9 +311,25 @@ local function tie_last_word(block)
   end
 end
 
+-- The paragraphs of an epigraph after the first hold the original wording
+-- of a translated quotation; in the PDF builds each is an amssoriginal.
+local function mark_original(quote)
+  local content = pandoc.Blocks({})
+  for i, inner in ipairs(quote.content) do
+    if i > 1 and inner.t == 'Para' then
+      content:insert(pandoc.RawBlock('latex', '\\begin{amssoriginal}'))
+      content:insert(inner)
+      content:insert(pandoc.RawBlock('latex', '\\end{amssoriginal}'))
+    else
+      content:insert(inner)
+    end
+  end
+  return pandoc.BlockQuote(content)
+end
+
 -- In the PDF builds the epigraph is the environment amssepigraph and its
--- source line (the second paragraph after it) amsssource; both are defined
--- in theme/beamer.tex and theme/article.tex.
+-- source line (the second paragraph after it) amsssource; they are defined,
+-- with amssoriginal, in theme/beamer.tex and theme/article.tex.
 local function wrap_epigraphs(blocks)
   local result = pandoc.Blocks({})
   local after_epigraph_heading = false
@@ -319,7 +337,7 @@ local function wrap_epigraphs(blocks)
   for _, block in ipairs(blocks) do
     if after_epigraph_heading and block.t == 'BlockQuote' then
       result:insert(pandoc.RawBlock('latex', '\\begin{amssepigraph}'))
-      result:insert(block)
+      result:insert(mark_original(block))
       result:insert(pandoc.RawBlock('latex', '\\end{amssepigraph}'))
       paragraphs_after_quote = 0
     elseif paragraphs_after_quote >= 0 and block.t == 'Para' then

@@ -23,14 +23,14 @@ The second critique/red-team lab. Lab 3 hunted flawed structure (class, package,
 # Citatul zilei
 
 > „O mare parte a informaticii se ocupă de mașini de stări.”
+>
+> Original: “Much of computer science is about state machines.”
 
 — **Leslie Lamport**
 
-[Sursa: Computation and State Machines (2008)](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4) · traducere din engleză
+[Sursa: Computation and State Machines (2008)](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4)
 
 ::: notes
-Original: “Much of computer science is about state machines.”
-
 Manuscris pe site-ul autorului, prima propoziție din Introduction, pagina numerotată 1 (pagina PDF 4).
 
 Legătura cu tema: Stările și tranzițiile oferă o reprezentare comună a comportamentului.

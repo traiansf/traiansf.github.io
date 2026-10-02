@@ -1,5 +1,5 @@
 ---
-title: "AMSS 2026 — Lab 7: Interviu de susținere a dosarului"
+title: "AMSS 2026 — Lab 7: Interviu de susținere a proiectului"
 author: "Traian-Florin Șerbănuță"
 date: "2026"
 ---
@@ -17,14 +17,14 @@ Nu pregătiți o prezentare sau slide-uri.
 # Citatul zilei
 
 > „Nu veni cu idei bune dacă nu ești dispus să îți asumi responsabilitatea pentru ele.”
+>
+> Original: “Don't have good ideas if you aren't willing to be responsible for them.”
 
 — **Alan J. Perlis**
 
-[Sursa: Epigrams in Programming — epigrama 95](https://www.cs.yale.edu/homes/perlis-alan/quotes.html) · traducere din engleză
+[Sursa: Epigrams in Programming — epigrama 95](https://www.cs.yale.edu/homes/perlis-alan/quotes.html)
 
 ::: notes
-Original: “Don't have good ideas if you aren't willing to be responsible for them.”
-
 Pagina autorului la Yale, epigrama 95; sursa indică SIGPLAN, septembrie 1982.
 
 Legătura cu tema: Echipa explică și își asumă deciziile din dosar, inclusiv materialele realizate cu AI.

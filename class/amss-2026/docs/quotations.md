@@ -1,6 +1,6 @@
 # Citatele cursurilor și laboratoarelor AMSS 2026/2027
 
-Verificate la 1 octombrie 2026. Fiecare prezentare are, pe slide-ul „Citatul zilei”, un citat în română, autorul și un link către sursă. În Cursul 1, formularea originală apare pe slide, sub traducere, iar sursa indică lucrarea și pagina; legătura cu tema este în note. În celelalte prezentări, citatul este marcat ca traducere, iar formularea originală, reperul și legătura cu tema sunt în notele slide-ului. Fragmentele scurtate au omisiunile marcate. Nu modificați formularea fără reverificarea sursei.
+Verificate la 1 octombrie 2026. Fiecare prezentare are, pe slide-ul „Citatul zilei”, un citat în română, autorul și un link către sursă. Formularea originală apare pe slide, sub traducere („Original: …”), într-un al doilea paragraf al citatului. Reperul și legătura cu tema sunt în notele slide-ului; în Cursul 1, pagina este indicată chiar în linia sursei. Fragmentele scurtate au omisiunile marcate. Nu modificați formularea fără reverificarea sursei.
 
 Inventarul urmează ordinea nouă a cursurilor; prefixele fișierelor vechi nu sunt numerele săptămânilor. Introducerea citatului nu înseamnă că un material nerevizuit este finalizat sau publicat.
 
@@ -48,4 +48,4 @@ Inventarul urmează ordinea nouă a cursurilor; prefixele fișierelor vechi nu s
 
 Citatul propus de instructor este verificat în scanarea cărții Software Tools in Pascal (1981), la pagina 311. Nu pretindem verificarea paginii din Software Tools (1976), căreia sursa secundară NII îi atribuie aceeași propoziție. Citatul despre simplitate al lui Dijkstra apare ca adnotare manuscrisă în transcrierea de la University of Virginia; transcrierea principală UT Austin omite această adnotare.
 
-Laboratorul 0: Leslie Lamport, „Informatica ar trebui să se ocupe de concepte, nu de limbaje.” Traducere; originalul și contextul sunt în comentariul ghidului. Sursă primară verificată: [Specifying Systems, prefață, pagina PDF 2](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2).
+Laboratorul 0: Leslie Lamport, „Informatica ar trebui să se ocupe de concepte, nu de limbaje.” Originalul apare sub traducere; contextul este în comentariul ghidului. Sursă primară verificată: [Specifying Systems, prefață, pagina PDF 2](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2).
