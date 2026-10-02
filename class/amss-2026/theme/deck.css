@@ -173,7 +173,7 @@ body {
 .slide figcaption { color: var(--muted); font-size: 0.85em; }
 .slide hr { border: 0; border-top: 1px solid var(--line); margin: 1em 0; }
 .slide .nowrap { white-space: nowrap; }   /* ranges such as 10–12, marked by theme/amss.lua */
-.deck-pause { display: none; }            /* a pause inside a column or a list, for deck.js */
+.deck-pause { display: none; }            /* where the source has a pause (". . ."), for deck.js */
 
 /* The epigraph slide ("Ideea întâlnirii"): quotation, author, source. */
 .slide.epigraph blockquote {
@@ -182,8 +182,9 @@ body {
   font-size: 1.45em;
   font-weight: 600;
   line-height: 1.3;
-  text-wrap: balance;
 }
+/* On the paragraph itself: the rule for .slide p above would win otherwise. */
+.slide.epigraph blockquote p { text-wrap: balance; }
 .slide.epigraph blockquote + p { margin-bottom: 0.25em; }
 .slide.epigraph blockquote + p + p { color: var(--muted); font-size: 0.82em; }
 
@@ -202,15 +203,14 @@ body {
   color: #ffffff;
 }
 .slide.titlepage::after { content: none; }
-.slide.titlepage > * { grid-column: 2; }
+/* Two cells, the logo and the text block, centred on each other. */
 .slide.titlepage .logo {
-  grid-column: 1;
-  grid-row: 1 / span 5;
   width: clamp(6.5rem, 22vw, 11rem);
   padding: 0.5em;
   border-radius: 0.75rem;
   background: #ffffff;
 }
+.slide.titlepage .cover-text { min-width: 0; }
 .slide.titlepage p { margin: 0; }
 .slide.titlepage a { color: var(--teal-light); }
 .slide.titlepage .course { margin-bottom: 0.2em; color: var(--teal-light); font-size: 0.95em; font-weight: 600; }
@@ -230,7 +230,6 @@ body {
 
 @media (max-width: 30rem) {
   .slide.titlepage { grid-template-columns: minmax(0, 1fr); }
-  .slide.titlepage > *, .slide.titlepage .logo { grid-column: 1; grid-row: auto; }
   .slide.titlepage .logo { margin-bottom: 1.25rem; }
 }
 
@@ -274,7 +273,6 @@ body {
     padding-top: 6vh;
     padding-bottom: 6vh;
   }
-  html.paged .slide.titlepage > h1 { grid-row: auto; }
   html.paged .slide.titlepage .logo { width: 10em; max-height: none; }
   html.paged .slide.titlepage h1 { font-size: 2.4em; }
 }
@@ -324,24 +322,30 @@ body {
 .deck-bar [aria-disabled="true"] { opacity: 0.35; cursor: default; }
 .deck-bar [aria-disabled="true"]:hover { background: none; color: inherit; }
 .deck-bar .deck-home { color: var(--navy); font-weight: 700; }
+.deck-bar .deck-more { white-space: pre; }   /* keeps the space before "2026/2027" (deck.js) */
+.deck-bar .deck-short { display: none; }
 .deck-bar .deck-step { padding: 0 0.7rem; font-size: 1.15rem; }
 .deck-bar .deck-count { min-width: 4.6rem; justify-content: center; font-variant-numeric: tabular-nums; }
 .deck-bar .deck-gap { flex: 1; }
 html:not(.paged) .deck-paged-only { display: none; }
 
 @media (max-width: 30rem) {
-  /* Everything stays reachable on a phone: the course label gives way first. */
+  /* Everything stays reachable on a phone: the course label is cut to its
+     first word and the view switch to a short form, and the counter keeps
+     one width from "1 / 9" to "20 / 20". */
   .deck-bar { gap: 0; padding: 0 0.25rem; }
   .deck-bar a, .deck-bar button { padding: 0 0.4rem; }
-  .deck-bar .deck-count { min-width: 0; }
+  .deck-bar .deck-count { min-width: 3.5rem; padding: 0; }
   .deck-bar .deck-home { display: block; flex: 0 1 auto; min-width: 3.2rem; overflow: hidden; line-height: 2rem; text-overflow: ellipsis; }
+  .deck-bar .deck-more, .deck-bar .deck-long { display: none; }
+  .deck-bar .deck-short { display: inline; }
 }
 
 .deck-toc {
   width: min(34rem, calc(100vw - 2rem));
   max-height: calc(100vh - 6rem);
   /* The focused entry is scrolled into view below the sticky head. */
-  scroll-padding: 3.5rem 0 0.5rem;
+  scroll-padding: 4rem 0 0.5rem;
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 0.5rem;
@@ -387,7 +391,7 @@ html:not(.paged) .deck-paged-only { display: none; }
   .deck-bar, .deck-toc { display: none !important; }
   .slide {
     max-width: none;
-    margin: 0 0 6mm;
+    margin: 0 1px 6mm 0;          /* the right border stays inside the printable area */
     padding: 5mm 7mm;
     border: 1px solid #9aa7ab;
     border-radius: 0;

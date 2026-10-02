@@ -29,7 +29,7 @@ Identificatorul revizuirii: `fixture-A-review-v1`.
 4. **Afirmația R4:** A7 este incompletă deoarece orice proiectare corectă trebuie să folosească o bază de date relațională. Adaug-o ca cerință obligatorie.
 5. **Afirmația R5:** A6 respectă regula convenită de anulare de către titular înainte de început și lasă corect deschis cazul limitei temporale. Verifică S6 și S7 înainte de a o păstra.
 
-Clasificați fiecare afirmație a revizuirii folosind informațiile și un scenariu. O revizuire formulată cu încredere poate fi greșită. Salvați deciziile voastre și propunerea revizuită; nu copiați pur și simplu revizuirea pregătită drept propria concluzie.
+Clasificați fiecare afirmație a revizuirii folosind informațiile și un scenariu. O revizuire formulată cu încredere poate fi greșită. Salvați deciziile voastre și propunerea modificată; nu copiați pur și simplu revizuirea pregătită drept propria concluzie.
 
 ## Varianta B — propunere pregătită cu alegeri justificate
 

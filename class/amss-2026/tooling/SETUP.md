@@ -51,7 +51,7 @@ Evaluează tu constatările. Consemnează o constatare pe care o accepți sau o 
 
 ## 5. Aplică modul de lucru în activitățile cursului
 
-Urmează [îndrumările despre roluri, predarea sarcinilor și dovezi](README.md). Elaborează și revizuiește specificația și proiectarea înainte de o implementare substanțială. Folosește un model executabil mic sau un prototip atunci când ajută la rezolvarea unei întrebări concrete; proiectul cursului nu impune o aplicație funcțională.
+Urmează [ghidul despre roluri, predarea sarcinilor și revizuire](README.md). Elaborează și revizuiește specificația și proiectarea înainte de o implementare substanțială. Folosește un model executabil mic sau un prototip atunci când ajută la rezolvarea unei întrebări concrete; proiectul cursului nu impune o aplicație funcțională.
 
 În lucrul în echipă, partajați proiectarea curentă și dovezile care o susțin. Fiecare student trebuie să poată explica independent raționamentul. Folosiți reprezentarea care clarifică întrebarea: text, tabele, schițe, pseudocod sau diagrame.
 

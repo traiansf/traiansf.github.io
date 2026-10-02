@@ -17,9 +17,9 @@
 --   gives the table's wrapper the class NAME (the project rubric uses it).
 -- * In decks, ties the last word of a longer paragraph to the one before it,
 --   so that no line holds a single word; in PDF decks, sets table headers in
---   bold and rules off the rows, as the HTML decks do; in HTML decks, marks a
---   pause (". . .") inside a column, a quotation or a list item, which pandoc
---   would print as text, for theme/deck.js.
+--   bold and rules off the rows, as the HTML decks do; in HTML decks, turns
+--   each pause (". . .") into a marker for theme/deck.js, because pandoc
+--   prints a pause inside a column, a quotation or a list as text.
 
 local stringify = pandoc.utils.stringify
 
@@ -38,12 +38,16 @@ local EPIGRAPH_TITLE = 'Ideea întâlnirii'
 
 local full_title, short_title, headline
 
--- A browser may break a line after the dash of 10–12, 09:00–17:00 or F3–F4;
--- in HTML such a word is kept on one line. Letters and digits are recognised
--- by code point: %w in a Lua pattern depends on the C locale, which differs
--- between pandoc on Windows and on Linux. A long compound stays breakable,
--- so that it cannot widen a phone's page.
+-- A browser may break a line after the dash of 10–12, 09:00–17:00 or F3–F4,
+-- and after the hyphen of „te-ai” or „e-mail”; in HTML such a word is kept
+-- on one line. Letters and digits are recognised by code point: %w in a Lua
+-- pattern depends on the C locale, which differs between pandoc on Windows
+-- and on Linux. A long compound stays breakable, so that it cannot widen a
+-- phone's page; titles are set larger, so the limit is lower there.
 local RANGE_LIMIT = 24
+local TITLE_RANGE_LIMIT = 14
+local HYPHENATED_LIMIT = 14
+local HYPHEN = 0x2D
 
 local function wordlike(cp)
   if cp < 128 then
@@ -53,16 +57,17 @@ local function wordlike(cp)
   return cp >= 0xC0 and not (cp >= 0x2000 and cp <= 0x206F)
 end
 
-local function unbreakable_range(str)
+local function unbreakable_range(str, limit)
   local chars = {}
   for _, cp in utf8.codes(str.text) do
     chars[#chars + 1] = cp
   end
-  if #chars > RANGE_LIMIT then
+  if #chars > (limit or RANGE_LIMIT) then
     return nil
   end
   for i = 2, #chars - 1 do
-    if chars[i] == EN_DASH and wordlike(chars[i - 1]) and wordlike(chars[i + 1]) then
+    local joins = chars[i] == EN_DASH or (chars[i] == HYPHEN and #chars <= HYPHENATED_LIMIT)
+    if joins and wordlike(chars[i - 1]) and wordlike(chars[i + 1]) then
       return pandoc.Span({ str }, pandoc.Attr('', { 'nowrap' }))
     end
   end
@@ -85,9 +90,29 @@ local function title_inlines(text)
       words:insert(pandoc.Space())
     end
     local str = pandoc.Str(word)
-    words:insert(unbreakable_range(str) or str)
+    words:insert(unbreakable_range(str, TITLE_RANGE_LIMIT) or str)
   end
   return pandoc.MetaInlines(words)
+end
+
+-- The same for the text of an HTML page, headings with the lower limit. The
+-- traversal goes top-down, so that it can stop at a heading and at each new
+-- span (the second return value) instead of wrapping its word again.
+local function protect_ranges(blocks)
+  return blocks:walk({
+    traverse = 'topdown',
+    Header = function(header)
+      return header:walk({
+        Str = function(str) return unbreakable_range(str, TITLE_RANGE_LIMIT) end,
+      }), false
+    end,
+    Str = function(str)
+      local span = unbreakable_range(str)
+      if span then
+        return span, false
+      end
+    end,
+  })
 end
 
 local function split_title(meta)
@@ -162,7 +187,7 @@ local function drop_notes(div)
   end
 end
 
--- PDF decks: header cells in bold and a hairline between body rows
+-- PDFs: header cells in bold; in decks also a hairline between body rows
 -- (\amssrowrule is defined in theme/beamer.tex). The rule has to be the first
 -- thing in its row, so it goes into the first cell only when pandoc writes
 -- that cell as plain text: a cell with a span, a line break or other blocks
@@ -181,8 +206,8 @@ local function plain_cell(cell)
   return plain
 end
 
-local function beamer_table(tbl)
-  if not is_beamer then
+local function pdf_table(tbl)
+  if not (is_beamer or is_latex) then
     return nil
   end
   for _, row in ipairs(tbl.head.rows) do
@@ -192,6 +217,9 @@ local function beamer_table(tbl)
         Para = function(p) return pandoc.Para({ pandoc.Strong(p.content) }) end,
       })
     end
+  end
+  if not is_beamer then
+    return tbl
   end
   -- Every row or none: a table in which some row cannot take the rule keeps
   -- pandoc's plain look. Below a cell that spans rows, a row no longer
@@ -307,7 +335,13 @@ local function wrap_epigraphs(blocks)
       if block.t == 'Header' or block.t == 'HorizontalRule' then
         paragraphs_after_quote = -1
       end
-      result:insert(block)
+      if is_latex and block.t == 'Header' and block.classes:includes('epigraph') then
+        -- In a document the heading is a quiet label above the quotation.
+        local label = pandoc.write(pandoc.Pandoc({ pandoc.Plain(block.content) }), 'latex')
+        result:insert(pandoc.RawBlock('latex', '\\amssepigraphlabel{' .. label .. '}'))
+      else
+        result:insert(block)
+      end
     end
     after_epigraph_heading = block.t == 'Header' and block.classes:includes('epigraph')
   end
@@ -352,13 +386,15 @@ local function wrap_tables(blocks)
       return pandoc.Div({ t }, pandoc.Attr('', { 'table-wrap' }))
     end,
   })
-  return class_tables(blocks:walk({ Blocks = class_tables }))
+  -- walk applies the function to every list of blocks, this one included.
+  return blocks:walk({ Blocks = class_tables })
 end
 
 -- Pandoc's slide writers split a slide at the pauses (". . .") between its
--- own blocks only, while the PDF also pauses inside a column, a quotation or
--- a list item. In an HTML deck such a pause becomes a marker; theme/deck.js
--- makes everything after it on the slide wait, as in the PDF.
+-- own blocks only: a pause inside a column, a quotation or a list item, or
+-- below a sub-heading, is printed as text, while the PDF pauses there too.
+-- In an HTML deck every pause becomes a marker instead; theme/deck.js makes
+-- everything after it on the slide wait, as in the PDF.
 local function is_pause(block)
   local c = block.content
   return block.t == 'Para' and #c == 5
@@ -367,20 +403,14 @@ local function is_pause(block)
     and c[5].t == 'Str' and c[5].text == '.'
 end
 
-local function mark_nested_pauses(blocks)
-  local mark = {
+local function mark_pauses(blocks)
+  return blocks:walk({
     Para = function(para)
       if is_pause(para) then
         return pandoc.RawBlock('html', '<div class="deck-pause"></div>')
       end
     end,
-  }
-  -- walk reaches the blocks inside each block, not the block itself: the
-  -- pauses between the blocks of a slide are left to pandoc.
-  for i, block in ipairs(blocks) do
-    blocks[i] = block:walk(mark)
-  end
-  return blocks
+  })
 end
 
 -- The first block that is not a comment or other raw markup.
@@ -413,10 +443,10 @@ local function tidy_document(doc)
     blocks = wrap_epigraphs(blocks)
   end
   if is_html then
-    blocks = wrap_tables(blocks):walk({ Str = unbreakable_range })
+    blocks = protect_ranges(wrap_tables(blocks))
   end
   if is_slidy then
-    blocks = mark_nested_pauses(blocks)
+    blocks = mark_pauses(blocks)
   end
   doc.blocks = blocks
   return doc
@@ -427,7 +457,7 @@ return {
   {
     Header = mark_epigraph,
     CodeBlock = focusable_code,
-    Table = beamer_table,
+    Table = pdf_table,
     Div = drop_notes,
   },
   {

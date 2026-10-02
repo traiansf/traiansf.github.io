@@ -151,6 +151,8 @@ clip-path: inset(50%); white-space: nowrap;
 
 .nowrap { white-space: nowrap; }
 
+.home p, .home li, .prose p, .prose li { text-wrap: pretty; }
+
 .site-header { background: var(--header-bg); color: var(--header-text); }
 .site-header a { color: inherit; }
 .site-header a:hover { color: inherit; text-decoration-thickness: 3px; }
@@ -338,7 +340,8 @@ text-wrap: balance;
 .prose blockquote > :last-child { margin-bottom: 0; }
 
 .prose h2.epigraph { margin-bottom: 0.6rem; color: var(--muted); font-size: 1.05rem; letter-spacing: 0; }
-.prose .epigraph + blockquote { color: var(--brand); font-size: 1.4rem; font-weight: 600; line-height: 1.3; text-wrap: balance; }
+.prose .epigraph + blockquote { color: var(--brand); font-size: 1.4rem; font-weight: 600; line-height: 1.3; }
+.prose .epigraph + blockquote p { text-wrap: balance; }
 .prose .epigraph + blockquote + p { margin-bottom: 0.2rem; }
 .prose .epigraph + blockquote + p + p { color: var(--muted); font-size: 0.9rem; }
 
@@ -385,7 +388,7 @@ background: var(--surface);
 .doc-toc nav { padding: 0 1rem 0.6rem; }
 .doc-toc ul { margin: 0; padding: 0; list-style: none; }
 .doc-toc ul ul { display: none; }
-.doc-toc a { display: block; padding: 0.35rem 0; text-decoration: none; }
+.doc-toc a { display: block; padding: 0.35rem 0; text-decoration: none; text-wrap: balance; }
 .doc-toc a:hover { text-decoration: underline; }
 @media (min-width: 45rem) and (max-width: 61.99rem) {
 
@@ -429,7 +432,14 @@ border: 0; border-left: 2px solid var(--line); border-radius: 0;
 :root { --bg: #ffffff; --surface: #f3f7f8; --text: #000000; --muted: #333333; --line: #999999; --brand: #0a2145; --accent: #065a5a; }
 body { font-size: 10.5pt; }
 .site-header, .doc-bar { background: none; color: #000000; border-bottom: 2px solid #000000; }
-.site-header nav, .skip-link, .doc-toc, .doc-title .formats { display: none; }
+.site-header nav, .skip-link, .doc-toc, .doc-title .formats, .schedule .format { display: none; }
+
+.intro { gap: 1.25rem; padding-top: 0; padding-bottom: 0.75rem; }
+.intro .logo { width: 6rem; padding: 0; }
+.intro .tagline { margin-top: 0.3rem; }
+.home section { padding-top: 1.25rem; }
+.home section + section { break-before: page; } 
+.schedule td { padding: 0.45rem 0; }
 .intro .edition { color: #000000; }
 .doc-bar .course { color: #000000; }
 a { color: #000000; }
@@ -519,7 +529,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <tr>
 <td>2</td>
 <td>15 minute</td>
-<td>Amintește-ți o cerință neclară sau o schimbare dificilă.</td>
+<td><span class="nowrap">Amintește-ți</span> o cerință neclară sau o schimbare dificilă.</td>
 </tr>
 <tr>
 <td>3</td>
@@ -556,13 +566,13 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <p>Verifică dacă găsești schema de notare, cerințele pentru anunțarea temei și modul de a cere feedback. Nu este necesar să reții toate detaliile acum; important este să știi unde le găsești.</p>
 <p><strong>Dacă accesul nu funcționează:</strong> notează ce pagină sau serviciu nu poți deschide și cere ajutor profesorului. Poți continua partea de reflecție pe hârtie.</p>
 <h2 id="pornește-de-la-o-experiență-proprie">2. Pornește de la o experiență proprie</h2>
-<p>Alege o situație dintr-un proiect de facultate, de la serviciu sau dintr-o activitate personală:</p>
+<p>Alege o situație <span class="nowrap">dintr-un</span> proiect de facultate, de la serviciu sau <span class="nowrap">dintr-o</span> activitate personală:</p>
 <ul>
-<li>ai primit o cerință pe care oamenii au interpretat-o diferit;</li>
+<li>ai primit o cerință pe care oamenii au <span class="nowrap">interpretat-o</span> diferit;</li>
 <li>o modificare aparent mică a afectat mai multe părți ale soluției;</li>
 <li>un rezultat produs cu AI a părut corect, dar a necesitat verificare.</li>
 </ul>
-<p>Scrie câteva rânduri: ce se dorea, ce ai înțeles inițial și ce s-a întâmplat. Nu include informații confidențiale. Dacă lucrezi în pereche, comparați exemplele.</p>
+<p>Scrie câteva rânduri: ce se dorea, ce ai înțeles inițial și ce <span class="nowrap">s-a</span> întâmplat. Nu include informații confidențiale. Dacă lucrezi în pereche, comparați exemplele.</p>
 <p><strong>Dacă nu îți vine în minte niciun exemplu:</strong> folosește această situație didactică: „Un coleg cere o pagină pe care să găsească mai ușor notițele cursurilor.” Nu presupune încă nimic despre ce vrea: căutare, etichete, o listă de linkuri sau acces de pe telefon.</p>
 <h2 id="ce-întrebare-ar-fi-ajutat-mai-devreme">3. Ce întrebare ar fi ajutat mai devreme?</h2>
 <p>Pentru exemplul ales, răspunde:</p>
@@ -590,30 +600,30 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Idei și întrebări</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Ce problemă aș vrea să explorez? Ce trebuie să clarific?</span></code></pre></div>
-<p>Salvează fișierul, închide-l și deschide-l din nou. Verifică dacă modificările s-au păstrat. Notițele de pregătire pot rămâne locale; nu trebuie să anunți acum un proiect sau să publici acest fișier.</p>
+<p>Salvează fișierul, <span class="nowrap">închide-l</span> și <span class="nowrap">deschide-l</span> din nou. Verifică dacă modificările <span class="nowrap">s-au</span> păstrat. Notițele de pregătire pot rămâne locale; nu trebuie să anunți acum un proiect sau să publici acest fișier.</p>
 <h3 id="dacă-vrei-să-exersezi-lucrul-cu-git">Dacă vrei să exersezi lucrul cu Git</h3>
-<p>Acest pas este opțional. Într-un terminal deschis în directorul nou, poți înregistra fișierul:</p>
+<p>Acest pas este opțional. <span class="nowrap">Într-un</span> terminal deschis în directorul nou, poți înregistra fișierul:</p>
 <div class="sourceCode" id="cb2" tabindex="0"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pregatire.md</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Adaug notitele de pregatire&quot;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div>
-<p>Dacă Git îți cere identitatea autorului, configureaz-o pentru acest director, folosind numele și adresa ta:</p>
+<p>Dacă Git îți cere identitatea autorului, <span class="nowrap">configureaz-o</span> pentru acest director, folosind numele și adresa ta:</p>
 <div class="sourceCode" id="cb3" tabindex="0"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.name <span class="st">&quot;Numele tau&quot;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.email <span class="st">&quot;adresa-ta@example.com&quot;</span></span></code></pre></div>
 <p>Apoi repetă comanda <code>git commit</code> de mai sus.</p>
 <p>Scopul este să vezi că poți salva și regăsi o versiune. Dacă Git nu este disponibil, păstrează fișierul și notează ce ajutor îți trebuie; nu trebuie să instalezi totul în această sesiune.</p>
 <h2 id="verifică-accesul-la-un-asistent-dacă-ai-unul">5. Verifică accesul la un asistent, dacă ai unul</h2>
 <p>Poți folosi un asistent în browser, în editor sau local, la care ai deja acces. Nu se cere un abonament plătit, un furnizor sau un model anume.</p>
-<p>Dacă vrei, oferă-i exemplul didactic al notițelor și cere:</p>
+<p>Dacă vrei, <span class="nowrap">oferă-i</span> exemplul didactic al notițelor și cere:</p>
 <blockquote>
 <p>Propune două întrebări de clarificare, fără să alegi o soluție sau să implementezi o aplicație.</p>
 </blockquote>
 <p>Compară întrebările cu a ta. Poți explica în ce fel răspunsurile ar schimba o alegere?</p>
 <p><strong>Fără AI:</strong> continuă cu întrebările din pasul 3. Activitatea rămâne completă fără acces la un asistent. Exercițiul tehnic de delegare și revizuire va fi introdus în cursul 2 și reluat în laboratorul 1.</p>
 <h2 id="explorează-idei-de-proiect-și-caută-colegi-de-echipă">6. Explorează idei de proiect și caută colegi de echipă</h2>
-<p>Recitește <a href="https://traiansf.github.io/class/amss2026/proiect/">cerințele proiectului</a>. Echipele au <span class="nowrap">3–5</span> membri și dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile.</p>
+<p>Recitește <a href="https://traiansf.github.io/class/amss2026/proiect/">cerințele proiectului</a>. Echipele au <span class="nowrap">3–5 membri</span> și dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile.</p>
 <p>Notează, dacă dorești, una sau două probleme pe care ai vrea să le înțelegi mai bine. Pentru fiecare: cine are problema, ce decizie sau regulă pare interesantă și ce ai lăsa în afara unei prime variante.</p>
-<p>În sală poți discuta ideile cu colegii. Pe cont propriu, poți reveni la ele și poți căuta colegi pe Teams. Nu este necesar să alegi tema sau să formezi echipa în laboratorul 0. Când anunțați efectiv proiectul, includeți linkul către repository-ul public de pe GitHub sau GitLab, creat la acel moment, conform cerințelor proiectului.</p>
+<p>În sală poți discuta ideile cu colegii. Pe cont propriu, poți reveni la ele și poți căuta colegi pe Teams. Nu este necesar să alegi tema sau să formezi echipa în laboratorul 0. Când anunțați efectiv proiectul, includeți linkul către <span class="nowrap">repository-ul</span> public de pe GitHub sau GitLab, creat la acel moment, conform cerințelor proiectului.</p>
 <h2 id="încheie-cu-o-verificare-personală">7. Încheie cu o verificare personală</h2>
 <ul class="task-list">
 <li><label><input type="checkbox"></input>Pot găsi materialele cursului, anunțurile și cerințele proiectului.</label></li>
@@ -622,10 +632,10 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <li><label><input type="checkbox"></input>Știu ce acces sau instrument mai trebuie pregătit.</label></li>
 <li><label><input type="checkbox"></input>Am notat întrebările pe care vreau să le adresez profesorului.</label></li>
 </ul>
-<p>Păstrează notițele pentru tine sau folosește-le într-o discuție. Nu trebuie să le trimiți ca temă. Pentru ajutor, indică pe Teams pasul la care te-ai oprit și problema concretă.</p>
+<p>Păstrează notițele pentru tine sau <span class="nowrap">folosește-le</span> <span class="nowrap">într-o</span> discuție. Nu trebuie să le trimiți ca temă. Pentru ajutor, indică pe Teams pasul la care <span class="nowrap">te-ai</span> oprit și problema concretă.</p>
 <p><strong>Urmează:</strong> cursul 2, apoi laboratorul 1. Scenariul rezervării sălilor este păstrat pentru laboratorul 1, după introducerea tehnică.</p>
 <h2 id="chestionarul-de-început-de-curs">Chestionarul de început de curs</h2>
-<p>Profesorul distribuie pe Teams un chestionar despre experiență, cunoștințe și așteptări; îl poți deschide și direct, la <a href="https://forms.gle/uHCXyFvxqQxsWWmH9">forms.gle/uHCXyFvxqQxsWWmH9</a>. Este facultativ și ne ajută să adaptăm conținutul cursului. Invitația se adresează tuturor grupelor. Rezervă aproximativ <span class="nowrap">10–12</span> minute, separat de pașii ghidului.</p>
+<p>Profesorul distribuie pe Teams un chestionar despre experiență, cunoștințe și așteptări; îl poți deschide și direct, la <a href="https://forms.gle/uHCXyFvxqQxsWWmH9">forms.gle/uHCXyFvxqQxsWWmH9</a>. Este facultativ și ne ajută să adaptăm conținutul cursului. Invitația se adresează tuturor grupelor. Rezervă aproximativ <span class="nowrap">10–12 minute,</span> separat de pașii ghidului.</p>
     </article>
   </main>
   <footer class="wrap site-footer">

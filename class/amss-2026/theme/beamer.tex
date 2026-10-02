@@ -99,7 +99,9 @@
       {\usebeamerfont{subtitle}\color{amsstealight}\insertsubtitle\par}\vskip 1.5mm
     \fi
     {\usebeamerfont{title}\color{white}%
-     \rightskip=0pt plus 0.45\linewidth \parfillskip=0pt plus 0.45\linewidth\relax
+     % Lines of similar length, as on the HTML cover: no single word on the last one.
+     \rightskip=0pt plus 0.7\linewidth \parfillskip=0pt
+     \hyphenpenalty=10000 \exhyphenpenalty=10000\relax
      \inserttitle\par}%
     \vskip 6mm
     \ifx\insertinstitute\@empty\else

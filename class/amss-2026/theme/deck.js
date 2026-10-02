@@ -27,7 +27,9 @@
       close: 'Închide',
       position: function (n, total) { return 'Diapozitivul ' + n + ' din ' + total; },
       all: 'Toate diapozitivele',
+      allShort: 'Toate',
       one: 'Câte un diapozitiv',
+      oneShort: 'Câte unul',
       keys: 'Navigare: săgețile ← și →, Page Up și Page Down sau Spațiu.',
       pdf: 'PDF'
     } : {
@@ -39,7 +41,9 @@
       close: 'Close',
       position: function (n, total) { return 'Slide ' + n + ' of ' + total; },
       all: 'All slides',
+      allShort: 'All',
       one: 'One slide at a time',
+      oneShort: 'One by one',
       keys: 'Navigation: the ← and → arrows, Page Up and Page Down, or Space.',
       pdf: 'PDF'
     };
@@ -63,6 +67,14 @@
       return title || text.position(i + 1, slides.length);
     }
 
+    // In the outline, a range such as (16–26) stays on one line, as on the
+    // slides: word joiners around the dash of a short word.
+    function unbroken(title) {
+      return title.replace(/\S+/g, function (word) {
+        return word.length > 24 ? word : word.replace(/([^–])–(?=[^–])/g, '$1⁠–⁠');
+      });
+    }
+
     // Everything after the title goes into one block, so the paged view can
     // place it between the title and the bottom of the window.
     slides.forEach(function (slide) {
@@ -83,7 +95,11 @@
 
     var data = document.body.dataset;
     if (data.home) {
-      var home = make('a', 'deck-home', data.course || text.home);
+      // "AMSS 2026/2027": a phone shows only the first word (see deck.css).
+      var label = data.course || text.home;
+      var cut = label.indexOf(' ');
+      var home = make('a', 'deck-home', cut < 0 ? label : label.slice(0, cut));
+      if (cut >= 0) home.appendChild(make('span', 'deck-more', label.slice(cut)));
       home.href = data.home;
       home.title = text.home;
       bar.appendChild(home);
@@ -109,6 +125,12 @@
     var view = make('button', 'deck-view');
     view.type = 'button';
     bar.appendChild(view);
+    // The switch names the other view; a phone shows the short form (deck.css).
+    function labelView() {
+      view.textContent = '';
+      view.appendChild(make('span', 'deck-long', paged ? text.all : text.one));
+      view.appendChild(make('span', 'deck-short', paged ? text.allShort : text.oneShort));
+    }
     if (data.pdf) {
       var pdf = make('a', 'deck-pdf', text.pdf);
       pdf.href = data.pdf;
@@ -140,7 +162,7 @@
       tocBody.appendChild(tocHead);
       var list = make('ol');
       slides.forEach(function (slide, i) {
-        var link = make('a', '', titleOf(slide, i));
+        var link = make('a', '', unbroken(titleOf(slide, i)));
         link.href = '#' + (i + 1);
         link.addEventListener('click', function (event) {
           event.preventDefault();
@@ -186,33 +208,32 @@
 
     // What waits for a step when a slide is reached with "next", as in the
     // PDF: everything after a pause (". . .") and the items of an incremental
-    // list, except a first item with no pause before it. Pandoc wraps what
-    // follows a pause between the blocks of a slide in div.incremental;
-    // theme/amss.lua leaves a .deck-pause marker for a pause inside a column,
-    // a quotation or a list item. Returns the steps in order, each a list of
-    // elements shown together.
+    // list, except a first item with no pause before it. theme/amss.lua
+    // leaves a .deck-pause marker where the source has a pause. Returns the
+    // steps in order, each a list of elements shown together.
     function stepsOf(slide) {
       var body = slide.querySelector('.slide-body') || slide;
       var parts = [];
       var states = [];   // the state in which parts[i] appears; 1 is the arrival
       var state = 1;
       function claim(el, at) {
+        if (el.classList.contains('deck-pause')) return;   // nothing to show: no step of its own
         var i = parts.indexOf(el);
         if (i < 0) { parts.push(el); states.push(at); }
         else states[i] = Math.max(states[i], at);   // the last pause before it decides
       }
       var marks = slide.querySelectorAll(
-        '.deck-pause, div.incremental, .incremental > li, .incremental > dt, .incremental > dd');
+        '.deck-pause, .incremental > li, .incremental > dt, .incremental > dd');
       Array.prototype.forEach.call(marks, function (el) {
         if (el.classList.contains('deck-pause')) {
           state++;
           for (var node = el; node && node !== body; node = node.parentNode) {
             for (var later = node.nextElementSibling; later; later = later.nextElementSibling) claim(later, state);
           }
-        } else if (el.tagName === 'DIV') {
-          claim(el, ++state);
         } else if (el.tagName === 'DD') {
-          claim(el, state - 1);   // with its term
+          var term = el.previousElementSibling;   // a definition appears with its term
+          while (term && term.tagName !== 'DT') term = term.previousElementSibling;
+          claim(el, term ? states[parts.indexOf(term)] : state);
         } else {
           claim(el, state++);
         }
@@ -295,7 +316,9 @@
       var limit = root.scrollHeight - window.innerHeight;
       var jump = 0.8 * window.innerHeight;
       if (direction > 0 && waiting.length) {
-        var fold = window.innerHeight - bar.offsetHeight - 24;
+        // Above the bar, with room for a line of text (which grows with the window).
+        var fold = window.innerHeight - bar.offsetHeight -
+          2 * parseFloat(getComputedStyle(slides[index]).fontSize);
         var part = waiting[0][0];
         if (soft && part.getBoundingClientRect().top > fold && window.scrollY < limit - 4) {
           return window.scrollBy(0, jump);
@@ -331,7 +354,7 @@
       revealAll();
       paged = on;
       root.classList.toggle('paged', on);
-      view.textContent = on ? text.all : text.one;
+      labelView();
       go(at);
     }
 
@@ -410,7 +433,7 @@
       if (i >= 0) go(i);
     });
 
-    view.textContent = paged ? text.all : text.one;
+    labelView();
     var first = fromHash();
     show(Math.max(0, first));
     if (!paged && first > 0) slides[index].scrollIntoView();

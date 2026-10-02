@@ -52,19 +52,21 @@ $-- "current" from the start: the cover shows while the rest of a long deck load
 $if(logo-path)$
   <img class="logo" src="$logo-path$" width="480" height="520" alt="$if(course-label)$$course-label$$endif$">
 $endif$
-  <h1 class="title">$if(session)$<span class="session">$session$</span> $endif$<span class="headline">$headline$</span></h1>
+  <div class="cover-text">
+    <h1 class="title">$if(session)$<span class="session">$session$</span> $endif$<span class="headline">$headline$</span></h1>
 $if(subtitle)$
-  <p class="subtitle">$subtitle$</p>
+    <p class="subtitle">$subtitle$</p>
 $endif$
 $if(course-name)$
-  <p class="course">$course-name$</p>
+    <p class="course">$course-name$</p>
 $endif$
 $if(author)$
-  <p class="author">$for(author)$$author$$sep$<br>$endfor$</p>
+    <p class="author">$for(author)$$author$$sep$<br>$endfor$</p>
 $endif$
 $if(institute)$
-  <p class="institute">$for(institute)$$institute$$sep$<br>$endfor$</p>
+    <p class="institute">$for(institute)$$institute$$sep$<br>$endfor$</p>
 $endif$
+  </div>
 </div>
 $endif$
 $if(toc)$

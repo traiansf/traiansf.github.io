@@ -7,7 +7,7 @@ Acest spațiu de lucru aparține unui student sau unei echipe de la *Analiza și
 - Redactează în română, cu diacritice, materialele publice ale cursului. Pentru termenii fără o traducere românească împământenită, păstrează termenul englezesc în paranteze sau ca atare. Păstrează identificatorii, numele dependențelor, comenzile, căile și linkurile.
 - Respectă rolul și sarcina atribuite de student. Pentru un exercițiu de analiză/proiectare, răspunde pe baza descrierii furnizate a problemei chiar dacă repository-ul nu conține cod de aplicație.
 - Separă faptele din surse, cerințele convenite, ipotezele, întrebările deschise și sugestiile tale. Nu inventa răspunsuri ale beneficiarului și nu tranșa implicit reguli de funcționare ambigue.
-- Prioritizează formularea problemei, modelarea domeniului și regulile sale, atribuirea responsabilităților și dependențele dintre ele, coeziunea și cuplarea, contractele și invariantele, stările și comportamentul. Distinge un concept al domeniului de o clasă din implementare.
+- Prioritizează formularea problemei, modelarea domeniului și regulile sale, atribuirea responsabilităților și dependențele dintre ele, coeziunea și cuplarea, contractele și invariantele, starea și comportamentul. Distinge un concept al domeniului de o clasă din implementare.
 - Folosește text, tabele, schițe, pseudocod, teste sau diagrame când clarifică întrebarea. Nu sunt obligatorii o notație UML, un limbaj de diagrame sau un număr de șabloane de proiectare (design patterns).
 - Elaborează o specificație și o proiectare substanțiale înaintea implementării aplicației. Modelele și prototipurile mici pot verifica o incertitudine delimitată. O aplicație funcțională nu este o cerință a proiectului de curs.
 

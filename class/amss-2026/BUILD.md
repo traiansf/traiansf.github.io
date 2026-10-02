@@ -121,7 +121,7 @@ them as prerequisites, so editing one rebuilds what depends on it.
 | File | Role |
 |---|---|
 | `theme/course.yaml` | course label and name shown on covers, page headers and footers |
-| `theme/amss.lua` | splits `AMSS 2026/2027 — Cursul 1: Titlu` into session and headline; marks the „Ideea întâlnirii” epigraph; in documents drops a repeated first heading and any `notes` blocks; wraps tables, keeps ranges such as `10–12` unbroken and avoids one-word last lines in decks; rules off table rows in PDF decks; marks pauses inside columns, quotations and lists for the HTML decks |
+| `theme/amss.lua` | splits `AMSS 2026/2027 — Cursul 1: Titlu` into session and headline; marks the „Ideea întâlnirii” epigraph; in documents drops a repeated first heading and any `notes` blocks; wraps tables, keeps ranges such as `10–12` and short hyphenated forms such as „te-ai” unbroken and avoids one-word last lines in decks; sets table headers in bold in the PDFs and rules off table rows in PDF decks; marks pauses for the HTML decks |
 | `theme/code.theme` | syntax colours with enough contrast on the code panel, for HTML and PDF |
 | `theme/deck.html`, `theme/deck.css`, `theme/deck.js` | HTML decks: template, styles, and the one-slide-at-a-time view |
 | `theme/beamer.tex` | PDF decks (16:9, 10 pt) |

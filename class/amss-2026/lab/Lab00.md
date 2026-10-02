@@ -133,7 +133,7 @@ Compară întrebările cu a ta. Poți explica în ce fel răspunsurile ar schimb
 
 ## 6. Explorează idei de proiect și caută colegi de echipă
 
-Recitește [cerințele proiectului](https://traiansf.github.io/class/amss2026/proiect/). Echipele au 3–5 membri și dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile.
+Recitește [cerințele proiectului](https://traiansf.github.io/class/amss2026/proiect/). Echipele au 3–5&nbsp;membri și dezvoltă o specificație și o soluție de proiectare comune, cu contribuțiile membrilor identificabile.
 
 Notează, dacă dorești, una sau două probleme pe care ai vrea să le înțelegi mai bine. Pentru fiecare: cine are problema, ce decizie sau regulă pare interesantă și ce ai lăsa în afara unei prime variante.
 
@@ -153,4 +153,4 @@ Păstrează notițele pentru tine sau folosește-le într-o discuție. Nu trebui
 
 ## Chestionarul de început de curs
 
-Profesorul distribuie pe Teams un chestionar despre experiență, cunoștințe și așteptări; îl poți deschide și direct, la [forms.gle/uHCXyFvxqQxsWWmH9](https://forms.gle/uHCXyFvxqQxsWWmH9). Este facultativ și ne ajută să adaptăm conținutul cursului. Invitația se adresează tuturor grupelor. Rezervă aproximativ 10–12 minute, separat de pașii ghidului.
+Profesorul distribuie pe Teams un chestionar despre experiență, cunoștințe și așteptări; îl poți deschide și direct, la [forms.gle/uHCXyFvxqQxsWWmH9](https://forms.gle/uHCXyFvxqQxsWWmH9). Este facultativ și ne ajută să adaptăm conținutul cursului. Invitația se adresează tuturor grupelor. Rezervă aproximativ 10–12&nbsp;minute, separat de pașii ghidului.

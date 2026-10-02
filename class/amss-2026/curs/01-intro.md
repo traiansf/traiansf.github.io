@@ -7,13 +7,14 @@ lang: ro-RO
 # Bun venit!
 
 :::::: {.columns align=center}
-::: {.column width="30%"}
+::: {.column width="40%"}
 [![Alăturați-vă echipei cursului pe Microsoft Teams](../static/assets/amss-2026-teams-qr.png){width=100%}](https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1)
 :::
-::: {.column width="66%"}
-**AMSS — Analiza și Modelarea Sistemelor Software**
+::: {.column width="56%"}
+**AMSS — Analiza și Modelarea Sistemelor&nbsp;Software**
 
-Traian-Florin Șerbănuță&nbsp;· <traian.serbanuta@unibuc.ro>
+Traian-Florin Șerbănuță\
+<traian.serbanuta@unibuc.ro>
 
 Echipa cursului pe Microsoft Teams: scanați codul QR sau apăsați pe el.
 
@@ -66,7 +67,7 @@ Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, 
 
 # Program și comunicare
 
-- **14 săptămâni de curs** și **7 laboratoare**, de regulă o dată la două săptămâni.
+- **14&nbsp;săptămâni de curs** și **7&nbsp;laboratoare**, de regulă o dată la două săptămâni.
 - [Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/Lab00.html): orientare opțională, disponibilă și pentru parcurgere individuală.
 - Laboratorul 1 se desfășoară după cursurile 1 și 2.
 - Materiale: [traiansf.github.io/class/amss2026](https://traiansf.github.io/class/amss2026/).
@@ -90,7 +91,7 @@ Primul laborator folosește o problemă de rezervare a sălilor, astfel încât 
 | Prezență | 1 |
 | Din oficiu | 1 |
 
-**Restanță:** 9 puncte pentru examenul grilă + 1 punct din oficiu.
+**Restanță:** 9&nbsp;puncte pentru examenul grilă + 1&nbsp;punct din oficiu.
 
 Feedback pentru proiect la cerere, pe parcursul semestrului. Punctajul pentru dosar se definitivează printr-un interviu de echipă la ultimul laborator.
 
@@ -108,7 +109,7 @@ La aproximativ 100 de studenți și un singur cadru didactic, organizați discu�
 
 **Punctajul pentru prezență:** întâlniri la care ați participat ÷ întâlniri de curs și laborator desfășurate pentru grupa voastră.
 
-Fiecare întâlnire, de curs sau de laborator, are aceeași pondere; în mod normal sunt 14 cursuri și 7 laboratoare.
+Fiecare întâlnire, de curs sau de laborator, are aceeași pondere; în mod normal sunt 14&nbsp;cursuri și 7&nbsp;laboratoare.
 
 **Pregătiți-vă pentru întrebări bazate pe scenarii:**
 
@@ -124,7 +125,7 @@ Folosiți numărul ședințelor efectiv desfășurate, astfel încât anulările
 
 # Proiectul de echipă
 
-Echipele de **3–5 studenți** elaborează o soluție comună.
+Echipele de **3–5&nbsp;studenți** elaborează o soluție comună.
 
 **Livrabil:** o specificație și o soluție de proiectare revizuite. Modelele și prototipurile le pot susține; nu este obligatorie o aplicație funcțională.
 
@@ -201,7 +202,7 @@ Ghidul complet al laboratorului 1 conține datele problemei și exercițiul. Stu
 
 # De ce studiem analiza și proiectarea?
 
-O implementare poate să funcționeze exact cum am cerut și totuși să rezolve problema greșită.
+O implementare poate să funcționeze exact cum am cerut și totuși să&nbsp;rezolve problema greșită.
 
 - Beneficiarii pot folosi același cuvânt pentru lucruri diferite.
 - O decizie locală poate îngreuna schimbările ulterioare.
@@ -262,7 +263,7 @@ Scanați codul QR sau deschideți linkul: [forms.gle/uHCXyFvxqQxsWWmH9](https://
 
 Ce experiență aveți? Ce știți deja și ce ați vrea să aprofundați?
 
-Completarea este facultativă și durează aproximativ 10–12 minute. Vom folosi răspunsurile pentru adaptarea conținutului.
+Completarea este facultativă și durează aproximativ 10–12&nbsp;minute. Vom folosi răspunsurile pentru adaptarea conținutului.
 :::
 ::::::
 

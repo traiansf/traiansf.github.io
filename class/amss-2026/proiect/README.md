@@ -12,8 +12,8 @@ La finalul cursului, ar trebui să puteți, fără AI, să analizați o problem�
 
 ## Echipă și temă
 
-- Echipe de **3–5 studenți**, cu o soluție de proiectare comună și contribuții individuale identificabile.
-- Tema se alege până la **31 octombrie 2026**. Studenții fără echipă sau temă la **1 noiembrie** vor fi repartizați aleatoriu.
+- Echipe de **3–5&nbsp;studenți**, cu o soluție de proiectare comună și contribuții individuale identificabile.
+- Tema se alege până la **31&nbsp;octombrie&nbsp;2026**. Studenții fără echipă sau temă la **1&nbsp;noiembrie** vor fi repartizați aleatoriu.
 - Mai multe echipe pot alege aceeași temă. Dacă prea multe echipe aleg exact aceeași temă, unele pot fi rugate să o schimbe.
 
 Alegerea se anunță pe canalul Teams al cursului, printr-un mesaj al liderului de echipă, care conține:
@@ -45,7 +45,7 @@ Notați la trecerea dintre etape ce este stabilit, ce rămâne incert și ce ar 
 
 **Nu sunt obligatorii nici aplicația funcțională, nici ciclul TDD (dezvoltare ghidată de teste).** Puteți folosi modele executabile, simulări, teste sau prototipuri pentru a investiga o întrebare de proiectare. Explicați ce ați verificat, rezultatul și limitele verificării. Dacă implementați un prototip, porniți de la specificația și proiectarea revizuite și urmați apoi succesiunea implementare → teste → revizuire.
 
-## Dosarul de proiectare al echipei&nbsp;— 5 puncte
+## Dosarul de proiectare al echipei&nbsp;— 5&nbsp;puncte
 
 Păstrați dosarul în **repository-ul public de pe GitHub sau GitLab anunțat pe Teams**. Dosarul are o sinteză ușor de parcurs și legături către modelele și dovezile care susțin afirmațiile sale. Ca reper, **sinteza are aproximativ două pagini**; detaliile relevante pot rămâne în fișierele către care trimite aceasta.
 
@@ -73,7 +73,7 @@ Includeți o revizuire într-o **sesiune sau într-un context nou**, care prime�
 
 Documentați concis o decizie importantă și parcursul revizuirii ei: ce a fost delegat, ce context a fost transmis, ce constatare ați verificat, ce ați acceptat sau respins și de ce. Legați explicația de versiunea relevantă a modelului și de un exemplu sau de altă dovadă verificabilă. Dacă revizuirea nu găsește un defect, arătați ce a fost verificat și ce concluzie permite verificarea; nu inventați greșeli pentru dosar.
 
-Fragmentele de conversație pot susține explicația. O transcriere integrală nu înlocuiește sinteza și raționamentul vostru. Indicați instrumentul și modelul folosite, în măsura în care această informație este disponibilă; evaluarea privește deciziile și dovezile, fără a cere reproducerea exactă a textului generat. Consultați și [ghidul de pregătire a mediului de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md).
+Fragmentele de conversație pot susține explicația. O transcriere integrală nu înlocuiește sinteza și raționamentul vostru. Indicați instrumentul și modelul folosite, în măsura în care această informație este disponibilă; evaluarea privește deciziile și dovezile, fără a cere reproducerea exactă a textului generat. Consultați, de asemenea, [ghidul de pregătire a mediului de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md) și [ghidul despre roluri, predarea sarcinilor și revizuire](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md).
 
 ## Feedback pe parcursul semestrului și laboratorul deschis
 
@@ -85,15 +85,15 @@ Doar **ultimele două laboratoare** sunt dedicate efectiv proiectului. Laboratoa
 
 ## Interviul de susținere&nbsp;— ultimul laborator
 
-La **laboratorul 7**, profesorul definitivează punctajul pentru dosarul echipei printr-un **interviu de aproximativ 8 minute**, cu întrebări despre aspectele neclare, la care echipa poate răspunde. Dosarul trebuie să fie disponibil pentru lectură înainte de interviu; termenul exact și programarea echipelor vor fi anunțate pe Teams.
+La **laboratorul 7**, profesorul definitivează punctajul pentru dosarul echipei printr-un **interviu de aproximativ 8&nbsp;minute**, cu întrebări despre aspectele neclare, la care echipa poate răspunde. Dosarul trebuie să fie disponibil pentru lectură înainte de interviu; termenul exact și programarea echipelor vor fi anunțate pe Teams.
 
 Discuția pornește de la dosarul citit de profesor. Echipa poate consulta repository-ul și poate indica cerințele, deciziile, contribuțiile și dovezile relevante pentru clarificări. Nu este necesară pregătirea unei prezentări sau a unor diapozitive.
 
 Profesorul stabilește punctajul final de echipă pe **cele cinci criterii ale dosarului**, ținând cont de clarificările din interviu. Interviul nu are punctaj separat. Întrebările sunt adresate echipei; nu se organizează o examinare orală distinctă pentru fiecare student.
 
-## Examen grilă individual&nbsp;— 3 puncte
+## Examen grilă individual&nbsp;— 3&nbsp;puncte
 
-Examenul verifică aplicarea principiilor de analiză și proiectare în **scenarii scurte**, individual și fără AI. Întrebările urmăresc interpretarea cerințelor, modelarea domeniului, responsabilitățile și dependențele, contractele și invariantele, stările și comportamentele, precum și dovezile de validare.
+Examenul verifică aplicarea principiilor de analiză și proiectare în **scenarii scurte**, individual și fără AI. Întrebările urmăresc interpretarea cerințelor, modelarea domeniului, responsabilitățile și dependențele, contractele și invariantele, starea și comportamentul, precum și dovezile de validare.
 
 Pregătiți-vă să identificați o ipoteză nejustificată, să comparați variante de proiectare, să interpretați un contraexemplu sau să urmăriți efectele unei schimbări. Evaluarea privește raționamentul aplicat situației descrise, fără întrebări de memorare a detaliilor unei notații. Formatul detaliat și condițiile de organizare vor fi anunțate separat.
 
@@ -115,4 +115,4 @@ Punctul de prezență se acordă proporțional cu participarea la **cursuri și 
 
 Pentru 14 cursuri și 7 laboratoare, numitorul este 21. Întâlnirile anulate nu intră în numitor; acesta reflectă întâlnirile efectiv desfășurate și contabilizate.
 
-În sesiunea de restanțe, nota se calculează astfel: **9 puncte pentru examenul grilă + 1 punct din oficiu = 10**. Examenul urmărește aceleași competențe de analiză și proiectare. Punctajele pentru dosarul de proiectare și pentru prezență nu se reportează în nota de la restanță.
+În sesiunea de restanțe, nota se calculează astfel: **9&nbsp;puncte pentru examenul grilă + 1&nbsp;punct din oficiu = 10**. Examenul urmărește aceleași competențe de analiză și proiectare. Punctajele pentru dosarul de proiectare și pentru prezență nu se reportează în nota de la restanță.
