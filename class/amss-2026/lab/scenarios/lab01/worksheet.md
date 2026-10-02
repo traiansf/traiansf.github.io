@@ -6,11 +6,11 @@ Mod de lucru: asistent AI / exemplu pregătit + revizuire între colegi / altul:
 
 Instrument/model, dacă sunt cunoscute: __________  Context de revizuire sau coleg evaluator: __________
 
-Fișa oferă un punct de plecare. Sunt suficiente puncte scurte; adaptați structura dacă o altă reprezentare comunică mai clar aceleași informații. Păstrați o singură descriere comună a problemei și citați identificatorii informațiilor/scenariilor din ea la predarea sarcinii și în evidența revizuirii, fără a copia aceleași reguli în mai multe secțiuni.
+Fișa este doar un punct de plecare. Ajung notițe scurte, pe puncte; adaptați structura dacă o altă reprezentare comunică mai clar aceleași informații. Păstrați o singură descriere comună a problemei. La predarea sarcinii și când consemnați revizuirea, trimiteți la identificatorii informațiilor și scenariilor din ea, în loc să copiați aceleași reguli în mai multe secțiuni.
 
 ## Notițe inițiale individuale — fără AI, primele 8 minute
 
-Fiecare partener își scrie propriile notițe, cu numele său:
+Fiecare partener își scrie notițele, cu numele lui:
 
 - Cum formulez scopul și limitele:
 - Sală versus rezervare:
@@ -32,7 +32,7 @@ Ce rezultat dorește beneficiarul? Ce este inclus și ce este exclus?
 |---|---|---|
 | | | |
 
-Explicați distincția dintre o sală și o rezervare, precum și regula care trebuie să rămână adevărată la confirmarea unei rezervări.
+Explicați prin ce se deosebește o sală de o rezervare și ce regulă trebuie să rămână adevărată când se confirmă o rezervare.
 
 ### Ce se cunoaște și ce rămâne de ales?
 
@@ -40,7 +40,7 @@ Explicați distincția dintre o sală și o rezervare, precum și regula care tr
 |---|---|---|
 | | | |
 
-O ipoteză trebuie etichetată vizibil, cu consecința ei dacă se dovedește greșită. O întrebare fără răspuns este un rezultat valid.
+Marcați vizibil fiecare ipoteză și notați ce se întâmplă dacă se dovedește greșită. O întrebare fără răspuns este un rezultat valid.
 
 ### Scenarii
 
@@ -57,7 +57,7 @@ Tratați fiecare scenariu independent, pornind de la starea inițială precizat�
 | S7 | | | |
 | S8 | | | |
 
-Adăugați un scenariu când distinge o regulă sau o alternativă importantă. Explicați limitele acoperirii pe care le identificați.
+Adăugați un scenariu când distinge o regulă sau o alternativă importantă. Notați ce cazuri rămân neacoperite, dacă observați vreunul.
 
 ### Sarcina următoare de proiectare, cu limite clare
 
@@ -70,11 +70,11 @@ Adăugați un scenariu când distinge o regulă sau o alternativă importantă. 
 
 ## Predarea sarcinii către autor (handoff) — minutele 26–44
 
-Studentul A îndrumă autorul; studentul B verifică față de sursă. Atașați toate informațiile scenariului și notițele voastre. Autorul poate ajuta la structurarea înțelegerii; voi rămâneți responsabili pentru decizii.
+Studentul A îndrumă autorul; studentul B verifică rezultatul față de sursă. Atașați toate informațiile scenariului și notițele voastre. Autorul vă poate ajuta să vă structurați înțelegerea; deciziile rămân responsabilitatea voastră.
 
-> Acționează ca asistent de analiză. Folosind doar informațiile beneficiarului și notițele atașate, redactează scopul, limitele, conceptele domeniului, regulile, scenariile de acceptare și întrebările deschise. Citează identificatorii informațiilor. Marchează separat propunerile de proiectare. Cere clarificări unde lipsesc reguli; nu răspunde în numele beneficiarului. Propune o sarcină următoare de proiectare, cu limite, intrări, responsabilități, verificări și un punct de oprire. Nu o implementa.
+> Ai rolul de asistent de analiză. Folosind doar informațiile beneficiarului și notițele atașate, redactează scopul, limitele, conceptele domeniului, regulile, scenariile de acceptare și întrebările deschise. Citează identificatorii informațiilor. Marchează separat propunerile de proiectare. Cere clarificări unde lipsesc reguli; nu răspunde în numele beneficiarului. Propune următoarea sarcină de proiectare, cu limite, intrări, responsabilități, verificări și o condiție de oprire. Nu o implementa.
 
-Dacă rezultatul este lung, cereți un rezumat scurt care păstrează trimiterile la informații și scenarii. Verificați o afirmație importantă din rezumat față de varianta detaliată.
+Dacă rezultatul este lung, cereți un rezumat scurt care să păstreze trimiterile la informații și scenarii. Verificați o afirmație importantă din rezumat față de varianta detaliată.
 
 Salvați o copie a variantei de lucru. Poate fi o copie de fișier, o versiune salvată sau un commit.
 
@@ -82,11 +82,11 @@ Identificatorul variantei supuse revizuirii: __________
 
 ## Predarea sarcinii pentru revizuire independentă — minutele 44–60
 
-Schimbați rolurile: studentul B îndrumă evaluatorul; studentul A verifică afirmațiile acestuia. Deschideți un context nou și furnizați doar informațiile-sursă, varianta fixată și criteriile. Se permite același instrument/model; nu reutilizați conversația autorului. Dacă este necesar, schimbați acest pachet cu o pereche vecină pentru revizuire între colegi.
+Schimbați rolurile: studentul B îndrumă evaluatorul; studentul A verifică afirmațiile acestuia. Deschideți un context nou și dați-i doar informațiile-sursă, varianta fixată și criteriile. Puteți folosi același instrument/model, dar nu reutilizați conversația autorului. La nevoie, faceți schimb de pachete cu o pereche vecină și revizuiți-vă reciproc.
 
-> Revizuiește descrierea problemei față de informațiile furnizate. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile susținute de informațiile furnizate. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.
+> Revizuiește descrierea problemei în raport cu informațiile primite. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile pe care informațiile le susțin. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.
 
-Păstrați suficient din pachet și din răspuns pentru a stabili ce a fost revizuit și de ce ați acționat. Nu sunt necesare exporturi complete ale conversațiilor.
+Păstrați suficient din pachet și din răspuns ca să se vadă ce s-a revizuit și de ce ați procedat așa. Nu sunt necesare exporturi complete ale conversațiilor.
 
 ## Evaluarea de către om — minutele 60–78
 
@@ -108,7 +108,7 @@ Cadrul didactic anunță schimbarea la minutul 78. Contează raționamentul vost
 
 ## Predarea lucrării
 
-Structură sugerată în spațiul de lucru furnizat:
+Structură sugerată în spațiul de lucru pus la dispoziție:
 
 ```text
 lab01/<pair-id>/
@@ -118,4 +118,4 @@ lab01/<pair-id>/
   individual/<student-b-id>.md
 ```
 
-Fișierele individuale conțin atât notițele inițiale, cât și explicațiile finale. Un format echivalent, cu autorii identificați clar, este acceptabil. Predați la destinația anunțată în laborator; folosiți canalul alternativ anunțat dacă accesul la repository nu funcționează. Nu se cer transcrieri suplimentare ale conversațiilor.
+Fișierele individuale conțin atât notițele inițiale, cât și explicațiile finale. Un format echivalent, cu autorii identificați clar, este acceptabil. Predați lucrarea acolo unde se anunță în laborator; folosiți canalul alternativ anunțat dacă accesul la repository nu funcționează. Nu se cer transcrieri suplimentare ale conversațiilor.

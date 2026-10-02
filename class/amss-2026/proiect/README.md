@@ -20,43 +20,43 @@ Alegerea se anunță pe canalul Teams al cursului, printr-un mesaj al liderului 
 
 - numele echipei și componența ei;
 - numele și descrierea proiectului, în 1–2 paragrafe;
-- o justificare a faptului că tema are o dimensiune potrivită;
+- argumente că tema are o dimensiune potrivită;
 - **linkul către repository-ul public al proiectului, pe GitHub sau GitLab**.
 
-Repository-ul trebuie să fie creat și accesibil public în momentul anunțării proiectului.
+Repository-ul trebuie să existe și să fie public în momentul în care anunțați proiectul.
 
-Folosiți acest repository pe parcursul întregului semestru, astfel încât istoricul modificărilor să permită urmărirea progresului și a contribuției fiecărui membru. Publicați treptat cerințele, modelele, deciziile, revizuirile și verificările, cu autorii contribuțiilor identificabili; o singură încărcare la final nu arată parcursul proiectului. Pentru lucrul comun, consemnați membrii care au contribuit și rolul lor în deciziile relevante. Numărul de commituri nu este un criteriu de notare.
+Folosiți acest repository pe parcursul întregului semestru, astfel încât din istoricul modificărilor să se vadă progresul și contribuția fiecărui membru. Publicați treptat cerințele, modelele, deciziile, revizuirile și verificările; pentru fiecare contribuție trebuie să se știe cine este autorul. O singură încărcare la final nu arată cum a evoluat proiectul. Pentru părțile lucrate împreună, notați cine a contribuit și ce rol a avut fiecare în deciziile respective. Numărul de commituri nu este un criteriu de notare.
 
-**Dezvoltarea materialelor și efectuarea commiturilor pot fi asistate de AI. Echipa răspunde pentru conținutul publicat, verifică modificările și își asumă cerințele, deciziile și verificările din repository.** Un commit efectuat de un asistent nu înlocuiește identificarea contribuției membrilor echipei.
+**Puteți folosi AI pentru a dezvolta materialele și pentru a face commituri. Echipa răspunde pentru conținutul publicat, verifică modificările și își asumă cerințele, deciziile și verificările din repository.** Chiar dacă un commit este făcut de un asistent, contribuția membrilor echipei trebuie să rămână identificabilă.
 
-Alegeți o problemă cu reguli, decizii și comportamente care merită analizate. Stabiliți explicit limitele proiectului: o problemă bine delimitată permite o soluție de proiectare argumentată și verificabilă. Împărțiți munca astfel încât fiecare student să contribuie la decizii importante, păstrând coerența întregului.
+Alegeți o problemă cu reguli, decizii și comportamente care merită analizate. Stabiliți explicit limitele proiectului: o problemă bine delimitată permite o soluție de proiectare argumentată și verificabilă. Împărțiți munca astfel încât fiecare student să contribuie la decizii importante, iar proiectul să rămână coerent ca întreg.
 
 ## Parcursul proiectului
 
-Elaborați o **specificație și o soluție de proiectare substanțiale înainte de implementare**. Parcurgeți explicit următoarele întrebări:
+Elaborați o **specificație și o soluție de proiectare substanțiale înainte de implementare**. Răspundeți explicit la următoarele întrebări:
 
 1. **Ce problemă rezolvăm?** Identificați beneficiarii, obiectivele, limitele sistemului, cerințele, ipotezele și întrebările deschise. Separați regulile confirmate de propunerile echipei sau ale AI.
-2. **Cum înțelegem domeniul?** Definiți conceptele, identitatea, relațiile și regulile relevante. Modelul domeniului poate preceda orice alegere de clase, funcții sau structuri de date.
+2. **Cum înțelegem domeniul?** Definiți conceptele, identitatea, relațiile și regulile care contează. Modelul domeniului poate preceda orice alegere de clase, funcții sau structuri de date.
 3. **Ce soluție de proiectare propunem?** Atribuiți responsabilități, descrieți contracte, invariante și comportamente, apoi justificați limitele și dependențele dintre părți.
-4. **Ce verificări susțin proiectarea?** Parcurgeți scenarii normale și excepționale, verificați proprietăți și comparați soluția cu o alternativă relevantă. Analizați efectul unei schimbări de cerință.
-5. **Ce revizuim înainte de predare?** Obțineți o revizuire într-un context separat, verificați constatările și actualizați specificația, proiectarea și sinteza în consecință.
+4. **Ce verificări susțin proiectarea?** Parcurgeți scenarii normale și excepționale, verificați proprietăți și comparați soluția cu o alternativă plauzibilă. Analizați efectul unei schimbări de cerință.
+5. **Ce revizuim înainte de predare?** Cereți o revizuire într-un context separat, verificați constatările și actualizați specificația, proiectarea și sinteza în consecință.
 
-Notați la trecerea dintre etape ce este stabilit, ce rămâne incert și ce ar putea impune o revizuire. O descoperire ulterioară poate justifica întoarcerea la o cerință sau la o decizie anterioară.
+Când treceți de la o etapă la alta, notați ce este stabilit, ce rămâne incert și ce ar putea impune o revizuire. Ce descoperiți mai târziu poate justifica revenirea la o cerință sau la o decizie anterioară.
 
-**Nu sunt obligatorii nici aplicația funcțională, nici ciclul TDD (dezvoltare ghidată de teste).** Puteți folosi modele executabile, simulări, teste sau prototipuri pentru a investiga o întrebare de proiectare. Explicați ce ați verificat, rezultatul și limitele verificării. Dacă implementați un prototip, porniți de la specificația și proiectarea revizuite și urmați apoi succesiunea implementare → teste → revizuire.
+**Nu sunt obligatorii nici aplicația funcțională, nici ciclul TDD (dezvoltare ghidată de teste).** Puteți folosi modele executabile, simulări, teste sau prototipuri pentru a investiga o întrebare de proiectare. Explicați ce ați verificat, ce ați obținut și care sunt limitele verificării. Dacă implementați un prototip, porniți de la specificația și proiectarea revizuite și urmați apoi succesiunea implementare → teste → revizuire.
 
 ## Dosarul de proiectare al echipei&nbsp;— 5&nbsp;puncte
 
-Păstrați dosarul în **repository-ul public de pe GitHub sau GitLab anunțat pe Teams**. Dosarul are o sinteză ușor de parcurs și legături către modelele și verificările care susțin afirmațiile sale. Ca reper, **sinteza are aproximativ două pagini**; detaliile relevante pot rămâne în fișierele către care trimite aceasta.
+Păstrați dosarul în **repository-ul public de pe GitHub sau GitLab anunțat pe Teams**. Dosarul are o sinteză ușor de parcurs și legături către modelele și verificările care susțin afirmațiile sale. Ca reper, **sinteza are aproximativ două pagini**; detaliile pot rămâne în fișierele către care trimite sinteza.
 
-Sinteza trebuie să permită găsirea rapidă a problemei și a limitelor proiectului, a deciziilor principale, a justificărilor, a verificărilor și a incertitudinilor rămase. Includeți și o scurtă evidență a contribuțiilor membrilor echipei, cu legături către deciziile și materialele relevante.
+În sinteză trebuie să se găsească repede problema și limitele proiectului, deciziile principale, justificările, verificările și incertitudinile rămase. Includeți și o scurtă evidență a contribuțiilor membrilor echipei, cu legături către deciziile și materialele la care au lucrat.
 
 <!-- table-class: rubric -->
 | Criteriu | Puncte | Ce trebuie să putem verifica |
 |-----------------|-----:|--------------------------------------------|
-| **Formularea problemei și cerințe** | 1 | Beneficiari, obiective și limite clare; cerințe verificabile; ipoteze și întrebări deschise explicite; exemple de acceptare și impactul schimbării unei cerințe. |
+| **Formularea problemei și cerințe** | 1 | Beneficiari, obiective și limite clare; cerințe verificabile; ipoteze și întrebări deschise explicite; exemple de acceptare și efectul schimbării unei cerințe. |
 | **Modelarea domeniului** | 1 | Concepte, identități, relații și reguli coerente cu problema; exemple care verifică distincțiile importante; justificarea alegerilor față de alternative. |
-| **Contracte și invariante** | 1 | Obligații și garanții ale operațiilor importante; reguli care trebuie să rămână adevărate; verificări și contraexemple relevante, legate de cerințe. |
+| **Contracte și invariante** | 1 | Obligații și garanții ale operațiilor importante; reguli care trebuie să rămână adevărate; verificări și contraexemple legate de cerințe. |
 | **Stare și comportament** | 1 | Comportamente și tranziții permise, condiții și efecte; scenarii normale și excepționale care verifică modelul; concordanță cu regulile domeniului. |
 | **Responsabilități, coeziune și cuplare** | 1 | Cine răspunde de fiecare decizie sau comportament important; justificarea grupării responsabilităților, a dependențelor și a interfețelor, prin alternative și prin consecințele unei schimbări. |
 | **Total dosar de proiectare** | **5** | Dosarul se evaluează o singură dată pentru echipă. |
@@ -67,17 +67,17 @@ Alegeți reprezentări potrivite întrebărilor: glosar, exemple, tabel de respo
 
 ## Lucrul cu AI și rezultatele revizuirii
 
-Puteți alege instrumentele și modelele AI. Definiți explicit rolurile, de exemplu analist, proiectant și evaluator (agent de revizuire), și informațiile predate între ele. Înainte de a delega, formulați voi problema, constrângerile și criteriile după care veți judeca rezultatul.
+Puteți alege instrumentele și modelele AI. Definiți explicit rolurile, de exemplu analist, proiectant și evaluator (agent de revizuire), și ce informații își transmit. Înainte de a delega, formulați voi problema, constrângerile și criteriile după care veți judeca rezultatul.
 
 Includeți o revizuire într-o **sesiune sau într-un context nou**, care primește specificația și proiectarea curente, întrebările de verificat și criteriile de acceptare. Același model poate fi folosit într-un context separat. Agentul de revizuire trebuie să poată examina modelele și verificările, inclusiv atunci când sinteza omite un detaliu important.
 
-Documentați concis o decizie importantă și parcursul revizuirii ei: ce a fost delegat, ce context a fost transmis, ce constatare ați verificat, ce ați acceptat sau respins și de ce. Legați explicația de versiunea relevantă a modelului și de un exemplu sau de altă justificare verificabilă. Dacă revizuirea nu găsește un defect, arătați ce a fost verificat și ce concluzie permite verificarea; nu inventați greșeli pentru dosar.
+Documentați concis o decizie importantă și parcursul revizuirii ei: ce a fost delegat, ce context a fost transmis, ce constatare ați verificat, ce ați acceptat sau respins și de ce. Legați explicația de versiunea relevantă a modelului și de un exemplu sau de altă justificare verificabilă. Dacă revizuirea nu găsește un defect, arătați ce s-a verificat și ce concluzie se poate trage; nu inventați greșeli pentru dosar.
 
-Fragmentele de conversație pot susține explicația. O transcriere integrală nu înlocuiește sinteza și raționamentul vostru. Indicați instrumentul și modelul folosite, în măsura în care această informație este disponibilă; evaluarea privește deciziile și justificarea lor, fără a cere reproducerea exactă a textului generat. Consultați, de asemenea, [ghidul de pregătire a mediului de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md) și [ghidul despre roluri, predarea sarcinilor și revizuire](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md).
+Fragmentele de conversație pot susține explicația. O transcriere integrală nu înlocuiește sinteza și raționamentul vostru. Indicați instrumentul și modelul folosite, dacă aveți această informație; se evaluează deciziile și justificarea lor, nu se cere ca textul generat să poată fi reprodus exact. Consultați, de asemenea, [ghidul de pregătire a mediului de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md) și [ghidul despre roluri, predarea sarcinilor și revizuire](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md).
 
 ## Feedback pe parcursul semestrului și laboratorul deschis
 
-**Echipa poate cere oricând feedback profesorului în timpul semestrului**, prin canalul Teams al cursului sau în cadrul întâlnirilor. Includeți linkul către materialul relevant din repository și întrebarea pe care doriți să o clarificați. Feedbackul vă ajută să îmbunătățiți dosarul; nu există o evaluare intermediară programată sau un punctaj separat pentru această activitate.
+**Echipa poate cere oricând feedback profesorului în timpul semestrului**, prin canalul Teams al cursului sau în cadrul întâlnirilor. Includeți linkul către materialul în cauză din repository și întrebarea pe care doriți să o clarificați. Feedbackul vă ajută să îmbunătățiți dosarul; nu există o evaluare intermediară programată sau un punctaj separat pentru această activitate.
 
 Doar **ultimele două laboratoare** sunt dedicate efectiv proiectului. Laboratoarele 1–5 tratează, prin exerciții pe probleme distincte, teme importante ale cursului: înțelegere, specificare și revizuire (cursurile 1–2); cerințe și modelarea domeniului (3–4); responsabilități, contracte și invariante (5–6); stări, comportament și interacțiuni (7–8); validare și abstractizare (9–10). Fiecare laborator are loc după predarea celor două cursuri asociate.
 
@@ -85,17 +85,17 @@ Doar **ultimele două laboratoare** sunt dedicate efectiv proiectului. Laboratoa
 
 ## Interviul de susținere&nbsp;— ultimul laborator
 
-La **laboratorul 7**, profesorul definitivează punctajul pentru dosarul echipei printr-un **interviu de aproximativ 8&nbsp;minute**, cu întrebări despre aspectele neclare, la care echipa poate răspunde. Dosarul din repository-ul public trebuie să fie definitivat cu aproximativ o săptămână înainte de interviu, pentru a putea fi citit; termenul exact și programarea echipelor vor fi anunțate pe Teams.
+La **laboratorul 7**, profesorul definitivează punctajul pentru dosarul echipei printr-un **interviu de aproximativ 8&nbsp;minute**, cu întrebări despre aspectele neclare, la care răspunde echipa. Dosarul din repository-ul public trebuie definitivat cu aproximativ o săptămână înainte de interviu, ca să poată fi citit; termenul exact și programarea echipelor vor fi anunțate pe Teams.
 
-Discuția pornește de la dosarul citit de profesor. Echipa poate consulta repository-ul și poate indica cerințele, deciziile, contribuțiile și verificările relevante pentru clarificări. Nu este necesară pregătirea unei prezentări sau a unor diapozitive.
+Discuția pornește de la dosarul citit de profesor. Echipa poate consulta repository-ul și poate arăta, pentru clarificare, cerințele, deciziile, contribuțiile și verificările în cauză. Nu trebuie să pregătiți o prezentare sau diapozitive.
 
 Profesorul stabilește punctajul final de echipă pe **cele cinci criterii ale dosarului**, ținând cont de clarificările din interviu. Interviul nu are punctaj separat. Întrebările sunt adresate echipei; nu se organizează o examinare orală distinctă pentru fiecare student.
 
 ## Examen grilă individual&nbsp;— 3&nbsp;puncte
 
-Examenul verifică aplicarea principiilor de analiză și proiectare în **scenarii scurte**, individual și fără AI. Întrebările urmăresc interpretarea cerințelor, modelarea domeniului, responsabilitățile și dependențele, contractele și invariantele, starea și comportamentul, precum și rezultatele validării.
+Examenul verifică, individual și fără AI, cum aplicați principiile de analiză și proiectare în **scenarii scurte**. Întrebările urmăresc interpretarea cerințelor, modelarea domeniului, responsabilitățile și dependențele, contractele și invariantele, starea și comportamentul, precum și rezultatele validării.
 
-Pregătiți-vă să identificați o ipoteză nejustificată, să comparați variante de proiectare, să interpretați un contraexemplu sau să urmăriți efectele unei schimbări. Evaluarea privește raționamentul aplicat situației descrise, fără întrebări de memorare a detaliilor unei notații. Formatul detaliat și condițiile de organizare vor fi anunțate separat.
+Pregătiți-vă să identificați o ipoteză nejustificată, să comparați variante de proiectare, să interpretați un contraexemplu sau să urmăriți efectele unei schimbări. Se evaluează raționamentul aplicat situației descrise; nu există întrebări care cer memorarea detaliilor unei notații. Formatul detaliat și condițiile de organizare vor fi anunțate separat.
 
 ## Nota finală
 

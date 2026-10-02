@@ -6,7 +6,7 @@ date: "2026"
 
 # Lab 7: Interviu de susținere a proiectului
 
-Profesorul citește dosarul înainte de laborator și definitivează nota echipei prin întrebări asupra punctelor neclare, la care echipa poate răspunde.
+Profesorul citește dosarul înainte de laborator și definitivează nota echipei prin întrebări despre punctele neclare, la care răspunde echipa.
 
 Aproximativ **8 minute pentru fiecare echipă**, conform programării anunțate pe Teams.
 
@@ -35,17 +35,17 @@ Legătura cu tema: Echipa explică și își asumă deciziile din dosar, inclusi
 # Înainte de interviu
 
 - Puneți dosarul și materialele care îl susțin în repository-ul public al proiectului.
-- Definitivați repository-ul cu aproximativ o săptămână înainte de interviu, pentru a permite lectura dosarului; termenul exact este anunțat pe Teams.
-- Pregătiți accesul rapid de la sinteză la cerințe, decizii și verificări.
+- Definitivați repository-ul cu aproximativ o săptămână înainte de interviu, ca dosarul să poată fi citit; termenul exact este anunțat pe Teams.
+- Asigurați-vă că din sinteză se ajunge repede la cerințe, decizii și verificări.
 - Păstrați evidența contribuțiilor membrilor și istoricul progresului.
 
-Dezvoltarea și commit-urile pot fi asistate de AI; echipa răspunde pentru conținutul publicat și îl asumă.
+Puteți folosi AI pentru dezvoltare și commit-uri; echipa își asumă conținutul publicat și răspunde pentru el.
 
 ---
 
 # Discuția pornește de la dosar
 
-Profesorul indică punctele care au nevoie de clarificare. Echipa poate consulta repository-ul și poate arăta materialele relevante.
+Profesorul indică punctele care au nevoie de clarificare. Echipa poate consulta repository-ul și poate arăta materialele la care se referă întrebarea.
 
 Exemple de întrebări:
 
@@ -69,4 +69,4 @@ Exemple de întrebări:
 | Responsabilități, coeziune și cuplare | 1 |
 | **Total dosar de echipă** | **5** |
 
-Profesorul definitivează punctajul pe aceste criterii, ținând cont de clarificările din interviu. Interviul nu are punctaj separat; examenul grilă evaluează individual.
+Profesorul definitivează punctajul pe aceste criterii, ținând cont de clarificările din interviu. Interviul nu are punctaj separat; evaluarea individuală se face prin examenul grilă.

@@ -32,7 +32,7 @@ Variantă de rezervă pentru cadrul didactic. Precizați explicit că aceste mat
 Regulile de alocare și de prioritate în coadă nu sunt incluse.
 
 ::: notes
-Aceste fapte rezumă R1–R6. Solicitările duplicate pentru aceeași pereche membru/titlu sunt respinse. Exercițiul presupune identificatori cunoscuți și operații procesate pe rând. Păstrați enunțul complet la îndemână, astfel încât rezumatul să nu fie confundat cu totalitatea cerințelor.
+Aceste fapte rezumă R1–R6. Solicitările duplicate pentru aceeași pereche membru/titlu sunt respinse. Exercițiul presupune identificatori cunoscuți și operații procesate pe rând. Păstrați enunțul complet la îndemână, ca rezumatul să nu fie luat drept lista completă a cerințelor.
 :::
 
 ---
@@ -50,7 +50,7 @@ Aceste fapte rezumă R1–R6. Solicitările duplicate pentru aceeași pereche me
 O solicitare schimbă aceeași stare în „solicitată”.
 
 ::: notes
-Aceasta este o variantă intenționat greșită. Nu o prezentați drept rezultat generat. Defectele de investigat sunt absența identității exemplarului și stările mutual exclusive atribuite titlului. Lipsa semnăturilor complete ale metodelor nu este în sine o eroare.
+Aceasta este o variantă intenționat greșită. Nu o prezentați drept rezultat generat. Defectele de urmărit: lipsește identitatea exemplarului, iar titlului i se atribuie stări care se exclud reciproc. Lipsa semnăturilor complete ale metodelor nu este în sine o eroare.
 :::
 
 ---
@@ -68,14 +68,14 @@ Toate cele trei operații sunt permise de enunț.
 **Poate varianta A să reprezinte rezultatul și să identifice exemplarul fiecărui împrumut?**
 
 ::: notes
-Alocați două minute. Studenții trebuie să explice că starea de la nivelul titlului suprascrie fapte independente și că un împrumut legat doar de T nu indică dacă a fost împrumutat C1 sau C2. Cereți referiri la R1, R2, R4–R5 și S2.
+Lăsați două minute. Studenții trebuie să explice că starea de la nivelul titlului suprascrie fapte independente și că un împrumut legat doar de T nu indică dacă a fost împrumutat C1 sau C2. Cereți trimiteri la R1, R2, R4–R5 și S2.
 :::
 
 ---
 
 # Diagnosticați înainte de a corecta
 
-Adăugarea indicatorului `has_request` ar separa existența solicitării.
+Un indicator `has_request` ar reține separat dacă există o solicitare.
 
 Ar rămâne însă:
 
@@ -83,10 +83,10 @@ Ar rămâne însă:
 - Lipsa identității exemplarului pentru fiecare împrumut.
 - Imposibilitatea de a aplica separat regula împrumutului activ pentru C1 și C2.
 
-Corecția are nevoie de distincția lipsă din domeniu.
+Corecția trebuie să introducă distincția din domeniu care lipsește.
 
 ::: notes
-Un indicator poate rezolva o problemă fără a o rezolva pe alta. Nu predați „indicatorii sunt răi” sau „introduceți întotdeauna un șablon de proiectare”. Explicați ce cerință abordează fiecare schimbare propusă.
+Un indicator poate rezolva o problemă fără a o rezolva pe alta. Nu predați „indicatorii sunt răi” sau „introduceți întotdeauna un șablon de proiectare”. Explicați ce cerință tratează fiecare schimbare propusă.
 :::
 
 ---
@@ -102,7 +102,7 @@ Un indicator poate rezolva o problemă fără a o rezolva pe alta. Nu predați �
 
 **Gestionarea împrumuturilor** impune regula împrumutului activ.
 
-**Înregistrarea solicitărilor** păstrează independența solicitărilor față de împrumuturi.
+**Înregistrarea solicitărilor** ține solicitările independente de împrumuturi.
 
 ::: notes
 Acestea sunt responsabilități conceptuale, nu servicii sau clase obligatorii. Ele pot fi exprimate printr-o reprezentare funcțională, bazată pe obiecte sau relațională.
@@ -116,12 +116,12 @@ Acestea sunt responsabilități conceptuale, nu servicii sau clase obligatorii. 
 - Împrumut C1 din nou: respinge; păstrează împrumutul existent.
 - Returnare C1: închide împrumutul activ; păstrează istoricul.
 - Returnare C1 din nou: respinge; lasă istoricul neschimbat.
-- Înregistrarea de două ori a aceleiași solicitări membru/titlu: respinge duplicatul.
+- Aceeași solicitare membru/titlu, înregistrată de două ori: respinge duplicatul.
 
 Solicitările nu modifică disponibilitatea exemplarelor în această parte a sistemului.
 
 ::: notes
-Legați fiecare rezultat de R2–R5. Referința completă explică comportamentul din S1–S5. Aceste parcurgeri nu demonstrează că orice cod implementează corect proiectarea.
+Legați fiecare rezultat de R2–R5. Referința completă explică comportamentul din S1–S5. Parcurgerea lor nu demonstrează că o implementare respectă proiectarea.
 :::
 
 ---
@@ -137,7 +137,7 @@ Care afirmație este susținută de enunț?
 Pentru fiecare, citați o regulă și un scenariu.
 
 ::: notes
-Ambele afirmații sunt create pentru acest exercițiu. A este susținută de R1–R3 și S1/S4: un împrumut asociat doar titlului pierde identitatea necesară a exemplarului. B contrazice R5 și S2. Nu le acceptați pe amândouă doar fiindcă apar într-o revizuire.
+Ambele afirmații au fost scrise pentru acest exercițiu. A este susținută de R1–R3 și S1/S4: un împrumut asociat doar titlului pierde identitatea necesară a exemplarului. B contrazice R5 și S2. Nu le acceptați pe amândouă doar fiindcă apar într-o revizuire.
 :::
 
 ---
@@ -153,7 +153,7 @@ Ambele afirmații sunt create pentru acest exercițiu. A este susținută de R1�
 Agentul de revizuire ajută la examinarea lucrării. Voi evaluați constatarea.
 
 ::: notes
-Întrebarea despre concurență devine importantă dacă extindem domeniul de lucru. Explicați că delimitarea exemplului nu rezolvă o viitoare implementare concurentă.
+Întrebarea despre concurență devine importantă dacă lărgim limitele problemei. Explicați că delimitarea exemplului doar lasă deoparte problema unei viitoare implementări concurente; nu o rezolvă.
 :::
 
 ---
@@ -165,13 +165,13 @@ Am fi întrebat în continuare:
 - Ce scenariu arată identitatea independentă a exemplarelor?
 - Cine păstrează regula împrumutului activ?
 - Ce păstrează returnarea?
-- Ce alegeri rămân în afara domeniului de lucru?
+- Ce alegeri rămân în afara limitelor problemei?
 - Ce ar schimba rezervările cu exemplare alocate?
 
 Un rezultat corect ne permite să explicăm de ce funcționează.
 
 ::: notes
-Aceasta este ruta alternativă atunci când agentul din demonstrație produce o proiectare bună. Nu există o cotă de defecte și nu trebuie fabricat un eșec.
+Folosiți această cale când agentul din demonstrație produce o proiectare bună. Nu există o cotă de defecte și nu trebuie provocat artificial un eșec.
 :::
 
 ---
@@ -180,13 +180,13 @@ Aceasta este ruta alternativă atunci când agentul din demonstrație produce o 
 
 Un pachet compact:
 
-- Enunțul convenit și delimitarea domeniului de lucru.
+- Enunțul convenit și limitele problemei.
 - Concepte, responsabilități, contracte și comportament.
 - Verificări prin scenarii și întrebări deschise.
 - Constatările revizuirii și motivele acceptării sau respingerii lor.
 
-Urmează: un plan detaliat pentru această parte, cu limitele păstrate.
+Urmează un plan detaliat pentru această parte, în aceleași limite.
 
 ::: notes
-Reveniți la curs. Fluxul de lucru stabilește o specificație și o proiectare substanțiale înainte de implementare. Predarea sarcinii din demonstrație privește o parte delimitată, nu o aplicație de bibliotecă pregătită pentru producție.
+Reveniți la curs. În fluxul de lucru, specificația și proiectarea se elaborează temeinic înainte de implementare. Predarea sarcinii din demonstrație privește o parte delimitată, nu o aplicație de bibliotecă pregătită pentru producție.
 :::

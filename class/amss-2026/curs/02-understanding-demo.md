@@ -1,6 +1,6 @@
-# Demonstrație pentru Cursul 2 — Înțelegere înainte de delegare
+# Demonstrație pentru Cursul 2 — Înțelegem înainte de a delega
 
-Ghid pentru cadrul didactic; nu este o prezentare. Alocați aproximativ 15–18 minute secvenței demonstrative, inclusiv raționamentului studenților. Folosiți orice asistent accesibil și un context separat pentru revizuire (review). Nu sunt necesari furnizori diferiți sau agenți care rulează simultan.
+Ghid pentru cadrul didactic; nu este o prezentare. Alocați demonstrației aproximativ 15–18 minute, inclusiv timpul în care studenții analizează singuri. Folosiți orice asistent accesibil și un context separat pentru revizuire (review). Nu sunt necesari furnizori diferiți sau agenți care rulează simultan.
 
 ## Obiectiv didactic
 
@@ -17,7 +17,7 @@ La curs, studenții au formulat deja întrebări și au primit clarificările de
 
 Folosiți un spațiu de lucru temporar care conține enunțul sau atașați/lipiți enunțul în asistentul ales. Nu includeți răspunsul de referință în contextul inițial al agentului. Pregătiți o a doua conversație, nouă, pentru revizuire. Nu afișați informații private ale contului.
 
-Înainte de curs, încercați prompturile cu instrumentul disponibil pentru a estima durata. Dacă salvați un răspuns real, precizați instrumentul/modelul, data, promptul și setările relevante. Varianta de rezervă din depozit este un exemplu creat pentru predare și nu trebuie descrisă niciodată drept o captură a unei rulări.
+Înainte de curs, încercați prompturile cu instrumentul disponibil pentru a estima durata. Dacă salvați un răspuns real, precizați instrumentul/modelul, data, promptul și setările folosite. Varianta de rezervă din repository este un exemplu creat pentru predare și nu trebuie descrisă niciodată drept o captură a unei rulări.
 
 ## 1. Cereți studenților să anticipeze distincțiile necesare (2 minute)
 
@@ -25,21 +25,21 @@ Folosiți un spațiu de lucru temporar care conține enunțul sau atașați/lipi
 
 > „Ce trebuie să păstreze răspunsul, chiar dacă agentul alege alte denumiri sau o altă reprezentare?”
 
-Urmăriți distincția titlu–exemplar, membrul și exemplarul asociate unui împrumut, cel mult un împrumut activ pentru fiecare exemplar și coexistența unei solicitări pentru titlu cu împrumuturile. Invitați un student să indice regula care îi susține răspunsul.
+Urmăriți distincția titlu–exemplar, membrul și exemplarul asociate unui împrumut, cel mult un împrumut activ pentru fiecare exemplar și coexistența unei solicitări pentru titlu cu împrumuturile. Cereți unui student să indice regula pe care se sprijină răspunsul.
 
 ## 2. Prompt pentru analist/proiectant (3–4 minute, inclusiv lectura)
 
-Furnizați enunțul complet, cu clarificări, apoi folosiți:
+Dați agentului enunțul complet, cu clarificări, apoi folosiți promptul:
 
-> Acționează ca analist și proiectant. Citește enunțul bibliotecii, inclusiv R1–R6 și S1–S5. Produce un document compact de proiectare pentru această parte delimitată a sistemului, nu o aplicație.
+> Ai rolul de analist și proiectant. Citește enunțul bibliotecii, inclusiv R1–R6 și S1–S5. Redactează un document de proiectare concis pentru această parte delimitată a sistemului, nu o aplicație.
 >
-> Identifică conceptele și distincțiile relevante ale domeniului; atribuie responsabilitățile pentru cele trei operații; enunță invariantul împrumutului activ și rezultatele în caz de succes/respingere; parcurge scenariile furnizate folosind proiectarea ta. Citează identificatorii regulilor care susțin deciziile cu consecințe importante.
+> Identifică conceptele domeniului și distincțiile importante dintre ele; atribuie responsabilitățile pentru cele trei operații; enunță invariantul împrumutului activ și rezultatele operațiilor în caz de succes și de respingere; parcurge scenariile din enunț pe proiectarea ta. Citează identificatorii regulilor care susțin deciziile cu consecințe importante.
 >
-> Separă cerințele confirmate, alegerile de proiectare și întrebările deschise. Respectă excluderile precizate. Folosește proză, tabele sau pseudocod scurt; folosește o diagramă numai dacă aceasta clarifică un aspect. Păstrează rezultatul suficient de scurt pentru a putea fi examinat la curs. Încheie precizând ce este pregătit pentru etapa următoare și ce nu este acoperit de această afirmație.
+> Separă cerințele confirmate, alegerile de proiectare și întrebările deschise. Respectă excluderile precizate. Folosește proză, tabele sau pseudocod scurt; folosește o diagramă numai dacă lămurește ceva anume. Rezultatul trebuie să fie destul de scurt ca să poată fi examinat la curs. Încheie cu ce este pregătit pentru etapa următoare și ce nu acoperă această afirmație.
 
 Pentru un asistent care lucrează cu fișiere, cereți `design-brief.md` în spațiul demonstrației. Pentru un asistent conversațional, folosiți răspunsul său ca document de lucru. Niciuna dintre variante nu impune un instrument pentru întregul curs.
 
-În timpul generării, cereți studenților să anticipeze starea de după S2. Dacă răspunsul nu este disponibil după aproximativ 45 de secunde sau este prea lung pentru a fi examinat în timpul alocat, treceți la exemplul pregătit. Nu sacrificați discuția pentru a aștepta instrumentul.
+În timpul generării, cereți studenților să anticipeze starea de după S2. Dacă răspunsul nu apare în aproximativ 45 de secunde sau este prea lung pentru a fi examinat în timpul alocat, treceți la exemplul pregătit. Nu sacrificați discuția așteptând instrumentul.
 
 ## 3. Examinați proiectarea, dincolo de prezentare (3 minute)
 
@@ -50,13 +50,13 @@ Arătați o decizie despre concepte, un contract și un scenariu.
 | Este clar dacă „o carte” desemnează un titlu sau un exemplar? | R1 și S1 |
 | Pot coexista două exemplare împrumutate independent și o solicitare pentru titlu? | R2, R4–R5 și S2 |
 | Cine impune regula împrumutului activ? | Atribuirea responsabilităților și R2 |
-| Lasă o încercare respinsă de împrumut împrumutul existent neschimbat? | R2 și S3 |
+| Rămâne neschimbat împrumutul existent după o încercare de împrumut respinsă? | R2 și S3 |
 | Păstrează returnarea istoricul? | R3 și S4 |
 | Sunt inventate reguli de coadă/alocare sau de concurență? | Limita stabilită prin R6 |
 
-Alegeți întrebările cu consecințe importante care se potrivesc răspunsului primit. Nu considerați defecte denumirile alternative, o altă descompunere sau o reprezentare opțională.
+Dintre întrebările cu consecințe importante, alegeți-le pe cele potrivite răspunsului primit. Nu considerați defecte denumirile alternative, o altă descompunere sau o reprezentare opțională.
 
-**Dacă răspunsul este corect:** cereți unui student să justifice S2 folosind documentul, apoi întrebați ce se schimbă dacă beneficiarul dorește ulterior rezervări cu exemplare alocate. Identificați noua decizie fără a o implementa. Nu trebuie să forțați un eșec al unui răspuns corect.
+**Dacă răspunsul este corect:** cereți unui student să justifice S2 folosind documentul, apoi întrebați ce se schimbă dacă beneficiarul dorește ulterior rezervări cu exemplare alocate. Identificați noua decizie fără a o implementa. Nu căutați cu orice preț o greșeală într-un răspuns corect.
 
 **Dacă există un defect semnificativ:** cereți studenților scenariul care îl evidențiază. Formulați o corecție punctuală susținută de enunț, apoi verificați din nou regula afectată și încă un scenariu.
 
@@ -64,13 +64,13 @@ Alegeți întrebările cu consecințe importante care se potrivesc răspunsului 
 
 ## 4. Predarea sarcinii și a contextului către un agent de revizuire (handoff) (3–4 minute)
 
-Deschideți contextul separat. Furnizați enunțul original și documentul de proiectare; nu presupuneți că prima conversație este vizibilă.
+Deschideți contextul separat. Dați-i agentului enunțul original și documentul de proiectare; nu presupuneți că vede prima conversație.
 
-> Acționează ca agent de revizuire. Evaluează proiectarea propusă pentru bibliotecă în raport cu R1–R6 și S1–S5 furnizate. Nu modifica proiectarea.
+> Ai rolul de agent de revizuire. Evaluează proiectarea propusă pentru bibliotecă față de regulile R1–R6 și scenariile S1–S5 din enunț. Nu modifica proiectarea.
 >
-> Verifică distincțiile din domeniu, responsabilitatea pentru regula împrumutului activ, rezultatele operațiilor, consistența cu scenariile și afirmația că proiectarea este pregătită pentru etapa următoare.
+> Verifică distincțiile din domeniu, cui îi revine regula împrumutului activ, rezultatele operațiilor, concordanța cu scenariile și afirmația că proiectarea este pregătită pentru etapa următoare.
 >
-> Pentru fiecare constatare semnificativă, identifică regula din enunț, afirmația relevantă din proiectare și un contraexemplu concret sau altă justificare verificabilă. Distinge un defect de o alternativă opțională de proiectare și de o întrebare despre o extindere viitoare. Dacă nu găsești niciun defect semnificativ, precizează ce ai verificat și ce nu stabilește revizuirea. Nu adăuga cerințe excluse prin R6.
+> Pentru fiecare constatare semnificativă, identifică regula din enunț, afirmația vizată din proiectare și un contraexemplu concret sau altă justificare verificabilă. Distinge un defect de o alternativă opțională de proiectare și de o întrebare despre o extindere viitoare. Dacă nu găsești niciun defect semnificativ, precizează ce ai verificat și ce nu stabilește revizuirea. Nu adăuga cerințe excluse prin R6.
 
 Contextul nou poate folosi același model. Explicați că separarea face explicită predarea sarcinii și a contextului; nu garantează o revizuire imparțială sau corectă.
 
@@ -81,15 +81,15 @@ Alegeți o constatare din răspunsul primit. Cereți studenților să o clasific
 - defect susținut de enunț;
 - alternativă rezonabilă ale cărei avantaje și dezavantaje trebuie cântărite;
 - afirmație nesusținută; sau
-- întrebare din afara domeniului de lucru actual.
+- întrebare care iese din limitele exercițiului actual.
 
-Cereți regula și scenariul relevante.
+Cereți regula și scenariul pe care se sprijină clasificarea.
 
-Dacă revizuirea nu oferă o afirmație potrivită pentru discuție, folosiți următorul exercițiu, precizând că este pregătit:
+Dacă revizuirea nu oferă o afirmație potrivită pentru discuție, folosiți exercițiul următor, precizând că a fost pregătit dinainte:
 
 > „Un titlu cu o solicitare activă nu trebuie să poată fi împrumutat.”
 
-Potrivit R5, această afirmație nu susține existența unui defect. O regulă de alocare propusă pentru viitor este o discuție separată. Nu atribuiți această propoziție pregătită agentului de revizuire folosit în demonstrație.
+Potrivit R5, această afirmație nu indică un defect. O regulă de alocare propusă pentru viitor este o discuție separată. Nu atribuiți această propoziție pregătită agentului de revizuire folosit în demonstrație.
 
 Consemnați pe scurt decizia:
 
@@ -117,15 +117,15 @@ Deschideți prezentarea de rezervă și spuneți:
 
 > „Acesta este un exemplu pregătit pentru predare. Ne permite să exersăm același raționament fără să așteptăm generarea în direct.”
 
-Prezentarea conține o proiectare intenționat incompletă, un contraexemplu, o corecție de referință, o constatare de revizuire susținută de enunț și una nesusținută. Studenții efectuează aceleași verificări pe baza regulilor și scenariilor. Referința pregătită este o soluție acceptabilă, nu un model obligatoriu de obiecte.
+Prezentarea conține o proiectare intenționat incompletă, un contraexemplu, o corecție de referință, o constatare de revizuire susținută de enunț și una nesusținută. Studenții fac aceleași verificări pe baza regulilor și scenariilor. Referința pregătită este o soluție acceptabilă, nu un model obligatoriu de obiecte.
 
 ## Gestionarea abaterilor frecvente
 
-- **Agentul pune o întrebare legitimă:** răspundeți numai pe baza enunțului. Dacă decizia cerută este în afara domeniului de lucru, consemnați-o pentru o etapă ulterioară. Dacă enunțul omite într-adevăr o regulă necesară din domeniul de lucru, recunoașteți lipsa și furnizați explicit o ipoteză didactică.
-- **Agentul scrie codul aplicației:** opriți această direcție și reiterați că rezultatul cerut se limitează la proiectare. Nu consumați timpul cursului evaluând o implementare care nu a fost cerută.
-- **Agentul recomandă un anumit framework sau tipar de proiectare:** întrebați ce cerință sau variație îl justifică. Păstrați-l numai dacă beneficiul poate fi explicat.
+- **Agentul pune o întrebare legitimă:** răspundeți numai pe baza enunțului. Dacă decizia cerută iese din limitele exercițiului, consemnați-o pentru o etapă ulterioară. Dacă enunțului îi lipsește într-adevăr o regulă necesară în aceste limite, recunoașteți lipsa și formulați explicit o ipoteză didactică.
+- **Agentul scrie codul aplicației:** opriți-l și amintiți că se cere doar proiectarea. Nu consumați timpul cursului evaluând o implementare care nu a fost cerută.
+- **Agentul recomandă un anumit framework sau șablon de proiectare:** întrebați ce cerință sau variație îl justifică. Păstrați-l numai dacă beneficiul poate fi explicat.
 - **Studenții resping o proiectare pentru că nu are diagramă:** întrebați la ce întrebare nu pot răspunde. Adăugați o reprezentare doar pentru a clarifica acea întrebare.
-- **Agentul de revizuire inventează cerințe de producție:** distingeți o cerință reală de extindere de un defect al exercițiului delimitat.
+- **Agentul de revizuire inventează cerințe de producție:** deosebiți o cerință reală pentru o extindere de un defect al exercițiului delimitat.
 - **Toate rezultatele generate sunt corecte:** cereți studenților să explice ce susține afirmația și care îi sunt limitele. Aceasta este o delegare reușită.
 
 ## Listă de verificare pentru repetiție

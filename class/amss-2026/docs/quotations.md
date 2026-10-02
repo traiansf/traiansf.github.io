@@ -1,8 +1,8 @@
 # Citatele cursurilor și laboratoarelor AMSS 2026/2027
 
-Verificate la 1 octombrie 2026. Fiecare prezentare are, pe slide-ul „Citatul zilei”, un citat în română, autorul și un link către sursă. Formularea originală apare pe slide, sub traducere („Original: …”), într-un al doilea paragraf al citatului. Reperul și legătura cu tema sunt în notele slide-ului; în Cursul 1, pagina este indicată chiar în linia sursei. Fragmentele scurtate au omisiunile marcate. Nu modificați formularea fără reverificarea sursei.
+Verificate la 1 octombrie 2026. Fiecare prezentare are, pe slide-ul „Citatul zilei”, un citat tradus în română, numele autorului și un link către sursă. Formularea originală apare pe slide, sub traducere („Original: …”), într-un al doilea paragraf al citatului. Reperul și legătura cu tema sunt în notele slide-ului; în Cursul 1, pagina este indicată chiar în rândul cu sursa. În fragmentele scurtate, omisiunile sunt marcate. Nu modificați formularea fără să verificați din nou sursa.
 
-Inventarul urmează ordinea nouă a cursurilor; prefixele fișierelor vechi nu sunt numerele săptămânilor. Introducerea citatului nu înseamnă că un material nerevizuit este finalizat sau publicat.
+Tabelul urmează noua ordine a cursurilor; prefixele numerice ale fișierelor vechi nu corespund săptămânilor. Faptul că un material nerevizuit are deja citatul nu înseamnă că este finalizat sau publicat.
 
 | Întâlnire | Fișier | Autor | Sursă |
 |---|---|---|---|
@@ -34,18 +34,18 @@ Inventarul urmează ordinea nouă a cursurilor; prefixele fișierelor vechi nu s
 - **Edsger W. Dijkstra — How do we tell truths that might hurt? — EWD498:** Transcriere universitară, afirmația marcată ca adnotare manuscrisă; originalul este în arhiva Dijkstra de la UT Austin, EWD498.
 - **Frederick P. Brooks, Jr. — No Silver Bullet — Essence and Accident in Software Engineering:** Textul original, secțiunea Requirements refinement and rapid prototyping, pagina numerotată 13 (pagina PDF 13).
 - **Eric Evans — Domain-Driven Design Reference — definiția modelului:** Publicația autorului, Definitions, intrarea model, pagina PDF 6. Fragmentul se oprește după domain; omisiunea finalului este marcată.
-- **David L. Parnas — On the Criteria To Be Used in Decomposing Systems into Modules:** Articol original CACM 15(12), 1972, secțiunea Conclusion, pagina 1058 (pagina PDF 6). Decizia se referă la o alegere dificilă sau susceptibilă de schimbare.
+- **David L. Parnas — On the Criteria To Be Used in Decomposing Systems into Modules:** Articol original CACM 15(12), 1972, secțiunea Conclusion, pagina 1058 (pagina PDF 6). Decizia de care vorbește citatul este o alegere dificilă sau care se poate schimba.
 - **Bertrand Meyer — Object-Oriented Software Construction, ediția a doua:** Cartea pusă la dispoziție pe site-ul autorului, §25.3, Using assertions, pagina tipărită 873. Formularea a fost verificată în fragmentul indexat al sursei originale; reperul sigur este pagina tipărită, nu numerotarea PDF.
 - **Leslie Lamport — Computation and State Machines (2008):** Manuscris pe site-ul autorului, prima propoziție din Introduction, pagina numerotată 1 (pagina PDF 4).
-- **Melvin E. Conway — Conway’s Law — formularea autorului:** Pagina autorului, formularea introdusă prin Here is one form of the paper's thesis; distingeți formularea aceasta de variantele din alte surse.
+- **Melvin E. Conway — Conway’s Law — formularea autorului:** Pagina autorului, formularea introdusă prin Here is one form of the paper's thesis; nu o confundați cu variantele din alte surse.
 - **Edsger W. Dijkstra — Concern for Correctness as a Guiding Principle for Program Composition — EWD288:** Arhiva universitară a autorului, paragraful The first moral of this story. Fragment din afirmația despre testarea programelor; începutul omis este marcat.
-- **Barbara Liskov și Stephen Zilles — Programming with Abstract Data Types (1974):** Copie a articolului original, The Meaning of Abstraction, pagina 51 (pagina PDF 2). Se păstrează atribuirea ambilor autori.
-- **Martin Fowler — Refactoring — definiția autorului:** Site-ul autorului, definiția de la începutul paginii. Nu confundați refactorizarea cu o schimbare de cerință sau orice formă de restructurare.
-- **Leslie Lamport — Interviu Developing Dev — Why writing improves your thinking:** Interviu primar cu transcript: 00:54:45, intervievatorul reproduce citatul; Lamport îl explică de la 00:54:59. Secțiunea Why writing improves your thinking.
+- **Barbara Liskov și Stephen Zilles — Programming with Abstract Data Types (1974):** Copie a articolului original, The Meaning of Abstraction, pagina 51 (pagina PDF 2). Citatul se atribuie ambilor autori.
+- **Martin Fowler — Refactoring — definiția autorului:** Site-ul autorului, definiția de la începutul paginii. Nu confundați refactorizarea cu o schimbare de cerință sau cu orice altă restructurare.
+- **Leslie Lamport — Interviu Developing Dev — Why writing improves your thinking:** Sursă primară, interviu cu transcriere: la 00:54:45 intervievatorul reproduce citatul, iar de la 00:54:59 Lamport îl explică. Secțiunea Why writing improves your thinking.
 - **Donald E. Knuth — Literate Programming — prezentarea autorului:** Pagina autorului la Stanford, fragmentul din propoziția The main idea is to; începutul omis este marcat.
 - **Alan J. Perlis — Epigrams in Programming — epigrama 31:** Pagina autorului la Yale, epigrama 31; sursa indică SIGPLAN, septembrie 1982.
 - **Alan J. Perlis — Epigrams in Programming — epigrama 95:** Pagina autorului la Yale, epigrama 95; sursa indică SIGPLAN, septembrie 1982.
 
-Citatul propus de instructor este verificat în scanarea cărții Software Tools in Pascal (1981), la pagina 311. Nu pretindem verificarea paginii din Software Tools (1976), căreia sursa secundară NII îi atribuie aceeași propoziție. Citatul despre simplitate al lui Dijkstra apare ca adnotare manuscrisă în transcrierea de la University of Virginia; transcrierea principală UT Austin omite această adnotare.
+Citatul propus de titularul cursului este verificat pe scanarea cărții Software Tools in Pascal (1981), la pagina 311. Nu susținem că am verificat pagina din Software Tools (1976), căreia sursa secundară, raportul NII, îi atribuie aceeași propoziție. Citatul lui Dijkstra despre simplitate apare ca adnotare manuscrisă în transcrierea de la University of Virginia; transcrierea principală UT Austin omite această adnotare.
 
 Laboratorul 0: Leslie Lamport, „Informatica ar trebui să se ocupe de concepte, nu de limbaje.” Originalul apare sub traducere; contextul este în comentariul ghidului. Sursă primară verificată: [Specifying Systems, prefață, pagina PDF 2](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2).

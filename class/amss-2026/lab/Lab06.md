@@ -12,7 +12,7 @@ Folosiți timpul pentru:
 - întrebări adresate profesorului;
 - discuții între echipe.
 
-După cursurile 11–12, alegeți activitățile potrivite stării proiectului vostru. Puteți discuta și întrebările de proiectare care ar fi fost abordate într-un atelier la curs. Nu este necesară o prezentare sau o repetiție de susținere.
+După cursurile 11–12, alegeți activitățile în funcție de stadiul proiectului vostru. Puteți discuta și întrebările de proiectare care ar fi fost abordate într-un atelier la curs. Nu este necesară o prezentare sau o repetiție de susținere.
 
 ---
 
@@ -38,9 +38,9 @@ Legătura cu tema: Scrierea face deciziile inspectabile; un rezumat trebuie să 
 
 Deschideți repository-ul public de pe GitHub sau GitLab anunțat pe Teams, cu dosarul și materialele curente.
 
-Pentru o întrebare, indicați cerința sau decizia relevantă, ce este neclar și ce variante ați luat în calcul.
+Când aveți o întrebare, indicați cerința sau decizia în cauză, ce este neclar și ce variante ați luat în calcul.
 
-Puteți cere feedback profesorului oricând în timpul semestrului, inclusiv pe Teams, cu legături către materialele relevante.
+Puteți cere feedback profesorului oricând în timpul semestrului, inclusiv pe Teams, cu legături către materialele la care se referă întrebarea.
 
 ---
 
@@ -52,14 +52,14 @@ Puteți cere feedback profesorului oricând în timpul semestrului, inclusiv pe 
 | 5–90 | Finalizarea proiectului, întrebări către profesor și discuții între echipe. |
 | 90–100 | Salvăm progresul și stabilim pașii următori. |
 
-Intervalele organizează timpul disponibil; nu impun livrabile suplimentare sau o ordine obligatorie a activităților.
+Intervalele sunt doar un reper pentru timpul disponibil; nu impun livrabile suplimentare sau o anumită ordine a activităților.
 
 ---
 
-# Păstrați progresul și asumarea
+# Consemnați progresul și asumați-vă rezultatele
 
-Înregistrați în repository deciziile și revizuirile relevante, cu contribuțiile membrilor identificabile.
+Consemnați în repository deciziile și revizuirile importante, astfel încât să se vadă contribuția fiecărui membru.
 
-Dezvoltarea și commit-urile pot fi asistate de AI. Echipa verifică și își asumă conținutul publicat. Numărul de commit-uri nu aduce puncte.
+Puteți folosi AI pentru dezvoltare și pentru commit-uri. Echipa verifică și își asumă conținutul publicat. Numărul de commit-uri nu aduce puncte.
 
 Laboratorul nu are punctaj separat. La Lab 7, profesorul definitivează nota pe dosar printr-un interviu despre punctele neclare. Dosarul din repository trebuie definitivat cu aproximativ o săptămână înainte de interviu.

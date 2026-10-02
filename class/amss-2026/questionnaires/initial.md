@@ -36,7 +36,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -47,7 +47,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -58,7 +58,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -69,7 +69,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -80,7 +80,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -91,7 +91,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 

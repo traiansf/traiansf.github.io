@@ -10,7 +10,7 @@ date: "2026"
 
 Aplicăm cursurile **9–10**, deja predate: proprietăți și limite ale verificării, apoi alegerea unei abstractizări potrivite unei variații.
 
-Lucrăm pe o problemă furnizată, distinctă de proiectele echipelor. Nu presupunem reconstrucția și migrarea unui sistem existent din cursul 11.
+Lucrăm pe o problemă dată, diferită de proiectele echipelor. Nu ne bazăm pe reconstrucția și migrarea unui sistem existent, care se predau abia la cursul 11.
 
 ---
 
@@ -36,7 +36,7 @@ Legătura cu tema: Despre testare: exemplele pot expune o eroare, dar nu dovedes
 
 Un raport de activitate poate fi exportat ca text sau CSV. Câmpurile marcate pentru ascundere trebuie să lipsească în toate formatele.
 
-Vor fi furnizate câmpurile, politica de ascundere, regulile formatelor, înregistrări reprezentative și o posibilă cerință pentru un al treilea format. Streaming-ul și extensiile externe sunt în afara exercițiului.
+Se vor da câmpurile, politica de ascundere, regulile formatelor, înregistrări reprezentative și o posibilă cerință pentru un al treilea format. Streaming-ul și extensiile externe sunt în afara exercițiului.
 
 Ce proprietăți verificăm? Unde păstrăm regula comună și ce poate varia?
 
@@ -48,8 +48,8 @@ Ce proprietăți verificăm? Unde păstrăm regula comună și ce poate varia?
 |---|---|
 | 0–10 | Anticipați individual rezultatele verificărilor. |
 | 10–30 | Formulați proprietățile și limitele modelului. |
-| 30–55 | Examinați și rulați verificările furnizate sau parcurgeți explicit scenarii manuale. |
-| 55–75 | Comparați proiectări când apare un al treilea format. |
+| 30–55 | Examinați și rulați verificările date sau parcurgeți explicit scenarii manuale. |
+| 55–75 | Comparați variante de proiectare pentru cazul în care apare un al treilea format. |
 | 75–90 | Revizuiți separat decizia și justificarea ei. |
 | 90–100 | Explicați alegerea și limitele verificării. |
 
@@ -58,9 +58,9 @@ Ce proprietăți verificăm? Unde păstrăm regula comună și ce poate varia?
 # Ce comparăm și ce păstrăm
 
 - O condiție pe format, funcții separate și o abstractizare pentru formatare.
-- Respectarea aceleiași politici de ascundere în fiecare variantă.
-- Costul introducerii formatului nou și dependențele create.
+- Cum respectă fiecare variantă aceeași politică de ascundere.
+- Cât costă introducerea formatului nou și ce dependențe apar.
 - Proprietățile, rezultatele reale sau scenariile manuale și limitele lor.
 - O alegere justificată, fără a presupune că soluția cea mai extensibilă este întotdeauna mai bună.
 
-Exemplele selectate nu demonstrează singure o proprietate pentru toate intrările. Exercițiul este formativ, fără punctaj separat sau implementarea obligatorie a unei aplicații.
+Exemplele selectate nu demonstrează singure o proprietate pentru toate intrările. Exercițiul este formativ: nu are punctaj separat și nu cere implementarea unei aplicații.

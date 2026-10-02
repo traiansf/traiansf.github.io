@@ -36,7 +36,7 @@ Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte 
 
 # Pornim de la o solicitare
 
-> „Avem nevoie de un terminal de bibliotecă. Membrii împrumută și returnează cărți. Ar trebui să poată solicita o carte și cât timp aceasta este împrumutată.”
+> „Avem nevoie de un terminal de bibliotecă. Membrii împrumută și returnează cărți. Ar trebui să poată și solicita o carte atunci când aceasta este împrumutată.”
 
 Înainte să cereți unui agent să construiască ceva:
 
@@ -59,9 +59,9 @@ Lucrați cu un coleg, inițial **fără AI**.
 Pregătiți-vă să explicați **de ce contează unul dintre răspunsuri**.
 
 ::: notes
-Acordați trei minute, apoi ascultați trei contribuții diferite. Întrebări utile: „carte” înseamnă un titlu sau un exemplar, ce promite o solicitare și ce se întâmplă când doi membri vor același exemplar? Alegerea unui framework pentru interfață privește implementarea; încă nu este incertitudinea cu cea mai mare miză.
+Acordați trei minute, apoi ascultați trei răspunsuri diferite. Întrebări utile: „carte” înseamnă titlu sau exemplar? Ce promite o solicitare? Ce se întâmplă când doi membri vor același exemplar? Alegerea unui framework pentru interfață ține de implementare și nu este, deocamdată, incertitudinea cea mai importantă.
 
-Nu evaluați răspunsurile prin potrivirea cu o listă ascunsă. Întrebați cum influențează fiecare întrebare limitele sistemului, comportamentul sau o decizie de proiectare.
+Nu evaluați răspunsurile comparându-le cu o listă ascunsă. Întrebați cum influențează fiecare întrebare limitele sistemului, comportamentul sau o decizie de proiectare.
 :::
 
 ---
@@ -77,7 +77,7 @@ Pentru acest exercițiu:
 - Solicitările pot exista simultan cu împrumuturile.
 
 ::: notes
-Acestea sunt informații furnizate de beneficiar, nu adevăruri de presupus pentru orice bibliotecă. Regulile complete din scenarios/01-library-kiosk/brief.md precizează și solicitările duplicate, returnările și limitele exercițiului. Explicați că înregistrarea unei solicitări și promisiunea alocării unui exemplar sunt cerințe diferite.
+Acestea sunt informații date de beneficiar, nu adevăruri valabile pentru orice bibliotecă. Regulile complete din scenarios/01-library-kiosk/brief.md precizează și solicitările duplicate, returnările și limitele exercițiului. Explicați că a înregistra o solicitare și a promite alocarea unui exemplar sunt cerințe diferite.
 :::
 
 ---
@@ -94,9 +94,9 @@ Această primă parte a sistemului înregistrează:
 Alocarea exemplarelor, prioritatea în coadă, notificările, amenzile și prelungirea împrumutului rămân decizii viitoare.
 
 ::: notes
-Această delimitare explicită îi împiedică pe studenți să inventeze reguli de așteptare sau alocare și apoi să evalueze soluțiile pe baza lor. Descrie un exercițiu restrâns; nu susține că un serviciu complet de bibliotecă nu are nevoie de o politică de alocare.
+Delimitarea explicită îi oprește pe studenți să inventeze reguli de așteptare sau de alocare și apoi să judece soluțiile după ele. Ea descrie un exercițiu restrâns; nu afirmă că un serviciu complet de bibliotecă se poate lipsi de o politică de alocare.
 
-O „decizie viitoare” poate deveni critică înainte de extinderea funcționalității. Afirmația că o soluție este pregătită pentru implementare trebuie să precizeze partea acoperită.
+O „decizie viitoare” poate deveni critică înainte ca funcționalitatea să fie extinsă. Cine afirmă că o soluție este pregătită pentru implementare trebuie să precizeze ce parte acoperă.
 :::
 
 ---
@@ -105,15 +105,15 @@ O „decizie viitoare” poate deveni critică înainte de extinderea funcționa
 
 Trebuie să distingem:
 
-- **Fapte:** informații furnizate sau confirmate de beneficiar.
+- **Fapte:** informații date sau confirmate de beneficiar.
 - **Presupuneri:** ipoteze de lucru care trebuie încă verificate.
 - **Întrebări deschise:** decizii care nu au fost încă luate.
-- **Cerințe:** rezultate și restricții pe care sistemul convenit trebuie să le respecte.
+- **Cerințe:** rezultate și restricții convenite, pe care sistemul trebuie să le respecte.
 
 „Folosește o bază de date relațională” nu răspunde la „ce este o carte?”
 
 ::: notes
-Introduceți analiza pornind de la ceea ce au făcut studenții. O tehnologie poate fi o restricție externă reală, dacă este impusă de beneficiar; nu predați ideea că tehnologia nu poate apărea niciodată în cerințe. Aici nu a fost furnizată o asemenea restricție.
+Porniți analiza de la ce au lucrat studenții. O tehnologie poate fi o restricție externă reală, dacă o impune beneficiarul; nu lăsați impresia că tehnologia nu are ce căuta în cerințe. Aici beneficiarul nu a impus o asemenea restricție.
 :::
 
 ---
@@ -130,29 +130,29 @@ Introduceți analiza pornind de la ceea ce au făcut studenții. O tehnologie po
 Un titlu, două exemplare: unul poate fi împrumutat, iar celălalt disponibil.
 
 ::: notes
-Un model al domeniului surprinde concepte, relații și reguli relevante. Acest tabel este deja un model. Nu impune patru clase, patru tabele într-o bază de date sau o anumită implementare.
+Un model al domeniului surprinde conceptele, relațiile și regulile care contează pentru problemă. Acest tabel este deja un model. Nu impune patru clase, patru tabele într-o bază de date sau o anumită implementare.
 
 Cereți unui student să indice conceptul afectat de returnarea unui exemplar. Titlul continuă să existe, iar regulile date nu anulează automat o solicitare.
 :::
 
 ---
 
-# Proiectare: cine răspunde de fiecare lucru?
+# Proiectare: cine de ce răspunde?
 
-**Decizie:** operația de împrumutare asigură respectarea regulii privind împrumuturile active.
+**Decizie:** operația de împrumutare impune regula împrumutului activ.
 
 Ea trebuie să:
 
 1. Identifice exemplarul și membrul selectați.
-2. Stabilească faptul că exemplarul nu are un împrumut activ.
-3. Înregistreze noul împrumut, păstrând regula.
+2. Verifice că exemplarul nu are un împrumut activ.
+3. Înregistreze noul împrumut fără să încalce regula.
 
-Interfața poate afișa disponibilitatea; soluția trebuie să protejeze regula și în momentul împrumutării.
+Interfața poate afișa disponibilitatea, dar soluția trebuie să respecte regula și în momentul împrumutului.
 
 ::: notes
-Introduceți responsabilitatea ca asumare a unui comportament și a respectării regulilor. O poate prelua un obiect, o funcție, un serviciu sau alt mecanism. Nu am ales încă unul.
+Prezentați responsabilitatea ca obligația de a avea un anumit comportament și de a face respectate anumite reguli. Ea poate reveni unui obiect, unei funcții, unui serviciu sau altui mecanism; nu am ales încă unul.
 
-Anticipați coeziunea: păstrați împreună deciziile necesare acestei responsabilități. Anticipați cuplarea: identificați informațiile și operațiile de care depinde. Nu impuneți un sistem distribuit sau un mecanism concret de blocare în acest exemplu introductiv.
+Pomeniți în treacăt coeziunea (deciziile de care are nevoie această responsabilitate stau împreună) și cuplarea (informațiile și operațiile de care depinde ea). În acest exemplu introductiv nu impuneți un sistem distribuit sau un anumit mecanism de blocare.
 :::
 
 ---
@@ -163,15 +163,15 @@ Anticipați coeziunea: păstrați împreună deciziile necesare acestei responsa
 
 **Operația de împrumutare:**
 
-- La succes, exemplarul are un nou împrumut activ către membrul solicitant.
+- Dacă operația reușește, exemplarul are un nou împrumut activ, pe numele membrului care îl împrumută.
 - Dacă exemplarul este deja împrumutat, cererea este respinsă, iar împrumuturile rămân neschimbate.
 
 **Contraexemplu de exclus:** două împrumuturi active acceptate pentru același exemplar.
 
 ::: notes
-Un invariant este o condiție care trebuie să fie adevărată în stările valide relevante. Un contract precizează obligațiile și rezultatele observabile ale unei operații. Vom defini mai precis precondițiile, postcondițiile, comportamentul la eșec și sensul unei „stări valide”.
+Un invariant este o condiție care trebuie să fie adevărată în toate stările valide avute în vedere. Un contract precizează obligațiile și rezultatele observabile ale unei operații. Mai târziu vom defini precis precondițiile, postcondițiile, comportamentul la eșec și sensul unei „stări valide”.
 
-Distingeți această condiție a domeniului de o proiectare completă pentru concurență. Dacă încercările concurente de împrumutare intră în domeniul de aplicare, planul de implementare trebuie să explice cum păstrează invariantul.
+Nu confundați această regulă a domeniului cu o soluție completă pentru accesul concurent. Dacă încercările simultane de împrumut fac parte din problemă, planul de implementare trebuie să explice cum se păstrează invariantul.
 :::
 
 ---
@@ -191,7 +191,7 @@ O solicitare privește un titlu. Ea poate exista în oricare dintre stările unu
 ::: notes
 Acest tabel de tranziții este un model comportamental. Comparați-l cu un singur câmp „AVAILABLE / ON_LOAN / REQUESTED” pe titlu: acel câmp nu poate descrie exemplul dat, cu două exemplare în stări diferite și o solicitare simultană.
 
-Nu afirmați că orice model de stări trebuie reprezentat printr-un singur enum. Reprezentarea trebuie să servească distincțiilor și regulilor.
+Nu afirmați că orice model de stări trebuie reprezentat printr-un singur enum. Reprezentarea trebuie să surprindă distincțiile și regulile.
 :::
 
 ---
@@ -209,7 +209,7 @@ Alegeți reprezentarea care face decizia mai ușor de verificat.
 ::: notes
 Diagramele și limbajele lor sunt instrumente ajutătoare. Cursul nu cere o anumită notație, iar stăpânirea notației nu înlocuiește înțelegerea problemei.
 
-Întrebați ce nu arăta tabelul anterior: ordinea operațiilor, comportamentul la eșec sau cine asigură o regulă. Astfel motivați folosirea mai multor perspective fără a introduce un catalog de diagrame.
+Întrebați ce nu arăta tabelul anterior: ordinea operațiilor, comportamentul la eșec sau cine impune o regulă. Astfel justificați nevoia mai multor perspective, fără să prezentați un catalog de diagrame.
 :::
 
 ---
@@ -218,16 +218,16 @@ Diagramele și limbajele lor sunt instrumente ajutătoare. Cursul nu cere o anum
 
 Cereți unui agent să:
 
-- Organizeze faptele furnizate și întrebările deschise.
+- Organizeze faptele date și întrebările deschise.
 - Propună soluții de proiectare și să le compare consecințele.
 - Construiască scenarii care pun la încercare o regulă.
 - Explice o parte nefamiliară a unui sistem existent.
 - Revizuiască o soluție pe baza unor criterii explicite.
 
-Aveți în continuare nevoie de cunoștințe pentru a evalua răspunsurile.
+Pentru a evalua răspunsurile, aveți în continuare nevoie de cunoștințe proprii.
 
 ::: notes
-Nu promiteți că agentul va produce întotdeauna o greșeală utilă pentru discuție. Un răspuns bun este valoros: studenții trebuie să explice de ce satisface enunțul și până unde se întind garanțiile sale.
+Nu promiteți că agentul va produce întotdeauna o greșeală utilă pentru discuție. Un răspuns bun este valoros: studenții trebuie să explice de ce respectă enunțul și până unde merg garanțiile lui.
 :::
 
 ---
@@ -244,16 +244,16 @@ Nu promiteți că agentul va produce întotdeauna o greșeală utilă pentru dis
 - Predați explicit sarcina și contextul etapei următoare.
 
 ::: notes
-Acesta este procesul convenit pentru curs: investim de la început într-o specificație și o soluție de proiectare bine dezvoltate. Testele de după implementare descriu o posibilă ordine de execuție; exemplele de acceptare și întrebările de validare apar și în etapele anterioare. Dezvoltarea dirijată de teste (test-driven development, TDD) este o tehnică posibilă de implementare, nu o cerință a proiectului.
+Acesta este procesul convenit pentru curs: investim de la început într-o specificație și o soluție de proiectare temeinice. Faptul că testele apar după implementare arată doar o ordine posibilă; exemplele de acceptare și întrebările de validare apar și în etapele anterioare. Dezvoltarea dirijată de teste (test-driven development, TDD) este o tehnică posibilă de implementare, nu o cerință a proiectului.
 
-Prototipurile și modelele executabile pot răspunde unor întrebări de proiectare înainte de existența unei aplicații complete. Studenților nu li se cere o aplicație funcțională la acest curs.
+Prototipurile și modelele executabile pot răspunde unor întrebări de proiectare înainte să existe o aplicație completă. Studenților nu li se cere o aplicație funcțională la acest curs.
 :::
 
 ---
 
-# Ce face utilă predarea unei sarcini?
+# Ce conține o predare utilă a sarcinii?
 
-Furnizați următorului agent, la predarea sarcinii (**handoff**):
+La predarea sarcinii (**handoff**), dați următorului agent:
 
 - Limitele convenite și cerințele sursă.
 - Deciziile de proiectare și justificarea lor.
@@ -264,7 +264,7 @@ Furnizați următorului agent, la predarea sarcinii (**handoff**):
 „Construiește aplicația bibliotecii” lasă aceste decizii implicite.
 
 ::: notes
-Predarea trebuie să susțină etapa următoare fără să devină un transcript imposibil de verificat. În demonstrația introductivă, rezultatul este o descriere concisă a soluției de proiectare. Pentru o etapă reală de implementare, planul ar avea nevoie și de detalii tehnice potrivite funcționalității vizate.
+Predarea trebuie să ajute etapa următoare fără să devină un transcript imposibil de verificat. În demonstrația introductivă, rezultatul este o descriere concisă a soluției de proiectare. Pentru o etapă reală de implementare, planul ar avea nevoie și de detalii tehnice potrivite funcționalității vizate.
 :::
 
 ---
@@ -280,7 +280,7 @@ Predarea trebuie să susțină etapa următoare fără să devină un transcript
 Sunt suficiente un tabel, o schiță sau pseudocod. Notați o alternativă și motivul alegerii voastre.
 
 ::: notes
-Alocați aproximativ 8 minute în intervalul pentru concepte și responsabilități. Perechile formulează o propunere proprie înainte de demonstrație. Nu cereți proiectarea completă a bibliotecii și nu adăugați reguli din afara R1–R6.
+Alocați aproximativ 8 minute din intervalul pentru concepte și responsabilități. Perechile formulează o propunere proprie înainte de demonstrație. Nu cereți proiectarea completă a bibliotecii și nu adăugați reguli din afara R1–R6.
 :::
 
 ---
@@ -297,28 +297,28 @@ După S1, C1 este împrumutat lui M1, iar C2 este disponibil.
 Explicați ce regulă verifică fiecare exemplu și ce afirmații nu poate demonstra singur.
 
 ::: notes
-Alocați aproximativ 7 minute în intervalul pentru contracte și scenarii. Verificați starea înainte și după fiecare operație. R2 impune respingerea împrumutului repetat fără modificarea împrumuturilor; R3 păstrează istoricul și respinge returnarea repetată. Acestea sunt observații introductive, nu predarea aprofundată a contractelor din cursul 6.
+Alocați aproximativ 7 minute din intervalul pentru contracte și scenarii. Verificați starea înainte și după fiecare operație. R2 cere ca împrumutul repetat să fie respins fără ca împrumuturile să se modifice; R3 păstrează istoricul și respinge returnarea repetată. Acestea sunt observații introductive, nu tratarea aprofundată a contractelor din cursul 6.
 :::
 
 ---
 
 # Demonstrație: delegăm o sarcină delimitată
 
-Vom:
+Pașii demonstrației:
 
-1. Furniza unui analist/proiectant enunțul clarificat al bibliotecii.
-2. Verifica conceptele, regulile și responsabilitățile propuse.
-3. Furniza unui evaluator, într-un context nou, enunțul și soluția.
-4. Decide ce constatări sunt susținute de enunț.
+1. Îi dăm unui analist/proiectant enunțul clarificat al bibliotecii.
+2. Verificăm conceptele, regulile și responsabilitățile propuse.
+3. Îi dăm unui evaluator, într-un context nou, enunțul și soluția.
+4. Decidem ce constatări sunt susținute de enunț.
 
 **Sarcina voastră:** explicați o decizie acceptată și puneți la încercare o afirmație.
 
 ::: notes
-Urmați 02-understanding-demo.md. Demonstrația cere proiectare, nu codul aplicației. Folosește orice asistent disponibil și un context separat pentru revizuire (review); rolurile diferite nu impun furnizori diferiți sau agenți care rulează simultan.
+Urmați 02-understanding-demo.md. Demonstrația cere o proiectare, nu codul aplicației. Se poate folosi orice asistent disponibil, cu un context separat pentru revizuire (review); rolurile diferite nu cer furnizori diferiți sau agenți care rulează simultan.
 
-Dacă generarea nu este disponibilă sau durează prea mult, folosiți fallback/01-intro-fallback.pdf sau .html. Este un exemplu didactic pregătit, nu captura unei rulări AI. Precizați explicit acest lucru.
+Dacă generarea nu funcționează sau durează prea mult, folosiți fallback/01-intro-fallback.pdf sau .html. Este un exemplu didactic pregătit, nu captura unei rulări AI. Spuneți explicit acest lucru.
 
-Punerea la încercare a unei afirmații o poate confirma prin verificarea unui scenariu. Studenții nu trebuie să inventeze o eroare dacă rezultatul este corect.
+O afirmație pusă la încercare poate fi și confirmată, prin verificarea unui scenariu. Studenții nu trebuie să inventeze o eroare dacă rezultatul este corect.
 :::
 
 ---
@@ -327,16 +327,16 @@ Punerea la încercare a unei afirmații o poate confirma prin verificarea unui s
 
 Un evaluator afirmă:
 
-> „Un titlu cu o solicitare activă nu trebuie împrumutat.”
+> „Un titlu cu o solicitare activă nu trebuie să poată fi împrumutat.”
 
 Înainte să acceptați constatarea:
 
-1. Ce regulă furnizată o susține?
+1. Ce regulă din enunț o susține?
 2. Ce scenariu concret demonstrează problema?
 3. Este un defect, o propunere de regulă nouă sau o întrebare deschisă?
 
 ::: notes
-În acest exercițiu, constatarea contrazice limitele declarate: solicitările înregistrate nu alocă exemplare și nu blochează împrumutarea. Faptul că soluția permite împrumutarea nu reprezintă un defect.
+În acest exercițiu, constatarea contrazice limitele declarate: solicitările înregistrate nu alocă exemplare și nu blochează împrumutarea. Faptul că soluția permite împrumutarea nu este un defect.
 
 Un agent separat oferă încă o ocazie de revizuire, nu o garanție de independență sau corectitudine. Dați-i enunțul sursă și criteriile; evaluați voi ce susține fiecare constatare. Același model poate fi folosit într-o sesiune nouă.
 :::
@@ -355,9 +355,9 @@ Cereți o sinteză concisă despre:
 Apoi urmăriți o afirmație importantă până la cerința, detaliul de proiectare sau verificarea care o susține.
 
 ::: notes
-Aceasta este aplicarea ideii de a coordona o echipă. Studenții nu trebuie să citească fiecare token cu aceeași atenție, dar au nevoie de un model mental al sistemului și de acces la detaliile importante.
+Aici se aplică ideea coordonării unei echipe. Studenții nu trebuie să citească fiecare token cu aceeași atenție, dar au nevoie de un model mental al sistemului și de acces la detaliile importante.
 
-Cereți agentului să indice fișierul sau secțiunea justificativă ori să reproducă scenariul din spatele unei afirmații. O sinteză fluentă poate omite o condiție; trasabilitatea permite depistarea omisiunii.
+Cereți agentului să indice fișierul sau secțiunea pe care se sprijină o afirmație ori să reproducă scenariul din spatele ei. O sinteză fluentă poate omite o condiție; trasabilitatea vă ajută să depistați omisiunea.
 :::
 
 ---
@@ -378,7 +378,7 @@ Corectarea ulterioară a conceptului poate impune schimbarea tuturor celor patru
 ::: notes
 Explicați costul unei erori timpurii urmărindu-i consecințele, nu printr-un multiplicator numeric fără justificare. De aceea investim în cerințe și proiectare înainte de a delega implementarea de amploare.
 
-Dacă verificările ulterioare expun o problemă, revedeți decizia inițială și actualizați ceea ce depinde de ea.
+Dacă verificările ulterioare scot la iveală o problemă, revedeți decizia inițială și actualizați ceea ce depinde de ea.
 :::
 
 ---
@@ -396,9 +396,9 @@ Cineva adaugă un indicator: `has_request`.
 De ce distincție mai are nevoie soluția?
 
 ::: notes
-Acordați un minut pentru raționament individual, apoi discutați. Indicatorul separă existența solicitării de starea împrumutului, dar propunerea tot nu poate reprezenta exemplare împrumutate independent. Lipsește distincția titlu–exemplar și precizarea exemplarului la care se referă fiecare împrumut.
+Acordați un minut de reflecție individuală, apoi discutați. Indicatorul separă existența solicitării de starea împrumutului, dar propunerea tot nu poate reprezenta exemplare împrumutate independent. Lipsește distincția titlu–exemplar și precizarea exemplarului la care se referă fiecare împrumut.
 
-Lecția este să identificăm cerința încălcată înainte de a alege corecția. O corecție locală poate fi potrivită dacă modelul de bază susține deja cerința. O abstractizare generală nu este automat mai bună.
+Ideea de reținut: identificăm cerința încălcată înainte de a alege corecția. O corecție locală poate fi potrivită dacă modelul de bază susține deja cerința. O abstractizare generală nu este automat mai bună.
 :::
 
 ---
@@ -419,7 +419,7 @@ Explicați coeziunea și cuplarea în cadrul atribuirii responsabilităților. C
 
 # De la concepte la analiză și schimbare
 
-Vom și:
+În continuare vom:
 
 - Valida modele prin scenarii și exemple executabile mici.
 - Explora stări, invariante, interblocări (deadlocks) și contraexemple.

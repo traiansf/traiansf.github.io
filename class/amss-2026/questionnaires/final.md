@@ -7,7 +7,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -18,7 +18,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -29,7 +29,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -40,7 +40,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -51,7 +51,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -62,7 +62,7 @@ Răspunde pentru probleme mici, nefamiliare, fără ajutorul unui agent AI.
 - Nu am întâlnit această activitate
 - Pot urmări un exemplu explicat
 - Pot încerca, cu îndrumare
-- Pot realiza independent pe o problemă mică
+- Mă descurc independent la o problemă mică
 - Pot explica și compara alternative
 - Nu pot aprecia
 
@@ -129,7 +129,7 @@ Spune pe scurt problema, alegerea și motivul ei.
 
 Răspuns liber.
 
-## F3 — Care activități te-au ajutat cel mai mult?
+## F3 — Ce activități te-au ajutat cel mai mult?
 
 Selectează cel mult trei variante.
 
@@ -142,7 +142,7 @@ Selectează cel mult trei variante.
 - Proiectul și feedbackul profesorului
 - Materialele parcurse individual
 
-## F4 — Cum ai perceput ritmul cursului?
+## F4 — Cum ți s-a părut ritmul cursului?
 
 
 
@@ -152,7 +152,7 @@ Selectează cel mult trei variante.
 - Puțin prea rapid
 - Mult prea rapid
 
-## F5 — Cum ai perceput volumul de lucru al proiectului?
+## F5 — Cum ți s-a părut volumul de lucru pentru proiect?
 
 
 
@@ -163,7 +163,7 @@ Selectează cel mult trei variante.
 - Mult prea mare
 - Nu pot aprecia
 
-## F6 — Ce teme merită mai mult timp sau alte explicații?
+## F6 — Ce teme ar fi meritat mai mult timp sau o altă explicație?
 
 
 
