@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0a2145">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Traian-Florin Șerbănuță">
+  <title>AMSS 2026/2027 — Laboratorul 0: Pregătire și orientare</title>
+  <link href="data:image/png;base64,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" rel="icon" type="image/png">
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #4a5a60;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #4a5a60; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #b3261e; font-weight: bold; } 
+code span.an { color: #4a5a60; font-style: italic; } 
+code span.at { color: #5b3d9e; } 
+code span.bn { color: #7d4a00; } 
+code span.bu { color: #1b3f8b; } 
+code span.cf { color: #065a5a; font-weight: bold; } 
+code span.ch { color: #8a3b12; } 
+code span.cn { color: #7d4a00; } 
+code span.co { color: #4a5a60; font-style: italic; } 
+code span.cv { color: #4a5a60; font-style: italic; } 
+code span.do { color: #4a5a60; font-style: italic; } 
+code span.dt { color: #5b3d9e; } 
+code span.dv { color: #7d4a00; } 
+code span.er { color: #b3261e; font-weight: bold; } 
+code span.ex { color: #1b3f8b; } 
+code span.fl { color: #7d4a00; } 
+code span.fu { color: #1b3f8b; } 
+code span.im { color: #065a5a; font-weight: bold; } 
+code span.in { color: #4a5a60; font-style: italic; } 
+code span.kw { color: #065a5a; font-weight: bold; } 
+code span.op { } 
+code span.ot { color: #065a5a; } 
+code span.pp { color: #7d4a00; } 
+code span.sc { color: #8a3b12; } 
+code span.ss { color: #8a3b12; } 
+code span.st { color: #8a3b12; } 
+code span.va { color: #5b3d9e; } 
+code span.vs { color: #8a3b12; } 
+code span.wa { color: #4a5a60; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">
+:root {
+--bg: #ffffff;
+--surface: #f3f7f8;
+--text: #1d2a2e;
+--muted: #4a5a60;
+--line: #d5e0e3;
+--brand: #0a2145; 
+--accent: #087373; 
+--accent-strong: #065a5a;
+--header-bg: #0a2145;
+--header-text: #ffffff;
+--header-accent: #8fd6d2;
+--focus: #b35c00;
+--sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, "DejaVu Sans", sans-serif;
+--mono: ui-monospace, Consolas, "Cascadia Mono", "DejaVu Sans Mono", "Liberation Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+:root {
+--bg: #11181b;
+--surface: #182125;
+--text: #e8eff1;
+--muted: #a9b9be;
+--line: #2b3a3f;
+--brand: #f2f6f7;
+--accent: #6fcac6; 
+--accent-strong: #a5e3df;
+--header-bg: #0b1a33;
+--focus: #ffb454;
+}
+
+.site-header, .doc-bar { border-bottom: 1px solid var(--line); }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
+body {
+margin: 0;
+background: var(--bg);
+color: var(--text);
+font: 1rem/1.6 var(--sans);
+}
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { color: var(--accent-strong); text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+code, pre, kbd, samp { font-family: var(--mono); }
+button, input, select, textarea { font-family: inherit; }
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
+.skip-link {
+position: absolute; left: 0.5rem; top: -4rem; z-index: 10;
+padding: 0.6rem 1rem;
+border: 2px solid var(--focus); border-radius: 0.4rem;
+background: var(--bg); color: var(--text);
+}
+.skip-link:focus { top: 0.5rem; }
+.visually-hidden {
+position: absolute; width: 1px; height: 1px; overflow: hidden;
+clip-path: inset(50%); white-space: nowrap;
+}
+
+.nowrap { white-space: nowrap; }
+
+.home p, .home li, .prose p, .prose li { text-wrap: pretty; }
+
+.site-header { background: var(--header-bg); color: var(--header-text); }
+.site-header a { color: inherit; }
+.site-header a:hover { color: inherit; text-decoration-thickness: 3px; }
+.site-header :focus-visible { outline-color: #ffffff; }
+
+.intro {
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 0.6rem 0.9rem;
+align-items: center;
+padding-top: 1.1rem;
+padding-bottom: 1.25rem;
+}
+.intro > div { display: contents; }
+.intro .logo {
+width: 3.5rem; height: auto;
+padding: 0.2rem;
+border-radius: 0.5rem;
+background: #ffffff;
+}
+.intro h1 {
+grid-column: 1 / -1;
+margin: 0;
+font-size: clamp(1.75rem, 5.2vw, 2.6rem);
+line-height: 1.12;
+letter-spacing: -0.015em;
+text-wrap: balance;
+}
+.intro p { margin: 0; }
+.intro .edition { color: var(--header-accent); font-weight: 600; }
+.intro .tagline { grid-column: 1 / -1; font-size: 1rem; line-height: 1.4; opacity: 0.95; }
+.site-header nav { background: rgba(0, 0, 0, 0.22); }
+.site-header nav ul { display: flex; flex-wrap: wrap; gap: 0 0.05rem; margin: 0 0 0 -0.6rem; padding: 0; list-style: none; }
+.site-header nav a { display: inline-block; min-height: 2.75rem; padding: 0.7rem 0.6rem; font-weight: 600; text-decoration: none; }
+.site-header nav a:hover { text-decoration: underline; }
+.site-header nav a:focus-visible { outline-offset: -5px; }
+@media (min-width: 40rem) {
+.intro { gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.intro > div { display: block; }
+.intro .logo { width: 9.5rem; padding: 0.5rem; border-radius: 0.75rem; }
+.intro .edition { margin-bottom: 0.35rem; }
+.intro .tagline { margin-top: 0.6rem; font-size: 1.1rem; }
+}
+
+.home main { padding-bottom: 3rem; }
+.home section { padding-top: 2.5rem; }
+.home h2 {
+margin: 0 0 1rem;
+padding-bottom: 0.4rem;
+border-bottom: 2px solid var(--line);
+color: var(--brand);
+font-size: 1.5rem;
+line-height: 1.25;
+}
+.home p { margin: 0.5rem 0; }
+.home .lead { max-width: 38rem; color: var(--muted); }
+
+.schedule { width: 100%; margin-top: 1rem; border-collapse: collapse; }
+.schedule th {
+padding: 0 0 0.5rem 2.3rem; 
+color: var(--muted);
+font-size: 0.95rem;
+font-weight: 600;
+text-align: left;
+}
+.schedule th + th { padding-left: 4.3rem; }
+.schedule td { padding: 0.7rem 0; border-top: 1px solid var(--line); vertical-align: top; }
+.schedule td + td { padding-left: 2rem; }
+.schedule ol { margin: 0; padding: 0 0 0 2.1rem; }
+.schedule li { padding: 0.15rem 0 0.15rem 0.2rem; }
+.schedule li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+.schedule li.locked { color: var(--muted); }
+.schedule .format {
+display: inline-block;
+min-width: 2.75rem;
+margin-left: 0.4rem;
+padding: 0.15rem 0.5rem;
+border: 1px solid var(--line);
+border-radius: 0.3rem;
+font-size: 0.8rem;
+font-weight: 600;
+line-height: 1.4;
+text-align: center;
+text-decoration: none;
+white-space: nowrap;
+}
+.schedule .format:hover { border-color: currentColor; }
+.schedule .note { display: block; color: var(--muted); font-size: 0.9rem; }
+@media print, (min-width: 48rem) {
+.schedule th:first-child, .schedule td:first-child { width: 54%; }
+}
+@media screen and (min-width: 48rem) and (max-width: 59.99rem) {
+.schedule th:first-child, .schedule td:first-child { width: 50%; }
+}
+@media screen and (max-width: 47.99rem) {
+.schedule thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.schedule, .schedule tbody, .schedule tr, .schedule td { display: block; }
+.schedule tr { padding: 0.7rem 0; border-top: 1px solid var(--line); }
+.schedule td { padding: 0; border: 0; }
+.schedule td + td {
+margin: 0.5rem 0 0 0.6rem;
+padding: 0.5rem 0.75rem;
+border-left: 3px solid var(--accent);
+border-radius: 0 0.4rem 0.4rem 0;
+background: var(--surface);
+}
+.schedule td + td::before {
+content: "Laborator";
+display: block;
+color: var(--muted);
+font-size: 0.85rem;
+font-weight: 600;
+}
+}
+
+.facts { margin: 0; }
+.facts > div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.facts > div:last-child { border-bottom: 0; }
+
+.facts > div:target { box-shadow: -0.75rem 0 0 var(--bg), -1rem 0 0 var(--accent); }
+.facts dt { color: var(--brand); font-weight: 700; }
+.facts dd { margin: 0.2rem 0 0; }
+.facts dd > :first-child { margin-top: 0; }
+.facts dd > :last-child { margin-bottom: 0; }
+.facts dd > p { max-width: 38rem; }
+.facts ul { margin: 0.4rem 0; padding-left: 1.25rem; }
+.facts li + li { margin-top: 0.25rem; }
+.facts li::marker { color: var(--accent); }
+@media (min-width: 40rem) {
+.facts > div { display: grid; grid-template-columns: 11rem 1fr; gap: 0 1.5rem; }
+.facts dd { margin-top: 0; }
+}
+.points { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.points th, .points td { padding: 0.2rem 0; border-bottom: 1px solid var(--line); font-weight: 400; text-align: left; }
+.points td { padding-left: 2rem; text-align: right; white-space: nowrap; }
+.points tr:first-child > * { padding-top: 0; }
+.points tr:last-child th, .points tr:last-child td { border-bottom: 0; }
+code.join { padding: 0.1rem 0.4rem; border-radius: 0.3rem; background: var(--surface); font-size: 0.95em; font-weight: 700; }
+
+.site-footer { margin-top: 1rem; padding-bottom: 2.5rem; color: var(--muted); font-size: 0.95rem; }
+.site-footer::before { content: ""; display: block; margin-bottom: 1.5rem; border-top: 1px solid var(--line); }
+.site-footer p { margin: 0.2rem 0; }
+
+.doc-bar { background: var(--header-bg); color: var(--header-text); }
+.doc-bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1rem; min-height: 3.25rem; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.doc-bar a { display: inline-flex; align-items: center; gap: 0.6rem; color: inherit; font-weight: 700; text-decoration: none; }
+.doc-bar a:hover { color: inherit; text-decoration: underline; }
+.doc-bar a::before {
+content: "";
+width: 2rem; height: 2rem;
+border-radius: 0.35rem;
+background: #ffffff url(data:image/png;base64,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) center / 1.7rem no-repeat;
+}
+.doc-bar .course { color: var(--header-accent); font-size: 0.95rem; }
+.doc-bar :focus-visible { outline-color: #ffffff; }
+.doc main { padding-top: 2.25rem; padding-bottom: 2rem; }
+.doc-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 3rem; }
+.doc-layout > * { min-width: 0; max-width: 40rem; }
+.prose { font-size: 1.0625rem; line-height: 1.65; overflow-wrap: break-word; }
+.doc-title { margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--line); }
+.doc-title .session { margin: 0 0 0.3rem; color: var(--accent); font-size: 1.1rem; font-weight: 700; }
+.doc-title h1 {
+margin: 0;
+color: var(--brand);
+font-size: clamp(1.9rem, 5.5vw, 2.6rem);
+line-height: 1.12;
+letter-spacing: -0.015em;
+text-wrap: balance;
+}
+.doc-title .byline { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.95rem; }
+.doc-title .formats { margin: 0.3rem 0 0; font-size: 0.95rem; font-weight: 600; }
+.prose h2 { margin: 2.4rem 0 0.7rem; color: var(--brand); font-size: 1.45rem; line-height: 1.25; letter-spacing: -0.005em; text-wrap: balance; }
+.prose h3 { margin: 2rem 0 0.5rem; color: var(--brand); font-size: 1.2rem; line-height: 1.3; }
+.prose h4 { margin: 1.5rem 0 0.4rem; color: var(--brand); font-size: 1rem; }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+.prose li + li { margin-top: 0.3rem; }
+.prose li > ul, .prose li > ol { margin: 0.3rem 0 0; }
+.prose ul > li::marker { color: var(--accent); }
+.prose ol > li::marker { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+.prose strong { color: var(--brand); }
+.prose hr { margin: 2rem 0; border: 0; border-top: 1px solid var(--line); }
+.prose img { max-width: 100%; height: auto; }
+.prose blockquote { margin: 0 0 1rem; padding: 0.1rem 0 0.1rem 1rem; border-left: 0.25rem solid var(--accent); }
+.prose blockquote > :last-child { margin-bottom: 0; }
+
+.prose h2.epigraph { margin-bottom: 0.6rem; color: var(--muted); font-size: 1.05rem; letter-spacing: 0; }
+.prose .epigraph + blockquote { color: var(--brand); font-size: 1.4rem; font-weight: 600; line-height: 1.3; }
+.prose .epigraph + blockquote p { text-wrap: balance; }
+.prose .epigraph + blockquote p + p { margin-top: 0.5rem; color: var(--muted); font-size: 1rem; font-weight: 400; } 
+.prose .epigraph + blockquote + p { margin-bottom: 0.2rem; }
+.prose .epigraph + blockquote + p + p { color: var(--muted); font-size: 0.9rem; }
+
+.table-wrap { margin: 0 0 1.25rem; overflow-x: auto; }
+.prose table { width: auto; min-width: min(100%, 22rem); border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.prose th, .prose td { padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.prose th:last-child, .prose td:last-child { padding-right: 0; }
+.prose thead th { border-bottom: 2px solid var(--brand); color: var(--brand); }
+.prose caption { margin-bottom: 0.4rem; color: var(--muted); text-align: left; }
+
+@media (max-width: 36rem) {
+.rubric thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.rubric table, .rubric tbody { display: block; width: 100%; }
+.rubric tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.25rem 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+.rubric tr:first-child { border-top: 2px solid var(--brand); }
+.rubric td { display: block; padding: 0; border: 0; }
+.rubric td:nth-child(2)::after { content: " p."; color: var(--muted); font-weight: 400; }
+.rubric td:nth-child(3) { grid-column: 1 / -1; font-size: 1rem; }
+}
+.prose code { padding: 0.1em 0.25em; border-radius: 0.25em; background: var(--surface); font-size: 0.9em; }
+
+.prose pre, .prose div.sourceCode {
+margin: 0 0 1.1rem;
+overflow-x: auto;
+border: 1px solid var(--line);
+border-radius: 0.4rem;
+background: var(--surface);
+}
+.prose pre { padding: 0.8rem 1rem; font-size: 0.9rem; line-height: 1.5; }
+.prose pre code { padding: 0; background: none; font-size: 1em; }
+.prose div.sourceCode > pre { margin: 0; overflow: visible; border: 0; background: none; }
+@media (max-width: 36rem) {
+
+.prose pre.markdown > code.sourceCode { white-space: pre-wrap; }
+}
+
+.prose ul.task-list { padding-left: 0; }
+.prose ul.task-list li { display: block; }
+.prose ul.task-list label { display: flex; gap: 0.6rem; align-items: baseline; }
+.prose ul.task-list input[type="checkbox"] { flex: none; width: 1.05rem; height: 1.05rem; margin: 0; accent-color: var(--accent); transform: translateY(0.15rem); }
+
+.doc-toc { margin: 0 0 1.75rem; border: 1px solid var(--line); border-radius: 0.5rem; font-size: 0.95rem; line-height: 1.4; }
+.doc-toc summary { padding: 0.7rem 1rem; color: var(--muted); font-weight: 700; cursor: pointer; }
+.doc-toc nav { padding: 0 1rem 0.6rem; }
+.doc-toc ul { margin: 0; padding: 0; list-style: none; }
+.doc-toc ul ul { display: none; }
+.doc-toc a { display: block; padding: 0.35rem 0; text-decoration: none; text-wrap: balance; }
+.doc-toc a:hover { text-decoration: underline; }
+@media (min-width: 45rem) and (max-width: 61.99rem) {
+
+.doc main.wrap, .doc .site-footer, .doc .doc-bar .wrap { max-width: 42.5rem; }
+}
+@media (min-width: 62rem) {
+.doc-layout { grid-template-columns: minmax(0, 40rem) minmax(0, 1fr); grid-template-rows: auto 1fr; }
+.doc-title { grid-column: 1; grid-row: 1; }
+.doc-layout > .prose { grid-column: 1; grid-row: 2; }
+.doc-toc {
+grid-column: 2; grid-row: 1 / span 2;
+position: sticky; top: 1.5rem; align-self: start;
+max-height: calc(100vh - 3rem); overflow-y: auto;
+margin: 0;
+padding: 0.5rem 0.5rem 0.5rem 0; 
+border: 0; border-left: 2px solid var(--line); border-radius: 0;
+}
+.doc-toc summary { margin-left: 1.1rem; padding: 0 0 0.5rem; }
+.doc-toc nav { padding: 0 0 0 1.1rem; }
+.doc-toc a { padding: 0.22rem 0; }
+.doc-toc :focus-visible { outline-offset: 2px; }
+}
+
+@media (prefers-color-scheme: dark) {
+.prose code span { color: inherit; }
+.prose code span.kw, .prose code span.cf, .prose code span.im, .prose code span.ot { color: #7fc8e8; }
+.prose code span.fu, .prose code span.bu, .prose code span.ex { color: #a9c7ff; }
+.prose code span.st, .prose code span.ch, .prose code span.vs, .prose code span.sc { color: #a8d8a0; }
+.prose code span.co, .prose code span.an, .prose code span.cv, .prose code span.do { color: #9aabb0; }
+.prose code span.dv, .prose code span.fl, .prose code span.bn, .prose code span.cn { color: #f0b98d; }
+.prose code span.at, .prose code span.va, .prose code span.dt { color: #d7c58a; }
+}
+@media (prefers-contrast: more) {
+:root { --muted: var(--text); --line: currentColor; }
+}
+@media (forced-colors: active) {
+
+.intro .logo, .doc-bar a::before { forced-color-adjust: none; }
+}
+@media print {
+:root { --bg: #ffffff; --surface: #f3f7f8; --text: #000000; --muted: #333333; --line: #999999; --brand: #0a2145; --accent: #065a5a; }
+body { font-size: 10.5pt; }
+.site-header, .doc-bar { background: none; color: #000000; border-bottom: 2px solid #000000; }
+.site-header nav, .skip-link, .doc-toc, .doc-title .formats, .schedule .format { display: none; }
+
+.intro { gap: 1.25rem; padding-top: 0; padding-bottom: 0.75rem; }
+.intro .logo { width: 6rem; padding: 0; }
+.intro .tagline { margin-top: 0.3rem; }
+.home section { padding-top: 1.25rem; }
+.home section + section { break-before: page; } 
+.schedule td { padding: 0.45rem 0; }
+.intro .edition { color: #000000; }
+.doc-bar .course { color: #000000; }
+a { color: #000000; }
+.prose a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; overflow-wrap: anywhere; }
+.prose a[href*="teams."]::after { content: none; } 
+.prose { max-width: none; font-size: inherit; }
+h2, h3 { break-after: avoid; }
+pre, table, blockquote, .site-footer { break-inside: avoid; }
+.schedule { break-inside: auto; }
+.schedule tr { break-inside: avoid; }
+}
+</style>
+</head>
+<body class="doc">
+  <a class="skip-link" href="#main">Sari la conținut</a>
+  <header class="doc-bar">
+    <div class="wrap">
+      <a href="../">AMSS 2026/2027</a>
+      <span class="course">Analiza și Modelarea Sistemelor Software</span>
+    </div>
+  </header>
+  <main id="main" class="wrap doc-layout">
+    <header class="doc-title">
+      <p class="session">Laboratorul 0</p>
+      <h1>Pregătire și orientare</h1>
+      <p class="byline">Traian-Florin Șerbănuță</p>
+      <p class="formats"><a href="00-pregatire.pdf">Versiunea PDF, pentru tipărire</a></p>
+    </header>
+    <details class="doc-toc" id="toc">
+      <summary>Pe această pagină</summary>
+      <nav aria-label="Pe această pagină">
+        <ul>
+        <li><a href="#citatul-zilei" id="toc-citatul-zilei">Citatul zilei</a></li>
+        <li><a href="#cum-poți-folosi-cele-90-de-minute" id="toc-cum-poți-folosi-cele-90-de-minute">Cum poți folosi cele 90 de minute</a></li>
+        <li><a href="#găsește-informațiile-de-care-vei-avea-nevoie" id="toc-găsește-informațiile-de-care-vei-avea-nevoie">1. Găsește informațiile de care vei avea nevoie</a></li>
+        <li><a href="#pornește-de-la-o-experiență-proprie" id="toc-pornește-de-la-o-experiență-proprie">2. Pornește de la o experiență proprie</a></li>
+        <li><a href="#ce-întrebare-ar-fi-ajutat-mai-devreme" id="toc-ce-întrebare-ar-fi-ajutat-mai-devreme">3. Ce întrebare ar fi ajutat mai devreme?</a></li>
+        <li><a href="#pregătește-un-spațiu-simplu-de-lucru" id="toc-pregătește-un-spațiu-simplu-de-lucru">4. Pregătește un spațiu simplu de lucru</a></li>
+        <li><a href="#verifică-accesul-la-un-asistent-dacă-ai-unul" id="toc-verifică-accesul-la-un-asistent-dacă-ai-unul">5. Verifică accesul la un asistent, dacă ai unul</a></li>
+        <li><a href="#explorează-idei-de-proiect-și-caută-colegi-de-echipă" id="toc-explorează-idei-de-proiect-și-caută-colegi-de-echipă">6. Explorează idei de proiect și caută colegi de echipă</a></li>
+        <li><a href="#încheie-cu-o-verificare-personală" id="toc-încheie-cu-o-verificare-personală">7. Încheie cu o verificare personală</a></li>
+        <li><a href="#chestionarul-de-început-de-curs" id="toc-chestionarul-de-început-de-curs">Chestionarul de început de curs</a></li>
+        </ul>
+      </nav>
+    </details>
+    <script>
+      // The outline is open beside the text on a wide window and collapsed above
+      // it on a narrow one (static/amss.css), also after a resize or rotation.
+      (function (toc, wide) {
+        function sync() { toc.open = wide.matches; }
+        sync();
+        if (wide.addEventListener) wide.addEventListener('change', sync);
+      })(document.getElementById('toc'), matchMedia('(min-width: 62rem)'));
+    </script>
+    <article class="prose">
+<p><strong>Participarea este opțională.</strong> Poți urma acest ghid în sala de laborator sau pe cont propriu, indiferent de grupă. Nu ai nevoie de cursul 2, de o echipă deja formată sau de experiență în proiectare.</p>
+<p>Scopul este să găsești materialele, să îți pregătești spațiul de lucru și să reflectezi la experiența ta. Alege pașii care îți sunt utili și revino la ceilalți când ai timp. Activitatea nu se notează și nu are termen de predare.</p>
+<p>Laboratorul 1, despre înțelegere, specificare și revizuire, se desfășoară <strong>după predarea cursurilor 1 și 2</strong>. Pentru o grupă care are întâlnirea imediat după primul curs, aceasta este laboratorul 0; laboratorul 1 poate avea loc în săptămâna 3. Programarea fiecărei grupe se anunță pe Teams.</p>
+<h2 class="epigraph" id="citatul-zilei">Citatul zilei</h2>
+<blockquote>
+<p>„Informatica ar trebui să se ocupe de concepte, nu de limbaje.”</p>
+<p>Original: “Computer science should be about concepts, not languages.”</p>
+</blockquote>
+<p>— <strong>Leslie Lamport</strong></p>
+<p><a href="https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=2">Sursa: Computation and State Machines (2008), prefață</a></p>
+<!-- Original verificat în prefață, pagina PDF 2, manuscrisul de pe site-ul autorului. Legătura cu tema: uneltele sprijină învățarea; pregătirea lor nu înlocuiește înțelegerea. -->
+<h2 id="cum-poți-folosi-cele-90-de-minute">Cum poți folosi cele 90 de minute</h2>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 25%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pas</th>
+<th>Durată orientativă</th>
+<th>Activitate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>10 minute</td>
+<td>Găsește Teams, materialele și ghidul de pregătire a mediului de lucru.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>15 minute</td>
+<td><span class="nowrap">Amintește-ți</span> o cerință neclară sau o schimbare dificilă.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>20 de minute</td>
+<td>Formulează întrebări care ar fi ajutat.</td>
+</tr>
+<tr>
+<td><span class="nowrap">4–5</span></td>
+<td>20 de minute</td>
+<td>Pregătește un spațiu de lucru și verifică accesul la instrumente.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>15 minute</td>
+<td>Explorează idei de proiect și caută colegi de echipă.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>10 minute</td>
+<td>Notează întrebările și ce mai ai de pregătit.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Poți împărți activitatea în sesiuni mai scurte. În sală poți discuta în perechi și cu profesorul; dacă lucrezi singur, folosește întrebările și exemplele de mai jos. Nu este necesar să reproduci o discuție de grup.</p>
+<h2 id="găsește-informațiile-de-care-vei-avea-nevoie">1. Găsește informațiile de care vei avea nevoie</h2>
+<p>Deschide:</p>
+<ul>
+<li><a href="https://traiansf.github.io/class/amss2026/">pagina cursului</a>;</li>
+<li><a href="https://teams.cloud.microsoft/l/team/19%3AVxKxx_O-NWeyohdw5ZunUYqv4Ai-s5cSD24U1-3eOZc1%40thread.tacv2/conversations?groupId=9aac9415-9492-4850-9ac4-66f7174fa3e1&amp;tenantId=08a1a72f-fecd-4dae-8cec-471a2fb7c2f1">echipa Microsoft Teams</a> — cod <code>fswo4rl</code>;</li>
+<li><a href="https://traiansf.github.io/class/amss2026/proiect/">cerințele proiectului</a>;</li>
+<li><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">ghidul de pregătire a mediului de lucru</a>.</li>
+</ul>
+<p>Verifică dacă găsești schema de notare, ce trebuie să conțină anunțul temei și cum poți cere feedback. Nu este necesar să reții toate detaliile acum; important este să știi unde le găsești.</p>
+<p><strong>Dacă nu ai acces:</strong> notează ce pagină sau serviciu nu poți deschide și cere ajutor profesorului. Poți continua partea de reflecție pe hârtie.</p>
+<h2 id="pornește-de-la-o-experiență-proprie">2. Pornește de la o experiență proprie</h2>
+<p>Alege o situație <span class="nowrap">dintr-un</span> proiect de facultate, de la serviciu sau <span class="nowrap">dintr-o</span> activitate personală:</p>
+<ul>
+<li>ai primit o cerință pe care oamenii au <span class="nowrap">interpretat-o</span> diferit;</li>
+<li>o modificare aparent mică a afectat mai multe părți ale soluției;</li>
+<li>un rezultat produs cu AI a părut corect, dar a trebuit verificat.</li>
+</ul>
+<p>Scrie câteva rânduri: ce se dorea, ce ai înțeles inițial și ce <span class="nowrap">s-a</span> întâmplat. Nu include informații confidențiale. Dacă lucrezi în pereche, comparați exemplele.</p>
+<p><strong>Dacă nu îți vine în minte niciun exemplu:</strong> folosește situația didactică de mai jos: „Un coleg cere o pagină pe care să găsească mai ușor notițele cursurilor.” Nu presupune încă nimic despre ce vrea: căutare, etichete, o listă de linkuri sau acces de pe telefon.</p>
+<h2 id="ce-întrebare-ar-fi-ajutat-mai-devreme">3. Ce întrebare ar fi ajutat mai devreme?</h2>
+<p>Pentru exemplul ales, răspunde:</p>
+<ol type="1">
+<li>Ce informație a lipsit sau a fost interpretată diferit?</li>
+<li>Ce întrebare ai fi pus înainte de a începe lucrul la soluție?</li>
+<li>Cum ar putea răspunsul să schimbe ce construiești?</li>
+<li>Ce ai putea observa sau verifica pentru a decide dacă soluția ajută?</li>
+</ol>
+<p>Pentru exemplul notițelor, o întrebare utilă ar fi: „Cum cauți acum o notiță și în ce situație nu o găsești?” Dacă problema este o listă dezorganizată de linkuri, o căutare în textul tuturor documentelor poate fi o soluție disproporționată. Dacă însă colegul își amintește numai un fragment din document, ordonarea linkurilor poate să nu îi ajungă.</p>
+<p>Nu există o singură formulare corectă. Verifică dacă întrebarea ta poate schimba o decizie concretă. „Ce tehnologie folosim?” poate fi utilă mai târziu, dar nu clarifică singură nevoia colegului.</p>
+<h2 id="pregătește-un-spațiu-simplu-de-lucru">4. Pregătește un spațiu simplu de lucru</h2>
+<p>Creează un director local pentru exercițiile cursului și un fișier <code>pregatire.md</code>. Poți folosi orice editor de text; pentru această întâlnire ajung și notițele pe hârtie.</p>
+<p>Un început posibil:</p>
+<div class="sourceCode" id="cb1" tabindex="0"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pregătirea mea pentru AMSS</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Experiența aleasă</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Ce se dorea și ce a fost neclar?</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Întrebarea care ar fi ajutat</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Ce aș întreba și ce decizie ar depinde de răspuns?</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mediul de lucru</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Ce pot deschide și edita? Ce acces mai trebuie pregătit?</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Idei și întrebări</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Ce problemă aș vrea să explorez? Ce trebuie să clarific?</span></code></pre></div>
+<p>Salvează fișierul, <span class="nowrap">închide-l</span> și <span class="nowrap">deschide-l</span> din nou. Verifică dacă modificările <span class="nowrap">s-au</span> păstrat. Notițele de pregătire pot rămâne locale; nu trebuie să anunți acum un proiect sau să publici acest fișier.</p>
+<h3 id="dacă-vrei-să-exersezi-lucrul-cu-git">Dacă vrei să exersezi lucrul cu Git</h3>
+<p>Acest pas este opțional. <span class="nowrap">Într-un</span> terminal deschis în directorul nou, poți salva fișierul <span class="nowrap">într-un</span> commit:</p>
+<div class="sourceCode" id="cb2" tabindex="0"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add pregatire.md</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Adaug notitele de pregatire&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div>
+<p>Dacă Git îți cere identitatea autorului, <span class="nowrap">configureaz-o</span> pentru acest director cu numele și adresa ta:</p>
+<div class="sourceCode" id="cb3" tabindex="0"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.name <span class="st">&quot;Numele tau&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.email <span class="st">&quot;adresa-ta@example.com&quot;</span></span></code></pre></div>
+<p>Apoi repetă comanda <code>git commit</code> de mai sus.</p>
+<p>Scopul este să vezi că poți salva și regăsi o versiune. Dacă Git nu este disponibil, păstrează fișierul și notează ce ajutor îți trebuie; nu trebuie să instalezi totul în această sesiune.</p>
+<h2 id="verifică-accesul-la-un-asistent-dacă-ai-unul">5. Verifică accesul la un asistent, dacă ai unul</h2>
+<p>Poți folosi orice asistent la care ai deja acces: în browser, în editor sau local. Nu se cere un abonament plătit, un furnizor sau un model anume.</p>
+<p>Dacă vrei, <span class="nowrap">dă-i</span> exemplul cu notițele și <span class="nowrap">cere-i:</span></p>
+<blockquote>
+<p>Propune două întrebări de clarificare, fără să alegi o soluție sau să implementezi o aplicație.</p>
+</blockquote>
+<p>Compară întrebările cu a ta. Poți explica în ce fel răspunsurile ar schimba o alegere?</p>
+<p><strong>Fără AI:</strong> continuă cu întrebările din pasul 3. Activitatea este completă și fără asistent. Exercițiul tehnic de delegare și revizuire apare în cursul 2 și este reluat în laboratorul 1.</p>
+<h2 id="explorează-idei-de-proiect-și-caută-colegi-de-echipă">6. Explorează idei de proiect și caută colegi de echipă</h2>
+<p>Recitește <a href="https://traiansf.github.io/class/amss2026/proiect/">cerințele proiectului</a>. Echipele au <span class="nowrap">3–5 membri</span> și dezvoltă o specificație și o soluție de proiectare comune, în care contribuția fiecărui membru se poate identifica.</p>
+<p>Notează, dacă dorești, una sau două probleme pe care ai vrea să le înțelegi mai bine. Pentru fiecare: cine are problema, ce decizie sau regulă pare interesantă și ce ai lăsa în afara unei prime variante.</p>
+<p>În sală poți discuta ideile cu colegii. Pe cont propriu, poți reveni la ele și poți căuta colegi pe Teams. Nu este necesar să alegi tema sau să formezi echipa în laboratorul 0. Când veți anunța proiectul, includeți linkul către <span class="nowrap">repository-ul</span> public de pe GitHub sau GitLab, pe care îl creați atunci (vezi cerințele proiectului).</p>
+<h2 id="încheie-cu-o-verificare-personală">7. Încheie cu o verificare personală</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"></input>Pot găsi materialele cursului, anunțurile și cerințele proiectului.</label></li>
+<li><label><input type="checkbox"></input>Pot salva și regăsi notițele mele.</label></li>
+<li><label><input type="checkbox"></input>Pot spune ce informație lipsea din exemplul ales și de ce contează.</label></li>
+<li><label><input type="checkbox"></input>Știu ce acces sau instrument mai trebuie pregătit.</label></li>
+<li><label><input type="checkbox"></input>Am notat întrebările pe care vreau să i le pun profesorului.</label></li>
+</ul>
+<p>Păstrează notițele pentru tine sau <span class="nowrap">folosește-le</span> <span class="nowrap">într-o</span> discuție. Nu trebuie să le trimiți ca temă. Dacă ai nevoie de ajutor, scrie pe Teams la ce pas <span class="nowrap">te-ai</span> oprit și ce problemă ai întâlnit.</p>
+<p><strong>Urmează:</strong> cursul 2, apoi laboratorul 1, care aplică ideile din cursul 2 <span class="nowrap">într-un</span> domeniu nou.</p>
+<h2 id="chestionarul-de-început-de-curs">Chestionarul de început de curs</h2>
+<p>Profesorul distribuie pe Teams un chestionar despre experiență, cunoștințe și așteptări; îl poți deschide și direct, la <a href="https://forms.gle/uHCXyFvxqQxsWWmH9">forms.gle/uHCXyFvxqQxsWWmH9</a>. Este facultativ și ne ajută să adaptăm conținutul cursului. Invitația se adresează tuturor grupelor. <span class="nowrap">Rezervă-ți</span> pentru el aproximativ <span class="nowrap">10–12 minute,</span> separat de pașii ghidului.</p>
+    </article>
+  </main>
+  <footer class="wrap site-footer">
+    <p><a href="../">AMSS 2026/2027: pagina cursului</a></p>
+    <p><a href="https://traiansf.github.io/">Traian-Florin Șerbănuță</a>, Facultatea de Matematică și Informatică, Universitatea din București</p>
+  </footer>
+</body>
+</html>

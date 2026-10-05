@@ -33,8 +33,10 @@ endif
 
 # Remove published decks that are not (or no longer) listed in RELEASED.
 PUBLISHED_DECKS = $(wildcard $(foreach d,curs lab,$(BASE)/$(d)/*.html $(BASE)/$(d)/*.pdf))
+# Also kept: the redirect pages in static/curs and static/lab (old deck names).
 KEEP_DECKS = $(BASE)/curs/index.html $(BASE)/lab/index.html \
-	$(foreach r,$(RELEASED),$(BASE)/$(r).html $(BASE)/$(r).pdf)
+	$(foreach r,$(RELEASED),$(BASE)/$(r).html $(BASE)/$(r).pdf) \
+	$(patsubst $(AMSS_ROOT)/static/%,$(BASE)/%,$(wildcard $(AMSS_ROOT)/static/curs/*.html $(AMSS_ROOT)/static/lab/*.html))
 
 prune:
 ifndef PREVIEW_ALL

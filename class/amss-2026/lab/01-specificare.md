@@ -13,7 +13,7 @@ delegați o revizuire (review) și decideți ce afirmații sunt întemeiate.
 
 La final: o descriere comună a problemei și explicația individuală a unei decizii de proiectare.
 
-Fișe: [informațiile beneficiarului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/scenario.md)&nbsp;· [fișa de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/worksheet.md)
+Fișe: [informațiile beneficiarului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/scenario.md)&nbsp;· [fișa de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/worksheet.md)
 
 ::: notes
 Laboratorul se desfășoară după predarea cursurilor 1 și 2. Exercițiul aplică într-un domeniu nou ideile introductive din cursul 2 despre înțelegerea problemei, scenarii și delegare; nu presupune că cerințele din cursul 3 au fost predate în detaliu. Studenții știu să programeze; introduceți explicit termenii de analiză și proiectare. Nu se cere implementarea unei aplicații.
@@ -53,7 +53,7 @@ Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte 
 | 90–100 | Prezentare și predarea lucrării |
 
 ::: notes
-Distribuiți scenario.md și worksheet.md din lab/scenarios/lab01/ înainte de a începe. Dați studenților fișierele-sursă sau copii tipărite; ele nu sunt publicate ca prezentări separate. Folosiți prepared-fixture.md dacă instrumentele nu sunt accesibile. Dacă nu ajunge timpul, păstrați etapele de lucru fără ajutor și de revizuire.
+Distribuiți scenario.md și worksheet.md din lab/scenarios/01-specificare/ înainte de a începe. Dați studenților fișierele-sursă sau copii tipărite; ele nu sunt publicate ca prezentări separate. Folosiți prepared-fixture.md dacă instrumentele nu sunt accesibile. Dacă nu ajunge timpul, păstrați etapele de lucru fără ajutor și de revizuire.
 :::
 
 ---
@@ -150,7 +150,7 @@ Exercițiul bibliotecii presupunea explicit operații executate pe rând (R6). A
 - **A:** îndrumă analistul. **B:** verifică afirmațiile pe baza informațiilor beneficiarului.
 - La minutul 44, schimbați rolurile: **B** îndrumă evaluatorul (agentul de revizuire); **A** verifică afirmațiile acestuia.
 
-Dacă AI nu este disponibil, folosiți [exemplul pregătit](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/prepared-fixture.md) și o revizuire separată între colegi.
+Dacă AI nu este disponibil, folosiți [exemplul pregătit](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/prepared-fixture.md) și o revizuire separată între colegi.
 
 ::: notes
 Pașii de configurare sunt descriși în tooling/SETUP.md. Nu trebuie cumpărat nimic și nu se impune un anumit model. O conversație nouă este suficientă; se poate folosi același instrument/model. Fișierele comune sau istoricul preluat automat pot transmite contextul analistului: dați evaluatorului doar pachetul ales explicit. Pentru lucrul fără acces la AI, schimbați pachetele cu o pereche vecină dacă ambii parteneri au redactat deja varianta de lucru.

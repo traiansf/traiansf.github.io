@@ -26,7 +26,7 @@ Durations below are instructor planning notes. Each full lecture in Weeks 3–13
 
 **Outcomes:** understand schedule, grading, attendance, project responsibilities, repository requirements, feedback access, and tool choice; explain why understanding a problem and checking evidence matter even with AI assistance.
 
-**Sequence, 70–80 minutes:** welcome and goals 10; organization and assessment 20; project and tools 20; motivation and student experiences 20; preparation for the next meeting 10. Keep the Teams QR code, URL, and code, and the course-page QR code on the schedule slide. Consultations are online, arranged through an individual Teams message. The slides announce Lab 1 as a concrete problem, without naming its domain, and say that the deliverable must be final about one week before the Lab 7 interview. No technical library demo in this session. Use [Lecture 1](../curs/01-intro.md) and its [guide](../curs/01-intro-demo.md).
+**Sequence, 70–80 minutes:** welcome and goals 10; organization and assessment 20; project and tools 20; motivation and student experiences 20; preparation for the next meeting 10. Keep the Teams QR code, URL, and code, and the course-page QR code on the schedule slide. Consultations are online, arranged through an individual Teams message. The slides announce Lab 1 as a concrete problem, without naming its domain, and say that the deliverable must be final about one week before the Lab 7 interview. No technical library demo in this session. Use [Lecture 1](../curs/01-organizare.md) and its [guide](../curs/01-organizare-demo.md).
 
 ### Week 2 — Understanding before delegating
 
@@ -36,7 +36,7 @@ Durations below are instructor planning notes. Each full lecture in Weeks 3–13
 
 **Sequence, 100 minutes:** initial analysis and questions 15; clarifications and scope 10; concepts and responsibilities 20; contracts and scenarios 15; delegation and review 25; change and synthesis 10; exit exercise 5. The former Lecture 1 technical content is moved here and expanded with paired design and independent scenario exercises.
 
-**Authored package:** [Lecture 2](../curs/02-understanding.md), [demo guide](../curs/02-understanding-demo.md), [library brief](../curs/scenarios/01-library-kiosk/brief.md), [reference design](../curs/scenarios/01-library-kiosk/reference-design.md), and [prepared fallback](../curs/fallback/01-intro-fallback.md). Preserve existing asset paths. Students first propose their own model (individually, then in pairs), before the worked model and before the agent; compare it against R1–R6 and S1–S5. Discuss correct as well as flawed output. These are introductory encounters with concepts taught in depth later.
+**Authored package:** [Lecture 2](../curs/02-intelegere.md), [demo guide](../curs/02-intelegere-demo.md), [library brief](../curs/scenarios/02-biblioteca/brief.md), [reference design](../curs/scenarios/02-biblioteca/reference-design.md), and [prepared fallback](../curs/fallback/01-organizare-fallback.md). Preserve existing asset paths. Students first propose their own model (individually, then in pairs), before the worked model and before the agent; compare it against R1–R6 and S1–S5. Discuss correct as well as flawed output. These are introductory encounters with concepts taught in depth later.
 
 ### Week 3 — Problem framing and requirements
 
@@ -186,11 +186,11 @@ Each project has a public GitHub or GitLab repository, created and linked when a
 
 ### Lab 0 — Optional preparation and orientation
 
-Use the [self-study guide](../lab/Lab00.md) and [instructor guide](../lab/Lab00-instructor.md). This optional 90-minute meeting can take place immediately after Course 1; all groups can follow the same material independently. Lab 1 follows Courses 1–2 and may take place in Week 3. Announce group dates on Teams.
+Use the [self-study guide](../lab/00-pregatire.md) and [instructor guide](../lab/00-pregatire-instructor.md). This optional 90-minute meeting can take place immediately after Course 1; all groups can follow the same material independently. Lab 1 follows Courses 1–2 and may take place in Week 3. Announce group dates on Teams.
 
 ### Lab 1, after Courses 1–2 — Understanding, specification, and review
 
-Use the dorm laundry-machine [student lab](../lab/Lab01.md), [instructor guide](../lab/Lab01-instructor.md), [scenario](../lab/scenarios/lab01/scenario.md), [worksheet](../lab/scenarios/lab01/worksheet.md), and [prepared fixture](../lab/scenarios/lab01/prepared-fixture.md). These contain the full timing and activities. Foundations: Courses 1–2, especially source facts, scope, acceptance examples, role handoffs, and human review decisions.
+Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructor guide](../lab/01-specificare-instructor.md), [scenario](../lab/scenarios/01-specificare/scenario.md), [worksheet](../lab/scenarios/01-specificare/worksheet.md), and [prepared fixture](../lab/scenarios/01-specificare/prepared-fixture.md). These contain the full timing and activities. Foundations: Courses 1–2, especially source facts, scope, acceptance examples, role handoffs, and human review decisions.
 
 ### Lab 2, after Courses 3–4 — Requirements and domain modeling
 
@@ -252,7 +252,7 @@ These are reuse targets, not a claim that the old decks already teach the new se
 | [Traceability](../archive/curs/10-traceability.md) and [Evaluation](../archive/curs/11-evaluation.md), with demos/fallbacks | Weeks 9 and 12 | Reuse consistency and review criteria; add executable-model evidence and source-grounded review of summaries. |
 | [Presentation skills](../archive/curs/12-presentation-skills.md), [Final](../archive/curs/14-final.md) | Weeks 13–14 | Reuse rationale and unfamiliar questions for learning; replace mandatory individual oral defenses with feasible team reviews and an individual scenario-based multiple-choice exam. |
 | [Lab 2](../archive/lab/Lab02.md), [Lab 3](../archive/lab/Lab03.md), [Lab 4](../archive/lab/Lab04.md), with instructor guides | Labs 2–4 | Reuse comparisons and prepared examples; replace notation-based defect hunts with explicit source rules and evidence. |
-| [Lab 5](../lab/Lab05.md), [Lab 6](../lab/Lab06.md), [Lab 7](../lab/Lab07.md), with instructor guides | Labs 5–7 | Lab 5 practices validation and abstraction on a supplied problem; Lab 6 is an open session for finishing the project and discussion; Lab 7 is the clarification interview finalizing the five-point dossier score. |
+| [Lab 5](../lab/05-validare.md), [Lab 6](../lab/06-proiect.md), [Lab 7](../lab/07-interviu.md), with instructor guides | Labs 5–7 | Lab 5 practices validation and abstraction on a supplied problem; Lab 6 is an open session for finishing the project and discussion; Lab 7 is the clarification interview finalizing the five-point dossier score. |
 
 Develop the next package in teaching order: Course 3, then Course 4 with Lab 2, then Courses 5–6 with Lab 3. Prototype Course 9's small explorer early enough to validate its bounds and repair before writing its slides. For each session, finish the source brief and reference reasoning first, then the demo and labeled fallback, student exercise, deck with notes, and delivery checks. Keep unfinished sessions unpublished under the existing `RELEASED` mechanism; this roadmap does not change release state.
 
@@ -262,20 +262,20 @@ The identifiers of pending decks are the ones the landing page already links (`d
 
 | Course | Source | Topic |
 |---|---|---|
-| 1 | `01-intro.md` | Administration and motivation |
-| 2 | `02-understanding.md` | Understanding before delegating |
-| 3 | `02-requirements.md` | Problem framing and requirements |
-| 4 | `03-testable-specs.md` | Domain modeling |
-| 5 | `04-class-diagrams.md` | Responsibilities, cohesion, coupling |
-| 6 | `05-other-structural.md` | Contracts and invariants |
-| 7 | `06-behavioral-i.md` | State and behavior |
-| 8 | `07-behavioral-ii.md` | Interactions, workflows, boundaries |
-| 9 | `08-patterns-i.md` | Model validation and analysis |
-| 10 | `09-patterns-ii.md` | Abstraction and design for change |
-| 11 | `10-traceability.md` | Evolving an existing system |
-| 12 | `11-evaluation.md` | Consistency and oversight |
-| 13 | `12-presentation-skills.md` | Design synthesis and explanation |
-| 14 | `14-final.md` | Multiple-choice exam and reflection |
+| 1 | `01-organizare.md` | Administration and motivation |
+| 2 | `02-intelegere.md` | Understanding before delegating |
+| 3 | `03-cerinte.md` | Problem framing and requirements |
+| 4 | `04-domeniu.md` | Domain modeling |
+| 5 | `05-responsabilitati.md` | Responsibilities, cohesion, coupling |
+| 6 | `06-contracte.md` | Contracts and invariants |
+| 7 | `07-stare.md` | State and behavior |
+| 8 | `08-interactiuni.md` | Interactions, workflows, boundaries |
+| 9 | `09-validare.md` | Model validation and analysis |
+| 10 | `10-abstractizare.md` | Abstraction and design for change |
+| 11 | `11-evolutie.md` | Evolving an existing system |
+| 12 | `12-coerenta.md` | Consistency and oversight |
+| 13 | `13-sinteza.md` | Design synthesis and explanation |
+| 14 | `14-examen.md` | Multiple-choice exam and reflection |
 
 Lab 6 follows Courses 11–12 and uses their ideas when useful for open project work. Lab 7 follows Courses 13–14 and finalizes the dossier score. The exact examination timetable remains subject to announcement. Do not change `RELEASED` merely to reflect the new schedule.
 

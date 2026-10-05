@@ -1,6 +1,6 @@
 # Laboratorul 1 — ghidul profesorului: înțelegere, specificare, revizuire
 
-Ghid pentru profesor, care însoțește [prezentarea laboratorului](Lab01.md). Makefile-ul laboratoarelor nu îl include în prezentările publicate.
+Ghid pentru profesor, care însoțește [prezentarea laboratorului](01-specificare.md). Makefile-ul laboratoarelor nu îl include în prezentările publicate.
 
 **Planificare:** după cursurile 1 și 2. Laboratorul se sprijină pe introducerea tehnică din cursul 2; nu presupune teoria cerințelor din cursul 3. **Durată:** 100 de minute. **Participanți:** aproximativ 100 de studenți în trei grupe de laborator; aceeași activitate se desfășoară separat cu fiecare grupă. Studenții programează fluent, dar sunt începători în analiză și proiectare. Exercițiul este formativ; noul mod de punctare a cursului nu se stabilește aici.
 
@@ -14,9 +14,9 @@ Pornind de la analiza cerințelor, laboratorul introduce conceptele domeniului, 
 
 Distribuiți:
 
-- [Fișa scenariului](scenarios/lab01/scenario.md): informațiile complete ale beneficiarului și scenariile.
-- [Fișa de lucru](scenarios/lab01/worksheet.md): notițe individuale, descriere comună, predarea sarcinilor și rezultatele revizuirii.
-- [Exemplul pregătit](scenarios/lab01/prepared-fixture.md): alternativă pentru lucrul fără AI; se dezvăluie după analiza inițială fără ajutor.
+- [Fișa scenariului](scenarios/01-specificare/scenario.md): informațiile complete ale beneficiarului și scenariile.
+- [Fișa de lucru](scenarios/01-specificare/worksheet.md): notițe individuale, descriere comună, predarea sarcinilor și rezultatele revizuirii.
+- [Exemplul pregătit](scenarios/01-specificare/prepared-fixture.md): alternativă pentru lucrul fără AI; se dezvăluie după analiza inițială fără ajutor.
 
 Aceste fișiere sunt fișe-sursă; Makefile-ul prezentărilor nu le publică automat. Puneți-le în spațiul de lucru anunțat pentru laborator sau distribuiți copii tipărite. Cât durează activitatea, nu arătați studenților soluțiile de referință din acest ghid.
 

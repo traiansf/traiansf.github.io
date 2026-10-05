@@ -1,6 +1,6 @@
 # Lab 5 — Pregătire: validare și abstractizare
 
-Plan de dezvoltare, nu pachet de predare complet. Urmați `docs/semester-roadmap.md` și `Lab05.md`. Programați după cursurile 9–10. Nu vă bazați pe reconstrucția, migrarea sau evoluția unui sistem, teme ale cursului 11. Nu includeți checkpoint de proiect.
+Plan de dezvoltare, nu pachet de predare complet. Urmați `docs/semester-roadmap.md` și `05-validare.md`. Programați după cursurile 9–10. Nu vă bazați pe reconstrucția, migrarea sau evoluția unui sistem, teme ale cursului 11. Nu includeți checkpoint de proiect.
 
 Pregătiți problema exportului unui raport de activitate: reguli explicite pentru câmpuri, ascundere, formate text/CSV, înregistrări și un al treilea format propus. Precizați ce intrări se analizează și pregătiți verificări executabile mici sau scenarii manuale echivalente. Streaming-ul și extensiile externe sunt excluse.
 

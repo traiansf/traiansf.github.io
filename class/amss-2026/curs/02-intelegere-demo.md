@@ -10,9 +10,9 @@ La curs, studenții au formulat deja întrebări și au primit clarificările de
 
 ## Materiale și pregătire
 
-- Sursa pentru studenți: [enunțul bibliotecii](scenarios/01-library-kiosk/brief.md).
-- Referința pentru profesor: [o proiectare argumentată](scenarios/01-library-kiosk/reference-design.md).
-- Varianta de rezervă pregătită: [sursa prezentării de rezervă](fallback/02-understanding-fallback.md), generată ca `fallback/02-understanding-fallback.html` / `.pdf`.
+- Sursa pentru studenți: [enunțul bibliotecii](scenarios/02-biblioteca/brief.md).
+- Referința pentru profesor: [o proiectare argumentată](scenarios/02-biblioteca/reference-design.md).
+- Varianta de rezervă pregătită: [sursa prezentării de rezervă](fallback/02-intelegere-fallback.md), generată ca `fallback/02-intelegere-fallback.html` / `.pdf`.
 - Diapozitivul „Demonstrație: delegăm o sarcină delimitată” din curs.
 
 Folosiți un spațiu de lucru temporar care conține enunțul sau atașați/lipiți enunțul în asistentul ales. Nu includeți răspunsul de referință în contextul inițial al agentului. Pregătiți o a doua conversație, nouă, pentru revizuire. Nu afișați informații private ale contului.

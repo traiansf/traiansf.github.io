@@ -16,7 +16,7 @@ Folosiți același enunț și aceleași întrebări ca în demonstrație:
 - Ce stabilește, de fapt, revizuirea (review)?
 
 ::: notes
-Variantă de rezervă pentru profesor. Precizați explicit că aceste materiale au fost create pentru predare. Ele nu documentează comportamentul unui model. Enunț: ../scenarios/01-library-kiosk/brief.md; referință: ../scenarios/01-library-kiosk/reference-design.md.
+Variantă de rezervă pentru profesor. Precizați explicit că aceste materiale au fost create pentru predare. Ele nu documentează comportamentul unui model. Enunț: ../scenarios/02-biblioteca/brief.md; referință: ../scenarios/02-biblioteca/reference-design.md.
 :::
 
 ---

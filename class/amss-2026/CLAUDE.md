@@ -79,11 +79,11 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 
 - `docs/`: confirmed design decisions and the semester implementation roadmap.
 - `curs/`: lecture sources and `*-demo.md` instructor runbooks, only for the current course: Lecture 1 (administration and motivation) and Lecture 2 (its former technical content, expanded). Later lectures do not exist yet; write each under the file name the roadmap and the landing page give it.
-- `curs/scenarios/01-library-kiosk/`: Lecture 2 source brief and instructor reference (original path retained).
-- `curs/fallback/`: instructor-only prepared examples, each with explicit provenance; currently the Lecture 2 library fallback (`02-understanding-fallback.md`).
+- `curs/scenarios/02-biblioteca/`: Lecture 2 source brief and instructor reference.
+- `curs/fallback/`: instructor-only prepared examples, each with explicit provenance; currently the Lecture 2 library fallback (`02-intelegere-fallback.md`).
 - `archive/`: the superseded 2026 draft (English Lectures 2–14 with demos and fallbacks, Labs 2–4 with guides), moved there on 5 October 2026. Not built, not published; reuse material only, see `archive/README.md`.
 - `lab/`: lab decks and `*-instructor.md` guides. Lab 1 is fully redesigned; Labs 2–4 do not exist yet (their old drafts are archived). Lab 5 has a validation/abstraction outline awaiting its teaching package; Labs 6–7 describe the open project session and dossier interview.
-- `lab/scenarios/lab01/`: student facts, worksheet, and prepared alternatives.
+- `lab/scenarios/01-specificare/`: student facts, worksheet, and prepared alternatives.
 - `proiect/`: Romanian project requirements and assessment.
 - `tooling/`: portable setup and workflow; optional templates preserve student tool/model choices.
 - `static/`: landing page, shared stylesheet (`amss.css`), and assets copied into published output.

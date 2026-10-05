@@ -3,7 +3,7 @@
 # is removed, and its landing-page entry is shown without links.
 # To reveal a week: add its lines, `make`, commit, push (see BUILD.md).
 # The project page (proiect/) and the sample exam (exam/) are always published.
-curs/01-intro
-lab/Lab00
-curs/02-understanding
-lab/Lab01
+curs/01-organizare
+lab/00-pregatire
+curs/02-intelegere
+lab/01-specificare

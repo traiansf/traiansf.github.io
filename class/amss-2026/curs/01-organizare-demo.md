@@ -1,6 +1,6 @@
 # Cursul 1 — Ghid pentru organizare și motivație
 
-Urmați `01-intro.md`. Nu desfășurați demonstrația tehnică a bibliotecii în această întâlnire; ea a fost mutată și extinsă în `02-understanding.md`, cu ghidul `02-understanding-demo.md`. Căile scenariului și ale variantei pregătite de rezervă sunt păstrate pentru continuitate.
+Urmați `01-organizare.md`. Nu desfășurați demonstrația tehnică a bibliotecii în această întâlnire; ea a fost mutată și extinsă în `02-intelegere.md`, cu ghidul `02-intelegere-demo.md`. Căile scenariului și ale variantei pregătite de rezervă sunt păstrate pentru continuitate.
 
 Planificați 70–80 de minute: bun venit și obiective 10; organizare și evaluare 20; proiect și unelte 20; motivație și discuție 20; pregătirea întâlnirii următoare 10. Păstrați codul, linkul și QR-ul Teams. Explicați notarea, prezența, repository-ul public al proiectului, feedback-ul la cerere și rolul ultimelor două laboratoare.
 

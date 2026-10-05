@@ -69,7 +69,7 @@ Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, 
 :::::: {.columns align=center}
 ::: {.column width="70%"}
 - **14&nbsp;săptămâni de curs** și **7&nbsp;laboratoare**, de regulă o dată la două săptămâni.
-- [Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/Lab00.html): orientare opțională, care poate fi parcursă și individual.
+- [Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/00-pregatire.html): orientare opțională, care poate fi parcursă și individual.
 - Laboratorul 1 se desfășoară după cursurile 1 și 2.
 - Materiale: [traiansf.github.io/class/amss2026](https://traiansf.github.io/class/amss2026/) (codul&nbsp;QR alăturat).
 - Întrebări și anunțuri: echipa cursului pe Microsoft Teams.

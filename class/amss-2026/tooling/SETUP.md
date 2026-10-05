@@ -64,4 +64,4 @@ Când lucrați în echipă, partajați proiectarea curentă și verificările ca
 
 ## Orientare opțională
 
-[Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/Lab00.html) oferă pași simpli pentru acces, salvarea notițelor și verificarea instrumentelor, inclusiv alternative fără AI. Poate fi parcurs individual. Exercițiile tehnice de analiză și proiectare încep după cursul 2.
+[Laboratorul 0](https://traiansf.github.io/class/amss2026/lab/00-pregatire.html) oferă pași simpli pentru acces, salvarea notițelor și verificarea instrumentelor, inclusiv alternative fără AI. Poate fi parcurs individual. Exercițiile tehnice de analiză și proiectare încep după cursul 2.

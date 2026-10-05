@@ -43,7 +43,7 @@ Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte 
 **Ce ar trebui să înțelegeți?**
 
 ::: notes
-Este o solicitare intenționat incompletă a beneficiarului, nu o specificație completă. Nu arătați încă precizările. Fișa studenților: scenarios/01-library-kiosk/brief.md. Exercițiul inițial apare integral și pe diapozitive.
+Este o solicitare intenționat incompletă a beneficiarului, nu o specificație completă. Nu arătați încă precizările. Fișa studenților: scenarios/02-biblioteca/brief.md. Exercițiul inițial apare integral și pe diapozitive.
 :::
 
 ---
@@ -75,10 +75,10 @@ Nu evaluați răspunsurile comparându-le cu o listă ascunsă. Întrebați cum 
 - **R5** Solicitările pot exista simultan cu împrumuturile și nu rezervă exemplare.
 - **R6** Operațiile se procesează pe rând; alocarea, notificările și amenzile rămân în afara exercițiului.
 
-[Regulile complete și scenariile S1–S5](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/curs/scenarios/01-library-kiosk/brief.md)
+[Regulile complete și scenariile S1–S5](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/curs/scenarios/02-biblioteca/brief.md)
 
 ::: notes
-Acestea sunt informații date de beneficiar, nu adevăruri valabile pentru orice bibliotecă. Pe diapozitiv, regulile sunt condensate; formularea completă și scenariile S1–S5 sunt în scenarios/01-library-kiosk/brief.md. Explicați că a înregistra o solicitare și a promite alocarea unui exemplar sunt cerințe diferite.
+Acestea sunt informații date de beneficiar, nu adevăruri valabile pentru orice bibliotecă. Pe diapozitiv, regulile sunt condensate; formularea completă și scenariile S1–S5 sunt în scenarios/02-biblioteca/brief.md. Explicați că a înregistra o solicitare și a promite alocarea unui exemplar sunt cerințe diferite.
 :::
 
 ---
@@ -321,9 +321,9 @@ Pașii demonstrației:
 **Sarcina voastră:** explicați o decizie acceptată și puneți la încercare o afirmație.
 
 ::: notes
-Urmați 02-understanding-demo.md. Demonstrația cere o proiectare, nu codul aplicației. Se poate folosi orice asistent disponibil, cu un context separat pentru revizuire (review); rolurile diferite nu cer furnizori diferiți sau agenți care rulează simultan.
+Urmați 02-intelegere-demo.md. Demonstrația cere o proiectare, nu codul aplicației. Se poate folosi orice asistent disponibil, cu un context separat pentru revizuire (review); rolurile diferite nu cer furnizori diferiți sau agenți care rulează simultan.
 
-Dacă generarea nu funcționează sau durează prea mult, folosiți fallback/02-understanding-fallback.pdf sau .html. Este un exemplu didactic pregătit, nu captura unei rulări AI. Spuneți explicit acest lucru.
+Dacă generarea nu funcționează sau durează prea mult, folosiți fallback/02-intelegere-fallback.pdf sau .html. Este un exemplu didactic pregătit, nu captura unei rulări AI. Spuneți explicit acest lucru.
 
 O afirmație pusă la încercare poate fi și confirmată, prin verificarea unui scenariu. Studenții nu trebuie să inventeze o eroare dacă rezultatul este corect.
 :::

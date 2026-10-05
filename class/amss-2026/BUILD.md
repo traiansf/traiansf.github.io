@@ -82,7 +82,7 @@ directory; an empty `BASE` (an unset shell variable, say) is refused.
 ## Revealing a week
 
 Lecture and lab decks are published week by week. `RELEASED` lists the decks
-students can see (`curs/01-intro`, `lab/Lab01`, …). `make` builds only those,
+students can see (`curs/01-organizare`, `lab/01-specificare`, …). `make` builds only those,
 deletes any other deck from the published tree, and renders the landing page
 with unreleased entries as plain titles without links (the page says that
 these are not available yet). The project page and the sample exam are always
@@ -90,7 +90,7 @@ published.
 
 To reveal a week:
 
-1. Add its lines to `RELEASED` (e.g. `curs/02-requirements`, `lab/Lab02`).
+1. Add its lines to `RELEASED` (e.g. `curs/03-cerinte`, `lab/02-modelare`).
 2. `make`
 3. Commit and push the sources plus `../amss2026/`.
 
@@ -110,7 +110,7 @@ show `date`, so leave it out.
 
 ## Optional orientation guide
 
-`lab/Lab00` is released as a continuous HTML guide and printable PDF using explicit rules in `lab/Makefile`, rather than slide output. Questionnaire import tables live in `questionnaires/`; they are instructor resources, not automatically published forms.
+`lab/00-pregatire` is released as a continuous HTML guide and printable PDF using explicit rules in `lab/Makefile`, rather than slide output. Questionnaire import tables live in `questionnaires/`; they are instructor resources, not automatically published forms.
 
 ## Course look
 

@@ -9,10 +9,10 @@ TARGETS = $(HTMLS) $(PDFS)
 include ../include.mk
 
 # Lab 0 is a self-study guide: continuous HTML and printable PDF, from one source.
-$(OUTDIR)/Lab00.html: Lab00.md Makefile $(DOC_HTML_DEPS)
+$(OUTDIR)/00-pregatire.html: 00-pregatire.md Makefile $(DOC_HTML_DEPS)
 	@mkdir -p $(dir $@)
-	pandoc $(DOC_HTML_OPTIONS) -V pdf-url=Lab00.pdf -o $@ $<
+	pandoc $(DOC_HTML_OPTIONS) -V pdf-url=00-pregatire.pdf -o $@ $<
 
-$(OUTDIR)/Lab00.pdf: Lab00.md Makefile $(DOC_PDF_DEPS)
+$(OUTDIR)/00-pregatire.pdf: 00-pregatire.md Makefile $(DOC_PDF_DEPS)
 	@mkdir -p $(dir $@)
 	pandoc $(DOC_PDF_OPTIONS) -o $@ $<
