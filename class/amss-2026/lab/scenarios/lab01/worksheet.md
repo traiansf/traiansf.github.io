@@ -13,7 +13,8 @@ Fișa este doar un punct de plecare. Ajung notițe scurte, pe puncte; adaptați 
 Fiecare partener își scrie notițele, cu numele lui:
 
 - Cum formulez scopul și limitele:
-- Sală versus rezervare:
+- Conceptele (mașină, programare, locatar, interval) și regula care îl privește pe fiecare:
+- Ce trebuie să fie adevărat după o programare reușită:
 - O cerere care poate fi acceptată, cu informația-sursă:
 - O cerere care trebuie respinsă, cu informația-sursă:
 - O întrebare de clarificat:
@@ -32,11 +33,11 @@ Ce rezultat dorește beneficiarul? Ce este inclus și ce este exclus?
 |---|---|---|
 | | | |
 
-Explicați prin ce se deosebește o sală de o rezervare și ce regulă trebuie să rămână adevărată când se confirmă o rezervare.
+Explicați prin ce se deosebește o mașină de o programare și ce regulă trebuie să rămână adevărată când se confirmă o programare.
 
 ### Ce se cunoaște și ce rămâne de ales?
 
-| Afirmație | Informație convenită / consecință / ipoteză / întrebare / propunere de proiectare | Sursa sau decizia necesară |
+| Afirmație | Informație convenită / consecință dedusă / ipoteză / întrebare deschisă / propunere de proiectare | Sursa sau decizia necesară |
 |---|---|---|
 | | | |
 
@@ -44,7 +45,7 @@ Marcați vizibil fiecare ipoteză și notați ce se întâmplă dacă se dovede�
 
 ### Scenarii
 
-Tratați fiecare scenariu independent, pornind de la starea inițială precizată în fișa cu informațiile beneficiarului. Nu transferați o rezervare sau o anulare dintr-un scenariu în altul.
+Tratați fiecare scenariu independent, pornind de la starea inițială precizată în fișa cu informațiile beneficiarului. Nu transferați o programare sau o anulare dintr-un scenariu în altul.
 
 | ID | Stare inițială și acțiune | Rezultat așteptat sau decizie deschisă | Informații verificate |
 |---|---|---|---|
@@ -68,11 +69,11 @@ Adăugați un scenariu când distinge o regulă sau o alternativă importantă. 
 - **Verificările și rezultatele de returnat:**
 - **Punctul de revizuire umană înainte de implementare:**
 
-## Predarea sarcinii către autor (handoff) — minutele 26–44
+## Predarea sarcinii către analist (handoff) — minutele 26–44
 
-Studentul A îndrumă autorul; studentul B verifică rezultatul față de sursă. Atașați toate informațiile scenariului și notițele voastre. Autorul vă poate ajuta să vă structurați înțelegerea; deciziile rămân responsabilitatea voastră.
+Studentul A îndrumă analistul; studentul B verifică rezultatul față de sursă. Atașați toate informațiile scenariului și notițele voastre. Analistul vă poate ajuta să vă structurați înțelegerea; deciziile rămân responsabilitatea voastră.
 
-> Ai rolul de asistent de analiză. Folosind doar informațiile beneficiarului și notițele atașate, redactează scopul, limitele, conceptele domeniului, regulile, scenariile de acceptare și întrebările deschise. Citează identificatorii informațiilor. Marchează separat propunerile de proiectare. Cere clarificări unde lipsesc reguli; nu răspunde în numele beneficiarului. Propune următoarea sarcină de proiectare, cu limite, intrări, responsabilități, verificări și o condiție de oprire. Nu o implementa.
+> Ai rolul de asistent de analiză. Folosind doar informațiile beneficiarului și notițele atașate, redactează scopul, limitele, conceptele domeniului, regulile, scenariile de acceptare și întrebările deschise. Citează identificatorii informațiilor. Clasifică afirmațiile ca informație convenită, consecință dedusă, ipoteză, întrebare deschisă sau propunere de proiectare. Cere clarificări unde lipsesc reguli; nu răspunde în numele beneficiarului. Propune următoarea sarcină de proiectare, cu limite, intrări, responsabilități, verificări și o condiție de oprire. Nu o implementa.
 
 Dacă rezultatul este lung, cereți un rezumat scurt care să păstreze trimiterile la informații și scenarii. Verificați o afirmație importantă din rezumat față de varianta detaliată.
 
@@ -82,7 +83,7 @@ Identificatorul variantei supuse revizuirii: __________
 
 ## Predarea sarcinii pentru revizuire independentă — minutele 44–60
 
-Schimbați rolurile: studentul B îndrumă evaluatorul; studentul A verifică afirmațiile acestuia. Deschideți un context nou și dați-i doar informațiile-sursă, varianta fixată și criteriile. Puteți folosi același instrument/model, dar nu reutilizați conversația autorului. La nevoie, faceți schimb de pachete cu o pereche vecină și revizuiți-vă reciproc.
+Schimbați rolurile: studentul B îndrumă evaluatorul; studentul A verifică afirmațiile acestuia. Deschideți un context nou și dați-i doar informațiile-sursă, varianta fixată și criteriile. Puteți folosi același instrument/model, dar nu reutilizați conversația analistului. La nevoie, faceți schimb de pachete cu o pereche vecină și revizuiți-vă reciproc.
 
 > Revizuiește descrierea problemei în raport cu informațiile primite. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile pe care informațiile le susțin. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.
 
@@ -90,9 +91,12 @@ Păstrați suficient din pachet și din răspuns ca să se vadă ce s-a revizuit
 
 ## Evaluarea de către om — minutele 60–78
 
+Mai întâi individual, 5 minute: fiecare partener clasifică singur constatările (acceptare / respingere / amânare), cu informația-sursă sau scenariul pe care se sprijină. Apoi comparați clasificările și decideți împreună; notați unde ați avut păreri diferite și ce v-a convins.
+
 | Constatarea revizuirii și locul din variantă | Informație-sursă / scenariu / altă verificare | Acceptare / respingere / amânare și motiv | Modificare sau decizie păstrată; reverificare |
 |---|---|---|---|
 | | | | |
+| Revizuirea nu a găsit probleme | Reluați S1–S8 pe versiunea revizuită | Acceptați dacă rezultatele coincid; notați ce nu s-a verificat | |
 
 Nu există un număr obligatoriu de defecte, corectări sau prompturi repetate. O concluzie justificată că varianta este corectă este un rezultat util. Distingeți verificarea revizuirii de simplul acord cu ea.
 
@@ -102,9 +106,9 @@ Scrieți independent, cu numele vostru:
 
 - O decizie pe care o pot apăra, informația care o susține și un scenariu care o verifică:
 - O alternativă plauzibilă sau o ipoteză neconfirmată și consecința ei:
-- Răspunsul meu la schimbarea anunțată de cadrul didactic: deciziile afectate, regula lipsă și două răspunsuri posibile, cu un scenariu care le distinge:
+- Răspunsul meu la schimbarea anunțată de profesor: deciziile afectate, regula lipsă și două răspunsuri posibile, cu un scenariu care le distinge:
 
-Cadrul didactic anunță schimbarea la minutul 78. Contează raționamentul vostru, nu o soluție finală șlefuită.
+Profesorul anunță schimbarea la minutul 78. Contează raționamentul vostru, nu o soluție finală șlefuită.
 
 ## Predarea lucrării
 

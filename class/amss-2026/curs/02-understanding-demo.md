@@ -1,6 +1,6 @@
 # Demonstrație pentru Cursul 2 — Înțelegem înainte de a delega
 
-Ghid pentru cadrul didactic; nu este o prezentare. Alocați demonstrației aproximativ 15–18 minute, inclusiv timpul în care studenții analizează singuri. Folosiți orice asistent accesibil și un context separat pentru revizuire (review). Nu sunt necesari furnizori diferiți sau agenți care rulează simultan.
+Ghid pentru profesor; nu este o prezentare. Alocați demonstrației aproximativ 14–17 minute, inclusiv timpul în care studenții analizează singuri. Folosiți orice asistent accesibil și un context separat pentru revizuire (review). Nu sunt necesari furnizori diferiți sau agenți care rulează simultan.
 
 ## Obiectiv didactic
 
@@ -11,7 +11,7 @@ La curs, studenții au formulat deja întrebări și au primit clarificările de
 ## Materiale și pregătire
 
 - Sursa pentru studenți: [enunțul bibliotecii](scenarios/01-library-kiosk/brief.md).
-- Referința pentru cadrul didactic: [o proiectare argumentată](scenarios/01-library-kiosk/reference-design.md).
+- Referința pentru profesor: [o proiectare argumentată](scenarios/01-library-kiosk/reference-design.md).
 - Varianta de rezervă pregătită: [sursa prezentării de rezervă](fallback/01-intro-fallback.md), generată ca `fallback/01-intro-fallback.html` / `.pdf`.
 - Diapozitivul „Demonstrație: delegăm o sarcină delimitată” din curs.
 
@@ -74,6 +74,8 @@ Deschideți contextul separat. Dați-i agentului enunțul original și documentu
 
 Contextul nou poate folosi același model. Explicați că separarea face explicită predarea sarcinii și a contextului; nu garantează o revizuire imparțială sau corectă.
 
+Cât timp agentul de revizuire lucrează, întrebați studenții: ce ar lipsi dacă agentul ar primi doar documentul de proiectare și instrucțiunea „verifică dacă e corect”? Răspunsuri utile: enunțul sursă, regulile și scenariile față de care se verifică, cerința de a indica pentru fiecare constatare regula și scenariul care o susțin.
+
 ## 5. Omul decide ce stabilește revizuirea (2–3 minute)
 
 Alegeți o constatare din răspunsul primit. Cereți studenților să o clasifice ca:
@@ -134,5 +136,4 @@ Prezentarea conține o proiectare intenționat incompletă, un contraexemplu, o 
 - Proiectarea de referință nu se află în contextul inițial al proiectantului.
 - Enunțul, detaliile selectate din proiectare și constatările revizuirii încap pe ecran.
 - Varianta de rezervă este disponibilă local și etichetată clar ca exemplu pregătit.
-- Codul QR Teams și codul echipei rămân pe diapozitivul de bun venit al cursului.
 - Demonstrația se încheie cu o decizie de proiectare care poate fi examinată, nu doar cu acceptarea verdictului unui agent.

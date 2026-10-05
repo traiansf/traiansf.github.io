@@ -1,4 +1,4 @@
-# Laboratorul 0 — ghidul cadrului didactic
+# Laboratorul 0 — ghidul profesorului
 
 Activitate opțională de pregătire și orientare, la care toate grupele au acces în aceeași formă: `Lab00.md`, publicat ca pagină continuă și ca PDF. Studenții o pot parcurge individual; pașii nu depind de o discuție moderată, de un coleg sau de un asistent AI. Nu introduceți o temă notată, un termen de predare sau obligația de a forma echipe în această întâlnire.
 
@@ -10,7 +10,7 @@ Alocați orientativ 90 de minute: acces la materiale 10; experiențe individuale
 
 Discutați cerințe interpretate diferit, schimbări cu efecte ample și verificarea rezultatelor AI. Cereți-le studenților o întrebare care ar fi schimbat o decizie. Dacă nu au un exemplu, folosiți-l pe cel din ghid, cu pagina pentru notițe. Nu intrați aici în detalii despre modele, contracte, invariante sau notații de diagrame.
 
-Păstrați scenariul rezervării sălilor pentru Lab 1 și demonstrația bibliotecii pentru cursul 2. Lab 0 nu le înlocuiește și nu dă unei singure grupe material tehnic suplimentar, de care va fi nevoie mai târziu.
+Păstrați scenariul mașinilor de spălat din cămin pentru Laboratorul 1 și demonstrația bibliotecii pentru cursul 2. Lab 0 nu le înlocuiește și nu dă unei singure grupe material tehnic suplimentar, de care va fi nevoie mai târziu.
 
 ## Material și acces independent
 

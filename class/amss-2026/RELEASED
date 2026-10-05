@@ -5,3 +5,5 @@
 # The project page (proiect/) and the sample exam (exam/) are always published.
 curs/01-intro
 lab/Lab00
+curs/02-understanding
+lab/Lab01

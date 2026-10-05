@@ -10,16 +10,11 @@ When a point is settled, change the materials it names and delete it from this f
 
 - **Where:** `proiect/README.md` („Punctaj prezență = …”, „Pentru 14 cursuri și 7 laboratoare, numitorul este 21”, lines 112–116); `curs/01-intro.md`, slide „Prezența și pregătirea pentru examinare” (lines 116–118) and its notes (line 127); `static/index.html` („Prezență la cursuri și laboratoare”, line 165); the assessment section of `CLAUDE.md`.
 - **Question:** two meetings are not covered by the formula.
-  - *Lab 0* is optional and takes place only in some groups. The slide counts „întâlniri de curs și laborator desfășurate pentru grupa voastră”, which read literally includes it; „7 laboratoare” excludes it.
+  - *Lab 0* is optional and takes place only in some groups. It was held in the first week of October 2026. The slide counts „întâlniri de curs și laborator desfășurate pentru grupa voastră”, which read literally includes it; „7 laboratoare” excludes it.
   - *Week 14* is planned as exam and reflection (`docs/semester-roadmap.md`). Is it one of the 14 lectures for attendance?
 - **To do once decided:** say it in one sentence on the project page and, if it changes the numbers, on the slide.
 
-### 2. Lab 1: the kinds of statements differ between the slide and the worksheet
-
-- **Where:** `lab/Lab01.md`, slide „Patru tipuri de afirmații” (lines 110–119): cerință convenită, consecință dedusă, alegere de proiectare, regulă încă neclarificată. `lab/scenarios/lab01/worksheet.md` line 39: „Informație convenită / consecință / ipoteză / întrebare / propunere de proiectare”. `lab/scenarios/lab01/scenario.md` line 48: „informații/ipoteze/întrebări”.
-- **Question:** four categories or five, and under which names. „Ipoteză” is on the worksheet and in the slide's notes (line 122) but not on the slide; „alegere de proiectare” and „propunere de proiectare” name the same thing.
-
-### 3. Project page: three phrases that can be read in two ways
+### 2. Project page: three phrases that can be read in two ways
 
 All in `proiect/README.md`; the second also appears in `lab/Lab06.md` (line 15).
 
@@ -27,27 +22,15 @@ All in `proiect/README.md`; the second also appears in `lab/Lab06.md` (line 15).
 - **„întrebări de proiectare care ar fi fost discutate într-un atelier la curs”** (line 84). The workshop lecture was retired, so students have no such workshop to compare with. The clause can simply go.
 - **„Studenții fără echipă sau temă la 1 noiembrie vor fi repartizați aleatoriu”** (line 16). It covers a student without a team. What happens to a complete team that has not announced a topic by the deadline?
 
-### 4. Lab 1: who is addressed on „Ce sarcină putem preda în continuare?”
-
-- **Where:** `lab/Lab01.md`, lines 249–259.
-- **Question:** the bullets („clarificați limita anulării…”, „opriți-vă pentru revizuire umană înainte de implementare”) are imperatives to the students, but they describe what the delegated design task should do; the prepared example (`prepared-fixture.md`, A8) words them as the task. A lead-in such as „Propuneți o sarcină de proiectare care:” with the bullets in the third person („clarifică…”, „se oprește…”) would make the slide say that.
-
-### 5. The setup guide's warm-up uses Lab 1's domain
-
-- **Where:** `tooling/SETUP.md`, section 3 (lines 26–42): „Un departament dorește ca studenții să poată rezerva săli de studiu…”, with a prepared proposal that includes „fiecare rezervare durează o oră”.
-- **Question:** Lab 1 is the study-room reservation scenario, and its change request is a 60-minute limit. Lecture 1 asks students to read this guide before Lab 1, `lab/Lab00.md` (line 154) says the room scenario is kept for Lab 1, and `CLAUDE.md` asks for a different small domain for each topic. Either move the warm-up to another domain or accept the overlap on purpose.
-- **Instructor, 2 October 2026:** Lab 1 will be changed when Lecture 2 is finalised; decide this point then. Lecture 1 already announces Lab 1 as „o problemă concretă”, without naming its domain.
-
-### 6. The questionnaire is „voluntar” in the form and „facultativ” on the pages
+### 3. The questionnaire is „voluntar” in the form and „facultativ” on the pages
 
 - **Where:** the live Google Form and `questionnaires/README.md` (lines 9, 13, 17) say „Completarea este voluntară”; `curs/01-intro.md` (line 276), `lab/Lab00.md` (line 158) and `static/index.html` (line 196) say „facultativ(ă)”.
 - **Question:** near-synonyms, so the difference may be acceptable. To align, edit the form by hand in Google Forms and the two descriptions in `questionnaires/README.md`; the unreleased `curs/14-final.md` (line 168) also says „voluntară”.
 
-### 7. Terms used side by side
+### 4. Terms used side by side
 
-- **„profesorul”** (`lab/Lab00.md`, `proiect/README.md`) and **„cadrul didactic”** (Lab 1 slides and handouts, `tooling/SETUP.md`).
 - **„evaluator”** (Lab 1 slides and worksheet; with the gloss „agent de revizuire” in Lecture 1 and on the project page) and **„agent de revizuire”** alone (`tooling/README.md`, `tooling/SETUP.md`).
-- The review kept both pairs as it found them. Pick one of each, or keep the gloss wherever „evaluator” first appears in a document.
+- Pick one of „evaluator” and „agent de revizuire”, or keep the gloss wherever „evaluator” first appears in a document (Lecture 2 now glosses it on the demonstration slide).
 
 ## Before releasing Labs 6–7
 
@@ -56,7 +39,7 @@ All in `proiect/README.md`; the second also appears in `lab/Lab06.md` (line 15).
 - **Front matter:** `title: "AMSS 2026/2027 — Laboratorul N: …"` instead of `"AMSS 2026 — Lab N: …"`, and no `date:` (see the authoring conventions in `CLAUDE.md`).
 - **First slide:** it repeats the title („# Lab 6: …”, „# Lab 7: …”), which the cover already shows; give it a title of its own.
 - **Terms of the project page:** „Laboratorul 6/7” for „Lab 6/7”; in the Lab 7 table „Formularea problemei și cerințe” for „Încadrarea problemei și cerințe”, „Stare și comportament” for „Stări și comportamente”, „Total dosar de proiectare” for „Total dosar de echipă”; „aspectele neclare” for „punctele neclare”; „diapozitive” for „slide-uri”; „punctajul pentru dosar” for „nota pe dosar”.
-- **Point 3 above** applies to these decks as well. Lab 7 is „Interviu de susținere a proiectului” (decided in October 2026).
+- **Point 2 above** applies to these decks as well. Lab 7 is „Interviu de susținere a proiectului” (decided in October 2026).
 - **Then:** build with `make PREVIEW_ALL=1 BASE=<dir>` and check that every slide fits in the HTML deck and in the PDF.
 
 The other unreleased decks still carry their earlier content (see the roadmap); the same alignment applies when each is rewritten.

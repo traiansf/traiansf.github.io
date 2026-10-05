@@ -1,4 +1,4 @@
-# Terminal de bibliotecă — referință pentru cadrul didactic
+# Terminal de bibliotecă — referință pentru profesor
 
 Acesta este un exemplu de referință pregătit pentru predare, nu o transcriere a unei conversații cu AI și nici singura proiectare acceptabilă. Citiți mai întâi [enunțul](brief.md). Identificatorii regulilor și scenariilor trimit la acel enunț.
 
@@ -50,7 +50,7 @@ Aceste parcurgeri explică comportamentul proiectării de referință. Ele nu de
 
 **Întrebare care depășește limitele exercițiului:** „Ce se întâmplă dacă două cereri de împrumut sosesc simultan?” R6 limitează acest model la operații secvențiale. Dacă aceste limite se lărgesc, planul de implementare are nevoie de un mecanism care să păstreze R2 și la încercări concurente. Nu pretindeți că verificarea secvențială rezolvă deja concurența.
 
-**Alternative acceptabile:** funcțiile cu stare explicită, obiectele care colaborează, reprezentările relaționale sau o altă reprezentare clară pot exprima toate aceste decizii. Punctajul integral depinde de respectarea regulilor și scenariilor, nu de reproducerea denumirilor de mai sus.
+**Alternative acceptabile:** funcțiile cu stare explicită, obiectele care colaborează, reprezentările relaționale sau o altă reprezentare clară pot exprima toate aceste decizii. O proiectare este acceptabilă dacă respectă regulile și scenariile, chiar dacă nu reproduce denumirile de mai sus.
 
 ## Pregătirea și predarea sarcinii către etapa următoare (handoff)
 

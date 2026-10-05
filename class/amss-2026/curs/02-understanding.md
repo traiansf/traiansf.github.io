@@ -4,14 +4,14 @@ author: "Traian-Florin Șerbănuță"
 lang: ro-RO
 ---
 
-# Înțelegem înainte de a delega
+# Întrebarea de astăzi
 
 Ce trebuie să înțelegem înainte de a cere unei persoane sau unui asistent să propună o soluție?
 
 Astăzi analizăm o problemă mică, comparăm decizii și verificăm ce anume le susține.
 
 ::: notes
-100 de minute: analiză inițială și întrebări 15; clarificări și delimitare 15; concepte și responsabilități 20; contracte și scenarii 15; delegare și revizuire 20; schimbare și sinteză 10; exercițiu final 5. Aspectele administrative au fost discutate în cursul 1. Acesta este un prim contact cu principiile care vor fi aprofundate în cursurile următoare. Lab 1 se desfășoară după acest curs.
+100 de minute: analiză inițială și întrebări 15; clarificări și delimitare 10; concepte și responsabilități 20; contracte și scenarii 15; delegare și revizuire 25; schimbare și sinteză 10; exercițiu final 5. Aspectele administrative au fost discutate în cursul 1. Acesta este un prim contact cu principiile care vor fi aprofundate în cursurile următoare. Laboratorul 1 se desfășoară după acest curs.
 :::
 
 ---
@@ -43,14 +43,14 @@ Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte 
 **Ce ar trebui să înțelegeți?**
 
 ::: notes
-Este o solicitare intenționat incompletă a beneficiarului, nu o specificație completă. Nu arătați încă precizările. Fișa studenților: scenarios/01-library-kiosk/brief.md. Exercițiul inițial apare integral și pe slide-uri.
+Este o solicitare intenționat incompletă a beneficiarului, nu o specificație completă. Nu arătați încă precizările. Fișa studenților: scenarios/01-library-kiosk/brief.md. Exercițiul inițial apare integral și pe diapozitive.
 :::
 
 ---
 
 # Exercițiu: întrebări înainte de soluții
 
-Lucrați cu un coleg, inițial **fără AI**.
+Mai întâi singuri, **fără AI**; apoi comparați răspunsurile cu un coleg.
 
 1. Scrieți două întrebări ale căror răspunsuri ar putea schimba proiectarea.
 2. Descrieți o situație concretă de împrumut.
@@ -59,7 +59,7 @@ Lucrați cu un coleg, inițial **fără AI**.
 Pregătiți-vă să explicați **de ce contează unul dintre răspunsuri**.
 
 ::: notes
-Acordați trei minute, apoi ascultați trei răspunsuri diferite. Întrebări utile: „carte” înseamnă titlu sau exemplar? Ce promite o solicitare? Ce se întâmplă când doi membri vor același exemplar? Alegerea unui framework pentru interfață ține de implementare și nu este, deocamdată, incertitudinea cea mai importantă.
+Acordați două minute de lucru individual și un minut de comparare în pereche, apoi ascultați trei răspunsuri diferite. Întrebări utile: „carte” înseamnă titlu sau exemplar? Ce promite o solicitare? Ce se întâmplă când doi membri vor același exemplar? Alegerea unui framework pentru interfață ține de implementare și nu este, deocamdată, incertitudinea cea mai importantă.
 
 Nu evaluați răspunsurile comparându-le cu o listă ascunsă. Întrebați cum influențează fiecare întrebare limitele sistemului, comportamentul sau o decizie de proiectare.
 :::
@@ -68,16 +68,17 @@ Nu evaluați răspunsurile comparându-le cu o listă ascunsă. Întrebați cum 
 
 # Ce precizează bibliotecarul
 
-Pentru acest exercițiu:
+- **R1** Un titlu poate avea mai multe exemplare fizice, identificate distinct.
+- **R2** Un împrumut leagă **un exemplar** de un membru; un exemplar are cel mult un împrumut activ.
+- **R3** Returnarea închide împrumutul activ; istoricul împrumuturilor se păstrează.
+- **R4** O solicitare se referă la un **titlu**, nu la un exemplar; duplicatele se resping.
+- **R5** Solicitările pot exista simultan cu împrumuturile și nu rezervă exemplare.
+- **R6** Operațiile se procesează pe rând; alocarea, notificările și amenzile rămân în afara exercițiului.
 
-- Un titlu poate avea mai multe exemplare fizice, identificate distinct.
-- Un împrumut înregistrează **ce exemplar** a împrumutat un membru.
-- Un exemplar are cel mult un împrumut activ.
-- O solicitare se referă la un **titlu**, nu la un anumit exemplar.
-- Solicitările pot exista simultan cu împrumuturile.
+[Regulile complete și scenariile S1–S5](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/curs/scenarios/01-library-kiosk/brief.md)
 
 ::: notes
-Acestea sunt informații date de beneficiar, nu adevăruri valabile pentru orice bibliotecă. Regulile complete din scenarios/01-library-kiosk/brief.md precizează și solicitările duplicate, returnările și limitele exercițiului. Explicați că a înregistra o solicitare și a promite alocarea unui exemplar sunt cerințe diferite.
+Acestea sunt informații date de beneficiar, nu adevăruri valabile pentru orice bibliotecă. Pe diapozitiv, regulile sunt condensate; formularea completă și scenariile S1–S5 sunt în scenarios/01-library-kiosk/brief.md. Explicați că a înregistra o solicitare și a promite alocarea unui exemplar sunt cerințe diferite.
 :::
 
 ---
@@ -103,34 +104,54 @@ O „decizie viitoare” poate deveni critică înainte ca funcționalitatea să
 
 # Analiză: înțelegem problema
 
-Trebuie să distingem:
-
-- **Fapte:** informații date sau confirmate de beneficiar.
-- **Presupuneri:** ipoteze de lucru care trebuie încă verificate.
-- **Întrebări deschise:** decizii care nu au fost încă luate.
-- **Cerințe:** rezultate și restricții convenite, pe care sistemul trebuie să le respecte.
+| Tip de afirmație | Exemplu din bibliotecă |
+|----|--------|
+| Informație convenită | R2: un exemplar are cel mult un împrumut activ. |
+| Consecință dedusă | Un titlu poate avea un exemplar împrumutat și unul disponibil. |
+| Ipoteză | Oricine aduce exemplarul îl poate returna, nu doar membrul. |
+| Întrebare deschisă | Cine primește exemplarul returnat, dacă există solicitări? |
+| Propunere de proiectare | Operația de împrumut verifică regula din R2. |
 
 „Folosește o bază de date relațională” nu răspunde la „ce este o carte?”
 
 ::: notes
+Folosim aceleași cinci tipuri și în laboratorul 1. Informațiile convenite vin de la beneficiar (aici, R1–R6); o consecință dedusă trebuie să rezulte din ele. Consecința dedusă rezultă din R1 și R2: disponibilitatea se stabilește pe exemplar. O ipoteză este un răspuns provizoriu, etichetat ca atare: R3 nu spune cine poate returna exemplarul. Atenție: „un membru poate avea mai multe împrumuturi active” nu este o ipoteză, ci o consecință a R2, care condiționează împrumutul doar de exemplar. O propunere de proiectare nu devine informație convenită până nu o acceptă beneficiarul.
+
 Porniți analiza de la ce au lucrat studenții. O tehnologie poate fi o restricție externă reală, dacă o impune beneficiarul; nu lăsați impresia că tehnologia nu are ce căuta în cerințe. Aici beneficiarul nu a impus o asemenea restricție.
+:::
+
+---
+
+# Exercițiu: propunerea voastră, înainte de modelul nostru
+
+Mai întâi singuri, apoi comparați în pereche, folosind regulile R1–R6:
+
+1. Pentru titlu, exemplar, membru, împrumut și solicitare: ce îl identifică și ce regulă din R1–R6 îl privește?
+2. Verificați-o pe S2: titlul T are exemplarele C1 și C2; M1 a împrumutat C1. M2 solicită T, apoi M3 împrumută C2.
+3. Alegeți unde se verifică regula unui singur împrumut activ pe exemplar.
+4. Cum reprezentați un împrumut încheiat fără să îi pierdeți istoricul?
+
+Sunt suficiente un tabel, o schiță sau pseudocod. Notați o alternativă și motivul alegerii.
+
+::: notes
+Alocați 8 minute din intervalul pentru concepte și responsabilități: 5 minute de lucru individual, 3 minute de comparare în pereche. Ascultați două propuneri diferite înainte de diapozitivul următor, apoi comparați-le cu modelul lucrat. Nu cereți proiectarea completă a bibliotecii și nu adăugați reguli din afara R1–R6.
 :::
 
 ---
 
 # Modelarea domeniului
 
-| Concept | Ce identifică |
-|---|---|
-| Titlu | Lucrarea din catalog pe care o pot solicita membrii |
-| Exemplar | Un obiect fizic pe care îl pot împrumuta membrii |
-| Împrumut | Împrumutarea unui exemplar de către un membru |
-| Solicitare | Interesul înregistrat al unui membru pentru un titlu |
+| Din solicitare | Întrebarea | Precizare | Concept și regulă |
+|------|-------|---|----------|
+| „împrumută cărți” | Titlu sau exemplar? | R1 | Titlu; Exemplar al unui titlu |
+| „împrumută” | Ce leagă un împrumut? | R2 | Împrumut: exemplar și membru; cel mult unul activ |
+| „returnează” | Ce rămâne după returnare? | R3 | Împrumut încheiat, păstrat în istoric |
+| „solicita o carte” | Ce se solicită? | R4, R5 | Solicitare: membru și titlu; nu rezervă |
 
 Un titlu, două exemplare: unul poate fi împrumutat, iar celălalt disponibil.
 
 ::: notes
-Un model al domeniului surprinde conceptele, relațiile și regulile care contează pentru problemă. Acest tabel este deja un model. Nu impune patru clase, patru tabele într-o bază de date sau o anumită implementare.
+Parcurgeți tabelul de la stânga la dreapta: fiecare concept pornește de la un fragment al solicitării, trece printr-o întrebare și se sprijină pe o precizare a beneficiarului. Comparați cu propunerile ascultate la exercițiul anterior. Un model al domeniului surprinde conceptele, relațiile și regulile care contează pentru problemă. Acest tabel este deja un model. Nu impune patru clase, patru tabele într-o bază de date sau o anumită implementare.
 
 Cereți unui student să indice conceptul afectat de returnarea unui exemplar. Titlul continuă să existe, iar regulile date nu anulează automat o solicitare.
 :::
@@ -164,7 +185,7 @@ Pomeniți în treacăt coeziunea (deciziile de care are nevoie această responsa
 **Operația de împrumutare:**
 
 - Dacă operația reușește, exemplarul are un nou împrumut activ, pe numele membrului care îl împrumută.
-- Dacă exemplarul este deja împrumutat, cererea este respinsă, iar împrumuturile rămân neschimbate.
+- Dacă exemplarul este deja împrumutat, încercarea este respinsă, iar împrumuturile rămân neschimbate.
 
 **Contraexemplu de exclus:** două împrumuturi active acceptate pentru același exemplar.
 
@@ -184,7 +205,7 @@ Pentru un exemplar:
 |---|---|---|
 | Disponibil | Împrumut acceptat | Împrumutat |
 | Împrumutat | Returnare | Disponibil |
-| Împrumutat | O nouă încercare de împrumut | Împrumutat; cerere respinsă |
+| Împrumutat | O nouă încercare de împrumut | Împrumutat; încercare respinsă |
 
 O solicitare privește un titlu. Ea poate exista în oricare dintre stările unui exemplar.
 
@@ -224,9 +245,11 @@ Cereți unui agent să:
 - Explice o parte nefamiliară a unui sistem existent.
 - Revizuiască o soluție pe baza unor criterii explicite.
 
-Pentru a evalua răspunsurile, aveți în continuare nevoie de cunoștințe proprii.
+**Întrebare:** ce stabilește fiecare verificare pe care o faceți deja (citiți propunerea, întrebați alt agent, rulați teste, cereți o explicație) și ce nu poate stabili?
 
 ::: notes
+Ascultați două-trei răspunsuri. Citirea poate găsi o neconcordanță cu enunțul, dar numai dacă știm ce să căutăm; un alt agent oferă încă o opinie, nu o confirmare; testele trec numai pe cazurile alese; o explicație fluentă poate fi greșită. Pentru a evalua răspunsurile, aveți în continuare nevoie de cunoștințe proprii.
+
 Nu promiteți că agentul va produce întotdeauna o greșeală utilă pentru discuție. Un răspuns bun este valoros: studenții trebuie să explice de ce respectă enunțul și până unde merg garanțiile lui.
 :::
 
@@ -269,22 +292,6 @@ Predarea trebuie să ajute etapa următoare fără să devină un transcript imp
 
 ---
 
-# Exercițiu: construiți o propunere înainte de delegare
-
-În perechi, folosind regulile R1–R6:
-
-1. Distingeți titlul, exemplarul, membrul, împrumutul și solicitarea.
-2. Alegeți unde se verifică regula unui singur împrumut activ pe exemplar.
-3. Explicați cum reprezentați un împrumut încheiat fără să îi pierdeți istoricul.
-
-Sunt suficiente un tabel, o schiță sau pseudocod. Notați o alternativă și motivul alegerii voastre.
-
-::: notes
-Alocați aproximativ 8 minute din intervalul pentru concepte și responsabilități. Perechile formulează o propunere proprie înainte de demonstrație. Nu cereți proiectarea completă a bibliotecii și nu adăugați reguli din afara R1–R6.
-:::
-
----
-
 # Exercițiu: respingerea păstrează starea
 
 După S1, C1 este împrumutat lui M1, iar C2 este disponibil.
@@ -308,7 +315,7 @@ Pașii demonstrației:
 
 1. Îi dăm unui analist/proiectant enunțul clarificat al bibliotecii.
 2. Verificăm conceptele, regulile și responsabilitățile propuse.
-3. Îi dăm unui evaluator, într-un context nou, enunțul și soluția.
+3. Îi dăm unui evaluator (agent de revizuire), într-un context nou, enunțul și soluția.
 4. Decidem ce constatări sunt susținute de enunț.
 
 **Sarcina voastră:** explicați o decizie acceptată și puneți la încercare o afirmație.
@@ -325,7 +332,7 @@ O afirmație pusă la încercare poate fi și confirmată, prin verificarea unui
 
 # Verificăm și revizuirea
 
-Un evaluator afirmă:
+Exemplu pregătit; un evaluator afirmă:
 
 > „Un titlu cu o solicitare activă nu trebuie să poată fi împrumutat.”
 
@@ -335,10 +342,16 @@ Un evaluator afirmă:
 2. Ce scenariu concret demonstrează problema?
 3. Este un defect, o propunere de regulă nouă sau o întrebare deschisă?
 
+Un context separat este încă o ocazie de revizuire, nu o garanție: voi decideți ce susține fiecare constatare.
+
 ::: notes
+Propoziția este pregătită; nu o atribuiți agentului din demonstrație.
+
 În acest exercițiu, constatarea contrazice limitele declarate: solicitările înregistrate nu alocă exemplare și nu blochează împrumutarea. Faptul că soluția permite împrumutarea nu este un defect.
 
 Un agent separat oferă încă o ocazie de revizuire, nu o garanție de independență sau corectitudine. Dați-i enunțul sursă și criteriile; evaluați voi ce susține fiecare constatare. Același model poate fi folosit într-o sesiune nouă.
+
+În laboratorul 1, studenții clasifică la fel constatările unei revizuiri, într-un tabel: regula, scenariul și decizia pentru fiecare constatare.
 :::
 
 ---
@@ -362,7 +375,7 @@ Cereți agentului să indice fișierul sau secțiunea pe care se sprijină o afi
 
 ---
 
-# Când o presupunere inițială este greșită
+# Când o ipoteză inițială este greșită
 
 Să presupunem că modelăm titlul și exemplarele sale ca un singur lucru.
 
@@ -430,9 +443,9 @@ Explicați coeziunea și cuplarea în cadrul atribuirii responsabilităților. C
 Fiecare temă folosește un alt domeniu restrâns.
 
 ::: notes
-Cursul despre validare include unul sau două slide-uri introductive despre modelarea formală. Vom explica atât cum se obține un rezultat, cât și limitele lui.
+Cursul despre validare include unul sau două diapozitive introductive despre modelarea formală. Vom explica atât cum se obține un rezultat, cât și limitele lui.
 
-Planul este în docs/redesign-2026-2027.md. Materialele cursurilor ulterioare sunt reorganizate treptat; această întâlnire tehnică introduce principiile care vor fi aprofundate în cursurile 3–13.
+Planul este în ../docs/redesign-2026-2027.md. Materialele cursurilor ulterioare sunt reorganizate treptat; această întâlnire tehnică introduce principiile care vor fi aprofundate în cursurile 3–13.
 :::
 
 ---

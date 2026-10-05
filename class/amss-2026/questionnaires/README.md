@@ -1,6 +1,6 @@
 # Chestionare AMSS 2026/2027
 
-Cele două chestionare sunt pregătite pentru Google Forms, prin import din Google Sheets cu Form Builder. Fișierele sunt destinate profesorului; formularele nu au fost create într-un cont Google. Nu publicați un link de completare până când formularul nu este configurat și verificat.
+Cele două chestionare sunt pregătite pentru Google Forms, prin import din Google Sheets cu Form Builder. Fișierele sunt destinate profesorului. Formularul inițial a fost creat și publicat în 2026 (diferențele față de aceste fișiere sunt descrise mai jos, în „Formularul inițial publicat”); formularul final nu a fost creat încă. Nu publicați un link de completare până când formularul nu este configurat și verificat.
 
 ## Administrare
 
@@ -25,7 +25,7 @@ Descriere finală: „Răspunsurile ne ajută să înțelegem ce ai învățat �
 5. Verificați că toate întrebările sunt opționale, că răspunsurile libere sunt de tip paragraf și că listele cu selecție multiplă sunt de tip checkbox. Pentru întrebările care cer cel mult trei variante, setați manual validarea **Select at most 3**. Nu amestecați ordinea întrebărilor sau a răspunsurilor.
 6. Completați o dată formularul de probă, verificați cum apare răspunsul în Sheet și ștergeți-l înainte de a distribui linkul pe Teams. Verificați și că un student, fără drepturi de editare, poate deschide formularul.
 
-Structura și tipurile `MULTIPLE_CHOICE`, `CHECKBOX`, `PARAGRAPH`, cu `Required=FALSE`, urmează [documentația oficială Form Builder](https://sites.google.com/jivrus.com/f-builder/docs/formatting/google-sheets). Conversia CSV în Google Sheets este descrisă în [FAQ-ul producătorului](https://sites.google.com/jivrus.com/f-builder/support/faq). Importul propriu-zis prin add-on trebuie încă încercat în contul profesorului.
+Structura și tipurile `MULTIPLE_CHOICE`, `CHECKBOX`, `PARAGRAPH`, cu `Required=FALSE`, urmează [documentația oficială Form Builder](https://sites.google.com/jivrus.com/f-builder/docs/formatting/google-sheets). Conversia CSV în Google Sheets este descrisă în [FAQ-ul producătorului](https://sites.google.com/jivrus.com/f-builder/support/faq). La formularul inițial, importul a lăsat formularul în modul Quiz și fără limita de trei variante; la formularul final, verificați explicit ambele setări după import.
 
 ## Interpretarea rezultatelor
 
@@ -36,3 +36,22 @@ K1–K6 sunt autoevaluări identice în ambele chestionare. D1–D3 sunt scenari
 După prima colectare, rezumați separat autoevaluările, alegerile la scenarii, prioritățile și dificultățile. Pentru fiecare întrebare indicați numărul de răspunsuri; omisiunile nu sunt răspunsuri greșite. Folosiți distribuțiile pe categorii pentru K1–K6, nu presupuneți intervale egale între trepte. Alegeți 2–3 ajustări concrete pentru materialele încă nepublicate: mai multe exemple introductive, explicații despre contracte, mai multe comparații între soluții sau sprijin pentru unelte. Spuneți-le studenților ce ați schimbat în urma răspunsurilor.
 
 La final comparați distribuțiile K1–K6, D1–D3 și frecvența utilizării AI (A1), apoi sintetizați exemplele A2/F2 și sugestiile. Comparația este la nivelul cohortei: fără identificatori nu se pot urmări persoane, iar numărul și componența respondenților pot diferi. Răspunsurile pot fi influențate atât de curs, cât și de faptul că scenariile se repetă; nu puneți automat diferențele doar pe seama cursului. Concluziile și schimbările propuse pentru ediția următoare se trec într-un rezumat pentru profesor; răspunsurile individuale nu se publică.
+
+## Rezumatul automat al răspunsurilor
+
+Exportați răspunsurile din foaia formularului (**File → Download → CSV**) într-un director din afara repository-ului; exportul brut nu se adaugă în repository și nu se publică. Apoi rulați:
+
+```
+python3 questionnaires/sumar.py initial <export.csv>
+python3 questionnaires/sumar.py final <export.csv>
+```
+
+Scriptul potrivește coloanele după textul întrebărilor și afișează, în Markdown, numărul de răspunsuri și distribuțiile pe categorii, cu răspunsul de referință marcat la D1–D3 și mediana treptelor la K1–K6. Nu afișează răspunsurile libere; acelea se citesc separat și se rezumă pe teme, fără citate și fără detalii care ar putea identifica un student.
+
+## Formularul inițial publicat: diferențe față de aceste fișiere
+
+Verificat pe exportul din 4 octombrie 2026:
+
+- Treapta a patra a scalei K1–K6 apare în formular ca „Pot realiza independent pe o problemă mică” (la K3: „Mă descurc independent pentru o problemă mică”), nu ca în `initial.csv`. Scriptul numără aceste variante la aceeași treaptă. Formularul final păstrează etichetele din `final.csv`; comparația dintre chestionare se face după poziția opțiunii pe scală, nu după text.
+- Limita „cel mult trei variante” nu a fost aplicată în formular la T1 și T3; unii respondenți au ales mai multe. La formularul final, setați validarea **Select at most 3** și verificați-o.
+- Exportul conține o coloană „Scor”, goală: formularul pare creat în modul Quiz. Verificați că modul este dezactivat sau că studenții nu văd un punctaj ori „răspunsuri corecte”.

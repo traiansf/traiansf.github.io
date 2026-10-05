@@ -1,7 +1,7 @@
 ---
-title: "Cursul 2 — Exercițiu pregătit de proiectare și revizuire"
+title: "AMSS 2026/2027 — Cursul 2: Exercițiu pregătit de proiectare și revizuire"
 subtitle: "Terminal de bibliotecă: înțelegere înainte de delegare"
-author: "AMSS 2026/2027 — exemplu didactic pregătit"
+author: "Exemplu didactic pregătit"
 lang: ro-RO
 ---
 
@@ -16,7 +16,7 @@ Folosiți același enunț și aceleași întrebări ca în demonstrație:
 - Ce stabilește, de fapt, revizuirea (review)?
 
 ::: notes
-Variantă de rezervă pentru cadrul didactic. Precizați explicit că aceste materiale au fost create pentru predare. Ele nu documentează comportamentul unui model. Enunț: ../scenarios/01-library-kiosk/brief.md; referință: ../scenarios/01-library-kiosk/reference-design.md.
+Variantă de rezervă pentru profesor. Precizați explicit că aceste materiale au fost create pentru predare. Ele nu documentează comportamentul unui model. Enunț: ../scenarios/01-library-kiosk/brief.md; referință: ../scenarios/01-library-kiosk/reference-design.md.
 :::
 
 ---

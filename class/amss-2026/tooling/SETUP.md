@@ -11,9 +11,9 @@ git clone https://github.com/traiansf/traiansf.github.io.git
 cd traiansf.github.io/class/amss-2026
 ```
 
-Repository-ul conține și alte cursuri, precum și materiale ale site-ului. Lucrează cu fișierele indicate din `class/amss-2026`. Dacă nu folosești Git, poți începe cu un director de fișiere primit de la cadrul didactic.
+Repository-ul conține și alte cursuri, precum și materiale ale site-ului. Lucrează cu fișierele indicate din `class/amss-2026`. Dacă nu folosești Git, poți începe cu un director de fișiere primit de la profesor.
 
-Pentru lucrul tău, folosește spațiul de lucru al laboratorului sau repository-ul echipei, după cum indică cadrul didactic. Păstrează o copie a descrierii inițiale a problemei, analiza ta inițială, versiunile succesive ale artefactelor și rezultatele revizuirii (review). Dacă folosești Git, marchează versiunile revizuite prin commituri; altfel, salvează versiuni cu nume clare.
+Pentru lucrul tău, folosește spațiul de lucru al laboratorului sau repository-ul echipei, după cum indică profesorul. Păstrează o copie a descrierii inițiale a problemei, analiza ta inițială, versiunile succesive ale artefactelor și rezultatele revizuirii (review). Dacă folosești Git, marchează versiunile revizuite prin commituri; altfel, salvează versiuni cu nume clare.
 
 ## 2. Pregătește asistentul
 
@@ -27,9 +27,9 @@ Fișierele din `template/` sunt opționale. Copiază numai fișierele de care ai
 
 Înainte de a folosi AI, scrie câteva rânduri cu propria analiză a acestei descrieri a problemei:
 
-> Un departament dorește ca studenții să poată rezerva săli de studiu pentru a-și planifica lucrul în grup.
+> O cantină universitară dorește ca studenții să poată comanda în avans meniul zilei, pentru a reduce risipa de mâncare.
 
-Identifică un obiectiv, o întrebare pe care ai adresa-o departamentului și o ipoteză pe care nu ar trebui să o adopți fără să o precizezi. Apoi dă asistentului descrierea problemei și notițele tale:
+Identifică un obiectiv, o întrebare pe care ai adresa-o cantinei și o ipoteză pe care nu ar trebui să o adopți fără să o precizezi. Apoi dă asistentului descrierea problemei și notițele tale:
 
 > Lucrezi ca analist. Separă faptele date de ipoteze. Identifică problema, limitele posibile ale soluției și întrebările fără răspuns despre regulile de funcționare. Propune două exemple concrete de acceptare și marchează orice rezultat așteptat care nu este încă stabilit. Explică o consecință a unei ipoteze. Oprește-te înainte de a proiecta o aplicație.
 
@@ -37,7 +37,7 @@ Citește răspunsul. Marchează o contribuție utilă și o afirmație care treb
 
 Dacă nu poți folosi un asistent, pentru exercițiul de revizuire lucrează cu această **propunere didactică pregătită**. Este intenționat incompletă și nu reprezintă un răspuns AI înregistrat:
 
-> Obiectiv: să ajute grupurile să își planifice timpul de studiu. Reguli propuse: fiecare student poate avea o singură rezervare, iar fiecare rezervare durează o oră. Exemplu de acceptare: un student selectează o sală disponibilă pentru mâine și primește confirmarea.
+> Obiectiv: să reducă risipa de mâncare. Reguli propuse: comenzile pentru o zi se fac până la ora 10 a zilei respective, iar fiecare student poate comanda o singură porție. Exemplu de acceptare: un student comandă meniul de mâine și primește confirmarea.
 
 Compară fiecare afirmație cu descrierea inițială a problemei. Identifică regulile de funcționare pentru care ai nevoie de răspunsul beneficiarului și ce ar trebui să precizeze un exemplu de acceptare util.
 
@@ -57,7 +57,7 @@ Când lucrați în echipă, partajați proiectarea curentă și verificările ca
 
 ## Dacă mediul de lucru nu este disponibil
 
-- **Nu ai acces la un asistent sau ai atins o limită de utilizare:** continuă singur analiza inițială și examinează critic exemplul pregătit pentru exercițiu. Notează că ai revizuit un exemplu pregătit. Anunță cadrul didactic, ca să se organizeze o revizuire separată între colegi sau cu un asistent disponibil; nu pretinde că ai rulat un asistent AI dacă nu ai făcut-o.
+- **Nu ai acces la un asistent sau ai atins o limită de utilizare:** continuă singur analiza inițială și examinează critic exemplul pregătit pentru exercițiu. Notează că ai revizuit un exemplu pregătit. Anunță profesorul, ca să se organizeze o revizuire separată între colegi sau cu un asistent disponibil; nu pretinde că ai rulat un asistent AI dacă nu ai făcut-o.
 - **Asistentul nu poate citi fișiere:** copiază sau atașează descrierea problemei și secțiunile din artefacte de care e nevoie, cu identificatorii versiunilor.
 - **Noul agent de revizuire nu are context:** dă-i explicit rezumatul de predare și sursele inițiale. Nu presupune că știe ce s-a discutat în conversația anterioară.
 - **O diagramă nu se afișează:** exprimă aceleași relații sau același comportament într-un tabel ori într-o schiță, astfel încât analiza să poată continua.

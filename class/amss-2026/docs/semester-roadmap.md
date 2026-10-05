@@ -18,7 +18,7 @@ The multiple-choice exam assesses reasoning about supplied problems, requirement
 
 ## Lectures
 
-Durations below are instructor planning notes. Each full lecture in Weeks 3–13 totals **100 minutes**, including discussion and a short exit exercise. Keep these timings off student slides. New domains below are proposals; only the authored Week 2 library and Lab 1 room-booking scenarios are established in the current package.
+Durations below are instructor planning notes. Each full lecture in Weeks 3–13 totals **100 minutes**, including discussion and a short exit exercise. Keep these timings off student slides. New domains below are proposals; only the authored Week 2 library and Lab 1 dorm laundry-machine scenarios are established in the current package.
 
 ### Week 1 — Administration and motivation
 
@@ -34,9 +34,9 @@ Durations below are instructor planning notes. Each full lecture in Weeks 3–13
 
 **Observable outcomes:** distinguish a title from a physical copy; formulate an initial design before delegating; explain acceptance and rejection through before/after states; evaluate review findings using source evidence.
 
-**Sequence, 100 minutes:** initial analysis and questions 15; clarifications and scope 15; concepts and responsibilities 20; contracts and scenarios 15; delegation and review 20; change and synthesis 10; exit exercise 5. The former Lecture 1 technical content is moved here and expanded with paired design and independent scenario exercises.
+**Sequence, 100 minutes:** initial analysis and questions 15; clarifications and scope 10; concepts and responsibilities 20; contracts and scenarios 15; delegation and review 25; change and synthesis 10; exit exercise 5. The former Lecture 1 technical content is moved here and expanded with paired design and independent scenario exercises.
 
-**Authored package:** [Lecture 2](../curs/02-understanding.md), [demo guide](../curs/02-understanding-demo.md), [library brief](../curs/scenarios/01-library-kiosk/brief.md), [reference design](../curs/scenarios/01-library-kiosk/reference-design.md), and [prepared fallback](../curs/fallback/01-intro-fallback.md). Preserve existing asset paths. Students propose their own model before the agent; compare it against R1–R6 and S1–S5. Discuss correct as well as flawed output. These are introductory encounters with concepts taught in depth later.
+**Authored package:** [Lecture 2](../curs/02-understanding.md), [demo guide](../curs/02-understanding-demo.md), [library brief](../curs/scenarios/01-library-kiosk/brief.md), [reference design](../curs/scenarios/01-library-kiosk/reference-design.md), and [prepared fallback](../curs/fallback/01-intro-fallback.md). Preserve existing asset paths. Students first propose their own model (individually, then in pairs), before the worked model and before the agent; compare it against R1–R6 and S1–S5. Discuss correct as well as flawed output. These are introductory encounters with concepts taught in depth later.
 
 ### Week 3 — Problem framing and requirements
 
@@ -190,7 +190,7 @@ Use the [self-study guide](../lab/Lab00.md) and [instructor guide](../lab/Lab00-
 
 ### Lab 1, after Courses 1–2 — Understanding, specification, and review
 
-Use the room-booking [student lab](../lab/Lab01.md), [instructor guide](../lab/Lab01-instructor.md), [scenario](../lab/scenarios/lab01/scenario.md), [worksheet](../lab/scenarios/lab01/worksheet.md), and [prepared fixture](../lab/scenarios/lab01/prepared-fixture.md). These contain the full timing and activities. Foundations: Courses 1–2, especially source facts, scope, acceptance examples, role handoffs, and human review decisions.
+Use the dorm laundry-machine [student lab](../lab/Lab01.md), [instructor guide](../lab/Lab01-instructor.md), [scenario](../lab/scenarios/lab01/scenario.md), [worksheet](../lab/scenarios/lab01/worksheet.md), and [prepared fixture](../lab/scenarios/lab01/prepared-fixture.md). These contain the full timing and activities. Foundations: Courses 1–2, especially source facts, scope, acceptance examples, role handoffs, and human review decisions.
 
 ### Lab 2, after Courses 3–4 — Requirements and domain modeling
 
@@ -282,3 +282,5 @@ Lab 6 follows Courses 11–12 and uses their ideas when useful for open project 
 ## Initial and final questionnaires
 
 Use the [Form Builder import package](../questionnaires/README.md). Collect the initial questionnaire from all groups in the opening weeks, summarize experience, diagnostic responses and priorities before Lab 1, and adjust unreleased material. Reserve 10–12 minutes within the final course reflection for the final questionnaire. Compare common items at cohort level and record improvements for the next edition; questionnaires are voluntary and ungraded.
+
+**Provisional baseline, 4 October 2026** (16 responses of roughly 100, collected after Lecture 1 and Lab 0; aggregate only, to be re-summarized when the form closes before Lab 1 with `questionnaires/sumar.py`). Students rate themselves lowest on domain concepts and rules (K2: 3 of 15 at the "independent" level or above), conditions and guarantees of an operation (K4: 7 of 16) and states (K5: 7 of 15), and highest on clarifying requirements and dividing responsibilities (K1, K3: 12 each). The three short scenarios D1–D3 reached the ceiling (15 of 16 each), so they show recognition rather than progress. Most respondents use AI almost daily (11 of 16) and verify its output by reading it, asking another agent or running tests. Requested topics run opposite to the weakest areas: delegating and verifying AI work 10, understanding an existing system 8, domain modeling 2, contracts and invariants 1. Preferred modes are worked examples (11), counterexamples (10) and comparing solutions (9); pair discussion was chosen by 2. Consequences for unreleased material: motivate domain modeling and contracts through verifiable delegation; give Weeks 4 and 6 more worked examples and counterexamples; keep individual work before pair work in exercises; do not present results on slides while the form is open.

@@ -1,53 +1,63 @@
-# Laboratorul 1 — fișă: rezervarea sălilor de studiu din campus
+# Laboratorul 1 — fișă: programarea mașinilor de spălat din cămin
 
-Acesta este un **scenariu didactic pregătit**. Informațiile de mai jos sunt cerințele convenite cu beneficiarul pentru exercițiu. Ele descriu un pilot cu limite clare, nu regulile unei universități reale.
+Acesta este un **scenariu didactic pregătit**. Informațiile de mai jos sunt cerințele convenite cu beneficiarul pentru exercițiu. Ele descriu un pilot cu limite clare, nu regulile unui cămin real.
 
 ## Scopul și informațiile convenite
 
-Studenții trebuie să poată rezerva o sală de studiu din campus și să afle dacă rezervarea a reușit.
+Locatarii căminului trebuie să își poată programa o mașină de spălat din spălătoria comună și să afle dacă programarea a reușit.
 
 | ID | Informație de la beneficiar |
 |---|---|
-| F1 | Pilotul include sălile **Alder** și **Birch** într-o singură zi viitoare, **D**. Ambele sunt deschise 09:00–17:00, în ora locală a campusului. Toate orele din exemple se referă la D. |
-| F2 | Identitatea verificată a studentului vine de la un serviciu al universității. Lista sălilor și programul lor sunt deja configurate. Proiectarea autentificării sau a administrării sălilor nu face parte din sarcină. |
-| F3 | O cerere indică exact un student, o sală din listă, o oră de început și una de sfârșit în D. Începutul trebuie să preceadă sfârșitul; intervalul trebuie să se încadreze în program. Pentru acest pilot, aplicați regulile convenite mai jos; nu adăugați restricții de eligibilitate neaprobate. |
-| F4 | Două rezervări **confirmate** pentru **aceeași sală** nu se pot suprapune. O rezervare poate începe exact când se termină alta. Rezervările pentru săli diferite nu intră în conflict din punctul de vedere al disponibilității sălii. |
-| F5 | Regula F4 se aplică și cererilor simultane. Dacă două cereri altfel valide se suprapun și privesc aceeași sală liberă, confirmați una și respingeți-o pe cealaltă pentru conflict. Beneficiarul nu a ales care cerere are prioritate. |
-| F6 | Înainte de începutul rezervării, titularul ei o poate anula. Anularea reușită eliberează intervalul. Alt student nu o poate anula; o anulare respinsă lasă rezervarea neschimbată. Regulile anulării la ora de început sau după aceasta nu au fost convenite. |
-| F7 | La o rezervare reușită se returnează un cod de rezervare. Răspunsul la o cerere respinsă explică ce regulă convenită a împiedicat-o. Nu s-au specificat nici formatul interfeței, nici o limită pentru timpul de răspuns. |
-| F8 | Plățile, rezervările recurente, listele de așteptare, administrarea sălilor și notificările sunt excluse din pilot. |
+| F1 | Pilotul include mașinile **Albastra** și **Verdea** din spălătoria căminului, într-o singură zi viitoare, **D**. Spălătoria este deschisă 08:00–22:00, în ora locală. Toate orele din exemple se referă la D. |
+| F2 | Identitatea verificată a locatarului vine de la serviciul de cazare al căminului. Lista mașinilor și programul spălătoriei sunt deja configurate. Proiectarea autentificării sau a administrării mașinilor nu face parte din sarcină. |
+| F3 | O cerere indică exact un locatar, o mașină din listă, o oră de început și una de sfârșit în D. Începutul trebuie să preceadă sfârșitul; intervalul trebuie să se încadreze în program. Pentru acest pilot, aplicați regulile convenite mai jos; nu adăugați restricții de eligibilitate neconvenite. |
+| F4 | Două programări **confirmate** pentru **aceeași mașină** nu se pot suprapune. O programare poate începe exact când se termină alta. Programările pentru mașini diferite nu intră în conflict din punctul de vedere al disponibilității mașinii. |
+| F5 | Regula F4 se aplică și cererilor simultane. Dacă două cereri altfel valide se suprapun și privesc aceeași mașină liberă, confirmați una și respingeți-o pe cealaltă pentru conflict. Beneficiarul nu a ales care cerere are prioritate. |
+| F6 | Înainte de începutul programării, titularul ei o poate anula. Anularea reușită eliberează intervalul. Alt locatar nu o poate anula; o anulare respinsă lasă programarea neschimbată. Regulile anulării la ora de început sau după aceasta nu au fost convenite. |
+| F7 | La o programare reușită se returnează un cod de programare. Răspunsul la o cerere respinsă explică ce regulă convenită a împiedicat-o. Nu s-au specificat nici formatul interfeței, nici o limită pentru timpul de răspuns. |
+| F8 | Plățile, programările recurente, listele de așteptare, administrarea mașinilor, semnalarea defecțiunilor și notificările sunt excluse din pilot. |
 
 O cerere obișnuită care satisface regulile convenite poate fi confirmată. Pentru cazurile deschise de mai jos, regulile trebuie decise explicit înainte de a afirma că proiectarea le acoperă complet.
 
 ## Întrebări încă deschise
 
-- **Q1:** poate un student avea rezervări suprapuse în săli diferite? F4 privește disponibilitatea sălii, nu această regulă. Până la rezolvarea Q1, folosiți studenți diferiți când testați disponibilitatea a două săli.
+- **Q1:** poate un locatar avea programări suprapuse pe mașini diferite? F4 privește disponibilitatea mașinii, nu această regulă. Până la rezolvarea Q1, folosiți locatari diferiți când testați disponibilitatea a două mașini.
 - **Q2:** ce se întâmplă când titularul încearcă să anuleze la ora de început sau după aceasta?
-- **Q3:** ar trebui pilotul să introducă ulterior o durată maximă, un număr maxim de rezervări pe student sau reguli pentru rezervarea în avans? Niciuna nu este convenită acum. O restricție propusă nu trebuie introdusă implicit în regulile actuale de acceptare.
+- **Q3:** ar trebui pilotul să introducă ulterior o durată maximă, un număr maxim de programări pe locatar sau reguli pentru programarea în avans? Niciuna nu este convenită acum. O restricție propusă nu trebuie introdusă implicit în regulile actuale de acceptare.
 
-Sunt binevenite și alte întrebări de care depinde o decizie. Separați întrebările care blochează comportamentul cerut azi de cele despre o extindere ulterioară. Un instrument nu poate juca rolul beneficiarului și nu își poate aproba singur regulile propuse.
+Sunt binevenite și alte întrebări de care depinde o decizie. Separați întrebările care blochează comportamentul cerut azi de cele despre o extindere ulterioară. Un instrument nu poate juca rolul beneficiarului și nu își poate confirma singur regulile propuse.
 
 ## Exemple concrete de investigat
 
-Toate identitățile de mai jos sunt verificate; cererile folosesc sălile din listă în ziua D. **Fiecare scenariu este independent.** S1 și S5 încep fără rezervări. S2–S4 și S6–S8 încep fiecare doar cu rezervarea confirmată a Anei pentru Alder 10:00–11:00 din S1. Ignorați modificările din orice alt scenariu; acțiunile din același scenariu se execută în ordinea precizată.
+Toate identitățile de mai jos sunt verificate; cererile folosesc mașinile din listă în ziua D. **Fiecare scenariu este independent.** S1 și S5 încep fără programări. S2–S4 și S6–S8 încep fiecare doar cu programarea confirmată a Ioanei pentru Albastra 10:00–11:00 din S1. Ignorați modificările din orice alt scenariu; acțiunile din același scenariu se execută în ordinea precizată.
 
-- **S1:** Ana rezervă Alder 10:00–11:00.
-- **S2:** cu S1 confirmat, Ben cere Alder 10:30–11:30.
-- **S3:** cu S1 confirmat, Ben cere Alder 11:00–12:00.
-- **S4:** cu S1 confirmat, Ben cere Birch 10:30–11:30.
-- **S5:** Ana și Ben cer simultan sala liberă Alder 13:00–14:00.
-- **S6:** la 09:00, Ana își anulează rezervarea confirmată pentru Alder 10:00–11:00; Ben cere apoi exact acel interval.
-- **S7:** la 09:00, Ben încearcă să anuleze rezervarea confirmată a Anei pentru Alder 10:00–11:00.
-- **S8:** cu S1 confirmat, Ana cere Birch 10:30–11:30. Ce întrebare trebuie rezolvată înainte de a promite un rezultat?
+- **S1:** Ioana programează Albastra 10:00–11:00.
+- **S2:** cu S1 confirmat, Radu cere Albastra 10:30–11:30.
+- **S3:** cu S1 confirmat, Radu cere Albastra 11:00–12:00.
+- **S4:** cu S1 confirmat, Radu cere Verdea 10:30–11:30.
+- **S5:** Ioana și Radu cer simultan mașina liberă Albastra 13:00–14:00.
+- **S6:** la 09:00, Ioana își anulează programarea confirmată pentru Albastra 10:00–11:00; Radu cere apoi exact acel interval.
+- **S7:** la 09:00, Radu încearcă să anuleze programarea confirmată a Ioanei pentru Albastra 10:00–11:00.
+- **S8:** cu S1 confirmat, Ioana cere Verdea 10:30–11:30. Ce întrebare trebuie rezolvată înainte de a promite un rezultat?
 
 Pentru fiecare scenariu, precizați rezultatul așteptat sau decizia încă deschisă și citați sursa. Adăugați doar atâtea exemple suplimentare câte sunt necesare pentru a clarifica o regulă, de pildă un interval vid sau o cerere în afara programului.
+
+## Cinci tipuri de afirmații
+
+Folosiți aceleași cinci tipuri ca în cursul 2:
+
+- **informație convenită:** dată sau confirmată de beneficiar (F1–F8);
+- **consecință dedusă:** rezultă din informațiile convenite;
+- **ipoteză:** răspuns provizoriu la o întrebare deschisă, etichetat ca atare, cu consecințele lui;
+- **întrebare deschisă:** decizie pe care trebuie să o ia beneficiarul (de exemplu Q1–Q3);
+- **propunere de proiectare:** o soluție aleasă de voi, care trebuie justificată.
 
 ## Sarcina voastră
 
 1. Analizați individual cerințele înainte de a folosi AI. Păstrați notițele.
-2. Pregătiți o descriere comună a problemei: concepte, reguli, scenarii de acceptare, informații/ipoteze/întrebări și o sarcină următoare de proiectare cu limite clare.
+2. Pregătiți o descriere comună a problemei: concepte, reguli, scenarii de acceptare, afirmațiile clasificate după cele cinci tipuri și o sarcină următoare de proiectare cu limite clare.
 3. Cereți o revizuire (review) într-un context separat; dați-i informațiile-sursă, o versiune fixată a variantei de lucru și criterii explicite.
 4. Decideți ce afirmații ale revizuirii sunt susținute; modificați doar unde se justifică și explicați ce rămâne neclarificat.
-5. Explicați individual o decizie și răspundeți la cerința nouă anunțată de cadrul didactic, fără AI.
+5. Explicați individual o decizie și răspundeți la cerința nouă anunțată de profesor, fără AI.
 
-Alegeți o reprezentare în care raționamentul se vede clar. Nu se cere o aplicație executabilă. Folosiți [fișa de lucru](worksheet.md) pentru a vă organiza rezultatele. Dacă instrumentele nu sunt disponibile, cadrul didactic vă va da [exemplul pregătit](prepared-fixture.md); notați această proveniență.
+Alegeți o reprezentare în care raționamentul se vede clar. Nu se cere o aplicație executabilă. Folosiți [fișa de lucru](worksheet.md) pentru a vă organiza rezultatele. Dacă instrumentele nu sunt disponibile, profesorul vă va da [exemplul pregătit](prepared-fixture.md); notați această proveniență.

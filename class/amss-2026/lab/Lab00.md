@@ -151,7 +151,7 @@ Notează, dacă dorești, una sau două probleme pe care ai vrea să le înțele
 
 Păstrează notițele pentru tine sau folosește-le într-o discuție. Nu trebuie să le trimiți ca temă. Dacă ai nevoie de ajutor, scrie pe Teams la ce pas te-ai oprit și ce problemă ai întâlnit.
 
-**Urmează:** cursul 2, apoi laboratorul 1. Scenariul cu rezervarea sălilor rămâne pentru laboratorul 1, după introducerea tehnică.
+**Urmează:** cursul 2, apoi laboratorul 1, care aplică ideile din cursul 2 într-un domeniu nou.
 
 ## Chestionarul de început de curs
 

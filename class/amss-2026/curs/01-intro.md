@@ -83,7 +83,7 @@ Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, 
 ::: notes
 Programați fiecare laborator după predarea ambelor cursuri asociate. Întâlnirea imediat după primul curs este Laboratorul 0, opțional; Laboratorul 1 poate avea loc în săptămâna 3, conform orarului grupei. Arătați linkul și codul Teams de pe primul slide. Orele fiecărei grupe se anunță pe canalul cursului.
 
-Primul laborator folosește o problemă de rezervare a sălilor, astfel încât studenții să aplice, după cursul 2, raționamentul învățat într-un alt domeniu. Laboratorul se programează după ambele cursuri ale perechii, nu înainte de cursul 2.
+Primul laborator folosește o problemă de programare a mașinilor de spălat dintr-un cămin, astfel încât studenții să aplice, după cursul 2, raționamentul învățat într-un alt domeniu. Laboratorul se programează după ambele cursuri ale perechii, nu înainte de cursul 2.
 :::
 
 ---
