@@ -13,7 +13,7 @@ La finalul cursului, ar trebui să puteți, fără AI, să analizați o problem�
 ## Echipă și temă
 
 - Echipe de **3–5&nbsp;studenți**, cu o soluție de proiectare comună și contribuții individuale identificabile.
-- Tema se alege până la **31&nbsp;octombrie&nbsp;2026**. Studenții fără echipă sau temă la **1&nbsp;noiembrie** vor fi repartizați aleatoriu.
+- Echipa se anunță odată cu tema, până la **31&nbsp;octombrie&nbsp;2026**. Studenții care la **1&nbsp;noiembrie** nu fac parte dintr-o echipă anunțată vor fi repartizați aleatoriu.
 - Mai multe echipe pot alege aceeași temă. Dacă prea multe echipe aleg exact aceeași temă, unele pot fi rugate să o schimbe.
 
 Alegerea se anunță pe canalul Teams al cursului, printr-un mesaj al liderului de echipă, care conține:
@@ -71,7 +71,7 @@ Puteți alege instrumentele și modelele AI. Definiți explicit rolurile, de exe
 
 Includeți o revizuire într-o **sesiune sau într-un context nou**, care primește specificația și proiectarea curente, întrebările de verificat și criteriile de acceptare. Același model poate fi folosit într-un context separat. Agentul de revizuire trebuie să poată examina modelele și verificările, inclusiv atunci când sinteza omite un detaliu important.
 
-Documentați concis o decizie importantă și parcursul revizuirii ei: ce a fost delegat, ce context a fost transmis, ce constatare ați verificat, ce ați acceptat sau respins și de ce. Legați explicația de versiunea relevantă a modelului și de un exemplu sau de altă justificare verificabilă. Dacă revizuirea nu găsește un defect, arătați ce s-a verificat și ce concluzie se poate trage; nu inventați greșeli pentru dosar.
+Documentați concis o decizie importantă și parcursul revizuirii ei: ce a fost delegat, ce context a fost transmis, ce constatare ați verificat, ce ați acceptat sau respins și de ce. Legați explicația de versiunea relevantă a modelului de proiectare și de un exemplu sau de altă justificare verificabilă. Dacă revizuirea nu găsește un defect, arătați ce s-a verificat și ce concluzie se poate trage; nu inventați greșeli pentru dosar.
 
 Fragmentele de conversație pot susține explicația. O transcriere integrală nu înlocuiește sinteza și raționamentul vostru. Indicați instrumentul și modelul folosite, dacă aveți această informație; se evaluează deciziile și justificarea lor, nu se cere ca textul generat să poată fi reprodus exact. Consultați, de asemenea, [ghidul de pregătire a mediului de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md) și [ghidul despre roluri, predarea sarcinilor și revizuire](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md).
 
@@ -81,7 +81,7 @@ Fragmentele de conversație pot susține explicația. O transcriere integrală n
 
 Doar **ultimele două laboratoare** sunt dedicate efectiv proiectului. Laboratoarele 1–5 tratează, prin exerciții pe probleme distincte, teme importante ale cursului: înțelegere, specificare și revizuire (cursurile 1–2); cerințe și modelarea domeniului (3–4); responsabilități, contracte și invariante (5–6); stări, comportament și interacțiuni (7–8); validare și abstractizare (9–10). Fiecare laborator are loc după predarea celor două cursuri asociate.
 
-**Laboratorul 6 este un laborator deschis:** finalizarea proiectului, întrebări adresate profesorului și discuții între echipe. Folosiți timpul pentru întrebările și revizuirile de care mai are nevoie proiectul vostru, inclusiv întrebări de proiectare care ar fi fost discutate într-un atelier la curs. Laboratorul 6 are loc după cursurile 11–12, iar laboratorul 7, după cursurile 13–14. Nu există o prezentare obligatorie sau o repetiție de susținere.
+**Laboratorul 6 este un laborator deschis:** finalizarea proiectului, întrebări adresate profesorului și discuții între echipe. Folosiți timpul pentru întrebările și revizuirile de care mai are nevoie proiectul vostru; puteți aduce și întrebări generale de proiectare. Laboratorul 6 are loc după cursurile 11–12, iar laboratorul 7, după cursurile 13–14. Nu există o prezentare obligatorie sau o repetiție de susținere.
 
 ## Interviul de susținere&nbsp;— ultimul laborator
 
@@ -113,6 +113,6 @@ Punctul de prezență se acordă proporțional cu participarea la **cursuri și 
 
 **Punctaj prezență = numărul întâlnirilor la care ați participat / numărul total al întâlnirilor desfășurate și contabilizate.**
 
-Pentru 14&nbsp;cursuri și 7&nbsp;laboratoare, numitorul este 21. Întâlnirile anulate nu intră în numitor; acesta reflectă întâlnirile efectiv desfășurate și contabilizate.
+Pentru 14&nbsp;cursuri și 7&nbsp;laboratoare, numitorul este 21. Cursul&nbsp;14, cu examenul și reflecția, se contabilizează ca oricare alt curs. Laboratorul&nbsp;0 se contabilizează pentru grupele în care s-a ținut, iar pentru ele numitorul este 22. Întâlnirile anulate nu intră în numitor; acesta reflectă întâlnirile efectiv desfășurate și contabilizate pentru grupa voastră.
 
 La restanță sau la mărire, nota se calculează astfel: **9&nbsp;puncte pentru examenul grilă + 1&nbsp;punct din oficiu = 10**. Examenul urmărește aceleași competențe de analiză și proiectare. Punctajele pentru dosarul de proiectare și pentru prezență nu se reportează în această notă.

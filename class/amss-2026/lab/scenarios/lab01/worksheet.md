@@ -83,7 +83,7 @@ Identificatorul variantei supuse revizuirii: __________
 
 ## Predarea sarcinii pentru revizuire independentă — minutele 44–60
 
-Schimbați rolurile: studentul B îndrumă evaluatorul; studentul A verifică afirmațiile acestuia. Deschideți un context nou și dați-i doar informațiile-sursă, varianta fixată și criteriile. Puteți folosi același instrument/model, dar nu reutilizați conversația analistului. La nevoie, faceți schimb de pachete cu o pereche vecină și revizuiți-vă reciproc.
+Schimbați rolurile: studentul B îndrumă evaluatorul (agentul de revizuire); studentul A verifică afirmațiile acestuia. Deschideți un context nou și dați-i doar informațiile-sursă, varianta fixată și criteriile. Puteți folosi același instrument/model, dar nu reutilizați conversația analistului. La nevoie, faceți schimb de pachete cu o pereche vecină și revizuiți-vă reciproc.
 
 > Revizuiește descrierea problemei în raport cu informațiile primite. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile pe care informațiile le susțin. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.
 

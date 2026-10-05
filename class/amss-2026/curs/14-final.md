@@ -165,4 +165,4 @@ Chestionarul final va fi anunțat pe Teams pentru toate grupele.
 
 Ce puteți explica mai bine acum? Ce activități v-au ajutat? Ce merită schimbat?
 
-Completarea este voluntară și durează aproximativ 10–12 minute.
+Completarea este facultativă și durează aproximativ 10–12 minute.

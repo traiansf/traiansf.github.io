@@ -1,16 +1,16 @@
 ---
-title: "AMSS 2026 — Lab 7: Interviu de susținere a proiectului"
+title: "AMSS 2026/2027 — Laboratorul 7: Interviu de susținere a proiectului"
 author: "Traian-Florin Șerbănuță"
-date: "2026"
+lang: ro-RO
 ---
 
-# Lab 7: Interviu de susținere a proiectului
+# Cum decurge interviul
 
-Profesorul citește dosarul înainte de laborator și definitivează nota echipei prin întrebări despre punctele neclare, la care răspunde echipa.
+Profesorul citește dosarul înainte de laborator și definitivează punctajul echipei pentru dosar prin întrebări despre aspectele neclare, la care răspunde echipa.
 
 Aproximativ **8 minute pentru fiecare echipă**, conform programării anunțate pe Teams.
 
-Nu pregătiți o prezentare sau slide-uri.
+Nu pregătiți o prezentare sau diapozitive.
 
 ---
 
@@ -45,7 +45,7 @@ Puteți folosi AI pentru dezvoltare și commit-uri; echipa își asumă conținu
 
 # Discuția pornește de la dosar
 
-Profesorul indică punctele care au nevoie de clarificare. Echipa poate consulta repository-ul și poate arăta materialele la care se referă întrebarea.
+Profesorul indică aspectele care au nevoie de clarificare. Echipa poate consulta repository-ul și poate arăta materialele la care se referă întrebarea.
 
 Exemple de întrebări:
 
@@ -58,15 +58,15 @@ Exemple de întrebări:
 
 ---
 
-# Definitivarea notei pe dosar
+# Definitivarea punctajului pentru dosar
 
 | Criteriu | Puncte |
 |---|---:|
-| Încadrarea problemei și cerințe | 1 |
+| Formularea problemei și cerințe | 1 |
 | Modelarea domeniului | 1 |
 | Contracte și invariante | 1 |
-| Stări și comportamente | 1 |
+| Stare și comportament | 1 |
 | Responsabilități, coeziune și cuplare | 1 |
-| **Total dosar de echipă** | **5** |
+| **Total dosar de proiectare** | **5** |
 
 Profesorul definitivează punctajul pe aceste criterii, ținând cont de clarificările din interviu. Interviul nu are punctaj separat; evaluarea individuală se face prin examenul grilă.

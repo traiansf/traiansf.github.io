@@ -148,7 +148,7 @@ Exercițiul bibliotecii presupunea explicit operații executate pe rând (R6). A
 - Alegeți orice instrument și model AI disponibil. Notați-le, dacă sunt cunoscute.
 - Deschideți o **sesiune pentru analist** și o **sesiune separată pentru revizuire**.
 - **A:** îndrumă analistul. **B:** verifică afirmațiile pe baza informațiilor beneficiarului.
-- La minutul 44, schimbați rolurile: **B** îndrumă evaluatorul; **A** verifică afirmațiile acestuia.
+- La minutul 44, schimbați rolurile: **B** îndrumă evaluatorul (agentul de revizuire); **A** verifică afirmațiile acestuia.
 
 Dacă AI nu este disponibil, folosiți [exemplul pregătit](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/lab01/prepared-fixture.md) și o revizuire separată între colegi.
 

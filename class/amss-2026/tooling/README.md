@@ -36,7 +36,7 @@ O predare concisă ar trebui să precizeze:
 4. Constrângerile, scenariile, invariantele și celelalte criterii după care se face revizuirea.
 5. Verificările deja făcute și ce mai rămâne de verificat.
 
-Rezumatul trebuie să fie scurt și să trimită la sursele detaliate. Dă agentului de revizuire atât materialul-sursă, cât și rezumatul, ca să poată observa informațiile lipsă sau denaturate. Dacă instrumentul nu poate deschide fișierele din repository, copiază sau atașează părțile de care are nevoie.
+Rezumatul trebuie să fie scurt și să trimită la sursele detaliate. Dă evaluatorului (agentului de revizuire) atât materialul-sursă, cât și rezumatul, ca să poată observa informațiile lipsă sau denaturate. Dacă instrumentul nu poate deschide fișierele din repository, copiază sau atașează părțile de care are nevoie.
 
 ## Ce trebuie păstrat
 

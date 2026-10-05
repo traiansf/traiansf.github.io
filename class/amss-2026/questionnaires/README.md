@@ -6,15 +6,15 @@ Cele două chestionare sunt pregătite pentru Google Forms, prin import din Goog
 
 - **Inițial:** 19 întrebări, aproximativ 10–12 minute, în prima săptămână. Invitați toate grupele, inclusiv studenții care nu participă la Laboratorul 0. Lăsați formularul deschis până după cursul 2 și închideți-l înainte de Laboratorul 1; țineți cont de acest lucru când interpretați răspunsurile.
 - **Final:** 18 întrebări, aproximativ 10–12 minute, în ultima săptămână. Invitați din nou întreaga cohortă; lăsați timp pentru completare în intervalul rezervat reflecției, separat de examen și de interviul proiectului.
-- Participare voluntară, fără punctaj. Nu cereți nume, e-mail, număr matricol sau echipă. Dezactivați colectarea adreselor de e-mail; verificați setările de acces ale contului instituțional. Nu spuneți că formularul este anonim până nu ați verificat aceste setări.
+- Participare facultativă, fără punctaj. Nu cereți nume, e-mail, număr matricol sau echipă. Dezactivați colectarea adreselor de e-mail; verificați setările de acces ale contului instituțional. Nu spuneți că formularul este anonim până nu ați verificat aceste setări.
 
 Titlu inițial: **AMSS — Experiență și așteptări la început de curs**.
 
-Descriere inițială: „Vrem să aflăm ce experiență ai și ce ai vrea să înveți, pentru a adapta exemplele, explicațiile și exercițiile cursului. Completarea este voluntară, durează aproximativ 10–12 minute și nu influențează nota. Nu solicităm date de identificare. Poți omite întrebări. Pentru scenariile scurte, răspunde fără căutări sau AI; «Nu știu încă» ne ajută să planificăm explicațiile.”
+Descriere inițială: „Vrem să aflăm ce experiență ai și ce ai vrea să înveți, pentru a adapta exemplele, explicațiile și exercițiile cursului. Completarea este facultativă, durează aproximativ 10–12 minute și nu influențează nota. Nu solicităm date de identificare. Poți omite întrebări. Pentru scenariile scurte, răspunde fără căutări sau AI; «Nu știu încă» ne ajută să planificăm explicațiile.”
 
 Titlu final: **AMSS — Ce ai învățat și ce putem îmbunătăți**.
 
-Descriere finală: „Răspunsurile ne ajută să înțelegem ce ai învățat și cum putem îmbunătăți ediția următoare. Completarea este voluntară, durează aproximativ 10–12 minute și nu influențează nota. Nu solicităm date de identificare. Poți omite întrebări. Răspunde la scenariile scurte fără căutări sau AI; ne interesează cum gândești acum.”
+Descriere finală: „Răspunsurile ne ajută să înțelegem ce ai învățat și cum putem îmbunătăți ediția următoare. Completarea este facultativă, durează aproximativ 10–12 minute și nu influențează nota. Nu solicităm date de identificare. Poți omite întrebări. Răspunde la scenariile scurte fără căutări sau AI; ne interesează cum gândești acum.”
 
 ## Import prin Form Builder
 

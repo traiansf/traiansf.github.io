@@ -8,7 +8,7 @@ Read [docs/redesign-2026-2027.md](docs/redesign-2026-2027.md) for the instructor
 
 The earlier design at `../amss/docs/superpowers/specs/2026-05-01-amss-ai-redesign-design.md` is historical. Its UML-centered curriculum, pinned tooling, mandatory TDD, pattern quotas, and individual oral-defense requirements have been superseded.
 
-[docs/open-questions.md](docs/open-questions.md) lists the points the instructor still has to decide (attendance formula, Lab 7 title, unclear phrases on the project page, and others), each with the files it touches, plus what to align before Labs 6–7 are released and the checks nobody has done yet. Read it before editing a passage it names; do not settle those points on your own, raise them with the instructor, and delete an item once it is decided and the materials are changed.
+[docs/open-questions.md](docs/open-questions.md) lists what is still open: checks nobody has done yet and what was left as found in the build. The instructor's decisions from the October 2026 review are applied in the materials. If a new point needs the instructor's decision, add it there with the files it touches; do not settle such points on your own, raise them with the instructor, and delete an item once it is decided and the materials are changed.
 
 ## Pedagogical contract
 
@@ -46,7 +46,7 @@ The agreed regular grading scheme is:
 
 - 5 points: team design dossier.
 - 3 points: individual scenario-based multiple-choice exam.
-- 1 point: attendance, proportional to lectures and the student's own lab sessions actually held.
+- 1 point: attendance, proportional to lectures and the student's own lab sessions actually held. Week 14 counts as a lecture; the optional Lab 0 counts for the groups in which it was held (denominator 22 instead of 21).
 - 1 automatic point.
 
 Teams have 3–5 students. Each project has a public GitHub or GitLab repository created and linked when the team announces its project on Teams. Track semester-long progress and identifiable member contributions. AI may assist development and commits; the team verifies and owns the published work. Commit counts are not grading criteria.
@@ -60,7 +60,7 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - Every course and lab has one topic-appropriate quotation, verified against a trustworthy source and linked on the slide titled „Citatul zilei”. See `docs/quotations.md`. The quotation shows the Romanian translation and, as a second paragraph of the same quotation, the original wording („Original: …”), which the theme sets smaller; the source line names the work, with the page where it is known. Keep the locator, verification limits, and pedagogical context in speaker notes and in `docs/quotations.md`. Mark omissions and keep joint authorship. Prefer original works or author/university archives; clearly identify secondary verification when primary text was not available. Preserve these epigraphs when rewriting pending decks.
 
 - **Limba materialelor publice:** toate materialele destinate studenților sau publicului (public-facing) se redactează în limba română, cu diacritice: prezentări, fișe de lucru, enunțuri, cerințe de proiect, evaluări, ghiduri de utilizare și pagini publice. Folosiți terminologia românească consacrată. Pentru termenii fără o traducere împământenită, puteți adăuga originalul englezesc în paranteze sau îl puteți păstra ca atare, dacă este mai firesc. Nu traduceți mecanic identificatori, comenzi, căi de fișiere ori denumiri de produse. Păstrați aceeași terminologie în prezentări, note, demonstrații și materialele suport.
-- **Termeni stabiliți de titular:** pentru “evidence” nu folosiți „dovadă/dovezi”; alegeți după sens „justificare”, „verificare”, „rezultatele validării”, „rezultatele revizuirii”, „sursă” ori „susținut de enunț”, sau reformulați propoziția. „Invariant” este masculin la singular („un invariant”, „invariantul”), cu pluralul „invariante”. Sesiunea din Laboratorul 7 se numește „Interviu de susținere a proiectului”.
+- **Termeni stabiliți de titular:** pentru “evidence” nu folosiți „dovadă/dovezi”; alegeți după sens „justificare”, „verificare”, „rezultatele validării”, „rezultatele revizuirii”, „sursă” ori „susținut de enunț”, sau reformulați propoziția. „Invariant” este masculin la singular („un invariant”, „invariantul”), cu pluralul „invariante”. Sesiunea din Laboratorul 7 se numește „Interviu de susținere a proiectului”. Rolul de revizuire se numește „evaluator”, cu glosa „(agent de revizuire)” la prima apariție din fiecare document. Chestionarele sunt „facultative”, nu „voluntare”.
 - Migrarea materialelor existente în română începe cu pachetul primei săptămâni, inclusiv laboratorul 1; aplicați aceeași regulă tuturor materialelor publice noi sau revizuite ulterior.
 - Lectures in Weeks 2–13 and Labs 1–7 target 100 minutes. Week 1 is administrative and motivational and may be shorter; Week 14 is the proposed exam/reflection slot. Remove the dedicated project-workshop lecture. Each lab follows its pair of already taught courses (1–2, 3–4, etc.); never require later-course theory. The project interview („Interviu de susținere a proiectului”), about the team's dossier, takes place in Lab 7.
 - Keep lecture timing guidance in speaker notes. Labs show phase timings.
@@ -73,7 +73,7 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - Avoid internal instructor abbreviations in student-facing material.
 - Leave `date:` out of the front matter. GitHub Pages runs Jekyll over the whole repository, sources included, and a value that is not a real date (such as `2026/2027`) fails the Pages build, so nothing gets deployed; the templates do not display the date.
 - Presentation conventions the theme relies on: titles follow `AMSS 2026/2027 — Cursul N: Titlu` (the cover shows session and title separately, so the first slide should not repeat them); the epigraph slide is titled „Citatul zilei”; a QR code shares its slide with the text through pandoc `columns`; links between published pages are absolute, so they also work from the PDFs. After changing a deck or the theme, check that every slide still fits in both the HTML and the PDF.
-- Unreleased decks have not been brought to these conventions yet. Before adding one to `RELEASED`, align its title, first slide, front matter and terminology with the released materials. Labs 6–7 restate the project rubric and must use the criterion names and terms of `proiect/README.md`; the list of what to change is in `docs/open-questions.md`.
+- Unreleased decks have not been brought to these conventions yet. Before adding one to `RELEASED`, align its title, first slide, front matter and terminology with the released materials. Labs 6–7 restate the project rubric and must use the criterion names and terms of `proiect/README.md` (already aligned, October 2026).
 
 ## Layout and implementation state
 

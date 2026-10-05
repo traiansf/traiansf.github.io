@@ -115,7 +115,7 @@ Cu aproximativ 100 de studenți și un singur cadru didactic, organizați discu�
 
 **Punctajul pentru prezență:** întâlniri la care ați participat ÷ întâlniri de curs și laborator desfășurate pentru grupa voastră.
 
-Fiecare întâlnire, de curs sau de laborator, are aceeași pondere; în mod normal sunt 14&nbsp;cursuri și 7&nbsp;laboratoare.
+Fiecare întâlnire, de curs sau de laborator, are aceeași pondere; în mod normal sunt 14&nbsp;cursuri și 7&nbsp;laboratoare, plus Laboratorul&nbsp;0 pentru grupele în care s-a ținut.
 
 **Pregătiți-vă pentru întrebări bazate pe scenarii:**
 
@@ -124,7 +124,7 @@ Fiecare întâlnire, de curs sau de laborator, are aceeași pondere; în mod nor
 - Comparați soluții de proiectare în raport cu constrângerile date.
 
 ::: notes
-Folosiți numărul ședințelor efectiv desfășurate, astfel încât anulările să nu scadă punctajul. Numitorul include cursurile comune și laboratoarele grupei studentului, nu toate cele trei grupe. Punctajul este între zero și unu. Dosarul de proiectare se notează o singură dată pentru fiecare echipă, iar examenul grilă individual.
+Folosiți numărul ședințelor efectiv desfășurate, astfel încât anulările să nu scadă punctajul. Numitorul include cursurile comune și laboratoarele grupei studentului, nu toate cele trei grupe. Laboratorul 0 intră în numitor numai pentru grupele în care s-a ținut; Cursul 14, cu examenul și reflecția, este un curs ca oricare altul. Punctajul este între zero și unu. Dosarul de proiectare se notează o singură dată pentru fiecare echipă, iar examenul grilă individual.
 :::
 
 ---

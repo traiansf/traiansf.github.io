@@ -1,10 +1,10 @@
 ---
-title: "AMSS 2026 — Lab 6: Laborator deschis pentru proiect"
+title: "AMSS 2026/2027 — Laboratorul 6: Laborator deschis pentru proiect"
 author: "Traian-Florin Șerbănuță"
-date: "2026"
+lang: ro-RO
 ---
 
-# Lab 6: Laborator deschis pentru proiect
+# Ce puteți face astăzi
 
 Folosiți timpul pentru:
 
@@ -12,7 +12,7 @@ Folosiți timpul pentru:
 - întrebări adresate profesorului;
 - discuții între echipe.
 
-După cursurile 11–12, alegeți activitățile în funcție de stadiul proiectului vostru. Puteți discuta și întrebările de proiectare care ar fi fost abordate într-un atelier la curs. Nu este necesară o prezentare sau o repetiție de susținere.
+După cursurile 11–12, alegeți activitățile în funcție de stadiul proiectului vostru. Puteți aduce și întrebări generale de proiectare, dincolo de proiectul vostru. Nu este necesară o prezentare sau o repetiție de susținere.
 
 ---
 
@@ -62,4 +62,4 @@ Consemnați în repository deciziile și revizuirile importante, astfel încât 
 
 Puteți folosi AI pentru dezvoltare și pentru commit-uri. Echipa verifică și își asumă conținutul publicat. Numărul de commit-uri nu aduce puncte.
 
-Laboratorul nu are punctaj separat. La Lab 7, profesorul definitivează nota pe dosar printr-un interviu despre punctele neclare. Dosarul din repository trebuie definitivat cu aproximativ o săptămână înainte de interviu.
+Laboratorul nu are punctaj separat. La Laboratorul 7, profesorul definitivează punctajul pentru dosar prin interviul de susținere a proiectului, cu întrebări despre aspectele neclare. Dosarul din repository trebuie definitivat cu aproximativ o săptămână înainte de interviu.

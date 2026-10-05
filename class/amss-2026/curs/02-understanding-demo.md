@@ -62,11 +62,11 @@ Dintre întrebările cu consecințe importante, alegeți-le pe cele potrivite r�
 
 **Dacă există o alegere de proiectare nerezolvată:** comparați alternative plauzibile și identificați informațiile care ar ajuta la alegerea uneia. Nu inventați o regulă a beneficiarului doar pentru a închide discuția.
 
-## 4. Predarea sarcinii și a contextului către un agent de revizuire (handoff) (3–4 minute)
+## 4. Predarea sarcinii și a contextului către un evaluator (agent de revizuire; handoff) (3–4 minute)
 
 Deschideți contextul separat. Dați-i agentului enunțul original și documentul de proiectare; nu presupuneți că vede prima conversație.
 
-> Ai rolul de agent de revizuire. Evaluează proiectarea propusă pentru bibliotecă față de regulile R1–R6 și scenariile S1–S5 din enunț. Nu modifica proiectarea.
+> Ai rolul de evaluator (agent de revizuire). Evaluează proiectarea propusă pentru bibliotecă față de regulile R1–R6 și scenariile S1–S5 din enunț. Nu modifica proiectarea.
 >
 > Verifică distincțiile din domeniu, cui îi revine regula împrumutului activ, rezultatele operațiilor, concordanța cu scenariile și afirmația că proiectarea este pregătită pentru etapa următoare.
 >
@@ -74,7 +74,7 @@ Deschideți contextul separat. Dați-i agentului enunțul original și documentu
 
 Contextul nou poate folosi același model. Explicați că separarea face explicită predarea sarcinii și a contextului; nu garantează o revizuire imparțială sau corectă.
 
-Cât timp agentul de revizuire lucrează, întrebați studenții: ce ar lipsi dacă agentul ar primi doar documentul de proiectare și instrucțiunea „verifică dacă e corect”? Răspunsuri utile: enunțul sursă, regulile și scenariile față de care se verifică, cerința de a indica pentru fiecare constatare regula și scenariul care o susțin.
+Cât timp evaluatorul lucrează, întrebați studenții: ce ar lipsi dacă agentul ar primi doar documentul de proiectare și instrucțiunea „verifică dacă e corect”? Răspunsuri utile: enunțul sursă, regulile și scenariile față de care se verifică, cerința de a indica pentru fiecare constatare regula și scenariul care o susțin.
 
 ## 5. Omul decide ce stabilește revizuirea (2–3 minute)
 
@@ -91,7 +91,7 @@ Dacă revizuirea nu oferă o afirmație potrivită pentru discuție, folosiți e
 
 > „Un titlu cu o solicitare activă nu trebuie să poată fi împrumutat.”
 
-Potrivit R5, această afirmație nu indică un defect. O regulă de alocare propusă pentru viitor este o discuție separată. Nu atribuiți această propoziție pregătită agentului de revizuire folosit în demonstrație.
+Potrivit R5, această afirmație nu indică un defect. O regulă de alocare propusă pentru viitor este o discuție separată. Nu atribuiți această propoziție pregătită evaluatorului folosit în demonstrație.
 
 Consemnați pe scurt decizia:
 
