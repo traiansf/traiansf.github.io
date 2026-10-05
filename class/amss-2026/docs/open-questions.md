@@ -12,10 +12,7 @@ None at the moment.
 
 ## Checks nobody has done yet
 
-- **Real devices:** a phone, Safari on iOS or macOS, a screen reader, a projector. The review used headless Chrome and Firefox on Windows.
-- **The Teams QR code** on the welcome slide was enlarged because of its density; whether it scans from the back rows was estimated, not tried.
 - **A Linux build** of the theme: the locale-dependent parts of `theme/amss.lua` were tested by simulating the C locale on Windows.
-- **The live Google Form** still says „voluntară” in its description and „Ce dovadă ai cere…” in question D3; the repository tables say „facultativă” and „Ce ai cere înainte de a accepta concluzia?”. Edit the form by hand.
 
 External links (Teams, forms.gle, the quotation sources, the tooling documentation) were all followed on 5 October 2026 and resolved (HTTP 200; the forms.gle link redirects to the live form). The page anchors of the PDF links were not checked.
 
