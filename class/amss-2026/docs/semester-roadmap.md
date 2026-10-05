@@ -239,26 +239,26 @@ Use the dorm laundry-machine [student lab](../lab/Lab01.md), [instructor guide](
 
 ## Source reuse and development order
 
-These are reuse targets, not a claim that the old decks already teach the new sessions. Retain current filenames while authoring and update navigation deliberately when the new session structure is ready. Remove inherited UML, named-pattern, defect-count, fixed-model, and application/TDD mandates from each reused source. Verify the revised requirements rather than importing earlier rubric text.
+These are reuse targets, not a claim that the old decks already teach the new sessions. The old decks live in `archive/` since 5 October 2026; write each new deck from scratch under the file name listed in the next section (the landing page already uses it) and update navigation deliberately when the new session structure is ready. Remove inherited UML, named-pattern, defect-count, fixed-model, and application/TDD mandates from each reused source. Verify the revised requirements rather than importing earlier rubric text.
 
 | Existing sources | Reuse in the proposed semester | Required adaptation |
 |---|---|---|
-| [Requirements](../curs/02-requirements.md) and its demo/fallback | Week 3 | Keep scope, elicitation, and vague-quality examples; replace the repeated bike-sharing domain and unsupported generalizations. |
-| [Testable specifications](../curs/03-testable-specs.md) and its demo/fallback | Weeks 3 and 6 | Keep independent acceptance examples and boundary cases; remove mandatory implementation/TDD reflection. |
-| [Class diagrams](../curs/04-class-diagrams.md) and its demo/fallback | Weeks 4–5 | Extract identity, relationships, and responsibilities; teach concepts before optional notation. |
-| [Other structural views](../curs/05-other-structural.md) and its demo/fallback | Weeks 5 and 8 | Reuse decomposition costs and dependencies; replace the diagram catalogue with decisions and scenarios. |
-| [Behavioral I](../curs/06-behavioral-i.md) and [Behavioral II](../curs/07-behavioral-ii.md), with demos/fallbacks | Weeks 7–9 | Reuse interactions, guards, exceptional paths, and reachability; author concrete lifecycle rules and finite-model bounds. |
-| [Patterns I](../curs/08-patterns-i.md) and [Patterns II](../curs/09-patterns-ii.md), with demos/fallbacks | Weeks 10–11 | Reuse variation, indirection costs, and unjustified abstraction; assess the decision rather than a pattern label. |
-| [Traceability](../curs/10-traceability.md) and [Evaluation](../curs/11-evaluation.md), with demos/fallbacks | Weeks 9 and 12 | Reuse consistency and review criteria; add executable-model evidence and source-grounded review of summaries. |
-| [Presentation skills](../curs/12-presentation-skills.md), [Final](../curs/14-final.md) | Weeks 13–14 | Reuse rationale and unfamiliar questions for learning; replace mandatory individual oral defenses with feasible team reviews and an individual scenario-based multiple-choice exam. |
-| [Lab 2](../lab/Lab02.md), [Lab 3](../lab/Lab03.md), [Lab 4](../lab/Lab04.md), with instructor guides | Labs 2–4 | Reuse comparisons and prepared examples; replace notation-based defect hunts with explicit source rules and evidence. |
+| [Requirements](../archive/curs/02-requirements.md) and its demo/fallback | Week 3 | Keep scope, elicitation, and vague-quality examples; replace the repeated bike-sharing domain and unsupported generalizations. |
+| [Testable specifications](../archive/curs/03-testable-specs.md) and its demo/fallback | Weeks 3 and 6 | Keep independent acceptance examples and boundary cases; remove mandatory implementation/TDD reflection. |
+| [Class diagrams](../archive/curs/04-class-diagrams.md) and its demo/fallback | Weeks 4–5 | Extract identity, relationships, and responsibilities; teach concepts before optional notation. |
+| [Other structural views](../archive/curs/05-other-structural.md) and its demo/fallback | Weeks 5 and 8 | Reuse decomposition costs and dependencies; replace the diagram catalogue with decisions and scenarios. |
+| [Behavioral I](../archive/curs/06-behavioral-i.md) and [Behavioral II](../archive/curs/07-behavioral-ii.md), with demos/fallbacks | Weeks 7–9 | Reuse interactions, guards, exceptional paths, and reachability; author concrete lifecycle rules and finite-model bounds. |
+| [Patterns I](../archive/curs/08-patterns-i.md) and [Patterns II](../archive/curs/09-patterns-ii.md), with demos/fallbacks | Weeks 10–11 | Reuse variation, indirection costs, and unjustified abstraction; assess the decision rather than a pattern label. |
+| [Traceability](../archive/curs/10-traceability.md) and [Evaluation](../archive/curs/11-evaluation.md), with demos/fallbacks | Weeks 9 and 12 | Reuse consistency and review criteria; add executable-model evidence and source-grounded review of summaries. |
+| [Presentation skills](../archive/curs/12-presentation-skills.md), [Final](../archive/curs/14-final.md) | Weeks 13–14 | Reuse rationale and unfamiliar questions for learning; replace mandatory individual oral defenses with feasible team reviews and an individual scenario-based multiple-choice exam. |
+| [Lab 2](../archive/lab/Lab02.md), [Lab 3](../archive/lab/Lab03.md), [Lab 4](../archive/lab/Lab04.md), with instructor guides | Labs 2–4 | Reuse comparisons and prepared examples; replace notation-based defect hunts with explicit source rules and evidence. |
 | [Lab 5](../lab/Lab05.md), [Lab 6](../lab/Lab06.md), [Lab 7](../lab/Lab07.md), with instructor guides | Labs 5–7 | Lab 5 practices validation and abstraction on a supplied problem; Lab 6 is an open session for finishing the project and discussion; Lab 7 is the clarification interview finalizing the five-point dossier score. |
 
 Develop the next package in teaching order: Course 3, then Course 4 with Lab 2, then Courses 5–6 with Lab 3. Prototype Course 9's small explorer early enough to validate its bounds and repair before writing its slides. For each session, finish the source brief and reference reasoning first, then the demo and labeled fallback, student exercise, deck with notes, and delivery checks. Keep unfinished sessions unpublished under the existing `RELEASED` mechanism; this roadmap does not change release state.
 
 ## Current course order and source identifiers
 
-Existing identifiers for pending decks are retained for link continuity; their numerical prefixes do not determine their new teaching week. `13-workshop.md` is retired from the lecture plan and excluded from preview deck discovery. Its useful project questions may be used on request in the open Lab 6, without a mandatory clinic or rehearsal.
+The identifiers of pending decks are the ones the landing page already links (`data-release` keys), kept for link continuity; their numerical prefixes do not determine their new teaching week, and the archived draft of the same name is only reuse material. `13-workshop.md` is retired from the lecture plan and archived. Its useful project questions may be used on request in the open Lab 6, without a mandatory clinic or rehearsal.
 
 | Course | Source | Topic |
 |---|---|---|

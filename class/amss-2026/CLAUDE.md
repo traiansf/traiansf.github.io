@@ -73,15 +73,16 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - Avoid internal instructor abbreviations in student-facing material.
 - Leave `date:` out of the front matter. GitHub Pages runs Jekyll over the whole repository, sources included, and a value that is not a real date (such as `2026/2027`) fails the Pages build, so nothing gets deployed; the templates do not display the date.
 - Presentation conventions the theme relies on: titles follow `AMSS 2026/2027 — Cursul N: Titlu` (the cover shows session and title separately, so the first slide should not repeat them); the epigraph slide is titled „Citatul zilei”; a QR code shares its slide with the text through pandoc `columns`; links between published pages are absolute, so they also work from the PDFs. After changing a deck or the theme, check that every slide still fits in both the HTML and the PDF.
-- Unreleased decks have not been brought to these conventions yet. Before adding one to `RELEASED`, align its title, first slide, front matter and terminology with the released materials. Labs 6–7 restate the project rubric and must use the criterion names and terms of `proiect/README.md` (already aligned, October 2026).
+- Lab 5 has not been brought to these conventions yet. Before adding a deck to `RELEASED`, align its title, first slide, front matter and terminology with the released materials. Labs 6–7 restate the project rubric and must use the criterion names and terms of `proiect/README.md` (already aligned, October 2026).
 
 ## Layout and implementation state
 
 - `docs/`: confirmed design decisions and the semester implementation roadmap.
-- `curs/`: lecture sources and `*-demo.md` instructor runbooks. Lecture 1 covers administration and motivation; Lecture 2 expands its former technical content. Other later decks retain earlier content pending rewrite. See the roadmap for the new course order and retained filenames; `13-workshop.md` is retired from deck discovery.
+- `curs/`: lecture sources and `*-demo.md` instructor runbooks, only for the current course: Lecture 1 (administration and motivation) and Lecture 2 (its former technical content, expanded). Later lectures do not exist yet; write each under the file name the roadmap and the landing page give it.
 - `curs/scenarios/01-library-kiosk/`: Lecture 2 source brief and instructor reference (original path retained).
-- `curs/fallback/`: instructor-only prepared examples or historical captures, each with explicit provenance. The library fallback is prepared material for Lecture 2 (original path retained).
-- `lab/`: lab decks and `*-instructor.md` guides. Lab 1 is fully redesigned; Labs 2–4 retain earlier source content pending rewrite. Lab 5 has a validation/abstraction outline awaiting its teaching package; Labs 6–7 describe the open project session and dossier interview.
+- `curs/fallback/`: instructor-only prepared examples, each with explicit provenance; currently the Lecture 2 library fallback (`02-understanding-fallback.md`).
+- `archive/`: the superseded 2026 draft (English Lectures 2–14 with demos and fallbacks, Labs 2–4 with guides), moved there on 5 October 2026. Not built, not published; reuse material only, see `archive/README.md`.
+- `lab/`: lab decks and `*-instructor.md` guides. Lab 1 is fully redesigned; Labs 2–4 do not exist yet (their old drafts are archived). Lab 5 has a validation/abstraction outline awaiting its teaching package; Labs 6–7 describe the open project session and dossier interview.
 - `lab/scenarios/lab01/`: student facts, worksheet, and prepared alternatives.
 - `proiect/`: Romanian project requirements and assessment.
 - `tooling/`: portable setup and workflow; optional templates preserve student tool/model choices.
@@ -90,7 +91,7 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - `exam/`: earlier resit material, awaiting alignment with the new course.
 - `../amss2026/`: generated site, built directly from the course sources; do not maintain a separate `output/redesign-preview/` copy.
 
-Later lecture filenames currently retain their earlier names to avoid unnecessary link churn. The roadmap maps old sources to new topics. Do not assume an unrevised deck already implements its new landing-page title.
+Pending lectures keep the file names the landing page already links, to avoid link churn; the roadmap maps those names to the new topics and to the archived drafts that may be reused. Do not assume an archived deck implements its landing-page title.
 
 ## Build and release
 
@@ -104,7 +105,7 @@ make fallback
 
 Only entries in `RELEASED` are published as lecture/lab decks. Do not add releases unless the instructor asks. Preserve `data-release` keys on landing-page entries. Handouts currently link to the source repository and can also be distributed as local files or printouts.
 
-`curs/redesign-prompt.md` is an instructor brief, not a lecture, and is excluded from preview-all deck discovery. The retired `curs/13-workshop.md` is also excluded; do not reinstate it as a lecture. Fallback decks are built alongside their sources and are not published by `make all`.
+`curs/redesign-prompt.md` is an instructor brief, not a lecture, and is excluded from preview-all deck discovery. The retired workshop lecture is archived; do not reinstate it. Fallback decks are built alongside their sources and are not published by `make all`; `archive/` is never built.
 
 Do not cross-include build files from the old `../amss/` tree. Reuse useful ideas and scenarios deliberately, while checking their assumptions against the new objectives.
 

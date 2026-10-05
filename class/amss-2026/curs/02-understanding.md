@@ -323,7 +323,7 @@ Pașii demonstrației:
 ::: notes
 Urmați 02-understanding-demo.md. Demonstrația cere o proiectare, nu codul aplicației. Se poate folosi orice asistent disponibil, cu un context separat pentru revizuire (review); rolurile diferite nu cer furnizori diferiți sau agenți care rulează simultan.
 
-Dacă generarea nu funcționează sau durează prea mult, folosiți fallback/01-intro-fallback.pdf sau .html. Este un exemplu didactic pregătit, nu captura unei rulări AI. Spuneți explicit acest lucru.
+Dacă generarea nu funcționează sau durează prea mult, folosiți fallback/02-understanding-fallback.pdf sau .html. Este un exemplu didactic pregătit, nu captura unei rulări AI. Spuneți explicit acest lucru.
 
 O afirmație pusă la încercare poate fi și confirmată, prin verificarea unui scenariu. Studenții nu trebuie să inventeze o eroare dacă rezultatul este corect.
 :::

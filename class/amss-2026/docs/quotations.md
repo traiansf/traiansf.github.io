@@ -2,28 +2,28 @@
 
 Verificate la 1 octombrie 2026. Fiecare prezentare are, pe slide-ul „Citatul zilei”, un citat tradus în română, numele autorului și un link către sursă. Formularea originală apare pe slide, sub traducere („Original: …”), într-un al doilea paragraf al citatului. Reperul și legătura cu tema sunt în notele slide-ului; în Cursul 1, pagina este indicată chiar în rândul cu sursa. În fragmentele scurtate, omisiunile sunt marcate. Nu modificați formularea fără să verificați din nou sursa.
 
-Tabelul urmează noua ordine a cursurilor; prefixele numerice ale fișierelor vechi nu corespund săptămânilor. Faptul că un material nerevizuit are deja citatul nu înseamnă că este finalizat sau publicat.
+Tabelul urmează noua ordine a cursurilor. Prezentările nerescrise încă stau în `archive/` (schița din 2026, înlocuită); prefixele numerice ale fișierelor vechi nu corespund săptămânilor. Faptul că un material din arhivă are deja citatul nu înseamnă că este finalizat sau publicat: când sesiunea este rescrisă, diapozitivul cu citatul se mută în noua prezentare, cu notele de verificare.
 
 | Întâlnire | Fișier | Autor | Sursă |
 |---|---|---|---|
 | Cursul 1 | [01-intro.md](../curs/01-intro.md) | Brian W. Kernighan și P. J. Plauger | [Software Tools in Pascal (1981), p. 311](https://seriouscomputerist.atariverse.com/media/pdf/book/Software%20Tools%20in%20Pascal.pdf#page=320) |
 | Cursul 2 | [02-understanding.md](../curs/02-understanding.md) | Edsger W. Dijkstra | [How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html) |
-| Cursul 3 | [02-requirements.md](../curs/02-requirements.md) | Frederick P. Brooks, Jr. | [No Silver Bullet — Essence and Accident in Software Engineering](https://worrydream.com/refs/Brooks_1986_-_No_Silver_Bullet.pdf#page=13) |
-| Cursul 4 | [03-testable-specs.md](../curs/03-testable-specs.md) | Eric Evans | [Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) |
-| Cursul 5 | [04-class-diagrams.md](../curs/04-class-diagrams.md) | David L. Parnas | [On the Criteria To Be Used in Decomposing Systems into Modules](https://akkartik.name/parnas.pdf#page=6) |
-| Cursul 6 | [05-other-structural.md](../curs/05-other-structural.md) | Bertrand Meyer | [Object-Oriented Software Construction, ediția a doua](https://bertrandmeyer.com/wp-content/upLoads/OOSC2.pdf) |
-| Cursul 7 | [06-behavioral-i.md](../curs/06-behavioral-i.md) | Leslie Lamport | [Computation and State Machines (2008)](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4) |
-| Cursul 8 | [07-behavioral-ii.md](../curs/07-behavioral-ii.md) | Melvin E. Conway | [Conway’s Law — formularea autorului](https://www.melconway.com/Home/Conways_Law.html) |
-| Cursul 9 | [08-patterns-i.md](../curs/08-patterns-i.md) | Edsger W. Dijkstra | [Concern for Correctness as a Guiding Principle for Program Composition — EWD288](https://www.cs.utexas.edu/~EWD/transcriptions/EWD02xx/EWD288.html) |
-| Cursul 10 | [09-patterns-ii.md](../curs/09-patterns-ii.md) | Barbara Liskov și Stephen Zilles | [Programming with Abstract Data Types (1974)](https://gleitzman.com/media/docs/adt-liskov.pdf#page=2) |
-| Cursul 11 | [10-traceability.md](../curs/10-traceability.md) | Martin Fowler | [Refactoring — definiția autorului](https://refactoring.com/) |
-| Cursul 12 | [11-evaluation.md](../curs/11-evaluation.md) | Leslie Lamport | [Interviu Developing Dev — Why writing improves your thinking](https://www.developing.dev/p/turing-award-winner-on-working-with) |
-| Cursul 13 | [12-presentation-skills.md](../curs/12-presentation-skills.md) | Donald E. Knuth | [Literate Programming — prezentarea autorului](https://cs.stanford.edu/~knuth/lp.html) |
-| Cursul 14 | [14-final.md](../curs/14-final.md) | Alan J. Perlis | [Epigrams in Programming — epigrama 31](https://www.cs.yale.edu/homes/perlis-alan/quotes.html) |
+| Cursul 3 | [02-requirements.md](../archive/curs/02-requirements.md) | Frederick P. Brooks, Jr. | [No Silver Bullet — Essence and Accident in Software Engineering](https://worrydream.com/refs/Brooks_1986_-_No_Silver_Bullet.pdf#page=13) |
+| Cursul 4 | [03-testable-specs.md](../archive/curs/03-testable-specs.md) | Eric Evans | [Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) |
+| Cursul 5 | [04-class-diagrams.md](../archive/curs/04-class-diagrams.md) | David L. Parnas | [On the Criteria To Be Used in Decomposing Systems into Modules](https://akkartik.name/parnas.pdf#page=6) |
+| Cursul 6 | [05-other-structural.md](../archive/curs/05-other-structural.md) | Bertrand Meyer | [Object-Oriented Software Construction, ediția a doua](https://bertrandmeyer.com/wp-content/upLoads/OOSC2.pdf) |
+| Cursul 7 | [06-behavioral-i.md](../archive/curs/06-behavioral-i.md) | Leslie Lamport | [Computation and State Machines (2008)](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4) |
+| Cursul 8 | [07-behavioral-ii.md](../archive/curs/07-behavioral-ii.md) | Melvin E. Conway | [Conway’s Law — formularea autorului](https://www.melconway.com/Home/Conways_Law.html) |
+| Cursul 9 | [08-patterns-i.md](../archive/curs/08-patterns-i.md) | Edsger W. Dijkstra | [Concern for Correctness as a Guiding Principle for Program Composition — EWD288](https://www.cs.utexas.edu/~EWD/transcriptions/EWD02xx/EWD288.html) |
+| Cursul 10 | [09-patterns-ii.md](../archive/curs/09-patterns-ii.md) | Barbara Liskov și Stephen Zilles | [Programming with Abstract Data Types (1974)](https://gleitzman.com/media/docs/adt-liskov.pdf#page=2) |
+| Cursul 11 | [10-traceability.md](../archive/curs/10-traceability.md) | Martin Fowler | [Refactoring — definiția autorului](https://refactoring.com/) |
+| Cursul 12 | [11-evaluation.md](../archive/curs/11-evaluation.md) | Leslie Lamport | [Interviu Developing Dev — Why writing improves your thinking](https://www.developing.dev/p/turing-award-winner-on-working-with) |
+| Cursul 13 | [12-presentation-skills.md](../archive/curs/12-presentation-skills.md) | Donald E. Knuth | [Literate Programming — prezentarea autorului](https://cs.stanford.edu/~knuth/lp.html) |
+| Cursul 14 | [14-final.md](../archive/curs/14-final.md) | Alan J. Perlis | [Epigrams in Programming — epigrama 31](https://www.cs.yale.edu/homes/perlis-alan/quotes.html) |
 | Laboratorul 1 | [Lab01.md](../lab/Lab01.md) | Edsger W. Dijkstra | [How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html) |
-| Laboratorul 2 | [Lab02.md](../lab/Lab02.md) | Eric Evans | [Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) |
-| Laboratorul 3 | [Lab03.md](../lab/Lab03.md) | Bertrand Meyer | [Object-Oriented Software Construction, ediția a doua](https://bertrandmeyer.com/wp-content/upLoads/OOSC2.pdf) |
-| Laboratorul 4 | [Lab04.md](../lab/Lab04.md) | Leslie Lamport | [Computation and State Machines (2008)](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4) |
+| Laboratorul 2 | [Lab02.md](../archive/lab/Lab02.md) | Eric Evans | [Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) |
+| Laboratorul 3 | [Lab03.md](../archive/lab/Lab03.md) | Bertrand Meyer | [Object-Oriented Software Construction, ediția a doua](https://bertrandmeyer.com/wp-content/upLoads/OOSC2.pdf) |
+| Laboratorul 4 | [Lab04.md](../archive/lab/Lab04.md) | Leslie Lamport | [Computation and State Machines (2008)](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4) |
 | Laboratorul 5 | [Lab05.md](../lab/Lab05.md) | Edsger W. Dijkstra | [Concern for Correctness as a Guiding Principle for Program Composition — EWD288](https://www.cs.utexas.edu/~EWD/transcriptions/EWD02xx/EWD288.html) |
 | Laboratorul 6 | [Lab06.md](../lab/Lab06.md) | Leslie Lamport | [Interviu Developing Dev — Why writing improves your thinking](https://www.developing.dev/p/turing-award-winner-on-working-with) |
 | Laboratorul 7 | [Lab07.md](../lab/Lab07.md) | Alan J. Perlis | [Epigrams in Programming — epigrama 95](https://www.cs.yale.edu/homes/perlis-alan/quotes.html) |

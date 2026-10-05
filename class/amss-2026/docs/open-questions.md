@@ -19,6 +19,6 @@ External links (Teams, forms.gle, the quotation sources, the tooling documentati
 ## Left as found in the build
 
 - `make clean` also deletes the tracked HTML and PDF files in `curs/fallback/` (they come back with `make fallback`).
-- The fallback decks in `curs/fallback/` keep the old look until `make fallback` is run.
+- The archived fallback decks in `archive/curs/fallback/` keep the look they were last built with; they are not rebuilt.
 - The exam sample is still the earlier UML-based one (see `CLAUDE.md`, “Assessment and capacity”).
 - Printing the project page from a browser leaves the footer alone on a last sheet.
