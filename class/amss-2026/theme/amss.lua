@@ -28,10 +28,11 @@ local stringify = pandoc.utils.stringify
 local is_beamer = FORMAT == 'beamer'
 local is_latex = FORMAT == 'latex'
 local is_slidy = FORMAT == 'slidy'
+local is_reveal = FORMAT == 'revealjs'
 local is_html_doc = FORMAT:match('^html') ~= nil
-local is_html = is_html_doc or is_slidy
+local is_html = is_html_doc or is_slidy or is_reveal
 local is_doc = is_latex or is_html_doc
-local is_deck = is_beamer or is_slidy
+local is_deck = is_beamer or is_slidy or is_reveal
 
 local EM_DASH = '\u{2014}'
 local EN_DASH = 0x2013
@@ -440,6 +441,39 @@ local function first_visible(blocks)
   end
 end
 
+-- Explicit section dividers share a cover-like design in both slide formats.
+-- Keep Pandoc's frame and speaker notes; replace the visible content only.
+local function style_transitions(blocks)
+  local result = pandoc.Blocks({})
+  local i = 1
+  while i <= #blocks do
+    local block = blocks[i]
+    if block.t == 'Header' and block.level == 1 and block.classes:includes('transition') then
+      local body = pandoc.Blocks({})
+      local notes = pandoc.Blocks({})
+      i = i + 1
+      while i <= #blocks and blocks[i].t ~= 'Header' and blocks[i].t ~= 'HorizontalRule' do
+        local inner = blocks[i]
+        if inner.t == 'Div' and inner.classes:includes('notes') then
+          notes:insert(inner)
+        else
+          body:insert(inner)
+        end
+        i = i + 1
+      end
+      local title = pandoc.write(pandoc.Pandoc({ pandoc.Plain(block.content) }), 'latex')
+      local content = pandoc.write(pandoc.Pandoc(body), 'latex')
+      result:insert(pandoc.Header(1, {}, pandoc.Attr(block.identifier, { 'plain' })))
+      result:insert(pandoc.RawBlock('latex', '\\amsstransition{' .. title .. '}{' .. content .. '}'))
+      result:extend(notes)
+    else
+      result:insert(block)
+      i = i + 1
+    end
+  end
+  return result
+end
+
 local function tidy_document(doc)
   local blocks = doc.blocks
   if is_doc and full_title then
@@ -459,6 +493,9 @@ local function tidy_document(doc)
   end
   if is_beamer or is_latex then
     blocks = wrap_epigraphs(blocks)
+  end
+  if is_beamer then
+    blocks = style_transitions(blocks)
   end
   if is_html then
     blocks = protect_ranges(wrap_tables(blocks))

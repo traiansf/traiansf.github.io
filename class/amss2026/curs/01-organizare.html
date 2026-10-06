@@ -232,6 +232,32 @@ line-height: 1.1;
 .slide.titlepage .logo { margin-bottom: 1.25rem; }
 }
 
+.slide.transition {
+background: var(--navy);
+border-color: var(--navy);
+color: var(--teal-light);
+padding-top: 3.5rem;
+padding-bottom: 3.5rem;
+}
+.slide.transition::after { color: var(--teal-light); }
+.slide.transition h1 {
+max-width: 22ch;
+margin: 0 0 0.65em;
+padding: 0.65em 0 0;
+border: 0;
+color: #ffffff;
+font-size: 2.2em;
+}
+.slide.transition h1::after {
+top: 0;
+bottom: auto;
+width: 2.5em;
+background: var(--teal-light);
+}
+.slide.transition p { max-width: 48ch; margin-bottom: 0; }
+.slide.transition strong { color: #ffffff; }
+.slide.transition a { color: var(--teal-light); }
+
 @media screen {
 html.paged { background: var(--paper); }
 html.paged body {
@@ -270,6 +296,14 @@ padding-bottom: 6vh;
 }
 html.paged .slide.titlepage .logo { width: 10em; max-height: none; }
 html.paged .slide.titlepage h1 { font-size: 2.4em; }
+html.paged .slide.transition.current {
+grid-template-rows: auto auto;
+align-content: center;
+padding-left: 9vw;
+padding-right: 9vw;
+}
+html.paged .slide.transition.current > .slide-body { grid-row: 2; }
+html.paged .slide.transition h1 { font-size: 2.4em; }
 }
 @media screen and (max-width: 30rem) {
 
@@ -393,6 +427,9 @@ break-inside: avoid;
 .slide.titlepage h1, .slide.titlepage .author { color: var(--navy); }
 .slide.titlepage .course, .slide.titlepage .session { color: var(--teal-strong); }
 .slide.titlepage .logo { width: 28mm; padding: 0; }
+.slide.transition { background: #ffffff; color: var(--teal-strong); border: 2px solid var(--navy); }
+.slide.transition h1, .slide.transition strong { color: var(--navy); }
+.slide.transition h1::after { background: var(--teal); }
 .slide div.column img { max-width: 45mm; } 
 .slide a { color: inherit; }
 }
@@ -428,7 +465,7 @@ break-inside: avoid;
 <p><strong>AMSS — Analiza și Modelarea Sistemelor Software</strong></p>
 <p><span class="nowrap">Traian-Florin</span> Șerbănuță<br />
 <a href="mailto:traian.serbanuta@unibuc.ro" class="email">traian.serbanuta@unibuc.ro</a></p>
-<p>Echipa cursului pe Microsoft Teams: scanați codul QR sau apăsați pe el.</p>
+<p>Echipa cursului pe Microsoft Teams: codul QR și linkul sunt disponibile și după curs, în prezentarea publicată.</p>
 <p><strong>Codul echipei: <code>fswo4rl</code></strong></p>
 </div>
 </div>
@@ -449,7 +486,7 @@ break-inside: avoid;
 </blockquote>
 <p>La finalul cursului, ar trebui să puteți:</p>
 <ul>
-<li>analiza o problemă (mică) necunoscută;</li>
+<li>analiza o problemă necunoscută, de dimensiuni reduse;</li>
 <li>propune o soluție de proiectare și explica alternativele;</li>
 <li>urmări consecințele schimbării unei cerințe;</li>
 <li>îndruma lucrul cu AI și evalua justificările pe care le oferă.</li>
@@ -548,18 +585,18 @@ break-inside: avoid;
 <div id="instrumente-și-organizarea-lucrului" class="slide section level1">
 <h1>Instrumente și organizarea lucrului</h1>
 <ul>
-<li>Alegeți un asistent și un model AI la care aveți acces.</li>
+<li>Alegeți un asistent AI și un model AI la care aveți acces.</li>
 <li>Creați un repository public pe GitHub sau GitLab când anunțați proiectul pe Teams; consemnați acolo progresul și contribuțiile membrilor, pe tot parcursul semestrului.</li>
-<li>Definiți explicit rolurile de analist/proiectant și evaluator (agent de revizuire).</li>
+<li>Definiți explicit rolurile de analist/proiectant și evaluator (agent AI de revizuire).</li>
 <li>Porniți revizuirea <span class="nowrap">într-un</span> context separat, cu sursele necesare.</li>
-<li><span class="nowrap">Pregătiți-vă</span> să explicați soluția fără asistent.</li>
+<li><span class="nowrap">Pregătiți-vă</span> să explicați soluția fără asistent AI.</li>
 </ul>
 </div>
 <div id="înainte-de-laboratorul-1" class="slide section level1">
 <h1>Înainte de laboratorul 1</h1>
 <ul>
 <li>Citiți <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md">ghidul de pregătire a mediului de lucru</a> și <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md">ghidul despre roluri, predarea sarcinilor și revizuire</a>.</li>
-<li>Pregătiți accesul la asistentul ales și la fișierele comune.</li>
+<li>Pregătiți accesul la asistentul AI ales și la fișierele comune.</li>
 <li>Veți lucra în perechi, alternând rolurile.</li>
 <li>Veți analiza singuri un enunț scurt înainte de a folosi AI.</li>
 </ul>
@@ -593,9 +630,9 @@ break-inside: avoid;
 </div>
 <div id="pentru-întâlnirea-următoare" class="slide section level1">
 <h1>Pentru întâlnirea următoare</h1>
-<p>Pregătiți accesul la Teams, la materialele cursului și la asistentul ales.</p>
+<p>Pregătiți accesul la Teams, la materialele cursului și la asistentul AI ales.</p>
 <p><span class="nowrap">Gândiți-vă</span> la o situație în care o întrebare pusă mai devreme ar fi schimbat soluția propusă.</p>
-<p><strong>Cursul 2:</strong> o bibliotecă ne cere un terminal pentru împrumutul și returnarea cărților. Vom analiza cererea, vom compara interpretări ale ei și vom verifica o soluție propusă de un asistent AI.</p>
+<p><strong>Cursul 2:</strong> o bibliotecă ne cere un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Vom analiza cererea, vom compara interpretări ale ei și vom verifica o soluție propusă de un asistent AI.</p>
 </div>
 <div id="experiența-și-așteptările-voastre" class="slide section level1">
 <h1>Experiența și așteptările voastre</h1>
@@ -604,7 +641,7 @@ break-inside: avoid;
 <p><a href="https://forms.gle/uHCXyFvxqQxsWWmH9"><img role="img" aria-label="Deschideți chestionarul de început de curs" src="data:image/png;base64,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" style="width:100.0%" alt="Deschideți chestionarul de început de curs" /></a></p>
 </div><div class="column" style="width:66%;">
 <p><strong><a href="https://forms.gle/uHCXyFvxqQxsWWmH9">Completați chestionarul de început de curs</a></strong></p>
-<p>Scanați codul QR sau deschideți linkul: <a href="https://forms.gle/uHCXyFvxqQxsWWmH9">forms.gle/uHCXyFvxqQxsWWmH9</a>.</p>
+<p>După curs, când aveți acces la un dispozitiv, folosiți codul QR sau linkul: <a href="https://forms.gle/uHCXyFvxqQxsWWmH9">forms.gle/uHCXyFvxqQxsWWmH9</a>.</p>
 <p>Ce experiență aveți? Ce știți deja și ce ați vrea să aprofundați?</p>
 <p>Completarea este facultativă și durează aproximativ <span class="nowrap">10–12 minute.</span> Vom folosi răspunsurile pentru adaptarea conținutului.</p>
 </div>

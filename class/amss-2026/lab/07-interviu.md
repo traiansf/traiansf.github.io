@@ -64,7 +64,7 @@ Exemple de întrebări:
 |---|---:|
 | Formularea problemei și cerințe | 1 |
 | Modelarea domeniului | 1 |
-| Contracte și invariante | 1 |
+| Contracte și invarianți | 1 |
 | Stare și comportament | 1 |
 | Responsabilități, coeziune și cuplare | 1 |
 | **Total dosar de proiectare** | **5** |

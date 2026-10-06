@@ -8,7 +8,7 @@ Pentru grupa care are laborator imediat după primul curs, folosiți această î
 
 Alocați orientativ 90 de minute: acces la materiale 10; experiențe individuale și în perechi 15; întrebări și discuții 20; spațiu de lucru și acces la unelte 20; idei de proiect și colegi 15; întrebări și pași următori 10. Timpii sunt flexibili. Studenții care cunosc uneltele îi pot ajuta pe colegi.
 
-Discutați cerințe interpretate diferit, schimbări cu efecte ample și verificarea rezultatelor AI. Cereți-le studenților o întrebare care ar fi schimbat o decizie. Dacă nu au un exemplu, folosiți-l pe cel din ghid, cu pagina pentru notițe. Nu intrați aici în detalii despre modele, contracte, invariante sau notații de diagrame.
+Discutați cerințe interpretate diferit, schimbări cu efecte ample și verificarea rezultatelor AI. Cereți-le studenților o întrebare care ar fi schimbat o decizie. Dacă nu au un exemplu, folosiți-l pe cel din ghid, cu pagina pentru notițe. Nu intrați aici în detalii despre modele, contracte, invarianți sau notații de diagrame.
 
 Păstrați scenariul mașinilor de spălat din cămin pentru Laboratorul 1 și demonstrația bibliotecii pentru cursul 2. Lab 0 nu le înlocuiește și nu dă unei singure grupe material tehnic suplimentar, de care va fi nevoie mai târziu.
 

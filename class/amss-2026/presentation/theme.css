@@ -1,0 +1,51 @@
+:root { --navy:#0a2145; --teal:#087373; --light:#8fd6d2; --muted:#4a5a60; }
+body { background:white; }
+.reveal { font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:28px; color:#1d2a2e; }
+.reveal .slides { text-align:left; }
+.reveal .slides section { box-sizing:border-box; padding:28px 48px; line-height:1.38; }
+.reveal h1,.reveal h2,.reveal h3 { color:var(--navy); font-weight:700; line-height:1.15; text-wrap:balance; }
+.reveal h1 { font-size:1.65em; margin:0 0 0.65em; padding-bottom:0.3em; border-bottom:2px solid #d5e0e3; }
+.reveal h2 { font-size:1.15em; }
+.reveal h3 { font-size:1em; }
+.reveal p { margin:0 0 .65em; }
+.reveal strong { color:var(--navy); }
+.reveal a { color:var(--teal); text-underline-offset:.15em; }
+.reveal ul,.reveal ol { display:block; margin:0 0 .65em; padding-left:1.4em; }
+.reveal li + li { margin-top:.35em; }
+.reveal li::marker { color:var(--teal); }
+.reveal li p { margin:0; }
+.reveal blockquote { margin:0 0 .7em; padding-left:.8em; border-left:4px solid var(--teal); }
+.reveal .epigraph blockquote { font-size:1.4em; font-weight:600; color:var(--navy); }
+.reveal .epigraph blockquote p + p { font-size:.6em; font-weight:400; color:var(--muted); }
+.reveal .epigraph blockquote + p + p { font-size:.8em; }
+.reveal table { border-collapse:collapse; font-size:.9em; width:100%; }
+.reveal th,.reveal td { padding:.3em .8em .3em 0; text-align:left; vertical-align:top; border-bottom:1px solid #d5e0e3; }
+.reveal th { color:var(--navy); border-bottom:2px solid var(--navy); }
+.reveal .table-wrap { margin-bottom:.7em; }
+.reveal pre { padding:.65em; background:#f3f7f8; border:1px solid #d5e0e3; border-radius:6px; font-size:.76em; white-space:pre-wrap; }
+.reveal code { font-family:Consolas,monospace; }
+.reveal div.sourceCode { margin-bottom:.7em; }
+.reveal div.columns { display:flex; gap:1.6em; align-items:center; text-align:left; }
+.reveal div.column { min-width:0; }
+.reveal div.column img { display:block; margin:0 auto; }
+.reveal img,.reveal svg { max-width:100%; max-height:390px; height:auto; object-fit:contain; }
+.reveal figure { margin:0; }
+.reveal .nowrap { white-space:nowrap; }
+.reveal section.titlepage { padding:70px 65px; }
+.reveal .titlepage .logo { float:left; width:240px; padding:12px; background:white; border-radius:18px; margin:0 55px 0 0; }
+.reveal .titlepage .cover-text { overflow:hidden; }
+.reveal .titlepage h1,.reveal .transition h1 { border:0; color:white; font-size:2.1em; }
+.reveal .titlepage { color:white; }
+.reveal .titlepage .session,.reveal .titlepage .course { color:var(--light); }
+.reveal .titlepage .session { font-weight:600; }
+.reveal .titlepage .course,.reveal .titlepage .author { font-size:.8em; }
+.reveal section.transition { color:var(--light); padding:65px 85px; }
+.reveal .transition h1 { max-width:23ch; padding-top:.6em; position:relative; }
+.reveal .transition h1::before { content:""; position:absolute; top:0; left:0; width:140px; height:3px; background:var(--light); }
+.reveal .transition p { max-width:48ch; }
+.reveal .slide-number { background:transparent; color:var(--muted); font:16px system-ui; right:18px; bottom:12px; }
+.reveal.has-dark-background .slide-number { color:var(--light); }
+.reveal .progress { color:var(--teal); }
+.reveal .controls { color:var(--teal); bottom:38px; }
+#connection-status { position:fixed; z-index:50; top:0; right:0; padding:8px 14px; background:#fff2ce; color:#352700; font:16px system-ui; }
+#connection-status[hidden] { display:none; }

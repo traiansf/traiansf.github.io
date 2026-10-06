@@ -114,6 +114,13 @@ show `date`, so leave it out.
 
 ## Course look
 
+For live delivery with speaker notes, use the additional
+[reveal.js presentation service](presentation/README.md). It builds the
+released slide decks from the same Markdown sources and supports both a
+local computer with an extended projector display and two computers
+synchronized through an internet service. Its generated files live in
+`presentation/dist/`; it does not replace the published static HTML/PDF build.
+
 The palette (navy and teal, from the course logo) and the type are defined once
 per medium; `include.mk` wires the files below into the pandoc calls and lists
 them as prerequisites, so editing one rebuilds what depends on it.
@@ -141,6 +148,12 @@ slide shows it complete. On a phone or a portrait window, without JavaScript,
 and in print, the slides flow as a column of cards. The view chosen with the
 switch lasts for the browser tab. `deck.html#5` (or the older `#(5)`) opens
 slide 5.
+
+Mark a section-divider heading with `{.transition}`, for example
+`# Construim un model {.transition}`. Keep only a short guiding question
+under it and put timing checkpoints in a `notes` block. The shared theme
+uses a navy background, a large white heading and a teal accent in both
+HTML and PDF; the HTML print view uses a white background to save ink.
 
 A table in a document can be given a class for styling with an HTML comment
 on the line before it, as the project rubric does:

@@ -232,6 +232,32 @@ line-height: 1.1;
 .slide.titlepage .logo { margin-bottom: 1.25rem; }
 }
 
+.slide.transition {
+background: var(--navy);
+border-color: var(--navy);
+color: var(--teal-light);
+padding-top: 3.5rem;
+padding-bottom: 3.5rem;
+}
+.slide.transition::after { color: var(--teal-light); }
+.slide.transition h1 {
+max-width: 22ch;
+margin: 0 0 0.65em;
+padding: 0.65em 0 0;
+border: 0;
+color: #ffffff;
+font-size: 2.2em;
+}
+.slide.transition h1::after {
+top: 0;
+bottom: auto;
+width: 2.5em;
+background: var(--teal-light);
+}
+.slide.transition p { max-width: 48ch; margin-bottom: 0; }
+.slide.transition strong { color: #ffffff; }
+.slide.transition a { color: var(--teal-light); }
+
 @media screen {
 html.paged { background: var(--paper); }
 html.paged body {
@@ -270,6 +296,14 @@ padding-bottom: 6vh;
 }
 html.paged .slide.titlepage .logo { width: 10em; max-height: none; }
 html.paged .slide.titlepage h1 { font-size: 2.4em; }
+html.paged .slide.transition.current {
+grid-template-rows: auto auto;
+align-content: center;
+padding-left: 9vw;
+padding-right: 9vw;
+}
+html.paged .slide.transition.current > .slide-body { grid-row: 2; }
+html.paged .slide.transition h1 { font-size: 2.4em; }
 }
 @media screen and (max-width: 30rem) {
 
@@ -393,6 +427,9 @@ break-inside: avoid;
 .slide.titlepage h1, .slide.titlepage .author { color: var(--navy); }
 .slide.titlepage .course, .slide.titlepage .session { color: var(--teal-strong); }
 .slide.titlepage .logo { width: 28mm; padding: 0; }
+.slide.transition { background: #ffffff; color: var(--teal-strong); border: 2px solid var(--navy); }
+.slide.transition h1, .slide.transition strong { color: var(--navy); }
+.slide.transition h1::after { background: var(--teal); }
 .slide div.column img { max-width: 45mm; } 
 .slide a { color: inherit; }
 }
@@ -419,10 +456,14 @@ break-inside: avoid;
     <p class="author">Traian-Florin Șerbănuță</p>
   </div>
 </div>
+<div id="începem-cu-întrebări" class="slide section level1 transition">
+<h1 class="transition">Începem cu întrebări</h1>
+<p>Ce trebuie să înțelegem înainte de a propune o soluție?</p>
+</div>
 <div id="întrebarea-de-astăzi" class="slide section level1">
 <h1>Întrebarea de astăzi</h1>
-<p>Ce trebuie să înțelegem înainte de a cere unei persoane sau unui asistent să propună o soluție?</p>
-<p>Astăzi analizăm o problemă mică, comparăm decizii și verificăm ce anume le susține.</p>
+<p>Ce trebuie să înțelegem înainte de a cere unei persoane sau unui asistent AI să propună o soluție?</p>
+<p>Astăzi analizăm o problemă de dimensiuni reduse, comparăm decizii și verificăm ce anume le susține.</p>
 </div>
 <div id="citatul-zilei" class="slide section level1 epigraph">
 <h1 class="epigraph">Citatul zilei</h1>
@@ -435,43 +476,98 @@ break-inside: avoid;
 </div>
 <div id="pornim-de-la-o-solicitare" class="slide section level1">
 <h1>Pornim de la o solicitare</h1>
+<p>Biblioteca este beneficiarul sistemului informatic. Bibliotecarul o reprezintă și ne prezintă cererea:</p>
 <blockquote>
-<p>„Avem nevoie de un terminal de bibliotecă. Membrii împrumută și returnează cărți. Ar trebui să poată și solicita o carte atunci când aceasta este împrumutată.”</p>
+<p>„Avem nevoie de un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”</p>
 </blockquote>
-<p>Înainte să cereți unui agent să construiască ceva:</p>
+<p>Înainte de a cere unui agent AI să construiască ceva:</p>
 <p><strong>Ce ar trebui să înțelegeți?</strong></p>
 </div>
 <div id="exercițiu-întrebări-înainte-de-soluții" class="slide section level1">
 <h1>Exercițiu: întrebări înainte de soluții</h1>
-<p>Mai întâi singuri, <strong>fără AI</strong>; apoi comparați răspunsurile cu un coleg.</p>
+<blockquote>
+<p>„Avem nevoie de un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”</p>
+</blockquote>
+<p>Lucrați pe o coală albă, mai întâi singuri, apoi cu un coleg.</p>
 <ol style="list-style-type: decimal">
 <li>Scrieți două întrebări ale căror răspunsuri ar putea schimba proiectarea.</li>
 <li>Descrieți o situație concretă de împrumut.</li>
 <li>Numiți un lucru pe care <span class="nowrap">l-ați</span> exclude din prima versiune.</li>
 </ol>
-<p><span class="nowrap">Pregătiți-vă</span> să explicați <strong>de ce contează unul dintre răspunsuri</strong>.</p>
+<p>Alegeți una dintre întrebările formulate și explicați <strong>cum ar putea răspunsul beneficiarului să influențeze proiectarea</strong>.</p>
 </div>
-<div id="ce-precizează-bibliotecarul" class="slide section level1">
-<h1>Ce precizează bibliotecarul</h1>
+<div id="clarificăm-cererea-și-limitele" class="slide section level1 transition">
+<h1 class="transition">Clarificăm cererea și limitele</h1>
+<p>Ce comportament convenim cu beneficiarul?</p>
+</div>
+<div id="ce-precizează-bibliotecarul-identitate" class="slide section level1">
+<h1>Ce precizează bibliotecarul: identitate</h1>
+<p><strong>R1 — Identitate</strong></p>
 <ul>
-<li><strong>R1</strong> Un titlu poate avea mai multe exemplare fizice, identificate distinct.</li>
-<li><strong>R2</strong> Un împrumut leagă <strong>un exemplar</strong> de un membru; un exemplar are cel mult un împrumut activ.</li>
-<li><strong>R3</strong> Returnarea închide împrumutul activ; istoricul împrumuturilor se păstrează.</li>
-<li><strong>R4</strong> O solicitare se referă la un <strong>titlu</strong>, nu la un exemplar; duplicatele se resping.</li>
-<li><strong>R5</strong> Solicitările pot exista simultan cu împrumuturile și nu rezervă exemplare.</li>
-<li><strong>R6</strong> Operațiile se procesează pe rând; alocarea, notificările și amenzile rămân în afara exercițiului.</li>
+<li>Fiecare titlu, exemplar și membru are un identificator distinct.</li>
+<li>Un titlu poate avea mai multe exemplare fizice; fiecare exemplar aparține unui singur titlu.</li>
+<li>Catalogul și evidența membrilor există deja.</li>
 </ul>
-<p><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/curs/scenarios/02-biblioteca/brief.md">Regulile complete și scenariile <span class="nowrap">S1–S5</span></a></p>
+<p>Un exemplar este <strong>disponibil</strong> dacă nu este nici împrumutat, nici rezervat.</p>
+</div>
+<div id="ce-precizează-bibliotecarul-împrumut" class="slide section level1">
+<h1>Ce precizează bibliotecarul: împrumut</h1>
+<p><strong>R2 — Împrumut</strong></p>
+<ul>
+<li>Se poate împrumuta un exemplar disponibil sau unul rezervat chiar membrului care îl ridică.</li>
+<li>Se creează un împrumut care leagă exemplarul de membru. Un exemplar are cel mult un împrumut activ.</li>
+<li>La ridicarea exemplarului rezervat, rezervarea încetează și cererea de împrumut este îndeplinită.</li>
+<li>Dacă exemplarul este împrumutat sau rezervat altcuiva, operația se respinge fără modificarea stării.</li>
+</ul>
+<p><strong>Rezervarea păstrează exemplarul pentru membru; împrumutul începe la ridicare.</strong></p>
+</div>
+<div id="ce-precizează-bibliotecarul-returnare" class="slide section level1">
+<h1>Ce precizează bibliotecarul: returnare</h1>
+<p><strong>R3 — Returnare</strong></p>
+<ul>
+<li>Returnarea închide împrumutul activ al exemplarului și păstrează istoricul.</li>
+<li>În aceeași operație, exemplarul este rezervat primei cereri în așteptare pentru titlul său, conform R5.</li>
+<li>Dacă nu există cereri în așteptare, exemplarul devine disponibil.</li>
+<li>Fără împrumut activ, returnarea se respinge fără modificarea stării.</li>
+</ul>
+<p>Returnarea poate face exemplarul <strong>rezervat</strong>, nu neapărat disponibil.</p>
+</div>
+<div id="ce-precizează-bibliotecarul-cerere-de-împrumut" class="slide section level1">
+<h1>Ce precizează bibliotecarul: cerere de împrumut</h1>
+<p><strong>R4 — Cerere de împrumut</strong></p>
+<ul>
+<li>Membrul cere un <strong>titlu</strong>, fără să aleagă un exemplar.</li>
+<li>Cererea se acceptă numai dacă titlul nu are exemplare disponibile și membrul nu are deja o cerere neîncheiată pentru el.</li>
+<li>Se înregistrează membrul, titlul și ordinea depunerii; cererea intră în așteptare.</li>
+<li>O cerere în așteptare sau cu exemplar rezervat este <strong>neîncheiată</strong>. Duplicatul și cererea pentru un titlu disponibil se resping fără modificări.</li>
+</ul>
+<p>Cererea dă prioritate la următorul exemplar returnat; nu este o căutare în catalog.</p>
+</div>
+<div id="ce-precizează-bibliotecarul-rezervare" class="slide section level1">
+<h1>Ce precizează bibliotecarul: rezervare</h1>
+<p><strong>R5 — Ordinea cererilor și rezervarea</strong></p>
+<ul>
+<li>Pentru fiecare titlu, cererile în așteptare sunt servite în ordinea înregistrării.</li>
+<li>Primul exemplar returnat este rezervat primei cereri în așteptare. Cererea reține acum exemplarul alocat.</li>
+<li>O cerere cu exemplar deja rezervat nu mai participă la alocarea următorului exemplar.</li>
+<li>Un exemplar are cel mult o rezervare activă și nu poate fi simultan împrumutat și rezervat.</li>
+</ul>
+<p>Doar solicitantul poate ridica exemplarul rezervat; atunci cererea se încheie (R2).</p>
 </div>
 <div id="și-delimitarea-funcționalității-este-o-decizie" class="slide section level1">
 <h1>Și delimitarea funcționalității este o decizie</h1>
-<p>Această primă parte a sistemului înregistrează:</p>
+<p><strong>R6 — Delimitare.</strong> Includem:</p>
 <ul>
-<li>Împrumutarea unui exemplar disponibil și returnarea lui.</li>
-<li>Solicitarea unui titlu de către un membru.</li>
+<li>Împrumutul și returnarea, cu păstrarea istoricului.</li>
+<li>Cererea de împrumut, ordinea de așteptare și rezervarea la returnare.</li>
+<li>Ridicarea exemplarului rezervat și încheierea cererii.</li>
 </ul>
-<p>În acest exercițiu, o solicitare înregistrată <strong>nu rezervă un exemplar și nu împiedică împrumutarea</strong>.</p>
-<p>Alocarea exemplarelor, prioritatea în coadă, notificările, amenzile și prelungirea împrumutului rămân decizii viitoare.</p>
+<p>Operațiile folosesc identificatori cunoscuți și se procesează <strong>pe rând</strong>, inclusiv înregistrarea cererilor.</p>
+<p>Rămân în afara exercițiului: expirarea/anularea rezervărilor și cererilor, notificările, amenzile, prelungirile, autentificarea și modificarea catalogului.</p>
+</div>
+<div id="construim-un-model" class="slide section level1 transition">
+<h1 class="transition">Construim un model</h1>
+<p>Ce concepte, responsabilități și reguli explică problema?</p>
 </div>
 <div id="analiză-înțelegem-problema" class="slide section level1">
 <h1>Analiză: înțelegem problema</h1>
@@ -502,7 +598,7 @@ break-inside: avoid;
 </tr>
 <tr>
 <td>Întrebare deschisă</td>
-<td>Cine primește exemplarul returnat, dacă există solicitări?</td>
+<td>Cât timp păstrăm rezervarea dacă membrul nu vine?</td>
 </tr>
 <tr>
 <td>Propunere de proiectare</td>
@@ -513,138 +609,225 @@ break-inside: avoid;
 </div>
 <p>„Folosește o bază de date relațională” nu răspunde la „ce este o carte?”</p>
 </div>
-<div id="exercițiu-propunerea-voastră-înainte-de-modelul-nostru" class="slide section level1">
-<h1>Exercițiu: propunerea voastră, înainte de modelul nostru</h1>
-<p>Mai întâi singuri, apoi comparați în pereche, folosind regulile <span class="nowrap">R1–R6:</span></p>
+<div id="exercițiu-propunerea-voastră" class="slide section level1">
+<h1>Exercițiu: propunerea voastră</h1>
+<p><strong>Date:</strong> Titlul <strong>T</strong> are exemplarele <strong>C1</strong> împrumutat lui M1 și <strong>C2</strong> împrumutat lui M3. Nu există cereri sau rezervări. M2 depune o cerere de împrumut pentru T, apoi M1 returnează C1.</p>
+<p><strong>Reguli:</strong> R1 distinge titlul de exemplare; R3 păstrează împrumutul încheiat; R4 leagă cererea de membru și titlu; R5 rezervă exemplarul returnat primei cereri în așteptare. R2 permite ridicarea lui numai de către solicitant.</p>
+<p>Pe hârtie, apoi în pereche:</p>
 <ol style="list-style-type: decimal">
-<li>Pentru titlu, exemplar, membru, împrumut și solicitare: ce îl identifică și ce regulă din <span class="nowrap">R1–R6</span> îl privește?</li>
-<li><span class="nowrap">Verificați-o</span> pe S2: titlul T are exemplarele C1 și C2; M1 a împrumutat C1. M2 solicită T, apoi M3 împrumută C2.</li>
-<li>Alegeți unde se verifică regula unui singur împrumut activ pe exemplar.</li>
-<li>Cum reprezentați un împrumut încheiat fără să îi pierdeți istoricul?</li>
+<li>Schițați conceptele și legăturile după returnarea exemplarului C1. Ce știm despre fiecare element?</li>
+<li>Ce informație permite respingerea unei încercări a lui M3 de a împrumuta C1?</li>
+<li>Ce se schimbă atunci când M2 ridică C1?</li>
 </ol>
-<p>Sunt suficiente un tabel, o schiță sau pseudocod. Notați o alternativă și motivul alegerii.</p>
 </div>
 <div id="modelarea-domeniului" class="slide section level1">
 <h1>Modelarea domeniului</h1>
 <div class="table-wrap">
 <table>
 <colgroup>
-<col width="23%" />
-<col width="26%" />
-<col width="11%" />
-<col width="38%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead>
 <tr>
-<th>Din solicitare</th>
-<th>Întrebarea</th>
-<th>Precizare</th>
-<th>Concept și regulă</th>
+<th>Concept</th>
+<th>Ce distinge</th>
+<th>Reguli</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>„împrumută cărți”</td>
-<td>Titlu sau exemplar?</td>
+<td>Titlu și exemplar</td>
+<td>O descriere din catalog și fiecare obiect fizic</td>
 <td>R1</td>
-<td>Titlu; Exemplar al unui titlu</td>
 </tr>
 <tr>
-<td>„împrumută”</td>
-<td>Ce leagă un împrumut?</td>
-<td>R2</td>
-<td>Împrumut: exemplar și membru; cel mult unul activ</td>
+<td>Împrumut</td>
+<td>Membrul care deține un exemplar; activ sau închis</td>
+<td><span class="nowrap">R2–R3</span></td>
 </tr>
 <tr>
-<td>„returnează”</td>
-<td>Ce rămâne după returnare?</td>
-<td>R3</td>
-<td>Împrumut încheiat, păstrat în istoric</td>
+<td>Cerere de împrumut</td>
+<td>Membrul care așteaptă un titlu; ordinea depunerii</td>
+<td>R4</td>
 </tr>
 <tr>
-<td>„solicita o carte”</td>
-<td>Ce se solicită?</td>
-<td>R4, R5</td>
-<td>Solicitare: membru și titlu; nu rezervă</td>
+<td>Rezervare</td>
+<td>Exemplarul alocat cererii, păstrat pentru solicitant</td>
+<td>R5</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Un titlu, două exemplare: unul poate fi împrumutat, iar celălalt disponibil.</p>
+<p>Cererea privește un <strong>titlu</strong>; rezervarea și împrumutul privesc un <strong>exemplar</strong>.</p>
 </div>
 <div id="proiectare-cine-de-ce-răspunde" class="slide section level1">
 <h1>Proiectare: cine de ce răspunde?</h1>
-<p><strong>Decizie:</strong> operația de împrumutare impune regula împrumutului activ.</p>
+<p><strong>Decizie:</strong> operația de împrumut impune regula împrumutului activ.</p>
 <p>Ea trebuie să:</p>
 <ol style="list-style-type: decimal">
 <li>Identifice exemplarul și membrul selectați.</li>
-<li>Verifice că exemplarul nu are un împrumut activ.</li>
-<li>Înregistreze noul împrumut fără să încalce regula.</li>
+<li>Verifice că exemplarul nu este împrumutat și nici rezervat altui membru.</li>
+<li>Înregistreze împrumutul; la ridicarea unei rezervări, să încheie și cererea.</li>
 </ol>
 <p>Interfața poate afișa disponibilitatea, dar soluția trebuie să respecte regula și în momentul împrumutului.</p>
 </div>
-<div id="contracte-și-invariante-reguli-verificabile" class="slide section level1">
-<h1>Contracte și invariante: reguli verificabile</h1>
+<div id="contracte-și-invarianți-reguli-verificabile" class="slide section level1">
+<h1>Contracte și invarianți: reguli verificabile</h1>
 <p><strong>Invariant:</strong> un exemplar are cel mult un împrumut activ.</p>
 <p><strong>Operația de împrumutare:</strong></p>
 <ul>
 <li>Dacă operația reușește, exemplarul are un nou împrumut activ, pe numele membrului care îl împrumută.</li>
-<li>Dacă exemplarul este deja împrumutat, încercarea este respinsă, iar împrumuturile rămân neschimbate.</li>
+<li>Dacă exemplarul este împrumutat sau rezervat altcuiva, încercarea este respinsă fără modificarea stării.</li>
 </ul>
-<p><strong>Contraexemplu de exclus:</strong> două împrumuturi active acceptate pentru același exemplar.</p>
+<p><strong>La ridicarea unei rezervări:</strong> împrumut nou, rezervare încheiată, cerere îndeplinită. Niciodată împrumut activ și rezervare activă pe același exemplar.</p>
 </div>
-<div id="comportament-urmărim-ce-se-poate-întâmpla" class="slide section level1">
-<h1>Comportament: urmărim ce se poate întâmpla</h1>
-<p>Pentru un exemplar:</p>
+<div id="comportament-stările-unui-exemplar" class="slide section level1">
+<h1>Comportament: stările unui exemplar</h1>
+<div class="columns" align="center">
+<div class="column" style="width:42%;">
+<img role="img" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibXktc3ZnIiB3aWR0aD0iMTAwJSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgY2xhc3M9InN0YXRlZGlhZ3JhbSIgc3R5bGU9Im1heC13aWR0aDogMTg3LjEyNXB4OyBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTsiIHZpZXdCb3g9IjQgNCAxODcuMTI1IDM3NCIgcm9sZT0iZ3JhcGhpY3MtZG9jdW1lbnQgZG9jdW1lbnQiIGFyaWEtcm9sZWRlc2NyaXB0aW9uPSJzdGF0ZURpYWdyYW0iIGFyaWEtZGVzY3JpYmVkYnk9ImNoYXJ0LWRlc2MtbXktc3ZnIiBhcmlhLWxhYmVsbGVkYnk9ImNoYXJ0LXRpdGxlLW15LXN2ZyI+PHRpdGxlIGlkPSJjaGFydC10aXRsZS1teS1zdmciPlN0xINyaWxlIHVudWkgZXhlbXBsYXI8L3RpdGxlPjxkZXNjIGlkPSJjaGFydC1kZXNjLW15LXN2ZyI+VHJhbnppyJtpaWxlIG51bWVyb3RhdGUgc3VudCBleHBsaWNhdGUgw65uIHRhYmVsLiDDjm1wcnVtdXR1bCDImWkgcmlkaWNhcmVhIGR1YyDDrm4gc3RhcmVhIMOObXBydW11dGF0OyByZXR1cm5hcmVhIGR1Y2Ugw65uIERpc3BvbmliaWwgc2F1IFJlemVydmF0OyBvIMOubmNlcmNhcmUgZGUgw65tcHJ1bXV0IHJlc3BpbnPEgyBwxINzdHJlYXrEgyBzdGFyZWEgw45tcHJ1bXV0YXQgc2F1IFJlemVydmF0LjwvZGVzYz48c3R5bGU+I215LXN2Z3tmb250LWZhbWlseTpBcmlhbDtmb250LXNpemU6MjBweDtmaWxsOiMwQTIxNDU7fUBrZXlmcmFtZXMgZWRnZS1hbmltYXRpb24tZnJhbWV7ZnJvbXtzdHJva2UtZGFzaG9mZnNldDowO319QGtleWZyYW1lcyBkYXNoe3Rve3N0cm9rZS1kYXNob2Zmc2V0OjA7fX0jbXktc3ZnIC5lZGdlLWFuaW1hdGlvbi1zbG93e3N0cm9rZS1kYXNoYXJyYXk6OSw1IWltcG9ydGFudDtzdHJva2UtZGFzaG9mZnNldDo5MDA7YW5pbWF0aW9uOmRhc2ggNTBzIGxpbmVhciBpbmZpbml0ZTtzdHJva2UtbGluZWNhcDpyb3VuZDt9I215LXN2ZyAuZWRnZS1hbmltYXRpb24tZmFzdHtzdHJva2UtZGFzaGFycmF5OjksNSFpbXBvcnRhbnQ7c3Ryb2tlLWRhc2hvZmZzZXQ6OTAwO2FuaW1hdGlvbjpkYXNoIDIwcyBsaW5lYXIgaW5maW5pdGU7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fSNteS1zdmcgLmVycm9yLWljb257ZmlsbDpoc2woMTIsIDI2LjMxNTc4OTQ3MzclLCAxMDAlKTt9I215LXN2ZyAuZXJyb3ItdGV4dHtmaWxsOiMwMDAwMDA7c3Ryb2tlOiMwMDAwMDA7fSNteS1zdmcgLmVkZ2UtdGhpY2tuZXNzLW5vcm1hbHtzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy10aGlja3tzdHJva2Utd2lkdGg6My41cHg7fSNteS1zdmcgLmVkZ2UtcGF0dGVybi1zb2xpZHtzdHJva2UtZGFzaGFycmF5OjA7fSNteS1zdmcgLmVkZ2UtdGhpY2tuZXNzLWludmlzaWJsZXtzdHJva2Utd2lkdGg6MDtmaWxsOm5vbmU7fSNteS1zdmcgLmVkZ2UtcGF0dGVybi1kYXNoZWR7c3Ryb2tlLWRhc2hhcnJheTozO30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tZG90dGVke3N0cm9rZS1kYXNoYXJyYXk6Mjt9I215LXN2ZyAubWFya2Vye2ZpbGw6IzA4NzM3MztzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyAubWFya2VyLmNyb3Nze3N0cm9rZTojMDg3MzczO30jbXktc3ZnIHN2Z3tmb250LWZhbWlseTpBcmlhbDtmb250LXNpemU6MjBweDt9I215LXN2ZyBwe21hcmdpbjowO30jbXktc3ZnIGRlZnMgW2lkJD0iLWJhcmJFbmQiXXtmaWxsOiMwODczNzM7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgZy5zdGF0ZUdyb3VwIHRleHR7ZmlsbDojMDg3MzczO3N0cm9rZTpub25lO2ZvbnQtc2l6ZToxMHB4O30jbXktc3ZnIGcuc3RhdGVHcm91cCB0ZXh0e2ZpbGw6IzBBMjE0NTtzdHJva2U6bm9uZTtmb250LXNpemU6MTBweDt9I215LXN2ZyBnLnN0YXRlR3JvdXAgLnN0YXRlLXRpdGxle2ZvbnQtd2VpZ2h0OmJvbGRlcjtmaWxsOiMwQTIxNDU7fSNteS1zdmcgZy5zdGF0ZUdyb3VwIHJlY3R7ZmlsbDojRjNGN0Y4O3N0cm9rZTojMDg3MzczO30jbXktc3ZnIGcuc3RhdGVHcm91cCBsaW5le3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxO30jbXktc3ZnIC50cmFuc2l0aW9ue3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxO2ZpbGw6bm9uZTt9I215LXN2ZyAuc3RhdGVHcm91cCAuY29tcG9zaXR7ZmlsbDojZjRmNGY0O2JvcmRlci1ib3R0b206MXB4O30jbXktc3ZnIC5zdGF0ZUdyb3VwIC5hbHQtY29tcG9zaXR7ZmlsbDojZTBlMGUwO2JvcmRlci1ib3R0b206MXB4O30jbXktc3ZnIC5zdGF0ZS1ub3Rle3N0cm9rZTpoc2woNTIuNjgyOTI2ODI5MywgNjAlLCA3My45MjE1Njg2Mjc1JSk7ZmlsbDojZmZmNWFkO30jbXktc3ZnIC5zdGF0ZS1ub3RlIHRleHR7ZmlsbDojMzMzO3N0cm9rZTpub25lO2ZvbnQtc2l6ZToxMHB4O30jbXktc3ZnIC5zdGF0ZUxhYmVsIC5ib3h7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjA7ZmlsbDojRjNGN0Y4O29wYWNpdHk6MC41O30jbXktc3ZnIC5lZGdlTGFiZWwgLmxhYmVsIHJlY3R7ZmlsbDojRjNGN0Y4O29wYWNpdHk6MC41O30jbXktc3ZnIC5lZGdlTGFiZWx7YmFja2dyb3VuZC1jb2xvcjpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7dGV4dC1hbGlnbjpjZW50ZXI7fSNteS1zdmcgLmVkZ2VMYWJlbCBwe2JhY2tncm91bmQtY29sb3I6aHNsKDcyLCAyNi4zMTU3ODk0NzM3JSwgOTYuMjc0NTA5ODAzOSUpO30jbXktc3ZnIC5lZGdlTGFiZWwgcmVjdHtvcGFjaXR5OjAuNTtiYWNrZ3JvdW5kLWNvbG9yOmhzbCg3MiwgMjYuMzE1Nzg5NDczNyUsIDk2LjI3NDUwOTgwMzklKTtmaWxsOmhzbCg3MiwgMjYuMzE1Nzg5NDczNyUsIDk2LjI3NDUwOTgwMzklKTt9I215LXN2ZyAuZWRnZUxhYmVsIC5sYWJlbCB0ZXh0e2ZpbGw6IzBBMjE0NTt9I215LXN2ZyAubGFiZWwgZGl2IC5lZGdlTGFiZWx7Y29sb3I6IzBBMjE0NTt9I215LXN2ZyAuc3RhdGVMYWJlbCB0ZXh0e2ZpbGw6IzBBMjE0NTtmb250LXNpemU6MTBweDtmb250LXdlaWdodDpib2xkO30jbXktc3ZnIC5ub2RlIGNpcmNsZS5zdGF0ZS1zdGFydHtmaWxsOiMwODczNzM7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgLm5vZGUgLmZvcmstam9pbntmaWxsOiMwODczNzM7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgLm5vZGUgY2lyY2xlLnN0YXRlLWVuZHtmaWxsOiMwODczNzM7c3Ryb2tlOiNmNGY0ZjQ7c3Ryb2tlLXdpZHRoOjEuNTt9I215LXN2ZyAuZW5kLXN0YXRlLWlubmVye2ZpbGw6I2Y0ZjRmNDtzdHJva2Utd2lkdGg6MS41O30jbXktc3ZnIC5ub2RlIHJlY3R7ZmlsbDojRjNGN0Y4O3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgLm5vZGUgcG9seWdvbntmaWxsOiNGM0Y3Rjg7c3Ryb2tlOiMwODczNzM7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyBbaWQkPSItYmFyYkVuZCJde2ZpbGw6IzA4NzM3Mzt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIgcmVjdHtmaWxsOiNGM0Y3Rjg7c3Ryb2tlOiMwODczNzM7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyAuY2x1c3Rlci1sYWJlbCwjbXktc3ZnIC5ub2RlTGFiZWx7Y29sb3I6IzBBMjE0NTt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIgcmVjdC5vdXRlcntyeDo1cHg7cnk6NXB4O30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tc3RhdGUgLmRpdmlkZXJ7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1zdGF0ZSAudGl0bGUtc3RhdGV7cng6NXB4O3J5OjVweDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIuc3RhdGVkaWFncmFtLWNsdXN0ZXIgLmlubmVye2ZpbGw6I2Y0ZjRmNDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIuc3RhdGVkaWFncmFtLWNsdXN0ZXItYWx0IC5pbm5lcntmaWxsOmhzbCgxMiwgMjYuMzE1Nzg5NDczNyUsIDEwMCUpO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tY2x1c3RlciAuaW5uZXJ7cng6MDtyeTowO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tc3RhdGUgcmVjdC5iYXNpY3tyeDo1cHg7cnk6NXB4O30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tc3RhdGUgcmVjdC5kaXZpZGVye3N0cm9rZS1kYXNoYXJyYXk6MTAsMTA7ZmlsbDpoc2woMTIsIDI2LjMxNTc4OTQ3MzclLCAxMDAlKTt9I215LXN2ZyAubm90ZS1lZGdle3N0cm9rZS1kYXNoYXJyYXk6NTt9I215LXN2ZyAuc3RhdGVkaWFncmFtLW5vdGUgcmVjdHtmaWxsOiNmZmY1YWQ7c3Ryb2tlOmhzbCg1Mi42ODI5MjY4MjkzLCA2MCUsIDczLjkyMTU2ODYyNzUlKTtzdHJva2Utd2lkdGg6MXB4O3J4OjA7cnk6MDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLW5vdGUgcmVjdHtmaWxsOiNmZmY1YWQ7c3Ryb2tlOmhzbCg1Mi42ODI5MjY4MjkzLCA2MCUsIDczLjkyMTU2ODYyNzUlKTtzdHJva2Utd2lkdGg6MXB4O3J4OjA7cnk6MDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLW5vdGUgdGV4dHtmaWxsOiMzMzM7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1ub3RlIC5ub2RlTGFiZWx7Y29sb3I6IzMzMzt9I215LXN2ZyAuc3RhdGVkaWFncmFtIC5lZGdlTGFiZWx7Y29sb3I6cmVkO30jbXktc3ZnIFtpZCQ9Ii1kZXBlbmRlbmN5U3RhcnQiXSwjbXktc3ZnIFtpZCQ9Ii1kZXBlbmRlbmN5RW5kIl17ZmlsbDojMDg3MzczO3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW1UaXRsZVRleHR7dGV4dC1hbmNob3I6bWlkZGxlO2ZvbnQtc2l6ZToxOHB4O2ZpbGw6IzBBMjE0NTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5zdGF0ZWRpYWdyYW0tY2x1c3RlciByZWN0e2ZpbGw6I0YzRjdGODtzdHJva2U6dXJsKCNteS1zdmctZ3JhZGllbnQpO3N0cm9rZS13aWR0aDoxO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLnN0YXRlZGlhZ3JhbS1jbHVzdGVyIHJlY3Qub3V0ZXJ7cng6NXB4O3J5OjVweDtmaWx0ZXI6ZHJvcC1zaGFkb3coIDFweCAycHggMnB4IHJnYmEoMTg1LDE4NSwxODUsMSkpO30jbXktc3ZnIC5ub2RlIC5uZW8tbm9kZXtzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHJlY3QsI215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5jbHVzdGVyIHJlY3QsI215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHBvbHlnb257c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtmaWx0ZXI6ZHJvcC1zaGFkb3coIDFweCAycHggMnB4IHJnYmEoMTg1LDE4NSwxODUsMSkpO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLnN3aW1sYW5lLmNsdXN0ZXIgcmVjdHtmaWx0ZXI6bm9uZTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHBhdGh7c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgLm91dGVyLXBhdGh7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIC5uZW8tbGluZSBwYXRoe3N0cm9rZTojMDg3MzczO2ZpbHRlcjpub25lO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgY2lyY2xle3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIGNpcmNsZSAuc3RhdGUtc3RhcnR7ZmlsbDojMDAwMDAwO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLmljb24tc2hhcGUgLmljb257ZmlsbDp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5pY29uLXNoYXBlIC5pY29uLW5lbyBwYXRoe3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyA6cm9vdHstLW1lcm1haWQtZm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO308L3N0eWxlPjxnPjxkZWZzPjxtYXJrZXIgaWQ9Im15LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZCIgcmVmWD0iMTkiIHJlZlk9IjciIG1hcmtlcldpZHRoPSIyMCIgbWFya2VySGVpZ2h0PSIxNCIgbWFya2VyVW5pdHM9InN0cm9rZVdpZHRoIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMTksNyBMMTEsMTQgTDEzLDcgTDExLDAgWiIvPjwvbWFya2VyPjwvZGVmcz48ZGVmcz48bWFya2VyIGlkPSJteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luIiByZWZYPSIxNyIgcmVmWT0iNyIgbWFya2VyV2lkdGg9IjIwIiBtYXJrZXJIZWlnaHQ9IjE0IiBtYXJrZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTSAxOSw3IEwxMSwxNCBMMTMsNyBMMTEsMCBaIiBmaWxsPSIjMDg3MzczIi8+PC9tYXJrZXI+PC9kZWZzPjxnIGNsYXNzPSJyb290Ij48ZyBjbGFzcz0iY2x1c3RlcnMiLz48ZyBjbGFzcz0iZWRnZXMgZWRnZVBhdGhzIj48cGF0aCBkPSJNOTUuNzkxNjY2NjY2NjY2NjcsNThMOTUuNzkxNjY2NjY2NjY2NjcsMTYyLjUiIGlkPSJteS1zdmctZWRnZTAiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgMTA0LjUgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2UwIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZPVFV1TnpreE5qWTJOalkyTmpZMk5qY3NJbmtpT2pVNGZTeDdJbmdpT2prMUxqYzVNVFkyTmpZMk5qWTJOalkzTENKNUlqb3hOamg5WFE9PSIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48cGF0aCBkPSJNMTM0LjQ1ODMzMzMzMzMzMzM0LDE2OEwxMzQuNDU4MzMzMzMzMzMzMzQsNjMuNSIgaWQ9Im15LXN2Zy1lZGdlMSIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgdHJhbnNpdGlvbiIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCAxMDQuNSAwOyBzdHJva2UtZGFzaG9mZnNldDogMDtmaWxsOm5vbmU7OztmaWxsOm5vbmUiIGRhdGEtZWRnZT0idHJ1ZSIgZGF0YS1ldD0iZWRnZSIgZGF0YS1pZD0iZWRnZTEiIGRhdGEtcG9pbnRzPSJXM3NpZUNJNk1UTTBMalExT0RNek16TXpNek16TXpNMExDSjVJam94TmpoOUxIc2llQ0k2TVRNMExqUTFPRE16TXpNek16TXpNek0wTENKNUlqbzFPSDFkIiBkYXRhLWxvb2s9Im5lbyIgbWFya2VyLWVuZD0idXJsKCNteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luKSIvPjxwYXRoIGQ9Ik05NS43OTE2NjY2NjY2NjY2NywyMTRMOTUuNzkxNjY2NjY2NjY2NjcsMzE4LjUiIGlkPSJteS1zdmctZWRnZTIiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgMTA0LjUgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2UyIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZPVFV1TnpreE5qWTJOalkyTmpZMk5qY3NJbmtpT2pJeE5IMHNleUo0SWpvNU5TNDNPVEUyTmpZMk5qWTJOalkyTnl3aWVTSTZNekkwZlYwPSIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48cGF0aCBkPSJNMTM0LjQ1ODMzMzMzMzMzMzM0LDMyNEwxMzQuNDU4MzMzMzMzMzMzMzQsMjE5LjUiIGlkPSJteS1zdmctZWRnZTMiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgMTA0LjUgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2UzIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZNVE0wTGpRMU9ETXpNek16TXpNek16TTBMQ0o1SWpvek1qUjlMSHNpZUNJNk1UTTBMalExT0RNek16TXpNek16TXpNMExDSjVJam95TVRSOVhRPT0iIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZC1tYXJnaW4pIi8+PHBhdGggZD0iTTQ3LjEyNSwxODcuMzMzMzMzMzMzMzMzMzRMMzAuNzkxNjY2NjY2NjY2NjcsMTg3LjMzMzMzMzMzMzMzMzM0UTI3LjEyNSwxODcuMzMzMzMzMzMzMzMzMzQgMjcuMTI1LDE5MUwyNy4xMjUsMTkxUTI3LjEyNSwxOTQuNjY2NjY2NjY2NjY2NjkgMzAuNzkxNjY2NjY2NjY2NjcsMTk0LjY2NjY2NjY2NjY2NjY5TDQxLjYyNSwxOTQuNjY2NjY2NjY2NjY2NjkiIGlkPSJteS1zdmctZWRnZTQiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgMzkuMDcwMzg4NzkzOTQ1MzEgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2U0IiBkYXRhLXBvaW50cz0iVzNzaWVDSTZORGN1TVRJMUxDSjVJam94T0RjdU16TXpNek16TXpNek16TXpNelI5TEhzaWVDSTZNamN1TVRJMUxDSjVJam94T0RjdU16TXpNek16TXpNek16TXpNelI5TEhzaWVDSTZNamN1TVRJMUxDSjVJam94T1RRdU5qWTJOalkyTmpZMk5qWTJOamw5TEhzaWVDSTZORGN1TVRJMUxDSjVJam94T1RRdU5qWTJOalkyTmpZMk5qWTJOamw5WFE9PSIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48cGF0aCBkPSJNNDcuMTI1LDM0My4zMzMzMzMzMzMzMzMzTDMwLjc5MTY2NjY2NjY2NjY4NiwzNDMuMzMzMzMzMzMzMzMzM1EyNy4xMjUsMzQzLjMzMzMzMzMzMzMzMzMgMjcuMTI1LDM0N0wyNy4xMjUsMzQ3UTI3LjEyNSwzNTAuNjY2NjY2NjY2NjY2NyAzMC43OTE2NjY2NjY2NjY2ODYsMzUwLjY2NjY2NjY2NjY2NjdMNDEuNjI1LDM1MC42NjY2NjY2NjY2NjY3IiBpZD0ibXktc3ZnLWVkZ2U1IiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDM5LjA3MDM4MTE2NDU1MDc4IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlNSIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TkRjdU1USTFMQ0o1SWpvek5ETXVNek16TXpNek16TXpNek16TTMwc2V5SjRJam95Tnk0eE1qVXNJbmtpT2pNME15NHpNek16TXpNek16TXpNek16ZlN4N0luZ2lPakkzTGpFeU5Td2llU0k2TXpVd0xqWTJOalkyTmpZMk5qWTJOamQ5TEhzaWVDSTZORGN1TVRJMUxDSjVJam96TlRBdU5qWTJOalkyTmpZMk5qWTJOMzFkIiBkYXRhLWxvb2s9Im5lbyIgbWFya2VyLWVuZD0idXJsKCNteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luKSIvPjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVscyI+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTUuMzU0MTY2NjY2NjY2NjcsIDExMykiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01LjU2MjUsIC0xNSkiPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxMS4xMjUiIGhlaWdodD0iMzAiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPjE8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzNC4wMjA4MzMzMzMzMzMzNCwgMTEzKSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUuNTYyNSwgLTE1KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjExLjEyNSIgaGVpZ2h0PSIzMCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+MjwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTUuMzU0MTY2NjY2NjY2NjcsIDI2OSkiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01LjU2MjUsIC0xNSkiPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxMS4xMjUiIGhlaWdodD0iMzAiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPjM8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzNC4wMjA4MzMzMzMzMzMzNCwgMjY5KSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUuNTYyNSwgLTE1KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjExLjEyNSIgaGVpZ2h0PSIzMCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+NDwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuNTYyNSwgMTkxKSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUuNTYyNSwgLTE1KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjExLjEyNSIgaGVpZ2h0PSIzMCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+NTwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuNTYyNSwgMzQ3KSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUuNTYyNSwgLTE1KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjExLjEyNSIgaGVpZ2h0PSIzMCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+NTwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PC9nPjxnIGNsYXNzPSJub2RlcyI+PGcgY2xhc3M9Im5vZGUgIHN0YXRlZGlhZ3JhbS1zdGF0ZSIgaWQ9Im15LXN2Zy1zdGF0ZS1ELTEiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTUuMTI1LCAzNSkiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHJ4PSI1IiByeT0iNSIgeD0iLTY4IiB5PSItMjMiIHdpZHRoPSIxMzYiIGhlaWdodD0iNDYiLz48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MCwgLTE1KSI+PHJlY3QvPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMzAiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiB0YWJsZTsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAxMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyB3aWR0aDogMTIwcHg7Ij48c3BhbiBjbGFzcz0ibm9kZUxhYmVsIG1hcmtkb3duLW5vZGUtbGFiZWwiPjxwPkRpc3BvbmliaWw8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlICBzdGF0ZWRpYWdyYW0tc3RhdGUiIGlkPSJteS1zdmctc3RhdGUtSS00IiBkYXRhLWxvb2s9Im5lbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTE1LjEyNSwgMTkxKSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgcng9IjUiIHJ5PSI1IiB4PSItNjgiIHk9Ii0yMyIgd2lkdGg9IjEzNiIgaGVpZ2h0PSI0NiIvPjxnIGNsYXNzPSJsYWJlbCIgc3R5bGU9IiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwLCAtMTUpIj48cmVjdC8+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIzMCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDEyMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IHdpZHRoOiAxMjBweDsiPjxzcGFuIGNsYXNzPSJub2RlTGFiZWwgbWFya2Rvd24tbm9kZS1sYWJlbCI+PHA+w45tcHJ1bXV0YXQ8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlICBzdGF0ZWRpYWdyYW0tc3RhdGUiIGlkPSJteS1zdmctc3RhdGUtUi01IiBkYXRhLWxvb2s9Im5lbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTE1LjEyNSwgMzQ3KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgcng9IjUiIHJ5PSI1IiB4PSItNjgiIHk9Ii0yMyIgd2lkdGg9IjEzNiIgaGVpZ2h0PSI0NiIvPjxnIGNsYXNzPSJsYWJlbCIgc3R5bGU9IiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwLCAtMTUpIj48cmVjdC8+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIzMCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDEyMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IHdpZHRoOiAxMjBweDsiPjxzcGFuIGNsYXNzPSJub2RlTGFiZWwgbWFya2Rvd24tbm9kZS1sYWJlbCI+PHA+UmV6ZXJ2YXQ8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjwvZz48L2c+PC9nPjxkZWZzPjxmaWx0ZXIgaWQ9Im15LXN2Zy1kcm9wLXNoYWRvdyIgaGVpZ2h0PSIxMzAlIiB3aWR0aD0iMTMwJSI+PGZlRHJvcFNoYWRvdyBkeD0iNCIgZHk9IjQiIHN0ZERldmlhdGlvbj0iMCIgZmxvb2Qtb3BhY2l0eT0iMC4wNiIgZmxvb2QtY29sb3I9IiMwMDAwMDAiLz48L2ZpbHRlcj48L2RlZnM+PGRlZnM+PGZpbHRlciBpZD0ibXktc3ZnLWRyb3Atc2hhZG93LXNtYWxsIiBoZWlnaHQ9IjE1MCUiIHdpZHRoPSIxNTAlIj48ZmVEcm9wU2hhZG93IGR4PSIyIiBkeT0iMiIgc3RkRGV2aWF0aW9uPSIwIiBmbG9vZC1vcGFjaXR5PSIwLjA2IiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIvPjwvZmlsdGVyPjwvZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9Im15LXN2Zy1ncmFkaWVudCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDg3MzczIiBzdG9wLW9wYWNpdHk9IjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9ImhzbCg3MiwgMCUsIDg2LjI3NDUwOTgwMzklKSIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48L3N2Zz4=" />
+</div><div class="column" style="width:54%;">
 <div class="table-wrap">
 <table>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="11%" />
+<col width="88%" />
 </colgroup>
 <thead>
 <tr>
-<th>Înainte</th>
-<th>Eveniment</th>
-<th>După</th>
+<th align="center">Nr.</th>
+<th>Eveniment și condiție</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Disponibil</td>
-<td>Împrumut acceptat</td>
-<td>Împrumutat</td>
+<td align="center">1</td>
+<td>Împrumut al unui exemplar disponibil.</td>
 </tr>
 <tr>
-<td>Împrumutat</td>
-<td>Returnare</td>
-<td>Disponibil</td>
+<td align="center">2</td>
+<td>Returnare, fără cereri în așteptare.</td>
 </tr>
 <tr>
-<td>Împrumutat</td>
-<td>O nouă încercare de împrumut</td>
-<td>Împrumutat; încercare respinsă</td>
+<td align="center">3</td>
+<td>Returnare; rezervare pentru prima cerere în așteptare.</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>Ridicare de către solicitant; cerere îndeplinită.</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>Împrumut respins: exemplar deja împrumutat sau rezervat altui membru; fără modificări.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>O solicitare privește un titlu. Ea poate exista în oricare dintre stările unui exemplar.</p>
+</div>
+</div>
 </div>
 <div id="un-model-ne-ajută-să-răspundem-la-o-întrebare" class="slide section level1">
 <h1>Un model ne ajută să răspundem la o întrebare</h1>
 <ul>
 <li>Un glosar distinge conceptele.</li>
 <li>Un contract explicitează promisiunile unei operații.</li>
-<li>Un tabel de stări arată tranzițiile permise și interzise.</li>
+<li>O diagramă de stări arată schimbările de stare și, prin etichete, încercările respinse.</li>
 <li>O schiță poate clarifica responsabilități sau limite.</li>
 <li>Un model executabil mic poate explora consecințele.</li>
 </ul>
 <p>Alegeți reprezentarea care face decizia mai ușor de verificat.</p>
 </div>
+<div id="punem-modelul-la-încercare" class="slide section level1 transition">
+<h1 class="transition">Punem modelul la încercare</h1>
+<p>Ce se întâmplă în scenarii concrete?</p>
+</div>
+<div id="scenariul-1-s1-un-titlu-două-exemplare" class="slide section level1">
+<h1>Scenariul 1 (S1): un titlu, două exemplare</h1>
+<p><strong>Stare inițială:</strong> T are C1 și C2 disponibile; membrii <span class="nowrap">M1–M4</span> există; niciun împrumut, nicio cerere, nicio rezervare.</p>
+<p><strong>S1:</strong> M1 împrumută C1. C1 devine împrumutat lui M1; C2 rămâne disponibil.</p>
+<p><strong><span class="nowrap">R1–R2:</span></strong> exemplarele sunt distincte; împrumutul privește un exemplar.</p>
+<p><span class="nowrap">S2–S6</span> pornesc fiecare <strong>independent după S1</strong>, nu unul după altul.</p>
+</div>
+<div id="scenariul-2-s2-de-la-cerere-la-împrumut" class="slide section level1">
+<h1>Scenariul 2 (S2): de la cerere la împrumut</h1>
+<p><strong>După S1:</strong> C1 este la M1, C2 disponibil; fără cereri sau rezervări.</p>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pas</th>
+<th>Rezultat cerut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M3 împrumută C2; M2 cere împrumutul titlului T</td>
+<td>Ambele exemplare împrumutate; cererea lui M2 așteaptă</td>
+</tr>
+<tr>
+<td>M1 returnează C1</td>
+<td>Împrumut închis; C1 rezervat lui M2</td>
+</tr>
+<tr>
+<td>M3 încearcă să împrumute C1</td>
+<td>Respingere; rezervarea rămâne</td>
+</tr>
+<tr>
+<td>M2 ridică C1</td>
+<td>Împrumut nou; cerere îndeplinită; rezervare încheiată</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong><span class="nowrap">R4–R5:</span></strong> cererea așteaptă un exemplar și primește primul returnat. <strong>R2:</strong> exemplarul rezervat poate fi ridicat doar de solicitant.</p>
+</div>
+<div id="exercițiu-respingerea-păstrează-starea" class="slide section level1">
+<h1>Exercițiu: respingerea păstrează starea</h1>
+<p>După S1, C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau rezervări.</p>
+<p><strong>Două ramuri independente, fiecare pornind după S1:</strong></p>
+<ul>
+<li>S3: M2 încearcă să împrumute C1. Ce se respinge și ce rămâne neschimbat?</li>
+<li>S4: C1 este returnat, apoi se încearcă o a doua returnare. Ce rămâne în istoric?</li>
+</ul>
+<p><strong>R2:</strong> împrumutul unui exemplar deja împrumutat se respinge fără modificarea împrumuturilor.</p>
+<p><strong>R3:</strong> returnarea închide împrumutul activ și păstrează istoricul; fără împrumut activ se respinge fără modificări.</p>
+<p>Notați pe hârtie starea după fiecare pas și regula aplicată. Ce se înregistrează la un nou împrumut după returnare?</p>
+</div>
+<div id="exercițiu-s5-când-acceptăm-cererea" class="slide section level1">
+<h1>Exercițiu: S5 — când acceptăm cererea?</h1>
+<p><strong>După S1:</strong> C1 este la M1, C2 disponibil; fără cereri sau rezervări. M2 și M3 sunt membri cunoscuți.</p>
+<ol style="list-style-type: decimal">
+<li>M2 depune o cerere de împrumut pentru T.</li>
+<li>M3 împrumută C2.</li>
+<li>M2 depune o cerere de împrumut pentru T, apoi o repetă.</li>
+</ol>
+<p><strong>R4:</strong> acceptăm o cerere numai dacă nu există exemplare disponibile și nici altă cerere neîncheiată a aceluiași membru pentru titlu. Respingerea nu modifică starea.</p>
+<p>Pe hârtie: ce se acceptă, ce se respinge și câte cereri rămân?</p>
+</div>
+<div id="exercițiu-s6-cine-primește-exemplarul" class="slide section level1">
+<h1>Exercițiu: S6 — cine primește exemplarul?</h1>
+<p><strong>După S1:</strong> C1 este la M1, C2 disponibil; fără cereri sau rezervări. <span class="nowrap">M1–M4</span> sunt membri cunoscuți.</p>
+<ol style="list-style-type: decimal">
+<li>M3 împrumută C2.</li>
+<li>M2 depune o cerere pentru împrumutul lui T, apoi M4 depune una.</li>
+<li>M3 returnează C2, apoi M1 returnează C1.</li>
+</ol>
+<p><strong>R5:</strong> fiecare exemplar returnat merge la prima cerere încă în așteptare. O cerere care are deja un exemplar rezervat nu mai primește altul.</p>
+<p>Pe hârtie: cui îi rezervăm fiecare exemplar? Poate M4 <span class="nowrap">să-l</span> ridice pe al său înainte de M2? <strong>R2:</strong> fiecare ridică exemplarul rezervat propriei cereri.</p>
+</div>
+<div id="delegăm-și-verificăm" class="slide section level1 transition">
+<h1 class="transition">Delegăm și verificăm</h1>
+<p>Ce predăm agentului AI și cum evaluăm rezultatul?</p>
+</div>
 <div id="ai-poate-accelera-aceste-activități" class="slide section level1">
 <h1>AI poate accelera aceste activități</h1>
-<p>Cereți unui agent să:</p>
+<p>Cereți unui agent AI să:</p>
 <ul>
 <li>Organizeze faptele date și întrebările deschise.</li>
 <li>Propună soluții de proiectare și să le compare consecințele.</li>
@@ -652,7 +835,7 @@ break-inside: avoid;
 <li>Explice o parte nefamiliară a unui sistem existent.</li>
 <li>Revizuiască o soluție pe baza unor criterii explicite.</li>
 </ul>
-<p><strong>Întrebare:</strong> ce stabilește fiecare verificare pe care o faceți deja (citiți propunerea, întrebați alt agent, rulați teste, cereți o explicație) și ce nu poate stabili?</p>
+<p><strong>Întrebare:</strong> ce stabilește fiecare verificare pe care o faceți deja (citiți propunerea, întrebați alt agent AI, rulați teste, cereți o explicație) și ce nu poate stabili?</p>
 </div>
 <div id="proiectăm-înainte-de-a-implementa" class="slide section level1">
 <h1>Proiectăm înainte de a implementa</h1>
@@ -667,7 +850,7 @@ break-inside: avoid;
 </div>
 <div id="ce-conține-o-predare-utilă-a-sarcinii" class="slide section level1">
 <h1>Ce conține o predare utilă a sarcinii?</h1>
-<p>La predarea sarcinii (<strong>handoff</strong>), dați următorului agent:</p>
+<p>La predarea sarcinii (<strong>handoff</strong>), dați următorului agent AI:</p>
 <ul>
 <li>Limitele convenite și cerințele sursă.</li>
 <li>Deciziile de proiectare și justificarea lor.</li>
@@ -677,51 +860,200 @@ break-inside: avoid;
 </ul>
 <p>„Construiește aplicația bibliotecii” lasă aceste decizii implicite.</p>
 </div>
-<div id="exercițiu-respingerea-păstrează-starea" class="slide section level1">
-<h1>Exercițiu: respingerea păstrează starea</h1>
-<p>După S1, C1 este împrumutat lui M1, iar C2 este disponibil.</p>
-<p><strong>Două ramuri independente, fiecare pornind după S1:</strong></p>
-<ul>
-<li>S3: M2 încearcă să împrumute C1. Ce se respinge și ce rămâne neschimbat?</li>
-<li>S4: C1 este returnat, apoi se încearcă o a doua returnare. Ce rămâne în istoric?</li>
-</ul>
-<p>Explicați ce regulă verifică fiecare exemplu și ce afirmații nu poate demonstra singur.</p>
-</div>
 <div id="demonstrație-delegăm-o-sarcină-delimitată" class="slide section level1">
 <h1>Demonstrație: delegăm o sarcină delimitată</h1>
 <p>Pașii demonstrației:</p>
 <ol style="list-style-type: decimal">
-<li>Îi dăm unui analist/proiectant enunțul clarificat al bibliotecii.</li>
+<li>Îi dăm unui agent AI cu rol de analist/proiectant enunțul clarificat al bibliotecii.</li>
 <li>Verificăm conceptele, regulile și responsabilitățile propuse.</li>
-<li>Îi dăm unui evaluator (agent de revizuire), <span class="nowrap">într-un</span> context nou, enunțul și soluția.</li>
+<li>Îi dăm unui evaluator (agent AI de revizuire), <span class="nowrap">într-un</span> context nou, enunțul și soluția.</li>
 <li>Decidem ce constatări sunt susținute de enunț.</li>
 </ol>
 <p><strong>Sarcina voastră:</strong> explicați o decizie acceptată și puneți la încercare o afirmație.</p>
+<p>Parcurgem pe <span class="nowrap">slide-uri</span> prompturile și un <strong>exemplu didactic pregătit</strong>, nu un răspuns AI capturat. Lucrați pe hârtie; profesorul operează instrumentele AI.</p>
+</div>
+<div id="ce-îi-cerem-agentului-ai-cu-rol-de-proiectant" class="slide section level1">
+<h1>Ce îi cerem agentului AI cu rol de proiectant</h1>
+<p><strong>Context predat:</strong> cererea bibliotecii, regulile <span class="nowrap">R1–R6</span> și scenariile <span class="nowrap">S1–S6</span> prezentate anterior.</p>
+<blockquote>
+<p>Propune o proiectare concisă, fără codul aplicației. Distinge conceptele domeniului și atribuie responsabilitățile celor trei operații.</p>
+<p>Precizează regulile împrumutului și rezervării, ordinea cererilor și rezultatele la succes și respingere. Parcurge <span class="nowrap">S1–S6</span> și indică regulile care susțin deciziile.</p>
+<p>Separă cerințele, alegerile și întrebările deschise. Respectă R6. Încheie cu ce poate fi predat etapei următoare și cu limitele soluției.</p>
+</blockquote>
+</div>
+<div id="proiectare-pregătită-găsiți-limita-reprezentării" class="slide section level1">
+<h1>Proiectare pregătită: găsiți limita reprezentării</h1>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Informații propuse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carte</td>
+<td>Titlu; o singură stare: disponibilă / împrumutată / rezervată</td>
+</tr>
+<tr>
+<td>Împrumut</td>
+<td>Membru, titlu; activ / închis</td>
+</tr>
+<tr>
+<td>Cerere de împrumut</td>
+<td>Membru, titlu, ordine; în așteptare / rezervată / îndeplinită</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Moment din S2:</strong> C1 a fost returnat și rezervat lui M2; C2 este încă împrumutat lui M3.</p>
+<p><strong><span class="nowrap">R1–R2:</span></strong> împrumutul identifică exemplarul. <strong>R5:</strong> rezervarea leagă un exemplar de cerere; numai solicitantul îl poate ridica.</p>
+<p>Pe hârtie: ce informație lipsește pentru a verifica ridicarea lui C1?</p>
+</div>
+<div id="o-corecție-argumentată" class="slide section level1">
+<h1>O corecție argumentată</h1>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Informații păstrate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Titlu, exemplar, membru</td>
+<td>Identități distincte; exemplarul aparține unui titlu</td>
+</tr>
+<tr>
+<td>Împrumut</td>
+<td>Membru, exemplar; activ/închis; istoric</td>
+</tr>
+<tr>
+<td>Cerere de împrumut</td>
+<td>Membru, titlu, ordine; în așteptare/cu exemplar rezervat/îndeplinită</td>
+</tr>
+<tr>
+<td>Rezervare</td>
+<td>Legătura dintre cerere și exemplarul alocat</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Returnarea</strong> închide împrumutul și alocă exemplarul primei cereri în așteptare (R3, R5).</p>
+<p><strong>Ridicarea</strong> verifică membrul, încheie rezervarea și cererea, creează împrumutul (R2).</p>
+</div>
+<div id="verificăm-corecția-împrumut-și-returnare" class="slide section level1">
+<h1>Verificăm corecția: împrumut și returnare</h1>
+<p><strong>Inițial:</strong> T are C1 și C2 disponibile; <span class="nowrap">M1–M4</span> există; fără cereri, rezervări sau împrumuturi.</p>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Scenariu</th>
+<th>Parcurgere și rezultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1, din starea inițială</td>
+<td>M1 împrumută C1; C2 rămâne disponibil</td>
+</tr>
+<tr>
+<td>S3, după S1</td>
+<td>M2 încearcă să împrumute C1; respingere, împrumutul lui M1 nemodificat</td>
+</tr>
+<tr>
+<td>S4, după S1</td>
+<td>Returnăm C1: împrumut închis, păstrat; a doua returnare respinsă; reîmprumutul creează o înregistrare nouă</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>S3 și S4 sunt ramuri independente. R2 împiedică împrumutul dublu; R3 păstrează istoricul.</p>
+</div>
+<div id="verificăm-corecția-cerere-și-rezervare" class="slide section level1">
+<h1>Verificăm corecția: cerere și rezervare</h1>
+<p><strong>Pornire pentru fiecare scenariu, independent:</strong> C1 la M1, C2 disponibil; fără cereri sau rezervări.</p>
+<ul>
+<li><strong>S2:</strong> M3 împrumută C2; M2 cere T; C1 returnat este rezervat lui M2. M3 este refuzat; M2 ridică C1 și încheie cererea.</li>
+<li><strong>S5:</strong> cererea lui M2 este refuzată cât C2 e disponibil. După împrumutul lui C2 se acceptă o cerere M2/T, nu și duplicatul.</li>
+<li><strong>S6:</strong> M3 împrumută C2; cereri M2/T, apoi M4/T. Returnăm C2, apoi C1: rezervări pentru M2, respectiv M4.</li>
+</ul>
+<p><strong><span class="nowrap">R4–R5:</span></strong> fără duplicate neîncheiate; alocare în ordinea cererilor. <strong>R2:</strong> ridicare numai de către solicitant.</p>
+</div>
+<div id="ce-predăm-evaluatorului-ai" class="slide section level1">
+<h1>Ce predăm evaluatorului AI</h1>
+<p><strong>Context nou:</strong> cererea, <span class="nowrap">R1–R6,</span> <span class="nowrap">S1–S6</span> și proiectarea de examinat. Același model AI poate fi folosit <span class="nowrap">într-o</span> conversație nouă.</p>
+<blockquote>
+<p>Revizuiește proiectarea față de regulile și scenariile date, fără să o modifici.</p>
+<p>Pentru fiecare constatare, indică afirmația vizată, regula și un scenariu sau o altă justificare verificabilă.</p>
+<p>Distinge defectele de alternativele de proiectare și de întrebările despre extinderi. Nu adăuga cerințe excluse prin R6. Dacă nu găsești defecte, precizează ce ai verificat și limitele revizuirii.</p>
+</blockquote>
+<p>Ce ar lipsi dacă am preda doar proiectarea și cererea „verifică dacă e corect”?</p>
 </div>
 <div id="verificăm-și-revizuirea" class="slide section level1">
 <h1>Verificăm și revizuirea</h1>
-<p>Exemplu pregătit; un evaluator afirmă:</p>
-<blockquote>
-<p>„Un titlu cu o solicitare activă nu trebuie să poată fi împrumutat.”</p>
-</blockquote>
-<p>Înainte să acceptați constatarea:</p>
-<ol style="list-style-type: decimal">
-<li>Ce regulă din enunț o susține?</li>
-<li>Ce scenariu concret demonstrează problema?</li>
-<li>Este un defect, o propunere de regulă nouă sau o întrebare deschisă?</li>
-</ol>
-<p>Un context separat este încă o ocazie de revizuire, nu o garanție: voi decideți ce susține fiecare constatare.</p>
+<p><strong>Afirmație pregătită a unui evaluator AI:</strong> „Dacă M2 a depus cererea înaintea lui M4, M4 nu poate ridica niciun exemplar până nu vine M2.”</p>
+<p><strong>R5:</strong> ordinea cererilor decide alocarea; o cerere cu exemplar rezervat nu mai așteaptă alocarea altuia. <strong>R2:</strong> fiecare membru poate ridica propriul exemplar rezervat.</p>
+<p><strong>S6:</strong> C2 a fost rezervat lui M2, apoi C1 lui M4. M4 ajunge primul la bibliotecă și cere C1.</p>
+<p>Pe hârtie: acceptați constatarea? Indicați regula și rezultatul corect al încercării lui M4.</p>
+</div>
+<div id="decizia-noastră-asupra-revizuirii" class="slide section level1">
+<h1>Decizia noastră asupra revizuirii</h1>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Afirmație examinată</th>
+<th>Justificare</th>
+<th>Decizie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lipsește exemplarul din împrumut și rezervare</td>
+<td><span class="nowrap">R1–R2,</span> R5; C1 rezervat și C2 împrumutat în S2</td>
+<td>Corectăm legăturile</td>
+</tr>
+<tr>
+<td>M4 trebuie să aștepte ridicarea lui M2</td>
+<td>R2 și S6 permit ridicarea propriului exemplar</td>
+<td>Respingem constatarea</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ordinea <strong>alocării</strong> și ordinea <strong>ridicării</strong> nu sunt aceeași regulă.</p>
+<p><strong>Următorul agent AI:</strong> poate elabora planul pentru fluxul convenit. Expirarea, notificările, concurența și punerea în producție rămân de clarificat.</p>
 </div>
 <div id="păstrăm-o-imagine-de-ansamblu-verificabilă" class="slide section level1">
 <h1>Păstrăm o imagine de ansamblu verificabilă</h1>
-<p>Cereți o sinteză concisă despre:</p>
-<ul>
-<li>Soluția curentă și limitele ei.</li>
-<li>Deciziile schimbate și motivele schimbării.</li>
-<li>Întrebările și riscurile încă neclarificate.</li>
-<li>Verificările efectuate și ce anume stabilesc.</li>
-</ul>
-<p>Apoi urmăriți o afirmație importantă până la cerința, detaliul de proiectare sau verificarea care o susține.</p>
+<p><strong>Sinteză pregătită:</strong> „Cererea pentru un titlu primește primul exemplar returnat, în ordinea așteptării. Exemplarul este păstrat pentru solicitant; împrumutul începe la ridicare.”</p>
+<p><strong>Surse:</strong> R5 stabilește rezervarea și prioritatea; R2 permite ridicarea numai de către solicitant. R6 lasă expirarea în afara exercițiului.</p>
+<p>Ce <span class="nowrap">s-ar</span> pierde dacă rezumatul ar spune doar „la returnare, cartea devine disponibilă”? Indicați condiția omisă și regula sursă.</p>
+</div>
+<div id="revedem-deciziile-și-sintetizăm" class="slide section level1 transition">
+<h1 class="transition">Revedem deciziile și sintetizăm</h1>
+<p>Ce schimbăm când modelul nu mai explică problema?</p>
 </div>
 <div id="când-o-ipoteză-inițială-este-greșită" class="slide section level1">
 <h1>Când o ipoteză inițială este greșită</h1>
@@ -738,8 +1070,8 @@ break-inside: avoid;
 <div id="corecție-locală-sau-reproiectare" class="slide section level1">
 <h1>Corecție locală sau reproiectare?</h1>
 <p>O propunere stochează o singură stare pentru fiecare titlu:</p>
-<p><code>available | on_loan | requested</code></p>
-<p>Cineva adaugă un indicator: <code>has_request</code>.</p>
+<p><code>available | on_loan | reserved</code></p>
+<p>Cineva adaugă un indicator: <code>has_waiting_request</code>.</p>
 <p><strong>Exercițiu:</strong> se rezolvă astfel cazul cu două exemplare, unul împrumutat și unul disponibil?</p>
 <p>De ce distincție mai are nevoie soluția?</p>
 </div>
@@ -749,7 +1081,7 @@ break-inside: avoid;
 <li><strong>Formularea problemei și cerințele</strong> — ce trebuie rezolvat?</li>
 <li><strong>Modelarea domeniului</strong> — ce concepte și reguli contează?</li>
 <li><strong>Atribuirea responsabilităților</strong> — cui îi revin comportamentul și dependențele?</li>
-<li><strong>Contractele și invariantele</strong> — ce trebuie să garanteze o operație sau o stare?</li>
+<li><strong>Contractele și invarianții</strong> — ce trebuie să garanteze o operație sau o stare?</li>
 <li><strong>Stările și comportamentul</strong> — ce se poate întâmpla și în ce ordine?</li>
 </ol>
 </div>
@@ -758,19 +1090,23 @@ break-inside: avoid;
 <p>În continuare vom:</p>
 <ul>
 <li>Valida modele prin scenarii și exemple executabile mici.</li>
-<li>Explora stări, invariante, interblocări (deadlocks) și contraexemple.</li>
+<li>Explora stări, invarianți, interblocări (deadlocks) și contraexemple.</li>
 <li>Compara abstractizări și șabloane cu nevoile reale de schimbare.</li>
 <li>Înțelege și revizui soluții existente.</li>
 <li>Coordona sarcini delegate și argumenta decizii de proiectare.</li>
 </ul>
 <p>Fiecare temă folosește un alt domeniu restrâns.</p>
 </div>
+<div id="argumentăm-o-decizie" class="slide section level1 transition">
+<h1 class="transition">Argumentăm o decizie</h1>
+<p>Ce putem explica acum fără ajutorul unui agent AI?</p>
+</div>
 <div id="exercițiu-final-explicați-o-decizie" class="slide section level1">
 <h1>Exercițiu final: explicați o decizie</h1>
 <p>Fără AI, scrieți trei răspunsuri scurte:</p>
 <ol style="list-style-type: decimal">
 <li>De ce distingem un titlu de un exemplar fizic?</li>
-<li>Ce trebuie să rămână adevărat după un împrumut acceptat?</li>
+<li>Ce verificăm înainte să împrumutăm un exemplar care poate fi rezervat?</li>
 <li>Ce justificare ați cere înainte de a accepta o constatare <span class="nowrap">dintr-o</span> revizuire?</li>
 </ol>
 <p><strong>Cursul următor:</strong> formularea problemei și cerințele.</p>

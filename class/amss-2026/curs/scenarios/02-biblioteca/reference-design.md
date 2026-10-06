@@ -1,59 +1,61 @@
-# Terminal de bibliotecă — referință pentru profesor
+# Sistem informatic pentru bibliotecă — referință pentru profesor
 
-Acesta este un exemplu de referință pregătit pentru predare, nu o transcriere a unei conversații cu AI și nici singura proiectare acceptabilă. Citiți mai întâi [enunțul](brief.md). Identificatorii regulilor și scenariilor trimit la acel enunț.
+Exemplu pregătit pentru predare, nu răspuns AI capturat și nici singura proiectare acceptabilă. [Enunțul](brief.md) definește R1–R6 și S1–S6. Studenții folosesc prezentarea principală, fără fișe sau calculator.
 
-## O proiectare compactă
+## Concepte și informații
 
-| Concept | Ce informații reține |
+| Concept | Informații relevante |
 |---|---|
-| Titlu | Identificatorul titlului și informații din catalog |
-| Exemplar | Identificatorul exemplarului și identificatorul titlului său |
-| Membru | Identificatorul membrului |
-| Împrumut | Identificatorul împrumutului, exemplarul, membrul și starea activ sau închis |
-| Solicitare | Membrul și titlul; cel mult una pentru fiecare pereche în această parte a sistemului |
+| Titlu | Identificator și informații din catalog |
+| Exemplar | Identificator și titlul căruia îi aparține |
+| Membru | Identificator |
+| Împrumut | Identificator, exemplar, membru, stare activ/închis |
+| Cerere de împrumut | Identificator, membru, titlu, ordine, stare în așteptare/cu exemplar rezervat/îndeplinită |
+| Rezervare | Legătura activă dintre o cerere și exemplarul alocat |
 
-Acestea sunt distincții conceptuale, nu cerințe de a folosi clase, tabele, servicii sau fișiere separate.
+Rezervarea poate fi o entitate separată sau exemplarul asociat cererii aflate în starea „cu exemplar rezervat”. Nu impuneți clase, tabele sau servicii distincte pentru fiecare concept. Păstrarea cererilor îndeplinite ca istoric este o alegere a acestei referințe; păstrarea istoricului împrumuturilor este cerută de R3.
 
-Responsabilități propuse:
+## Responsabilități și invarianți
 
-- **Căutarea în catalog:** identifică exemplarul indicat și titlul său. Informațiile existente în catalog sunt date de intrare.
-- **Gestionarea împrumuturilor:** impune cel mult un împrumut activ pentru fiecare exemplar, înregistrează un împrumut și închide împrumutul activ la returnare, păstrând istoricul.
-- **Înregistrarea solicitărilor:** impune unicitatea perechii membru/titlu și înregistrează solicitarea fără a modifica disponibilitatea exemplarelor sau istoricul împrumuturilor.
+- **Înregistrarea cererii:** verifică disponibilitatea titlului și absența altei cereri neîncheiate pentru membru/titlu; stabilește ordinea și introduce cererea în așteptare.
+- **Returnarea și alocarea:** închid împrumutul și atribuie exemplarul primei cereri încă în așteptare pentru același titlu, ca parte a aceleiași operații.
+- **Împrumutarea/ridicarea:** verifică exemplarul și dreptul membrului de a-l ridica; creează împrumutul și, dacă există o rezervare pentru membru, încheie rezervarea și cererea.
 
-În acest model delimitat, disponibilitatea unui exemplar rezultă din absența unui împrumut activ. Este posibilă și o proiectare care stochează separat disponibilitatea, dacă enunță și păstrează regula de consistență; simpla existență a unui câmp nu este o eroare.
+Un exemplar are cel mult un împrumut activ sau o rezervare activă, niciodată ambele. O cerere are cel mult un exemplar rezervat, aparținând titlului cerut. Un membru are cel mult o cerere neîncheiată pentru un titlu. Cererile care au deja un exemplar rezervat nu mai participă la alocare. Un exemplar disponibil nu are nici împrumut activ, nici rezervare activă.
 
-## Contractele operațiilor
+În stările accesibile din starea inițială, o cerere în așteptare nu coexistă cu un exemplar disponibil al aceluiași titlu: R4 verifică disponibilitatea la depunere, iar R3–R5 alocă exemplarul chiar la returnare. Catalogul nu se modifică și operațiile sunt secvențiale. Aceasta este o consecință a regulilor, nu o soluție implicită pentru concurență.
 
-Datele de intrare sunt identificatori cunoscuți, iar operațiile sunt procesate pe rând, conform R6. Semnăturile de mai jos folosesc denumiri în engleză pentru operații și parametri.
+## Contractele celor trei operații
 
-- **Împrumut — `Borrow(copy, member)`:** dacă nu există un împrumut activ pentru exemplar, creează unul care leagă exemplarul de membru. Altfel, respinge operația și lasă împrumuturile neschimbate. Solicitările rămân neschimbate. R2 și R5.
-- **Returnare — `Return(copy)`:** dacă există un împrumut activ, îl închide și îl păstrează în istoric. Altfel, respinge operația și lasă împrumuturile neschimbate. Solicitările rămân neschimbate. R3 și R5.
-- **Solicitare — `Request(title, member)`:** dacă perechea nu există, o înregistrează. Altfel, respinge operația și lasă solicitările neschimbate. Împrumuturile rămân neschimbate. R4 și R5.
+Datele de intrare sunt identificatori cunoscuți; operațiile se procesează pe rând (R6). Semnăturile de mai jos sunt orientative.
 
-## Verificări prin scenarii
+- **`Request(title, member)`:** dacă există un exemplar disponibil sau o cerere neîncheiată pentru perechea membru/titlu, respinge fără modificarea stării. Altfel, creează o cerere în așteptare, cu următoarea poziție în ordinea înregistrării. Nu alocă încă un exemplar și nu creează un împrumut (R4).
+- **`Return(copy)`:** fără împrumut activ, respinge fără modificări. Altfel, închide împrumutul, îl păstrează și caută prima cerere în așteptare pentru titlul exemplarului. Dacă există, rezervă exemplarul acelei cereri și o trece în starea „cu exemplar rezervat”; altfel, exemplarul devine disponibil (R3, R5). Rezervarea nu este un împrumut nou.
+- **`Borrow(copy, member)`:** dacă exemplarul este împrumutat sau rezervat altcuiva, respinge fără modificări. Altfel, creează un împrumut activ nou pentru exemplar și membru. Dacă exemplarul era rezervat acestui membru, încheie rezervarea și marchează cererea îndeplinită (R2). Alte împrumuturi și rezervări nu se schimbă.
 
-Folosiți starea inițială și ramurile independente precizate în enunț: S2–S4 pornesc fiecare separat din starea de după S1; S5 pornește fără solicitări existente.
+Înregistrarea ordinului poate folosi un număr crescător. Nu este obligatorie o anumită structură de date pentru coadă. Pentru un sistem concurent ar trebui stabilit și mecanismul prin care aceste verificări și actualizări se păstrează împreună; R6 nu rezolvă acel caz.
 
-- **S1:** L1 leagă M1 de C1. Niciun împrumut activ nu face referire la C2. Titlul rămâne T pentru ambele exemplare.
-- **S2:** solicitarea Q1 leagă M2 de T. Noul împrumut L2 leagă M3 de C2. L1, L2 și Q1 pot coexista; o singură stare pe T nu poate exprima aceste fapte independente.
-- **S3:** C1 apare deja în împrumutul activ L1. Încercarea lui M2 este respinsă; nu apare un al doilea împrumut activ.
-- **S4:** L1 se închide și se păstrează. La a doua returnare nu mai există un împrumut activ de închis. Un împrumut ulterior creează L3, iar L1 rămâne în istoric.
-- **S5:** a doua solicitare are aceeași pereche membru/titlu. Este respinsă fără a înlocui sau duplica prima solicitare.
+## Parcurgerea scenariilor
 
-Aceste parcurgeri explică comportamentul proiectării de referință. Ele nu demonstrează că o implementare viitoare sau una oarecare va păstra aceste proprietăți.
+Stare inițială: T are C1 și C2 disponibile; M1–M4 există; fără împrumuturi, cereri sau rezervări. S1 pornește de aici. S2–S6 pornesc fiecare independent după S1.
 
-## Constatări din revizuire (review) de discutat
+- **S1:** se creează L1 pentru M1/C1. C2 rămâne disponibil.
+- **S2:** M3 împrumută C2 (L2), apoi cererea Q1 a lui M2 pentru T intră în așteptare. Returnarea lui C1 închide L1 și leagă rezervarea C1 de Q1. M3 nu poate împrumuta C1; încercarea nu modifică L1, L2, Q1 sau rezervarea. Ridicarea de către M2 creează L3, încheie rezervarea și îndeplinește Q1. L1 rămâne în istoric, L2 rămâne activ pe C2.
+- **S3:** M2 încearcă să împrumute C1. L1 rămâne singurul împrumut activ al lui C1; nu se creează altul.
+- **S4:** returnarea închide și păstrează L1. C1 devine disponibil, pentru că nu există cereri. A doua returnare se respinge. Împrumutul ulterior pentru M2 creează o înregistrare nouă; nu reactivează L1.
+- **S5:** cererea lui M2 se respinge cât C2 este disponibil. După împrumutul lui C2 de către M3, se creează Q1 pentru M2/T. Repetarea cererii se respinge; Q1 își păstrează identitatea și ordinea. La final există o singură cerere în așteptare.
+- **S6:** după împrumutul lui C2 de către M3, Q1 a lui M2 și Q2 a lui M4 intră în așteptare, în această ordine. Returnarea lui C2 îl rezervă pentru Q1; returnarea lui C1 îl rezervă pentru Q2. Q1 nu primește două exemplare. M4 poate ridica C1 înainte de venirea lui M2: se îndeplinește Q2, iar rezervarea lui Q1 pe C2 rămâne.
 
-**Defect susținut de enunț:** „O singură stare pe un titlu nu poate reprezenta S2. R1 permite împrumutarea independentă a exemplarelor, iar R5 permite existența simultană a unei solicitări pentru titlu.” Explicați distincțiile lipsă înainte de a alege corecția.
+Acestea sunt parcurgeri ale proiectării. Nu pretindeți că sunt teste executate pe o aplicație.
 
-**Constatare nesusținută:** „O solicitare activă pentru un titlu trebuie să blocheze orice împrumut.” R5 precizează explicit contrariul în acest exercițiu. Agentul de revizuire poate propune o regulă pentru viitor, dar aceasta nu este o cerință a părții studiate.
+## Revizuire: ce acceptăm și ce respingem
 
-**Întrebare care depășește limitele exercițiului:** „Ce se întâmplă dacă două cereri de împrumut sosesc simultan?” R6 limitează acest model la operații secvențiale. Dacă aceste limite se lărgesc, planul de implementare are nevoie de un mecanism care să păstreze R2 și la încercări concurente. Nu pretindeți că verificarea secvențială rezolvă deja concurența.
+**Defect susținut:** un împrumut care identifică doar titlul nu precizează exemplarul; o cerere marcată „rezervată” fără legătura cu un exemplar nu permite verificarea ridicării. R1–R2 și R5 cer aceste distincții. În momentul relevant din S2, C1 este rezervat lui M2, iar C2 este împrumutat lui M3.
 
-**Alternative acceptabile:** funcțiile cu stare explicită, obiectele care colaborează, reprezentările relaționale sau o altă reprezentare clară pot exprima toate aceste decizii. O proiectare este acceptabilă dacă respectă regulile și scenariile, chiar dacă nu reproduce denumirile de mai sus.
+**Constatare nesusținută:** „M4 nu poate ridica niciun exemplar înainte să vină M2, fiindcă M2 a depus primul cererea.” S6 respectă prioritatea la alocare: C2 merge la M2, apoi C1 la M4. R2 permite fiecăruia ridicarea propriului exemplar. Agentul AI de revizuire a confundat ordinea alocării cu ordinea ridicării.
 
-## Pregătirea și predarea sarcinii către etapa următoare (handoff)
+**Extindere de discutat:** „Ce facem dacă M2 nu mai vine?” Expirarea/anularea și notificările sunt excluse prin R6; constituie decizii necesare unui sistem mai amplu, nu defecte față de enunțul acestui exercițiu.
 
-Referința explicitează conceptele, regulile, atribuirea responsabilităților, rezultatele operațiilor și comportamentul din scenarii. Agentul următor poate elabora un plan detaliat de implementare pentru această parte delimitată. O aplicație de producție ar avea nevoie de cerințe și decizii de proiectare suplimentare, inclusiv pentru aspectele excluse intenționat: ciclul de viață, accesul, concurența, erorile și punerea în producție.
+## Predarea către etapa următoare
 
-Nu cereți arhitectură suplimentară doar pentru ca referința să pară mai sofisticată. Identificați mai întâi cerința sau incertitudinea pe care ar trata-o.
+Agentul AI următor poate propune un plan pentru cele trei operații și fluxul cerere–rezervare–împrumut. Primește regulile, conceptele, contractele, scenariile, deciziile de revizuire și limitele. Nu presupune rezolvate expirarea, anularea, notificările, concurența, autentificarea sau punerea în producție.

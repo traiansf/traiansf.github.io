@@ -235,6 +235,33 @@ body {
   .slide.titlepage .logo { margin-bottom: 1.25rem; }
 }
 
+/* Section dividers: a quieter companion to the cover, without its logo. */
+.slide.transition {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--teal-light);
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+.slide.transition::after { color: var(--teal-light); }
+.slide.transition h1 {
+  max-width: 22ch;
+  margin: 0 0 0.65em;
+  padding: 0.65em 0 0;
+  border: 0;
+  color: #ffffff;
+  font-size: 2.2em;
+}
+.slide.transition h1::after {
+  top: 0;
+  bottom: auto;
+  width: 2.5em;
+  background: var(--teal-light);
+}
+.slide.transition p { max-width: 48ch; margin-bottom: 0; }
+.slide.transition strong { color: #ffffff; }
+.slide.transition a { color: var(--teal-light); }
+
 /* ---------- one slide at a time (html.paged; screens only) ---------- */
 
 @media screen {
@@ -277,6 +304,14 @@ body {
   }
   html.paged .slide.titlepage .logo { width: 10em; max-height: none; }
   html.paged .slide.titlepage h1 { font-size: 2.4em; }
+  html.paged .slide.transition.current {
+    grid-template-rows: auto auto;
+    align-content: center;
+    padding-left: 9vw;
+    padding-right: 9vw;
+  }
+  html.paged .slide.transition.current > .slide-body { grid-row: 2; }
+  html.paged .slide.transition h1 { font-size: 2.4em; }
 }
 @media screen and (max-width: 30rem) {
   /* On a phone the cover stays stacked in this view too: logo, then text. */
@@ -409,6 +444,9 @@ html:not(.paged) .deck-paged-only { display: none; }
   .slide.titlepage h1, .slide.titlepage .author { color: var(--navy); }
   .slide.titlepage .course, .slide.titlepage .session { color: var(--teal-strong); }
   .slide.titlepage .logo { width: 28mm; padding: 0; }
+  .slide.transition { background: #ffffff; color: var(--teal-strong); border: 2px solid var(--navy); }
+  .slide.transition h1, .slide.transition strong { color: var(--navy); }
+  .slide.transition h1::after { background: var(--teal); }
   .slide div.column img { max-width: 45mm; }   /* a QR code need not fill its column on paper */
   .slide a { color: inherit; }
 }

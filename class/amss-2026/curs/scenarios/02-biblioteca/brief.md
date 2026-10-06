@@ -1,52 +1,60 @@
-# Terminal de bibliotecă — exercițiu pentru Cursul 2
+# Sistem informatic pentru bibliotecă — enunț pentru pregătirea Cursului 2
+
+Sursă pentru profesor și pentru contextul transmis agentului AI. Nu este o fișă de distribuit studenților. Enunțul, regulile, scenariile și exercițiile necesare la curs apar în prezentarea principală `../../02-intelegere.md`; studenții lucrează pe coli albe, fără calculator. La actualizare, păstrați aceleași reguli și aceleași stări inițiale în ambele surse.
 
 ## Mai întâi: cererea beneficiarului
 
-„Avem nevoie de un terminal de bibliotecă. Membrii împrumută și returnează cărți. Ar trebui să poată și solicita o carte atunci când aceasta este împrumutată.”
+Biblioteca este beneficiarul sistemului informatic. Bibliotecarul o reprezintă și ne prezintă cererea:
 
-Înainte de a consulta un asistent:
+„Avem nevoie de un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”
+
+Înainte de a consulta un asistent AI:
 
 1. Scrieți două întrebări ale căror răspunsuri ar putea schimba proiectarea.
 2. Descrieți o situație concretă de împrumut.
 3. Numiți un lucru pe care l-ați exclude din prima versiune.
 
-Explicați de ce contează unul dintre răspunsuri. Faceți acest lucru înainte de a citi clarificările de mai jos.
+Alegeți una dintre întrebările formulate și explicați cum ar putea răspunsul beneficiarului să influențeze proiectarea. Faceți acest lucru înainte de a citi clarificările de mai jos.
 
 ## Reguli clarificate pentru acest exercițiu
 
-Regulile de mai jos vin de la beneficiarul fictiv. Ele definesc acest exemplu didactic, nu felul în care funcționează bibliotecile în general.
+Regulile sunt precizări ale bibliotecarului care reprezintă beneficiarul fictiv. Ele definesc acest exemplu, nu toate bibliotecile.
 
-- **R1 — Identitate.** Un titlu poate avea mai multe exemplare fizice. Fiecare titlu, exemplar și membru are un identificator distinct. Fiecare exemplar aparține unui singur titlu. Catalogul și evidența membrilor există deja.
-- **R2 — Împrumut.** Pentru un exemplar și un membru cunoscuți, împrumutul reușește dacă exemplarul nu are niciun împrumut activ. Se înregistrează un nou împrumut care leagă exemplarul de membru. Un exemplar are cel mult un împrumut activ. Încercarea de a împrumuta un exemplar deja împrumutat este respinsă fără modificarea împrumuturilor.
-- **R3 — Returnare.** Returnarea unui exemplar cu un împrumut activ închide acel împrumut. Istoricul împrumuturilor se păstrează. Returnarea unui exemplar fără împrumut activ este respinsă fără modificarea împrumuturilor.
-- **R4 — Solicitare.** Un membru cunoscut poate înregistra o solicitare pentru un titlu cunoscut. Solicitarea nu identifică un anumit exemplar. În această parte a sistemului se înregistrează cel mult o solicitare pentru fiecare pereche membru/titlu; duplicatele se resping fără modificarea solicitărilor.
-- **R5 — Independență.** Solicitările pot exista indiferent dacă exemplarele sunt împrumutate sau disponibile. Înregistrarea unei solicitări nu rezervă un exemplar și nu împiedică alt membru să împrumute un exemplar disponibil. Returnarea unui exemplar nu șterge solicitările.
-- **R6 — Delimitare.** Această parte a sistemului înregistrează împrumuturi, returnări și solicitări de titluri. Alocarea exemplarelor, prioritatea în coadă, satisfacerea/anularea solicitărilor, notificările, amenzile, prelungirile și autentificarea nu sunt incluse. În exercițiu, operațiile folosesc identificatori cunoscuți și sunt procesate pe rând. Pentru un sistem mai amplu, aceste limite trebuie reanalizate explicit.
+- **R1 — Identitate.** Titlurile, exemplarele și membrii au identificatori distincți. Un titlu poate avea mai multe exemplare; fiecare exemplar aparține unui titlu. Catalogul și membrii există deja. Un exemplar este disponibil dacă nu are nici împrumut activ, nici rezervare activă.
+- **R2 — Împrumut.** Pentru un exemplar și un membru cunoscuți, se acceptă împrumutul dacă exemplarul este disponibil sau rezervat chiar acelui membru. Se creează un împrumut nou care leagă exemplarul de membru; cel mult unul activ pe exemplar. La ridicarea exemplarului rezervat se încheie rezervarea și cererea este îndeplinită. Dacă exemplarul este împrumutat sau rezervat altcuiva, operația se respinge fără modificarea stării.
+- **R3 — Returnare.** Se închide împrumutul activ și se păstrează în istoric. În aceeași operație, exemplarul este rezervat primei cereri în așteptare pentru titlul său, conform R5; dacă nu există una, devine disponibil. Fără împrumut activ, returnarea se respinge fără modificarea stării.
+- **R4 — Cerere de împrumut.** Un membru cunoscut cere un titlu cunoscut, fără a alege exemplarul. Se acceptă cererea numai dacă nu există exemplare disponibile ale titlului și nici o cerere neîncheiată a aceluiași membru pentru el. Se înregistrează membrul, titlul și ordinea depunerii; cererea intră în așteptare. Cererile în așteptare sau cu exemplar rezervat sunt neîncheiate. Duplicatul și cererea pentru un titlu cu exemplar disponibil se resping fără modificarea stării. După îndeplinirea unei cereri, o nouă cerere este posibilă dacă respectă aceste condiții.
+- **R5 — Ordinea și rezervarea.** Cererile în așteptare pentru fiecare titlu sunt servite în ordinea înregistrării. Fiecare exemplar returnat este alocat primei cereri încă în așteptare și rezervat solicitantului. Cererea reține exemplarul alocat și nu mai participă la alocarea altuia. Un exemplar are cel mult o rezervare activă; o cerere are cel mult un exemplar rezervat. Rezervarea activă și împrumutul activ nu coexistă pe același exemplar. Doar solicitantul poate ridica exemplarul (R2).
+- **R6 — Delimitare.** Sunt incluse împrumutul, returnarea, cererea de împrumut, ordinea de așteptare, rezervarea la returnare și ridicarea care îndeplinește cererea. Identificatorii sunt cunoscuți și toate operațiile se procesează pe rând; ordinea procesării cererilor stabilește prioritatea. Expirarea/anularea cererilor și rezervărilor, notificările, amenzile, prelungirile, autentificarea și modificarea catalogului sunt excluse. În exercițiu, rezervarea rămâne până la ridicare. Aceste limite trebuie reanalizate pentru un serviciu complet.
 
 ## Întrebări pentru proiectare
 
-- Ce concepte trebuie să rămână distincte și de ce?
-- Cui îi revine responsabilitatea de a impune regula împrumutului activ?
-- Ce garantează un împrumut reușit? Ce se întâmplă la respingere?
-- Ce poate coexista: o solicitare pentru un titlu, un exemplar disponibil și un exemplar împrumutat?
-- Ce ar trebui decis înainte de a extinde această parte într-un serviciu de bibliotecă mai complet?
+- De ce cererea privește titlul, dar rezervarea și împrumutul privesc exemplarul?
+- Cine verifică dreptul de a ridica exemplarul rezervat?
+- Ce se schimbă la returnare și la ridicare? Ce păstrează o respingere?
+- Cum deosebim o cerere care încă așteaptă alocarea de una care are un exemplar rezervat?
+- Ce ar trebui decis pentru expirarea sau anularea unei rezervări?
 
-Sunt suficiente un glosar, un tabel, o schiță sau puțin pseudocod. Diagrama de clase este opțională. Nu implementați o aplicație.
+Sunt suficiente un glosar, un tabel, o schiță sau pseudocod. Nu se cere o aplicație sau o anumită diagramă.
 
 ## Situații concrete de verificat
 
-Starea inițială: titlul T are exemplarele C1 și C2; membrii M1, M2 și M3 există; nu există împrumuturi sau solicitări. S1 pornește din această stare. S2, S3 și S4 pornesc fiecare, independent, din starea de după S1; nu se execută unul după altul. S5 pornește din nou din starea inițială.
+**Stare inițială:** titlul T are exemplarele C1 și C2 disponibile; membrii M1, M2, M3 și M4 există; niciun împrumut, nicio cerere de împrumut, nicio rezervare.
 
-**S1 — Două exemplare.** Titlul T are exemplarele C1 și C2. Membrul M1 împrumută C1. C2 rămâne disponibil. Explicați cum reprezintă proiectarea această stare.
+**S1 — Două exemplare.** Din starea inițială, M1 împrumută C1; C2 rămâne disponibil.
 
-**S2 — O solicitare alături de un împrumut.** După S1, membrul M2 solicită T. Apoi M3 împrumută C2. Ambele operații trebuie să reușească potrivit R4–R5. Solicitarea continuă să existe.
+**S2–S6 pornesc fiecare independent din starea de după S1**, fără cereri sau rezervări. Nu se execută unul după altul.
 
-**S3 — Același exemplar, din nou.** După S1, M2 încearcă să împrumute C1. Respingeți încercarea și păstrați împrumutul existent neschimbat.
+**S2 — Cerere, rezervare, ridicare.** M3 împrumută C2; M2 depune o cerere de împrumut pentru T. Cererea este acceptată, deoarece nu mai există exemplare disponibile. M1 returnează C1: împrumutul său se închide și C1 este rezervat lui M2. M3 încearcă să împrumute C1: operația se respinge fără modificări. M2 ridică C1: apare un împrumut nou, rezervarea încetează și cererea este îndeplinită. C2 rămâne împrumutat lui M3.
 
-**S4 — Păstrarea istoricului la returnare.** După S1, C1 este returnat. Vechiul său împrumut rămâne în istoric, dar nu mai este activ. O a doua returnare este respinsă. Un împrumut ulterior creează o nouă înregistrare de împrumut.
+**S3 — Împrumut repetat.** M2 încearcă să împrumute C1. Operația este respinsă, iar împrumutul lui M1 rămâne neschimbat.
 
-**S5 — Solicitare duplicată.** M2 solicită T de două ori. Înregistrați o singură solicitare și respingeți a doua încercare fără a o modifica pe prima.
+**S4 — Returnare și istoric.** M1 returnează C1. Împrumutul închis rămâne în istoric, iar C1 devine disponibil, deoarece nu există cereri în așteptare. A doua returnare se respinge fără modificări. M2 împrumută C1: apare o înregistrare nouă, distinctă de împrumutul închis.
+
+**S5 — Disponibilitate și duplicat.** M2 depune o cerere pentru T cât C2 este disponibil: cererea se respinge fără modificări. M3 împrumută C2. M2 depune o cerere pentru T, apoi o repetă. Se acceptă doar prima dintre aceste două cereri; a doua se respinge fără a o modifica. La final, ambele exemplare sunt împrumutate și o singură cerere M2/T este în așteptare.
+
+**S6 — Ordinea alocării.** M3 împrumută C2. M2 depune o cerere pentru T, apoi M4 depune una. M3 returnează C2: acesta este rezervat lui M2. M1 returnează C1: acesta este rezervat lui M4, deoarece cererea lui M2 are deja un exemplar. M4 poate ridica C1 înainte ca M2 să vină; cererea lui M4 se îndeplinește și rezervarea lui M2 rămâne. Ordinea depunerii stabilește alocarea, nu ordinea ridicării.
 
 ## Exercițiu de încheiere
 
-Fără AI, explicați de ce titlul și exemplarul sunt distincte, enunțați o regulă pe care împrumutul trebuie să o păstreze și precizați ce justificare ați cere înainte de a accepta o constatare dintr-o revizuire (review).
+Fără AI, explicați distincția titlu–exemplar, ce verificăm înainte de împrumutul unui exemplar care poate fi rezervat și ce justificare cereți înainte de a accepta o constatare dintr-o revizuire.

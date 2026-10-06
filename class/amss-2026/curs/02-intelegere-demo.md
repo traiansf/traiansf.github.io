@@ -1,139 +1,57 @@
 # Demonstrație pentru Cursul 2 — Înțelegem înainte de a delega
 
-Ghid pentru profesor; nu este o prezentare. Alocați demonstrației aproximativ 14–17 minute, inclusiv timpul în care studenții analizează singuri. Folosiți orice asistent accesibil și un context separat pentru revizuire (review). Nu sunt necesari furnizori diferiți sau agenți care rulează simultan.
+Ghid pentru profesor; nu se distribuie studenților. Demonstrația durează aproximativ 14–17 minute în intervalul de 25 de minute dedicat delegării și revizuirii. Se desfășoară integral în prezentarea principală `02-intelegere.md`. Studenții folosesc coli albe și un instrument de scris, fără calculator, telefon, cont AI sau fișe. Această organizare privește cursul; laboratorul folosește calculatoare și materialele sale de lucru.
 
-## Obiectiv didactic
+## Pregătirea profesorului
 
-Studenții explică de ce contează o distincție sau o regulă a domeniului, îi dau unui agent o sarcină delimitată de proiectare și evaluează o afirmație din revizuire pe baza acelorași fapte din enunț. Demonstrația își atinge scopul atât când agentul oferă un răspuns corect, cât și când oferă unul cu defecte.
+- Prezentarea principală conține cererea beneficiarului, regulile complete R1–R6, scenariile S1–S6, prompturile și exemplul de proiectare/revizuire.
+- `scenarios/02-biblioteca/brief.md` rămâne sursa de pregătire a contextului pentru agentul AI. Nu le cereți studenților să o deschidă sau să o imprime.
+- `scenarios/02-biblioteca/reference-design.md` conține justificările profesorului. Nu îl dați agentului AI cu rol de proiectant în contextul inițial.
+- Exemplul didactic necesar este integrat în prezentarea principală. Fișierul din `fallback/` rămâne material de pregătire; nu trebuie deschis în timpul cursului.
 
-La curs, studenții au formulat deja întrebări și au primit clarificările despre bibliotecă. Demonstrația nu îi cere agentului să inventeze răspunsurile beneficiarului.
+La repetiție puteți folosi orice asistent AI disponibil. Trimiteți cererea, R1–R6 și S1–S6 împreună cu promptul de pe slide-ul „Ce îi cerem agentului AI cu rol de proiectant”. Într-o conversație nouă, trimiteți același enunț, proiectarea obținută și promptul „Ce predăm evaluatorului AI”. Rolurile pot folosi același model, succesiv.
 
-## Materiale și pregătire
+Dacă folosiți un răspuns real la curs, integrați înainte de curs fragmentele discutate în slide-uri lizibile, lângă regulile și scenariile necesare. Indicați instrumentul/modelul, data, promptul și setările relevante; marcați omisiunile. Nu modificați sensul răspunsului și nu prezentați exemplul didactic drept o captură AI. Păstrați în prezentare alternativa pregătită, pentru ca activitatea să nu depindă de generarea în direct. Profesorul poate opera instrumente AI; studenții nu trebuie să le acceseze. Orice rezultat nou discutat trebuie să fie inclus lizibil în prezentare înainte de analiza lui.
 
-- Sursa pentru studenți: [enunțul bibliotecii](scenarios/02-biblioteca/brief.md).
-- Referința pentru profesor: [o proiectare argumentată](scenarios/02-biblioteca/reference-design.md).
-- Varianta de rezervă pregătită: [sursa prezentării de rezervă](fallback/02-intelegere-fallback.md), generată ca `fallback/02-intelegere-fallback.html` / `.pdf`.
-- Diapozitivul „Demonstrație: delegăm o sarcină delimitată” din curs.
+## 1. Predarea contextului și a sarcinii (2–3 minute)
 
-Folosiți un spațiu de lucru temporar care conține enunțul sau atașați/lipiți enunțul în asistentul ales. Nu includeți răspunsul de referință în contextul inițial al agentului. Pregătiți o a doua conversație, nouă, pentru revizuire. Nu afișați informații private ale contului.
+Proiectați „Demonstrație: delegăm o sarcină delimitată”, apoi „Ce îi cerem agentului AI cu rol de proiectant”. Precizați că vom examina un exemplu didactic pregătit, nu o rulare capturată.
 
-Înainte de curs, încercați prompturile cu instrumentul disponibil pentru a estima durata. Dacă salvați un răspuns real, precizați instrumentul/modelul, data, promptul și setările folosite. Varianta de rezervă din repository este un exemplu creat pentru predare și nu trebuie descrisă niciodată drept o captură a unei rulări.
+Explicați ce primește agentul AI: cererea, regulile, scenariile și rezultatul cerut. Promptul cere o proiectare, nu codul aplicației. Nu le cereți studenților să copieze sau să trimită promptul.
 
-## 1. Cereți studenților să anticipeze distincțiile necesare (2 minute)
+## 2. Examinați propunerea pe hârtie (3 minute)
 
-Înainte de a trimite promptul, întrebați:
+Lăsați pe ecran „Proiectare pregătită: găsiți limita reprezentării”. Tabelul, momentul din S2 cu C1 rezervat și C2 împrumutat, regulile R1–R2/R5 și întrebarea sunt vizibile împreună.
 
-> „Ce trebuie să păstreze răspunsul, chiar dacă agentul alege alte denumiri sau o altă reprezentare?”
+Acordați două minute pentru notarea unei informații pierdute și a regulii afectate, apoi ascultați două răspunsuri. Împrumutul legat doar de titlu nu identifică exemplarul; cererea nu păstrează exemplarul rezervat. O singură stare pe titlu nu reprezintă C1 rezervat lui M2 și C2 împrumutat lui M3. Nu considerați defecte denumirile alternative sau absența unei diagrame.
 
-Urmăriți distincția titlu–exemplar, membrul și exemplarul asociate unui împrumut, cel mult un împrumut activ pentru fiecare exemplar și coexistența unei solicitări pentru titlu cu împrumuturile. Cereți unui student să indice regula pe care se sprijină răspunsul.
+## 3. Corecție și verificare (3–4 minute)
 
-## 2. Prompt pentru analist/proiectant (3–4 minute, inclusiv lectura)
+Arătați „O corecție argumentată”, apoi „Verificăm corecția: împrumut și returnare” și „Verificăm corecția: cerere și rezervare”. Legați fiecare corecție de informația pierdută. Parcurgeți un scenariu de succes și unul de respingere.
 
-Dați agentului enunțul complet, cu clarificări, apoi folosiți promptul:
+S2–S6 pornesc fiecare independent după S1. În S2 urmăriți închiderea împrumutului, rezervarea la returnare, respingerea altui membru și îndeplinirea cererii la ridicare. În S6, cererea cu exemplar deja rezervat nu primește și următorul exemplar returnat. Pentru o discuție mai lungă despre un scenariu, reveniți la slide-ul exercițiului respectiv: datele, regula și întrebarea sunt împreună pe ecran. Nu cereți consultarea fișei sau memorarea altor slide-uri.
 
-> Ai rolul de analist și proiectant. Citește enunțul bibliotecii, inclusiv R1–R6 și S1–S5. Redactează un document de proiectare concis pentru această parte delimitată a sistemului, nu o aplicație.
->
-> Identifică conceptele domeniului și distincțiile importante dintre ele; atribuie responsabilitățile pentru cele trei operații; enunță invariantul împrumutului activ și rezultatele operațiilor în caz de succes și de respingere; parcurge scenariile din enunț pe proiectarea ta. Citează identificatorii regulilor care susțin deciziile cu consecințe importante.
->
-> Separă cerințele confirmate, alegerile de proiectare și întrebările deschise. Respectă excluderile precizate. Folosește proză, tabele sau pseudocod scurt; folosește o diagramă numai dacă lămurește ceva anume. Rezultatul trebuie să fie destul de scurt ca să poată fi examinat la curs. Încheie cu ce este pregătit pentru etapa următoare și ce nu acoperă această afirmație.
+Dacă ați pregătit un răspuns AI real și corect, cereți justificarea unei decizii și discutați ce ar schimba expirarea unei rezervări neridicate. Un răspuns corect este util; nu impuneți o cotă de defecte.
 
-Pentru un asistent care lucrează cu fișiere, cereți `design-brief.md` în spațiul demonstrației. Pentru un asistent conversațional, folosiți răspunsul său ca document de lucru. Niciuna dintre variante nu impune un instrument pentru întregul curs.
+## 4. Revizuire și decizie umană (4–5 minute)
 
-În timpul generării, cereți studenților să anticipeze starea de după S2. Dacă răspunsul nu apare în aproximativ 45 de secunde sau este prea lung pentru a fi examinat în timpul alocat, treceți la exemplul pregătit. Nu sacrificați discuția așteptând instrumentul.
+Arătați „Ce predăm evaluatorului AI”. Cereți oral ce ar lipsi dacă ar primi doar proiectarea și „verifică dacă e corect”. Promptul și lista contextului rămân pe ecran. Separarea contextului face explicită predarea; nu garantează corectitudinea revizuirii.
 
-## 3. Examinați proiectarea, dincolo de prezentare (3 minute)
+Pe „Verificăm și revizuirea”, studenții au împreună afirmația pregătită, R2/R5 și S6. Lăsați slide-ul vizibil cât notează o clasificare și o justificare pe hârtie. Evaluatorul AI susține greșit că M4 nu poate ridica exemplarul propriu până nu vine M2. R5 ordonează alocarea, iar R2 permite fiecăruia să ridice exemplarul deja rezervat lui; M4 poate ridica C1, iar C2 rămâne rezervat lui M2.
 
-Arătați o decizie despre concepte, un contract și un scenariu.
+Abia după răspunsuri, arătați „Decizia noastră asupra revizuirii”. Comparați un defect susținut cu afirmația nesusținută. Decizia aparține oamenilor care verifică regulile și scenariile, nu agentului AI care formulează concluzia.
 
-| Întrebare | Unde verificăm |
-|---|---|
-| Este clar dacă „o carte” desemnează un titlu sau un exemplar? | R1 și S1 |
-| Pot coexista două exemplare împrumutate independent și o solicitare pentru titlu? | R2, R4–R5 și S2 |
-| Cine impune regula împrumutului activ? | Atribuirea responsabilităților și R2 |
-| Rămâne neschimbat împrumutul existent după o încercare de împrumut respinsă? | R2 și S3 |
-| Păstrează returnarea istoricul? | R3 și S4 |
-| Sunt inventate reguli de coadă/alocare sau de concurență? | Limita stabilită prin R6 |
+## 5. Încheiere (1–2 minute)
 
-Dintre întrebările cu consecințe importante, alegeți-le pe cele potrivite răspunsului primit. Nu considerați defecte denumirile alternative, o altă descompunere sau o reprezentare opțională.
+Folosiți întrebarea despre următorul agent AI de pe „Decizia noastră asupra revizuirii”. Urmează un plan pentru partea specificată, nu presupunerea că expirarea rezervărilor, notificările, concurența sau punerea în producție sunt rezolvate.
 
-**Dacă răspunsul este corect:** cereți unui student să justifice S2 folosind documentul, apoi întrebați ce se schimbă dacă beneficiarul dorește ulterior rezervări cu exemplare alocate. Identificați noua decizie fără a o implementa. Nu căutați cu orice preț o greșeală într-un răspuns corect.
+Continuați cu „Păstrăm o imagine de ansamblu verificabilă”. Exemplul de sinteză și regula care îl susține sunt pe slide; nu deschideți un document suplimentar pentru această activitate.
 
-**Dacă există un defect semnificativ:** cereți studenților scenariul care îl evidențiază. Formulați o corecție punctuală susținută de enunț, apoi verificați din nou regula afectată și încă un scenariu.
+## Verificare înainte de curs
 
-**Dacă există o alegere de proiectare nerezolvată:** comparați alternative plauzibile și identificați informațiile care ar ajuta la alegerea uneia. Nu inventați o regulă a beneficiarului doar pentru a închide discuția.
-
-## 4. Predarea sarcinii și a contextului către un evaluator (agent de revizuire; handoff) (3–4 minute)
-
-Deschideți contextul separat. Dați-i agentului enunțul original și documentul de proiectare; nu presupuneți că vede prima conversație.
-
-> Ai rolul de evaluator (agent de revizuire). Evaluează proiectarea propusă pentru bibliotecă față de regulile R1–R6 și scenariile S1–S5 din enunț. Nu modifica proiectarea.
->
-> Verifică distincțiile din domeniu, cui îi revine regula împrumutului activ, rezultatele operațiilor, concordanța cu scenariile și afirmația că proiectarea este pregătită pentru etapa următoare.
->
-> Pentru fiecare constatare semnificativă, identifică regula din enunț, afirmația vizată din proiectare și un contraexemplu concret sau altă justificare verificabilă. Distinge un defect de o alternativă opțională de proiectare și de o întrebare despre o extindere viitoare. Dacă nu găsești niciun defect semnificativ, precizează ce ai verificat și ce nu stabilește revizuirea. Nu adăuga cerințe excluse prin R6.
-
-Contextul nou poate folosi același model. Explicați că separarea face explicită predarea sarcinii și a contextului; nu garantează o revizuire imparțială sau corectă.
-
-Cât timp evaluatorul lucrează, întrebați studenții: ce ar lipsi dacă agentul ar primi doar documentul de proiectare și instrucțiunea „verifică dacă e corect”? Răspunsuri utile: enunțul sursă, regulile și scenariile față de care se verifică, cerința de a indica pentru fiecare constatare regula și scenariul care o susțin.
-
-## 5. Omul decide ce stabilește revizuirea (2–3 minute)
-
-Alegeți o constatare din răspunsul primit. Cereți studenților să o clasifice ca:
-
-- defect susținut de enunț;
-- alternativă rezonabilă ale cărei avantaje și dezavantaje trebuie cântărite;
-- afirmație nesusținută; sau
-- întrebare care iese din limitele exercițiului actual.
-
-Cereți regula și scenariul pe care se sprijină clasificarea.
-
-Dacă revizuirea nu oferă o afirmație potrivită pentru discuție, folosiți exercițiul următor, precizând că a fost pregătit dinainte:
-
-> „Un titlu cu o solicitare activă nu trebuie să poată fi împrumutat.”
-
-Potrivit R5, această afirmație nu indică un defect. O regulă de alocare propusă pentru viitor este o discuție separată. Nu atribuiți această propoziție pregătită evaluatorului folosit în demonstrație.
-
-Consemnați pe scurt decizia:
-
-| Afirmație | Ce am verificat | Decizie |
-|---|---|---|
-| O solicitare ar trebui să blocheze împrumutul | R5 și S2 precizează coexistența | Nu este acceptată ca defect; doar o posibilă regulă viitoare |
-
-Folosiți în schimb o constatare reală, susținută de enunț, dacă apare. Nu există un număr obligatoriu de defecte.
-
-## 6. Încheierea predării sarcinii (1 minut)
-
-Întrebați:
-
-> „Ce poate face acum următorul agent și ce nu ar trebui să presupună?”
-
-Răspuns așteptat: să elaboreze un plan detaliat pentru partea specificată, folosind conceptele, responsabilitățile, contractele operațiilor și scenariile convenite; să nu considere rezolvate alocarea, concurența, autentificarea sau punerea în producție.
-
-Un rezumat scurt trebuie să trimită la regulile din enunț și la detaliile proiectării. Cereți unui student să urmărească o afirmație din rezumat până la acele surse.
-
-Reveniți la diapozitivele „Verificăm și revizuirea” și „Păstrăm o imagine de ansamblu verificabilă” din curs. Folosiți-le pentru recapitulare; nu repetați întregul exercițiu.
-
-## Varianta de rezervă pregătită
-
-Deschideți prezentarea de rezervă și spuneți:
-
-> „Acesta este un exemplu pregătit pentru predare. Ne permite să exersăm același raționament fără să așteptăm generarea în direct.”
-
-Prezentarea conține o proiectare intenționat incompletă, un contraexemplu, o corecție de referință, o constatare de revizuire susținută de enunț și una nesusținută. Studenții fac aceleași verificări pe baza regulilor și scenariilor. Referința pregătită este o soluție acceptabilă, nu un model obligatoriu de obiecte.
-
-## Gestionarea abaterilor frecvente
-
-- **Agentul pune o întrebare legitimă:** răspundeți numai pe baza enunțului. Dacă decizia cerută iese din limitele exercițiului, consemnați-o pentru o etapă ulterioară. Dacă enunțului îi lipsește într-adevăr o regulă necesară în aceste limite, recunoașteți lipsa și formulați explicit o ipoteză didactică.
-- **Agentul scrie codul aplicației:** opriți-l și amintiți că se cere doar proiectarea. Nu consumați timpul cursului evaluând o implementare care nu a fost cerută.
-- **Agentul recomandă un anumit framework sau șablon de proiectare:** întrebați ce cerință sau variație îl justifică. Păstrați-l numai dacă beneficiul poate fi explicat.
-- **Studenții resping o proiectare pentru că nu are diagramă:** întrebați la ce întrebare nu pot răspunde. Adăugați o reprezentare doar pentru a clarifica acea întrebare.
-- **Agentul de revizuire inventează cerințe de producție:** deosebiți o cerință reală pentru o extindere de un defect al exercițiului delimitat.
-- **Toate rezultatele generate sunt corecte:** cereți studenților să explice ce susține afirmația și care îi sunt limitele. Aceasta este o delegare reușită.
-
-## Listă de verificare pentru repetiție
-
-- R1–R6 și S1–S5 sunt vizibile pentru ambele roluri.
-- Proiectarea de referință nu se află în contextul inițial al proiectantului.
-- Enunțul, detaliile selectate din proiectare și constatările revizuirii încap pe ecran.
-- Varianta de rezervă este disponibilă local și etichetată clar ca exemplu pregătit.
-- Demonstrația se încheie cu o decizie de proiectare care poate fi examinată, nu doar cu acceptarea verdictului unui agent.
+- Un student care vede doar proiecția și are o coală albă poate participa la fiecare exercițiu.
+- Regulile R1–R6 și scenariile S1–S6 au același sens în prezentare și în sursa profesorului.
+- Fiecare sarcină are datele necesare pe slide-ul păstrat pe ecran; soluția apare numai după discuție.
+- Textul, tabelele și eventualele fragmente reale sunt lizibile în HTML și PDF, fără micșorări excesive.
+- Exemplele pregătite sunt etichetate corect; capturile reale, dacă sunt folosite, au proveniență.
+- Nu sunt necesare fișe, linkuri de deschis, fișiere descărcate sau dispozitive ale studenților.

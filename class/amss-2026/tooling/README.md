@@ -18,7 +18,7 @@ Tu răspunzi de formularea problemei și de acceptarea sau respingerea modifică
 | Rol | Date de intrare | Rezultat de verificat |
 |---|---|---|
 | Analist | Descrierea inițială a problemei, răspunsurile beneficiarului, analiza ta inițială | Limitele soluției, cerințe, vocabularul domeniului, ipoteze, întrebări deschise, exemple de acceptare |
-| Proiectant | Specificația revizuită și întrebările nerezolvate | Responsabilități și dependențe, contracte și invariante, comportament, alternative și justificări |
+| Proiectant | Specificația revizuită și întrebările nerezolvate | Responsabilități și dependențe, contracte și invarianți, comportament, alternative și justificări |
 | Agent de revizuire | Descrierea inițială a problemei, artefactele curente, criterii explicite de revizuire | Constatări susținute de surse, scenarii sau contraexemple și limitele revizuirii |
 | Autor de modele/prototipuri, când este util | O întrebare delimitată și partea de proiectare implicată, deja revizuită | Un model sau experiment mic, verificări, rezultate și ce se poate sau nu se poate deduce din ele |
 
@@ -33,7 +33,7 @@ O predare concisă ar trebui să precizeze:
 1. Rolul, întrebarea de rezolvat, rezultatul așteptat și momentul în care agentul se oprește.
 2. Fișierele-sursă sau textul primit, cu versiunea exactă a artefactului revizuit.
 3. Cerințele și deciziile convenite, separate de ipoteze și de întrebările deschise.
-4. Constrângerile, scenariile, invariantele și celelalte criterii după care se face revizuirea.
+4. Constrângerile, scenariile, invarianții și celelalte criterii după care se face revizuirea.
 5. Verificările deja făcute și ce mai rămâne de verificat.
 
 Rezumatul trebuie să fie scurt și să trimită la sursele detaliate. Dă evaluatorului (agentului de revizuire) atât materialul-sursă, cât și rezumatul, ca să poată observa informațiile lipsă sau denaturate. Dacă instrumentul nu poate deschide fișierele din repository, copiază sau atașează părțile de care are nevoie.

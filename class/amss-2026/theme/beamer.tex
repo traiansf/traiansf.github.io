@@ -69,6 +69,7 @@
 
 % Course label and frame number; the cover has neither.
 \newif\ifamsscover
+\newif\ifamsstransition
 \setbeamertemplate{footline}{%
   \ifamsscover\else
     \leavevmode\hbox to\paperwidth{%
@@ -82,7 +83,8 @@
 % Cover: logo on a white plate, then session, title, course and author, on
 % navy. The flag is cleared once the cover page has been shipped out.
 \setbeamertemplate{background canvas}{%
-  \ifamsscover\color{amssnavy}\vrule width\paperwidth height\paperheight\fi}
+  \ifamsscover\color{amssnavy}\vrule width\paperwidth height\paperheight\fi
+  \ifamsstransition\color{amssnavy}\vrule width\paperwidth height\paperheight\fi}
 \makeatletter
 \setbeamertemplate{title page}{%
   \global\amsscovertrue
@@ -113,6 +115,21 @@
     {\usebeamerfont{author}\color{white}\insertauthor\par}%
   \end{minipage}}
 \makeatother
+
+% Section dividers echo the cover, with a broad title and a quiet prompt.
+% Like the cover, the background flag is reset immediately after shipout.
+\newcommand{\amsstransition}[2]{%
+  \global\amsstransitiontrue
+  \AddToHookNext{shipout/after}{\global\amsstransitionfalse}%
+  \begingroup
+    \raggedright
+    {\color{amsstealight}\rule{18mm}{1.5pt}\par}\vskip 5mm
+    {\usebeamerfont{title}\color{white}\hyphenpenalty=10000
+     \rightskip=0pt plus 0.4\linewidth\relax #1\par}\vskip 5mm
+    \begin{minipage}{0.85\textwidth}
+      \raggedright\large\color{amsstealight}#2
+    \end{minipage}
+  \endgroup}
 
 % Bullets echo the rounded nodes of the course logo.
 \setbeamertemplate{itemize item}{\tikz[baseline=-0.1ex]\fill[amssteal,rounded corners=0.12ex] (0,0) rectangle (0.62ex,0.62ex);}

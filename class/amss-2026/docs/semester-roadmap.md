@@ -4,6 +4,8 @@ This is a plan for developing the semester, grounded in the [confirmed redesign 
 
 ## Teaching commitments
 
+Lecture students need only blank paper and a pen: do not assume computers, phones, internet, AI access, or separate handouts. Put all required source material, prompts, examples, results, and questions in the main slides, including prepared demo alternatives. Keep each exercise's data and task together on screen throughout the work; split dense activities into self-contained steps. Instructor briefs and repositories are preparation sources, not required student reading during class. This rule does not apply to labs, where students use computers and working materials.
+
 Assume master's students who program fluently but have little design experience. Introduce each design concept through a concrete decision before naming it. Students first analyze without AI, then use a chosen assistant to investigate a bounded question. A sound generated answer is useful evidence to explain, not a failed demonstration.
 
 The five priorities are problem framing and requirements; domain modeling; contracts and invariants; state and behavior; and responsibility assignment with cohesion and coupling. Abstraction, boundaries, patterns, testing, tradeoffs, and change develop through these foundations. Establish a substantial specification and design before substantial implementation. Small executable models and prototypes may resolve design uncertainty; the project does not require a working application.
@@ -34,9 +36,11 @@ Durations below are instructor planning notes. Each full lecture in Weeks 3–13
 
 **Observable outcomes:** distinguish a title from a physical copy; formulate an initial design before delegating; explain acceptance and rejection through before/after states; evaluate review findings using source evidence.
 
-**Sequence, 100 minutes:** initial analysis and questions 15; clarifications and scope 10; concepts and responsibilities 20; contracts and scenarios 15; delegation and review 25; change and synthesis 10; exit exercise 5. The former Lecture 1 technical content is moved here and expanded with paired design and independent scenario exercises.
+**Sequence, 100 minutes:** initial analysis and questions 15; clarifications and scope 10; model, responsibilities, contracts, and states 20; scenario validation 15; delegation and review 25; change and synthesis 10; exit exercise 5. The former Lecture 1 technical content is moved here and expanded with paired design and independent scenario exercises.
 
-**Authored package:** [Lecture 2](../curs/02-intelegere.md), [demo guide](../curs/02-intelegere-demo.md), [library brief](../curs/scenarios/02-biblioteca/brief.md), [reference design](../curs/scenarios/02-biblioteca/reference-design.md), and [prepared fallback](../curs/fallback/01-organizare-fallback.md). Preserve existing asset paths. Students first propose their own model (individually, then in pairs), before the worked model and before the agent; compare it against R1–R6 and S1–S5. Discuss correct as well as flawed output. These are introductory encounters with concepts taught in depth later.
+**Authored package:** [Lecture 2](../curs/02-intelegere.md) contains the complete classroom material, including R1–R6, S1–S6, paper exercises, delegation prompts, and the prepared design/review demonstration. The [demo guide](../curs/02-intelegere-demo.md), [library brief](../curs/scenarios/02-biblioteca/brief.md), [reference design](../curs/scenarios/02-biblioteca/reference-design.md), and [prepared example source](../curs/fallback/02-intelegere-fallback.md) support instructor preparation. Students first propose their own model on blank paper (individually, then in pairs), before the worked model and the delegation example. Discuss correct as well as flawed output. These are introductory encounters with concepts taught in depth later.
+
+The library request now has an operational outcome: requests for unavailable titles are ordered by registration; a returned copy is reserved for the oldest still-waiting request. Collection by that member creates the loan and fulfills the request. S6 distinguishes allocation order from collection order. Expiry, cancellation, and notifications remain outside this introductory scope.
 
 ### Week 3 — Problem framing and requirements
 
@@ -46,9 +50,9 @@ Durations below are instructor planning notes. Each full lecture in Weeks 3–13
 
 **Sequence, 100 minutes:** unaided brief analysis 10; goals, stakeholders, scope, and requirement types 20; elicitation demo 25; acceptance-example workshop 25; fresh review and human decisions 15; exit question 5.
 
-**Proposed demo:** campus maintenance reporting, limited to creating a fault report and obtaining its status. Supply a stakeholder answer sheet for report identity, allowed status changes, and who may update a report; leave prioritization outside scope. Humans first identify why “urgent” and “quickly” are ambiguous. The agent organizes requirements and questions; only supplied stakeholder answers become facts. Check duplicate-report handling and one observable response-time criterion against the stated workload and measurement point.
+**Proposed demo:** campus maintenance reporting, limited to creating a fault report and obtaining its status. Show stakeholder answers on slides for report identity, allowed status changes, and who may update a report; leave prioritization outside scope. Humans first identify why “urgent” and “quickly” are ambiguous. The agent organizes requirements and questions; only supplied stakeholder answers become facts. Check duplicate-report handling and one observable response-time criterion against the stated workload and measurement point.
 
-**Good output / fallback:** challenge a correct specification with a different stakeholder interpretation and identify which decision needs agreement. Prepare an authored brief with an invented priority rule and an unmeasurable speed claim; students repair it using the answer sheet, not guesses.
+**Good output / fallback:** challenge a correct specification with a different stakeholder interpretation and identify which decision needs agreement. Show an authored brief with an invented priority rule and an unmeasurable speed claim alongside the relevant stakeholder answers; students propose repairs on paper.
 
 ### Week 4 — Domain modeling
 
@@ -92,7 +96,7 @@ Durations below are instructor planning notes. Each full lecture in Weeks 3–13
 
 **Observable outcomes:** distinguish state from an event and its guard; construct a lifecycle with success and exceptional paths; explain an invalid transition using a trace.
 
-**Sequence, 100 minutes:** order event cards unaided 10; states, guards, effects, and history 20; lifecycle demo 25; exceptional-path workshop 25; fresh review of reachability 15; exit trace 5.
+**Sequence, 100 minutes:** order the events shown on a slide, on blank paper, unaided 10; states, guards, effects, and history 20; lifecycle demo 25; exceptional-path workshop 25; fresh review of reachability 15; exit trace 5.
 
 **Proposed demo:** editorial submission with draft, submitted, under-review, accepted, rejected, and withdrawn states. Supply the allowed events and withdrawal boundary explicitly; exclude resubmission and publication scheduling. Students decide which supplied events change state before AI proposes a transition table. Check withdrawal from each permitted state, an attempted decision after withdrawal, and reachability of acceptance from a fresh draft.
 

@@ -1,0 +1,104 @@
+# Prezentare AMSS cu reveal.js
+
+Același material poate fi prezentat în două moduri:
+
+- **Un calculator, două ecrane:** prezentarea pe proiector; fereastra profesorului, cu note și cronometru, pe ecranul calculatorului. Funcționează fără internet după instalare și generare.
+- **Două calculatoare:** fiecare deschide serviciul online în browser. Calculatorul proiectorului urmărește comenzile profesorului prin internet; nu este necesară comunicarea directă în rețeaua sălii.
+
+Sursele sunt aceleași Markdown din `curs/` și `lab/`, inclusiv `::: notes` și `{.transition}`. Sunt generate numai prezentările din `RELEASED`; Laboratorul 0 rămâne document. HTML-urile publicate pentru consultare și PDF-urile Beamer își păstrează fluxul de generare. Nu editați fișierele din `dist/`.
+
+## Instalare și generare
+
+Sunt necesare Node.js 22 sau ulterior și instrumentele Pandoc/Mermaid descrise în [BUILD.md](../BUILD.md). Generarea se face pe calculatorul autorului; serverul Ubuntu nu are nevoie de Pandoc, TeX sau Mermaid.
+
+Din `amss-2026/presentation`:
+
+```powershell
+npm.cmd ci
+npm.cmd run build
+npm.cmd start
+```
+
+Pe Linux folosiți `npm` în loc de `npm.cmd`. Deschideți <http://127.0.0.1:3000>. Opriți serviciul cu `Ctrl+C`. După modificarea materialelor, executați din nou `npm.cmd run build`. Dacă se schimbă lista `RELEASED`, reporniți și serviciul.
+
+## Un calculator și un proiector
+
+1. Alegeți prezentarea și apăsați **Deschide prezentarea**.
+2. Apăsați **S** și permiteți fereastra suplimentară dacă browserul o blochează.
+3. Folosiți modul **Extindere** al ecranelor (în Windows: `Win+P`).
+4. Mutați fereastra slide-urilor pe proiector și activați ecranul complet; păstrați notele pe calculator.
+5. Navigați din fereastra profesorului. Aceasta arată slide-ul curent, următorul slide și cronometrul. Reperele de timp sunt în notele tranzițiilor.
+
+Toate resursele prezentării sunt locale. Nu deschideți HTML-ul prin `file://`: fereastra profesorului necesită serverul HTTP. Acest mod nu creează o sesiune de sincronizare și nu cere parolă.
+
+## Două calculatoare prin internet
+
+1. Deschideți adresa HTTPS a serviciului, alegeți prezentarea și introduceți parola profesorului.
+2. Apăsați **Pornește sesiunea sincronizată**.
+3. Copiați linkul de proiecție pe calculatorul legat la proiector și afișați-l pe tot ecranul.
+4. Pe calculatorul dumneavoastră, urmați linkul **Deschide prezentarea de control**, apoi apăsați **S** pentru note. Păstrați deschisă și prezentarea de control.
+
+Proiecția urmărește slide-ul, aparițiile progresive și ecranul de pauză. Comenzile de navigare sunt dezactivate în proiecție. Notele nu sunt incluse în răspunsul HTML pentru linkul de proiecție. Materialele sursă și prezentările obișnuite nu sunt tratate ca documente confidențiale.
+
+O proiecție conectată mai târziu sau reîncărcată primește starea curentă. La pierderea conexiunii rămâne ultimul slide și apare un mesaj; după reconectare se recuperează starea. Controlul local continuă chiar dacă internetul se întrerupe. Sesiunile expiră după opt ore; repornirea serviciului le șterge și necesită o sesiune nouă. Linkul de control funcționează în fila în care a fost creat, deoarece cheia este păstrată în `sessionStorage`, nu în URL.
+
+Pentru un test pe același calculator puteți folosi parola temporară afișată de `npm start` și un al doilea browser pentru proiecție.
+
+## Găzduire pe Ubuntu
+
+Destinația aleasă este **https://cs.unibuc.ro/~tserbanuta/amss/**, cu acces SSH ca `tserbanuta@cs.unibuc.ro`. Aplicația funcționează atât la rădăcina unui domeniu, cât și sub un prefix configurat prin `BASE_PATH`, inclusiv pentru conexiunile Socket.IO. Proxy-ul trebuie să păstreze prefixul în cererile către Node.
+
+### Instalarea pe cs.unibuc.ro
+
+Serviciul este instalat în `~/.local/share/amss-presentation/app` și rulează ca serviciu systemd al utilizatorului, pe `127.0.0.1:3107`, cu `BASE_PATH=/~tserbanuta/amss`. Are o copie proprie Node.js 24 în `~/.local/share/amss-presentation/runtime/node`; Node-ul sistemului nu a fost modificat. Parola generată este în `~/.config/amss-presentation/environment`, cu permisiuni `600`.
+
+**Stare la 6 octombrie 2026:** serviciul și interfața au fost verificate prin tunel SSH, inclusiv sincronizarea în browsere separate, notele și recuperarea poziției după reîncărcare. Configurația proxy a trecut verificarea de sintaxă cu Apache 2.4.58. Ruta publică și pornirea persistentă după închiderea sesiunii SSH așteaptă pasul administrativ de mai jos; nu sunt încă activate.
+
+Dintr-un terminal interactiv:
+
+```powershell
+ssh -t tserbanuta@cs.unibuc.ro "sudo bash ~/.local/share/amss-presentation/app/deploy/enable-cs-apache.sh"
+```
+
+Introduceți parola sudo în terminal. [Scriptul](deploy/enable-cs-apache.sh) activează `proxy` și `proxy_http`, instalează [ruta AMSS](deploy/cs-apache.conf) numai în VirtualHost-ul HTTPS existent pentru `cs.unibuc.ro`, verifică sintaxa înainte de reîncărcare și activează `linger` pentru serviciul utilizatorului. Salvează configurația VirtualHost înainte de modificare. Nu este nevoie de un subdomeniu nou sau de un certificat nou.
+
+După activare, verificați adresa publică, inclusiv `/~tserbanuta/amss/health`, și sincronizarea între două browsere. Pentru a afla parola profesorului, conectați-vă prin SSH și consultați fișierul `~/.config/amss-presentation/environment`; aceasta este diferită de parola sudo.
+
+Pentru actualizare, generați din nou `dist/`, împachetați `dist`, `server.mjs`, `package.json`, `package-lock.json` și `deploy` în `amss-presentation-deploy.tar.gz`, apoi copiați arhiva în directorul personal de pe server. Rulați [install-cs-user.sh](deploy/install-cs-user.sh) din pachet. Scriptul păstrează parola existentă și repornește serviciul; sesiunile de prezentare trebuie recreate după repornire.
+
+### Instalare generică pe alt server Ubuntu
+
+Pachetul de instalare conține `dist/`, `server.mjs`, `package.json` și `package-lock.json`. După `npm run build`, acestea pot fi copiate în `/opt/amss-presentation`. Păstrați această cale separată de site-urile existente.
+
+Pe server:
+
+1. Asigurați Node.js 22+ și rulați `npm ci --omit=dev` în directorul aplicației.
+2. Folosiți un utilizator de sistem dedicat `amss-presentation`, cu drepturi de citire și execuție asupra aplicației.
+3. Creați `/etc/amss-presentation.env`, citibil numai de administrator, cu:
+
+   ```ini
+   HOST=127.0.0.1
+   PORT=3000
+   BASE_PATH=
+   PRESENTATION_PASSWORD=<o-parola-lunga-generata-pentru-profesor>
+   ```
+
+4. Instalați [unitatea systemd](deploy/amss-presentation.service), adaptați calea Node dacă este necesar și porniți serviciul.
+5. Integrați un virtual host bazat pe [exemplul Nginx](deploy/nginx.conf.example), cu un nume DNS real și certificatul TLS administrat pe server. Proxy-ul trebuie să transmită și conexiunile WebSocket, inclusiv `/socket.io/`. Verificați configurația înainte de reîncărcare.
+6. Verificați `/health`, creați o sesiune și testați proiecția de pe altă conexiune la internet.
+
+Nu expuneți direct portul 3000 când serviciul este în spatele proxy-ului. Fișierele de configurare sunt exemple de instalare, nu modifică automat serverul existent. Parola nu se adaugă în Git sau în paginile publice.
+
+Există și un [Dockerfile](Dockerfile), care împachetează rezultatul deja generat. Acesta folosește `HOST=0.0.0.0` în container și cere `PRESENTATION_PASSWORD` la pornire. Publicați portul containerului numai pe interfața locală a gazdei când folosiți un proxy HTTPS.
+
+## Implementare și verificări
+
+reveal.js oferă afișarea slide-urilor și fereastra profesorului. Sincronizarea folosește un serviciu Socket.IO propriu, cu aceeași arhitectură de control/proiecție ca Multiplex, plus stare reținută pentru conectări târzii și verificarea dreptului de control pe server. Nu depinde de serverul demonstrativ Multiplex.
+
+```powershell
+npm.cmd test
+```
+
+Testele verifică autentificarea, separarea sesiunilor, asocierea cu prezentarea, interzicerea comenzilor trimise de proiecție, fragmentele, pauza, conectarea târzie, reconectarea și eliminarea notelor din HTML-ul proiecției. După schimbări de aspect, verificați fiecare slide și fereastra profesorului în browser, inclusiv o prezentare cu Mermaid și coloane.
+
+Dependențele sunt fixate în `package-lock.json`; reveal.js și Socket.IO folosesc licența MIT. Licența reveal.js este copiată în pachetul generat. Documentație: [Speaker View](https://revealjs.com/speaker-view/), [API reveal.js](https://revealjs.com/api/), [Multiplex](https://github.com/reveal/multiplex).

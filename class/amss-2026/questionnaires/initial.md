@@ -148,7 +148,7 @@ Selectează cel mult trei priorități.
 - Cerințe și clarificarea problemei
 - Modelarea domeniului
 - Responsabilități și arhitectură
-- Contracte și invariante
+- Contracte și invarianți
 - Stări și interacțiuni
 - Validarea modelelor
 - Proiectarea pentru schimbare

@@ -1,0 +1,16 @@
+# Use a dedicated DNS name and add TLS with the server's existing certificate
+# workflow. Replace slides.example.org; do not replace the site's other vhosts.
+server {
+    listen 80;
+    server_name slides.example.org;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_read_timeout 90s;
+    }
+}

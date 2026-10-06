@@ -37,7 +37,7 @@ Elaborați o **specificație și o soluție de proiectare substanțiale înainte
 
 1. **Ce problemă rezolvăm?** Identificați beneficiarii, obiectivele, limitele sistemului, cerințele, ipotezele și întrebările deschise. Separați regulile confirmate de propunerile echipei sau ale AI.
 2. **Cum înțelegem domeniul?** Definiți conceptele, identitatea, relațiile și regulile care contează. Modelul domeniului poate preceda orice alegere de clase, funcții sau structuri de date.
-3. **Ce soluție de proiectare propunem?** Atribuiți responsabilități, descrieți contracte, invariante și comportamente, apoi justificați limitele și dependențele dintre părți.
+3. **Ce soluție de proiectare propunem?** Atribuiți responsabilități, descrieți contracte, invarianți și comportamente, apoi justificați limitele și dependențele dintre părți.
 4. **Ce verificări susțin proiectarea?** Parcurgeți scenarii normale și excepționale, verificați proprietăți și comparați soluția cu o alternativă plauzibilă. Analizați efectul unei schimbări de cerință.
 5. **Ce revizuim înainte de predare?** Cereți o revizuire într-un context separat, verificați constatările și actualizați specificația, proiectarea și sinteza în consecință.
 
@@ -56,7 +56,7 @@ Păstrați dosarul în **repository-ul public de pe GitHub sau GitLab anunțat p
 |-----------------|-----:|--------------------------------------------|
 | **Formularea problemei și cerințe** | 1 | Beneficiari, obiective și limite clare; cerințe verificabile; ipoteze și întrebări deschise explicite; exemple de acceptare și efectul schimbării unei cerințe. |
 | **Modelarea domeniului** | 1 | Concepte, identități, relații și reguli coerente cu problema; exemple care verifică distincțiile importante; justificarea alegerilor față de alternative. |
-| **Contracte și invariante** | 1 | Obligații și garanții ale operațiilor importante; reguli care trebuie să rămână adevărate; verificări și contraexemple legate de cerințe. |
+| **Contracte și invarianți** | 1 | Obligații și garanții ale operațiilor importante; reguli care trebuie să rămână adevărate; verificări și contraexemple legate de cerințe. |
 | **Stare și comportament** | 1 | Comportamente și tranziții permise, condiții și efecte; scenarii normale și excepționale care verifică modelul; concordanță cu regulile domeniului. |
 | **Responsabilități, coeziune și cuplare** | 1 | Cine răspunde de fiecare decizie sau comportament important; justificarea grupării responsabilităților, a dependențelor și a interfețelor, prin alternative și prin consecințele unei schimbări. |
 | **Total dosar de proiectare** | **5** | Dosarul se evaluează o singură dată pentru echipă. |
@@ -79,7 +79,7 @@ Fragmentele de conversație pot susține explicația. O transcriere integrală n
 
 **Echipa poate cere oricând feedback profesorului în timpul semestrului**, prin canalul Teams al cursului sau în cadrul întâlnirilor. Includeți linkul către materialul în cauză din repository și întrebarea pe care doriți să o clarificați. Feedbackul vă ajută să îmbunătățiți dosarul; nu există o evaluare intermediară programată sau un punctaj separat pentru această activitate.
 
-Doar **ultimele două laboratoare** sunt dedicate efectiv proiectului. Laboratoarele 1–5 tratează, prin exerciții pe probleme distincte, teme importante ale cursului: înțelegere, specificare și revizuire (cursurile 1–2); cerințe și modelarea domeniului (3–4); responsabilități, contracte și invariante (5–6); stări, comportament și interacțiuni (7–8); validare și abstractizare (9–10). Fiecare laborator are loc după predarea celor două cursuri asociate.
+Doar **ultimele două laboratoare** sunt dedicate efectiv proiectului. Laboratoarele 1–5 tratează, prin exerciții pe probleme distincte, teme importante ale cursului: înțelegere, specificare și revizuire (cursurile 1–2); cerințe și modelarea domeniului (3–4); responsabilități, contracte și invarianți (5–6); stări, comportament și interacțiuni (7–8); validare și abstractizare (9–10). Fiecare laborator are loc după predarea celor două cursuri asociate.
 
 **Laboratorul 6 este un laborator deschis:** finalizarea proiectului, întrebări adresate profesorului și discuții între echipe. Folosiți timpul pentru întrebările și revizuirile de care mai are nevoie proiectul vostru; puteți aduce și întrebări generale de proiectare. Laboratorul 6 are loc după cursurile 11–12, iar laboratorul 7, după cursurile 13–14. Nu există o prezentare obligatorie sau o repetiție de susținere.
 
@@ -93,7 +93,7 @@ Profesorul stabilește punctajul final de echipă pe **cele cinci criterii ale d
 
 ## Examen grilă individual&nbsp;— 3&nbsp;puncte
 
-Examenul verifică, individual și fără AI, cum aplicați principiile de analiză și proiectare în **scenarii scurte**. Întrebările urmăresc interpretarea cerințelor, modelarea domeniului, responsabilitățile și dependențele, contractele și invariantele, starea și comportamentul, precum și rezultatele validării.
+Examenul verifică, individual și fără AI, cum aplicați principiile de analiză și proiectare în **scenarii scurte**. Întrebările urmăresc interpretarea cerințelor, modelarea domeniului, responsabilitățile și dependențele, contractele și invarianții, starea și comportamentul, precum și rezultatele validării.
 
 Pregătiți-vă să identificați o ipoteză nejustificată, să comparați variante de proiectare, să interpretați un contraexemplu sau să urmăriți efectele unei schimbări. Se evaluează raționamentul aplicat situației descrise; nu există întrebări care cer memorarea detaliilor unei notații. Formatul detaliat și condițiile de organizare vor fi anunțate separat.
 

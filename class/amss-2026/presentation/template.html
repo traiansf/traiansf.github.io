@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>$pagetitle$</title>
+  <link rel="stylesheet" href="../vendor/reveal/reveal.css" data-external="1">
+  <link rel="stylesheet" href="../theme.css" data-external="1">
+  <style>$styles.html()$</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+<section class="titlepage" data-background-color="#0a2145">
+  <img class="logo" src="$logo-path$" alt="AMSS">
+  <div class="cover-text">
+    <p class="session">$session$</p>
+    <h1>$headline$</h1>
+    <p class="course">$course-name$</p>
+    <p class="author">$for(author)$$author$$sep$, $endfor$</p>
+  </div>
+</section>
+$body$
+</div></div>
+<div id="connection-status" role="status" hidden></div>
+<script src="../vendor/reveal/reveal.js" data-external="1"></script>
+<script src="../vendor/reveal/plugin/notes.js" data-external="1"></script>
+<script src="../socket.io/socket.io.js" data-external="1"></script>
+<script src="../presentation.js" data-external="1"></script>
+</body>
+</html>

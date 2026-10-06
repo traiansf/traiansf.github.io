@@ -16,14 +16,14 @@ lang: ro-RO
 Traian-Florin Șerbănuță\
 <traian.serbanuta@unibuc.ro>
 
-Echipa cursului pe Microsoft Teams: scanați codul QR sau apăsați pe el.
+Echipa cursului pe Microsoft Teams: codul QR și linkul sunt disponibile și după curs, în prezentarea publicată.
 
 **Codul echipei: `fswo4rl`**
 :::
 ::::::
 
 ::: notes
-Urați bun venit studenților de la master. Porniți de la premisa că au experiență de programare în mai multe paradigme, dar introduceți de la zero vocabularul proiectării. Lăsați-le un moment să intre pe Teams.
+Urați bun venit studenților de la master. Porniți de la premisa că au experiență de programare în mai multe paradigme, dar introduceți de la zero vocabularul proiectării. Studenții pot intra pe Teams după curs; nu presupuneți acces la un dispozitiv în sală.
 
 Ritm orientativ: 70–80 de minute. Bun venit și obiective 10; organizare și evaluare 20; proiect și unelte 20; motivație și discuție 20; pregătirea întâlnirii următoare 10. Acest curs este administrativ și motivațional. Exemplul tehnic cu biblioteca și demonstrația AI rămân pentru cursul 2.
 :::
@@ -53,7 +53,7 @@ Legătura cu tema: Motivația cursului: reducerea complexității prin înțeleg
 
 La finalul cursului, ar trebui să puteți:
 
-- analiza o problemă (mică) necunoscută;
+- analiza o problemă necunoscută, de dimensiuni reduse;
 - propune o soluție de proiectare și explica alternativele;
 - urmări consecințele schimbării unei cerințe;
 - îndruma lucrul cu AI și evalua justificările pe care le oferă.
@@ -102,7 +102,7 @@ Primul laborator folosește o problemă de programare a mașinilor de spălat di
 Feedback pentru proiect la cerere, pe parcursul semestrului. Punctajul pentru dosar se definitivează printr-un interviu de echipă la ultimul laborator.
 
 ::: notes
-Cele cinci puncte ale dosarului acoperă formularea problemei și cerințele, modelarea domeniului, atribuirea responsabilităților, contractele și invariantele, respectiv starea și comportamentul. Rezultatele validării, alternativele analizate și argumentarea efectelor unei schimbări susțin aceste criterii. Detaliile sunt pe pagina proiectului.
+Cele cinci puncte ale dosarului acoperă formularea problemei și cerințele, modelarea domeniului, atribuirea responsabilităților, contractele și invarianții, respectiv starea și comportamentul. Rezultatele validării, alternativele analizate și argumentarea efectelor unei schimbări susțin aceste criterii. Detaliile sunt pe pagina proiectului.
 
 Examenul grilă folosește scenarii, cerințe, contracte și modele mici date în enunț. Evaluează raționamentul, nu memorarea notațiilor pentru diagrame. Restanța și mărirea urmează o cale separată: nouă puncte la examen și un punct din oficiu, fără reportarea punctajelor pentru dosar sau prezență.
 
@@ -181,11 +181,11 @@ Dosarul echipei se evaluează o singură dată. Un examen grilă individual, baz
 
 # Instrumente și organizarea lucrului
 
-- Alegeți un asistent și un model AI la care aveți acces.
+- Alegeți un asistent AI și un model AI la care aveți acces.
 - Creați un repository public pe GitHub sau GitLab când anunțați proiectul pe Teams; consemnați acolo progresul și contribuțiile membrilor, pe tot parcursul semestrului.
-- Definiți explicit rolurile de analist/proiectant și evaluator (agent de revizuire).
+- Definiți explicit rolurile de analist/proiectant și evaluator (agent AI de revizuire).
 - Porniți revizuirea într-un context separat, cu sursele necesare.
-- Pregătiți-vă să explicați soluția fără asistent.
+- Pregătiți-vă să explicați soluția fără asistent AI.
 
 ::: notes
 Folosiți tooling/SETUP.md și tooling/README.md. Nu impunem un abonament plătit, un furnizor, un editor, un model sau un nivel de efort anume. Contextele separate pot fi folosite succesiv.
@@ -198,7 +198,7 @@ Dacă o unealtă nu este disponibilă, la curs se poate exersa pe exemple pregă
 # Înainte de laboratorul 1
 
 - Citiți [ghidul de pregătire a mediului de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/SETUP.md) și [ghidul despre roluri, predarea sarcinilor și revizuire](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/tooling/README.md).
-- Pregătiți accesul la asistentul ales și la fișierele comune.
+- Pregătiți accesul la asistentul AI ales și la fișierele comune.
 - Veți lucra în perechi, alternând rolurile.
 - Veți analiza singuri un enunț scurt înainte de a folosi AI.
 
@@ -235,7 +235,7 @@ Vrem să puteți explica de ce o soluție este potrivită și ce constatare v-ar
 **Discuție:** când ați acceptat un rezultat care părea corect? Cum ați putea să îl verificați mai bine?
 
 ::: notes
-Încurajați studenții să povestească situații concrete, fără a le cere acces la conturi sau conversații private. Alegeți și un exemplu în care asistentul a ajutat. Scopul este să-i motivați să judece singuri și să învețe principiile, nu să demonstrați o greșeală previzibilă a modelului.
+Încurajați studenții să povestească situații concrete, fără a le cere acces la conturi sau conversații private. Alegeți și un exemplu în care asistentul AI a ajutat. Scopul este să-i motivați să judece singuri și să învețe principiile, nu să demonstrați o greșeală previzibilă a modelului.
 :::
 
 ---
@@ -252,11 +252,11 @@ Vrem să puteți explica de ce o soluție este potrivită și ce constatare v-ar
 
 # Pentru întâlnirea următoare
 
-Pregătiți accesul la Teams, la materialele cursului și la asistentul ales.
+Pregătiți accesul la Teams, la materialele cursului și la asistentul AI ales.
 
 Gândiți-vă la o situație în care o întrebare pusă mai devreme ar fi schimbat soluția propusă.
 
-**Cursul 2:** o bibliotecă ne cere un terminal pentru împrumutul și returnarea cărților. Vom analiza cererea, vom compara interpretări ale ei și vom verifica o soluție propusă de un asistent AI.
+**Cursul 2:** o bibliotecă ne cere un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Vom analiza cererea, vom compara interpretări ale ei și vom verifica o soluție propusă de un asistent AI.
 
 ---
 
@@ -269,7 +269,7 @@ Gândiți-vă la o situație în care o întrebare pusă mai devreme ar fi schim
 ::: {.column width="66%"}
 **[Completați chestionarul de început de curs](https://forms.gle/uHCXyFvxqQxsWWmH9)**
 
-Scanați codul QR sau deschideți linkul: [forms.gle/uHCXyFvxqQxsWWmH9](https://forms.gle/uHCXyFvxqQxsWWmH9).
+După curs, când aveți acces la un dispozitiv, folosiți codul QR sau linkul: [forms.gle/uHCXyFvxqQxsWWmH9](https://forms.gle/uHCXyFvxqQxsWWmH9).
 
 Ce experiență aveți? Ce știți deja și ce ați vrea să aprofundați?
 
@@ -278,5 +278,5 @@ Completarea este facultativă și durează aproximativ 10–12&nbsp;minute. Vom 
 ::::::
 
 ::: notes
-Invitația se adresează tuturor grupelor. La finalul semestrului vom reveni cu un chestionar despre învățare și îmbunătățiri.
+Invitația se adresează tuturor grupelor. Nu alocați timp de completare care presupune un dispozitiv la curs; chestionarul poate fi completat ulterior din prezentarea publicată. La finalul semestrului vom reveni cu un chestionar despre învățare și îmbunătățiri.
 :::
