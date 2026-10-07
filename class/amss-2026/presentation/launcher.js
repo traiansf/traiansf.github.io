@@ -6,7 +6,11 @@
   try {
     const response = await fetch('decks.json');
     if (!response.ok) throw new Error('Nu se poate încărca lista prezentărilor.');
-    for (const deck of await response.json()) select.add(new Option(deck.title, deck.file));
+    const decks = await response.json();
+    for (const deck of decks) select.add(new Option(deck.title, deck.file));
+    // Preselect the latest released lecture (highest curs-NN), not a lab.
+    const lectures = decks.map(d => d.file).filter(f => /^curs-\d+/.test(f));
+    if (lectures.length) select.value = lectures.reduce((a, b) => parseInt(b.slice(5)) > parseInt(a.slice(5)) ? b : a);
   } catch (error) { message.textContent = error.message; }
   document.getElementById('local').onclick = () => window.open('decks/' + select.value, '_blank');
   newSession.onclick = () => {

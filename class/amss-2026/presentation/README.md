@@ -23,7 +23,7 @@ Pe Linux folosiți `npm` în loc de `npm.cmd`. Deschideți <http://127.0.0.1:300
 
 ## Un calculator și un proiector
 
-1. Alegeți prezentarea și apăsați **Deschide prezentarea**.
+1. Alegeți prezentarea (implicit este selectat cel mai recent curs publicat) și apăsați **Deschide prezentarea**.
 2. Apăsați **S** și permiteți fereastra suplimentară dacă browserul o blochează.
 3. Folosiți modul **Extindere** al ecranelor (în Windows: `Win+P`).
 4. Mutați fereastra slide-urilor pe proiector și activați ecranul complet; păstrați notele pe calculator.
