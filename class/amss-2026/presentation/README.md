@@ -52,7 +52,7 @@ Destinația aleasă este **https://cs.unibuc.ro/~tserbanuta/amss/**, cu acces SS
 
 Serviciul este instalat în `~/.local/share/amss-presentation/app` și rulează ca serviciu systemd al utilizatorului, pe `127.0.0.1:3107`, cu `BASE_PATH=/~tserbanuta/amss`. Are o copie proprie Node.js 24 în `~/.local/share/amss-presentation/runtime/node`; Node-ul sistemului nu a fost modificat. Parola generată este în `~/.config/amss-presentation/environment`, cu permisiuni `600`.
 
-**Stare la 6 octombrie 2026:** serviciul și interfața au fost verificate prin tunel SSH, inclusiv sincronizarea în browsere separate, notele și recuperarea poziției după reîncărcare. Configurația proxy a trecut verificarea de sintaxă cu Apache 2.4.58. Ruta publică și pornirea persistentă după închiderea sesiunii SSH așteaptă pasul administrativ de mai jos; nu sunt încă activate.
+**Stare la 7 octombrie 2026:** serviciul public răspunde prin HTTPS, iar `linger` este activat. Sincronizarea, notele și reconectarea au fost verificate prin tunel SSH la instalare. Pasul administrativ de mai jos este deja efectuat pe acest server; rămâne documentat pentru reinstalare.
 
 Dintr-un terminal interactiv:
 
@@ -64,7 +64,19 @@ Introduceți parola sudo în terminal. [Scriptul](deploy/enable-cs-apache.sh) ac
 
 După activare, verificați adresa publică, inclusiv `/~tserbanuta/amss/health`, și sincronizarea între două browsere. Pentru a afla parola profesorului, conectați-vă prin SSH și consultați fișierul `~/.config/amss-presentation/environment`; aceasta este diferită de parola sudo.
 
-Pentru actualizare, generați din nou `dist/`, împachetați `dist`, `server.mjs`, `package.json`, `package-lock.json` și `deploy` în `amss-presentation-deploy.tar.gz`, apoi copiați arhiva în directorul personal de pe server. Rulați [install-cs-user.sh](deploy/install-cs-user.sh) din pachet. Scriptul păstrează parola existentă și repornește serviciul; sesiunile de prezentare trebuie recreate după repornire.
+### Actualizare automată la push
+
+HTML-urile de pe GitHub Pages folosesc tema statică a cursului. Cele pentru prezentarea sincronizată sunt generate separat pentru Reveal.js, din aceleași surse Markdown și aceeași listă `RELEASED`.
+
+Workflow-ul [AMSS presentation on cs.unibuc.ro](../../../.github/workflows/amss-presentation.yml) rulează la fiecare push pe `main` și poate fi pornit manual din GitHub Actions. Instalează instrumentele de generare, construiește prezentările Reveal.js, execută testele de sincronizare și transferă pachetul prin SSH. Nu trebuie să generați sau să copiați manual `dist/` după push. Un build sau test eșuat oprește transferul.
+
+Serverul servește copia din `~/.local/share/amss-presentation/app/dist/`; `decks.json` conține lista prezentărilor, iar `revision.txt` identifică commit-ul instalat. Fișierele nu sunt citite de pe GitHub Pages la fiecare acces. Publicarea Pages și actualizarea serviciului sunt două procese independente, urmărite separat în GitHub Actions.
+
+**Actualizarea repornește serviciul și închide sesiunile de prezentare active.** După finalizarea jobului creați o sesiune nouă. Parola profesorului și configurația Apache sunt păstrate. Joburile de actualizare rulează pe rând.
+
+Accesul CI folosește secretul GitHub Actions `AMSS_DEPLOY_KEY`, cu o cheie SSH dedicată. În `authorized_keys`, cheia este restricționată la [receive-ci.sh](deploy/receive-ci.sh), instalat separat în `~/.local/share/amss-presentation/receive-ci.sh`; nu permite shell interactiv sau port forwarding. Cheia publică a serverului, verificată prin conexiunea SSH existentă, este fixată în [cs-known-hosts](deploy/cs-known-hosts). Cheia privată și parola profesorului nu se includ în repository. Dacă se reinstalează serverul sau se rotește cheia de acces, actualizați această configurare înainte de următorul deploy.
+
+Pentru actualizare manuală de rezervă, generați din nou `dist/`, împachetați `dist`, `server.mjs`, `package.json`, `package-lock.json` și `deploy` în `amss-presentation-deploy.tar.gz`, apoi copiați arhiva în directorul personal de pe server. Rulați [install-cs-user.sh](deploy/install-cs-user.sh) din pachet.
 
 ### Instalare generică pe alt server Ubuntu
 

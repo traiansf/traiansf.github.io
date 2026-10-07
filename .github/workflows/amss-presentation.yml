@@ -1,0 +1,66 @@
+name: AMSS presentation on cs.unibuc.ro
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: amss-presentation-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: class/amss-2026/presentation
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: class/amss-2026/presentation/package-lock.json
+      - name: Install build tools
+        run: |
+          curl -fsSL --retry 3 https://github.com/jgm/pandoc/releases/download/3.6.4/pandoc-3.6.4-1-amd64.deb -o "$RUNNER_TEMP/pandoc.deb"
+          sudo dpkg -i "$RUNNER_TEMP/pandoc.deb"
+          sudo apt-get update -qq
+          sudo apt-get install -y graphviz plantuml fonts-noto-core
+          npm install --prefix "$RUNNER_TEMP/mermaid" @mermaid-js/mermaid-cli@12.0.0
+          printf '%s\n' '{"args":["--no-sandbox"]}' > "$RUNNER_TEMP/puppeteer.json"
+          cat > "$RUNNER_TEMP/mmdc-ci" <<'SH'
+          #!/usr/bin/env bash
+          exec "$RUNNER_TEMP/mermaid/node_modules/.bin/mmdc" -p "$RUNNER_TEMP/puppeteer.json" "$@"
+          SH
+          chmod +x "$RUNNER_TEMP/mmdc-ci"
+          echo "MERMAID_BIN=$RUNNER_TEMP/mmdc-ci" >> "$GITHUB_ENV"
+      - name: Build and test released presentations
+        run: |
+          npm ci
+          npm run build
+          npm test
+          printf '%s\n' "$GITHUB_SHA" > dist/revision.txt
+          tar -czf "$RUNNER_TEMP/amss-presentation.tar.gz" dist server.mjs package.json package-lock.json deploy
+      - name: Deploy and check service
+        env:
+          AMSS_DEPLOY_KEY: ${{ secrets.AMSS_DEPLOY_KEY }}
+        run: |
+          test -n "$AMSS_DEPLOY_KEY"
+          umask 077
+          key="$RUNNER_TEMP/amss-deploy-key"
+          trap 'rm -f "$key"' EXIT
+          printf '%s\n' "$AMSS_DEPLOY_KEY" > "$key"
+          ssh -T -i "$key" -o IdentitiesOnly=yes -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile=deploy/cs-known-hosts \
+            -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
+            tserbanuta@cs.unibuc.ro < "$RUNNER_TEMP/amss-presentation.tar.gz"
