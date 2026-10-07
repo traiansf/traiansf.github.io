@@ -22,9 +22,10 @@
     "working_directory": "separate empty temporary directory per role"
   },
   "sha256": {
-    "evaluator-01-prompt.md": "7a9f3ba1b5ca66f114b00a966a476fcdb8d50f76bf12e8847050d43769c2329e",
+    "evaluator-01-prompt.md": "b127d5b3c484fe28704d8588f9efa39ed4199b8cf9e068dfeb8e653b1b609e17",
     "evaluator-01-response.md": "0df6898301479532649379c3f95835c7138ba690a6ad87b0c810937ad7ada3b2",
-    "proiectant-01-prompt.md": "5f3af3f7425fb5f1e9ec5cfdb3db064dc72ddbe203d3835a1b036d5d9a70c619",
+    "proiectant-01-prompt.md": "7a93709f52e58c1504043510f79bfd6066fcb13edc116ce33fe6b286f2ac1721",
     "proiectant-01-response.md": "c87e69ca433f95e61e109715e5cc491a29566d047353b5711f7090516b7ffe06"
-  }
+  },
+  "sha256_encoding": "UTF-8, LF line endings"
 }
