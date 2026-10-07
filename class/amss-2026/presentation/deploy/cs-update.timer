@@ -1,0 +1,11 @@
+[Unit]
+Description=Check for AMSS presentation updates every minute
+
+[Timer]
+OnBootSec=1min
+OnUnitInactiveSec=1min
+AccuracySec=5s
+Unit=amss-update.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Download and install the latest AMSS presentation build
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash %h/.local/share/amss-presentation/pull-release.sh
+TimeoutStartSec=10min
+NoNewPrivileges=true
+UMask=0077

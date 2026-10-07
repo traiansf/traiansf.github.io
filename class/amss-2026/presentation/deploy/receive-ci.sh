@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Forced command for the dedicated CI SSH key; receives a prebuilt tar.gz on stdin.
+# Install a CI-built tar.gz received on stdin (also used by pull-release.sh).
 set -euo pipefail
 umask 077
 app_root="$HOME/.local/share/amss-presentation"
@@ -26,7 +26,7 @@ with tarfile.open(sys.argv[1], 'r:gz') as archive:
         raise SystemExit('Incomplete deployment archive')
 PY
 mv "$bundle" "$HOME/amss-presentation-deploy.tar.gz"
-# Use the installer already installed by the instructor, not a command from SSH.
+# Use the installer already installed by the instructor.
 bash "$app_root/app/deploy/install-cs-user.sh"
 printf 'Deployed revision: '
 cat "$app_root/app/dist/revision.txt"

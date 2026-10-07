@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: amss-presentation-production
@@ -51,16 +51,17 @@ jobs:
           npm test
           printf '%s\n' "$GITHUB_SHA" > dist/revision.txt
           tar -czf "$RUNNER_TEMP/amss-presentation.tar.gz" dist server.mjs package.json package-lock.json deploy
-      - name: Deploy and check service
+      - name: Publish server update
         env:
-          AMSS_DEPLOY_KEY: ${{ secrets.AMSS_DEPLOY_KEY }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          test -n "$AMSS_DEPLOY_KEY"
-          umask 077
-          key="$RUNNER_TEMP/amss-deploy-key"
-          trap 'rm -f "$key"' EXIT
-          printf '%s\n' "$AMSS_DEPLOY_KEY" > "$key"
-          ssh -T -i "$key" -o IdentitiesOnly=yes -o BatchMode=yes \
-            -o StrictHostKeyChecking=yes -o UserKnownHostsFile=deploy/cs-known-hosts \
-            -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
-            tserbanuta@cs.unibuc.ro < "$RUNNER_TEMP/amss-presentation.tar.gz"
+          if ! gh release view amss-live --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            gh release create amss-live --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+              --title 'Prezentări AMSS pentru serviciul online' --prerelease \
+              --notes 'Pachet Reveal.js generat automat din main. Serverul cs.unibuc.ro verifică actualizările la fiecare minut.'
+          fi
+          digest=$(sha256sum "$RUNNER_TEMP/amss-presentation.tar.gz" | cut -d ' ' -f 1)
+          printf '{"revision":"%s","sha256":"%s"}\n' "$GITHUB_SHA" "$digest" > "$RUNNER_TEMP/latest.json"
+          gh release upload amss-live "$RUNNER_TEMP/amss-presentation.tar.gz" --clobber --repo "$GITHUB_REPOSITORY"
+          # Publish metadata last. A concurrent download with a mismatched digest is retried next minute.
+          gh release upload amss-live "$RUNNER_TEMP/latest.json" --clobber --repo "$GITHUB_REPOSITORY"

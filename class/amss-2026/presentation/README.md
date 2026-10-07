@@ -68,13 +68,23 @@ După activare, verificați adresa publică, inclusiv `/~tserbanuta/amss/health`
 
 HTML-urile de pe GitHub Pages folosesc tema statică a cursului. Cele pentru prezentarea sincronizată sunt generate separat pentru Reveal.js, din aceleași surse Markdown și aceeași listă `RELEASED`.
 
-Workflow-ul [AMSS presentation on cs.unibuc.ro](../../../.github/workflows/amss-presentation.yml) rulează la fiecare push pe `main` și poate fi pornit manual din GitHub Actions. Instalează instrumentele de generare, construiește prezentările Reveal.js, execută testele de sincronizare și transferă pachetul prin SSH. Nu trebuie să generați sau să copiați manual `dist/` după push. Un build sau test eșuat oprește transferul.
+Workflow-ul [AMSS presentation on cs.unibuc.ro](../../../.github/workflows/amss-presentation.yml) rulează la fiecare push pe `main` și poate fi pornit manual din GitHub Actions. Instalează instrumentele de generare, construiește prezentările Reveal.js, execută testele de sincronizare și publică pachetul în release-ul GitHub `amss-live`. Pe server, un timer systemd verifică release-ul la fiecare minut, descarcă pachetul prin HTTPS, verifică SHA-256 și instalează actualizarea. Acest flux nu cere acces SSH din infrastructura GitHub, de unde conexiunea către server este refuzată. Nu trebuie să generați sau să copiați manual `dist/` după push. Un build sau test eșuat oprește publicarea pachetului. Instalarea are loc de regulă în 1–2 minute după terminarea jobului CI; o eroare de descărcare sau de verificare a integrității păstrează versiunea existentă și este reîncercată la următoarea verificare.
 
-Serverul servește copia din `~/.local/share/amss-presentation/app/dist/`; `decks.json` conține lista prezentărilor, iar `revision.txt` identifică commit-ul instalat. Fișierele nu sunt citite de pe GitHub Pages la fiecare acces. Publicarea Pages și actualizarea serviciului sunt două procese independente, urmărite separat în GitHub Actions.
+Serverul servește copia din `~/.local/share/amss-presentation/app/dist/`; `decks.json` conține lista prezentărilor, iar `revision.txt` identifică commit-ul din pachet. `~/.local/share/amss-presentation/installed-revision` înregistrează ultima instalare încheiată cu succes. Fișierele nu sunt citite de pe GitHub Pages la fiecare acces. Publicarea Pages și actualizarea serviciului sunt două procese independente, urmărite separat în GitHub Actions.
 
-**Actualizarea repornește serviciul și închide sesiunile de prezentare active.** După finalizarea jobului creați o sesiune nouă. Parola profesorului și configurația Apache sunt păstrate. Joburile de actualizare rulează pe rând.
+**Actualizarea repornește serviciul și închide sesiunile de prezentare active.** După instalarea noii versiuni creați o sesiune nouă. Parola profesorului și configurația Apache sunt păstrate. Joburile de actualizare rulează pe rând.
 
-Accesul CI folosește secretul GitHub Actions `AMSS_DEPLOY_KEY`, cu o cheie SSH dedicată. În `authorized_keys`, cheia este restricționată la [receive-ci.sh](deploy/receive-ci.sh), instalat separat în `~/.local/share/amss-presentation/receive-ci.sh`; nu permite shell interactiv sau port forwarding. Cheia publică a serverului, verificată prin conexiunea SSH existentă, este fixată în [cs-known-hosts](deploy/cs-known-hosts). Cheia privată și parola profesorului nu se includ în repository. Dacă se reinstalează serverul sau se rotește cheia de acces, actualizați această configurare înainte de următorul deploy.
+Nu sunt necesare secrete SSH în GitHub Actions: CI folosește tokenul temporar al workflow-ului pentru publicarea release-ului, iar serverul descarcă un pachet public. Parola profesorului rămâne numai pe server. [pull-release.sh](deploy/pull-release.sh) verifică revizia și checksum-ul; [receive-ci.sh](deploy/receive-ci.sh) verifică structura arhivei înainte de instalare. Instalatorul configurează automat timerul la reinstalare.
+
+Verificare prin SSH:
+
+```bash
+systemctl --user status amss-update.timer
+journalctl --user -u amss-update.service -n 30 --no-pager
+cat ~/.local/share/amss-presentation/installed-revision
+```
+
+Pentru o verificare imediată: `systemctl --user start amss-update.service`. Pentru a suspenda actualizările pe durata unei prezentări: `systemctl --user stop amss-update.timer`; la final: `systemctl --user start amss-update.timer`. O instalare deja pornită continuă. Nu opriți serviciul de prezentare pentru a suspenda actualizările.
 
 Pentru actualizare manuală de rezervă, generați din nou `dist/`, împachetați `dist`, `server.mjs`, `package.json`, `package-lock.json` și `deploy` în `amss-presentation-deploy.tar.gz`, apoi copiați arhiva în directorul personal de pe server. Rulați [install-cs-user.sh](deploy/install-cs-user.sh) din pachet.
 

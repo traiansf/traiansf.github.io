@@ -27,8 +27,13 @@ p.chmod(0o600)
 PY
 fi
 install -m 600 deploy/cs-user.service "$HOME/.config/systemd/user/amss-presentation.service"
+install -m 700 deploy/pull-release.sh "$app_root/pull-release.sh"
+install -m 700 deploy/receive-ci.sh "$app_root/receive-ci.sh"
+install -m 600 deploy/cs-update.service "$HOME/.config/systemd/user/amss-update.service"
+install -m 600 deploy/cs-update.timer "$HOME/.config/systemd/user/amss-update.timer"
 systemctl --user daemon-reload
 systemctl --user enable amss-presentation.service
+systemctl --user enable --now amss-update.timer
 systemctl --user restart amss-presentation.service
 for attempt in 1 2 3 4 5; do
   if curl -fsS http://127.0.0.1:3107/~tserbanuta/amss/health; then
