@@ -3,7 +3,7 @@
   const room = query.get('room');
   const follower = query.has('follow');
   const receiver = query.has('receiver'); // Speaker-view previews must never open synchronization sockets.
-  const mobileScreen = matchMedia('(max-width: 900px) and (pointer: coarse), (max-width: 600px)');
+  const mobileScreen = matchMedia('(pointer: coarse), (max-width: 600px)');
   const mobileController = () => !follower && !receiver && mobileScreen.matches;
   const status = document.getElementById('connection-status');
   const showStatus = text => { status.textContent = text; status.hidden = !text; };
