@@ -11,8 +11,11 @@ body{max-width:760px;margin:50px auto;padding:0 24px;font:18px/1.5 system-ui;col
 <button id="local">Deschide prezentarea</button></section>
 <section><h2>Două calculatoare, sincronizare prin internet</h2>
 <p>Deschideți această pagină la adresa serviciului online. După pornirea sesiunii, deschideți linkul de control pe calculatorul dumneavoastră și linkul de proiecție pe calculatorul proiectorului.</p>
-<form id="remote"><label for="password">Parola profesorului</label><input id="password" type="password" autocomplete="current-password" required>
-<button>Pornește sesiunea sincronizată</button></form>
+<form id="remote" name="teacher-login" method="post" action="api/sessions" autocomplete="on">
+<input id="username" name="username" type="text" autocomplete="username" value="profesor" hidden>
+<label for="password">Parola profesorului</label><input id="password" name="password" type="password" autocomplete="current-password" required>
+<button type="submit">Pornește sesiunea sincronizată</button></form>
+<button id="new-session" type="button" hidden>Pregătește o altă sesiune</button>
 <div id="links" hidden><a id="presenter">Deschide prezentarea de control; apoi apasă S pentru note</a><a id="audience" target="_blank" rel="noopener">Deschide proiecția</a><label for="audience-url">Link de copiat pe calculatorul proiectorului</label><input id="audience-url" readonly size="65"></div>
 <p id="message" role="status"></p></section>
 <script src="launcher.js"></script></body></html>
