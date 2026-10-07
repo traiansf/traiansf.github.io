@@ -1,0 +1,16 @@
+% Instructor PDF: one complete slide above its notes, including slides with no notes.
+% The paired page is 160 x 180 mm for the standard 16:9 AMSS deck.
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=bottom}
+\pgfpageslogicalpageoptions{1}{resized width=.92\paperwidth,resized height=.92\paperheight}
+\setbeamertemplate{note page}{%
+  \vskip 3mm
+  \fontsize{10}{13}\selectfont
+  \color{amssink}\raggedright
+  {\bfseries\color{amssnavy}Notele profesorului\hfill\insertframenumber\,/\,\inserttotalframenumber\par}%
+  \vskip 2mm
+  {\color{amssline}\hrule height .4pt}%
+  \vskip 3mm
+  \setlength{\parskip}{2mm}%
+  \insertnote
+}

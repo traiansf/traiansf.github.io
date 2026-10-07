@@ -120,4 +120,6 @@ Do not cross-include build files from the old `../amss/` tree. Reuse useful idea
 
 Optional Lab 0 is a 90-minute preparation and orientation guide, available to all groups for self-study. Its HTML and PDF use continuous document layout, unlike the lecture/lab slides. Labs 1–7 follow their two associated courses; announce group dates on Teams instead of fixing even-numbered weeks.
 
+For offline instructor reading, `make notes` (optionally `DECK=curs/02-intelegere`) generates local PDFs under `notes/`, pairing each complete slide with its notes underneath. Keep this separate from online presentation and from student PDFs. These generated reading copies are Git-ignored and are not published. See BUILD.md and `theme/notes.tex`.
+
 Course questionnaires: maintain the initial and final Form Builder import tables in `questionnaires/`. Use baseline results to guide unreleased content and final results to plan the next edition.

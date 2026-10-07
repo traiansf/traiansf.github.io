@@ -77,3 +77,22 @@ $(OUTDIR)/%.html: %.md $(DECK_HTML_DEPS)
 $(OUTDIR)/%.pdf: %.md $(DECK_PDF_DEPS)
 	@mkdir -p $(dir $@)
 	pandoc $(DECK_PDF_OPTIONS) -o $@ $<
+
+# Handout mode collapses incremental reveals; Beamer pairs every frame with
+# its own notes page, including covers and frames without notes.
+ifneq ($(filter $(SUBDIR),curs lab),)
+NOTES_MDS = $(filter-out 00-pregatire.md,$(MDS))
+ifneq ($(strip $(DECK)),)
+NOTES_MDS = $(filter $(patsubst $(SUBDIR)/%,%.md,$(DECK)),$(filter-out 00-pregatire.md,$(MDS)))
+endif
+NOTES_PDFS = $(patsubst %.md,$(AMSS_ROOT)/notes/$(SUBDIR)/%-notes.pdf,$(NOTES_MDS))
+.PHONY: notes
+notes: $(NOTES_PDFS)
+
+$(AMSS_ROOT)/notes/$(SUBDIR)/%-notes.pdf: %.md $(DECK_PDF_DEPS) $(THEME)/notes.tex
+	@mkdir -p $(dir $@)
+	pandoc $(DECK_PDF_OPTIONS) -V classoption=handout --include-in-header=$(THEME)/notes.tex -o $@ $<
+
+clean::
+	rm -f $(NOTES_PDFS)
+endif

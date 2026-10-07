@@ -13,7 +13,7 @@ AMSS_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 
 include $(AMSS_ROOT)/release.mk
 
-.PHONY: all clean curs lab proiect exam static prune fallback
+.PHONY: all clean curs lab proiect exam static prune fallback notes notes-curs notes-lab
 
 all: curs lab proiect exam static prune
 
@@ -23,6 +23,20 @@ curs lab proiect exam:
 # Instructor-only demo fallback decks, built in place (not part of `all`, never published).
 fallback:
 	$(MAKE) -C curs/fallback
+
+# Instructor copies stay outside the published site. DECK selects one release.
+ifneq ($(filter notes,$(MAKECMDGOALS)),)
+ifneq ($(strip $(DECK)),)
+ifeq ($(filter $(DECK),$(filter-out lab/00-pregatire,$(RELEASED))),)
+$(error DECK must name a released slide deck, for example curs/02-intelegere)
+endif
+endif
+endif
+
+notes: notes-curs notes-lab
+
+notes-curs notes-lab:
+	"$(MAKE)" -C $(patsubst notes-%,%,$@) notes DECK="$(DECK)"
 
 static:
 	@mkdir -p $(BASE)

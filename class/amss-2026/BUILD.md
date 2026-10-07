@@ -79,6 +79,33 @@ make fallback              # instructor-only prepared examples/captures in curs/
 land in the published tree by accident. `BASE` may be relative to this
 directory; an empty `BASE` (an unset shell variable, say) is refused.
 
+## Offline PDF with speaker notes
+
+For a local reading copy, run from `amss-2026/` (Git Bash on Windows):
+
+```bash
+make notes                           # all released slide decks
+make notes DECK=curs/02-intelegere    # one deck
+```
+
+From the parent `class/` directory, use `make -C amss-2026 notes` (with the
+same optional `DECK=...`). The output for Lecture 2 is
+`notes/curs/02-intelegere-notes.pdf`; lab copies go under `notes/lab/`.
+
+Each PDF page contains the complete slide at the top, reduced to 92% of
+its usual size, and its speaker notes below. Incremental reveals are
+combined into one complete slide. Slides without notes still have their
+own page, with space underneath. The page measures 160 × 180 mm and can be
+scaled to the paper size when printing. This is an offline reading copy,
+not an online presentation mode.
+
+The command uses the existing Pandoc/LuaLaTeX toolchain and Beamer's
+`pgfpages` support; it adds no browser or Node.js dependency. These local
+PDFs are ignored by Git, are not copied to the published site, and are not
+served by the presentation service. `make` still creates the ordinary
+student PDFs without notes. Lab 0 is a continuous document, so it is not
+included in `make notes`. The layout is in `theme/notes.tex`.
+
 ## Revealing a week
 
 Lecture and lab decks are published week by week. `RELEASED` lists the decks
