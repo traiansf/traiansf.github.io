@@ -455,7 +455,7 @@ Ce predăm agentului AI și cum evaluăm rezultatul?
 ::: notes
 Delegăm o sarcină delimitată și evaluăm rezultatul față de reguli și scenarii. Verificăm inclusiv concluziile evaluatorului AI.
 
-**Organizare:** minutul 60 din 100; interval 60–85 (25 min): introducere 6, demonstrație și revizuire 17, sinteză 2, inclusiv discuțiile.
+**Organizare:** minutul 60 din 100; interval 60–85 (25 min): introducere 6, exemplu pregătit și revizuire 17, sinteză 2, inclusiv discuțiile.
 :::
 
 ---
@@ -515,23 +515,23 @@ Predarea păstrează contextul necesar și criteriile de verificare, fără a de
 
 ---
 
-# Demonstrație: delegăm o sarcină delimitată
+# Exemplu pregătit: delegare și verificare
 
-Pașii demonstrației:
+Parcursul exemplului:
 
-1. Îi dăm unui agent AI cu rol de analist/proiectant enunțul clarificat al bibliotecii.
+1. Identificăm contextul necesar unui agent AI cu rol de analist/proiectant: enunțul clarificat al bibliotecii.
 2. Verificăm conceptele, regulile și responsabilitățile propuse.
-3. Îi dăm unui evaluator (agent AI de revizuire), într-un context nou, enunțul și soluția.
+3. Examinăm pachetul pentru un evaluator (agent AI de revizuire): enunțul, soluția și criteriile de verificare.
 4. Decidem ce constatări sunt susținute de enunț.
 
 **Sarcina voastră:** explicați o decizie acceptată și puneți la încercare o afirmație.
 
-Parcurgem pe slide-uri prompturile și un **exemplu didactic pregătit**, nu un răspuns AI capturat. Lucrați pe hârtie; profesorul operează instrumentele AI.
+Parcurgem pe slide-uri prompturile și **răspunsuri AI reale**, capturate înainte de curs (Codex, gpt-6.1-sol, 7 octombrie 2026). Analizați propunerea și revizuirea pe hârtie, folosind regulile și scenariile afișate.
 
 ::: notes
 Verificarea poate confirma o afirmație, nu doar găsi defecte. Judecăm rezultatul prin reguli și scenarii; nu inventăm erori într-o soluție corectă.
 
-**Organizare:** ghid: `02-intelegere-demo.md`; toate materialele sunt pe slide-uri. Distingeți exemplul pregătit de un răspuns AI real, căruia îi precizați proveniența.
+**Organizare:** ghid: `02-intelegere-demo.md`; toate materialele sunt pe slide-uri. Capturile integrale și prompturile sunt în `scenarios/02-biblioteca/captures/2026-10-07/`.
 :::
 
 ---
@@ -554,29 +554,33 @@ Contextul predat trebuie să susțină rezultatul cerut: enunțul integral, regu
 
 ---
 
-# Proiectare pregătită: găsiți limita reprezentării
+# Proiectare AI: ce permite reprezentarea?
 
-| Concept | Informații propuse |
-|---|---|
-| Carte | Titlu; o singură stare: disponibilă / împrumutată / rezervată |
-| Împrumut | Membru, titlu; activ / închis |
-| Cerere de împrumut | Membru, titlu, ordine; în așteptare / rezervată / îndeplinită |
+**Fragment din răspunsul AI — gpt-6.1-sol, proiectant, rularea 1:**
 
-**Moment din S2:** C1 a fost returnat și rezervat lui M2; C2 este încă împrumutat lui M3.
+> Împrumut | Înregistrare distinctă care leagă membrul de exemplar; activă sau închisă. Împrumuturile închise rămân în istoric.
+>
+> […]
+>
+> Rezervare | Alocă un exemplar unei cereri și solicitantului ei; rămâne activă până la ridicare.
 
-**R1–R2:** împrumutul identifică exemplarul. **R5:** rezervarea leagă un exemplar de cerere; numai solicitantul îl poate ridica.
+**S2:** C1 a fost returnat și rezervat lui M2; C2 este încă împrumutat lui M3.
 
-Pe hârtie: ce informație lipsește pentru a verifica ridicarea lui C1?
+**R2:** ridicarea este permisă numai solicitantului. **R5:** rezervarea identifică exemplarul alocat cererii.
+
+Pe hârtie: ce legături verificăm pentru a decide dacă M3 poate ridica C1?
 
 ::: notes
-Lipsesc identitatea exemplarului din împrumut și legătura cerere–exemplar rezervat. O singură stare pe titlu nu distinge C1 rezervat de C2 împrumutat. Alte denumiri sau lipsa unei diagrame nu sunt defecte în sine.
+Urmărim C1 → rezervare → cerere → M2; M3 nu este solicitantul. Respingem ridicarea fără schimbări. Împrumutul lui M3 privește C2, deci nu îi dă drept asupra lui C1. Modelul AI păstrează distincțiile necesare.
 
-**Organizare:** 2 min pe acest slide. Exemplu didactic pregătit, nu răspuns AI capturat.
+**Sursă:** captură din 7 octombrie 2026, `proiectant-01-response.md`; două rânduri din tabel, cu omisiune marcată. Tabelul este redat ca citat.
+
+**Organizare:** 2 min pe acest slide.
 :::
 
 ---
 
-# O corecție argumentată
+# Explicăm proiectarea prin reguli
 
 | Concept | Informații păstrate |
 |---|---|
@@ -590,12 +594,12 @@ Lipsesc identitatea exemplarului din împrumut și legătura cerere–exemplar r
 **Ridicarea** verifică membrul, încheie rezervarea și cererea, creează împrumutul (R2).
 
 ::: notes
-Rezervarea poate fi separată sau reprezentată prin exemplarul alocat cererii. Înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4). Aceasta este o soluție de referință, nu singura reprezentare corectă; funcțiile sau obiectele rămân alegeri de proiectare.
+Rezervarea poate fi separată sau reprezentată prin exemplarul alocat cererii. Înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4). Tabelul sintetizează explicația profesorului, nu citează răspunsul AI. Aceasta nu este singura reprezentare corectă; funcțiile sau obiectele rămân alegeri de proiectare.
 :::
 
 ---
 
-# Verificăm corecția: împrumut și returnare
+# Verificăm proiectarea: împrumut și returnare
 
 **Inițial:** T are C1 și C2 disponibile; M1–M4 există; fără cereri, rezervări sau împrumuturi.
 
@@ -609,7 +613,7 @@ S3 și S4 sunt ramuri independente. R2 împiedică împrumutul dublu; R3 păstre
 
 ---
 
-# Verificăm corecția: cerere și rezervare
+# Verificăm proiectarea: cerere și rezervare
 
 **Pornire pentru fiecare scenariu, independent:** C1 la M1, C2 disponibil; fără cereri sau rezervări.
 
@@ -649,53 +653,64 @@ Contextul separat face explicit ce primește evaluatorul AI, dar nu garantează 
 
 # Verificăm și revizuirea
 
-**Afirmație pregătită a unui evaluator AI:** „Dacă M2 a depus cererea înaintea lui M4, M4 nu poate ridica niciun exemplar până nu vine M2.”
+**Fragment din răspunsul AI — gpt-6.1-sol, evaluator, rularea 1:**
+
+> În S6, C2 este alocat lui M2, apoi C1 lui M4. Ridicarea mai devreme de către M4 nu afectează rezervarea lui M2.
 
 **R5:** ordinea cererilor decide alocarea; o cerere cu exemplar rezervat nu mai așteaptă alocarea altuia. **R2:** fiecare membru poate ridica propriul exemplar rezervat.
 
 **S6:** C2 a fost rezervat lui M2, apoi C1 lui M4. M4 ajunge primul la bibliotecă și cere C1.
 
-Pe hârtie: acceptați constatarea? Indicați regula și rezultatul corect al încercării lui M4.
+Pe hârtie: acceptați constatarea? Indicați regula și starea celor două exemplare după ridicare.
 
 ::: notes
-Constatarea este nesusținută: ordinea alocării nu impune ordinea ridicării. M4 poate ridica C1; rezervarea lui M2 pe C2 rămâne. Contextul separat nu garantează corectitudinea evaluatorului AI.
+Acceptăm: ordinea alocării nu impune ordinea ridicării. C1 devine împrumutat lui M4; C2 rămâne rezervat lui M2. Confirmăm concluzia prin reguli, nu prin autoritatea evaluatorului AI.
 
-**Organizare:** afirmație pregătită, nu captură AI; păstrați slide-ul pe ecran cât lucrează studenții.
+**Sursă:** `evaluator-01-response.md`, celula despre R5 din tabel, captură din 7 octombrie 2026.
+
+**Organizare:** păstrați slide-ul pe ecran cât lucrează studenții.
 :::
 
 ---
 
 # Decizia noastră asupra revizuirii
 
-| Afirmație examinată | Justificare | Decizie |
-|---|---|---|
-| Lipsește exemplarul din împrumut și rezervare | R1–R2, R5; C1 rezervat și C2 împrumutat în S2 | Corectăm legăturile |
-| M4 trebuie să aștepte ridicarea lui M2 | R2 și S6 permit ridicarea propriului exemplar | Respingem constatarea |
+**Concluzia evaluatorului AI — gpt-6.1-sol, rularea 1:**
 
-Ordinea **alocării** și ordinea **ridicării** nu sunt aceeași regulă.
+> Nu am identificat defecte în proiectarea prezentată față de R1–R6 și S1–S6.
+
+**Decizia profesorului:** acceptăm proiectarea ca bază pentru etapa următoare. Am verificat identitățile, condițiile operațiilor și traseele S1–S6.
+
+**Limita precizată de evaluatorul AI:**
+
+> Nu verifică o implementare, persistența datelor sau executarea efectivă a schimbărilor împreună.
 
 **Următorul agent AI:** poate elabora planul pentru fluxul convenit. Expirarea, notificările, concurența și punerea în producție rămân de clarificat.
 
 ::: notes
-Acceptăm sau respingem constatarea prin regula sursă și un scenariu. Expirarea rezervării poate fi discutată ca cerință nouă, nu prezentată drept regulă deja convenită.
+„Nu am identificat defecte” este o concluzie limitată de obiectul verificării. Nu am rulat o aplicație. Putem accepta o proiectare fără să pretindem că implementarea viitoare este deja validată.
 
-**Organizare:** constatări pregătite. Pentru un răspuns AI real și corect, cereți justificarea, fără cotă de defecte.
+**Sursă:** două fragmente distincte din `evaluator-01-response.md`, primul și ultimul paragraf, capturate la 7 octombrie 2026.
 :::
 
 ---
 
 # Păstrăm o imagine de ansamblu verificabilă
 
-**Sinteză pregătită:** „Cererea pentru un titlu primește primul exemplar returnat, în ordinea așteptării. Exemplarul este păstrat pentru solicitant; împrumutul începe la ridicare.”
+**Fragment din răspunsul AI — gpt-6.1-sol, proiectant, rularea 1:**
+
+> Cererile sunt alocate în ordinea înregistrării, separat pentru fiecare titlu. O cerere cu exemplar rezervat nu mai participă la alocări. Ordinea ridicării poate fi diferită de ordinea alocării (R5).
 
 **Surse:** R5 stabilește rezervarea și prioritatea; R2 permite ridicarea numai de către solicitant. R6 lasă expirarea în afara exercițiului.
 
-Ce s-ar pierde dacă rezumatul ar spune doar „la returnare, cartea devine disponibilă”? Indicați condiția omisă și regula sursă.
+Ce s-ar pierde dacă rezumatul ar spune doar „cererile sunt servite în ordine”? Indicați distincția omisă și regula sursă.
 
 ::: notes
-„Disponibil” omite posibilitatea rezervării pentru solicitant. Sinteza trebuie verificată față de R2 și R5; fluența nu înlocuiește regulile detaliate. Într-un proiect, păstrăm trimiteri la secțiunile-sursă.
+Formula scurtă poate confunda alocarea cu ridicarea. Verificăm sinteza prin R2 și R5; în S6, M4 poate ridica înaintea lui M2. Fluența nu înlocuiește regulile detaliate.
 
-**Organizare:** lăsați sinteza și regulile pe ecran.
+**Sursă:** `proiectant-01-response.md`, paragraf integral, capturat la 7 octombrie 2026.
+
+**Organizare:** lăsați fragmentul și regulile pe ecran.
 :::
 
 ---

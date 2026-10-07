@@ -860,17 +860,17 @@ break-inside: avoid;
 </ul>
 <p>„Construiește aplicația bibliotecii” lasă aceste decizii implicite.</p>
 </div>
-<div id="demonstrație-delegăm-o-sarcină-delimitată" class="slide section level1">
-<h1>Demonstrație: delegăm o sarcină delimitată</h1>
-<p>Pașii demonstrației:</p>
+<div id="exemplu-pregătit-delegare-și-verificare" class="slide section level1">
+<h1>Exemplu pregătit: delegare și verificare</h1>
+<p>Parcursul exemplului:</p>
 <ol style="list-style-type: decimal">
-<li>Îi dăm unui agent AI cu rol de analist/proiectant enunțul clarificat al bibliotecii.</li>
+<li>Identificăm contextul necesar unui agent AI cu rol de analist/proiectant: enunțul clarificat al bibliotecii.</li>
 <li>Verificăm conceptele, regulile și responsabilitățile propuse.</li>
-<li>Îi dăm unui evaluator (agent AI de revizuire), <span class="nowrap">într-un</span> context nou, enunțul și soluția.</li>
+<li>Examinăm pachetul pentru un evaluator (agent AI de revizuire): enunțul, soluția și criteriile de verificare.</li>
 <li>Decidem ce constatări sunt susținute de enunț.</li>
 </ol>
 <p><strong>Sarcina voastră:</strong> explicați o decizie acceptată și puneți la încercare o afirmație.</p>
-<p>Parcurgem pe <span class="nowrap">slide-uri</span> prompturile și un <strong>exemplu didactic pregătit</strong>, nu un răspuns AI capturat. Lucrați pe hârtie; profesorul operează instrumentele AI.</p>
+<p>Parcurgem pe <span class="nowrap">slide-uri</span> prompturile și <strong>răspunsuri AI reale</strong>, capturate înainte de curs (Codex, <span class="nowrap">gpt-6.1-sol,</span> 7 octombrie 2026). Analizați propunerea și revizuirea pe hârtie, folosind regulile și scenariile afișate.</p>
 </div>
 <div id="ce-îi-cerem-agentului-ai-cu-rol-de-proiectant" class="slide section level1">
 <h1>Ce îi cerem agentului AI cu rol de proiectant</h1>
@@ -881,42 +881,20 @@ break-inside: avoid;
 <p>Separă cerințele, alegerile și întrebările deschise. Respectă R6. Încheie cu ce poate fi predat etapei următoare și cu limitele soluției.</p>
 </blockquote>
 </div>
-<div id="proiectare-pregătită-găsiți-limita-reprezentării" class="slide section level1">
-<h1>Proiectare pregătită: găsiți limita reprezentării</h1>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr>
-<th>Concept</th>
-<th>Informații propuse</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Carte</td>
-<td>Titlu; o singură stare: disponibilă / împrumutată / rezervată</td>
-</tr>
-<tr>
-<td>Împrumut</td>
-<td>Membru, titlu; activ / închis</td>
-</tr>
-<tr>
-<td>Cerere de împrumut</td>
-<td>Membru, titlu, ordine; în așteptare / rezervată / îndeplinită</td>
-</tr>
-</tbody>
-</table>
+<div id="proiectare-ai-ce-permite-reprezentarea" class="slide section level1">
+<h1>Proiectare AI: ce permite reprezentarea?</h1>
+<p><strong>Fragment din răspunsul AI — <span class="nowrap">gpt-6.1-sol,</span> proiectant, rularea 1:</strong></p>
+<blockquote>
+<p>Împrumut | Înregistrare distinctă care leagă membrul de exemplar; activă sau închisă. Împrumuturile închise rămân în istoric.</p>
+<p>[…]</p>
+<p>Rezervare | Alocă un exemplar unei cereri și solicitantului ei; rămâne activă până la ridicare.</p>
+</blockquote>
+<p><strong>S2:</strong> C1 a fost returnat și rezervat lui M2; C2 este încă împrumutat lui M3.</p>
+<p><strong>R2:</strong> ridicarea este permisă numai solicitantului. <strong>R5:</strong> rezervarea identifică exemplarul alocat cererii.</p>
+<p>Pe hârtie: ce legături verificăm pentru a decide dacă M3 poate ridica C1?</p>
 </div>
-<p><strong>Moment din S2:</strong> C1 a fost returnat și rezervat lui M2; C2 este încă împrumutat lui M3.</p>
-<p><strong><span class="nowrap">R1–R2:</span></strong> împrumutul identifică exemplarul. <strong>R5:</strong> rezervarea leagă un exemplar de cerere; numai solicitantul îl poate ridica.</p>
-<p>Pe hârtie: ce informație lipsește pentru a verifica ridicarea lui C1?</p>
-</div>
-<div id="o-corecție-argumentată" class="slide section level1">
-<h1>O corecție argumentată</h1>
+<div id="explicăm-proiectarea-prin-reguli" class="slide section level1">
+<h1>Explicăm proiectarea prin reguli</h1>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -952,8 +930,8 @@ break-inside: avoid;
 <p><strong>Returnarea</strong> închide împrumutul și alocă exemplarul primei cereri în așteptare (R3, R5).</p>
 <p><strong>Ridicarea</strong> verifică membrul, încheie rezervarea și cererea, creează împrumutul (R2).</p>
 </div>
-<div id="verificăm-corecția-împrumut-și-returnare" class="slide section level1">
-<h1>Verificăm corecția: împrumut și returnare</h1>
+<div id="verificăm-proiectarea-împrumut-și-returnare" class="slide section level1">
+<h1>Verificăm proiectarea: împrumut și returnare</h1>
 <p><strong>Inițial:</strong> T are C1 și C2 disponibile; <span class="nowrap">M1–M4</span> există; fără cereri, rezervări sau împrumuturi.</p>
 <div class="table-wrap">
 <table>
@@ -985,8 +963,8 @@ break-inside: avoid;
 </div>
 <p>S3 și S4 sunt ramuri independente. R2 împiedică împrumutul dublu; R3 păstrează istoricul.</p>
 </div>
-<div id="verificăm-corecția-cerere-și-rezervare" class="slide section level1">
-<h1>Verificăm corecția: cerere și rezervare</h1>
+<div id="verificăm-proiectarea-cerere-și-rezervare" class="slide section level1">
+<h1>Verificăm proiectarea: cerere și rezervare</h1>
 <p><strong>Pornire pentru fiecare scenariu, independent:</strong> C1 la M1, C2 disponibil; fără cereri sau rezervări.</p>
 <ul>
 <li><strong>S2:</strong> M3 împrumută C2; M2 cere T; C1 returnat este rezervat lui M2. M3 este refuzat; M2 ridică C1 și încheie cererea.</li>
@@ -1007,49 +985,35 @@ break-inside: avoid;
 </div>
 <div id="verificăm-și-revizuirea" class="slide section level1">
 <h1>Verificăm și revizuirea</h1>
-<p><strong>Afirmație pregătită a unui evaluator AI:</strong> „Dacă M2 a depus cererea înaintea lui M4, M4 nu poate ridica niciun exemplar până nu vine M2.”</p>
+<p><strong>Fragment din răspunsul AI — <span class="nowrap">gpt-6.1-sol,</span> evaluator, rularea 1:</strong></p>
+<blockquote>
+<p>În S6, C2 este alocat lui M2, apoi C1 lui M4. Ridicarea mai devreme de către M4 nu afectează rezervarea lui M2.</p>
+</blockquote>
 <p><strong>R5:</strong> ordinea cererilor decide alocarea; o cerere cu exemplar rezervat nu mai așteaptă alocarea altuia. <strong>R2:</strong> fiecare membru poate ridica propriul exemplar rezervat.</p>
 <p><strong>S6:</strong> C2 a fost rezervat lui M2, apoi C1 lui M4. M4 ajunge primul la bibliotecă și cere C1.</p>
-<p>Pe hârtie: acceptați constatarea? Indicați regula și rezultatul corect al încercării lui M4.</p>
+<p>Pe hârtie: acceptați constatarea? Indicați regula și starea celor două exemplare după ridicare.</p>
 </div>
 <div id="decizia-noastră-asupra-revizuirii" class="slide section level1">
 <h1>Decizia noastră asupra revizuirii</h1>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr>
-<th>Afirmație examinată</th>
-<th>Justificare</th>
-<th>Decizie</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Lipsește exemplarul din împrumut și rezervare</td>
-<td><span class="nowrap">R1–R2,</span> R5; C1 rezervat și C2 împrumutat în S2</td>
-<td>Corectăm legăturile</td>
-</tr>
-<tr>
-<td>M4 trebuie să aștepte ridicarea lui M2</td>
-<td>R2 și S6 permit ridicarea propriului exemplar</td>
-<td>Respingem constatarea</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Ordinea <strong>alocării</strong> și ordinea <strong>ridicării</strong> nu sunt aceeași regulă.</p>
+<p><strong>Concluzia evaluatorului AI — <span class="nowrap">gpt-6.1-sol,</span> rularea 1:</strong></p>
+<blockquote>
+<p>Nu am identificat defecte în proiectarea prezentată față de <span class="nowrap">R1–R6</span> și <span class="nowrap">S1–S6.</span></p>
+</blockquote>
+<p><strong>Decizia profesorului:</strong> acceptăm proiectarea ca bază pentru etapa următoare. Am verificat identitățile, condițiile operațiilor și traseele <span class="nowrap">S1–S6.</span></p>
+<p><strong>Limita precizată de evaluatorul AI:</strong></p>
+<blockquote>
+<p>Nu verifică o implementare, persistența datelor sau executarea efectivă a schimbărilor împreună.</p>
+</blockquote>
 <p><strong>Următorul agent AI:</strong> poate elabora planul pentru fluxul convenit. Expirarea, notificările, concurența și punerea în producție rămân de clarificat.</p>
 </div>
 <div id="păstrăm-o-imagine-de-ansamblu-verificabilă" class="slide section level1">
 <h1>Păstrăm o imagine de ansamblu verificabilă</h1>
-<p><strong>Sinteză pregătită:</strong> „Cererea pentru un titlu primește primul exemplar returnat, în ordinea așteptării. Exemplarul este păstrat pentru solicitant; împrumutul începe la ridicare.”</p>
+<p><strong>Fragment din răspunsul AI — <span class="nowrap">gpt-6.1-sol,</span> proiectant, rularea 1:</strong></p>
+<blockquote>
+<p>Cererile sunt alocate în ordinea înregistrării, separat pentru fiecare titlu. O cerere cu exemplar rezervat nu mai participă la alocări. Ordinea ridicării poate fi diferită de ordinea alocării (R5).</p>
+</blockquote>
 <p><strong>Surse:</strong> R5 stabilește rezervarea și prioritatea; R2 permite ridicarea numai de către solicitant. R6 lasă expirarea în afara exercițiului.</p>
-<p>Ce <span class="nowrap">s-ar</span> pierde dacă rezumatul ar spune doar „la returnare, cartea devine disponibilă”? Indicați condiția omisă și regula sursă.</p>
+<p>Ce <span class="nowrap">s-ar</span> pierde dacă rezumatul ar spune doar „cererile sunt servite în ordine”? Indicați distincția omisă și regula sursă.</p>
 </div>
 <div id="revedem-deciziile-și-sintetizăm" class="slide section level1 transition">
 <h1 class="transition">Revedem deciziile și sintetizăm</h1>

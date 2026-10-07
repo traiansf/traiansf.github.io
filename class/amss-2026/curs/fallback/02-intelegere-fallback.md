@@ -11,7 +11,7 @@ Acesta este un **exemplu didactic pregătit**, nu un răspuns AI capturat.
 
 Cererea de împrumut are un rezultat concret: rezervarea unui exemplar returnat și împrumutul la ridicare.
 
-La curs, aceste reguli, scenarii și exemple sunt integrate în prezentarea principală. Această copie servește pregătirii profesorului.
+Material de contrast pentru profesor. Prezentarea principală folosește acum capturi AI reale din 7 octombrie 2026, păstrate în `../scenarios/02-biblioteca/captures/2026-10-07/`. Acest exemplu construit nu este sursa acelor răspunsuri.
 
 ::: notes
 Sursa principală pentru predare este ../02-intelegere.md. Studenții folosesc doar prezentarea proiectată și coli albe. La actualizare, păstrați identice regulile și scenariile din aceste două prezentări și din ../scenarios/02-biblioteca/brief.md.
