@@ -29,9 +29,9 @@
       const url = new URL('decks/' + select.value, location.href);
       url.searchParams.set('room', room);
       document.getElementById('presenter').href = url.href;
-      url.searchParams.set('follow', '1');
-      document.getElementById('audience').href = url.href;
-      document.getElementById('audience-url').value = url.href;
+      const audienceUrl = new URL('now', location.href).href;
+      document.getElementById('audience').href = audienceUrl;
+      document.getElementById('audience-url').value = audienceUrl;
       document.getElementById('links').hidden = false;
       // A successful AJAX login hides the form without clearing its credentials,
       // allowing password managers to detect success and offer to save them.

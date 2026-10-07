@@ -18,6 +18,7 @@ export async function createPresentationServer({ dist = resolve(here, 'dist'), p
   const manifest = JSON.parse(await readFile(resolve(dist, 'decks.json'), 'utf8'));
   const decks = new Set(manifest.map(d => d.file));
   const rooms = new Map();
+  let currentRoom = null;
   const attempts = new Map();
   const json = (res, code, body) => { res.writeHead(code, { 'Content-Type':'application/json', 'Cache-Control':'no-store' }); res.end(JSON.stringify(body)); };
   const server = http.createServer(async (req, res) => {
@@ -49,9 +50,26 @@ export async function createPresentationServer({ dist = resolve(here, 'dist'), p
         if (rooms.size >= 1000) return json(res, 503, { error:'Prea multe sesiuni.' });
         const room = token(), key = token();
         rooms.set(room, { key, deck:data.deck, expires:now+ttl, state:null });
+        currentRoom = room;
         return json(res, 201, { room, key });
       }
       if (req.method !== 'GET' && req.method !== 'HEAD') return json(res, 405, { error:'Metodă nepermisă.' });
+      if (url.pathname === '/now' || url.pathname === '/now/') {
+        const session = rooms.get(currentRoom);
+        const headers = { 'Cache-Control':'no-store', 'Referrer-Policy':'no-referrer' };
+        if (session && session.expires > Date.now()) {
+          const location = basePath + '/decks/' + encodeURIComponent(session.deck)
+            + '?' + new URLSearchParams({ room:currentRoom, follow:'1' });
+          res.writeHead(302, { ...headers, Location:location });
+          return res.end();
+        }
+        res.writeHead(200, { ...headers, 'Content-Type':'text/html; charset=utf-8' });
+        return res.end(req.method === 'HEAD' ? undefined : `<!doctype html>
+<html lang="ro"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="5"><title>AMSS — prezentarea curentă</title>
+<body style="max-width:760px;margin:50px auto;padding:0 24px;font:18px/1.5 system-ui;color:#0a2145">
+<h1>Prezentarea nu a început încă</h1><p>Nu există o sesiune activă. Pagina verifică automat la fiecare 5 secunde; o puteți lăsa deschisă.</p></body></html>`);
+      }
       const path = decodeURIComponent(url.pathname);
       const relative = path === '/' ? 'index.html' : path.slice(1);
       const allowed = ['index.html','theme.css','presentation.js','launcher.js','decks.json'].includes(relative)

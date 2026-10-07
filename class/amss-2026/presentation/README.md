@@ -35,10 +35,12 @@ Toate resursele prezentării sunt locale. Nu deschideți HTML-ul prin `file://`:
 
 1. Deschideți adresa HTTPS a serviciului, alegeți prezentarea și introduceți parola profesorului.
 2. Apăsați **Pornește sesiunea sincronizată**.
-3. Copiați linkul de proiecție pe calculatorul legat la proiector și afișați-l pe tot ecranul.
+3. Pe calculatorul proiectorului sau pe dispozitivele participanților, deschideți **https://cs.unibuc.ro/~tserbanuta/amss/now** și afișați prezentarea pe tot ecranul. Aceeași adresă scurtă este afișată în interfață după pornirea sesiunii.
 4. Pe calculatorul dumneavoastră, urmați linkul **Deschide prezentarea de control**, apoi apăsați **S** pentru note. Păstrați deschisă și prezentarea de control.
 
 Proiecția urmărește slide-ul, aparițiile progresive și ecranul de pauză. Comenzile de navigare sunt dezactivate în proiecție. Notele nu sunt incluse în răspunsul HTML pentru linkul de proiecție. Materialele sursă și prezentările obișnuite nu sunt tratate ca documente confidențiale.
+
+`/now` redirecționează către proiecția ultimei sesiuni create cu parola profesorului, fără a divulga cheia de control. Dacă nu există o sesiune sau aceasta a expirat, apare o pagină de așteptare care verifică automat la fiecare 5 secunde. Pornirea unei sesiuni noi schimbă destinația pentru accesările următoare; cei aflați deja într-o prezentare rămân în sesiunea respectivă până când redeschid `/now`. După repornirea serviciului trebuie creată o sesiune nouă. Adresa funcționează și local, la `http://127.0.0.1:3000/now`.
 
 O proiecție conectată mai târziu sau reîncărcată primește starea curentă. La pierderea conexiunii rămâne ultimul slide și apare un mesaj; după reconectare se recuperează starea. Controlul local continuă chiar dacă internetul se întrerupe. Sesiunile expiră după opt ore; repornirea serviciului le șterge și necesită o sesiune nouă. Linkul de control funcționează în fila în care a fost creat, deoarece cheia este păstrată în `sessionStorage`, nu în URL.
 

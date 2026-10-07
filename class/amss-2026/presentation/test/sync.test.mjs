@@ -5,6 +5,39 @@ import { io as connect } from 'socket.io-client';
 import { createPresentationServer } from '../server.mjs';
 
 for (const basePath of ['', '/~tserbanuta/amss']) {
+test('adresa scurtă: așteptare, ultima sesiune, expirare: ' + (basePath || '/'), { timeout:15000 }, async t => {
+  const { server, io } = await createPresentationServer({ password:'test-only', basePath, ttl:1000 });
+  server.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  t.after(() => new Promise(resolve => io.close(resolve)));
+  const url = 'http://127.0.0.1:' + server.address().port + basePath;
+  const now = () => fetch(url + '/now', { redirect:'manual' });
+  const waiting = await now();
+  assert.equal(waiting.status, 200);
+  assert.match(await waiting.text(), /http-equiv="refresh"/);
+  const create = async (deck, password = 'test-only') => fetch(url + '/api/sessions', {
+    method:'POST', headers:{ Authorization:'Bearer ' + password, 'Content-Type':'application/json' }, body:JSON.stringify({ deck })
+  });
+  const first = await (await create('curs-01-organizare.html')).json();
+  assert.match((await now()).headers.get('location'), new RegExp(first.room));
+  const latest = await (await create('curs-02-intelegere.html')).json();
+  assert.equal((await create('curs-01-organizare.html', 'wrong')).status, 401);
+  const redirect = await now();
+  assert.equal(redirect.status, 302);
+  assert.equal(redirect.headers.get('cache-control'), 'no-store');
+  assert.equal(redirect.headers.get('location'), basePath + '/decks/curs-02-intelegere.html?room=' + latest.room + '&follow=1');
+  assert.ok(!redirect.headers.get('location').includes(latest.key));
+  const html = await (await fetch(url + '/now')).text();
+  assert.doesNotMatch(html, /<aside class="notes"/);
+  const head = await fetch(url + '/now/', { method:'HEAD', redirect:'manual' });
+  assert.equal(head.status, 302);
+  assert.equal(await head.text(), '');
+  await new Promise(resolve => setTimeout(resolve, 1100));
+  const expired = await now();
+  assert.equal(expired.status, 200);
+  assert.equal(expired.headers.get('location'), null);
+  assert.match(await expired.text(), /http-equiv="refresh"/);
+});
 test('control, izolare, fragmente, reconectare: ' + (basePath || '/'), { timeout:15000 }, async t => {
   const { server, io } = await createPresentationServer({ password:'test-only', basePath });
   server.listen(0, '127.0.0.1');
