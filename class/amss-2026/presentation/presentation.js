@@ -16,7 +16,8 @@
     panel.hidden = !mobileController();
     panel.innerHTML = `<nav aria-label="Controlul prezentării">
       <button type="button" id="previous-slide">Înapoi</button>
-      <span id="mobile-position" aria-live="polite"></span>
+      <div id="mobile-status"><span id="mobile-position" aria-live="polite"></span>
+        <button type="button" id="mobile-timer" role="timer" title="Atingeți pentru a reporni cronometrul">0:00</button></div>
       <button type="button" id="next-slide">Înainte</button>
     </nav><section id="mobile-notes" aria-label="Notele profesorului" tabindex="0">
       <h2>Notele profesorului</h2><div id="mobile-notes-content"></div></section>`;
@@ -59,6 +60,28 @@
         lastSlide = slide;
       }
     };
+    // Elapsed time survives reloads of the same tab; tapping the timer restarts it when the lecture begins.
+    const timer = document.getElementById('mobile-timer');
+    const timerKey = 'amss-timer-' + (room || location.pathname);
+    const storage = { get:() => { try { return Number(sessionStorage.getItem(timerKey)); } catch { return 0; } },
+      set:value => { try { sessionStorage.setItem(timerKey, value); } catch {} } };
+    let started = storage.get() || Date.now();
+    storage.set(started);
+    const two = n => String(n).padStart(2, '0');
+    const updateTimer = () => {
+      const seconds = Math.max(0, Math.floor((Date.now() - started) / 1000));
+      const h = Math.floor(seconds / 3600), m = Math.floor(seconds / 60) % 60, s = seconds % 60;
+      timer.textContent = h ? h + ':' + two(m) + ':' + two(s) : m + ':' + two(s);
+      timer.setAttribute('aria-label', 'Timp scurs: ' + timer.textContent);
+    };
+    timer.onclick = () => {
+      if (!confirm('Reporniți cronometrul de la 0:00?')) return;
+      started = Date.now();
+      storage.set(started);
+      updateTimer();
+    };
+    updateTimer();
+    setInterval(updateTimer, 1000);
     previous.onclick = () => Reveal.prev();
     next.onclick = () => Reveal.next();
     for (const event of ['slidechanged', 'fragmentshown', 'fragmenthidden']) Reveal.on(event, updatePanel);
