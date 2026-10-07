@@ -16,7 +16,9 @@ La final: o descriere comună a problemei și explicația individuală a unei de
 Fișe: [informațiile beneficiarului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/scenario.md)&nbsp;· [fișa de lucru](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/worksheet.md)
 
 ::: notes
-Laboratorul se desfășoară după predarea cursurilor 1 și 2. Exercițiul aplică într-un domeniu nou ideile introductive din cursul 2 despre înțelegerea problemei, scenarii și delegare; nu presupune că cerințele din cursul 3 au fost predate în detaliu. Studenții știu să programeze; introduceți explicit termenii de analiză și proiectare. Nu se cere implementarea unei aplicații.
+Aplicăm într-un domeniu nou înțelegerea problemei, scenariile și delegarea din cursul 2. Introducem explicit termenii de analiză și proiectare; nu cerem implementarea unei aplicații.
+
+**Organizare:** după cursurile 1–2, fără a presupune teoria din cursul 3.
 :::
 
 ---
@@ -32,9 +34,9 @@ Laboratorul se desfășoară după predarea cursurilor 1 și 2. Exercițiul apli
 [Sursa: How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html)
 
 ::: notes
-Transcriere universitară, afirmația marcată ca adnotare manuscrisă; originalul este în arhiva Dijkstra de la UT Austin, EWD498.
+Înainte de delegare, descrierea trebuie să poată fi înțeleasă și verificată.
 
-Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte de delegare.
+**Sursă:** transcriere universitară; afirmație marcată drept adnotare manuscrisă. Original: arhiva Dijkstra, UT Austin, EWD498.
 :::
 
 ---
@@ -53,7 +55,9 @@ Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte 
 | 90–100 | Prezentare și predarea lucrării |
 
 ::: notes
-Distribuiți scenario.md și worksheet.md din lab/scenarios/01-specificare/ înainte de a începe. Dați studenților fișierele-sursă sau copii tipărite; ele nu sunt publicate ca prezentări separate. Folosiți prepared-fixture.md dacă instrumentele nu sunt accesibile. Dacă nu ajunge timpul, păstrați etapele de lucru fără ajutor și de revizuire.
+Analiza proprie oferă reperul pentru verificarea rezultatului și a revizuirii.
+
+**Organizare:** distribuiți `scenario.md` și `worksheet.md` din `lab/scenarios/01-specificare/`; rezervă: `prepared-fixture.md`. Dacă timpul e scurt, păstrați analiza fără ajutor și revizuirea.
 :::
 
 ---
@@ -70,7 +74,9 @@ Căminul dorește ca locatarii să își poată programa mașina de spălat **Al
 Fișa este sursa informațiilor convenite. Întrebările nu stabilesc reguli noi.
 
 ::: notes
-Identificatorii informațiilor corespund celor din scenario.md. Citiți fișa completă, inclusiv F4–F7 și întrebările deschise Q1–Q3, înainte de a evalua un material. „Exclus” descrie limitele acestui exercițiu.
+„Exclus” delimitează exercițiul. Evaluarea trebuie să țină cont de toate informațiile, inclusiv F4–F7 și întrebările Q1–Q3.
+
+**Organizare:** identificatorii corespund fișei `scenario.md`; aceasta se citește integral.
 :::
 
 ---
@@ -85,7 +91,7 @@ Identificatorii informațiilor corespund celor din scenario.md. Citiți fișa co
 Întrebările deschise Q1–Q3 sunt în fișă.
 
 ::: notes
-F5 ne permite să discutăm despre o responsabilitate care impune o regulă asupra mai multor cereri. Nu prescrie blocări, baze de date, clase sau un anumit mod de instalare. Pentru azi ajung o responsabilitate precisă și un scenariu. Q1: programări suprapuse ale aceluiași locatar pe mașini diferite; Q2: anularea la ora de început sau după; Q3: limite de durată, de număr sau de programare în avans, neconvenite.
+F5 cere o garanție asupra mai multor cereri, nu un mecanism tehnic anume. Q1 privește suprapunerile aceluiași locatar pe mașini diferite; Q2, anularea la început sau după; Q3, limite încă neconvenite. Pentru azi formulăm responsabilitatea și un scenariu de verificare.
 :::
 
 ---
@@ -101,7 +107,9 @@ Lucrați individual, fără AI. Păstrați aceste notițe inițiale.
 5. Formulați o întrebare pentru beneficiar.
 
 ::: notes
-Dați studenților fișa completă de la început și începeți imediat această activitate. Nu demonstrați mai întâi un răspuns. La minutul 8, cereți o distincție și o incertitudine. Notițele inițiale se păstrează și după ce studenții își revizuiesc interpretarea.
+Distingeți ce este cunoscut de ce rămâne incert. Notițele inițiale permit compararea propriei interpretări cu varianta revizuită.
+
+**Organizare:** fișa completă de la început, fără demonstrație prealabilă; la minutul 8 cereți o distincție și o incertitudine. Păstrați notițele.
 :::
 
 ---
@@ -119,7 +127,7 @@ Dați studenților fișa completă de la început și începeți imediat aceast�
 O ipoteză sau o propunere devine informație convenită doar după ce o confirmă beneficiarul.
 
 ::: notes
-Sunt aceleași cinci tipuri ca în cursul 2. O ipoteză este un răspuns provizoriu la o întrebare deschisă, etichetat explicit, cu consecințele sale. Studenții pot alege o ipoteză pentru explorare, dar nu o pot prezenta drept confirmată. Un model al domeniului descrie concepte și reguli; nu este neapărat o proiectare a claselor.
+Ipoteza este un răspuns provizoriu, etichetat explicit și însoțit de consecințe; nu devine confirmată prin folosire. Modelul domeniului descrie concepte și reguli, nu neapărat clase. Sunt aceleași cinci categorii ca în cursul 2.
 :::
 
 ---
@@ -135,9 +143,9 @@ Sunt aceleași cinci tipuri ca în cursul 2. O ipoteză este un răspuns provizo
 Discutați: de ce poate fi insuficient „verifică disponibilitatea, apoi confirmă mai târziu”?
 
 ::: notes
-Desenați două cereri care văd amândouă „liber” înainte să fie confirmată vreuna. Invariantul privește rezultatul combinat. O responsabilitate poate aparține unei funcții, unui serviciu, unui obiect sau unei operații asupra datelor. Studenții nu trebuie să implementeze controlul concurenței; formulați garanția cerută și includeți în sarcina predată o verificare a implementării.
+Două cereri pot vedea simultan „liber”; invariantul privește rezultatul combinat. Aici F5 cere explicit tratarea simultaneității, în timp ce biblioteca presupunea operații pe rând (R6). Diferența vine din cerințe. Responsabilitatea poate reveni unei funcții, unui obiect, unui serviciu sau unei operații asupra datelor.
 
-Exercițiul bibliotecii presupunea explicit operații executate pe rând (R6). Aici, F5 include explicit cereri simultane, deci garanția cerută este mai puternică. Diferența vine din limitele declarate ale problemei, nu dintr-un defect al exemplului anterior.
+**Organizare:** desenați cele două cereri; formulați garanția și verificarea necesară, fără implementarea concurenței.
 :::
 
 ---
@@ -153,9 +161,9 @@ Exercițiul bibliotecii presupunea explicit operații executate pe rând (R6). A
 Dacă AI nu este disponibil, folosiți [exemplul pregătit](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/prepared-fixture.md) și o revizuire separată între colegi.
 
 ::: notes
-Pașii de configurare sunt descriși în tooling/SETUP.md. Nu trebuie cumpărat nimic și nu se impune un anumit model. O conversație nouă este suficientă; se poate folosi același instrument/model. Fișierele comune sau istoricul preluat automat pot transmite contextul analistului: dați evaluatorului doar pachetul ales explicit. Pentru lucrul fără acces la AI, schimbați pachetele cu o pereche vecină dacă ambii parteneri au redactat deja varianta de lucru.
+Evaluatorul AI primește explicit pachetul de revizuit. O conversație nouă poate folosi același instrument, dar fișierele comune sau istoricul automat pot introduce context suplimentar.
 
-Perechile care termină pregătirea mai devreme își compară notițele inițiale și identifică o regulă încă neclarificată, în timp ce profesorul rezolvă problemele de acces. Perechile trec la etapa următoare la momentul anunțat, fără să aștepte confirmarea profesorului.
+**Organizare:** ghid: `tooling/SETUP.md`; fără abonament obligatoriu. Fără AI, schimbați pachetele între perechi. Cei gata compară notițele; toți trec mai departe la ora anunțată.
 :::
 
 ---
@@ -173,7 +181,9 @@ Când predați analistului sarcina și contextul (handoff), precizați:
 Salvați o copie a variantei rezultate pentru revizuire.
 
 ::: notes
-Studenții pot redacta sau edita singuri descrierea. Predarea sarcinii delimitează munca delegată; nu îi obligă pe studenți să accepte textul generat. Copia poate fi un fișier, o versiune salvată sau un commit. Evaluatorul trebuie să știe ce versiune a revizuit. Sarcina se oprește înainte de implementare.
+Predarea delimitează munca delegată și versiunea verificată; nu obligă acceptarea textului generat. Studenții pot redacta și corecta direct materialul. Sarcina se oprește înainte de implementare.
+
+**Organizare:** păstrați o copie identificabilă: fișier, versiune salvată sau commit.
 :::
 
 ---
@@ -185,9 +195,9 @@ Studenții pot redacta sau edita singuri descrierea. Predarea sarcinii delimitea
 Citiți rezultatul. Acceptați, editați sau cereți o corectare, **motivând decizia**.
 
 ::: notes
-Fișa de lucru conține promptul de copiat. Dacă rezultatul este corect, păstrați-l și explicați verificările care susțin această concluzie. Dacă este prea lung, cereți un rezumat care să păstreze trimiterile la informații/scenarii și verificați o afirmație importantă din rezumat față de textul complet. Nu cereți erori inventate.
+Un rezultat corect se păstrează și se justifică prin verificări. Dacă este prea lung, cereți o sinteză cu trimiteri la informații și scenarii; confruntați o afirmație importantă cu textul complet. Nu inventăm erori.
 
-Ajung câteva puncte scurte. Păstrați o singură descriere comună și citați identificatorii informațiilor/scenariilor din ea în predarea sarcinii și în revizuire, fără a copia același material în mai multe secțiuni.
+**Organizare:** promptul este în fișă. Păstrați o singură descriere comună, citată prin identificatori în predare și revizuire.
 :::
 
 ---
@@ -208,7 +218,7 @@ Fiecare rând este un **caz independent**, după S1: Ioana are programată **Alb
 Completați voi S5 (cereri simultane), S6 (anulare) și S8 (aceeași persoană, altă mașină).
 
 ::: notes
-Radu evită întrebarea încă deschisă despre programările aceluiași locatar pe mașini diferite (Q1); S8 o ridică explicit. Precizați starea inițială și celelalte condiții convenite pentru fiecare scenariu. Scenariile suplimentare trebuie să verifice reguli care contează pentru problemă; scopul nu este numărul lor.
+Radu evită ambiguitatea Q1, despre același locatar pe mașini diferite; S8 o ridică explicit. Precizați starea inițială și condițiile fiecărui scenariu. Contează regula verificată, nu numărul scenariilor.
 :::
 
 ---
@@ -222,7 +232,9 @@ Radu evită întrebarea încă deschisă despre programările aceluiași locatar
 Dați-i evaluatorului intrările convenite, nu conversația analistului.
 
 ::: notes
-Un context separat nu garantează o judecată corectă. Același model poate repeta aceeași ipoteză. De aceea urmează evaluarea umană. Dacă instrumentele nu funcționează, un coleg face revizuirea cu același pachet și aceleași criterii.
+Un context separat nu garantează corectitudinea: același model poate repeta aceeași ipoteză. Revizuirea rămâne de evaluat de către om.
+
+**Organizare:** fără instrumente AI, un coleg revizuiește același pachet, pe aceleași criterii.
 :::
 
 ---
@@ -240,9 +252,9 @@ Mai întâi singuri (5 minute): clasificați fiecare constatare. Apoi decideți 
 Decizii: **acceptare**, **respingere** sau **amânare**. Motivați și reluați scenariul afectat.
 
 ::: notes
-Constatările revizuirii se confruntă atât cu cerințele beneficiarului, cât și cu varianta redactată. Clasificarea individuală vine înaintea discuției în pereche, ca fiecare student să-și formeze propria judecată; notați unde partenerii au decis diferit. Evaluatorul poate să nu găsească nicio contradicție; studenții pot accepta această concluzie după ce reiau scenariile și explică ce au verificat. Nu trebuie să inventeze defecte, să respingă ceva sau să trimită un prompt nou pentru un rezultat corect.
+Confruntați fiecare constatare cu cerințele și varianta efectiv redactată: regulă → scenariu → decizie. Absența contradicțiilor poate fi acceptată dacă scenariile o susțin; nu sunt obligatorii defecte, respingeri sau un prompt nou.
 
-Tabelul se leagă de diapozitivul „Verificăm și revizuirea” din cursul 2: regula, scenariul și decizia pentru fiecare constatare.
+**Organizare:** clasificare individuală înaintea discuției în pereche; notați diferențele de judecată.
 :::
 
 ---
@@ -260,7 +272,7 @@ Propuneți o **sarcină de proiectare** care, în limitele descrierii acceptate 
 Precizați versiunea de intrare, rezultatul așteptat și verificările cerute.
 
 ::: notes
-Un principiu al cursului este verificarea unei specificații și a unei proiectări temeinice; Laboratorul 1 face primul pas. O regulă neclarificată poate bloca ramura afectată, în timp ce lucrul la partea convenită continuă. Un plan cu limite clare arată explicit această separare. Agentul care primește sarcina nu poate decide Q1 sau Q2 în locul beneficiarului.
+O regulă neclarificată poate bloca doar ramura afectată, în timp ce partea convenită continuă. Predarea explică această limită. Agentul AI nu decide Q1 sau Q2 în locul beneficiarului; laboratorul face primul pas spre o specificație și o proiectare temeinice.
 :::
 
 ---
@@ -278,7 +290,9 @@ Un principiu al cursului este verificarea unei specificații și a unei proiect�
 Folosiți fișa de lucru. Păstrați fragmentele de care aveți nevoie ca să vă justificați deciziile.
 
 ::: notes
-Fișiere sugerate: `brief.md`, `review.md`, `individual/<student-id>.md` în `lab01/<pair-id>/`, în spațiul de lucru pus la dispoziție. Se acceptă orice format echivalent, dacă autorii sunt clar identificați. Schema de notare a cursului este 5 puncte pentru dosarul de proiectare, 3 pentru examenul grilă, 1 pentru prezență și 1 din oficiu. Acest laborator are rol formativ, fără o notă numerică separată.
+Lucrarea este comună, dar contribuțiile și explicațiile individuale trebuie să fie identificabile. Laboratorul este formativ, fără notă numerică separată.
+
+**Organizare:** în `lab01/<pair-id>/`: `brief.md`, `review.md`, `individual/<student-id>.md`, sau un format echivalent cu autorii precizați.
 :::
 
 ---
@@ -298,7 +312,7 @@ Fără AI:
 3. Comparați două răspunsuri justificabile și dați un scenariu care le distinge.
 
 ::: notes
-Pentru acest scenariu de schimbare, ziua-pilot D este mâine. Este o versiune nouă a cerințelor, nu un defect ascuns în versiunea inițială. Exceptarea programărilor existente și aplicarea limitei după o tranziție convenită sunt reguli posibile. Nu anulați sau scurtați implicit o programare existentă. Explicați consecințele și cereți confirmarea regulii.
+Ziua-pilot D este mâine. Schimbarea introduce o versiune nouă a cerințelor, nu un defect ascuns. Exceptarea programărilor existente sau o tranziție convenită sunt opțiuni. Nu anulăm și nu scurtăm implicit programări: explicăm consecințele și cerem confirmarea regulii.
 :::
 
 ---
@@ -316,7 +330,9 @@ Predați fișierele comune și explicația fiecăruia acolo unde a anunțat prof
 Dacă nu reușiți să predați, folosiți canalul alternativ anunțat.
 
 ::: notes
-Alegeți raționamente diferite, inclusiv o variantă generată corectă. Nu premiați perechea care a găsit cele mai multe defecte. Încheiați cerându-i unui student să distingă o informație convenită, o ipoteză și o propunere de proiectare. Lucrul cu repository-ul nu trebuie să consume din timpul exercițiului.
+Comparați raționamente diferite, inclusiv pentru rezultate generate corecte. Criteriul este justificarea, nu numărul defectelor găsite.
+
+**Organizare:** încheiați cu distincția informație–ipoteză–propunere; operațiile cu repository-ul nu trebuie să consume timpul exercițiului.
 :::
 
 ---
@@ -334,5 +350,7 @@ Lucrarea este pregătită pentru feedback când:
 Urmează cursurile 3–5: [formularea problemei și cerințe, modelarea domeniului, responsabilități](https://traiansf.github.io/class/amss2026/).
 
 ::: notes
-Oferiți feedback punctual pentru revizuire acolo unde lipsesc justificări. Judecata se apreciază după explicații și verificări, nu după instrument, lungimea rezultatului sau aspectul unei diagrame. Laboratorul 2 urmează după cursurile 3 și 4.
+Judecata se apreciază după explicații și verificări, nu după instrument, lungimea rezultatului sau aspectul diagramei. Feedbackul indică precis ce justificare lipsește.
+
+**Organizare:** Laboratorul 2 urmează după cursurile 3–4.
 :::

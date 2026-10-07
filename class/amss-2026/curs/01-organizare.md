@@ -23,9 +23,9 @@ Echipa cursului pe Microsoft Teams: codul QR și linkul sunt disponibile și dup
 ::::::
 
 ::: notes
-Urați bun venit studenților de la master. Porniți de la premisa că au experiență de programare în mai multe paradigme, dar introduceți de la zero vocabularul proiectării. Studenții pot intra pe Teams după curs; nu presupuneți acces la un dispozitiv în sală.
+Experiența de programare este punctul de plecare; cursul introduce explicit raționamentul și vocabularul proiectării.
 
-Ritm orientativ: 70–80 de minute. Bun venit și obiective 10; organizare și evaluare 20; proiect și unelte 20; motivație și discuție 20; pregătirea întâlnirii următoare 10. Acest curs este administrativ și motivațional. Exemplul tehnic cu biblioteca și demonstrația AI rămân pentru cursul 2.
+**Organizare:** 70–80 min: deschidere 10, organizare 20, proiect și unelte 20, motivație 20, încheiere până la 10. Teams se poate accesa după curs; exemplul bibliotecii urmează în cursul 2.
 :::
 
 ---
@@ -41,8 +41,7 @@ Ritm orientativ: 70–80 de minute. Bun venit și obiective 10; organizare și e
 [Sursa: Software Tools in Pascal (1981), p. 311](https://seriouscomputerist.atariverse.com/media/pdf/book/Software%20Tools%20in%20Pascal.pdf#page=320)
 
 ::: notes
-
-Legătura cu tema: Motivația cursului: reducerea complexității prin înțelegere și decizii explicite.
+Reducem complexitatea prin înțelegerea problemei și decizii explicite de proiectare.
 :::
 
 ---
@@ -59,7 +58,7 @@ La finalul cursului, ar trebui să puteți:
 - îndruma lucrul cu AI și evalua justificările pe care le oferă.
 
 ::: notes
-Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, tabele sau pseudocod. Cursul predă cunoștințele de proiectare de care e nevoie pentru aceste judecăți; ele nu vin automat odată cu experiența de programare.
+Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, tabele sau pseudocod. Experiența de programare nu înlocuiește cunoștințele de proiectare.
 :::
 
 ---
@@ -81,9 +80,9 @@ Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, 
 ::::::
 
 ::: notes
-Programați fiecare laborator după predarea ambelor cursuri asociate. Întâlnirea imediat după primul curs este Laboratorul 0, opțional; Laboratorul 1 poate avea loc în săptămâna 3, conform orarului grupei. Arătați linkul și codul Teams de pe primul slide. Orele fiecărei grupe se anunță pe canalul cursului.
+Fiecare laborator aplică cele două cursuri care îl precedă. Laboratorul 1 transferă ideile din exemplul bibliotecii într-un domeniu nou: mașinile de spălat din cămin.
 
-Primul laborator folosește o problemă de programare a mașinilor de spălat dintr-un cămin, astfel încât studenții să aplice, după cursul 2, raționamentul învățat într-un alt domeniu. Laboratorul se programează după ambele cursuri ale perechii, nu înainte de cursul 2.
+**Organizare:** Laboratorul 0 este opțional; Laboratorul 1 urmează după cursul 2, conform orarului grupei. Orele și comunicarea sunt pe Teams; codul este pe primul slide.
 :::
 
 ---
@@ -102,11 +101,9 @@ Primul laborator folosește o problemă de programare a mașinilor de spălat di
 Feedback pentru proiect la cerere, pe parcursul semestrului. Punctajul pentru dosar se definitivează printr-un interviu de echipă la ultimul laborator.
 
 ::: notes
-Cele cinci puncte ale dosarului acoperă formularea problemei și cerințele, modelarea domeniului, atribuirea responsabilităților, contractele și invarianții, respectiv starea și comportamentul. Rezultatele validării, alternativele analizate și argumentarea efectelor unei schimbări susțin aceste criterii. Detaliile sunt pe pagina proiectului.
+Dosarul evaluează cerințele, modelul domeniului, responsabilitățile, contractele și invarianții, starea și comportamentul. Argumentele, alternativele și validarea susțin aceste criterii. Examenul verifică raționamentul pe scenarii, nu memorarea notațiilor. La restanță/mărire: 9 puncte examen + 1 din oficiu, fără reportarea dosarului sau prezenței.
 
-Examenul grilă folosește scenarii, cerințe, contracte și modele mici date în enunț. Evaluează raționamentul, nu memorarea notațiilor pentru diagrame. Restanța și mărirea urmează o cale separată: nouă puncte la examen și un punct din oficiu, fără reportarea punctajelor pentru dosar sau prezență.
-
-Cu aproximativ 100 de studenți și un singur cadru didactic, organizați discuții scurte cu echipele în laboratoarele existente. Exercițiile individuale fără AI au rol formativ; nu introduceți o notă separată pentru fiecare activitate.
+**Organizare:** discuții scurte cu echipele în laboratoare; exercițiile formative nu primesc note separate. Rubrica detaliată este pe pagina proiectului.
 :::
 
 ---
@@ -124,7 +121,7 @@ Fiecare întâlnire, de curs sau de laborator, are aceeași pondere; în mod nor
 - Comparați soluții de proiectare în raport cu constrângerile date.
 
 ::: notes
-Folosiți numărul ședințelor efectiv desfășurate, astfel încât anulările să nu scadă punctajul. Numitorul include cursurile comune și laboratoarele grupei studentului, nu toate cele trei grupe. Laboratorul 0 intră în numitor numai pentru grupele în care s-a ținut; Cursul 14, cu examenul și reflecția, este un curs ca oricare altul. Punctajul este între zero și unu. Dosarul de proiectare se notează o singură dată pentru fiecare echipă, iar examenul grilă individual.
+Prezența se calculează din ședințele efectiv ținute: cursurile comune și laboratoarele grupei studentului. Anulările nu reduc punctajul; Laboratorul 0 contează numai unde s-a ținut, iar Cursul 14 este inclus. Punctajul rămâne între 0 și 1. Dosarul are o notă de echipă; examenul este individual.
 :::
 
 ---
@@ -142,9 +139,9 @@ Livrabilul (repository public) trebuie să fie definitivat cu ~1 săptămână �
 **Pagină cu detalii:** [traiansf.github.io/class/amss2026/proiect](https://traiansf.github.io/class/amss2026/proiect).
 
 ::: notes
-Repository-ul public pe GitHub sau GitLab se creează la anunțarea proiectului pe Teams; mesajul include linkul. Progresul și contribuțiile fiecărui membru trebuie să poată fi urmărite pe parcursul semestrului. Dezvoltarea și commit-urile pot fi asistate de AI; echipa verifică și își asumă conținutul. Numărul de commit-uri nu aduce puncte.
+Evaluăm proiectarea argumentată, nu numărul de commit-uri, diagrame sau șabloane. Modelele și prototipurile pot susține deciziile; aplicația funcțională nu este obligatorie. Echipa verifică și își asumă inclusiv contribuțiile asistate de AI.
 
-Modelele și prototipurile pot susține argumentarea. Nu este obligatorie o aplicație funcțională. Reprezentările se aleg pentru ceea ce explică; nu există cote obligatorii de diagrame UML sau de șabloane de proiectare (design patterns).
+**Organizare:** repository public GitHub/GitLab, creat și legat pe Teams la anunțarea proiectului; progresul și contribuțiile membrilor trebuie să poată fi urmărite.
 :::
 
 ---
@@ -158,7 +155,7 @@ Modelele și prototipurile pot susține argumentarea. Nu este obligatorie o apli
 - Ce schimbă o cerință nouă.
 
 ::: notes
-Proiectare comună, competențe individuale. Studenții trebuie să înțeleagă suficient din întregul sistem ca să explice unde se încadrează contribuția lor; nu trebuie să memoreze toate detaliile implementării colegilor.
+Proiectare comună, competențe individuale: fiecare explică propria contribuție și locul ei în sistem, fără a memora implementarea colegilor.
 :::
 
 ---
@@ -174,7 +171,7 @@ Proiectare comună, competențe individuale. Studenții trebuie să înțeleagă
 Prezentați verificările concis și legați-le de soluția propusă.
 
 ::: notes
-Dosarul echipei se evaluează o singură dată. Un examen grilă individual, bazat pe scenarii, verifică felul în care studenții judecă probleme și soluții date în enunț. Exercițiile de la curs antrenează și construirea unei soluții fără AI. Nu reluați vechile cerințe privind numărul de diagrame, de șabloane sau de defecte și nici pe cea de a reproduce rezultatul unui model AI.
+Dosarul susține deciziile echipei; examenul verifică judecata individuală pe scenarii. Exercițiile de la curs antrenează construirea unei soluții fără AI. Nu cerem un număr fix de diagrame, șabloane sau defecte și nici reproducerea unui răspuns AI.
 :::
 
 ---
@@ -188,9 +185,9 @@ Dosarul echipei se evaluează o singură dată. Un examen grilă individual, baz
 - Pregătiți-vă să explicați soluția fără asistent AI.
 
 ::: notes
-Folosiți tooling/SETUP.md și tooling/README.md. Nu impunem un abonament plătit, un furnizor, un editor, un model sau un nivel de efort anume. Contextele separate pot fi folosite succesiv.
+Rolurile și predările explicite contează mai mult decât instrumentul ales. Contextele separate pot fi folosite succesiv, cu același asistent AI; nu este necesar un abonament plătit.
 
-Dacă o unealtă nu este disponibilă, la curs se poate exersa pe exemple pregătite sau în perechi. Un exemplu pregătit nu trebuie prezentat drept rezultatul unei rulări efectuate de student.
+**Organizare:** ghiduri în `tooling/SETUP.md` și `tooling/README.md`. Fără acces la instrumente, folosiți exemple pregătite, etichetate ca atare.
 :::
 
 ---
@@ -205,7 +202,9 @@ Dacă o unealtă nu este disponibilă, la curs se poate exersa pe exemple pregă
 Primul livrabil descrie clar problema și deciziile rămase deschise.
 
 ::: notes
-Ghidul complet al laboratorului 1 conține datele problemei și exercițiul. Studenții au nevoie de experiență de programare, dar nu de un curs anterior de UML sau proiectare. Nu le cereți să învețe un limbaj de diagrame ca pregătire.
+Laboratorul pornește de la experiența de programare și introduce termenii de analiză și proiectare. Nu presupune cunoștințe anterioare de UML.
+
+**Organizare:** datele problemei și exercițiul sunt în ghidul laboratorului; nu cereți învățarea unei notații înainte.
 :::
 
 ---
@@ -221,7 +220,9 @@ O implementare poate să funcționeze exact cum am cerut și totuși să&nbsp;re
 Vom învăța să formulăm întrebări, să comparăm soluții și să explicăm consecințele deciziilor.
 
 ::: notes
-Cereți un exemplu din experiența studenților: o cerință interpretată diferit sau o modificare aparent mică, dar dificilă. Discutați ce ar fi ajutat înainte de implementare. Nu începeți aici predarea modelelor, contractelor sau diagramelor.
+O cerință interpretată diferit sau o schimbare dificilă arată valoarea clarificării înainte de implementare. Întrebați ce decizie timpurie ar fi ajutat.
+
+**Organizare:** cereți un exemplu din experiența studenților; păstrați explicațiile tehnice pentru cursul 2.
 :::
 
 ---
@@ -235,7 +236,9 @@ Vrem să puteți explica de ce o soluție este potrivită și ce constatare v-ar
 **Discuție:** când ați acceptat un rezultat care părea corect? Cum ați putea să îl verificați mai bine?
 
 ::: notes
-Încurajați studenții să povestească situații concrete, fără a le cere acces la conturi sau conversații private. Alegeți și un exemplu în care asistentul AI a ajutat. Scopul este să-i motivați să judece singuri și să învețe principiile, nu să demonstrați o greșeală previzibilă a modelului.
+AI poate ajuta, dar evaluarea rezultatului cere judecată proprie și cunoștințe de proiectare. Discutați și un exemplu reușit; scopul nu este găsirea obligatorie a unei greșeli.
+
+**Organizare:** cereți experiențe concrete, fără acces la conturi sau conversații private.
 :::
 
 ---
@@ -278,5 +281,7 @@ Completarea este facultativă și durează aproximativ 10–12&nbsp;minute. Vom 
 ::::::
 
 ::: notes
-Invitația se adresează tuturor grupelor. Nu alocați timp de completare care presupune un dispozitiv la curs; chestionarul poate fi completat ulterior din prezentarea publicată. La finalul semestrului vom reveni cu un chestionar despre învățare și îmbunătățiri.
+Răspunsurile ne ajută să adaptăm cursul; la final vom reveni asupra învățării și îmbunătățirilor.
+
+**Organizare:** invitație pentru toate grupele; completare facultativă după curs, din prezentarea publicată.
 :::

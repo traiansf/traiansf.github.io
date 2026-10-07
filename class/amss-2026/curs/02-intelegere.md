@@ -9,9 +9,9 @@ lang: ro-RO
 Ce trebuie să înțelegem înainte de a propune o soluție?
 
 ::: notes
-**Reper de timp: minutul 0 din 100, de la începutul cursului.** Intervalul acestei etape: minutele 0–15 (15 minute); include tranziția, explicațiile, exercițiile și discuțiile.
+Înaintea unei soluții, identificăm ce trebuie clarificat și ce decizii depind de răspunsuri.
 
-Includeți deschiderea și citatul în acest interval. Păstrați timpul pentru lucrul individual, compararea în pereche și discutarea întrebărilor.
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv deschiderea, citatul și exercițiul de întrebări.
 :::
 
 ---
@@ -23,7 +23,9 @@ Ce trebuie să înțelegem înainte de a cere unei persoane sau unui asistent AI
 Astăzi analizăm o problemă de dimensiuni reduse, comparăm decizii și verificăm ce anume le susține.
 
 ::: notes
-100 de minute, inclusiv tranziții și discuții: întrebări 0–15; clarificări și delimitare 15–25; model, responsabilități, contracte și stări 25–45; scenarii 45–60; delegare și revizuire 60–85; schimbare și sinteză 85–95; exercițiu final 95–100. Reperele cumulative sunt în notele slide-urilor de tranziție. Aspectele administrative au fost discutate în cursul 1. Acesta este un prim contact cu principiile care vor fi aprofundate în cursurile următoare. Laboratorul 1 se desfășoară după acest curs.
+O soluție poate fi plauzibilă și totuși nepotrivită problemei. Înainte de delegare, avem nevoie de reguli clare și criterii de verificare. Astăzi introducem principiile pe care le vom aprofunda ulterior.
+
+**Organizare:** 100 min; reperele sunt la tranziții. Laboratorul 1 urmează după acest curs.
 :::
 
 ---
@@ -39,9 +41,9 @@ Astăzi analizăm o problemă de dimensiuni reduse, comparăm decizii și verifi
 [Sursa: How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html)
 
 ::: notes
-Transcriere universitară, afirmația marcată ca adnotare manuscrisă; originalul este în arhiva Dijkstra de la UT Austin, EWD498.
+Înțelegerea se vede într-o descriere pe care o putem explica și verifica înainte de delegare.
 
-Legătura cu tema: O descriere pe care o putem înțelege și verifica înainte de delegare.
+**Sursă:** transcriere universitară; afirmație marcată drept adnotare manuscrisă. Original: arhiva Dijkstra, UT Austin, EWD498.
 :::
 
 ---
@@ -57,7 +59,9 @@ Biblioteca este beneficiarul sistemului informatic. Bibliotecarul o reprezintă 
 **Ce ar trebui să înțelegeți?**
 
 ::: notes
-Este o solicitare intenționat incompletă a beneficiarului, nu o specificație completă. Nu arătați încă precizările. Studenții lucrează pe coli albe, fără calculator sau fișe. Toate datele necesare sunt pe slide-uri; păstrați pe ecran slide-ul fiecărui exercițiu pe durata lucrului.
+Solicitarea beneficiarului este intenționat incompletă. Cuvinte aparent clare, precum „carte” sau „cerere”, pot ascunde reguli și identități diferite.
+
+**Organizare:** nu arătați încă precizările; lucru pe coli albe. Lăsați datele exercițiului pe ecran.
 :::
 
 ---
@@ -75,9 +79,9 @@ Lucrați pe o coală albă, mai întâi singuri, apoi cu un coleg.
 Alegeți una dintre întrebările formulate și explicați **cum ar putea răspunsul beneficiarului să influențeze proiectarea**.
 
 ::: notes
-Acordați două minute de lucru individual și un minut de comparare în pereche, apoi ascultați trei răspunsuri diferite. Întrebări utile: „carte” înseamnă titlu sau exemplar? Ce promite o cerere de împrumut? Ce se întâmplă când doi membri vor același exemplar? Alegerea unui framework pentru interfață ține de implementare și nu este, deocamdată, incertitudinea cea mai importantă.
+Întrebări utile: „carte” înseamnă titlu sau exemplar? Ce promite cererea de împrumut? Cine primește un exemplar dorit de doi membri? Cereți legătura dintre întrebare și o decizie; alegerea unui framework nu rezolvă aceste incertitudini.
 
-Nu evaluați răspunsurile comparându-le cu o listă ascunsă. Întrebați cum influențează fiecare întrebare limitele sistemului, comportamentul sau o decizie de proiectare.
+**Organizare:** 2 min individual, 1 min în pereche; ascultați 3 răspunsuri diferite, fără comparație cu o listă ascunsă.
 :::
 
 ---
@@ -87,9 +91,9 @@ Nu evaluați răspunsurile comparându-le cu o listă ascunsă. Întrebați cum 
 Ce comportament convenim cu beneficiarul?
 
 ::: notes
-**Reper de timp: minutul 15 din 100, de la începutul cursului.** Intervalul acestei etape: minutele 15–25 (10 minute); include tranziția, explicațiile, exercițiile și discuțiile.
+Răspunsurile beneficiarului devin reguli explicite. Legăm fiecare precizare de o întrebare și delimităm fluxul pe care îl proiectăm.
 
-Parcurgeți regulile R1–R6 și legați precizările de întrebările studenților.
+**Organizare:** minutul 15 din 100; interval 15–25 (10 min), pentru R1–R6 și limite.
 :::
 
 ---
@@ -105,7 +109,7 @@ Parcurgeți regulile R1–R6 și legați precizările de întrebările studenți
 Un exemplar este **disponibil** dacă nu este nici împrumutat, nici rezervat.
 
 ::: notes
-Regulile R1–R6 sunt precizările beneficiarului pentru acest exercițiu, nu reguli universale ale bibliotecilor. Toate apar pe slide-uri; nu cereți studenților un document separat.
+Un titlu și exemplarele sale au identități diferite. R1–R6 sunt precizările beneficiarului acestui exercițiu, nu reguli universale ale bibliotecilor.
 :::
 
 ---
@@ -175,7 +179,7 @@ Operațiile folosesc identificatori cunoscuți și se procesează **pe rând**, 
 Rămân în afara exercițiului: expirarea/anularea rezervărilor și cererilor, notificările, amenzile, prelungirile, autentificarea și modificarea catalogului.
 
 ::: notes
-Cererea are un rezultat util complet: prioritate, exemplar rezervat, împrumut la ridicare. Ordinea procesării departajează cererile fără a cere ceasuri perfect sincronizate. Expirarea și notificările sunt importante pentru un serviciu real, dar nu sunt necesare pentru parcurgerea acestui flux. În limitele exercițiului, rezervarea rămâne până la ridicare. Nu pretindeți că acesta este un sistem complet de bibliotecă.
+Cererea produce un flux util: prioritate → exemplar rezervat → împrumut la ridicare. Ordinea procesării departajează cererile, fără ceasuri sincronizate. Rezervarea rămâne până la ridicare; expirarea și notificările sunt în afara exercițiului, nu neimportante pentru o bibliotecă reală.
 :::
 
 ---
@@ -185,9 +189,9 @@ Cererea are un rezultat util complet: prioritate, exemplar rezervat, împrumut l
 Ce concepte, responsabilități și reguli explică problema?
 
 ::: notes
-**Reper de timp: minutul 25 din 100, de la începutul cursului.** Intervalul acestei etape: minutele 25–45 (20 minute); include tranziția, explicațiile, exercițiile și discuțiile.
+Transformăm regulile în concepte, legături și responsabilități. Modelul trebuie să explice ce se schimbă și ce trebuie să rămână adevărat.
 
-Rezervați 8 minute exercițiului de proiectare; folosiți restul pentru discutarea propunerilor, concepte, responsabilități, contracte și stări.
+**Organizare:** minutul 25 din 100; interval 25–45 (20 min), din care 8 min pentru propunerile studenților.
 :::
 
 ---
@@ -205,9 +209,9 @@ Rezervați 8 minute exercițiului de proiectare; folosiți restul pentru discuta
 „Folosește o bază de date relațională” nu răspunde la „ce este o carte?”
 
 ::: notes
-Folosim aceleași cinci tipuri și în laboratorul 1. Informațiile convenite vin de la beneficiar (aici, R1–R6); o consecință dedusă trebuie să rezulte din ele. Consecința dedusă rezultă din R1 și R2: disponibilitatea se stabilește pe exemplar. O ipoteză este un răspuns provizoriu, etichetat ca atare: R3 nu spune cine poate returna exemplarul. Atenție: „un membru poate avea mai multe împrumuturi active” nu este o ipoteză, ci o consecință a R2, care nu impune un plafon de împrumuturi pe membru. O propunere de proiectare nu devine informație convenită până nu o acceptă beneficiarul.
+Separați regulile convenite, consecințele deduse, întrebările, ipotezele și propunerile. R1–R2 implică disponibilitate pe exemplar; R2 nu limitează numărul de împrumuturi pe membru. Cine poate returna exemplarul rămâne neprecizat de R3. O propunere devine convenită doar prin acceptare.
 
-Porniți analiza de la ce au lucrat studenții. O tehnologie poate fi o restricție externă reală, dacă o impune beneficiarul; nu lăsați impresia că tehnologia nu are ce căuta în cerințe. Aici beneficiarul nu a impus o asemenea restricție.
+Tehnologia poate fi o restricție legitimă a beneficiarului; aici nu a fost impusă. Legați distincțiile de întrebările studenților.
 :::
 
 ---
@@ -225,7 +229,9 @@ Pe hârtie, apoi în pereche:
 3. Ce se schimbă atunci când M2 ridică C1?
 
 ::: notes
-Alocați 8 minute: 5 minute individual, 3 minute în pereche. Mențineți slide-ul proiectat. La început nu există cereri sau rezervări; M2 este singurul solicitant. Cereți o alternativă și motivul alegerii în discuția propunerilor. Sunt suficiente un tabel, o schiță sau pseudocod pe hârtie. Ascultați două propuneri înainte de modelul lucrat.
+După returnare, împrumutul lui M1 este încheiat, C1 este rezervat lui M2, iar C2 rămâne împrumutat lui M3. Legătura rezervării C1–M2 permite respingerea lui M3. La ridicare, M2 primește un împrumut nou; cererea și rezervarea se încheie. Acceptați reprezentări diferite, cu justificare.
+
+**Organizare:** 5 min individual + 3 min în pereche, cu slide-ul pe ecran. Ascultați două propuneri înaintea modelului lucrat.
 :::
 
 ---
@@ -242,7 +248,7 @@ Alocați 8 minute: 5 minute individual, 3 minute în pereche. Mențineți slide-
 Cererea privește un **titlu**; rezervarea și împrumutul privesc un **exemplar**.
 
 ::: notes
-Comparați cu propunerile studenților. Rezervarea poate fi o entitate separată sau o legătură și o stare ale cererii. Nu impuneți clase ori tabele. La returnare, împrumutul se închide, iar cererea poate primi un exemplar; titlul continuă să existe. Cele două fapte nu pot fi comprimate într-o singură stare a titlului.
+La returnare se închide împrumutul și se poate aloca un exemplar unei cereri; titlul continuă să existe. O singură stare pe titlu nu exprimă aceste fapte. Rezervarea poate fi entitate separată sau legătură și stare ale cererii; comparați cu propunerile studenților, fără a impune clase.
 :::
 
 ---
@@ -260,9 +266,9 @@ Ea trebuie să:
 Interfața poate afișa disponibilitatea, dar soluția trebuie să respecte regula și în momentul împrumutului.
 
 ::: notes
-Prezentați responsabilitatea ca obligația de a avea un anumit comportament și de a face respectate anumite reguli. Ea poate reveni unui obiect, unei funcții, unui serviciu sau altui mecanism; nu am ales încă unul.
+Responsabilitatea este obligația de a asigura un comportament și respectarea unor reguli; poate reveni unei funcții, unui obiect sau unui serviciu. Coeziunea grupează deciziile legate de aceeași responsabilitate; cuplarea descrie dependențele ei.
 
-Pomeniți în treacăt coeziunea (deciziile de care are nevoie această responsabilitate stau împreună) și cuplarea (informațiile și operațiile de care depinde ea). În acest exemplu introductiv nu impuneți un sistem distribuit sau un anumit mecanism de blocare.
+**Organizare:** introduceți termenii pe scurt; nu alegem aici distribuirea sau mecanismul de blocare.
 :::
 
 ---
@@ -279,9 +285,7 @@ Pomeniți în treacăt coeziunea (deciziile de care are nevoie această responsa
 **La ridicarea unei rezervări:** împrumut nou, rezervare încheiată, cerere îndeplinită. Niciodată împrumut activ și rezervare activă pe același exemplar.
 
 ::: notes
-Un invariant este o condiție care trebuie să fie adevărată în toate stările valide avute în vedere. Un contract precizează obligațiile și rezultatele observabile ale unei operații. Mai târziu vom defini precis precondițiile, postcondițiile, comportamentul la eșec și sensul unei „stări valide”.
-
-Nu confundați această regulă a domeniului cu o soluție completă pentru accesul concurent. Dacă încercările simultane de împrumut fac parte din problemă, planul de implementare trebuie să explice cum se păstrează invariantul.
+Invariantul trebuie respectat în toate stările valide. Contractul precizează obligațiile și rezultatele unei operații, inclusiv la eșec. Enunțarea invariantului nu rezolvă singură accesul concurent: dacă acesta intră în problemă, implementarea trebuie să-i asigure păstrarea.
 :::
 
 ---
@@ -319,9 +323,9 @@ stateDiagram-v2
 ::::::
 
 ::: notes
-Numerele săgeților corespund rândurilor tabelului. Urmăriți cele două rezultate ale returnării: 2 când nu există cereri în așteptare, 3 când exemplarul se rezervă primei cereri. Cele două săgeți 5 revin în aceeași stare: un nou împrumut al unui exemplar deja împrumutat este respins indiferent de membru; împrumutul unui exemplar rezervat este respins dacă îl cere alt membru decât solicitantul. Împrumutul sau rezervarea existente rămân nemodificate. Nu este o anulare urmată de o nouă rezervare. La 4, rezervarea încetează, cererea este îndeplinită și apare împrumutul.
+Returnarea duce la disponibil (2) sau la rezervat pentru prima cerere (3). Buclele 5 sunt respingeri fără schimbarea stării: exemplar deja împrumutat sau rezervat altui membru. Ridicarea (4) încheie cererea și rezervarea și creează împrumutul.
 
-Comparați cu o singură stare disponibil/împrumutat/rezervat pe titlu: un exemplar poate fi rezervat, iar altul împrumutat. Diagrama și tabelul ilustrează tranzițiile discutate, nu toate încercările posibile. Nu impuneți această notație sau un singur enum drept implementare.
+Două exemplare ale aceluiași titlu pot avea stări diferite. Diagrama acoperă tranzițiile discutate, nu toate încercările posibile, și nu impune un enum ca implementare.
 :::
 
 ---
@@ -337,9 +341,7 @@ Comparați cu o singură stare disponibil/împrumutat/rezervat pe titlu: un exem
 Alegeți reprezentarea care face decizia mai ușor de verificat.
 
 ::: notes
-Diagramele și limbajele lor sunt instrumente ajutătoare. Cursul nu cere o anumită notație, iar stăpânirea notației nu înlocuiește înțelegerea problemei.
-
-Întrebați ce nu arată diagrama și tabelul anterior: ordinea cererilor mai multor membri, istoricul împrumuturilor sau cine impune o regulă. Astfel justificați nevoia mai multor perspective, fără să prezentați un catalog de diagrame.
+Notația nu înlocuiește înțelegerea. Diagrama stărilor nu arată ordinea cererilor, istoricul împrumuturilor sau cine impune regula. Aceste întrebări justifică perspective complementare, nu un număr obligatoriu de diagrame.
 :::
 
 ---
@@ -349,9 +351,9 @@ Diagramele și limbajele lor sunt instrumente ajutătoare. Cursul nu cere o anum
 Ce se întâmplă în scenarii concrete?
 
 ::: notes
-**Reper de timp: minutul 45 din 100, de la începutul cursului.** Intervalul acestei etape: minutele 45–60 (15 minute); include tranziția, explicațiile, exercițiile și discuțiile.
+Urmărim starea înainte și după operații: modelul trebuie să explice atât acceptarea, cât și respingerea, fără efecte nepermise.
 
-Alocați 6 minute parcurgerii S1–S2, 4 minute pentru S3–S4, 2 minute pentru S5 și 3 minute pentru S6, incluzând discuțiile și această tranziție.
+**Organizare:** minutul 45 din 100; interval 45–60 (15 min): S1–S2 6 min, S3–S4 4 min, S5 2 min, S6 3 min, cu discuții și tranziție.
 :::
 
 ---
@@ -399,7 +401,9 @@ După S1, C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau 
 Notați pe hârtie starea după fiecare pas și regula aplicată. Ce se înregistrează la un nou împrumut după returnare?
 
 ::: notes
-Alocați aproximativ 4 minute aici, 2 minute pentru S5 și 3 minute pentru S6; restul intervalului acoperă parcurgerea S1–S2. Lăsați acest slide pe ecran. S3 și S4 pornesc independent după S1, nu după S2. Verificați starea înainte și după fiecare operație. În S4, un împrumut ulterior creează o înregistrare nouă. Întrebați și ce afirmații nu poate demonstra un singur scenariu. Acestea sunt observații introductive, nu tratarea aprofundată a contractelor din cursul 6.
+S3 și S4 pornesc independent după S1, nu după S2. Comparați starea înainte și după respingere. În S4, un împrumut ulterior creează o înregistrare nouă. Un singur scenariu nu demonstrează corectitudinea tuturor cazurilor.
+
+**Organizare:** 4 min, cu slide-ul pe ecran.
 :::
 
 ---
@@ -417,7 +421,9 @@ Alocați aproximativ 4 minute aici, 2 minute pentru S5 și 3 minute pentru S6; r
 Pe hârtie: ce se acceptă, ce se respinge și câte cereri rămân?
 
 ::: notes
-Lăsați slide-ul pe ecran. Prima cerere se respinge: C2 este disponibil. După împrumutul lui C2 se acceptă o cerere M2/T; repetarea se respinge. La final, o singură cerere așteaptă. S5 pornește independent după S1.
+Prima cerere se respinge: C2 este disponibil. După împrumutul lui C2 se acceptă cererea M2/T; repetarea se respinge. La final așteaptă o singură cerere. S5 pornește independent după S1.
+
+**Organizare:** 2 min, cu slide-ul pe ecran.
 :::
 
 ---
@@ -435,7 +441,9 @@ Lăsați slide-ul pe ecran. Prima cerere se respinge: C2 este disponibil. După 
 Pe hârtie: cui îi rezervăm fiecare exemplar? Poate M4 să-l ridice pe al său înainte de M2? **R2:** fiecare ridică exemplarul rezervat propriei cereri.
 
 ::: notes
-Lăsați slide-ul pe ecran. C2 este rezervat lui M2, C1 lui M4; niciun împrumut nou până la ridicare. M4 poate ridica C1 înainte de M2: ordinea depunerii decide alocarea, nu ordinea venirii la bibliotecă. Această distincție pregătește exercițiul de revizuire. S6 pornește independent după S1.
+C2 se rezervă lui M2, C1 lui M4; împrumuturile apar abia la ridicare. M4 poate ridica primul: ordinea cererilor decide alocarea, nu ordinea venirii la bibliotecă. S6 pornește independent după S1.
+
+**Organizare:** 3 min, cu slide-ul pe ecran.
 :::
 
 ---
@@ -445,9 +453,9 @@ Lăsați slide-ul pe ecran. C2 este rezervat lui M2, C1 lui M4; niciun împrumut
 Ce predăm agentului AI și cum evaluăm rezultatul?
 
 ::: notes
-**Reper de timp: minutul 60 din 100, de la începutul cursului.** Intervalul acestei etape: minutele 60–85 (25 minute); include tranziția, explicațiile, exercițiile și discuțiile.
+Delegăm o sarcină delimitată și evaluăm rezultatul față de reguli și scenarii. Verificăm inclusiv concluziile evaluatorului AI.
 
-Alocați aproximativ 6 minute introducerii delegării, 17 minute demonstrației și revizuirii, apoi 2 minute sintezei verificabile. Includeți intervențiile studenților și tranziția în aceste intervale.
+**Organizare:** minutul 60 din 100; interval 60–85 (25 min): introducere 6, demonstrație și revizuire 17, sinteză 2, inclusiv discuțiile.
 :::
 
 ---
@@ -465,9 +473,9 @@ Cereți unui agent AI să:
 **Întrebare:** ce stabilește fiecare verificare pe care o faceți deja (citiți propunerea, întrebați alt agent AI, rulați teste, cereți o explicație) și ce nu poate stabili?
 
 ::: notes
-Ascultați două-trei răspunsuri. Citirea poate găsi o neconcordanță cu enunțul, dar numai dacă știm ce să căutăm; un alt agent AI oferă încă o opinie, nu o confirmare; testele trec numai pe cazurile alese; o explicație fluentă poate fi greșită. Pentru a evalua răspunsurile, aveți în continuare nevoie de cunoștințe proprii.
+Un alt agent AI oferă o opinie, nu o confirmare; testele acoperă cazurile alese, iar fluența nu garantează corectitudinea. Evaluarea cere cunoștințe proprii. Și un răspuns bun trebuie justificat prin enunț și prin limitele verificării.
 
-Nu promiteți că agentul AI va produce întotdeauna o greșeală utilă pentru discuție. Un răspuns bun este valoros: studenții trebuie să explice de ce respectă enunțul și până unde merg garanțiile lui.
+**Organizare:** ascultați 2–3 răspunsuri; nu cereți găsirea obligatorie a unei greșeli.
 :::
 
 ---
@@ -484,9 +492,7 @@ Nu promiteți că agentul AI va produce întotdeauna o greșeală utilă pentru 
 - Predați explicit sarcina și contextul etapei următoare.
 
 ::: notes
-Acesta este procesul convenit pentru curs: investim de la început într-o specificație și o soluție de proiectare temeinice. Faptul că testele apar după implementare arată doar o ordine posibilă; exemplele de acceptare și întrebările de validare apar și în etapele anterioare. Dezvoltarea dirijată de teste (test-driven development, TDD) este o tehnică posibilă de implementare, nu o cerință a proiectului.
-
-Prototipurile și modelele executabile pot răspunde unor întrebări de proiectare înainte să existe o aplicație completă. Studenților nu li se cere o aplicație funcțională la acest curs.
+Investim într-o specificație și o proiectare temeinice înainte de implementarea de amploare. Scenariile de acceptare și prototipurile pot valida decizii încă din aceste etape. TDD este o opțiune de implementare; proiectul nu cere nici TDD, nici o aplicație funcțională.
 :::
 
 ---
@@ -504,7 +510,7 @@ La predarea sarcinii (**handoff**), dați următorului agent AI:
 „Construiește aplicația bibliotecii” lasă aceste decizii implicite.
 
 ::: notes
-Predarea trebuie să ajute etapa următoare fără să devină un transcript imposibil de verificat. În demonstrația introductivă, rezultatul este o descriere concisă a soluției de proiectare. Pentru o etapă reală de implementare, planul ar avea nevoie și de detalii tehnice potrivite funcționalității vizate.
+Predarea păstrează contextul necesar și criteriile de verificare, fără a deveni un transcript. Aici cerem o descriere concisă a proiectării; pentru implementare ar trebui adăugate detaliile tehnice relevante.
 :::
 
 ---
@@ -523,9 +529,9 @@ Pașii demonstrației:
 Parcurgem pe slide-uri prompturile și un **exemplu didactic pregătit**, nu un răspuns AI capturat. Lucrați pe hârtie; profesorul operează instrumentele AI.
 
 ::: notes
-Urmați 02-intelegere-demo.md. Demonstrația se desfășoară integral în această prezentare. Prompturile, proiectarea examinată, verificările și revizuirea apar în slide-urile următoare. Nu cereți acces la calculator, telefon, fișiere sau o prezentare separată. Un răspuns AI real poate fi pregătit înainte de curs și introdus în slide-uri cu proveniența sa; păstrați exemplul didactic disponibil în prezentare.
+Verificarea poate confirma o afirmație, nu doar găsi defecte. Judecăm rezultatul prin reguli și scenarii; nu inventăm erori într-o soluție corectă.
 
-O afirmație pusă la încercare poate fi și confirmată, prin verificarea unui scenariu. Studenții nu trebuie să inventeze o eroare dacă rezultatul este corect.
+**Organizare:** ghid: `02-intelegere-demo.md`; toate materialele sunt pe slide-uri. Distingeți exemplul pregătit de un răspuns AI real, căruia îi precizați proveniența.
 :::
 
 ---
@@ -541,7 +547,9 @@ O afirmație pusă la încercare poate fi și confirmată, prin verificarea unui
 > Separă cerințele, alegerile și întrebările deschise. Respectă R6. Încheie cu ce poate fi predat etapei următoare și cu limitele soluției.
 
 ::: notes
-Acesta este promptul folosit la pregătirea unei rulări, împreună cu enunțul integral. Nu solicitați studenților să-l trimită. Explicați legătura dintre contextul predat și rezultatul cerut.
+Contextul predat trebuie să susțină rezultatul cerut: enunțul integral, regulile, limitele și scenariile justifică o sarcină delimitată.
+
+**Organizare:** prompt pentru pregătirea rulării; studenții îl discută, nu trebuie să-l trimită.
 :::
 
 ---
@@ -561,7 +569,9 @@ Acesta este promptul folosit la pregătirea unei rulări, împreună cu enunțul
 Pe hârtie: ce informație lipsește pentru a verifica ridicarea lui C1?
 
 ::: notes
-Exemplu didactic pregătit, nu răspuns AI capturat. Păstrați slide-ul două minute. Lipsesc identitatea exemplarului în împrumut și legătura cerere–exemplar rezervat; o singură stare pe titlu nu distinge C1 rezervat de C2 împrumutat. Nu considerați defecte alte denumiri sau lipsa unei diagrame.
+Lipsesc identitatea exemplarului din împrumut și legătura cerere–exemplar rezervat. O singură stare pe titlu nu distinge C1 rezervat de C2 împrumutat. Alte denumiri sau lipsa unei diagrame nu sunt defecte în sine.
+
+**Organizare:** 2 min pe acest slide. Exemplu didactic pregătit, nu răspuns AI capturat.
 :::
 
 ---
@@ -580,7 +590,7 @@ Exemplu didactic pregătit, nu răspuns AI capturat. Păstrați slide-ul două m
 **Ridicarea** verifică membrul, încheie rezervarea și cererea, creează împrumutul (R2).
 
 ::: notes
-O proiectare de referință, nu singura reprezentare corectă. Rezervarea poate fi stocată separat sau prin exemplarul alocat cererii. Înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4). Responsabilitățile pot fi realizate prin funcții, obiecte sau alte mecanisme.
+Rezervarea poate fi separată sau reprezentată prin exemplarul alocat cererii. Înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4). Aceasta este o soluție de referință, nu singura reprezentare corectă; funcțiile sau obiectele rămân alegeri de proiectare.
 :::
 
 ---
@@ -610,7 +620,9 @@ S3 și S4 sunt ramuri independente. R2 împiedică împrumutul dublu; R3 păstre
 **R4–R5:** fără duplicate neîncheiate; alocare în ordinea cererilor. **R2:** ridicare numai de către solicitant.
 
 ::: notes
-Acestea sunt parcurgeri ale proiectării, nu teste executate pe o aplicație. Pentru lucru pe hârtie, reveniți la slide-ul scenariului ales, cu datele și regula împreună pe ecran. În S6, M4 poate ridica C1 înainte de M2 fără să schimbe ordinea alocării.
+Parcurgem proiectarea, nu executăm teste pe o aplicație. În S6, M4 poate ridica C1 înaintea lui M2, fără schimbarea ordinii alocării.
+
+**Organizare:** pentru lucru pe hârtie, reveniți la scenariul ales, cu datele și regula pe ecran.
 :::
 
 ---
@@ -628,7 +640,9 @@ Acestea sunt parcurgeri ale proiectării, nu teste executate pe o aplicație. Pe
 Ce ar lipsi dacă am preda doar proiectarea și cererea „verifică dacă e corect”?
 
 ::: notes
-Lăsați promptul pe ecran cât ascultați răspunsurile. Contextul separat face explicită predarea, dar nu garantează o revizuire imparțială sau corectă.
+Contextul separat face explicit ce primește evaluatorul AI, dar nu garantează o revizuire imparțială sau corectă.
+
+**Organizare:** păstrați promptul pe ecran în timpul răspunsurilor.
 :::
 
 ---
@@ -644,7 +658,9 @@ Lăsați promptul pe ecran cât ascultați răspunsurile. Contextul separat face
 Pe hârtie: acceptați constatarea? Indicați regula și rezultatul corect al încercării lui M4.
 
 ::: notes
-Afirmația este pregătită, nu o captură AI. Este nesusținută: ordinea alocării nu impune ordinea ridicării. M4 poate ridica C1; rezervarea lui M2 pe C2 rămâne. Lăsați slide-ul proiectat cât lucrează studenții. Contextul separat nu garantează corectitudinea evaluatorului AI. În laboratorul 1, studenții clasifică similar constatări, pe alt domeniu.
+Constatarea este nesusținută: ordinea alocării nu impune ordinea ridicării. M4 poate ridica C1; rezervarea lui M2 pe C2 rămâne. Contextul separat nu garantează corectitudinea evaluatorului AI.
+
+**Organizare:** afirmație pregătită, nu captură AI; păstrați slide-ul pe ecran cât lucrează studenții.
 :::
 
 ---
@@ -661,7 +677,9 @@ Ordinea **alocării** și ordinea **ridicării** nu sunt aceeași regulă.
 **Următorul agent AI:** poate elabora planul pentru fluxul convenit. Expirarea, notificările, concurența și punerea în producție rămân de clarificat.
 
 ::: notes
-Constatări pregătite pentru predare. Dacă folosiți un răspuns AI real și corect, cereți justificarea lui și discutați o posibilă expirare a rezervării; nu impuneți o cotă de defecte. Nu adăugați expirarea ca cerință deja convenită.
+Acceptăm sau respingem constatarea prin regula sursă și un scenariu. Expirarea rezervării poate fi discutată ca cerință nouă, nu prezentată drept regulă deja convenită.
+
+**Organizare:** constatări pregătite. Pentru un răspuns AI real și corect, cereți justificarea, fără cotă de defecte.
 :::
 
 ---
@@ -675,7 +693,9 @@ Constatări pregătite pentru predare. Dacă folosiți un răspuns AI real și c
 Ce s-ar pierde dacă rezumatul ar spune doar „la returnare, cartea devine disponibilă”? Indicați condiția omisă și regula sursă.
 
 ::: notes
-Lăsați sinteza și regulile pe ecran. Exemplarul poate deveni rezervat, deci nu este disponibil oricărui membru. O sinteză fluentă nu înlocuiește regulile detaliate. Într-un proiect, cereți agentului AI să indice secțiunea sursă; aici urmărim legătura direct pe slide.
+„Disponibil” omite posibilitatea rezervării pentru solicitant. Sinteza trebuie verificată față de R2 și R5; fluența nu înlocuiește regulile detaliate. Într-un proiect, păstrăm trimiteri la secțiunile-sursă.
+
+**Organizare:** lăsați sinteza și regulile pe ecran.
 :::
 
 ---
@@ -685,9 +705,9 @@ Lăsați sinteza și regulile pe ecran. Exemplarul poate deveni rezervat, deci n
 Ce schimbăm când modelul nu mai explică problema?
 
 ::: notes
-**Reper de timp: minutul 85 din 100, de la începutul cursului.** Intervalul acestei etape: minutele 85–95 (10 minute); include tranziția, explicațiile, exercițiile și discuțiile.
+O problemă găsită târziu poate cere revizuirea unei decizii timpurii. Alegem corecția după cerința încălcată și dependențele ei.
 
-Includeți exercițiul despre corecție locală sau reproiectare, cele cinci idei fundamentale și legătura cu întâlnirile următoare.
+**Organizare:** minutul 85 din 100; interval 85–95 (10 min), pentru exercițiu, cele cinci idei și legătura cu întâlnirile următoare.
 :::
 
 ---
@@ -706,9 +726,7 @@ Alegerea poate afecta:
 Corectarea ulterioară a conceptului poate impune schimbarea tuturor celor patru.
 
 ::: notes
-Explicați costul unei erori timpurii urmărindu-i consecințele, nu printr-un multiplicator numeric fără justificare. De aceea investim în cerințe și proiectare înainte de a delega implementarea de amploare.
-
-Dacă verificările ulterioare scot la iveală o problemă, revedeți decizia inițială și actualizați ceea ce depinde de ea.
+Costul erorii se explică prin deciziile care depind de ea, nu printr-un multiplicator numeric arbitrar. Când verificarea descoperă problema, revedem decizia inițială și actualizăm consecințele ei. De aceea clarificăm înaintea implementării de amploare.
 :::
 
 ---
@@ -726,9 +744,9 @@ Cineva adaugă un indicator: `has_waiting_request`.
 De ce distincție mai are nevoie soluția?
 
 ::: notes
-Acordați un minut de reflecție individuală, apoi discutați. Indicatorul separă existența unei cereri în așteptare de starea împrumutului, dar propunerea tot nu poate reprezenta exemplare împrumutate independent. Lipsește distincția titlu–exemplar și precizarea exemplarului la care se referă fiecare împrumut.
+Indicatorul separă cererea în așteptare de împrumut, dar nu permite împrumuturi independente pe exemplare. Lipsesc distincția titlu–exemplar și exemplarul vizat de împrumut. Identificăm întâi cerința încălcată: o corecție locală ajunge numai dacă modelul o poate susține; generalizarea nu este automat mai bună.
 
-Ideea de reținut: identificăm cerința încălcată înainte de a alege corecția. O corecție locală poate fi potrivită dacă modelul de bază susține deja cerința. O abstractizare generală nu este automat mai bună.
+**Organizare:** 1 min individual, apoi discuție.
 :::
 
 ---
@@ -742,7 +760,7 @@ Ideea de reținut: identificăm cerința încălcată înainte de a alege corec�
 5. **Stările și comportamentul** — ce se poate întâmpla și în ce ordine?
 
 ::: notes
-Explicați coeziunea și cuplarea în cadrul atribuirii responsabilităților. Celelalte teme convenite — abstractizare, delimitări, șabloane de proiectare, testare, proiectare pentru schimbare și compromisuri — se vor dezvolta pornind de la aceste baze.
+Legați coeziunea și cuplarea de atribuirea responsabilităților. Abstractizarea, delimitările, șabloanele, testarea și compromisurile se dezvoltă pornind de la aceste cinci baze.
 :::
 
 ---
@@ -760,9 +778,9 @@ Explicați coeziunea și cuplarea în cadrul atribuirii responsabilităților. C
 Fiecare temă folosește un alt domeniu restrâns.
 
 ::: notes
-Cursul despre validare include unul sau două diapozitive introductive despre modelarea formală. Vom explica atât cum se obține un rezultat, cât și limitele lui.
+Cursurile 3–13 aprofundează aceste principii. La validare vom introduce și modelarea formală, explicând atât rezultatele, cât și limitele lor.
 
-Planul este în ../docs/redesign-2026-2027.md. Materialele cursurilor ulterioare sunt reorganizate treptat; această întâlnire tehnică introduce principiile care vor fi aprofundate în cursurile 3–13.
+**Organizare:** planul detaliat este în `../docs/redesign-2026-2027.md`.
 :::
 
 ---
@@ -772,9 +790,9 @@ Planul este în ../docs/redesign-2026-2027.md. Materialele cursurilor ulterioare
 Ce putem explica acum fără ajutorul unui agent AI?
 
 ::: notes
-**Reper de timp: minutul 95 din 100, de la începutul cursului.** Intervalul acestei etape: minutele 95–100 (5 minute); include tranziția, explicațiile, exercițiile și discuțiile.
+O decizie se susține prin regula relevantă și un exemplu verificabil, nu prin autoritatea unui instrument sau a unui șablon.
 
-Rezervați 3 minute răspunsurilor individuale și 2 minute discutării lor și încheierii. Încheiați la minutul 100.
+**Organizare:** minutul 95 din 100; interval 95–100 (5 min): 3 min individual, 2 min discuție și încheiere.
 :::
 
 ---
@@ -790,7 +808,7 @@ Fără AI, scrieți trei răspunsuri scurte:
 **Cursul următor:** formularea problemei și cerințele.
 
 ::: notes
-Răspunsuri așteptate: exemplarele au identitate și stare de împrumut independente, iar cererile de împrumut privesc titluri; exemplarul nu are un împrumut activ și nu este rezervat altcuiva; la ridicarea rezervării se încheie cererea și rezervarea; o cerință sursă și un scenariu concret sau altă justificare verificabilă.
+Răspunsuri așteptate: exemplarele au identitate și stare independente; cererile privesc titluri. Împrumutul cere lipsa unui împrumut activ și a unei rezervări pentru altcineva; ridicarea încheie cererea și rezervarea. Decizia se justifică prin cerință și scenariu, nu prin acordul unui agent AI.
 
-Acceptați și alți invarianți sau alte justificări, cu argumentele aferente. „Pentru că așa spune un șablon” sau „agentul AI a fost de acord” nu sunt argumente suficiente. Folosiți răspunsurile pentru a pregăti întâlnirea următoare; exercițiul nu introduce o nouă regulă de notare a participării.
+**Organizare:** acceptați și alte justificări valide; folosiți răspunsurile pentru cursul următor, fără notă separată.
 :::
