@@ -11,7 +11,7 @@ Ce trebuie să înțelegem înainte de a propune o soluție?
 ::: notes
 Înaintea unei soluții, identificăm ce trebuie clarificat și ce decizii depind de răspunsuri.
 
-**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv deschiderea, citatul și exercițiul de întrebări.
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv deschiderea, citatul și exercițiul de întrebări. []{.pace at=0 of=100}
 :::
 
 ---
@@ -93,7 +93,7 @@ Ce comportament convenim cu beneficiarul?
 ::: notes
 Răspunsurile beneficiarului devin reguli explicite. Legăm fiecare precizare de o întrebare și delimităm fluxul pe care îl proiectăm.
 
-**Organizare:** minutul 15 din 100; interval 15–25 (10 min), pentru R1–R6 și limite.
+**Organizare:** minutul 15 din 100; interval 15–25 (10 min), pentru R1–R6 și limite. []{.pace at=15}
 :::
 
 ---
@@ -191,7 +191,7 @@ Ce concepte, responsabilități și reguli explică problema?
 ::: notes
 Transformăm regulile în concepte, legături și responsabilități. Modelul trebuie să explice ce se schimbă și ce trebuie să rămână adevărat.
 
-**Organizare:** minutul 25 din 100; interval 25–45 (20 min), din care 8 min pentru propunerile studenților.
+**Organizare:** minutul 25 din 100; interval 25–45 (20 min), din care 8 min pentru propunerile studenților. []{.pace at=25}
 :::
 
 ---
@@ -231,7 +231,7 @@ Pe hârtie, apoi în pereche:
 ::: notes
 După returnare, împrumutul lui M1 este încheiat, C1 este rezervat lui M2, iar C2 rămâne împrumutat lui M3. Legătura rezervării C1–M2 permite respingerea lui M3. La ridicare, M2 primește un împrumut nou; cererea și rezervarea se încheie. Acceptați reprezentări diferite, cu justificare.
 
-**Organizare:** 5 min individual + 3 min în pereche, cu slide-ul pe ecran. Ascultați două propuneri înaintea modelului lucrat.
+**Organizare:** 5 min individual + 3 min în pereche, cu slide-ul pe ecran. Ascultați două propuneri înaintea modelului lucrat. []{.pace min=8}
 :::
 
 ---
@@ -353,7 +353,7 @@ Ce se întâmplă în scenarii concrete?
 ::: notes
 Urmărim starea înainte și după operații: modelul trebuie să explice atât acceptarea, cât și respingerea, fără efecte nepermise.
 
-**Organizare:** minutul 45 din 100; interval 45–60 (15 min): S1–S2 6 min, S3–S4 4 min, S5 2 min, S6 3 min, cu discuții și tranziție.
+**Organizare:** minutul 45 din 100; interval 45–60 (15 min): S1–S2 6 min, S3–S4 4 min, S5 2 min, S6 3 min, cu discuții și tranziție. []{.pace at=45}
 :::
 
 ---
@@ -367,6 +367,10 @@ Urmărim starea înainte și după operații: modelul trebuie să explice atât 
 **R1–R2:** exemplarele sunt distincte; împrumutul privește un exemplar.
 
 S2–S6 pornesc fiecare **independent după S1**, nu unul după altul.
+
+::: notes
+[]{.pace min=3}
+:::
 
 ---
 
@@ -382,6 +386,10 @@ S2–S6 pornesc fiecare **independent după S1**, nu unul după altul.
 | M2 ridică C1 | Împrumut nou; cerere îndeplinită; rezervare încheiată |
 
 **R4–R5:** cererea așteaptă un exemplar și primește primul returnat. **R2:** exemplarul rezervat poate fi ridicat doar de solicitant.
+
+::: notes
+[]{.pace min=3}
+:::
 
 ---
 
@@ -403,7 +411,7 @@ Notați pe hârtie starea după fiecare pas și regula aplicată. Ce se înregis
 ::: notes
 S3 și S4 pornesc independent după S1, nu după S2. Comparați starea înainte și după respingere. În S4, un împrumut ulterior creează o înregistrare nouă. Un singur scenariu nu demonstrează corectitudinea tuturor cazurilor.
 
-**Organizare:** 4 min, cu slide-ul pe ecran.
+**Organizare:** 4 min, cu slide-ul pe ecran. []{.pace min=4}
 :::
 
 ---
@@ -423,7 +431,7 @@ Pe hârtie: ce se acceptă, ce se respinge și câte cereri rămân?
 ::: notes
 Prima cerere se respinge: C2 este disponibil. După împrumutul lui C2 se acceptă cererea M2/T; repetarea se respinge. La final așteaptă o singură cerere. S5 pornește independent după S1.
 
-**Organizare:** 2 min, cu slide-ul pe ecran.
+**Organizare:** 2 min, cu slide-ul pe ecran. []{.pace min=2}
 :::
 
 ---
@@ -443,7 +451,7 @@ Pe hârtie: cui îi rezervăm fiecare exemplar? Poate M4 să-l ridice pe al său
 ::: notes
 C2 se rezervă lui M2, C1 lui M4; împrumuturile apar abia la ridicare. M4 poate ridica primul: ordinea cererilor decide alocarea, nu ordinea venirii la bibliotecă. S6 pornește independent după S1.
 
-**Organizare:** 3 min, cu slide-ul pe ecran.
+**Organizare:** 3 min, cu slide-ul pe ecran. []{.pace min=3}
 :::
 
 ---
@@ -455,7 +463,7 @@ Ce predăm agentului AI și cum evaluăm rezultatul?
 ::: notes
 Delegăm o sarcină delimitată și evaluăm rezultatul față de reguli și scenarii. Verificăm inclusiv concluziile evaluatorului AI.
 
-**Organizare:** minutul 60 din 100; interval 60–85 (25 min): introducere 6, exemplu pregătit și revizuire 17, sinteză 2, inclusiv discuțiile.
+**Organizare:** minutul 60 din 100; interval 60–85 (25 min): introducere 6, exemplu pregătit și revizuire 17, sinteză 2, inclusiv discuțiile. []{.pace at=60}
 :::
 
 ---
@@ -531,7 +539,7 @@ Parcurgem pe slide-uri prompturile și **răspunsuri AI reale**, capturate înai
 ::: notes
 Verificarea poate confirma o afirmație, nu doar găsi defecte. Judecăm rezultatul prin reguli și scenarii; nu inventăm erori într-o soluție corectă.
 
-**Organizare:** ghid: `02-intelegere-demo.md`; toate materialele sunt pe slide-uri. Capturile integrale și prompturile sunt în `scenarios/02-biblioteca/captures/2026-10-07/`.
+**Organizare:** ghid: `02-intelegere-demo.md`; toate materialele sunt pe slide-uri. Capturile integrale și prompturile sunt în `scenarios/02-biblioteca/captures/2026-10-07/`. []{.pace at=66}
 :::
 
 ---
@@ -575,7 +583,7 @@ Urmărim C1 → rezervare → cerere → M2; M3 nu este solicitantul. Respingem 
 
 **Sursă:** captură din 7 octombrie 2026, `proiectant-01-response.md`; două rânduri din tabel, cu omisiune marcată. Tabelul este redat ca citat.
 
-**Organizare:** 2 min pe acest slide.
+**Organizare:** 2 min pe acest slide. []{.pace min=2}
 :::
 
 ---
@@ -710,7 +718,7 @@ Formula scurtă poate confunda alocarea cu ridicarea. Verificăm sinteza prin R2
 
 **Sursă:** `proiectant-01-response.md`, paragraf integral, capturat la 7 octombrie 2026.
 
-**Organizare:** lăsați fragmentul și regulile pe ecran.
+**Organizare:** lăsați fragmentul și regulile pe ecran. []{.pace at=83}
 :::
 
 ---
@@ -722,7 +730,7 @@ Ce schimbăm când modelul nu mai explică problema?
 ::: notes
 O problemă găsită târziu poate cere revizuirea unei decizii timpurii. Alegem corecția după cerința încălcată și dependențele ei.
 
-**Organizare:** minutul 85 din 100; interval 85–95 (10 min), pentru exercițiu, cele cinci idei și legătura cu întâlnirile următoare.
+**Organizare:** minutul 85 din 100; interval 85–95 (10 min), pentru exercițiu, cele cinci idei și legătura cu întâlnirile următoare. []{.pace at=85}
 :::
 
 ---
@@ -807,7 +815,7 @@ Ce putem explica acum fără ajutorul unui agent AI?
 ::: notes
 O decizie se susține prin regula relevantă și un exemplu verificabil, nu prin autoritatea unui instrument sau a unui șablon.
 
-**Organizare:** minutul 95 din 100; interval 95–100 (5 min): 3 min individual, 2 min discuție și încheiere.
+**Organizare:** minutul 95 din 100; interval 95–100 (5 min): 3 min individual, 2 min discuție și încheiere. []{.pace at=95}
 :::
 
 ---
@@ -825,5 +833,5 @@ Fără AI, scrieți trei răspunsuri scurte:
 ::: notes
 Răspunsuri așteptate: exemplarele au identitate și stare independente; cererile privesc titluri. Împrumutul cere lipsa unui împrumut activ și a unei rezervări pentru altcineva; ridicarea încheie cererea și rezervarea. Decizia se justifică prin cerință și scenariu, nu prin acordul unui agent AI.
 
-**Organizare:** acceptați și alte justificări valide; folosiți răspunsurile pentru cursul următor, fără notă separată.
+**Organizare:** acceptați și alte justificări valide; folosiți răspunsurile pentru cursul următor, fără notă separată. []{.pace min=5}
 :::

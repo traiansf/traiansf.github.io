@@ -109,7 +109,7 @@ Lucrați individual, fără AI. Păstrați aceste notițe inițiale.
 ::: notes
 Distingeți ce este cunoscut de ce rămâne incert. Notițele inițiale permit compararea propriei interpretări cu varianta revizuită.
 
-**Organizare:** fișa completă de la început, fără demonstrație prealabilă; la minutul 8 cereți o distincție și o incertitudine. Păstrați notițele.
+**Organizare:** fișa completă de la început, fără demonstrație prealabilă; la minutul 8 cereți o distincție și o incertitudine. Păstrați notițele. []{.pace at=0 of=100}
 :::
 
 ---
@@ -127,7 +127,7 @@ Distingeți ce este cunoscut de ce rămâne incert. Notițele inițiale permit c
 O ipoteză sau o propunere devine informație convenită doar după ce o confirmă beneficiarul.
 
 ::: notes
-Ipoteza este un răspuns provizoriu, etichetat explicit și însoțit de consecințe; nu devine confirmată prin folosire. Modelul domeniului descrie concepte și reguli, nu neapărat clase. Sunt aceleași cinci categorii ca în cursul 2.
+Ipoteza este un răspuns provizoriu, etichetat explicit și însoțit de consecințe; nu devine confirmată prin folosire. Modelul domeniului descrie concepte și reguli, nu neapărat clase. Sunt aceleași cinci categorii ca în cursul 2. []{.pace at=8}
 :::
 
 ---
@@ -163,7 +163,7 @@ Dacă AI nu este disponibil, folosiți [exemplul pregătit](https://github.com/t
 ::: notes
 Evaluatorul AI primește explicit pachetul de revizuit. O conversație nouă poate folosi același instrument, dar fișierele comune sau istoricul automat pot introduce context suplimentar.
 
-**Organizare:** ghid: `tooling/SETUP.md`; fără abonament obligatoriu. Fără AI, schimbați pachetele între perechi. Cei gata compară notițele; toți trec mai departe la ora anunțată.
+**Organizare:** ghid: `tooling/SETUP.md`; fără abonament obligatoriu. Fără AI, schimbați pachetele între perechi. Cei gata compară notițele; toți trec mai departe la ora anunțată. []{.pace at=18}
 :::
 
 ---
@@ -197,7 +197,7 @@ Citiți rezultatul. Acceptați, editați sau cereți o corectare, **motivând de
 ::: notes
 Un rezultat corect se păstrează și se justifică prin verificări. Dacă este prea lung, cereți o sinteză cu trimiteri la informații și scenarii; confruntați o afirmație importantă cu textul complet. Nu inventăm erori.
 
-**Organizare:** promptul este în fișă. Păstrați o singură descriere comună, citată prin identificatori în predare și revizuire.
+**Organizare:** promptul este în fișă. Păstrați o singură descriere comună, citată prin identificatori în predare și revizuire. []{.pace at=26}
 :::
 
 ---
@@ -234,7 +234,7 @@ Dați-i evaluatorului intrările convenite, nu conversația analistului.
 ::: notes
 Un context separat nu garantează corectitudinea: același model poate repeta aceeași ipoteză. Revizuirea rămâne de evaluat de către om.
 
-**Organizare:** fără instrumente AI, un coleg revizuiește același pachet, pe aceleași criterii.
+**Organizare:** fără instrumente AI, un coleg revizuiește același pachet, pe aceleași criterii. []{.pace at=44}
 :::
 
 ---
@@ -254,7 +254,7 @@ Decizii: **acceptare**, **respingere** sau **amânare**. Motivați și reluați 
 ::: notes
 Confruntați fiecare constatare cu cerințele și varianta efectiv redactată: regulă → scenariu → decizie. Absența contradicțiilor poate fi acceptată dacă scenariile o susțin; nu sunt obligatorii defecte, respingeri sau un prompt nou.
 
-**Organizare:** clasificare individuală înaintea discuției în pereche; notați diferențele de judecată.
+**Organizare:** clasificare individuală înaintea discuției în pereche; notați diferențele de judecată. []{.pace at=60}
 :::
 
 ---
@@ -312,7 +312,7 @@ Fără AI:
 3. Comparați două răspunsuri justificabile și dați un scenariu care le distinge.
 
 ::: notes
-Ziua-pilot D este mâine. Schimbarea introduce o versiune nouă a cerințelor, nu un defect ascuns. Exceptarea programărilor existente sau o tranziție convenită sunt opțiuni. Nu anulăm și nu scurtăm implicit programări: explicăm consecințele și cerem confirmarea regulii.
+Ziua-pilot D este mâine. Schimbarea introduce o versiune nouă a cerințelor, nu un defect ascuns. Exceptarea programărilor existente sau o tranziție convenită sunt opțiuni. Nu anulăm și nu scurtăm implicit programări: explicăm consecințele și cerem confirmarea regulii. []{.pace at=78}
 :::
 
 ---
@@ -332,7 +332,7 @@ Dacă nu reușiți să predați, folosiți canalul alternativ anunțat.
 ::: notes
 Comparați raționamente diferite, inclusiv pentru rezultate generate corecte. Criteriul este justificarea, nu numărul defectelor găsite.
 
-**Organizare:** încheiați cu distincția informație–ipoteză–propunere; operațiile cu repository-ul nu trebuie să consume timpul exercițiului.
+**Organizare:** încheiați cu distincția informație–ipoteză–propunere; operațiile cu repository-ul nu trebuie să consume timpul exercițiului. []{.pace at=90}
 :::
 
 ---

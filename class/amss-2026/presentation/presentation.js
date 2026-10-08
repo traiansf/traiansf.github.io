@@ -17,10 +17,11 @@
     panel.innerHTML = `<nav aria-label="Controlul prezentării">
       <button type="button" id="previous-slide">Înapoi</button>
       <div id="mobile-status"><span id="mobile-position" aria-live="polite"></span>
-        <button type="button" id="mobile-timer" role="timer" title="Atingeți pentru a reporni cronometrul">0:00</button></div>
+        <button type="button" id="mobile-timer" role="timer" title="Atingeți pentru a reporni cronometrul">0:00</button>
+        <span id="mobile-pace" hidden></span></div>
       <button type="button" id="next-slide">Înainte</button>
     </nav><section id="mobile-notes" aria-label="Notele profesorului" tabindex="0">
-      <h2>Notele profesorului</h2><div id="mobile-notes-content"></div></section>`;
+      <div id="mobile-notes-content"></div></section>`;
     document.body.append(panel);
   }
   document.body.classList.toggle('mobile-controller', mobileController());
@@ -43,6 +44,41 @@
     slide.style.display = oldDisplay;
   }
   Reveal.layout();
+  // Hidden pacing markers in the notes: []{.pace at=25} is the planned start minute of a slide,
+  // []{.pace min=8} its planned duration, of=100 the planned total. Unmarked slides share the rest evenly.
+  const slides = Reveal.getSlides();
+  const at = [], min = [];
+  let total;
+  slides.forEach((slide, i) => {
+    for (const mark of slide.querySelectorAll('aside.notes .pace')) {
+      if (mark.dataset.at) at[i] = Number(mark.dataset.at);
+      if (mark.dataset.min) min[i] = Number(mark.dataset.min);
+      if (mark.dataset.of) total = Number(mark.dataset.of);
+      const parent = mark.parentElement;
+      mark.remove();
+      if (parent.matches('p') && !parent.textContent.trim() && !parent.children.length) parent.remove();
+    }
+  });
+  let plan; // plan[i] is the minute at which slide i should start; plan[slides.length] is the end.
+  if (total !== undefined) {
+    const anchors = at[0] === undefined ? [[0, 0]] : [];
+    at.forEach((minute, i) => anchors.push([i, minute]));
+    anchors.push([slides.length, total]);
+    plan = [];
+    for (let k = 0; k + 1 < anchors.length; k++) {
+      const [a, from] = anchors[k], [b, to] = anchors[k + 1];
+      const span = Math.max(0, to - from);
+      let fixed = 0, free = 0;
+      for (let i = a; i < b; i++) min[i] === undefined ? free++ : fixed += min[i];
+      const share = free ? Math.max(0, span - fixed) / free : 0;
+      const scale = fixed > span ? span / fixed : 1;
+      for (let i = a, t = from; i < b; i++) {
+        plan[i] = t;
+        t += min[i] === undefined ? share : min[i] * scale;
+      }
+    }
+    plan[slides.length] = total;
+  }
   if (panel) {
     const previous = document.getElementById('previous-slide');
     const next = document.getElementById('next-slide');
@@ -53,12 +89,13 @@
       const fragments = Reveal.availableFragments();
       previous.disabled = Reveal.isFirstSlide() && !fragments.prev;
       next.disabled = Reveal.isLastSlide() && !fragments.next;
-      document.getElementById('mobile-position').textContent = (Reveal.getSlides().indexOf(slide) + 1) + ' / ' + Reveal.getTotalSlides();
+      document.getElementById('mobile-position').textContent = (slides.indexOf(slide) + 1) + ' / ' + Reveal.getTotalSlides();
       if (slide !== lastSlide) {
         document.getElementById('mobile-notes-content').innerHTML = Reveal.getSlideNotes(slide) || '<p>Acest slide nu are note.</p>';
         notes.scrollTop = 0;
         lastSlide = slide;
       }
+      updatePace();
     };
     // Elapsed time survives reloads of the same tab; tapping the timer restarts it when the lecture begins.
     const timer = document.getElementById('mobile-timer');
@@ -67,13 +104,26 @@
       set:value => { try { sessionStorage.setItem(timerKey, value); } catch {} } };
     let started = storage.get() || Date.now();
     storage.set(started);
-    const two = n => String(n).padStart(2, '0');
+    // Minutes and quarter minutes, matching the minute checkpoints in the notes.
     const updateTimer = () => {
       const seconds = Math.max(0, Math.floor((Date.now() - started) / 1000));
-      const h = Math.floor(seconds / 3600), m = Math.floor(seconds / 60) % 60, s = seconds % 60;
-      timer.textContent = h ? h + ':' + two(m) + ':' + two(s) : m + ':' + two(s);
+      timer.textContent = Math.floor(seconds / 60) + ':' + String(seconds % 60 - seconds % 15).padStart(2, '0');
       timer.setAttribute('aria-label', 'Timp scurs: ' + timer.textContent);
+      updatePace();
     };
+    // Compares the elapsed time with the current slide's planned interval, allowing two minutes either way.
+    const pace = document.getElementById('mobile-pace');
+    function updatePace() {
+      if (!plan) return;
+      const i = slides.indexOf(Reveal.getCurrentSlide());
+      const elapsed = (Date.now() - started) / 60000;
+      const early = plan[i] - elapsed, late = elapsed - plan[i + 1];
+      const [state, text] = late > 2 ? ['faster', 'mai repede (+' + Math.round(late) + ' min)']
+        : early > 2 ? ['slower', 'mai încet (−' + Math.round(early) + ' min)'] : ['on-time', 'în ritm'];
+      pace.dataset.pace = state;
+      pace.textContent = text;
+      pace.hidden = false;
+    }
     timer.onclick = () => {
       if (!confirm('Reporniți cronometrul de la 0:00?')) return;
       started = Date.now();

@@ -25,7 +25,7 @@ Echipa cursului pe Microsoft Teams: codul QR și linkul sunt disponibile și dup
 ::: notes
 Experiența de programare este punctul de plecare; cursul introduce explicit raționamentul și vocabularul proiectării.
 
-**Organizare:** 70–80 min: deschidere 10, organizare 20, proiect și unelte 20, motivație 20, încheiere până la 10. Teams se poate accesa după curs; exemplul bibliotecii urmează în cursul 2.
+**Organizare:** 70–80 min: deschidere 10, organizare 20, proiect și unelte 20, motivație 20, încheiere până la 10. Teams se poate accesa după curs; exemplul bibliotecii urmează în cursul 2. []{.pace at=0 of=80}
 :::
 
 ---
@@ -82,7 +82,7 @@ Primele trei competențe trebuie demonstrate și fără AI, prin text, schițe, 
 ::: notes
 Fiecare laborator aplică cele două cursuri care îl precedă. Laboratorul 1 transferă ideile din exemplul bibliotecii într-un domeniu nou: mașinile de spălat din cămin.
 
-**Organizare:** Laboratorul 0 este opțional; Laboratorul 1 urmează după cursul 2, conform orarului grupei. Orele și comunicarea sunt pe Teams; codul este pe primul slide.
+**Organizare:** Laboratorul 0 este opțional; Laboratorul 1 urmează după cursul 2, conform orarului grupei. Orele și comunicarea sunt pe Teams; codul este pe primul slide. []{.pace at=10}
 :::
 
 ---
@@ -141,7 +141,7 @@ Livrabilul (repository public) trebuie să fie definitivat cu ~1 săptămână �
 ::: notes
 Evaluăm proiectarea argumentată, nu numărul de commit-uri, diagrame sau șabloane. Modelele și prototipurile pot susține deciziile; aplicația funcțională nu este obligatorie. Echipa verifică și își asumă inclusiv contribuțiile asistate de AI.
 
-**Organizare:** repository public GitHub/GitLab, creat și legat pe Teams la anunțarea proiectului; progresul și contribuțiile membrilor trebuie să poată fi urmărite.
+**Organizare:** repository public GitHub/GitLab, creat și legat pe Teams la anunțarea proiectului; progresul și contribuțiile membrilor trebuie să poată fi urmărite. []{.pace at=30}
 :::
 
 ---
@@ -222,7 +222,7 @@ Vom învăța să formulăm întrebări, să comparăm soluții și să explică
 ::: notes
 O cerință interpretată diferit sau o schimbare dificilă arată valoarea clarificării înainte de implementare. Întrebați ce decizie timpurie ar fi ajutat.
 
-**Organizare:** cereți un exemplu din experiența studenților; păstrați explicațiile tehnice pentru cursul 2.
+**Organizare:** cereți un exemplu din experiența studenților; păstrați explicațiile tehnice pentru cursul 2. []{.pace at=50}
 :::
 
 ---
@@ -250,6 +250,10 @@ AI poate ajuta, dar evaluarea rezultatului cere judecată proprie și cunoștin�
 - Laboratorul 1: aplicăm ideile celor două cursuri unei probleme concrete.
 - Fiecare laborator are loc după perechea de cursuri asociată.
 - Doar laboratoarele 6 și 7 sunt dedicate proiectelor.
+
+::: notes
+[]{.pace at=70}
+:::
 
 ---
 

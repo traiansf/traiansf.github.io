@@ -59,9 +59,12 @@ body.mobile-controller { display:grid; grid-template-rows:min(40dvh, 56.25vw) mi
 #mobile-presenter button:focus-visible { outline:3px solid var(--navy); outline-offset:2px; }
 #mobile-status { display:flex; flex-direction:column; align-items:center; gap:2px; }
 #mobile-position { white-space:nowrap; font-size:16px; }
-#mobile-presenter #mobile-timer { min-height:32px; padding:2px 10px; background:transparent; color:var(--navy); font:600 20px system-ui; font-variant-numeric:tabular-nums; }
-#mobile-notes { overflow:auto; overscroll-behavior:contain; padding:14px 18px max(18px, env(safe-area-inset-bottom)); touch-action:pan-y; }
-#mobile-notes h2 { margin:0 0 12px; font-size:19px; color:var(--navy); }
+#mobile-presenter #mobile-timer { min-height:28px; padding:2px 10px; background:transparent; color:var(--navy); font:600 20px system-ui; font-variant-numeric:tabular-nums; }
+#mobile-pace { white-space:nowrap; font:600 15px system-ui; }
+#mobile-pace[data-pace=on-time] { color:var(--teal); }
+#mobile-pace[data-pace=slower] { color:#1f5fa8; }
+#mobile-pace[data-pace=faster] { color:#a3330e; }
+#mobile-notes { overflow:auto; overscroll-behavior:contain; padding:12px 18px max(18px, env(safe-area-inset-bottom)); touch-action:pan-y; }
 #mobile-notes p { margin:0 0 .8em; }
 #mobile-notes ul,#mobile-notes ol { padding-left:1.4em; }
 #mobile-notes a { color:var(--teal); }
