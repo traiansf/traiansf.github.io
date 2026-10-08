@@ -2,9 +2,9 @@
 
 Sursă pentru profesor și pentru contextul transmis agentului AI. Nu este o fișă de distribuit studenților. Enunțul, regulile, scenariile și exercițiile necesare la curs apar în prezentarea principală `../../02-intelegere.md`; studenții lucrează pe coli albe, fără calculator. La actualizare, păstrați aceleași reguli și aceleași stări inițiale în ambele surse.
 
-## Mai întâi: cererea beneficiarului
+## Mai întâi: cererea bibliotecarei
 
-Biblioteca este beneficiarul sistemului informatic. Bibliotecarul o reprezintă și ne prezintă cererea:
+Biblioteca este beneficiarul sistemului informatic. Bibliotecara o reprezintă și ne prezintă cererea:
 
 „Avem nevoie de un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”
 
@@ -14,11 +14,11 @@ Biblioteca este beneficiarul sistemului informatic. Bibliotecarul o reprezintă 
 2. Descrieți o situație concretă de împrumut.
 3. Numiți un lucru pe care l-ați exclude din prima versiune.
 
-Alegeți una dintre întrebările formulate și explicați cum ar putea răspunsul beneficiarului să influențeze proiectarea. Faceți acest lucru înainte de a citi clarificările de mai jos.
+Alegeți una dintre întrebările formulate și explicați cum ar putea răspunsul bibliotecarei să influențeze proiectarea. Faceți acest lucru înainte de a citi clarificările de mai jos.
 
 ## Reguli clarificate pentru acest exercițiu
 
-Regulile sunt precizări ale bibliotecarului care reprezintă beneficiarul fictiv. Ele definesc acest exemplu, nu toate bibliotecile.
+Regulile sunt precizări ale bibliotecarei care reprezintă biblioteca fictivă. Ele definesc acest exemplu, nu toate bibliotecile.
 
 - **R1 — Identitate.** Titlurile, exemplarele și membrii au identificatori distincți. Un titlu poate avea mai multe exemplare; fiecare exemplar aparține unui titlu. Catalogul și membrii există deja. Un exemplar este disponibil dacă nu are nici împrumut activ, nici rezervare activă.
 - **R2 — Împrumut.** Pentru un exemplar și un membru cunoscuți, se acceptă împrumutul dacă exemplarul este disponibil sau rezervat chiar acelui membru. Se creează un împrumut nou care leagă exemplarul de membru; cel mult unul activ pe exemplar. La ridicarea exemplarului rezervat se încheie rezervarea și cererea este îndeplinită. Dacă exemplarul este împrumutat sau rezervat altcuiva, operația se respinge fără modificarea stării.

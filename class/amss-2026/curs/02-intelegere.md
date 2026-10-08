@@ -50,7 +50,7 @@ O soluție poate fi plauzibilă și totuși nepotrivită problemei. Înainte de 
 
 # Pornim de la o solicitare
 
-Biblioteca este beneficiarul sistemului informatic. Bibliotecarul o reprezintă și ne prezintă cererea:
+Biblioteca este beneficiarul sistemului informatic. Bibliotecara o reprezintă și ne prezintă cererea:
 
 > „Avem nevoie de un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”
 
@@ -59,7 +59,7 @@ Biblioteca este beneficiarul sistemului informatic. Bibliotecarul o reprezintă 
 **Ce ar trebui să înțelegeți?**
 
 ::: notes
-Solicitarea beneficiarului este intenționat incompletă. Cuvinte aparent clare, precum „carte” sau „cerere”, pot ascunde reguli și identități diferite.
+Solicitarea bibliotecarei este intenționat incompletă. Cuvinte aparent clare, precum „carte” sau „cerere”, pot ascunde reguli și identități diferite.
 
 **Organizare:** nu arătați încă precizările; lucru pe coli albe. Lăsați datele exercițiului pe ecran.
 :::
@@ -76,7 +76,7 @@ Lucrați pe o coală albă, mai întâi singuri, apoi cu un coleg.
 2. Descrieți o situație concretă de împrumut.
 3. Numiți un lucru pe care l-ați exclude din prima versiune.
 
-Alegeți una dintre întrebările formulate și explicați **cum ar putea răspunsul beneficiarului să influențeze proiectarea**.
+Alegeți una dintre întrebările formulate și explicați **cum ar putea răspunsul bibliotecarei să influențeze proiectarea**.
 
 ::: notes
 Întrebări utile: „carte” înseamnă titlu sau exemplar? Ce promite cererea de împrumut? Cine primește un exemplar dorit de doi membri? Cereți legătura dintre întrebare și o decizie; alegerea unui framework nu rezolvă aceste incertitudini.
@@ -88,17 +88,17 @@ Alegeți una dintre întrebările formulate și explicați **cum ar putea răspu
 
 # Clarificăm cererea și limitele {.transition}
 
-Ce comportament convenim cu beneficiarul?
+Ce comportament convenim cu bibliotecara?
 
 ::: notes
-Răspunsurile beneficiarului devin reguli explicite. Legăm fiecare precizare de o întrebare și delimităm fluxul pe care îl proiectăm.
+Răspunsurile bibliotecarei devin reguli explicite. Legăm fiecare precizare de o întrebare și delimităm fluxul pe care îl proiectăm.
 
 **Organizare:** minutul 15 din 100; interval 15–25 (10 min), pentru R1–R6 și limite. []{.pace at=15}
 :::
 
 ---
 
-# Ce precizează bibliotecarul: identitate
+# Ce precizează bibliotecara: identitate
 
 **R1 — Identitate**
 
@@ -109,12 +109,12 @@ Răspunsurile beneficiarului devin reguli explicite. Legăm fiecare precizare de
 Un exemplar este **disponibil** dacă nu este nici împrumutat, nici rezervat.
 
 ::: notes
-Un titlu și exemplarele sale au identități diferite. R1–R6 sunt precizările beneficiarului acestui exercițiu, nu reguli universale ale bibliotecilor.
+Un titlu și exemplarele sale au identități diferite. R1–R6 sunt precizările bibliotecarei acestui exercițiu, nu reguli universale ale bibliotecilor.
 :::
 
 ---
 
-# Ce precizează bibliotecarul: împrumut
+# Ce precizează bibliotecara: împrumut
 
 **R2 — Împrumut**
 
@@ -127,7 +127,7 @@ Un titlu și exemplarele sale au identități diferite. R1–R6 sunt precizăril
 
 ---
 
-# Ce precizează bibliotecarul: returnare
+# Ce precizează bibliotecara: returnare
 
 **R3 — Returnare**
 
@@ -140,7 +140,7 @@ Returnarea poate face exemplarul **rezervat**, nu neapărat disponibil.
 
 ---
 
-# Ce precizează bibliotecarul: cerere de împrumut
+# Ce precizează bibliotecara: cerere de împrumut
 
 **R4 — Cerere de împrumut**
 
@@ -153,7 +153,7 @@ Cererea dă prioritate la următorul exemplar returnat; nu este o căutare în c
 
 ---
 
-# Ce precizează bibliotecarul: rezervare
+# Ce precizează bibliotecara: rezervare
 
 **R5 — Ordinea cererilor și rezervarea**
 
@@ -211,7 +211,7 @@ Transformăm regulile în concepte, legături și responsabilități. Modelul tr
 ::: notes
 Separați regulile convenite, consecințele deduse, întrebările, ipotezele și propunerile. R1–R2 implică disponibilitate pe exemplar; R2 nu limitează numărul de împrumuturi pe membru. Cine poate returna exemplarul rămâne neprecizat de R3. O propunere devine convenită doar prin acceptare.
 
-Tehnologia poate fi o restricție legitimă a beneficiarului; aici nu a fost impusă. Legați distincțiile de întrebările studenților.
+Tehnologia poate fi o restricție legitimă a bibliotecarei; aici nu a fost impusă. Legați distincțiile de întrebările studenților.
 :::
 
 ---

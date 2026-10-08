@@ -19,7 +19,7 @@ Sursa principală pentru predare este ../02-intelegere.md. Studenții folosesc d
 
 ---
 
-# Ce precizează bibliotecarul: identitate
+# Ce precizează bibliotecara: identitate
 
 **R1 — Identitate**
 
@@ -30,12 +30,12 @@ Sursa principală pentru predare este ../02-intelegere.md. Studenții folosesc d
 Un exemplar este **disponibil** dacă nu este nici împrumutat, nici rezervat.
 
 ::: notes
-Regulile R1–R6 sunt precizările beneficiarului pentru acest exercițiu, nu reguli universale ale bibliotecilor. Toate apar pe slide-uri; nu cereți studenților un document separat.
+Regulile R1–R6 sunt precizările bibliotecarei pentru acest exercițiu, nu reguli universale ale bibliotecilor. Toate apar pe slide-uri; nu cereți studenților un document separat.
 :::
 
 ---
 
-# Ce precizează bibliotecarul: împrumut
+# Ce precizează bibliotecara: împrumut
 
 **R2 — Împrumut**
 
@@ -48,7 +48,7 @@ Regulile R1–R6 sunt precizările beneficiarului pentru acest exercițiu, nu re
 
 ---
 
-# Ce precizează bibliotecarul: returnare
+# Ce precizează bibliotecara: returnare
 
 **R3 — Returnare**
 
@@ -61,7 +61,7 @@ Returnarea poate face exemplarul **rezervat**, nu neapărat disponibil.
 
 ---
 
-# Ce precizează bibliotecarul: cerere de împrumut
+# Ce precizează bibliotecara: cerere de împrumut
 
 **R4 — Cerere de împrumut**
 
@@ -74,7 +74,7 @@ Cererea dă prioritate la următorul exemplar returnat; nu este o căutare în c
 
 ---
 
-# Ce precizează bibliotecarul: rezervare
+# Ce precizează bibliotecara: rezervare
 
 **R5 — Ordinea cererilor și rezervarea**
 
