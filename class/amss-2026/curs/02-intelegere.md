@@ -231,7 +231,7 @@ Pe hârtie, apoi în pereche:
 ::: notes
 După returnare, împrumutul lui M1 este încheiat, C1 este rezervat lui M2, iar C2 rămâne împrumutat lui M3. Legătura rezervării C1–M2 permite respingerea lui M3. La ridicare, M2 primește un împrumut nou; cererea și rezervarea se încheie. Acceptați reprezentări diferite, cu justificare.
 
-**Organizare:** 5 min individual + 3 min în pereche, cu slide-ul pe ecran. Ascultați două propuneri înaintea modelului lucrat. []{.pace min=8}
+**Organizare:** 5 min individual + 3 min în pereche, cu slide-ul pe ecran. Ascultați două propuneri înaintea modelului lucrat. []{.pace dur=8}
 :::
 
 ---
@@ -369,7 +369,7 @@ Urmărim starea înainte și după operații: modelul trebuie să explice atât 
 S2–S6 pornesc fiecare **independent după S1**, nu unul după altul.
 
 ::: notes
-[]{.pace min=3}
+[]{.pace dur=3}
 :::
 
 ---
@@ -388,7 +388,7 @@ S2–S6 pornesc fiecare **independent după S1**, nu unul după altul.
 **R4–R5:** cererea așteaptă un exemplar și primește primul returnat. **R2:** exemplarul rezervat poate fi ridicat doar de solicitant.
 
 ::: notes
-[]{.pace min=3}
+[]{.pace dur=3}
 :::
 
 ---
@@ -411,7 +411,7 @@ Notați pe hârtie starea după fiecare pas și regula aplicată. Ce se înregis
 ::: notes
 S3 și S4 pornesc independent după S1, nu după S2. Comparați starea înainte și după respingere. În S4, un împrumut ulterior creează o înregistrare nouă. Un singur scenariu nu demonstrează corectitudinea tuturor cazurilor.
 
-**Organizare:** 4 min, cu slide-ul pe ecran. []{.pace min=4}
+**Organizare:** 4 min, cu slide-ul pe ecran. []{.pace dur=4}
 :::
 
 ---
@@ -431,7 +431,7 @@ Pe hârtie: ce se acceptă, ce se respinge și câte cereri rămân?
 ::: notes
 Prima cerere se respinge: C2 este disponibil. După împrumutul lui C2 se acceptă cererea M2/T; repetarea se respinge. La final așteaptă o singură cerere. S5 pornește independent după S1.
 
-**Organizare:** 2 min, cu slide-ul pe ecran. []{.pace min=2}
+**Organizare:** 2 min, cu slide-ul pe ecran. []{.pace dur=2}
 :::
 
 ---
@@ -451,7 +451,7 @@ Pe hârtie: cui îi rezervăm fiecare exemplar? Poate M4 să-l ridice pe al său
 ::: notes
 C2 se rezervă lui M2, C1 lui M4; împrumuturile apar abia la ridicare. M4 poate ridica primul: ordinea cererilor decide alocarea, nu ordinea venirii la bibliotecă. S6 pornește independent după S1.
 
-**Organizare:** 3 min, cu slide-ul pe ecran. []{.pace min=3}
+**Organizare:** 3 min, cu slide-ul pe ecran. []{.pace dur=3}
 :::
 
 ---
@@ -583,7 +583,7 @@ Urmărim C1 → rezervare → cerere → M2; M3 nu este solicitantul. Respingem 
 
 **Sursă:** captură din 7 octombrie 2026, `proiectant-01-response.md`; două rânduri din tabel, cu omisiune marcată. Tabelul este redat ca citat.
 
-**Organizare:** 2 min pe acest slide. []{.pace min=2}
+**Organizare:** 2 min pe acest slide. []{.pace dur=2}
 :::
 
 ---
@@ -833,5 +833,5 @@ Fără AI, scrieți trei răspunsuri scurte:
 ::: notes
 Răspunsuri așteptate: exemplarele au identitate și stare independente; cererile privesc titluri. Împrumutul cere lipsa unui împrumut activ și a unei rezervări pentru altcineva; ridicarea încheie cererea și rezervarea. Decizia se justifică prin cerință și scenariu, nu prin acordul unui agent AI.
 
-**Organizare:** acceptați și alte justificări valide; folosiți răspunsurile pentru cursul următor, fără notă separată. []{.pace min=5}
+**Organizare:** acceptați și alte justificări valide; folosiți răspunsurile pentru cursul următor, fără notă separată. []{.pace dur=5}
 :::

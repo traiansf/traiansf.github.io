@@ -44,14 +44,14 @@
   }
   Reveal.layout();
   // Hidden pacing markers in the notes: []{.pace at=25} is the planned start minute of a slide,
-  // []{.pace min=8} its planned duration, of=100 the planned total. Unmarked slides share the rest evenly.
+  // []{.pace dur=8} its planned duration, of=100 the planned total. Unmarked slides share the rest evenly.
   const slides = Reveal.getSlides();
-  const at = [], min = [];
+  const at = [], dur = [];
   let total;
   slides.forEach((slide, i) => {
     for (const mark of slide.querySelectorAll('aside.notes .pace')) {
       if (mark.dataset.at) at[i] = Number(mark.dataset.at);
-      if (mark.dataset.min) min[i] = Number(mark.dataset.min);
+      if (mark.dataset.dur) dur[i] = Number(mark.dataset.dur);
       if (mark.dataset.of) total = Number(mark.dataset.of);
       const parent = mark.parentElement;
       mark.remove();
@@ -68,12 +68,12 @@
       const [a, from] = anchors[k], [b, to] = anchors[k + 1];
       const span = Math.max(0, to - from);
       let fixed = 0, free = 0;
-      for (let i = a; i < b; i++) min[i] === undefined ? free++ : fixed += min[i];
+      for (let i = a; i < b; i++) dur[i] === undefined ? free++ : fixed += dur[i];
       const share = free ? Math.max(0, span - fixed) / free : 0;
       const scale = fixed > span ? span / fixed : 1;
       for (let i = a, t = from; i < b; i++) {
         plan[i] = t;
-        t += min[i] === undefined ? share : min[i] * scale;
+        t += dur[i] === undefined ? share : dur[i] * scale;
       }
     }
     plan[slides.length] = total;
