@@ -16,10 +16,9 @@
     panel.hidden = !mobileController();
     panel.innerHTML = `<nav aria-label="Controlul prezentării">
       <button type="button" id="previous-slide">Înapoi</button>
-      <div id="mobile-status"><span id="mobile-position" aria-live="polite"></span>
-        <button type="button" id="mobile-timer" role="timer" title="Atingeți pentru a reporni cronometrul">0:00</button>
-        <span id="mobile-pace" hidden></span></div>
+      <button type="button" id="mobile-timer" role="timer" title="Atingeți pentru a reporni cronometrul">0:00</button>
       <button type="button" id="next-slide">Înainte</button>
+      <span id="mobile-pace" hidden></span>
     </nav><section id="mobile-notes" aria-label="Notele profesorului" tabindex="0">
       <div id="mobile-notes-content"></div></section>`;
     document.body.append(panel);
@@ -89,7 +88,6 @@
       const fragments = Reveal.availableFragments();
       previous.disabled = Reveal.isFirstSlide() && !fragments.prev;
       next.disabled = Reveal.isLastSlide() && !fragments.next;
-      document.getElementById('mobile-position').textContent = (slides.indexOf(slide) + 1) + ' / ' + Reveal.getTotalSlides();
       if (slide !== lastSlide) {
         document.getElementById('mobile-notes-content').innerHTML = Reveal.getSlideNotes(slide) || '<p>Acest slide nu are note.</p>';
         notes.scrollTop = 0;
