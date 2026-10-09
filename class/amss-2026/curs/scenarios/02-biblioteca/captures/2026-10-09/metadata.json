@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-09",
+  "purpose": "Curs 2, slide-urile „Când o ipoteză inițială este greșită” și „Corecție locală sau reproiectare?”",
+  "conversation": [
+    "mesaj-1-prompt.md",
+    "mesaj-2-prompt.md",
+    "mesaj-3-prompt.md"
+  ],
+  "runs": {
+    "haiku45-01": {
+      "tool": "Claude Code 2.1.294",
+      "model_requested": "claude-haiku-4-5",
+      "session_id": "f98d3d26-436d-4012-a043-d277f3bde04f"
+    },
+    "haiku45-02": {
+      "tool": "Claude Code 2.1.294",
+      "model_requested": "claude-haiku-4-5",
+      "session_id": "ee5f56f8-41de-47e0-9bef-ce12e7ff954f"
+    },
+    "luna-01": {
+      "tool": "OpenAI Codex CLI 0.161.0",
+      "model_reported": "gpt-6-luna",
+      "reasoning_effort_reported": "low",
+      "session_id": "01a120bc-b545-7d50-a702-87742499298c"
+    },
+    "luna-02": {
+      "tool": "OpenAI Codex CLI 0.161.0",
+      "model_reported": "gpt-6-luna",
+      "reasoning_effort_reported": "low",
+      "session_id": "01a120bd-5815-7830-addf-880eefb1b2ee"
+    }
+  },
+  "selected": [
+    "haiku45-02"
+  ],
+  "temperature": "not reported",
+  "execution": {
+    "same_conversation_for_three_messages": true,
+    "working_directory": "separate empty temporary directory per run",
+    "claude": "claude -p --model claude-haiku-4-5 --setting-sources \"\" --disallowedTools <all tools> --output-format json; messages 2-3 with --resume <session_id>",
+    "codex": "codex exec --ignore-user-config --skip-git-repo-check -s read-only -m gpt-6-luna -c model_reasoning_effort=low; messages 2-3 with codex exec resume --last",
+    "claude_auxiliary_model": "Claude Code also reported a small claude-haiku-5-5 usage for internal tasks; the answers come from claude-haiku-4-5"
+  },
+  "sha256": {
+    "haiku45-01-mesaj-1-response.md": "30734c8e81c756746552a02fefac10e41c26d58d1622d3d3089aa86102ffca6a",
+    "haiku45-01-mesaj-2-response.md": "ff3133d224cff3316a78ba6ca5d6199317fb1ec3432220dfbff44d187e8c8eb4",
+    "haiku45-01-mesaj-3-response.md": "14a2e5bf223edd08f3d6969ecee2b450d4b793ce9535a3e1b3cf0652a158afa8",
+    "haiku45-02-mesaj-1-response.md": "d02b2a50e4c62c70ab8560e4868738eadd045ff02de4f7e81410d0c0d337fc08",
+    "haiku45-02-mesaj-2-response.md": "101704b8db6e12e6a5049b55754dbf614e32bb44ad6ff0882e6f4c709739ce87",
+    "haiku45-02-mesaj-3-response.md": "53f0bf95d7fa90c60d95c30f00cc7b873516856650886f6a06c942cf72d66dae",
+    "luna-01-mesaj-1-response.md": "de522b4e125aa83e10d90157a15dd9d2ca2987794b055d1d16bb16062fe56aec",
+    "luna-01-mesaj-2-response.md": "7d7c2d50708d8b2b1399f71f25afc61f1844593d993cc557411137efa3e289d4",
+    "luna-01-mesaj-3-response.md": "1575244ab5bd1de2865a7b3ad74a87963d10ed94507396b79ff371e4e5a1487f",
+    "luna-02-mesaj-1-response.md": "eecbc47f729b6a72929c215a13bbc5b655d3939b1bd4895bac0cdf8d95673d8d",
+    "luna-02-mesaj-2-response.md": "d151f4312456f9f81095e601bcf0fd769e8393fceee399ee36e891aa378ccdab",
+    "luna-02-mesaj-3-response.md": "270b82e7cda79cb0e69a52bb445b38fb13c0de68a83ce9537cab924f5c60e9a7",
+    "mesaj-1-prompt.md": "f619c0e87a2073002a578940ad9be70f4d711b2250167c2df668434d14c02259",
+    "mesaj-2-prompt.md": "5f84506db253f6bd1a239dfe35dd7bb62f1d5ce89afb1f4fbded6afe3239d34c",
+    "mesaj-3-prompt.md": "fcdcdf232b22fe33a98f3423c5ea7842e53d85892c73f5f440a320d5655f0722"
+  },
+  "sha256_encoding": "UTF-8, LF line endings"
+}

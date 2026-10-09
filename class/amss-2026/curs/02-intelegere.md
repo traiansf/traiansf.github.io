@@ -689,9 +689,11 @@ O problemă găsită târziu poate cere revizuirea unei decizii timpurii. Alegem
 
 # Când o ipoteză inițială este greșită
 
-Să presupunem că modelăm titlul și exemplarele sale ca un singur lucru.
+**Fragment din răspunsul AI — Claude Haiku 4.5, rularea 2**, la cererea neclarificată:
 
-Alegerea poate afecta:
+> **Cărți** — ID, Titlu, Autor, ISBN, Anul publicării — Stare (disponibilă/împrumutată) — Locație în bibliotecă
+
+Titlul și exemplarul devin un singur lucru. Alegerea afectează:
 
 - Cum selectează un membru obiectul dorit.
 - Ce identifică înregistrarea împrumutului.
@@ -701,25 +703,33 @@ Alegerea poate afecta:
 Corectarea ulterioară a conceptului poate impune schimbarea tuturor celor patru.
 
 ::: notes
-Costul erorii se explică prin deciziile care depind de ea, nu printr-un multiplicator numeric arbitrar. Când verificarea descoperă problema, revedem decizia inițială și actualizăm consecințele ei. De aceea clarificăm înaintea implementării de amploare.
+Costul erorii se explică prin deciziile care depind de ea, nu printr-un multiplicator numeric arbitrar. La mesajul 3, cu două exemplare, același agent AI scrie „Corectură majoră: Exemplare vs. Cărți”: starea trece pe exemplar, împrumutul trimite la exemplar, nu la carte, iar returnarea alocă exemplarul. De aceea clarificăm înaintea implementării de amploare.
+
+Celelalte trei rulări (încă una Haiku 4.5, două GPT-6-Luna low) au separat titlul de exemplar din primul răspuns: am selectat o greșeală posibilă, nu performanța tipică.
+
+**Sursă:** `scenarios/02-biblioteca/captures/2026-10-09/`, `haiku45-02-mesaj-1-response.md` (primul mesaj, doar cererea bibliotecarei); lista atributelor este redată pe un rând.
 :::
 
 ---
 
 # Corecție locală sau reproiectare?
 
-O propunere stochează o singură stare pentru fiecare titlu:
+Mesajul 2 raportează un defect: M2 ceruse „Ion”, dar după returnare M3 a împrumutat cartea. „Corectează modelul.”
 
-`available | on_loan | reserved`
+**Fragment din răspunsul AI — Claude Haiku 4.5, rularea 2, mesajul 2:**
 
-Cineva adaugă un indicator: `has_waiting_request`.
+> **3. Regulă la împrumut nou** — **Verifică**: "Sunt cereri în așteptare pentru această carte?" Dacă da → **Refuz împrumut** (carte e deja promisă)
+>
+> […]
+>
+> **4. Stări extinse pentru carte** — disponibilă, împrumutată, **rezervată (pentru ID Membru specific)**, sub întreținere
 
-**Exercițiu:** se rezolvă astfel cazul cu două exemplare, unul împrumutat și unul disponibil?
-
-De ce distincție mai are nevoie soluția?
+**Exercițiu:** se rezolvă astfel cazul cu două exemplare, unul împrumutat și unul disponibil? De ce distincție mai are nevoie soluția?
 
 ::: notes
-Indicatorul separă cererea în așteptare de împrumut, dar nu permite împrumuturi independente pe exemplare. Lipsesc distincția titlu–exemplar și exemplarul vizat de împrumut. Identificăm întâi cerința încălcată: o corecție locală ajunge numai dacă modelul o poate susține; generalizarea nu este automat mai bună.
+Starea „rezervată” rezolvă defectul raportat, dar păstrează o singură stare pe carte: nu permite împrumuturi independente pe exemplare. Lipsesc distincția titlu–exemplar și exemplarul vizat de împrumut. La mesajul 3, cu două exemplare, agentul AI renunță la corecție și reproiectează. Identificăm întâi cerința încălcată: o corecție locală ajunge numai dacă modelul o poate susține; generalizarea nu este automat mai bună.
+
+**Sursă:** `haiku45-02-mesaj-2-response.md`, regulile 3 și 4; listele sunt redate pe un rând, cu omisiune marcată.
 
 **Organizare:** 1 min individual, apoi discuție.
 :::

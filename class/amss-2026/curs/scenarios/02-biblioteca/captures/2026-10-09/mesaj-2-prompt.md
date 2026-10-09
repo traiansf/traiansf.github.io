@@ -1,0 +1,1 @@
+Bibliotecara a raportat o problemă: M2 a depus o cerere pentru „Ion”, care era împrumutată de M1. Când M1 a returnat-o, M3 a ajuns primul la ghișeu și a împrumutat-o, deși M2 o ceruse înaintea lui. Corectează modelul.

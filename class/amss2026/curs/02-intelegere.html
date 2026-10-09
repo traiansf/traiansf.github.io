@@ -949,8 +949,11 @@ break-inside: avoid;
 </div>
 <div id="când-o-ipoteză-inițială-este-greșită" class="slide section level1">
 <h1>Când o ipoteză inițială este greșită</h1>
-<p>Să presupunem că modelăm titlul și exemplarele sale ca un singur lucru.</p>
-<p>Alegerea poate afecta:</p>
+<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, rularea 2</strong>, la cererea neclarificată:</p>
+<blockquote>
+<p><strong>Cărți</strong> — ID, Titlu, Autor, ISBN, Anul publicării — Stare (disponibilă/împrumutată) — Locație în bibliotecă</p>
+</blockquote>
+<p>Titlul și exemplarul devin un singur lucru. Alegerea afectează:</p>
 <ul>
 <li>Cum selectează un membru obiectul dorit.</li>
 <li>Ce identifică înregistrarea împrumutului.</li>
@@ -961,11 +964,14 @@ break-inside: avoid;
 </div>
 <div id="corecție-locală-sau-reproiectare" class="slide section level1">
 <h1>Corecție locală sau reproiectare?</h1>
-<p>O propunere stochează o singură stare pentru fiecare titlu:</p>
-<p><code>available | on_loan | reserved</code></p>
-<p>Cineva adaugă un indicator: <code>has_waiting_request</code>.</p>
-<p><strong>Exercițiu:</strong> se rezolvă astfel cazul cu două exemplare, unul împrumutat și unul disponibil?</p>
-<p>De ce distincție mai are nevoie soluția?</p>
+<p>Mesajul 2 raportează un defect: M2 ceruse „Ion”, dar după returnare M3 a împrumutat cartea. „Corectează modelul.”</p>
+<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, rularea 2, mesajul 2:</strong></p>
+<blockquote>
+<p><strong>3. Regulă la împrumut nou</strong> — <strong>Verifică</strong>: “Sunt cereri în așteptare pentru această carte?” Dacă da → <strong>Refuz împrumut</strong> (carte e deja promisă)</p>
+<p>[…]</p>
+<p><strong>4. Stări extinse pentru carte</strong> — disponibilă, împrumutată, <strong>rezervată (pentru ID Membru specific)</strong>, sub întreținere</p>
+</blockquote>
+<p><strong>Exercițiu:</strong> se rezolvă astfel cazul cu două exemplare, unul împrumutat și unul disponibil? De ce distincție mai are nevoie soluția?</p>
 </div>
 <div id="cinci-idei-fundamentale" class="slide section level1">
 <h1>Cinci idei fundamentale</h1>
