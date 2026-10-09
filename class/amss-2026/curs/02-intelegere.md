@@ -220,11 +220,11 @@ Tehnologia poate fi o restricție legitimă a bibliotecarei; aici nu a fost impu
 
 **Date:** Titlul **T** are exemplarele **C1** împrumutat lui M1 și **C2** împrumutat lui M3. Nu există cereri sau rezervări. M2 depune o cerere de împrumut pentru T, apoi M1 returnează C1.
 
-**Reguli:** R1 distinge titlul de exemplare; R3 păstrează împrumutul încheiat; R4 leagă cererea de membru și titlu; R5 rezervă exemplarul returnat primei cereri în așteptare. R2 permite ridicarea lui numai de către solicitant.
+**Reguli:** R1 distinge titlul de exemplare; R3 închide împrumutul la returnare și îl păstrează în istoric; R4 leagă cererea de membru și titlu; R5 rezervă exemplarul returnat primei cereri în așteptare; R2: exemplarul rezervat îl ridică numai solicitantul.
 
 Pe hârtie, apoi în pereche:
 
-1. Schițați conceptele și legăturile după returnarea exemplarului C1. Ce știm  despre fiecare element?
+1. Descrieți situația după returnarea lui C1: ce elemente există, ce știm despre fiecare și cum sunt legate?
 2. Ce informație permite respingerea unei încercări a lui M3 de a împrumuta C1?
 3. Ce se schimbă atunci când M2 ridică C1?
 
@@ -239,8 +239,9 @@ După returnare, împrumutul lui M1 este încheiat, C1 este rezervat lui M2, iar
 # Modelarea domeniului
 
 | Concept | Ce distinge | Reguli |
-|---|---|---|
-| Titlu și exemplar | O descriere din catalog și fiecare obiect fizic | R1 |
+|----------------|----------------------------------------------------|-------|
+| Titlu | Descrierea din catalog; poate avea mai multe exemplare | R1 |
+| Exemplar | Obiectul fizic; aparține unui singur titlu | R1 |
 | Împrumut | Membrul care deține un exemplar; activ sau închis | R2–R3 |
 | Cerere de împrumut | Membrul care așteaptă un titlu; ordinea depunerii | R4 |
 | Rezervare | Exemplarul alocat cererii, păstrat pentru solicitant | R5 |
@@ -255,7 +256,7 @@ La returnare se închide împrumutul și se poate aloca un exemplar unei cereri;
 
 # Proiectare: cine de ce răspunde?
 
-**Decizie:** operația de împrumut impune regula împrumutului activ.
+**Decizie:** operația de împrumut răspunde de respectarea regulii din R2: un exemplar are cel mult un împrumut activ.
 
 Ea trebuie să:
 
@@ -266,7 +267,7 @@ Ea trebuie să:
 Interfața poate afișa disponibilitatea, dar soluția trebuie să respecte regula și în momentul împrumutului.
 
 ::: notes
-Responsabilitatea este obligația de a asigura un comportament și respectarea unor reguli; poate reveni unei funcții, unui obiect sau unui serviciu. Coeziunea grupează deciziile legate de aceeași responsabilitate; cuplarea descrie dependențele ei.
+Responsabilitatea este obligația de a asigura un comportament și respectarea unor reguli; poate reveni unei funcții, unui obiect sau unui serviciu. Coeziunea grupează deciziile legate de aceeași responsabilitate; cuplarea descrie dependențele ei. La fel, înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4).
 
 **Organizare:** introduceți termenii pe scurt; nu alegem aici distribuirea sau mecanismul de blocare.
 :::
@@ -275,14 +276,16 @@ Responsabilitatea este obligația de a asigura un comportament și respectarea u
 
 # Contracte și invarianți: reguli verificabile
 
-**Invariant:** un exemplar are cel mult un împrumut activ.
+**Invarianți** (adevărați în orice stare validă):
 
-**Operația de împrumutare:**
+- Un exemplar are cel mult un împrumut activ.
+- Un exemplar nu este simultan împrumutat și rezervat.
 
-- Dacă operația reușește, exemplarul are un nou împrumut activ, pe numele membrului care îl împrumută.
+**Contractul operației de împrumut** (ce promite operația):
+
+- Dacă reușește, exemplarul are un nou împrumut activ, pe numele membrului care îl împrumută.
+- Dacă exemplarul era rezervat acestui membru, rezervarea se încheie și cererea este îndeplinită.
 - Dacă exemplarul este împrumutat sau rezervat altcuiva, încercarea este respinsă fără modificarea stării.
-
-**La ridicarea unei rezervări:** împrumut nou, rezervare încheiată, cerere îndeplinită. Niciodată împrumut activ și rezervare activă pe același exemplar.
 
 ::: notes
 Invariantul trebuie respectat în toate stările valide. Contractul precizează obligațiile și rezultatele unei operații, inclusiv la eșec. Enunțarea invariantului nu rezolvă singură accesul concurent: dacă acesta intră în problemă, implementarea trebuie să-i asigure păstrarea.
@@ -330,7 +333,7 @@ Două exemplare ale aceluiași titlu pot avea stări diferite. Diagrama acoperă
 
 ---
 
-# Un model ne ajută să răspundem la o întrebare
+# Fiecare model ne ajută să răspundem la anumite întrebări
 
 - Un glosar distinge conceptele.
 - Un contract explicitează promisiunile unei operații.
@@ -395,21 +398,21 @@ S2–S6 pornesc fiecare **independent după S1**, nu unul după altul.
 
 # Exercițiu: respingerea păstrează starea
 
-După S1, C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau rezervări.
+**După S1:** C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau rezervări.
 
-**Două ramuri independente, fiecare pornind după S1:**
+M1 aduce C1 la ghișeu ca să-l returneze. În spatele lui, M2 așteaptă să împrumute titlul T.
 
-- S3: M2 încearcă să împrumute C1. Ce se respinge și ce rămâne neschimbat?
-- S4: C1 este returnat, apoi se încearcă o a doua returnare. Ce rămâne în istoric?
+- **S3:** Bibliotecara, grăbită, scanează C1 pe contul lui M2, fără să înregistreze mai întâi returnarea. Ce răspunde sistemul? Ce s-ar strica dacă ar accepta?
+- **S4:** Bibliotecara înregistrează returnarea lui C1, dar scanează exemplarul de două ori. Apoi îl împrumută lui M2. Ce se întâmplă la fiecare pas? Ce conține istoricul la final?
 
-**R2:** împrumutul unui exemplar deja împrumutat se respinge fără modificarea împrumuturilor.
+**R2:** împrumutul unui exemplar deja împrumutat se respinge fără modificări. **R3:** returnarea închide împrumutul activ și îl păstrează în istoric; fără împrumut activ, se respinge fără modificări.
 
-**R3:** returnarea închide împrumutul activ și păstrează istoricul; fără împrumut activ se respinge fără modificări.
-
-Notați pe hârtie starea după fiecare pas și regula aplicată. Ce se înregistrează la un nou împrumut după returnare?
+Pe hârtie: starea după fiecare pas și regula aplicată.
 
 ::: notes
-S3 și S4 pornesc independent după S1, nu după S2. Comparați starea înainte și după respingere. În S4, un împrumut ulterior creează o înregistrare nouă. Un singur scenariu nu demonstrează corectitudinea tuturor cazurilor.
+S3: se respinge (R2), fără modificări; altfel C1 ar avea două împrumuturi active. Închiderea automată a împrumutului lui M1 ar fi o regulă nouă, de convenit cu bibliotecara.
+
+S4 pornește din starea de după S1, pentru că S3 nu a schimbat nimic. Returnarea închide împrumutul lui M1; a doua scanare se respinge (R3); împrumutul lui M2 este o înregistrare nouă. Istoricul păstrează ambele împrumuturi.
 
 **Organizare:** 4 min, cu slide-ul pe ecran. []{.pace dur=4}
 :::
@@ -470,7 +473,7 @@ Delegăm o sarcină delimitată și evaluăm rezultatul față de reguli și sce
 
 # AI poate accelera aceste activități
 
-Cereți unui agent AI să:
+Putem cere unui agent AI să:
 
 - Organizeze faptele date și întrebările deschise.
 - Propună soluții de proiectare și să le compare consecințele.
@@ -490,7 +493,7 @@ Un alt agent AI oferă o opinie, nu o confirmare; testele acoperă cazurile ales
 
 # Proiectăm înainte de a implementa
 
-**Problemă și specificație → proiectare → plan de implementare → implementare → teste → revizuire**
+**Problemă și specificație → proiectare → plan de implementare → implementare → testare → revizuire**
 
 Înainte de implementarea de amploare:
 
@@ -588,57 +591,6 @@ Urmărim C1 → rezervare → cerere → M2; M3 nu este solicitantul. Respingem 
 
 ---
 
-# Explicăm proiectarea prin reguli
-
-| Concept | Informații păstrate |
-|---|---|
-| Titlu, exemplar, membru | Identități distincte; exemplarul aparține unui titlu |
-| Împrumut | Membru, exemplar; activ/închis; istoric |
-| Cerere de împrumut | Membru, titlu, ordine; în așteptare/cu exemplar rezervat/îndeplinită |
-| Rezervare | Legătura dintre cerere și exemplarul alocat |
-
-**Returnarea** închide împrumutul și alocă exemplarul primei cereri în așteptare (R3, R5).
-
-**Ridicarea** verifică membrul, încheie rezervarea și cererea, creează împrumutul (R2).
-
-::: notes
-Rezervarea poate fi separată sau reprezentată prin exemplarul alocat cererii. Înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4). Tabelul sintetizează explicația profesorului, nu citează răspunsul AI. Aceasta nu este singura reprezentare corectă; funcțiile sau obiectele rămân alegeri de proiectare.
-:::
-
----
-
-# Verificăm proiectarea: împrumut și returnare
-
-**Inițial:** T are C1 și C2 disponibile; M1–M4 există; fără cereri, rezervări sau împrumuturi.
-
-| Scenariu | Parcurgere și rezultat |
-|---|---|
-| S1, din starea inițială | M1 împrumută C1; C2 rămâne disponibil |
-| S3, după S1 | M2 încearcă să împrumute C1; respingere, împrumutul lui M1 nemodificat |
-| S4, după S1 | Returnăm C1: împrumut închis, păstrat; a doua returnare respinsă; reîmprumutul creează o înregistrare nouă |
-
-S3 și S4 sunt ramuri independente. R2 împiedică împrumutul dublu; R3 păstrează istoricul.
-
----
-
-# Verificăm proiectarea: cerere și rezervare
-
-**Pornire pentru fiecare scenariu, independent:** C1 la M1, C2 disponibil; fără cereri sau rezervări.
-
-- **S2:** M3 împrumută C2; M2 cere T; C1 returnat este rezervat lui M2. M3 este refuzat; M2 ridică C1 și încheie cererea.
-- **S5:** cererea lui M2 este refuzată cât C2 e disponibil. După împrumutul lui C2 se acceptă o cerere M2/T, nu și duplicatul.
-- **S6:** M3 împrumută C2; cereri M2/T, apoi M4/T. Returnăm C2, apoi C1: rezervări pentru M2, respectiv M4.
-
-**R4–R5:** fără duplicate neîncheiate; alocare în ordinea cererilor. **R2:** ridicare numai de către solicitant.
-
-::: notes
-Parcurgem proiectarea, nu executăm teste pe o aplicație. În S6, M4 poate ridica C1 înaintea lui M2, fără schimbarea ordinii alocării.
-
-**Organizare:** pentru lucru pe hârtie, reveniți la scenariul ales, cu datele și regula pe ecran.
-:::
-
----
-
 # Ce predăm evaluatorului AI
 
 **Context nou:** cererea, R1–R6, S1–S6 și proiectarea de examinat. Același model AI poate fi folosit într-o conversație nouă.
@@ -687,7 +639,7 @@ Acceptăm: ordinea alocării nu impune ordinea ridicării. C1 devine împrumutat
 
 > Nu am identificat defecte în proiectarea prezentată față de R1–R6 și S1–S6.
 
-**Decizia profesorului:** acceptăm proiectarea ca bază pentru etapa următoare. Am verificat identitățile, condițiile operațiilor și traseele S1–S6.
+**Decizia noastră:** acceptăm proiectarea ca bază pentru etapa următoare. Am verificat identitățile, condițiile operațiilor și traseele S1–S6.
 
 **Limita precizată de evaluatorul AI:**
 
@@ -794,7 +746,7 @@ Legați coeziunea și cuplarea de atribuirea responsabilităților. Abstractizar
 
 - Valida modele prin scenarii și exemple executabile mici.
 - Explora stări, invarianți, interblocări (deadlocks) și contraexemple.
-- Compara abstractizări și șabloane cu nevoile reale de schimbare.
+- Alege, pentru o schimbare concretă, între o modificare locală, o abstracție și un șablon de proiectare, cântărind costul fiecăreia.
 - Înțelege și revizui soluții existente.
 - Coordona sarcini delegate și argumenta decizii de proiectare.
 
@@ -825,7 +777,7 @@ O decizie se susține prin regula relevantă și un exemplu verificabil, nu prin
 Fără AI, scrieți trei răspunsuri scurte:
 
 1. De ce distingem un titlu de un exemplar fizic?
-2. Ce verificăm înainte să împrumutăm un exemplar care poate fi rezervat?
+2. Ce verificăm înainte să împrumutăm un exemplar?
 3. Ce justificare ați cere înainte de a accepta o constatare dintr-o revizuire?
 
 **Cursul următor:** formularea problemei și cerințele.

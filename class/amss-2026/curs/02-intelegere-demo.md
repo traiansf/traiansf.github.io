@@ -1,6 +1,6 @@
 # Exemplu pregătit pentru Cursul 2 — Înțelegem înainte de a delega
 
-Ghid pentru profesor; nu se distribuie studenților. Exemplul ocupă aproximativ 14–17 minute din etapa de 25 de minute dedicată delegării și revizuirii. Totul este inclus în `02-intelegere.md`: profesorul afișează slide-urile, fără rulări live, calculator personal sau autentificare în instrumente AI. Studenții folosesc coli albe, fără dispozitive sau fișe. Demonstrațiile live pot fi folosite la laborator.
+Ghid pentru profesor; nu se distribuie studenților. Exemplul ocupă aproximativ 13–16 minute din etapa de 25 de minute dedicată delegării și revizuirii. Totul este inclus în `02-intelegere.md`: profesorul afișează slide-urile, fără rulări live, calculator personal sau autentificare în instrumente AI. Studenții folosesc coli albe, fără dispozitive sau fișe. Demonstrațiile live pot fi folosite la laborator.
 
 ## Capturile folosite
 
@@ -20,13 +20,7 @@ Lăsați pe ecran „Proiectare AI: ce permite reprezentarea?”. Fragmentul cap
 
 Proiectarea păstrează informația necesară. Nu impunem găsirea unui defect într-un fragment corect.
 
-## 3. Justificare și scenarii (3–4 minute)
-
-„Explicăm proiectarea prin reguli” este sinteza profesorului, distinctă de citate. Continuați cu cele două slide-uri „Verificăm proiectarea”. S2–S6 sunt ramuri independente după S1. Verificați un succes și o respingere, inclusiv păstrarea stării la respingere.
-
-În S6, o cerere cu exemplar deja rezervat nu primește și următorul exemplar. Pentru o activitate mai lungă, reveniți la slide-ul scenariului: datele și întrebarea trebuie să rămână împreună pe ecran.
-
-## 4. Revizuire și decizie (4–5 minute)
+## 3. Revizuire și decizie (7–8 minute)
 
 Pe „Ce predăm evaluatorului AI”, discutați ce ar lipsi dintr-o cerere generică „verifică dacă e corect”. Contextul separat face explicită predarea, dar nu garantează corectitudinea revizuirii.
 
@@ -34,7 +28,7 @@ Pe „Ce predăm evaluatorului AI”, discutați ce ar lipsi dintr-o cerere gene
 
 Arătați apoi „Decizia noastră asupra revizuirii”: acceptăm proiectarea ca bază pentru etapa următoare, în limitele R6. „Nu am identificat defecte” nu înseamnă că există deja o implementare verificată. Evaluatorul AI precizează această limită în răspunsul capturat.
 
-## 5. Sinteza (1–2 minute)
+## 4. Sinteza (1–2 minute)
 
 „Păstrăm o imagine de ansamblu verificabilă” citează paragraful real despre ordinea cererilor. Formula prea scurtă „cererile sunt servite în ordine” ar pierde distincția dintre alocare și ridicare. Cereți regula și scenariul care justifică distincția.
 

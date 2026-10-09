@@ -574,15 +574,14 @@ break-inside: avoid;
 </div>
 <div id="exercițiu-respingerea-păstrează-starea" class="slide section level1">
 <h1>Exercițiu: respingerea păstrează starea</h1>
-<p>După S1, C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau rezervări.</p>
-<p><strong>Două ramuri independente, fiecare pornind după S1:</strong></p>
+<p><strong>După S1:</strong> C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau rezervări.</p>
+<p>M1 aduce C1 la ghișeu ca <span class="nowrap">să-l</span> returneze. În spatele lui, M2 așteaptă să împrumute titlul T.</p>
 <ul>
-<li>S3: M2 încearcă să împrumute C1. Ce se respinge și ce rămâne neschimbat?</li>
-<li>S4: C1 este returnat, apoi se încearcă o a doua returnare. Ce rămâne în istoric?</li>
+<li><strong>S3:</strong> Bibliotecara, grăbită, scanează C1 pe contul lui M2, fără să înregistreze mai întâi returnarea. Ce răspunde sistemul? Ce <span class="nowrap">s-ar</span> strica dacă ar accepta?</li>
+<li><strong>S4:</strong> Bibliotecara înregistrează returnarea lui C1, dar scanează exemplarul de două ori. Apoi îl împrumută lui M2. Ce se întâmplă la fiecare pas? Ce conține istoricul la final?</li>
 </ul>
-<p><strong>R2:</strong> împrumutul unui exemplar deja împrumutat se respinge fără modificarea împrumuturilor.</p>
-<p><strong>R3:</strong> returnarea închide împrumutul activ și păstrează istoricul; fără împrumut activ se respinge fără modificări.</p>
-<p>Notați pe hârtie starea după fiecare pas și regula aplicată. Ce se înregistrează la un nou împrumut după returnare?</p>
+<p><strong>R2:</strong> împrumutul unui exemplar deja împrumutat se respinge fără modificări. <strong>R3:</strong> returnarea închide împrumutul activ și îl păstrează în istoric; fără împrumut activ, se respinge fără modificări.</p>
+<p>Pe hârtie: starea după fiecare pas și regula aplicată.</p>
 </div>
 <div id="exercițiu-s5-când-acceptăm-cererea" class="slide section level1">
 <h1>Exercițiu: S5 — când acceptăm cererea?</h1>
@@ -676,49 +675,6 @@ break-inside: avoid;
 </div>
 <p><strong>Returnarea</strong> închide împrumutul și alocă exemplarul primei cereri în așteptare (R3, R5).</p>
 <p><strong>Ridicarea</strong> verifică membrul, încheie rezervarea și cererea, creează împrumutul (R2).</p>
-</div>
-<div id="verificăm-corecția-împrumut-și-returnare" class="slide section level1">
-<h1>Verificăm corecția: împrumut și returnare</h1>
-<p><strong>Inițial:</strong> T are C1 și C2 disponibile; <span class="nowrap">M1–M4</span> există; fără cereri, rezervări sau împrumuturi.</p>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr>
-<th>Scenariu</th>
-<th>Parcurgere și rezultat</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S1, din starea inițială</td>
-<td>M1 împrumută C1; C2 rămâne disponibil</td>
-</tr>
-<tr>
-<td>S3, după S1</td>
-<td>M2 încearcă să împrumute C1; respingere, împrumutul lui M1 nemodificat</td>
-</tr>
-<tr>
-<td>S4, după S1</td>
-<td>Returnăm C1: împrumut închis, păstrat; a doua returnare respinsă; reîmprumutul creează o înregistrare nouă</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>S3 și S4 sunt ramuri independente. R2 împiedică împrumutul dublu; R3 păstrează istoricul.</p>
-</div>
-<div id="verificăm-corecția-cerere-și-rezervare" class="slide section level1">
-<h1>Verificăm corecția: cerere și rezervare</h1>
-<p><strong>Pornire pentru fiecare scenariu, independent:</strong> C1 la M1, C2 disponibil; fără cereri sau rezervări.</p>
-<ul>
-<li><strong>S2:</strong> M3 împrumută C2; M2 cere T; C1 returnat este rezervat lui M2. M3 este refuzat; M2 ridică C1 și încheie cererea.</li>
-<li><strong>S5:</strong> cererea lui M2 este refuzată cât C2 e disponibil. După împrumutul lui C2 se acceptă o cerere M2/T, nu și duplicatul.</li>
-<li><strong>S6:</strong> M3 împrumută C2; cereri M2/T, apoi M4/T. Returnăm C2, apoi C1: rezervări pentru M2, respectiv M4.</li>
-</ul>
-<p><strong><span class="nowrap">R4–R5:</span></strong> fără duplicate neîncheiate; alocare în ordinea cererilor. <strong>R2:</strong> ridicare numai de către solicitant.</p>
 </div>
 <div id="verificăm-și-revizuirea" class="slide section level1">
 <h1>Verificăm și revizuirea</h1>

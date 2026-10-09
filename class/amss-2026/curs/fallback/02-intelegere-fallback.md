@@ -134,21 +134,19 @@ S2–S6 pornesc fiecare **independent după S1**, nu unul după altul.
 
 # Exercițiu: respingerea păstrează starea
 
-După S1, C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau rezervări.
+**După S1:** C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau rezervări.
 
-**Două ramuri independente, fiecare pornind după S1:**
+M1 aduce C1 la ghișeu ca să-l returneze. În spatele lui, M2 așteaptă să împrumute titlul T.
 
-- S3: M2 încearcă să împrumute C1. Ce se respinge și ce rămâne neschimbat?
-- S4: C1 este returnat, apoi se încearcă o a doua returnare. Ce rămâne în istoric?
+- **S3:** Bibliotecara, grăbită, scanează C1 pe contul lui M2, fără să înregistreze mai întâi returnarea. Ce răspunde sistemul? Ce s-ar strica dacă ar accepta?
+- **S4:** Bibliotecara înregistrează returnarea lui C1, dar scanează exemplarul de două ori. Apoi îl împrumută lui M2. Ce se întâmplă la fiecare pas? Ce conține istoricul la final?
 
-**R2:** împrumutul unui exemplar deja împrumutat se respinge fără modificarea împrumuturilor.
+**R2:** împrumutul unui exemplar deja împrumutat se respinge fără modificări. **R3:** returnarea închide împrumutul activ și îl păstrează în istoric; fără împrumut activ, se respinge fără modificări.
 
-**R3:** returnarea închide împrumutul activ și păstrează istoricul; fără împrumut activ se respinge fără modificări.
-
-Notați pe hârtie starea după fiecare pas și regula aplicată. Ce se înregistrează la un nou împrumut după returnare?
+Pe hârtie: starea după fiecare pas și regula aplicată.
 
 ::: notes
-Alocați aproximativ 4 minute aici, 2 minute pentru S5 și 3 minute pentru S6; restul intervalului acoperă parcurgerea S1–S2. Lăsați acest slide pe ecran. S3 și S4 pornesc independent după S1, nu după S2. Verificați starea înainte și după fiecare operație. În S4, un împrumut ulterior creează o înregistrare nouă. Întrebați și ce afirmații nu poate demonstra un singur scenariu. Acestea sunt observații introductive, nu tratarea aprofundată a contractelor din cursul 6.
+Alocați aproximativ 4 minute aici, 2 minute pentru S5 și 3 minute pentru S6; restul intervalului acoperă parcurgerea S1–S2. Lăsați acest slide pe ecran. S3: se respinge (R2), fără modificări; altfel C1 ar avea două împrumuturi active. Închiderea automată a împrumutului lui M1 ar fi o regulă nouă, de convenit cu bibliotecara. S4 pornește din starea de după S1, pentru că S3 nu a schimbat nimic: a doua scanare se respinge (R3), iar împrumutul lui M2 este o înregistrare nouă. Întrebați și ce afirmații nu poate demonstra un singur scenariu. Acestea sunt observații introductive, nu tratarea aprofundată a contractelor din cursul 6.
 :::
 
 ---
@@ -224,36 +222,6 @@ Exemplu didactic pregătit, nu răspuns AI capturat. Păstrați slide-ul două m
 
 ::: notes
 O proiectare de referință, nu singura reprezentare corectă. Rezervarea poate fi stocată separat sau prin exemplarul alocat cererii. Înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4). Responsabilitățile pot fi realizate prin funcții, obiecte sau alte mecanisme.
-:::
-
----
-
-# Verificăm corecția: împrumut și returnare
-
-**Inițial:** T are C1 și C2 disponibile; M1–M4 există; fără cereri, rezervări sau împrumuturi.
-
-| Scenariu | Parcurgere și rezultat |
-|---|---|
-| S1, din starea inițială | M1 împrumută C1; C2 rămâne disponibil |
-| S3, după S1 | M2 încearcă să împrumute C1; respingere, împrumutul lui M1 nemodificat |
-| S4, după S1 | Returnăm C1: împrumut închis, păstrat; a doua returnare respinsă; reîmprumutul creează o înregistrare nouă |
-
-S3 și S4 sunt ramuri independente. R2 împiedică împrumutul dublu; R3 păstrează istoricul.
-
----
-
-# Verificăm corecția: cerere și rezervare
-
-**Pornire pentru fiecare scenariu, independent:** C1 la M1, C2 disponibil; fără cereri sau rezervări.
-
-- **S2:** M3 împrumută C2; M2 cere T; C1 returnat este rezervat lui M2. M3 este refuzat; M2 ridică C1 și încheie cererea.
-- **S5:** cererea lui M2 este refuzată cât C2 e disponibil. După împrumutul lui C2 se acceptă o cerere M2/T, nu și duplicatul.
-- **S6:** M3 împrumută C2; cereri M2/T, apoi M4/T. Returnăm C2, apoi C1: rezervări pentru M2, respectiv M4.
-
-**R4–R5:** fără duplicate neîncheiate; alocare în ordinea cererilor. **R2:** ridicare numai de către solicitant.
-
-::: notes
-Acestea sunt parcurgeri ale proiectării, nu teste executate pe o aplicație. Pentru lucru pe hârtie, reveniți la slide-ul scenariului ales, cu datele și regula împreună pe ecran. În S6, M4 poate ridica C1 înainte de M2 fără să schimbe ordinea alocării.
 :::
 
 ---
