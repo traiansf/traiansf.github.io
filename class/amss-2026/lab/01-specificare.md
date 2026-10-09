@@ -64,7 +64,7 @@ Analiza proprie oferă reperul pentru verificarea rezultatului și a revizuirii.
 
 # Informațiile beneficiarului
 
-Căminul dorește ca locatarii să își poată programa mașina de spălat **Albastra** sau **Verdea**.
+Căminul dorește ca locatarii să se poată programa pentru folosirea unei mașini de spălat **Albastra** sau **Verdea**.
 
 - **F1:** o singură zi viitoare pentru pilot, **D**; spălătoria este deschisă 08:00–22:00.
 - **F2:** serviciul de cazare furnizează identitatea verificată a locatarului; mașinile sunt deja configurate.
