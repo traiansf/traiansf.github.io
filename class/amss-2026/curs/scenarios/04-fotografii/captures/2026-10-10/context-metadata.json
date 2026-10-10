@@ -1,0 +1,8 @@
+{
+  "source": "../../brief.md",
+  "source_sha256": "e31b55bf80277b7a328c22542f57875a0866c3bee84dd7fa67de0ed85d3f79ea",
+  "context_sha256": "1a2f164a78b0ddb92cec6dec878e746bd232871f144d6698f7dc83523360c661",
+  "note": "Sursa și contextul sunt păstrate la momentul rulării; fișele curente pot fi revizuite ulterior. Metadatele source_sha256 descriu sursa arhivată, nu o revizie ulterioară.",
+  "source_snapshot": "source-at-capture.md",
+  "source_snapshot_sha256": "e31b55bf80277b7a328c22542f57875a0866c3bee84dd7fa67de0ed85d3f79ea"
+}

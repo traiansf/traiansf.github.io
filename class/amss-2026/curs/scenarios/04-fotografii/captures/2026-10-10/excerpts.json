@@ -1,0 +1,47 @@
+{
+  "deck": "../../../../04-domeniu.md",
+  "slide_numbers_include_cover": true,
+  "excerpts": [
+    {
+      "slides": [
+        21
+      ],
+      "source": "haiku45-analist-02-response.md",
+      "text": "Un atribut modificabil, **Legenda**, aparține numai Fotografiei, nu versiunilor. Legenda se poate schimba fără să afecteze versiunile sau identitatea fotografiei."
+    },
+    {
+      "slides": [
+        22
+      ],
+      "source": "haiku45-analist-02-response.md",
+      "text": "Fiecare Versiune are zero sau o Sursă (relație recursivă)."
+    },
+    {
+      "slides": [
+        22
+      ],
+      "source": "haiku45-analist-02-response.md",
+      "text": "modelul permite orice orice configurație DAG cu original ca sursă indirectă."
+    },
+    {
+      "slides": [
+        24
+      ],
+      "source": "haiku45-evaluator-03-response.md",
+      "text": "În S3, V3 și V4 nu sunt „doi copaci independenți\" — sunt două noduri la același nivel în același arbore, ambii cu sursă V1."
+    }
+  ],
+  "prompts": [
+    {
+      "slide": 20,
+      "source": "analist-instructiune.md",
+      "extent": "Instrucțiune completă; contextul este identificat separat."
+    },
+    {
+      "slide": 23,
+      "source": "evaluator-v2-instructiune.md",
+      "extent": "Instrucțiune completă; context, sarcină și răspuns al analistului AI identificate separat."
+    }
+  ],
+  "instructor_analysis": "Întrebările și corecțiile din prezentare sunt ale profesorului, distincte de fragmentele capturate."
+}

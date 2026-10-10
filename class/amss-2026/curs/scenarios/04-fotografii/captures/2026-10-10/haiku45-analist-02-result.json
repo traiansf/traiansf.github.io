@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 22657,
+  "stop_reason": "end_turn",
+  "session_id": "a98bf2b5-cdb2-4d7b-9689-1f51e71ca554",
+  "total_cost_usd": 0.020069,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4770,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2104,
+    "output_tokens_details": {
+      "thinking_tokens": 1053
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4770,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2104,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4770,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4770
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2104,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4770,
+      "webSearchRequests": 0,
+      "costUSD": 0.020069,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1053,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Model de domeniu pentru arhiva fotografică\n\n## Concepte și identități\n\nModelul se construiește pe două entități cu identitate stabilă:\n\n1. **Fotografie** – identificator immutable (F1, F2) care persistă de-a lungul ciclului vieții unui bun fotografic.\n2. **Versiune** – identificator immutable (V1, V2, V3) care marchează o stare a conținutului la un moment dat.\n\nUn atribut modificabil, **Legenda**, aparține numai Fotografiei, nu versiunilor. Legenda se poate schimba fără să afecteze versiunile sau identitatea fotografiei.\n\n## Relații și structură\n\n**Relația fotografie–versiune**: Fiecare Versiune aparține exact unei Fotografii (N:1). Fiecare Fotografie are cel puțin o Versiune (invariant din R2).\n\n**Relația de derivare (sursă)**: Fiecare Versiune are zero sau o Sursă (relație recursivă). Originalul (sursa nulă) este unica Versiune creată la catalogare; pentru fiecare Fotografie există exact un original (R3). O Versiune derivată are o Sursă din aceeași Fotografie (R4).\n\n**Rezultat structural**: Fiecare Fotografie definește o pădure de versiuni cu rădăcina în original. Doi copaci independenți (V3 și V4 din V1) nu sunt definiți; modelul permite orice orice configurație DAG cu original ca sursă indirectă.\n\n## Restricții fundamentale\n\n- **Stabilitate identificatori**: Schimbarea Legendei nu modifică F, V sau relații de derivare.\n- **Unicitatea originalului**: Fiecare Fotografie are exact o Versiune fără Sursă.\n- **Izolarea versiunilor**: O Versiune nouă nu rescrie existente; editarea creează entitate distinctă.\n- **Coerență fotografie**: Sursa unei Versiuni trebuie să aparțină aceleiași Fotografii.\n\n## Explicația scenariilor\n\n**S1** (legenda F1 → „Dimineață\"): Legenda este atribut al Fotografiei, separat de Versiuni. F1, V1 rămân nemodificate. ✓\n\n**S2** (V1 → V3): Creez o Versiune nouă V3 cu Sursă=V1, ambele în Fotografia F1. Conținutul lui V1 nu se schimbă. ✓\n\n**S3** (V1 → V4 după S2): Ambele V3 și V4 au Sursă=V1, aparțin lui F1, sunt distincte (identificatori diferiți). Relația recursivă permite multiple derivări din aceeași sursă. ✓\n\n**S4** (V5 pentru F2, Sursă=V1 din F1): Restricția coerență fotografie interzice: V5.fotografie (F2) ≠ V1.fotografie (F1). ✗\n\n## Alegeri de reprezentare vs. cerințe\n\n**Cerință**: O Fotografie are exact un original.\n- *Alegere 1*: Flag boolean `esOriginal` pe Versiune.\n- *Alegere 2*: Relație dedicată Fotografie→OriginalVersion.\n- Ambele satisfac cerința; modelul nu prescrie.\n\n**Cerință**: Legenda se modă fără impact pe versiuni.\n- *Alegere*: Legenda e atribut simplu, nu entitate.\n\n**Cerință**: Versiuni derivate formează structuri complexe.\n- *Alegere 1*: Sursă ca pointer simplu (V→V).\n- *Alegere 2*: Mulțime de derivări (V→{V}).\n- Modelul susține ambele; S3 NU cere ordin liniar.\n\nModelul este independent de persistență (baze de date, fișiere, structuri de date în memorie). Satisface toate regulile fără să prefieze reprezentări concrete.",
+  "ttft_ms": 13002,
+  "type": "result",
+  "duration_ms": 24137,
+  "uuid": "c85ebe1f-2722-45bf-b123-ac7410dc2c2e",
+  "ttft_stream_ms": 2300,
+  "time_to_request_ms": 1469,
+  "first_content_frame_ms": 2301,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

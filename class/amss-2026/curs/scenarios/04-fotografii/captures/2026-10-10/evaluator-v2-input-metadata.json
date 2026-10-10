@@ -1,0 +1,11 @@
+{
+  "context_file": "context.md",
+  "context_sha256": "1a2f164a78b0ddb92cec6dec878e746bd232871f144d6698f7dc83523360c661",
+  "response_file": "haiku45-analist-02-response.md",
+  "response_sha256": "7d45bda1d1fed0b25ecf80a73c0bf47b9a1ef9ebe2a72887d053e622613239d5",
+  "source_snapshot": "source-at-capture.md",
+  "source_snapshot_sha256": "e31b55bf80277b7a328c22542f57875a0866c3bee84dd7fa67de0ed85d3f79ea",
+  "analyst_task_file": "analist-instructiune.md",
+  "analyst_task_sha256": "4856204e9c1504d075c3fe6a5a147f14342cd4152c5cb3e48f35d6eda36185f5",
+  "revision_reason": "Instrucțiunea anterioară a pierdut diacriticele la transferul prin shell; păstrăm inputurile și rulările, dar le înlocuim în materialele proiectate. Adăugăm și sarcina exactă a analistului AI, necesară pentru evaluarea limitelor cerute."
+}
