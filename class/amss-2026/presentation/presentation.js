@@ -14,13 +14,14 @@
     panel = document.createElement('div');
     panel.id = 'mobile-presenter';
     panel.hidden = !mobileController();
-    panel.innerHTML = `<nav aria-label="Controlul prezentării">
+    // Notes first, buttons at the bottom of the screen: away from the progress bar under the slide.
+    panel.innerHTML = `<section id="mobile-notes" aria-label="Notele profesorului" tabindex="0">
+      <div id="mobile-notes-content"></div></section><nav aria-label="Controlul prezentării">
       <button type="button" id="previous-slide">Înapoi</button>
       <button type="button" id="mobile-timer" role="timer" title="Atingeți pentru a reporni cronometrul">0:00</button>
       <button type="button" id="next-slide">Înainte</button>
       <span id="mobile-pace" hidden></span>
-    </nav><section id="mobile-notes" aria-label="Notele profesorului" tabindex="0">
-      <div id="mobile-notes-content"></div></section>`;
+    </nav>`;
     document.body.append(panel);
   }
   document.body.classList.toggle('mobile-controller', mobileController());
