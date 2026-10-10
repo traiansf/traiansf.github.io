@@ -1,0 +1,10 @@
+{
+  "source": "../../brief.md",
+  "source_sha256": "4247b4ee1b4cf36bf24520b98babe3b46eb853435ab53bbbedcd5abc2cc9add7",
+  "copied_sections": [
+    "Cererea inițială",
+    "Limite și reguli convenite în scenariu"
+  ],
+  "context_file": "context-clarificat.md",
+  "context_sha256": "741c503b0d3452719d95e97756c170549e761492f60834673dae6011815a2c6e"
+}

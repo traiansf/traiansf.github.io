@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 13618,
+  "stop_reason": "end_turn",
+  "session_id": "b44e1e44-6631-4404-90f3-e2c2865a3415",
+  "total_cost_usd": 0.009633,
+  "usage": {
+    "input_tokens": 3853,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1156,
+    "output_tokens_details": {
+      "thinking_tokens": 101
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 3853,
+        "output_tokens": 1156,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 3853,
+      "outputTokens": 1156,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.009633,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 101,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Specificație: Sistem de Raportare și Urmărire Defecțiuni Campus\n\n## Cerințe Funcționale\n\n**CF1. Raportare defecțiune**\n- Studenții completează formular ușor: descriere, locație, foto opțională\n- Sistem validează date și generează bilet unic\n- Confirmare instantanee cu numărul biletului\n\n**CF2. Urmărire stare**\n- Studiează accesează starea biletului prin ID sau email\n- Stări posibile: „Primit\" → „În lucru\" → „Rezolvat\" → „Închis\"\n- Notificări la schimbarea stării (SMS/email)\n\n**CF3. Adminstrație**\n- Dashboard pentru personalul IT/mentenanță\n- Asignare automat sau manual a biletelor\n- Adăugare comentarii și progres vizibil\n\n**CF4. Accesibilitate**\n- Aplicație web și mobil-responsive\n- Fără login obligatoriu pentru raportare\n- QR-coduri pe ziduri pentru raportare rapidă\n\n---\n\n## Cerințe de Calitate\n\n**CQ1. Performance**\n- Timp de încărcare < 2 secunde\n- Răspuns API < 500ms\n\n**CQ2. Disponibilitate**\n- Sistem activ 24/7\n- Uptime minim 99%\n\n**CQ3. Ușurință de folosire**\n- Maxim 3 clicks pentru raportare\n- Design intuitiv, accessible (WCAG 2.1 AA)\n\n**CQ4. Securitate**\n- Date criptate în tranzit și stocare\n- Protecție CSRF și validare input\n\n---\n\n## Exemple de Acceptare\n\n**Exemplu 1: Raportare defecțiune - fereastră spartă**\n\n*Dat că* sunt student în cladirea A\n*Și* am găsit o fereastră spartă în sala de studiu\n*Când* deschid aplicația și dau click pe „Raportează defecțiune\"\n*Atunci* completez: descriere „Fereastră spartă în B101\", atas o foto\n*Și* primesc instantaneu biletul #2847 cu mesaj „Defecțiune raportată, echipa va verifica în 24h\"\n*Și* pot urmări starea la orice moment prin pagina biletului\n*Și* primesc notificare când IT-istul îl marcheaza pe „În lucru\"\n\n---\n\n**Exemplu 2: Urmărire progres de pe telefon**\n\n*Dat că* am raportez o defecțiune cu 2 ore în urmă\n*Și* studianții din campus vin cu aceeași plângere\n*Când* accesez link-ul din bilet (sau scann QR-ul de pe perete)\n*Atunci* văd starea curentă: „Primit - Așteptare diagnoza\"\n*Și* văd comentariu de la tehnicien: „Pornit diagnostic, estimez 4 ore\"\n*Și* știu exact ce se întâmplă, nu mai sun departamentul\n\n---\n\n**Exemplu 3: Notificare de rezolvare**\n\n*Dat că* mi-am trimis defecțiune cu 2 zile în urmă\n*Și* nu mă gândesc la ea\n*Când* departamentul IT o marchează pe „Rezolvat\"\n*Atunci* primesc SMS: „Defecțiune #2847 rezolvată. Confirmi?\"\n*Și* pot confirma sau reclama dacă nu e finalizată\n*Și* dacă confirm, biletul trece la „Închis\"\n\n---\n\n## Beneficii Așteptate\n\n- **Pentru studenți**: transparență, răspuns rapid, reduc frustrarea\n- **Pentru admin**: evidență centralizată, repartizare eficientă, timp răspuns măsurabil\n\nAcest sistem transformă gestionarea defecțiunilor dintr-un proces nebulos într-un serviciu predictibil și măsurabil.",
+  "ttft_ms": 4160,
+  "type": "result",
+  "duration_ms": 15930,
+  "uuid": "d7cd798a-f632-419b-96f4-34665a799005",
+  "ttft_stream_ms": 3081,
+  "time_to_request_ms": 2304,
+  "first_content_frame_ms": 3083,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

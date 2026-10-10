@@ -1,0 +1,48 @@
+{
+  "deck": "../../../../03-cerinte.md",
+  "slide_numbers_include_cover": true,
+  "excerpts": [
+    {
+      "slides": [9],
+      "source": "haiku45-initial-02-response.md",
+      "text": "Sistem generează ticket unic (ID automat)"
+    },
+    {
+      "slides": [9],
+      "source": "haiku45-initial-02-response.md",
+      "text": "Confirmare imediată via email/mesaj cu ID-ul ticket-ului"
+    },
+    {
+      "slides": [9],
+      "source": "haiku45-initial-02-response.md",
+      "text": "99% timp de funcționare"
+    },
+    {
+      "slides": [23],
+      "source": "haiku45-initial-02-response.md",
+      "text": "< 2 secunde pentru încărcarea paginii"
+    },
+    {
+      "slides": [23],
+      "source": "haiku45-initial-02-response.md",
+      "text": "ȘI: poate cere reluarea dacă crede că nu e bine\nȘI: după 3 zile fără răspuns, ticket se marchează \"Închis\""
+    },
+    {
+      "slides": [25],
+      "source": "haiku45-analist-01-response.md",
+      "text": "Cu 10.000 sesizări și 20 consultări simultane, cel puțin 950/1.000 consultări asupra propriilor sesizări afișează stare corectă în ≤ 2 secunde."
+    },
+    {
+      "slides": [27],
+      "source": "haiku45-evaluator-01-response.md",
+      "text": "**Q1**: Pragul de performanță este transcris exact,",
+      "omission_marker_after": "[…]"
+    }
+  ],
+  "prompts": [
+    {"slide": 22, "source": "initial-prompt.md", "extent": "complete prompt"},
+    {"slide": 24, "source": "analist-instructiune.md", "extent": "complete task instruction; supplied context identified separately"},
+    {"slide": 26, "source": "evaluator-instructiune.md", "extent": "complete task instruction; supplied context and artifact identified separately"}
+  ],
+  "instructor_analysis": "The comparison table on slide 27 and the corrections in the notes are instructor analysis, not captured output."
+}

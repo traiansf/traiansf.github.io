@@ -1,0 +1,1 @@
+Revizuiește specificația față de cererea și regulile convenite, fără să o rescrii. Pentru fiecare constatare, citează afirmația și regula relevantă și explică efectul printr-un exemplu. Distinge erorile și omisiunile de alegerile de proiectare sau extinderi. Precizează și ce este corect și limitele verificării. Răspunde în română, în maximum 450 de cuvinte.

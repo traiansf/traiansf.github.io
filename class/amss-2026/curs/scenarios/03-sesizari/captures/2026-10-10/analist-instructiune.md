@@ -1,0 +1,1 @@
+Organizează cerințele convenite și scrie trei exemple de acceptare. Pentru fiecare indică regula sursă. Separă întrebările deschise de cerințe; nu introduce reguli sau funcții noi. Păstrează condițiile și pragul lui Q1. Răspunde în română, în maximum 450 de cuvinte.

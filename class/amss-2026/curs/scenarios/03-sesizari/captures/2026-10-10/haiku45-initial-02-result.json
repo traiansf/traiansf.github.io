@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 12585,
+  "stop_reason": "end_turn",
+  "session_id": "7a91ad6d-7d6e-4de4-957e-82a678cfb0cd",
+  "total_cost_usd": 0.009203,
+  "usage": {
+    "input_tokens": 3853,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1070,
+    "output_tokens_details": {
+      "thinking_tokens": 192
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 3853,
+        "output_tokens": 1070,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 3853,
+      "outputTokens": 1070,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.009203,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 192,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Specificație: Sistem de Raportare Defecțiuni Campus\n\n## Cerințe Funcționale\n\n**1. Raportare problemă**\n- Student completează formular: locație (cladă/cameră), tip defecțiune, descriere, fotografie (opțional)\n- Sistem generează ticket unic (ID automat)\n- Confirmare imediată via email/mesaj cu ID-ul ticket-ului\n\n**2. Urmărire status**\n- Student vizualizează starea ticket-ului: **Primit** → **În lucru** → **Rezolvat** → **Închis**\n- Acces rapid prin link din email sau prin interfață web/mobilă\n- Actualizări automate când status se schimbă\n\n**3. Comunicare**\n- Notificări când echipa lucrează la problemă\n- Comentarii: student poate adăuga detalii, echipă poate cere clarificări\n- Deadline estimat de rezolvare vizibil\n\n**4. Rapoarte administrative**\n- Vedere globală a tuturor ticket-urilor deschise\n- Statistici: timp mediu de rezolvare, zone cu probleme frecvente\n\n---\n\n## Cerințe de Calitate\n\n| Criteriu | Țintă |\n|----------|-------|\n| **Disponibilitate** | 99% timp de funcționare |\n| **Timp de răspuns** | < 2 secunde pentru încărcarea paginii |\n| **Acuratețe locație** | Trebuie să identifice corect clădirea/camera |\n| **Auditare** | Istoricul complet al fiecărui ticket (cine a schimbat status, când) |\n| **Siguranță** | Autentificare cu cont de student; datele personale protejate |\n\n---\n\n## Criterii de Acceptare\n\n**Exemplul 1: Happy path**\n```\nCÂND: Maria raportează o crepătură în ușa din camera 304, bloc A\nȘI: atașează o fotografie\nATUNCI: primește ID ticket #2024-1847\nȘI: starea inițială este \"Primit\"\nȘI: pe pagina de urmărire vede \"Estimat miercuri 15:00\"\n```\n\n**Exemplul 2: Actualizare status**\n```\nCÂND: Admin marchează ticket-ul ca \"În lucru\"\nATUNCI: Maria primește notificare \"Echipa va rezolva azi\"\nȘI: pe pagina de urmărire starea se schimbă instantaneu\n```\n\n**Exemplul 3: Ticket închis**\n```\nCÂND: Admin încarcă o poză cu reparația și marchează \"Rezolvat\"\nATUNCI: Maria vede starea \"Rezolvat\" și fotografia reparației\nȘI: poate cere reluarea dacă crede că nu e bine\nȘI: după 3 zile fără răspuns, ticket se marchează \"Închis\"\n```\n\n---\n\n## Observații Implementation\n\n- **Interfață**: Simplă (web + QR code pentru acces rapid din telefon)\n- **Integrare**: Cu sistemul de autentificare existing al universității\n- **Cost**: Minimal (platformă open-source sau SaaS low-cost)\n- **Lansare**: Pilot 2-3 săptămâni cu 100-200 studenți, apoi full campus",
+  "ttft_ms": 5354,
+  "type": "result",
+  "duration_ms": 15127,
+  "uuid": "90751dfc-1a9c-4469-a844-e184e6eb5a82",
+  "ttft_stream_ms": 3388,
+  "time_to_request_ms": 2554,
+  "first_content_frame_ms": 3389,
+  "queued_turn_count": 0,
+  "result_index": 0
+}
