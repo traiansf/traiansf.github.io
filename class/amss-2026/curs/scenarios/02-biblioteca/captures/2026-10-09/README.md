@@ -1,6 +1,6 @@
 # Capturi AI reale — biblioteca, 9 octombrie 2026
 
-Conversații cu modele AI mai slabe, pentru slide-urile „Când o ipoteză inițială este greșită” și „Corecție locală sau reproiectare?” din `../../../../02-intelegere.md`. Patru rulări efective: două cu Claude Haiku 4.5 (Claude Code 2.1.294) și două cu `gpt-6-luna`, reasoning effort `low` (OpenAI Codex CLI 0.161.0). Temperatura nu a fost raportată; nu presupunem reproducerea textuală a răspunsurilor.
+Conversații cu modele AI mai slabe, pentru slide-urile „O ipoteză implicită: titlu = exemplar” (inițial „Când o ipoteză inițială este greșită”) și „Corecție locală sau reproiectare?” din `../../../../02-intelegere.md`. Patru rulări efective: două cu Claude Haiku 4.5 (Claude Code 2.1.294) și două cu `gpt-6-luna`, reasoning effort `low` (OpenAI Codex CLI 0.161.0). Temperatura nu a fost raportată; nu presupunem reproducerea textuală a răspunsurilor.
 
 ## Conversația
 

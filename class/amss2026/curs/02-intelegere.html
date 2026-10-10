@@ -476,7 +476,7 @@ break-inside: avoid;
 </div>
 <div id="pornim-de-la-o-solicitare" class="slide section level1">
 <h1>Pornim de la o solicitare</h1>
-<p>Biblioteca este beneficiarul sistemului informatic. Bibliotecara o reprezintă și ne prezintă cererea:</p>
+<p>Biblioteca este beneficiarul sistemului informatic. Bibliotecara o reprezintă și ne prezintă solicitarea:</p>
 <blockquote>
 <p>„Avem nevoie de un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”</p>
 </blockquote>
@@ -494,10 +494,10 @@ break-inside: avoid;
 <li>Descrieți o situație concretă de împrumut.</li>
 <li>Numiți un lucru pe care <span class="nowrap">l-ați</span> exclude din prima versiune.</li>
 </ol>
-<p>Alegeți una dintre întrebările formulate și explicați <strong>cum ar putea răspunsul bibliotecarei să influențeze proiectarea</strong>.</p>
+<p>În pereche: alegeți una dintre întrebări și explicați <strong>cum ar putea răspunsul bibliotecarei să schimbe proiectarea</strong>.</p>
 </div>
-<div id="clarificăm-cererea-și-limitele" class="slide section level1 transition">
-<h1 class="transition">Clarificăm cererea și limitele</h1>
+<div id="clarificăm-solicitarea-și-limitele" class="slide section level1 transition">
+<h1 class="transition">Clarificăm solicitarea și limitele</h1>
 <p>Ce comportament convenim cu bibliotecara?</p>
 </div>
 <div id="ce-precizează-bibliotecara-identitate" class="slide section level1">
@@ -514,9 +514,9 @@ break-inside: avoid;
 <h1>Ce precizează bibliotecara: împrumut</h1>
 <p><strong>R2 — Împrumut</strong></p>
 <ul>
-<li>Se poate împrumuta un exemplar disponibil sau unul rezervat chiar membrului care îl ridică.</li>
+<li>Un membru poate împrumuta un exemplar disponibil sau unul rezervat chiar pentru el.</li>
 <li>Se creează un împrumut care leagă exemplarul de membru. Un exemplar are cel mult un împrumut activ.</li>
-<li>La ridicarea exemplarului rezervat, rezervarea încetează și cererea de împrumut este îndeplinită.</li>
+<li><strong>Ridicarea</strong> este împrumutul exemplarului rezervat de către solicitant: rezervarea se încheie, iar cererea de împrumut este îndeplinită.</li>
 <li>Dacă exemplarul este împrumutat sau rezervat altcuiva, operația se respinge fără modificarea stării.</li>
 </ul>
 <p><strong>Rezervarea păstrează exemplarul pentru membru; împrumutul începe la ridicare.</strong></p>
@@ -525,7 +525,7 @@ break-inside: avoid;
 <h1>Ce precizează bibliotecara: returnare</h1>
 <p><strong>R3 — Returnare</strong></p>
 <ul>
-<li>Returnarea închide împrumutul activ al exemplarului și păstrează istoricul.</li>
+<li>Returnarea închide împrumutul activ al exemplarului și îl păstrează în istoric.</li>
 <li>În aceeași operație, exemplarul este rezervat primei cereri în așteptare pentru titlul său, conform R5.</li>
 <li>Dacă nu există cereri în așteptare, exemplarul devine disponibil.</li>
 <li>Fără împrumut activ, returnarea se respinge fără modificarea stării.</li>
@@ -537,22 +537,22 @@ break-inside: avoid;
 <p><strong>R4 — Cerere de împrumut</strong></p>
 <ul>
 <li>Membrul cere un <strong>titlu</strong>, fără să aleagă un exemplar.</li>
-<li>Cererea se acceptă numai dacă titlul nu are exemplare disponibile și membrul nu are deja o cerere neîncheiată pentru el.</li>
+<li>Cererea se acceptă numai dacă titlul nu are exemplare disponibile și membrul nu are deja o cerere neîncheiată pentru același titlu.</li>
 <li>Se înregistrează membrul, titlul și ordinea depunerii; cererea intră în așteptare.</li>
-<li>O cerere în așteptare sau cu exemplar rezervat este <strong>neîncheiată</strong>. Duplicatul și cererea pentru un titlu disponibil se resping fără modificări.</li>
+<li>O cerere în așteptare sau cu exemplar rezervat este <strong>neîncheiată</strong>. Duplicatul și cererea pentru un titlu cu exemplar disponibil se resping fără modificări.</li>
 </ul>
-<p>Cererea dă prioritate la următorul exemplar returnat; nu este o căutare în catalog.</p>
+<p>Cererea îi dă membrului un loc în ordinea de așteptare pentru exemplarele returnate; nu este nici o căutare în catalog, nici un împrumut.</p>
 </div>
 <div id="ce-precizează-bibliotecara-rezervare" class="slide section level1">
 <h1>Ce precizează bibliotecara: rezervare</h1>
 <p><strong>R5 — Ordinea cererilor și rezervarea</strong></p>
 <ul>
 <li>Pentru fiecare titlu, cererile în așteptare sunt servite în ordinea înregistrării.</li>
-<li>Primul exemplar returnat este rezervat primei cereri în așteptare. Cererea reține acum exemplarul alocat.</li>
-<li>O cerere cu exemplar deja rezervat nu mai participă la alocarea următorului exemplar.</li>
+<li>Fiecare exemplar returnat este rezervat primei cereri încă în așteptare. Cererea reține exemplarul alocat.</li>
+<li>O cerere cu exemplar deja rezervat nu mai participă la alocarea altui exemplar.</li>
 <li>Un exemplar are cel mult o rezervare activă și nu poate fi simultan împrumutat și rezervat.</li>
 </ul>
-<p>Doar solicitantul poate ridica exemplarul rezervat; atunci cererea se încheie (R2).</p>
+<p>Doar solicitantul poate ridica exemplarul rezervat; ridicarea îndeplinește cererea (R2).</p>
 </div>
 <div id="și-delimitarea-funcționalității-este-o-decizie" class="slide section level1">
 <h1>Și delimitarea funcționalității este o decizie</h1>
@@ -560,17 +560,17 @@ break-inside: avoid;
 <ul>
 <li>Împrumutul și returnarea, cu păstrarea istoricului.</li>
 <li>Cererea de împrumut, ordinea de așteptare și rezervarea la returnare.</li>
-<li>Ridicarea exemplarului rezervat și încheierea cererii.</li>
+<li>Ridicarea exemplarului rezervat, care îndeplinește cererea.</li>
 </ul>
-<p>Operațiile folosesc identificatori cunoscuți și se procesează <strong>pe rând</strong>, inclusiv înregistrarea cererilor.</p>
+<p>Operațiile folosesc identificatori cunoscuți și se procesează <strong>pe rând</strong>, inclusiv înregistrarea cererilor. Rezervarea rămâne până la ridicare.</p>
 <p>Rămân în afara exercițiului: expirarea/anularea rezervărilor și cererilor, notificările, amenzile, prelungirile, autentificarea și modificarea catalogului.</p>
 </div>
 <div id="construim-un-model" class="slide section level1 transition">
 <h1 class="transition">Construim un model</h1>
 <p>Ce concepte, responsabilități și reguli explică problema?</p>
 </div>
-<div id="analiză-înțelegem-problema" class="slide section level1">
-<h1>Analiză: înțelegem problema</h1>
+<div id="cinci-tipuri-de-afirmații" class="slide section level1">
+<h1>Cinci tipuri de afirmații</h1>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -590,29 +590,29 @@ break-inside: avoid;
 </tr>
 <tr>
 <td>Consecință dedusă</td>
-<td>Un titlu poate avea un exemplar împrumutat și unul disponibil.</td>
-</tr>
-<tr>
-<td>Ipoteză</td>
-<td>Oricine aduce exemplarul îl poate returna, nu doar membrul.</td>
+<td>Exemplarele unui titlu pot avea stări diferite.</td>
 </tr>
 <tr>
 <td>Întrebare deschisă</td>
-<td>Cât timp păstrăm rezervarea dacă membrul nu vine?</td>
+<td>Poate returna exemplarul și altcineva? R3 nu spune.</td>
+</tr>
+<tr>
+<td>Ipoteză</td>
+<td>Provizoriu: oricine poate returna exemplarul.</td>
 </tr>
 <tr>
 <td>Propunere de proiectare</td>
-<td>Operația de împrumut verifică regula din R2.</td>
+<td>Operația de împrumut verifică R2.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>„Folosește o bază de date relațională” nu răspunde la „ce este o carte?”</p>
+<p>Ipoteza răspunde provizoriu unei întrebări deschise. Ea și propunerea devin informație convenită numai după confirmarea bibliotecarei.</p>
 </div>
-<div id="exercițiu-propunerea-voastră" class="slide section level1">
-<h1>Exercițiu: propunerea voastră</h1>
+<div id="exercițiu-propuneți-un-model" class="slide section level1">
+<h1>Exercițiu: propuneți un model</h1>
 <p><strong>Date:</strong> Titlul <strong>T</strong> are exemplarele <strong>C1</strong> împrumutat lui M1 și <strong>C2</strong> împrumutat lui M3. Nu există cereri sau rezervări. M2 depune o cerere de împrumut pentru T, apoi M1 returnează C1.</p>
-<p><strong>Reguli:</strong> R1 distinge titlul de exemplare; R3 închide împrumutul la returnare și îl păstrează în istoric; R4 leagă cererea de membru și titlu; R5 rezervă exemplarul returnat primei cereri în așteptare; R2: exemplarul rezervat îl ridică numai solicitantul.</p>
+<p><strong>Reguli:</strong> R1: titlul și exemplarele sunt distincte. R4: cererea leagă membrul de titlu; se acceptă dacă niciun exemplar nu este disponibil. R3: returnarea închide împrumutul și îl păstrează în istoric. R5: exemplarul returnat se rezervă primei cereri în așteptare. R2: numai solicitantul îl ridică; ridicarea creează un împrumut nou, încheie rezervarea și îndeplinește cererea.</p>
 <p>Pe hârtie, apoi în pereche:</p>
 <ol style="list-style-type: decimal">
 <li>Descrieți situația după returnarea lui C1: ce elemente există, ce știm despre fiecare și cum sunt legate?</li>
@@ -622,17 +622,18 @@ break-inside: avoid;
 </div>
 <div id="modelarea-domeniului" class="slide section level1">
 <h1>Modelarea domeniului</h1>
+<p>Modelul domeniului: conceptele bibliotecii și legăturile lor, nu clasele unui program.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
-<col width="21%" />
-<col width="69%" />
+<col width="24%" />
+<col width="66%" />
 <col width="9%" />
 </colgroup>
 <thead>
 <tr>
 <th>Concept</th>
-<th>Ce distinge</th>
+<th>Ce reprezintă</th>
 <th>Reguli</th>
 </tr>
 </thead>
@@ -648,18 +649,23 @@ break-inside: avoid;
 <td>R1</td>
 </tr>
 <tr>
+<td>Membru</td>
+<td>Persoana înscrisă; împrumută și depune cereri</td>
+<td>R1</td>
+</tr>
+<tr>
 <td>Împrumut</td>
-<td>Membrul care deține un exemplar; activ sau închis</td>
+<td>Leagă un membru de un exemplar; activ sau închis</td>
 <td><span class="nowrap">R2–R3</span></td>
 </tr>
 <tr>
 <td>Cerere de împrumut</td>
-<td>Membrul care așteaptă un titlu; ordinea depunerii</td>
-<td>R4</td>
+<td>Leagă un membru de un titlu; păstrează ordinea depunerii</td>
+<td><span class="nowrap">R4–R5</span></td>
 </tr>
 <tr>
 <td>Rezervare</td>
-<td>Exemplarul alocat cererii, păstrat pentru solicitant</td>
+<td>Leagă cererea de exemplarul alocat solicitantului</td>
 <td>R5</td>
 </tr>
 </tbody>
@@ -672,24 +678,25 @@ break-inside: avoid;
 <p><strong>Decizie:</strong> operația de împrumut răspunde de respectarea regulii din R2: un exemplar are cel mult un împrumut activ.</p>
 <p>Ea trebuie să:</p>
 <ol style="list-style-type: decimal">
-<li>Identifice exemplarul și membrul selectați.</li>
+<li>Identifice exemplarul și membrul.</li>
 <li>Verifice că exemplarul nu este împrumutat și nici rezervat altui membru.</li>
-<li>Înregistreze împrumutul; la ridicarea unei rezervări, să încheie și cererea.</li>
+<li>Înregistreze împrumutul; la ridicare, să încheie rezervarea și să marcheze cererea îndeplinită.</li>
 </ol>
-<p>Interfața poate afișa disponibilitatea, dar soluția trebuie să respecte regula și în momentul împrumutului.</p>
+<p>O astfel de obligație a unei părți a soluției (funcție, obiect, serviciu) se numește <strong>responsabilitate</strong>. Interfața poate afișa disponibilitatea, dar regula trebuie verificată și în momentul împrumutului.</p>
 </div>
 <div id="contracte-și-invarianți-reguli-verificabile" class="slide section level1">
 <h1>Contracte și invarianți: reguli verificabile</h1>
-<p><strong>Invarianți</strong> (adevărați în orice stare validă):</p>
+<p><strong>Invarianți</strong> — reguli care rămân adevărate înainte și după fiecare operație:</p>
 <ul>
 <li>Un exemplar are cel mult un împrumut activ.</li>
 <li>Un exemplar nu este simultan împrumutat și rezervat.</li>
 </ul>
-<p><strong>Contractul operației de împrumut</strong> (ce promite operația):</p>
+<p><strong>Contractul operației de împrumut</strong> — ce garantează operația, la reușită și la respingere:</p>
 <ul>
 <li>Dacă reușește, exemplarul are un nou împrumut activ, pe numele membrului care îl împrumută.</li>
 <li>Dacă exemplarul era rezervat acestui membru, rezervarea se încheie și cererea este îndeplinită.</li>
 <li>Dacă exemplarul este împrumutat sau rezervat altcuiva, încercarea este respinsă fără modificarea stării.</li>
+<li>Celelalte împrumuturi și rezervări rămân neschimbate.</li>
 </ul>
 </div>
 <div id="comportament-stările-unui-exemplar" class="slide section level1">
@@ -737,14 +744,14 @@ break-inside: avoid;
 </div>
 </div>
 </div>
-<div id="fiecare-model-ne-ajută-să-răspundem-la-anumite-întrebări" class="slide section level1">
-<h1>Fiecare model ne ajută să răspundem la anumite întrebări</h1>
+<div id="fiecare-reprezentare-răspunde-la-anumite-întrebări" class="slide section level1">
+<h1>Fiecare reprezentare răspunde la anumite întrebări</h1>
 <ul>
-<li>Un glosar distinge conceptele.</li>
-<li>Un contract explicitează promisiunile unei operații.</li>
-<li>O diagramă de stări arată schimbările de stare și, prin etichete, încercările respinse.</li>
+<li>Un glosar, ca tabelul conceptelor, fixează sensul cuvintelor.</li>
+<li>Un contract spune ce garantează o operație.</li>
+<li>O diagramă de stări arată schimbările de stare și unele încercări respinse.</li>
 <li>O schiță poate clarifica responsabilități sau limite.</li>
-<li>Un model executabil mic poate explora consecințele.</li>
+<li>Scenariile concrete pun la încercare ce afirmă celelalte reprezentări.</li>
 </ul>
 <p>Alegeți reprezentarea care face decizia mai ușor de verificat.</p>
 </div>
@@ -776,7 +783,7 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td>M3 împrumută C2; M2 cere împrumutul titlului T</td>
+<td>M3 împrumută C2; M2 depune o cerere de împrumut pentru T</td>
 <td>Ambele exemplare împrumutate; cererea lui M2 așteaptă</td>
 </tr>
 <tr>
@@ -794,17 +801,17 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p><strong><span class="nowrap">R4–R5:</span></strong> cererea așteaptă un exemplar și primește primul returnat. <strong>R2:</strong> exemplarul rezervat poate fi ridicat doar de solicitant.</p>
+<p><strong><span class="nowrap">R4–R5:</span></strong> cererea se acceptă, fiindcă niciun exemplar nu este disponibil, și primește exemplarul returnat. <strong>R2:</strong> exemplarul rezervat poate fi ridicat doar de solicitant.</p>
 </div>
 <div id="exercițiu-respingerea-păstrează-starea" class="slide section level1">
 <h1>Exercițiu: respingerea păstrează starea</h1>
-<p><strong>După S1:</strong> C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau rezervări.</p>
-<p>M1 aduce C1 la ghișeu ca <span class="nowrap">să-l</span> returneze. În spatele lui, M2 așteaptă să împrumute titlul T.</p>
+<p><strong>După S1:</strong> C1 este împrumutat lui M1, C2 este disponibil; nu există cereri sau rezervări. S3 și S4 pornesc separat din această stare.</p>
+<p>M1 aduce C1 la ghișeu ca <span class="nowrap">să-l</span> returneze. După el, M2 vrea un exemplar din T, fără cerere depusă.</p>
 <ul>
 <li><strong>S3:</strong> Bibliotecara, grăbită, scanează C1 pe contul lui M2, fără să înregistreze mai întâi returnarea. Ce răspunde sistemul? Ce <span class="nowrap">s-ar</span> strica dacă ar accepta?</li>
 <li><strong>S4:</strong> Bibliotecara înregistrează returnarea lui C1, dar scanează exemplarul de două ori. Apoi îl împrumută lui M2. Ce se întâmplă la fiecare pas? Ce conține istoricul la final?</li>
 </ul>
-<p><strong>R2:</strong> împrumutul unui exemplar deja împrumutat se respinge fără modificări. <strong>R3:</strong> returnarea închide împrumutul activ și îl păstrează în istoric; fără împrumut activ, se respinge fără modificări.</p>
+<p><strong>R2:</strong> un exemplar disponibil se poate împrumuta (împrumut nou); unul deja împrumutat, nu. <strong>R3:</strong> returnarea închide împrumutul activ și îl păstrează în istoric; fără cereri în așteptare, exemplarul devine disponibil. Fără împrumut activ, returnarea se respinge. Respingerile nu modifică starea.</p>
 <p>Pe hârtie: starea după fiecare pas și regula aplicată.</p>
 </div>
 <div id="exercițiu-s5-când-acceptăm-cererea" class="slide section level1">
@@ -815,7 +822,7 @@ break-inside: avoid;
 <li>M3 împrumută C2.</li>
 <li>M2 depune o cerere de împrumut pentru T, apoi o repetă.</li>
 </ol>
-<p><strong>R4:</strong> acceptăm o cerere numai dacă nu există exemplare disponibile și nici altă cerere neîncheiată a aceluiași membru pentru titlu. Respingerea nu modifică starea.</p>
+<p><strong>R4:</strong> acceptăm o cerere numai dacă nu există exemplare disponibile și nici altă cerere neîncheiată a aceluiași membru pentru același titlu. Respingerea nu modifică starea.</p>
 <p>Pe hârtie: ce se acceptă, ce se respinge și câte cereri rămân?</p>
 </div>
 <div id="exercițiu-s6-cine-primește-exemplarul" class="slide section level1">
@@ -823,15 +830,15 @@ break-inside: avoid;
 <p><strong>După S1:</strong> C1 este la M1, C2 disponibil; fără cereri sau rezervări. <span class="nowrap">M1–M4</span> sunt membri cunoscuți.</p>
 <ol style="list-style-type: decimal">
 <li>M3 împrumută C2.</li>
-<li>M2 depune o cerere pentru împrumutul lui T, apoi M4 depune una.</li>
+<li>M2 depune o cerere de împrumut pentru T, apoi M4 depune una.</li>
 <li>M3 returnează C2, apoi M1 returnează C1.</li>
 </ol>
-<p><strong>R5:</strong> fiecare exemplar returnat merge la prima cerere încă în așteptare. O cerere care are deja un exemplar rezervat nu mai primește altul.</p>
-<p>Pe hârtie: cui îi rezervăm fiecare exemplar? Poate M4 <span class="nowrap">să-l</span> ridice pe al său înainte de M2? <strong>R2:</strong> fiecare ridică exemplarul rezervat propriei cereri.</p>
+<p><strong>R4:</strong> cererile se acceptă, fiindcă niciun exemplar nu este disponibil. <strong>R5:</strong> fiecare exemplar returnat merge la prima cerere încă în așteptare; o cerere care are deja un exemplar rezervat nu mai primește altul. <strong>R2:</strong> fiecare solicitant ridică exemplarul rezervat propriei cereri.</p>
+<p>Pe hârtie: cui îi rezervăm fiecare exemplar? Poate M4 <span class="nowrap">să-l</span> ridice pe al său înainte de M2?</p>
 </div>
 <div id="delegăm-și-verificăm" class="slide section level1 transition">
 <h1 class="transition">Delegăm și verificăm</h1>
-<p>Ce predăm agentului AI și cum evaluăm rezultatul?</p>
+<p>Ce îi dăm agentului AI și cum îi evaluăm rezultatul?</p>
 </div>
 <div id="ai-poate-accelera-aceste-activități" class="slide section level1">
 <h1>AI poate accelera aceste activități</h1>
@@ -847,23 +854,24 @@ break-inside: avoid;
 </div>
 <div id="proiectăm-înainte-de-a-implementa" class="slide section level1">
 <h1>Proiectăm înainte de a implementa</h1>
-<p><strong>Problemă și specificație → proiectare → plan de implementare → implementare → testare → revizuire</strong></p>
+<p><strong>Problemă și specificație → proiectare → plan de implementare → implementare și testare</strong></p>
+<p>Revizuim rezultatul fiecărei etape înainte de <span class="nowrap">a-l</span> transmite mai departe. O problemă găsită târziu ne întoarce la decizia care a <span class="nowrap">produs-o.</span></p>
 <p>Înainte de implementarea de amploare:</p>
 <ul>
 <li>Stabiliți limitele, regulile și întrebările încă deschise.</li>
 <li>Explicați responsabilitățile, contractele și comportamentul.</li>
-<li>Validați scenariile importante și puneți soluția la încercare.</li>
-<li>Predați explicit sarcina și contextul etapei următoare.</li>
+<li>Verificați soluția pe scenariile importante, inclusiv pe respingeri.</li>
+<li>Transmiteți explicit sarcina și contextul etapei următoare.</li>
 </ul>
 </div>
 <div id="ce-conține-o-predare-utilă-a-sarcinii" class="slide section level1">
 <h1>Ce conține o predare utilă a sarcinii?</h1>
 <p>La predarea sarcinii (<strong>handoff</strong>), dați următorului agent AI:</p>
 <ul>
-<li>Limitele convenite și cerințele sursă.</li>
+<li>Limitele convenite și cerințele originale <span class="nowrap">(R1–R6),</span> nu doar un rezumat.</li>
 <li>Deciziile de proiectare și justificarea lor.</li>
 <li>Regulile care trebuie să rămână adevărate.</li>
-<li>Problemele deschise și ce anume blochează.</li>
+<li>Întrebările deschise și deciziile pe care le blochează.</li>
 <li>Rezultatul cerut și verificările pentru acceptarea lui.</li>
 </ul>
 <p>„Construiește aplicația bibliotecii” lasă aceste decizii implicite.</p>
@@ -872,25 +880,25 @@ break-inside: avoid;
 <h1>Exemplu pregătit: delegare și verificare</h1>
 <p>Parcursul exemplului:</p>
 <ol style="list-style-type: decimal">
-<li>Identificăm contextul necesar unui agent AI cu rol de analist/proiectant: enunțul clarificat al bibliotecii.</li>
+<li>Identificăm contextul necesar unui agent AI cu rol de proiectant: enunțul clarificat al bibliotecii.</li>
 <li>Verificăm conceptele, regulile și responsabilitățile propuse.</li>
 <li>Examinăm pachetul pentru un evaluator (agent AI de revizuire): enunțul, soluția și criteriile de verificare.</li>
 <li>Decidem ce constatări sunt susținute de enunț.</li>
 </ol>
 <p><strong>Sarcina voastră:</strong> explicați o decizie acceptată și puneți la încercare o afirmație.</p>
-<p>Parcurgem pe <span class="nowrap">slide-uri</span> prompturile și <strong>răspunsuri AI reale</strong>, capturate înainte de curs (Codex, <span class="nowrap">gpt-6.1-sol,</span> 7 octombrie 2026). Analizați propunerea și revizuirea pe hârtie, folosind regulile și scenariile afișate.</p>
+<p>Parcurgem pe <span class="nowrap">slide-uri</span> prompturile și <strong>răspunsurile AI reale</strong>, capturate înainte de curs (Codex, <span class="nowrap">gpt-6.1-sol,</span> 7 octombrie 2026). Analizați propunerea și revizuirea pe hârtie, folosind regulile și scenariile afișate.</p>
 </div>
 <div id="ce-îi-cerem-agentului-ai-cu-rol-de-proiectant" class="slide section level1">
 <h1>Ce îi cerem agentului AI cu rol de proiectant</h1>
-<p><strong>Context predat:</strong> cererea bibliotecii, regulile <span class="nowrap">R1–R6</span> și scenariile <span class="nowrap">S1–S6</span> prezentate anterior.</p>
+<p><strong>Context predat:</strong> solicitarea bibliotecarei, regulile <span class="nowrap">R1–R6</span> și scenariile <span class="nowrap">S1–S6</span> prezentate anterior. <strong>Cele trei operații:</strong> împrumutul (inclusiv ridicarea), returnarea și cererea de împrumut.</p>
 <blockquote>
 <p>Propune o proiectare concisă, fără codul aplicației. Distinge conceptele domeniului și atribuie responsabilitățile celor trei operații.</p>
 <p>Precizează regulile împrumutului și rezervării, ordinea cererilor și rezultatele la succes și respingere. Parcurge <span class="nowrap">S1–S6</span> și indică regulile care susțin deciziile.</p>
 <p>Separă cerințele, alegerile și întrebările deschise. Respectă R6. Încheie cu ce poate fi predat etapei următoare și cu limitele soluției.</p>
 </blockquote>
 </div>
-<div id="proiectare-ai-ce-permite-reprezentarea" class="slide section level1">
-<h1>Proiectare AI: ce permite reprezentarea?</h1>
+<div id="proiectarea-ai-păstrează-legăturile-necesare" class="slide section level1">
+<h1>Proiectarea AI păstrează legăturile necesare?</h1>
 <p><strong>Fragment din răspunsul AI — <span class="nowrap">gpt-6.1-sol,</span> proiectant, rularea 1:</strong></p>
 <blockquote>
 <p>Împrumut | Înregistrare distinctă care leagă membrul de exemplar; activă sau închisă. Împrumuturile închise rămân în istoric.</p>
@@ -899,17 +907,17 @@ break-inside: avoid;
 </blockquote>
 <p><strong>S2:</strong> C1 a fost returnat și rezervat lui M2; C2 este încă împrumutat lui M3.</p>
 <p><strong>R2:</strong> ridicarea este permisă numai solicitantului. <strong>R5:</strong> rezervarea identifică exemplarul alocat cererii.</p>
-<p>Pe hârtie: ce legături verificăm pentru a decide dacă M3 poate ridica C1?</p>
+<p>Pe hârtie: ce legături verificăm pentru a decide dacă M3 poate împrumuta C1?</p>
 </div>
 <div id="ce-predăm-evaluatorului-ai" class="slide section level1">
 <h1>Ce predăm evaluatorului AI</h1>
-<p><strong>Context nou:</strong> cererea, <span class="nowrap">R1–R6,</span> <span class="nowrap">S1–S6</span> și proiectarea de examinat. Același model AI poate fi folosit <span class="nowrap">într-o</span> conversație nouă.</p>
+<p><strong>Context nou:</strong> solicitarea, <span class="nowrap">R1–R6,</span> <span class="nowrap">S1–S6</span> și proiectarea de examinat, fără conversația proiectantului. Poate fi același model AI, <span class="nowrap">într-o</span> conversație nouă.</p>
 <blockquote>
 <p>Revizuiește proiectarea față de regulile și scenariile date, fără să o modifici.</p>
 <p>Pentru fiecare constatare, indică afirmația vizată, regula și un scenariu sau o altă justificare verificabilă.</p>
 <p>Distinge defectele de alternativele de proiectare și de întrebările despre extinderi. Nu adăuga cerințe excluse prin R6. Dacă nu găsești defecte, precizează ce ai verificat și limitele revizuirii.</p>
 </blockquote>
-<p>Ce ar lipsi dacă am preda doar proiectarea și cererea „verifică dacă e corect”?</p>
+<p>Ce ar lipsi dacă am preda doar proiectarea și instrucțiunea „verifică dacă e corect”?</p>
 </div>
 <div id="verificăm-și-revizuirea" class="slide section level1">
 <h1>Verificăm și revizuirea</h1>
@@ -918,7 +926,7 @@ break-inside: avoid;
 <p>În S6, C2 este alocat lui M2, apoi C1 lui M4. Ridicarea mai devreme de către M4 nu afectează rezervarea lui M2.</p>
 </blockquote>
 <p><strong>R5:</strong> ordinea cererilor decide alocarea; o cerere cu exemplar rezervat nu mai așteaptă alocarea altuia. <strong>R2:</strong> fiecare membru poate ridica propriul exemplar rezervat.</p>
-<p><strong>S6:</strong> C2 a fost rezervat lui M2, apoi C1 lui M4. M4 ajunge primul la bibliotecă și cere C1.</p>
+<p><strong>S6:</strong> C2 a fost rezervat lui M2, apoi C1 lui M4. M4 ajunge primul la bibliotecă și ridică C1.</p>
 <p>Pe hârtie: acceptați constatarea? Indicați regula și starea celor două exemplare după ridicare.</p>
 </div>
 <div id="decizia-noastră-asupra-revizuirii" class="slide section level1">
@@ -927,15 +935,15 @@ break-inside: avoid;
 <blockquote>
 <p>Nu am identificat defecte în proiectarea prezentată față de <span class="nowrap">R1–R6</span> și <span class="nowrap">S1–S6.</span></p>
 </blockquote>
-<p><strong>Decizia noastră:</strong> acceptăm proiectarea ca bază pentru etapa următoare. Am verificat identitățile, condițiile operațiilor și traseele <span class="nowrap">S1–S6.</span></p>
+<p><strong>Decizia noastră:</strong> acceptăm proiectarea ca bază pentru etapa următoare. Aici am verificat S2 și S6; parcurgerea <span class="nowrap">S1–S6</span> din răspunsul integral a fost verificată înainte de curs.</p>
 <p><strong>Limita precizată de evaluatorul AI:</strong></p>
 <blockquote>
 <p>Nu verifică o implementare, persistența datelor sau executarea efectivă a schimbărilor împreună.</p>
 </blockquote>
-<p><strong>Următorul agent AI:</strong> poate elabora planul pentru fluxul convenit. Expirarea, notificările, concurența și punerea în producție rămân de clarificat.</p>
+<p><strong>Următorul agent AI:</strong> poate elabora planul pentru fluxul cerere → rezervare → împrumut. Rămân de clarificat expirarea, notificările, accesul simultan de la mai multe ghișee și punerea în producție.</p>
 </div>
-<div id="păstrăm-o-imagine-de-ansamblu-verificabilă" class="slide section level1">
-<h1>Păstrăm o imagine de ansamblu verificabilă</h1>
+<div id="înainte-de-predare-ce-păstrează-rezumatul" class="slide section level1">
+<h1>Înainte de predare: ce păstrează rezumatul?</h1>
 <p><strong>Fragment din răspunsul AI — <span class="nowrap">gpt-6.1-sol,</span> proiectant, rularea 1:</strong></p>
 <blockquote>
 <p>Cererile sunt alocate în ordinea înregistrării, separat pentru fiecare titlu. O cerere cu exemplar rezervat nu mai participă la alocări. Ordinea ridicării poate fi diferită de ordinea alocării (R5).</p>
@@ -945,55 +953,41 @@ break-inside: avoid;
 </div>
 <div id="revedem-deciziile-și-sintetizăm" class="slide section level1 transition">
 <h1 class="transition">Revedem deciziile și sintetizăm</h1>
-<p>Ce schimbăm când modelul nu mai explică problema?</p>
+<p>Ce schimbăm când modelul domeniului nu mai explică problema?</p>
 </div>
-<div id="când-o-ipoteză-inițială-este-greșită" class="slide section level1">
-<h1>Când o ipoteză inițială este greșită</h1>
-<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, rularea 2</strong>, la cererea neclarificată:</p>
+<div id="o-ipoteză-implicită-titlu-exemplar" class="slide section level1">
+<h1>O ipoteză implicită: titlu = exemplar</h1>
+<p><strong>Mesajul 1:</strong> solicitarea bibliotecarei, apoi „Propune un model de date și operațiile principale pentru acest sistem. Răspunde concis, fără cod complet.”</p>
+<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, rularea 2, 9 octombrie 2026:</strong></p>
 <blockquote>
 <p><strong>Cărți</strong> — ID, Titlu, Autor, ISBN, Anul publicării — Stare (disponibilă/împrumutată) — Locație în bibliotecă</p>
 </blockquote>
-<p>Titlul și exemplarul devin un singur lucru. Alegerea afectează:</p>
-<ul>
-<li>Cum selectează un membru obiectul dorit.</li>
-<li>Ce identifică înregistrarea împrumutului.</li>
-<li>Cum se calculează disponibilitatea.</li>
-<li>Ce consideră un test drept o returnare reușită.</li>
-</ul>
-<p>Corectarea ulterioară a conceptului poate impune schimbarea tuturor celor patru.</p>
+<p>Titlul și exemplarul devin un singur lucru, fără ca alegerea să fie marcată drept ipoteză. De ea depind ce alege membrul, ce identifică împrumutul, cum se calculează disponibilitatea și ce verifică testele returnării: o corectare ulterioară le schimbă pe toate.</p>
+<p><em>Rulare selectată din patru: celelalte trei au separat titlul de exemplar din primul răspuns.</em></p>
 </div>
 <div id="corecție-locală-sau-reproiectare" class="slide section level1">
 <h1>Corecție locală sau reproiectare?</h1>
-<p>Mesajul 2 raportează un defect: M2 ceruse „Ion”, dar după returnare M3 a împrumutat cartea. „Corectează modelul.”</p>
-<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, rularea 2, mesajul 2:</strong></p>
+<p><strong>Mesajul 2</strong>, în aceeași conversație:</p>
 <blockquote>
-<p><strong>3. Regulă la împrumut nou</strong> — <strong>Verifică</strong>: “Sunt cereri în așteptare pentru această carte?” Dacă da → <strong>Refuz împrumut</strong> (carte e deja promisă)</p>
-<p>[…]</p>
-<p><strong>4. Stări extinse pentru carte</strong> — disponibilă, împrumutată, <strong>rezervată (pentru ID Membru specific)</strong>, sub întreținere</p>
+<p>Bibliotecara a raportat o problemă: M2 a depus o cerere pentru „Ion”, care era împrumutată de M1. Când M1 a <span class="nowrap">returnat-o,</span> M3 a ajuns primul la ghișeu și a <span class="nowrap">împrumutat-o,</span> deși M2 o ceruse înaintea lui. Corectează modelul.</p>
 </blockquote>
-<p><strong>Exercițiu:</strong> se rezolvă astfel cazul cu două exemplare, unul împrumutat și unul disponibil? De ce distincție mai are nevoie soluția?</p>
+<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, rularea 2:</strong></p>
+<blockquote>
+<p><strong>3. Regulă la împrumut nou</strong> — <strong>Verifică</strong>: “Sunt cereri în așteptare pentru această carte?” — Dacă da → <strong>Refuz împrumut</strong> (carte e deja promisă) — Doar membrul cu rezervare activa poate o lua<br />
+<strong>4. Stări extinse pentru carte</strong> — disponibilă, împrumutată, <strong>rezervată (pentru ID Membru specific)</strong>, sub întreținere</p>
+</blockquote>
+<p><strong>Exercițiu:</strong> două exemplare din „Ion”, unul împrumutat lui M1, celălalt pe raft: le poate reprezenta modelul corectat? Ce distincție lipsește?</p>
 </div>
 <div id="cinci-idei-fundamentale" class="slide section level1">
 <h1>Cinci idei fundamentale</h1>
 <ol style="list-style-type: decimal">
 <li><strong>Formularea problemei și cerințele</strong> — ce trebuie rezolvat?</li>
 <li><strong>Modelarea domeniului</strong> — ce concepte și reguli contează?</li>
-<li><strong>Atribuirea responsabilităților</strong> — cui îi revin comportamentul și dependențele?</li>
-<li><strong>Contractele și invarianții</strong> — ce trebuie să garanteze o operație sau o stare?</li>
+<li><strong>Atribuirea responsabilităților</strong> — cine asigură fiecare regulă și ce depinde de această alegere?</li>
+<li><strong>Contractele și invarianții</strong> — ce garantează o operație și ce rămâne mereu adevărat?</li>
 <li><strong>Stările și comportamentul</strong> — ce se poate întâmpla și în ce ordine?</li>
 </ol>
-</div>
-<div id="de-la-concepte-la-analiză-și-schimbare" class="slide section level1">
-<h1>De la concepte la analiză și schimbare</h1>
-<p>În continuare vom:</p>
-<ul>
-<li>Valida modele prin scenarii și exemple executabile mici.</li>
-<li>Explora stări, invarianți, interblocări (deadlocks) și contraexemple.</li>
-<li>Alege, pentru o schimbare concretă, între o modificare locală, o abstracție și un șablon de proiectare, cântărind costul fiecăreia.</li>
-<li>Înțelege și revizui soluții existente.</li>
-<li>Coordona sarcini delegate și argumenta decizii de proiectare.</li>
-</ul>
-<p>Fiecare temă folosește un alt domeniu restrâns.</p>
+<p>Cursurile următoare reiau aceste idei, fiecare pe o altă problemă de dimensiuni reduse.</p>
 </div>
 <div id="argumentăm-o-decizie" class="slide section level1 transition">
 <h1 class="transition">Argumentăm o decizie</h1>

@@ -1,6 +1,6 @@
 # Exemplu pregătit pentru Cursul 2 — Înțelegem înainte de a delega
 
-Ghid pentru profesor; nu se distribuie studenților. Exemplul ocupă aproximativ 13–16 minute din etapa de 25 de minute dedicată delegării și revizuirii. Totul este inclus în `02-intelegere.md`: profesorul afișează slide-urile, fără rulări live, calculator personal sau autentificare în instrumente AI. Studenții folosesc coli albe, fără dispozitive sau fișe. Demonstrațiile live pot fi folosite la laborator.
+Ghid pentru profesor; nu se distribuie studenților. Exemplul ocupă aproximativ 19 minute (minutele 66–85) din etapa de 25 de minute dedicată delegării și revizuirii; primele 6 minute ale etapei introduc delegarea și predarea sarcinii. Totul este inclus în `02-intelegere.md`: profesorul afișează slide-urile, fără rulări live, calculator personal sau autentificare în instrumente AI. Studenții folosesc coli albe, fără dispozitive sau fișe. Demonstrațiile live pot fi folosite la laborator.
 
 ## Capturile folosite
 
@@ -10,27 +10,27 @@ Generați direct capturi reale când pregătiți exemple noi. Nu este necesară 
 
 Contextul proiectantului este `scenarios/02-biblioteca/brief.md` și promptul de pe slide. Evaluatorul AI primește într-un context nou același enunț, proiectarea integrală și promptul de revizuire. Nu trimiteți soluția profesorului din `reference-design.md` în aceste contexte. Rolurile pot folosi același model.
 
-## 1. Contextul și sarcina (2–3 minute)
+## 1. Contextul și sarcina (6 minute)
 
-Arătați „Exemplu pregătit: delegare și verificare”, apoi „Ce îi cerem agentului AI cu rol de proiectant”. Precizați proveniența reală. Enunțul, regulile și scenariile delimitează o sarcină de proiectare, fără codul aplicației. Studenții discută promptul; nu îl trimit unui serviciu AI.
+Arătați „Exemplu pregătit: delegare și verificare”, apoi „Ce îi cerem agentului AI cu rol de proiectant”. Precizați proveniența reală. Enunțul, regulile și scenariile delimitează o sarcină de proiectare, fără codul aplicației. Cele trei operații din prompt sunt împrumutul (inclusiv ridicarea), returnarea și cererea de împrumut. Studenții discută promptul; nu îl trimit unui serviciu AI.
 
-## 2. Verificarea propunerii (3 minute)
+## 2. Verificarea propunerii (2 minute)
 
-Lăsați pe ecran „Proiectare AI: ce permite reprezentarea?”. Fragmentul capturat, situația S2, regulile și întrebarea sunt vizibile împreună. Studenții notează legăturile necesare pentru decizia asupra lui M3: C1 → rezervare → cerere → M2. M3 nu poate ridica C1; împrumutul său pentru C2 nu îi dă acest drept.
+Lăsați pe ecran „Proiectarea AI păstrează legăturile necesare?”. Fragmentul capturat, situația S2, regulile și întrebarea sunt vizibile împreună. Studenții notează legăturile necesare pentru decizia asupra lui M3: C1 → rezervare → cerere → M2. M3 nu poate împrumuta C1; împrumutul său pentru C2 nu îi dă acest drept.
 
 Proiectarea păstrează informația necesară. Nu impunem găsirea unui defect într-un fragment corect.
 
-## 3. Revizuire și decizie (7–8 minute)
+## 3. Revizuire și decizie (9 minute)
 
 Pe „Ce predăm evaluatorului AI”, discutați ce ar lipsi dintr-o cerere generică „verifică dacă e corect”. Contextul separat face explicită predarea, dar nu garantează corectitudinea revizuirii.
 
 „Verificăm și revizuirea” conține afirmația reală despre S6. Studenții o verifică prin R2 și R5: M4 ridică C1, iar C2 rămâne rezervat lui M2. Ordinea alocării nu impune ordinea ridicării. Concluzia evaluatorului AI este susținută de scenariu.
 
-Arătați apoi „Decizia noastră asupra revizuirii”: acceptăm proiectarea ca bază pentru etapa următoare, în limitele R6. „Nu am identificat defecte” nu înseamnă că există deja o implementare verificată. Evaluatorul AI precizează această limită în răspunsul capturat.
+Arătați apoi „Decizia noastră asupra revizuirii”: acceptăm proiectarea ca bază pentru etapa următoare, în limitele R6. La curs am verificat S2 și S6; parcurgerea S1–S6 din răspunsul integral a fost verificată la pregătire. „Nu am identificat defecte” nu înseamnă că există deja o implementare verificată. Evaluatorul AI precizează această limită în răspunsul capturat.
 
-## 4. Sinteza (1–2 minute)
+## 4. Sinteza (2 minute)
 
-„Păstrăm o imagine de ansamblu verificabilă” citează paragraful real despre ordinea cererilor. Formula prea scurtă „cererile sunt servite în ordine” ar pierde distincția dintre alocare și ridicare. Cereți regula și scenariul care justifică distincția.
+„Înainte de predare: ce păstrează rezumatul?” citează paragraful real despre ordinea cererilor. Formula prea scurtă „cererile sunt servite în ordine” ar pierde distincția dintre alocare și ridicare. Cereți regula și scenariul care justifică distincția.
 
 ## Verificare înainte de curs
 

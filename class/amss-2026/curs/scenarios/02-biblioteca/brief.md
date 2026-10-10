@@ -4,7 +4,7 @@ Sursă pentru profesor și pentru contextul transmis agentului AI. Nu este o fi�
 
 ## Mai întâi: cererea bibliotecarei
 
-Biblioteca este beneficiarul sistemului informatic. Bibliotecara o reprezintă și ne prezintă cererea:
+Biblioteca este beneficiarul sistemului informatic. Bibliotecara o reprezintă și ne prezintă solicitarea:
 
 „Avem nevoie de un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”
 
