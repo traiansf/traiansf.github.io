@@ -8,8 +8,8 @@ Tabelul urmează noua ordine a cursurilor. Prezentările nerescrise încă stau 
 |---|---|---|---|
 | Cursul 1 | [01-organizare.md](../curs/01-organizare.md) | Brian W. Kernighan și P. J. Plauger | [Software Tools in Pascal (1981), p. 311](https://seriouscomputerist.atariverse.com/media/pdf/book/Software%20Tools%20in%20Pascal.pdf#page=320) |
 | Cursul 2 | [02-intelegere.md](../curs/02-intelegere.md) | Edsger W. Dijkstra | [How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html) |
-| Cursul 3 | [02-requirements.md](../archive/curs/02-requirements.md) | Frederick P. Brooks, Jr. | [No Silver Bullet — Essence and Accident in Software Engineering](https://worrydream.com/refs/Brooks_1986_-_No_Silver_Bullet.pdf#page=13) |
-| Cursul 4 | [03-testable-specs.md](../archive/curs/03-testable-specs.md) | Eric Evans | [Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) |
+| Cursul 3 | [03-cerinte.md](../curs/03-cerinte.md) | Frederick P. Brooks, Jr. | [No Silver Bullet — Essence and Accident in Software Engineering](https://worrydream.com/refs/Brooks_1986_-_No_Silver_Bullet.pdf#page=13) |
+| Cursul 4 | [04-domeniu.md](../curs/04-domeniu.md) | Eric Evans | [Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) |
 | Cursul 5 | [04-class-diagrams.md](../archive/curs/04-class-diagrams.md) | David L. Parnas | [On the Criteria To Be Used in Decomposing Systems into Modules](https://akkartik.name/parnas.pdf#page=6) |
 | Cursul 6 | [05-other-structural.md](../archive/curs/05-other-structural.md) | Bertrand Meyer | [Object-Oriented Software Construction, ediția a doua](https://bertrandmeyer.com/wp-content/upLoads/OOSC2.pdf) |
 | Cursul 7 | [06-behavioral-i.md](../archive/curs/06-behavioral-i.md) | Leslie Lamport | [Computation and State Machines (2008)](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4) |
@@ -21,7 +21,7 @@ Tabelul urmează noua ordine a cursurilor. Prezentările nerescrise încă stau 
 | Cursul 13 | [12-presentation-skills.md](../archive/curs/12-presentation-skills.md) | Donald E. Knuth | [Literate Programming — prezentarea autorului](https://cs.stanford.edu/~knuth/lp.html) |
 | Cursul 14 | [14-final.md](../archive/curs/14-final.md) | Alan J. Perlis | [Epigrams in Programming — epigrama 31](https://www.cs.yale.edu/homes/perlis-alan/quotes.html) |
 | Laboratorul 1 | [01-specificare.md](../lab/01-specificare.md) | Edsger W. Dijkstra | [How do we tell truths that might hurt? — EWD498](https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html) |
-| Laboratorul 2 | [Lab02.md](../archive/lab/Lab02.md) | Eric Evans | [Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) |
+| Laboratorul 2 | [02-modelare.md](../lab/02-modelare.md) | Eric Evans | [Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6) |
 | Laboratorul 3 | [Lab03.md](../archive/lab/Lab03.md) | Bertrand Meyer | [Object-Oriented Software Construction, ediția a doua](https://bertrandmeyer.com/wp-content/upLoads/OOSC2.pdf) |
 | Laboratorul 4 | [Lab04.md](../archive/lab/Lab04.md) | Leslie Lamport | [Computation and State Machines (2008)](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4) |
 | Laboratorul 5 | [05-validare.md](../lab/05-validare.md) | Edsger W. Dijkstra | [Concern for Correctness as a Guiding Principle for Program Composition — EWD288](https://www.cs.utexas.edu/~EWD/transcriptions/EWD02xx/EWD288.html) |

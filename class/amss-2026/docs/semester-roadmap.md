@@ -1,6 +1,6 @@
 # AMSS 2026/2027 — Instructor implementation roadmap
 
-This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lab 1 has an authored teaching package. Weeks 3–13 and Labs 2–5 below are **proposed outlines, not completed teaching materials**. Later lecture decks and Labs 2–4 retain earlier content until deliberately rewritten. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
+This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 have authored, unreleased drafts; Lab 1 has been refactored around collaboration and discussion. Weeks 5–13 and Labs 3–5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
 
 ## Teaching commitments
 
@@ -26,7 +26,9 @@ The multiple-choice exam assesses reasoning about supplied problems, requirement
 
 All lecture demos below are prepared slide walkthroughs, not live tool use. AI proposals, reviews, code runs and rechecks are produced before class; students predict, compare and explain the displayed results.
 
-Durations below are instructor planning notes. Each full lecture in Weeks 3–13 totals **100 minutes**, including discussion and a short exit exercise. Keep these timings off student slides. New domains below are proposals; only the authored Week 2 library and Lab 1 dorm laundry-machine scenarios are established in the current package.
+Durations below are instructor planning notes. Each full lecture in Weeks 3–13 totals **100 minutes**, including discussion and a short exit exercise. Keep these timings off student slides. New domains below are proposals except the authored Week 2 library, Week 3 campus maintenance reporting, Week 4 photographic archive, Lab 1 dorm laundry machines, and Lab 2 repair-café scenarios.
+
+**Teaching feedback, 10 October 2026:** Lecture 2 elicited good participation, examples, and comments, but almost all of its 45 slides (including the cover) were covered too quickly. The instructor requested approximately **30 slides for Lecture 3**, including the cover and transitions. Budget by activity rather than assuming two minutes per slide; reduce conceptual scope and protect discussion time instead of making slides denser. Later lectures should be calibrated from delivery feedback.
 
 ### Week 1 — Administration and motivation
 
@@ -54,11 +56,11 @@ The library request now has an operational outcome: requests for unavailable tit
 
 **Observable outcomes:** separate stakeholder facts from assumptions; define a bounded scope and a measurable quality constraint; write acceptance examples that expose an unresolved policy.
 
-**Sequence, 100 minutes:** unaided brief analysis 10; goals, stakeholders, scope, and requirement types 20; elicitation demo 25; acceptance-example workshop 25; fresh review and human decisions 15; exit question 5.
+**Sequence, 100 minutes:** opening and unaided problem analysis 15; agreed scope, sources, and duplicate-report policy 20; observable requirements, acceptance examples, and quality criterion 30; three captured AI prompt/response stages and human review 25; transfer exercise and closing 10. Timing checkpoints: 0, 15, 35, 65, 90, and 100. Exercise durations include discussion; the demo has seven minutes for the transition and prompts, three five-minute comparisons, and three minutes for questions.
 
-**Proposed demo:** campus maintenance reporting, limited to creating a fault report and obtaining its status. Show stakeholder answers on slides for report identity, allowed status changes, and who may update a report; leave prioritization outside scope. Humans first identify why “urgent” and “quickly” are ambiguous. The agent organizes requirements and questions; only supplied stakeholder answers become facts. Check duplicate-report handling and one observable response-time criterion against the stated workload and measurement point.
+**Authored draft:** [Lecture 3](../curs/03-cerinte.md), [instructor guide](../curs/03-cerinte-demo.md), [consolidated brief](../curs/scenarios/03-sesizari/brief.md), and [reference reasoning](../curs/scenarios/03-sesizari/reference.md). The deck has 29 content/transition slides plus its generated cover. Campus maintenance reporting covers creation, consultation, and administrative status updates. R1–R4 define required data, access, separate duplicate reports, and allowed status changes; Q1 defines an agreed timing threshold. All classroom data and tasks appear together on the relevant slides. The exit exercise transfers the method to booking consultation slots.
 
-**Good output / fallback:** challenge a correct specification with a different stakeholder interpretation and identify which decision needs agreement. Show an authored brief with an invented priority rule and an unmeasurable speed claim alongside the relevant stakeholder answers; students propose repairs on paper.
+**Review and provenance:** at the instructor's request, the demo and error examples now use [six genuine Claude Haiku 4.5 captures](../curs/scenarios/03-sesizari/captures/2026-10-10/README.md): two initial proposals, two clarified analyses, and two fresh-context reviews. Students distinguish unconfirmed additions from agreed requirements, restore Q1's omitted network and measurement endpoints, and assess a review that correctly confirms the numeric threshold but misses those omissions. Prompts and faithful excerpts are on slides; all attempts, complete inputs/outputs, metadata, and selection rationale are archived. Scenario facts and timing lots remain teaching data, not actual campus facts or executed performance measurements. The repeated worked-case table and separate change/handoff slides were replaced to preserve 30 slides. The draft is not added to `RELEASED`.
 
 ### Week 4 — Domain modeling
 
@@ -66,11 +68,11 @@ The library request now has an operational outcome: requests for unavailable tit
 
 **Observable outcomes:** distinguish identity from descriptive attributes; state a relationship constraint with examples; explain why a conceptual distinction need not imply a class or table.
 
-**Sequence, 100 minutes:** classify examples without AI 10; identity, relationships, and domain rules 20; model-comparison demo 25; construct and challenge a model 25; fresh review of assumptions 15; exit explanation 5.
+**Authored first draft:** [Lecture 4](../curs/04-domeniu.md), [instructor guide](../curs/04-domeniu-demo.md), [brief](../curs/scenarios/04-fotografii/brief.md), and [reference reasoning](../curs/scenarios/04-fotografii/reference.md). The photographic archive distinguishes photographs, immutable versions, the original, and the source of an edit. Equal captions do not identify photographs; editing an earlier version permits branches. Deletion, storage and duplicate-import policy remain outside scope.
 
-**Proposed demo:** a small photographic archive, limited to cataloguing photographs and their edited versions. Supply rules: distinct photographs may share a caption; every version belongs to one photograph; editing creates a version without replacing the original. Students classify two equal captions and two versions before AI proposes a glossary and relationship table. Check that changing a caption preserves identity and that an edit retains the original version. Storage formats and rights management are excluded.
+**Sequence, 100 minutes:** opening and equal captions 15; identity and first edit 20; relationships, cardinalities and branching 25; captured AI analysis/review and representation comparison 30; transfer and closing 10. Timing checkpoints: 0, 15, 35, 60, 90 and 100. The deck has 30 slides including its cover, with activity-based pacing and all classroom data on slides.
 
-**Good output / fallback:** compare an object-oriented and a data-oriented expression of the same correct model. Prepare an authored caption-as-identifier proposal and concrete collisions; ask which rule fails before discussing representation.
+**AI comparison:** [five archived Haiku 4.5 runs](../curs/scenarios/04-fotografii/captures/2026-10-10/README.md). The selected analyst correctly separates identities but overgeneralizes the version structure to any DAG. The selected fresh-context reviewer identifies branches; students check this with the one-source rule. Two earlier reviews with an instruction-encoding problem are retained, not projected; the final input also supplies the analyst's exact task. Object references and linked records illustrate the same corrected model without prescribing classes or tables. This draft is not added to `RELEASED`.
 
 ### Week 5 — Responsibility assignment, cohesion, and coupling
 
@@ -194,21 +196,23 @@ Schedule seven thematic labs after their associated lectures, planning 100 teach
 
 Each project has a public GitHub or GitLab repository, created and linked when announced on Teams, tracking progress and member contributions throughout the semester. AI may assist development and commits; the team verifies and owns the published work. Commit counts are not grading criteria.
 
+**Collaboration decision, 10 October 2026:** thematic labs emphasize explaining, comparing and discussing together, with fewer slides. Labs 1 and 2 now each have 14 slides including the cover and a 100-minute activity plan. Sketches and notes are optional conversation aids; no exercise dossier, transcript, individual written defense or upload is required. Keep brief individual thinking followed by pair discussion and rotate roles. AI tools are optional: use prepared genuine captures or peer review when unavailable. Carry this direction into later thematic labs; the confirmed project requirements for Labs 6–7 remain separate.
+
 ### Lab 0 — Optional preparation and orientation
 
 Use the [self-study guide](../lab/00-pregatire.md) and [instructor guide](../lab/00-pregatire-instructor.md). This optional 90-minute meeting can take place immediately after Course 1; all groups can follow the same material independently. Lab 1 follows Courses 1–2 and may take place in Week 3. Announce group dates on Teams.
 
 ### Lab 1, after Courses 1–2 — Understanding, specification, and review
 
-Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructor guide](../lab/01-specificare-instructor.md), [scenario](../lab/scenarios/01-specificare/scenario.md), [worksheet](../lab/scenarios/01-specificare/worksheet.md), and [prepared fixture](../lab/scenarios/01-specificare/prepared-fixture.md). These contain the full timing and activities. Foundations: Courses 1–2, especially source facts, scope, acceptance examples, role handoffs, and human review decisions.
+Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructor guide](../lab/01-specificare-instructor.md), [scenario](../lab/scenarios/01-specificare/scenario.md), [worksheet](../lab/scenarios/01-specificare/worksheet.md), and [prepared fixture](../lab/scenarios/01-specificare/prepared-fixture.md). These contain the revised 14-slide, discussion-led plan: 0–10 opening, 10–30 shared explanation, 30–50 peer challenge, 50–75 AI or peer comparison, 75–100 change and discussion. The optional worksheet no longer requires submissions; the fallback uses genuine captures. Foundations: Courses 1–2, especially source facts, scope, acceptance examples, role handoffs, and human review decisions.
 
 ### Lab 2, after Courses 3–4 — Requirements and domain modeling
 
 **Foundations:** Courses 3–4, with introductory practice from Courses 1–2. Do not assume Course 5 responsibility-assignment theory.
-**Proposed domain/input:** repair-café work orders; distinguish an identified device from its visits, reported faults, and volunteers. Supply stakeholder policies and clarification answers; exclude inventory and payment.
-**Outcomes:** define scope and acceptance examples; distinguish device identity from a visit; build and challenge a domain model without committing to classes.
-**100 minutes:** individual brief analysis 10; requirements and clarifications 20; domain model 25; bounded AI comparison 20; separate review using scenarios 15; explanation and evidence 10.
-**Evidence:** scoped requirements, glossary and relationship model, explicit assumptions, acceptance examples, and review decisions.
+**Authored first draft:** [Lab 2](../lab/02-modelare.md), [instructor guide](../lab/02-modelare-instructor.md), [scenario](../lab/scenarios/02-modelare/scenario.md), [optional discussion aid](../lab/scenarios/02-modelare/worksheet.md), and [prepared captures](../lab/scenarios/02-modelare/prepared-fixture.md). A community repair workshop distinguishes a physical device, its visits, reported problems and responsible volunteers; inventory and payment are excluded.
+**Outcomes:** distinguish identity and repeated descriptions; explain relationship cardinalities; preserve visit history; compare a requirement with a representation choice.
+**100 minutes:** opening 10; paired modeling with role rotation 25; exchange between pairs 20; AI or peer comparison and review 25; a change to at most two volunteers and closing discussion 20. Fourteen slides including the cover.
+**Discussion:** explain J1 and J2 for A17, retain past volunteers/problems, handle J3 without a volunteer, and examine the AI's optional composite identifier. No artifact or upload is required. Three real Haiku 4.5 attempts are preserved; the selected review uses corrected input. This draft is not added to `RELEASED`.
 
 ### Lab 3, after Courses 5–6 — Responsibilities, contracts, and invariants
 
@@ -216,7 +220,7 @@ Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructo
 **Proposed domain/input:** warehouse quantity reservations with serial operations and fixed stock. Supply rules for reserve, pick, and cancel-before-picking; exclude replenishment and shipment.
 **Outcomes:** assign ownership of stock-changing operations; state preconditions, postconditions, invariants, and rejection guarantees; compare two responsibility allocations.
 **100 minutes:** boundary examples 10; responsibilities and dependencies 20; contracts and invariants 25; AI comparison 20; independent review and before/after scenarios 15; explanation 10.
-**Evidence:** responsibility table, operation contracts, success/rejection quantity examples, compared alternative, and justified revisions. A lifecycle table is not a prerequisite or required artifact.
+**Possible discussion supports (not required submissions):** responsibility table, operation contracts, success/rejection quantity examples, compared alternative, and justified revisions. A lifecycle table is not a prerequisite or required artifact.
 
 ### Lab 4, after Courses 7–8 — State, behavior, and interactions
 
@@ -224,7 +228,7 @@ Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructo
 **Proposed domain/input:** equipment collection from a staffed desk with a local reservation register and an external notification sender. Supply states, permitted collection/cancellation events, request identifiers, and a policy that notification failure does not undo accepted collection; exclude concurrent requests and physical-device control.
 **Outcomes:** describe legal transitions and guards; trace a normal interaction, a rejection, and a retried request after notification failure; assign coordination and preserve agreed state.
 **100 minutes:** predict event sequences 10; state model 20; interactions and boundary assumptions 25; bounded AI comparison 20; separate review and manual scenario traces 15; explanation 10.
-**Evidence:** transition table or equivalent, interaction trace, rejection/retry examples, responsibilities, review decisions, and limits. No new executable-model theory is needed.
+**Possible discussion supports (not required submissions):** transition table or equivalent, interaction trace, rejection/retry examples, responsibilities, review decisions, and limits. No new executable-model theory is needed.
 
 ### Lab 5, after Courses 9–10 — Validation and abstraction
 
@@ -232,7 +236,7 @@ Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructo
 **Proposed domain/input:** export of an activity report in text and CSV, with a shared rule that redacted fields remain absent. Supply fields, redaction policy, format rules, representative records, and a possible third format; exclude streaming and external plugins.
 **Outcomes:** formulate validation properties and bounds, use scenarios or a small model to check them, compare a conditional with separate functions or a formatter abstraction, and justify costs under the stated variation.
 **100 minutes:** predict checks unaided 10; properties and bounds 20; inspect and run supplied checks or explicit manual traces 25; compare abstractions under a third format 20; fresh review 15; explanation and limits 10.
-**Evidence:** properties, actual check results or explicitly manual traces, compared designs, a justified choice, review decisions, and limits. Do not claim exhaustive validation from selected examples. No application implementation or new graded submission is required.
+**Possible discussion supports (not required submissions):** properties, actual check results or explicitly manual traces, compared designs, a justified choice, review decisions, and limits. Do not claim exhaustive validation from selected examples. No application implementation or new graded submission is required.
 
 ### Lab 6, after Courses 11–12 — Open project lab
 
@@ -264,7 +268,7 @@ These are reuse targets, not a claim that the old decks already teach the new se
 | [Lab 2](../archive/lab/Lab02.md), [Lab 3](../archive/lab/Lab03.md), [Lab 4](../archive/lab/Lab04.md), with instructor guides | Labs 2–4 | Reuse comparisons and prepared examples; replace notation-based defect hunts with explicit source rules and evidence. |
 | [Lab 5](../lab/05-validare.md), [Lab 6](../lab/06-proiect.md), [Lab 7](../lab/07-interviu.md), with instructor guides | Labs 5–7 | Lab 5 practices validation and abstraction on a supplied problem; Lab 6 is an open session for finishing the project and discussion; Lab 7 is the clarification interview finalizing the five-point dossier score. |
 
-Develop the next package in teaching order: Course 3, then Course 4 with Lab 2, then Courses 5–6 with Lab 3. Prototype Course 9's small explorer early enough to validate its bounds and repair before writing its slides. For each session, finish the source brief and reference reasoning first, then the demo and labeled fallback, student exercise, deck with notes, and delivery checks. Keep unfinished sessions unpublished under the existing `RELEASED` mechanism; this roadmap does not change release state.
+Develop the next package in teaching order: review the authored Courses 3–4 and Lab 2 drafts with the discussion-led Lab 1 refactor, then develop Courses 5–6 with Lab 3. Prototype Course 9's small explorer early enough to validate its bounds and repair before writing its slides. For each session, finish the source brief and reference reasoning first, then the demo and labeled fallback, student exercise, deck with notes, and delivery checks. Keep unfinished sessions unpublished under the existing `RELEASED` mechanism; this roadmap does not change release state.
 
 ## Current course order and source identifiers
 
