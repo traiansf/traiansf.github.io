@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 18124,
+  "stop_reason": "end_turn",
+  "session_id": "8570e482-4f45-438e-9d16-eb1d56bf8ea7",
+  "total_cost_usd": 0.020261,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5616,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1804,
+    "output_tokens_details": {
+      "thinking_tokens": 1017
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5616,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1804,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5616,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5616
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1804,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5616,
+      "webSearchRequests": 0,
+      "costUSD": 0.020261,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1017,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Analiza pilotului de programare a mașinilor de spălat\n\n## Concepte fundamentale\n\nPilotul permite locatarilor cu identitate verificată să rezerve intervale de timp pe două mașini (Albastra, Verdea) într-o zi D, între 08:00–22:00. Regula de bază: **două programări confirmate pe aceeași mașină nu se pot suprapune**, dar o poate începe exact când se termină cealaltă. Dacă două cereri simultane pe mașina liberă se suprapun, una se confirmă (cu cod de programare), cealaltă se respinge pentru conflict. Doar titularul unei programări o poate anula înainte de start, eliberând intervalul.\n\n## Rezultatele scenariilor\n\n**S2 — Radu cere Albastra 10:30–11:30 (cu Ioana 10:00–11:00 deja confirmată)**\n- Rezultat: **RESPINGERE** (conflict pe aceeași mașină)\n- Sursa: F4 — intervalele se suprapun în perioada 10:30–11:00\n\n**S3 — Radu cere Albastra 11:00–12:00 (cu Ioana 10:00–11:00 deja confirmată)**\n- Rezultat: **CONFIRMARE**\n- Sursa: F4 — „o programare poate începe exact când se termină alta\"\n\n**S5 — Ioana și Radu cer simultan Albastra 13:00–14:00 (liberă)**\n- Rezultat: **Una se confirmă, una se respinge** (care? nedecis)\n- Sursa: F5 — ambele cereri sunt valide, mașina e liberă, dar regulile de prioritate nu sunt convenite\n- **Întrebare deschisă: Q1 pe care dintre cereri are prioritate?**\n\n**S8 — Ioana cere Verdea 10:30–11:30 (cu programarea ei Albastra 10:00–11:00 confirmată)**\n- Mașini diferite: F4 nu se aplică (nu privește aceeași mașină)\n- Rezultat: **Depinde de răspunsul la Q1**\n- **Întrebare deschisă: Q1 — poate un locatar avea programări suprapuse pe mașini diferite?**\n\n## Regulile convenite vs. întrebări deschise\n\n**Convenite:** Non-suprapunere pe aceeași mașină (F4), conflict la cereri simultane (F5), anulare de titular (F6), validare orar și interval (F3).\n\n**Deschise:**\n- **Q1:** Suprapunere pe mașini diferite pentru același locatar\n- **Q2:** Anulare la/după ora de început\n- **Q3:** Limite viitoare (durată max, număr de programări, avans)\n\nBeneficiarul trebuie să decidă asupra Q1 înainte ca S8 și S5 să aibă rezultate garantate.",
+  "ttft_ms": 13421,
+  "type": "result",
+  "duration_ms": 19798,
+  "uuid": "5bfc40cb-bf79-4a8c-91b9-52a7d78afb1f",
+  "ttft_stream_ms": 2490,
+  "time_to_request_ms": 1672,
+  "first_content_frame_ms": 2491,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

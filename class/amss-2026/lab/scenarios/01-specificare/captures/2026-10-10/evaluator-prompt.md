@@ -1,3 +1,7 @@
+E?ti evaluator (agent AI de revizuire). Verific? propunerea de mai jos exclusiv fa?? de contextul furnizat. Identific? afirma?iile sus?inute, contradic?iile, omisiunile relevante ?i alegerile prezentate ca cerin?e. Pentru fiecare observa?ie, indic? fragmentul ?i regula sau scenariul relevant. Nu presupune c? trebuie s? existe gre?eli; dac? o afirma?ie este corect?, explic? de ce. Nu scrie cod. R?spunde ?n rom?n?, ?n maximum 400 de cuvinte.
+
+CONTEXT
+
 # Laboratorul 1 — fișă: programarea mașinilor de spălat din cămin
 
 Acesta este un **scenariu didactic pregătit**. Informațiile de mai jos sunt cerințele convenite cu beneficiarul pentru exercițiu. Ele descriu un pilot cu limite clare, nu regulile unui cămin real.
@@ -40,7 +44,7 @@ Toate identitățile de mai jos sunt verificate; cererile folosesc mașinile din
 - **S7:** la 09:00, Radu încearcă să anuleze programarea confirmată a Ioanei pentru Albastra 10:00–11:00.
 - **S8:** cu S1 confirmat, Ioana cere Verdea 10:30–11:30. Ce întrebare trebuie rezolvată înainte de a promite un rezultat?
 
-Alegeți pentru discuție cazurile care vă ajută să separați interpretări diferite. Explicați rezultatul așteptat sau decizia încă deschisă și indicați sursa. Lista este o rezervă de exemple, nu un tabel de completat integral. Puteți adăuga un interval vid sau o cerere în afara programului dacă ajută la clarificarea unei reguli.
+Pentru fiecare scenariu, precizați rezultatul așteptat sau decizia încă deschisă și citați sursa. Adăugați doar atâtea exemple suplimentare câte sunt necesare pentru a clarifica o regulă, de pildă un interval vid sau o cerere în afara programului.
 
 ## Cinci tipuri de afirmații
 
@@ -52,10 +56,43 @@ Folosiți aceleași cinci tipuri ca în cursul 2:
 - **întrebare deschisă:** decizie pe care trebuie să o ia beneficiarul (de exemplu Q1–Q3);
 - **propunere de proiectare:** o soluție aleasă de voi, care trebuie justificată.
 
-## Cum lucrăm împreună
 
-Începeți cu o scurtă reflecție individuală, apoi comparați interpretările în pereche. Un coleg explică o regulă, celălalt cere un exemplu sau o sursă; schimbați rolurile. Invitați altă pereche să încerce un caz pe explicația voastră.
 
-Comparați o propunere proprie cu un răspuns AI, cu [capturile pregătite](prepared-fixture.md) sau cu interpretarea colegilor. Dacă folosiți un evaluator (agent AI de revizuire), oferiți într-un context nou regulile, sarcina și răspunsul verificat. Decideți împreună ce observație este susținută și ce rămâne de clarificat.
+PROPUNERE DE VERIFICAT
 
-La final discutăm o cerință nouă și câteva exemple care v-au schimbat sau confirmat interpretarea. Schițele și notițele sunt facultative și rămân pentru studiu; nu se cer documente, transcrieri, implementare sau încărcare. [Sprijinul pentru discuție](worksheet.md) este opțional.
+# Analiza pilotului de programare a mașinilor de spălat
+
+## Concepte fundamentale
+
+Pilotul permite locatarilor cu identitate verificată să rezerve intervale de timp pe două mașini (Albastra, Verdea) într-o zi D, între 08:00–22:00. Regula de bază: **două programări confirmate pe aceeași mașină nu se pot suprapune**, dar o poate începe exact când se termină cealaltă. Dacă două cereri simultane pe mașina liberă se suprapun, una se confirmă (cu cod de programare), cealaltă se respinge pentru conflict. Doar titularul unei programări o poate anula înainte de start, eliberând intervalul.
+
+## Rezultatele scenariilor
+
+**S2 — Radu cere Albastra 10:30–11:30 (cu Ioana 10:00–11:00 deja confirmată)**
+- Rezultat: **RESPINGERE** (conflict pe aceeași mașină)
+- Sursa: F4 — intervalele se suprapun în perioada 10:30–11:00
+
+**S3 — Radu cere Albastra 11:00–12:00 (cu Ioana 10:00–11:00 deja confirmată)**
+- Rezultat: **CONFIRMARE**
+- Sursa: F4 — „o programare poate începe exact când se termină alta"
+
+**S5 — Ioana și Radu cer simultan Albastra 13:00–14:00 (liberă)**
+- Rezultat: **Una se confirmă, una se respinge** (care? nedecis)
+- Sursa: F5 — ambele cereri sunt valide, mașina e liberă, dar regulile de prioritate nu sunt convenite
+- **Întrebare deschisă: Q1 pe care dintre cereri are prioritate?**
+
+**S8 — Ioana cere Verdea 10:30–11:30 (cu programarea ei Albastra 10:00–11:00 confirmată)**
+- Mașini diferite: F4 nu se aplică (nu privește aceeași mașină)
+- Rezultat: **Depinde de răspunsul la Q1**
+- **Întrebare deschisă: Q1 — poate un locatar avea programări suprapuse pe mașini diferite?**
+
+## Regulile convenite vs. întrebări deschise
+
+**Convenite:** Non-suprapunere pe aceeași mașină (F4), conflict la cereri simultane (F5), anulare de titular (F6), validare orar și interval (F3).
+
+**Deschise:**
+- **Q1:** Suprapunere pe mașini diferite pentru același locatar
+- **Q2:** Anulare la/după ora de început
+- **Q3:** Limite viitoare (durată max, număr de programări, avans)
+
+Beneficiarul trebuie să decidă asupra Q1 înainte ca S8 și S5 să aibă rezultate garantate.

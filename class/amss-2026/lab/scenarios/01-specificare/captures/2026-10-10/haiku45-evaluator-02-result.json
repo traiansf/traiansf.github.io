@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 33900,
+  "stop_reason": "end_turn",
+  "session_id": "61f6ded6-2f3e-465a-abe6-fa67c8f54ccb",
+  "total_cost_usd": 0.031284,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 6557,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 3632,
+    "output_tokens_details": {
+      "thinking_tokens": 2958
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 6557,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 10,
+        "output_tokens": 3632,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 6557,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 6557
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 10,
+      "outputTokens": 3632,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 6557,
+      "webSearchRequests": 0,
+      "costUSD": 0.031284,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2958,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Verificare propunere de analiză\n\n## Afirmații corecte\n\n**Concepte și S2, S3:** Descrierea fundamentelor și explicarea S2 (RESPINGERE pentru overlap 10:30–11:00, F4) și S3 (CONFIRMARE pentru contact exact 11:00, F4) sunt corecte. Propunerea distinge clar mecanismul de conflict pe aceeași mașină.\n\n**S8 — dependență de Q1:** Corect identifică că S8 (Ioana, Verdea 10:30–11:30 cu Albastra 10:00–11:00) depinde de Q1, deoarece F4 explicit exclud mașini diferite din conflict.\n\n## Contradicție cu contextul\n\n**S5 — etichetare incorectă a întrebării deschise:** Propunerea atribuie rezultatul lui „Q1 pe care dintre cereri are prioritate?\" Dar Q1 din context spune: „**poate un locatar avea programări suprapuse pe mașini diferite?**\" — despre mașini diferite, nu despre prioritate între cereri simultane.\n\nF5 stabilește că două cereri simultane pe mașina liberă — una se confirmă, una se respinge, dar „beneficiarul nu a ales care\". Asta este o **decizie deschisă**, dar nu Q1. Propunerea corect deduce rezultatul (una/una), dar greșit o conectează la întrebarea existentă. Ar fi trebuit să numească asta o nouă întrebare deschisă sau să menționeze că F5 lasă prioritatea nespecificată.\n\n## Omisiune în concluzie\n\nAfirmația finală („Q1 înainte ca S8 și S5 să aibă rezultate garantate\") este **parțial greșită:**\n- **S8 depinde cu adevărat de Q1** ✓\n- **S5 depinde de decisia de prioritate între cereri simultane**, care nu este Q1\n\nPropunerea ar trebui să clarifice că două întrebări deschise sunt în joc: Q1 pentru S8, și o a doua întrebare (prioritate simultană, implicită în F5) pentru S5.\n\n## Evaluare generală\n\nAnaliza factică a scenariilor este corectă (regulile aplicate, rezultatele deduse). Distincția regulile convenite–deschis este bună. Problema este că propunerea asociază S5 la Q1 fără a justifica conexiunea și ignoră că F5 lasă explicit nespecificată prioritatea, ceea ce este o decizie distinctă de Q1.",
+  "ttft_ms": 26875,
+  "type": "result",
+  "duration_ms": 34203,
+  "uuid": "7a1df242-9705-4c96-820a-0c4b4b58c3af",
+  "ttft_stream_ms": 1244,
+  "time_to_request_ms": 324,
+  "first_content_frame_ms": 1247,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

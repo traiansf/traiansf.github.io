@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 34899,
+  "stop_reason": "end_turn",
+  "session_id": "aa98419e-f60d-45b1-b5bc-217cc5d44524",
+  "total_cost_usd": 0.030408,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 6479,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 3488,
+    "output_tokens_details": {
+      "thinking_tokens": 2706
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 6479,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 10,
+        "output_tokens": 3488,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 6479,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 6479
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 10,
+      "outputTokens": 3488,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 6479,
+      "webSearchRequests": 0,
+      "costUSD": 0.030408,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2706,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Evaluare propunere\n\n## Afirmații susținute corect\n\nPropunerea cită exact și aplică corect regulile pentru **S2** și **S3**:\n- S2 (Radu, Albastra 10:30–11:30): RESPINGERE - F4 prohibă suprapunerea pe aceeași mașină (fragmentele 10:30–11:00 se suprapun). ✓\n- S3 (Radu, Albastra 11:00–12:00): CONFIRMARE - F4 permite ca programarea „să înceapă exact când se termină alta\". ✓\n\nPentru **S5** (cereri simultane), propunerea corect citează F5: beneficiarul nu a ales prioritate între cereri. Clasificarea ca întrebare deschisă e corectă.\n\n## Greșeli și confuzii\n\n**Eroare privind Q1 la S5:**\nPropunerea spune că S5 depinde de Q1. Nu e adevărat. Q1 din context se referă la „suprapunere pe mașini *diferite*\", iar S5 privește aceeași mașină (Albastra). S5 depinde exclusiv de F5 (prioritate între cereri simultane pe mașina liberă), nu de Q1. Această conexiune e greșit făcută.\n\n## Omisiuni majore\n\nPropunerea **nu analizează explicit S4, S6, S7**, deși scenariile sunt enumerate în context ca necesitând rezultate.\n\n- **S4** (Radu cere Verdea 10:30–11:30, cu Ioana pe Albastra): Mașini diferite → F4 nu se aplică. Ar trebui CONFIRMARE.\n- **S6** (Ioana anulează Albastra 10:00–11:00 la 09:00, Radu cere apoi acelasi interval): F6 permite anulare de titular înainte de start → interval se eliberează → cererea Radu ar trebui CONFIRMARE.\n- **S7** (Radu încearcă anulare programare Ioana): F6 explicit spune „Alt locatar nu o poate anula\" → RESPINGERE.\n\nAbsența acestor analize slăbește acoperire completă a scenariilor convenite.\n\n## Clasificare corecă a deschiselor\n\nPropunerea corect identifică că **S8 depinde de Q1** (suprapunere pe mașini diferite pentru același locatar e nedecisă). Context confirmă: „Ce întrebare trebuie rezolvată?\"\n\n## Concluzie\n\nPropunerea aplică corect regulile pentru 2 scenarii principale (S2, S3) și corect conectează S8 la Q1. Însă confundă Q1 la S5 (greșeală logică) și omite 3 scenarii din cele 8 convenite. Pentru a fi completă, trebuie analizate S4, S6, S7 și corectat legătura greșită S5–Q1.",
+  "ttft_ms": 27568,
+  "type": "result",
+  "duration_ms": 35253,
+  "uuid": "6b9a3024-17a6-4826-aa9a-39165cc4a47b",
+  "ttft_stream_ms": 1164,
+  "time_to_request_ms": 350,
+  "first_content_frame_ms": 1165,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

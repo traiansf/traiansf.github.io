@@ -1,0 +1,29 @@
+{
+  "deck": "../../../../01-specificare.md",
+  "slide_numbers_include_cover": true,
+  "excerpts": [
+    {
+      "slides": [
+        10
+      ],
+      "source": "haiku45-analist-01-response.md",
+      "text": "Beneficiarul trebuie să decidă asupra Q1 înainte ca S8 și S5 să aibă rezultate garantate."
+    },
+    {
+      "slides": [
+        11
+      ],
+      "source": "haiku45-evaluator-02-response.md",
+      "text": "Propunerea corect deduce rezultatul (una/una), dar greșit o conectează la întrebarea existentă."
+    }
+  ],
+  "prompts": [
+    {
+      "slide": 10,
+      "source": "analist-instructiune.md",
+      "extent": "Instrucțiune completă; contextul este identificat separat."
+    }
+  ],
+  "instructor_analysis": "Întrebările și corecțiile din prezentare sunt ale profesorului, distincte de fragmentele capturate.",
+  "review_activity": "Slide-ul 11 propune o sarcină pentru studenți; aceasta nu pretinde că reproduce promptul arhivat. Promptul real integral este în evaluator-v2-prompt.md și în fișa de capturi."
+}

@@ -456,12 +456,10 @@ break-inside: avoid;
     <p class="author">Traian-Florin Șerbănuță</p>
   </div>
 </div>
-<div id="programarea-mașinilor-de-spălat-din-cămin" class="slide section level1">
-<h1>Programarea mașinilor de spălat din cămin</h1>
-<p><strong>În perechi · 100 de minute</strong></p>
-<p>Explicați singuri problema, pregătiți o specificație cu limite clare, delegați o revizuire (review) și decideți ce afirmații sunt întemeiate.</p>
-<p>La final: o descriere comună a problemei și explicația individuală a unei decizii de proiectare.</p>
-<p>Fișe: <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/scenario.md">informațiile beneficiarului</a> · <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/worksheet.md">fișa de lucru</a></p>
+<div id="înțelegem-aceeași-problemă" class="slide section level1 transition">
+<h1 class="transition">Înțelegem aceeași problemă?</h1>
+<p><strong><span class="nowrap">0–10</span> min · Observăm și discutăm în perechi</strong></p>
+<p>Cum știm că două persoane interpretează la fel o regulă?</p>
 </div>
 <div id="citatul-zilei" class="slide section level1 epigraph">
 <h1 class="epigraph">Citatul zilei</h1>
@@ -472,317 +470,119 @@ break-inside: avoid;
 <p>— <strong>Edsger W. Dijkstra</strong></p>
 <p><a href="https://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html">Sursa: How do we tell truths that might hurt? — EWD498</a></p>
 </div>
-<div id="parcursul-de-azi" class="slide section level1">
-<h1>Parcursul de azi</h1>
+<div id="o-spălătorie-pentru-cămin" class="slide section level1">
+<h1>O spălătorie pentru cămin</h1>
+<p>Locatarii se programează la <strong>Albastra</strong> sau <strong>Verdea</strong>, <span class="nowrap">într-o</span> singură zi viitoare <strong>D</strong>, între <strong>08:00 și 22:00</strong>. Identitatea lor este deja verificată.</p>
+<p><strong>Regulă convenită:</strong> pe aceeași mașină, programările confirmate nu se suprapun; una poate începe exact când se termină alta.</p>
+<p>Ioana are Albastra <strong><span class="nowrap">10:00–11:00</span></strong>. Radu cere aceeași mașină <strong><span class="nowrap">11:00–12:00</span></strong>.</p>
+<p>Un minut individual, apoi cu un coleg: <strong>acceptăm cererea? Ce informație justifică răspunsul?</strong></p>
+</div>
+<div id="construim-o-explicație-comună" class="slide section level1 transition">
+<h1 class="transition">Construim o explicație comună</h1>
+<p><strong><span class="nowrap">10–30</span> min · Un coleg explică, celălalt cere exemple; apoi schimbați rolurile</strong></p>
+<p>Ce știm și ce trebuie întrebat?</p>
+</div>
+<div id="reguli-pe-care-le-putem-explica" class="slide section level1">
+<h1>Reguli pe care le putem explica</h1>
+<ul>
+<li><strong>Cererea:</strong> locatar, mașină și interval valid în D, între 08:00 și 22:00; începutul precedă sfârșitul.</li>
+<li><strong>Disponibilitatea:</strong> fără suprapuneri pe aceeași mașină; intervalele alăturate sunt permise.</li>
+<li><strong>Anularea:</strong> titularul poate anula înainte de început; intervalul devine disponibil. Alt locatar nu poate anula.</li>
+<li><strong>Întrebare:</strong> poate același locatar folosi două mașini în intervale suprapuse? Beneficiarul nu a decis.</li>
+</ul>
+<p>Explicați colegului o regulă <span class="nowrap">printr-un</span> exemplu și o întrebare prin <strong>două răspunsuri posibile</strong>. Folosiți schițe sau notițe cât vă ajută.</p>
+<p><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/scenario.md">Fișa completă: <span class="nowrap">F1–F8,</span> <span class="nowrap">Q1–Q3</span> și exemple</a></p>
+</div>
+<div id="punem-explicația-la-încercare" class="slide section level1 transition">
+<h1 class="transition">Punem explicația la încercare</h1>
+<p><strong><span class="nowrap">30–50</span> min · Comparăm cu o altă pereche</strong></p>
+<p>Ce exemplu desparte două interpretări?</p>
+</div>
+<div id="alegeți-un-caz-pentru-colegi" class="slide section level1">
+<h1>Alegeți un caz pentru colegi</h1>
+<p><strong>Fiecare caz pornește separat:</strong> Ioana are Albastra <span class="nowrap">10:00–11:00;</span> celelalte intervale sunt libere. Toate cererile sunt pentru D.</p>
 <div class="table-wrap">
 <table>
 <thead>
 <tr>
-<th>Minute</th>
-<th>Activitate</th>
+<th>Caz</th>
+<th>Ce încearcă cineva</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="nowrap">0–8</span></td>
-<td>Analiză individuală, fără AI</td>
+<td>Suprapunere</td>
+<td>Radu cere Albastra <span class="nowrap">10:30–11:30.</span></td>
 </tr>
 <tr>
-<td><span class="nowrap">8–18</span></td>
-<td>Compararea interpretărilor; cinci tipuri de afirmații</td>
+<td>Limită</td>
+<td>Radu cere Albastra <span class="nowrap">11:00–12:00.</span></td>
 </tr>
 <tr>
-<td><span class="nowrap">18–26</span></td>
-<td>Pregătirea spațiului de lucru și a rolurilor</td>
-</tr>
-<tr>
-<td><span class="nowrap">26–44</span></td>
-<td>Descrierea problemei și predarea sarcinii către analist</td>
-</tr>
-<tr>
-<td><span class="nowrap">44–60</span></td>
-<td>Schimbarea rolurilor; revizuire independentă</td>
-</tr>
-<tr>
-<td><span class="nowrap">60–78</span></td>
-<td>Evaluarea revizuirii: întâi individual, apoi împreună</td>
-</tr>
-<tr>
-<td><span class="nowrap">78–90</span></td>
-<td>Argumentare individuală și o cerință nouă</td>
-</tr>
-<tr>
-<td><span class="nowrap">90–100</span></td>
-<td>Prezentare și predarea lucrării</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="informațiile-beneficiarului" class="slide section level1">
-<h1>Informațiile beneficiarului</h1>
-<p>Căminul dorește ca locatarii să se poată programa pentru folosirea unei mașini de spălat <strong>Albastra</strong> sau <strong>Verdea</strong>.</p>
-<ul>
-<li><strong>F1:</strong> o singură zi viitoare pentru pilot, <strong>D</strong>; spălătoria este deschisă <span class="nowrap">08:00–22:00.</span></li>
-<li><strong>F2:</strong> serviciul de cazare furnizează identitatea verificată a locatarului; mașinile sunt deja configurate.</li>
-<li><strong>F3:</strong> o cerere indică un locatar, o mașină și un interval în D; începutul precedă sfârșitul, iar intervalul se încadrează în program.</li>
-<li><strong>F8:</strong> plățile, programările recurente, listele de așteptare, administrarea mașinilor, semnalarea defecțiunilor și notificările sunt excluse.</li>
-</ul>
-<p>Fișa este sursa informațiilor convenite. Întrebările nu stabilesc reguli noi.</p>
-</div>
-<div id="reguli-pe-care-le-putem-verifica" class="slide section level1">
-<h1>Reguli pe care le putem verifica</h1>
-<ul>
-<li><strong>F4:</strong> programările confirmate pentru <strong>aceeași mașină</strong> nu se suprapun; una poate începe când se termină alta.</li>
-<li><strong>F5:</strong> din două cereri simultane în conflict, una se confirmă, cealaltă se respinge; prioritatea nu este stabilită.</li>
-<li><strong>F6:</strong> doar titularul anulează, înainte de început; intervalul devine liber.</li>
-<li><strong>F7:</strong> o programare reușită primește un cod; o respingere indică regula încălcată.</li>
-</ul>
-<p>Întrebările deschise <span class="nowrap">Q1–Q3</span> sunt în fișă.</p>
-</div>
-<div id="mai-întâi-analiza-proprie-08" class="slide section level1">
-<h1>Mai întâi: analiza proprie <span class="nowrap">(0–8)</span></h1>
-<p>Lucrați individual, fără AI. Păstrați aceste notițe inițiale.</p>
-<ol style="list-style-type: decimal">
-<li>Formulați scopul și limitele cu cuvintele voastre.</li>
-<li>Numiți conceptele (mașină, programare, locatar, interval) și regula care îl privește pe fiecare.</li>
-<li>Ce trebuie să fie adevărat după o programare reușită?</li>
-<li>Dați o cerere acceptată și una respinsă, fiecare cu informația din fișă.</li>
-<li>Formulați o întrebare pentru beneficiar.</li>
-</ol>
-</div>
-<div id="cinci-tipuri-de-afirmații" class="slide section level1">
-<h1>Cinci tipuri de afirmații</h1>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="23%" />
-<col width="76%" />
-</colgroup>
-<thead>
-<tr>
-<th>Tip</th>
-<th>Exemplu</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Informație convenită</td>
-<td>F4: pe aceeași mașină, programările confirmate nu se suprapun.</td>
-</tr>
-<tr>
-<td>Consecință dedusă</td>
-<td>Albastra <span class="nowrap">10:30–11:30</span> intră în conflict cu Albastra <span class="nowrap">10:00–11:00.</span></td>
-</tr>
-<tr>
-<td>Ipoteză</td>
-<td>Provizoriu: un locatar nu folosește două mașini deodată.</td>
+<td>Anulare</td>
+<td>La 09:00 Ioana anulează; Radu cere apoi <span class="nowrap">10:00–11:00.</span></td>
 </tr>
 <tr>
 <td>Întrebare deschisă</td>
-<td>Poate un locatar avea programări suprapuse pe mașini diferite?</td>
-</tr>
-<tr>
-<td>Propunere de proiectare</td>
-<td>O operație de programare verifică conflictul și confirmă.</td>
+<td>Ioana cere și Verdea <span class="nowrap">10:30–11:30.</span></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>O ipoteză sau o propunere devine informație convenită doar după ce o confirmă beneficiarul.</p>
+<p>Fără suprapuneri pe aceeași mașină; alăturarea este permisă. Titularul poate anula înainte de început. Suprapunerea aceluiași locatar pe mașini diferite rămâne neconvenită.</p>
+<p><strong>Ce rezultat puteți promite și de ce?</strong> Cealaltă pereche îl explică prima.</p>
 </div>
-<div id="de-la-regulă-la-responsabilitate" class="slide section level1">
-<h1>De la regulă la responsabilitate</h1>
-<p><strong>Concept al domeniului:</strong> o programare leagă un locatar, o mașină și un interval.</p>
-<p><strong>Invariant:</strong> o regulă care trebuie să rămână adevărată — aici, fără programări confirmate suprapuse pentru aceeași mașină.</p>
-<p><strong>Responsabilitate:</strong> o parte a sistemului propus trebuie să impună această regulă la fiecare confirmare.</p>
-<p>Discutați: de ce poate fi insuficient „verifică disponibilitatea, apoi confirmă mai târziu”?</p>
+<div id="comparăm-cu-ai-sau-cu-alți-colegi" class="slide section level1 transition">
+<h1 class="transition">Comparăm cu AI sau cu alți colegi</h1>
+<p><strong><span class="nowrap">50–75</span> min · Verificăm afirmațiile și discutăm revizuirea</strong></p>
+<p>Ce rămâne adevărat chiar dacă lipsește o decizie?</p>
 </div>
-<div id="spațiul-de-lucru-și-rolurile-1826" class="slide section level1">
-<h1>Spațiul de lucru și rolurile <span class="nowrap">(18–26)</span></h1>
-<ul>
-<li>Deschideți fișele și creați o copie de lucru comună.</li>
-<li>Alegeți orice instrument și model AI disponibil. <span class="nowrap">Notați-le,</span> dacă sunt cunoscute.</li>
-<li>Deschideți o <strong>sesiune pentru analist</strong> și o <strong>sesiune separată pentru revizuire</strong>.</li>
-<li><strong>A:</strong> îndrumă analistul. <strong>B:</strong> verifică afirmațiile pe baza informațiilor beneficiarului.</li>
-<li>La minutul 44, schimbați rolurile: <strong>B</strong> îndrumă evaluatorul (agentul de revizuire); <strong>A</strong> verifică afirmațiile acestuia.</li>
-</ul>
-<p>Dacă AI nu este disponibil, folosiți <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/prepared-fixture.md">exemplul pregătit</a> și o revizuire separată între colegi.</p>
-</div>
-<div id="predarea-sarcinii-un-contract-în-miniatură" class="slide section level1">
-<h1>Predarea sarcinii: un contract în miniatură</h1>
-<p>Când predați analistului sarcina și contextul (handoff), precizați:</p>
-<ul>
-<li><strong>Intrări:</strong> informațiile exacte ale beneficiarului și analiza inițială.</li>
-<li><strong>Sarcină:</strong> o descriere concisă a problemei și planul pasului următor.</li>
-<li><strong>Limite:</strong> clasifică afirmațiile; nu inventa reguli.</li>
-<li><strong>Justificări:</strong> citează sursele lângă cerințe și scenarii.</li>
-<li><strong>Oprire:</strong> nu continua până nu decide un om ce a rămas nerezolvat.</li>
-</ul>
-<p>Salvați o copie a variantei rezultate pentru revizuire.</p>
-</div>
-<div id="promptul-analistului-2644" class="slide section level1">
-<h1>Promptul analistului <span class="nowrap">(26–44)</span></h1>
+<div id="o-concluzie-ai-de-verificat" class="slide section level1">
+<h1>O concluzie AI de verificat</h1>
+<p><strong>Prompt real</strong>, cu fișa completă drept context:</p>
 <blockquote>
-<p>Ai rolul de asistent de analiză. Folosind doar informațiile beneficiarului și notițele atașate, redactează scopul, limitele, conceptele domeniului, regulile, scenariile de acceptare și întrebările deschise. Citează identificatorii informațiilor. Clasifică afirmațiile ca informație convenită, consecință dedusă, ipoteză, întrebare deschisă sau propunere de proiectare. Cere clarificări unde lipsesc reguli; nu răspunde în numele beneficiarului. Propune următoarea sarcină de proiectare, cu limite, intrări, responsabilități, verificări și o condiție de oprire. Nu o implementa.</p>
+<p>Analizează regulile pilotului. Propune o descriere concisă a conceptelor și explică rezultatele S2, S3, S5 și S8. Distinge regulile convenite de întrebările deschise. Nu scrie cod și nu decide în numele beneficiarului. Răspunde în română, în maximum 350 de cuvinte.</p>
 </blockquote>
-<p>Citiți rezultatul. Acceptați, editați sau cereți o corectare, <strong>motivând decizia</strong>.</p>
-</div>
-<div id="scenarii-care-disting-regulile" class="slide section level1">
-<h1>Scenarii care disting regulile</h1>
-<p>Fiecare rând este un <strong>caz independent</strong>, după S1: Ioana are programată <strong><span class="nowrap">Albastra, 10:00–11:00</span></strong>.</p>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="5%" />
-<col width="47%" />
-<col width="35%" />
-<col width="11%" />
-</colgroup>
-<thead>
-<tr>
-<th>ID</th>
-<th>Cerere sau acțiune</th>
-<th>Rezultat așteptat</th>
-<th>Sursă</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S2</td>
-<td>Radu: Albastra, <span class="nowrap">10:30–11:30</span></td>
-<td>Respingere: conflict</td>
-<td>F4</td>
-</tr>
-<tr>
-<td>S3</td>
-<td>Radu: Albastra, <span class="nowrap">11:00–12:00</span></td>
-<td>Acceptare*</td>
-<td><span class="nowrap">F3–F4</span></td>
-</tr>
-<tr>
-<td>S4</td>
-<td>Radu: Verdea, <span class="nowrap">10:30–11:30</span></td>
-<td>Acceptare*</td>
-<td><span class="nowrap">F3–F4</span></td>
-</tr>
-<tr>
-<td>S7</td>
-<td>Radu anulează programarea Ioanei</td>
-<td>Respingere; fără modificări</td>
-<td>F6</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>* După verificarea celorlalte condiții convenite.</p>
-<p>Completați voi S5 (cereri simultane), S6 (anulare) și S8 (aceeași persoană, altă mașină).</p>
-</div>
-<div id="revizuire-separată-4460" class="slide section level1">
-<h1>Revizuire separată <span class="nowrap">(44–60)</span></h1>
-<p>Începeți <span class="nowrap">într-un</span> context nou. Transmiteți <strong>informațiile, versiunea salvată și criteriile</strong>:</p>
+<p><strong>Captură · Haiku 4.5 · 10.10.2026 · analist 01</strong>, fragment:</p>
 <blockquote>
-<p>Revizuiește descrierea problemei în raport cu informațiile primite. Verifică limitele, distincțiile dintre concepte, precizia regulilor, scenariile de acceptare și dacă responsabilitățile propuse pot păstra regulile. Pentru fiecare afirmație, citează pasajul din variantă și informația-sursă sau un contraexemplu. Distinge între contradicție, întrebare nerezolvată și alternativă opțională. Identifică și deciziile pe care informațiile le susțin. Nu inventa răspunsuri ale beneficiarului și nu impune o anumită notație, arhitectură sau tehnologie.</p>
+<p>Beneficiarul trebuie să decidă asupra Q1 înainte ca S8 și S5 să aibă rezultate garantate.</p>
 </blockquote>
-<p><span class="nowrap">Dați-i</span> evaluatorului intrările convenite, nu conversația analistului.</p>
+<p><strong>S5:</strong> două cereri simultane valide pentru Albastra liberă, <span class="nowrap">13:00–14:00.</span> <strong>F5:</strong> exact una este acceptată, fără prioritate convenită. <strong>Q1</strong> privește același locatar pe mașini diferite. Este justificată concluzia despre S5?</p>
 </div>
-<div id="verificați-constatările-6078" class="slide section level1">
-<h1>Verificați constatările <span class="nowrap">(60–78)</span></h1>
-<p>Mai întâi singuri (5 minute): clasificați fiecare constatare. Apoi decideți împreună.</p>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr>
-<th>Constatarea revizuirii</th>
-<th>Verificare</th>
-<th>Decizia omului</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>„Și o respingere ar trebui să primească un cod.”</td>
-<td>F7 cere cod doar la reușită.</td>
-<td>Respingeți ca defect; cel mult o propunere.</td>
-</tr>
-<tr>
-<td>„Lipsește tratarea unei mașini defecte.”</td>
-<td>F8 exclude semnalarea defecțiunilor.</td>
-<td>Amânați, ca extindere ulterioară.</td>
-</tr>
-<tr>
-<td>Nicio problemă găsită</td>
-<td>Reluați <span class="nowrap">S1–S8</span> pe versiunea revizuită.</td>
-<td>Acceptați dacă rezultatele coincid.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Decizii: <strong>acceptare</strong>, <strong>respingere</strong> sau <strong>amânare</strong>. Motivați și reluați scenariul afectat.</p>
-</div>
-<div id="ce-sarcină-putem-preda-în-continuare" class="slide section level1">
-<h1>Ce sarcină putem preda în continuare?</h1>
-<p>Propuneți o <strong>sarcină de proiectare</strong> care, în limitele descrierii acceptate azi:</p>
-<ul>
-<li>marchează cazurile care depind de Q1 și Q2, fără să le decidă;</li>
-<li>atribuie responsabilitatea verificării și a confirmării programării;</li>
-<li>descrie rezultatele programării/anulării care păstrează <span class="nowrap">F4–F6;</span></li>
-<li>validează scenariile și semnalează ipotezele neconfirmate;</li>
-<li>se oprește pentru revizuire umană înainte de implementare.</li>
-</ul>
-<p>Precizați versiunea de intrare, rezultatul așteptat și verificările cerute.</p>
-</div>
-<div id="lucru-comun-explicații-individuale" class="slide section level1">
-<h1>Lucru comun, explicații individuale</h1>
-<p><strong>Comun:</strong> descrierea concisă, următoarea sarcină (cu limite clare) și rezultatele revizuirii, cu deciziile voastre.</p>
-<p><strong>Individual, fără AI:</strong> păstrați analiza inițială și explicați:</p>
-<ul>
-<li>o decizie pe care o puteți apăra <span class="nowrap">printr-o</span> informație și un scenariu;</li>
-<li>o alternativă plauzibilă sau o ipoteză neconfirmată;</li>
-<li>ce trebuie reconsiderat la schimbarea de pe diapozitivul următor.</li>
-</ul>
-<p>Folosiți fișa de lucru. Păstrați fragmentele de care aveți nevoie ca să vă justificați deciziile.</p>
-</div>
-<div id="cerință-nouă-răspuns-individual-7890" class="slide section level1">
-<h1>Cerință nouă: răspuns individual <span class="nowrap">(78–90)</span></h1>
-<p>Beneficiarul propune acum:</p>
+<div id="verificăm-și-revizuirea" class="slide section level1">
+<h1>Verificăm și revizuirea</h1>
+<p><span class="nowrap">Într-un</span> context nou, dați unui <strong>evaluator (agent AI de revizuire)</strong> fișa, sarcina și răspunsul. Cereți observații legate de reguli și cazuri. Sau invitați altă pereche să facă această verificare.</p>
+<p><strong>Captură reală · Haiku 4.5 · 10.10.2026 · evaluator 02</strong>, fragment:</p>
 <blockquote>
-<p>„De mâine, o programare ar trebui să dureze cel mult 90 de minute.”</p>
+<p>Propunerea corect deduce rezultatul (una/una), dar greșit o conectează la întrebarea existentă.</p>
 </blockquote>
-<p>Există deja o programare confirmată pentru mâine (ziua D), de 120 de minute.</p>
-<p>Fără AI:</p>
+<p><strong>Acceptați observația?</strong> Explicați colegului ce corectați și ce păstrați: F5 garantează exact o acceptare la două cereri simultane conflictuale pe mașina liberă.</p>
+</div>
+<div id="discutăm-o-schimbare" class="slide section level1 transition">
+<h1 class="transition">Discutăm o schimbare</h1>
+<p><strong><span class="nowrap">75–100</span> min · Gândim individual, apoi comparăm explicațiile</strong></p>
+<p>Ce trebuie clarificat înainte de a schimba regulile?</p>
+</div>
+<div id="de-mâine-maximum-90-de-minute" class="slide section level1">
+<h1>„De mâine, maximum 90 de minute”</h1>
+<p>Beneficiarul propune o <strong>durată maximă de 90 de minute</strong>. Până acum nu exista o limită convenită.</p>
+<p>Ioana are deja confirmată pentru <strong>D = mâine</strong> o programare la Albastra, <strong><span class="nowrap">10:00–12:00</span></strong>.</p>
+<p>Gândiți individual, apoi discutați în pereche:</p>
 <ol style="list-style-type: decimal">
-<li>Explicați ce este nou și ce decizii anterioare sunt afectate.</li>
-<li>Identificați regula lipsă pentru programările existente.</li>
-<li>Comparați două răspunsuri justificabile și dați un scenariu care le distinge.</li>
+<li>Ce întrebare puneți înainte de a modifica programarea Ioanei?</li>
+<li>Comparați două răspunsuri posibile ale beneficiarului.</li>
+<li>Dacă regula se aplică numai cererilor noi, ce se întâmplă cu programarea existentă și cu o cerere nouă de 120 de minute?</li>
 </ol>
 </div>
-<div id="prezentare-și-predarea-lucrării-90100" class="slide section level1">
-<h1>Prezentare și predarea lucrării <span class="nowrap">(90–100)</span></h1>
-<p>Fiecare pereche selectată explică unul dintre aspectele următoare:</p>
+<div id="ce-a-clarificat-conversația" class="slide section level1">
+<h1>Ce a clarificat conversația?</h1>
+<p>Câteva perechi împărtășesc un exemplu:</p>
 <ul>
-<li>o regulă pe care trebuie să o stabilească beneficiarul, deși părea o decizie tehnică;</li>
-<li>o constatare a evaluatorului pe care perechea a <span class="nowrap">verificat-o</span> în sursă;</li>
-<li>o decizie corectă păstrată și scenariul care o susține.</li>
+<li>o regulă pe care au <span class="nowrap">înțeles-o</span> diferit la început;</li>
+<li>o întrebare care schimbă rezultatul promis;</li>
+<li>o observație de revizuire pe care au <span class="nowrap">acceptat-o</span> sau <span class="nowrap">respins-o,</span> cu motiv.</li>
 </ul>
-<p>Predați fișierele comune și explicația fiecăruia acolo unde a anunțat profesorul.</p>
-<p>Dacă nu reușiți să predați, folosiți canalul alternativ anunțat.</p>
-</div>
-<div id="ce-arată-că-ați-înțeles" class="slide section level1">
-<h1>Ce arată că ați înțeles</h1>
-<p>Lucrarea este pregătită pentru feedback când:</p>
-<ul>
-<li>cele cinci tipuri de afirmații se disting;</li>
-<li>cerințele și scenariile respectă informațiile beneficiarului;</li>
-<li>sarcina predată are limite, rezultat și punct de revizuire clare;</li>
-<li>constatările evaluatorului sunt verificate și fiecare are o decizie a voastră;</li>
-<li>fiecare partener explică singur o alegere și analizează schimbarea.</li>
-</ul>
-<p>Urmează cursurile <span class="nowrap">3–5:</span> <a href="https://traiansf.github.io/class/amss2026/">formularea problemei și cerințe, modelarea domeniului, responsabilități</a>.</p>
+<p>Păstrați ce vă ajută pentru studiu. <strong>Nu avem documente de predat; încheiem prin explicații și întrebări.</strong></p>
 </div>
 </main>
 <script>// AMSS slide decks: the one-slide-at-a-time view for theme/deck.html.

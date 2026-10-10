@@ -40,7 +40,7 @@ Toate identitățile de mai jos sunt verificate; cererile folosesc mașinile din
 - **S7:** la 09:00, Radu încearcă să anuleze programarea confirmată a Ioanei pentru Albastra 10:00–11:00.
 - **S8:** cu S1 confirmat, Ioana cere Verdea 10:30–11:30. Ce întrebare trebuie rezolvată înainte de a promite un rezultat?
 
-Alegeți pentru discuție cazurile care vă ajută să separați interpretări diferite. Explicați rezultatul așteptat sau decizia încă deschisă și indicați sursa. Lista este o rezervă de exemple, nu un tabel de completat integral. Puteți adăuga un interval vid sau o cerere în afara programului dacă ajută la clarificarea unei reguli.
+Pentru fiecare scenariu, precizați rezultatul așteptat sau decizia încă deschisă și citați sursa. Adăugați doar atâtea exemple suplimentare câte sunt necesare pentru a clarifica o regulă, de pildă un interval vid sau o cerere în afara programului.
 
 ## Cinci tipuri de afirmații
 
@@ -52,10 +52,12 @@ Folosiți aceleași cinci tipuri ca în cursul 2:
 - **întrebare deschisă:** decizie pe care trebuie să o ia beneficiarul (de exemplu Q1–Q3);
 - **propunere de proiectare:** o soluție aleasă de voi, care trebuie justificată.
 
-## Cum lucrăm împreună
+## Sarcina voastră
 
-Începeți cu o scurtă reflecție individuală, apoi comparați interpretările în pereche. Un coleg explică o regulă, celălalt cere un exemplu sau o sursă; schimbați rolurile. Invitați altă pereche să încerce un caz pe explicația voastră.
+1. Analizați individual cerințele înainte de a folosi AI. Păstrați notițele.
+2. Pregătiți o descriere comună a problemei: concepte, reguli, scenarii de acceptare, afirmațiile clasificate după cele cinci tipuri și o sarcină următoare de proiectare cu limite clare.
+3. Cereți o revizuire (review) într-un context separat; dați-i informațiile-sursă, o versiune fixată a variantei de lucru și criterii explicite.
+4. Decideți ce afirmații ale revizuirii sunt susținute; modificați doar unde se justifică și explicați ce rămâne neclarificat.
+5. Explicați individual o decizie și răspundeți la cerința nouă anunțată de profesor, fără AI.
 
-Comparați o propunere proprie cu un răspuns AI, cu [capturile pregătite](prepared-fixture.md) sau cu interpretarea colegilor. Dacă folosiți un evaluator (agent AI de revizuire), oferiți într-un context nou regulile, sarcina și răspunsul verificat. Decideți împreună ce observație este susținută și ce rămâne de clarificat.
-
-La final discutăm o cerință nouă și câteva exemple care v-au schimbat sau confirmat interpretarea. Schițele și notițele sunt facultative și rămân pentru studiu; nu se cer documente, transcrieri, implementare sau încărcare. [Sprijinul pentru discuție](worksheet.md) este opțional.
+Alegeți o reprezentare în care raționamentul se vede clar. Nu se cere o aplicație executabilă. Folosiți [fișa de lucru](worksheet.md) pentru a vă organiza rezultatele. Dacă instrumentele nu sunt disponibile, profesorul vă va da [exemplul pregătit](prepared-fixture.md); notați această proveniență.

@@ -1,0 +1,1 @@
+Analizează regulile pilotului. Propune o descriere concisă a conceptelor și explică rezultatele S2, S3, S5 și S8. Distinge regulile convenite de întrebările deschise. Nu scrie cod și nu decide în numele beneficiarului. Răspunde în română, în maximum 350 de cuvinte.
