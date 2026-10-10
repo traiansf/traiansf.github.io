@@ -1,0 +1,8 @@
+{
+  "context_file": "context.md",
+  "context_sha256": "719fa256df7abb7a7888f5eabd0fdfb88cba3094d03f305013c7404148319f95",
+  "response_file": "haiku45-analist-01-response.md",
+  "response_sha256": "c42a6c2f21b5853a0540b7bbd9f282f2fdcec5ba9e167dc81377654360840ef1",
+  "source_snapshot": "source-at-capture.md",
+  "source_snapshot_sha256": "86333fb6601731d44355f66496cd528d31cdaf4ab0d399da839e8bbb7bafee29"
+}

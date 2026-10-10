@@ -1,0 +1,99 @@
+{
+  "duration_api_ms": 16648,
+  "stop_reason": "end_turn",
+  "session_id": "df3d2d51-962e-401e-b31b-0ba1a7c7bee5",
+  "total_cost_usd": 0.017805,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4628,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1708,
+    "output_tokens_details": {
+      "thinking_tokens": 880
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4628,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1708,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4628,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4628
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1708,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4628,
+      "webSearchRequests": 0,
+      "costUSD": 0.017805,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 880,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Model de domeniu: Atelier comunitar de reparații\n\n## Entități și identități\n\nModelul de domeniu conține patru entități principale:\n\n1. **Aparat** — identitate: cod (A17, A18, etc.). Fiecare aparat fizic are un cod stabil atribuit de atelier, care servește ca cheie primară. Descriere și model sunt atribute descriptive.\n\n2. **Vizită** — identitate: cod (J1, J2, J3, etc.). Fiecare vizită este înregistrare separată cu dată proprie și privește exact un aparat. Chiar și pentru același aparat, vizitele sunt distincte și păstrează independență reciprocă.\n\n3. **Problemă raportată** — identitate: compusă din (cod vizită + ordine). Fiecare problemă aparține exact unei vizite și nu poate fi transferată. Textul problemei poate coincide între vizite diferite, dar înregistrările rămân distincte (P1 și P3 sunt diferite, deși ambele spun „Pârghia nu rămâne jos\").\n\n4. **Voluntar** — identitate: cod (M1, M2, etc.). Codul este stabilizator; numele nu este unic și poate coincide pentru mai mulți voluntari.\n\n## Relații și cardinalități\n\n| Relație | Cardinalitate | Explicație |\n|---------|---------------|-----------|\n| Aparat → Vizite | 1 : 0..* | Un aparat poate avea 0 vizite (nou înregistrat) sau multiple |\n| Vizită → Aparat | N : 1 | Fiecare vizită se referă la exact un aparat |\n| Vizită → Probleme | 1 : 1..* | Fiecare vizită conține cel puțin o problemă |\n| Problemă → Vizită | N : 1 | Fiecare problemă aparține exact unei vizite |\n| Vizită → Voluntar | N : 0..1 | O vizită poate să nu aibă responsabil sau să aibă exact unul |\n| Voluntar → Vizite | 1 : 0..* | Un voluntar poate gestiona 0 sau mai multe vizite |\n\n## Persistență la o nouă vizită\n\nConform R5, la o nouă vizită:\n\n- **Se creează** o nouă înregistrare de vizită cu cod distinct (ex: J2 pentru A17)\n- **Se păstrează** problemele raportate din vizitele anterioare (P1 rămâne în J1, nu se copiază în J2)\n- **Se păstrează** responsabilii anteriori în vizitele lor (M1 rămâne responsabil pentru J1, dar J2 poate avea M2)\n- **Se creează** noi probleme raportate doar pentru J2 (P2 este specifică acestei vizite)\n- **Se permite** o nouă asociere voluntar-vizită independentă de istoricul precedent\n\n*Exemplu concret:* A17 are J1 (3 sept, M1, P1) și J2 (8 oct, M2, P2) — sunt doi perechi voluntar-problemă distincte, niciunul ereditar.\n\n**Cuvinte: 398**",
+  "ttft_ms": 9736,
+  "type": "result",
+  "duration_ms": 17797,
+  "uuid": "a38f3329-ad9e-44d0-8e16-484c7700f252",
+  "ttft_stream_ms": 1937,
+  "time_to_request_ms": 1173,
+  "first_content_frame_ms": 1939,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

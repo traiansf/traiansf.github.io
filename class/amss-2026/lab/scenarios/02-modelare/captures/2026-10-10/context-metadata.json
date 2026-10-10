@@ -1,0 +1,8 @@
+{
+  "source": "../../scenario.md",
+  "source_sha256": "86333fb6601731d44355f66496cd528d31cdaf4ab0d399da839e8bbb7bafee29",
+  "context_sha256": "719fa256df7abb7a7888f5eabd0fdfb88cba3094d03f305013c7404148319f95",
+  "note": "Sursa și contextul sunt păstrate la momentul rulării; fișele curente pot fi revizuite ulterior. Metadatele source_sha256 descriu sursa arhivată, nu o revizie ulterioară.",
+  "source_snapshot": "source-at-capture.md",
+  "source_snapshot_sha256": "86333fb6601731d44355f66496cd528d31cdaf4ab0d399da839e8bbb7bafee29"
+}

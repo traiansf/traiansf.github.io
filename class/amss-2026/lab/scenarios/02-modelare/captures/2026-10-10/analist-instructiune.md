@@ -1,0 +1,1 @@
+Propune un model de domeniu pentru acest atelier. Explică identitățile, relațiile și numărul permis de asocieri. Urmărește datele A17, A18, J1–J3 și spune ce informație se păstrează la o nouă vizită. Nu adăuga funcții. Răspunde în română, în maximum 400 de cuvinte.
