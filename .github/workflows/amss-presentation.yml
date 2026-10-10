@@ -44,13 +44,21 @@ jobs:
           SH
           chmod +x "$RUNNER_TEMP/mmdc-ci"
           echo "MERMAID_BIN=$RUNNER_TEMP/mmdc-ci" >> "$GITHUB_ENV"
-      - name: Build and test released presentations
+      - name: Build and pack the released presentations
         run: |
           npm ci
-          npm run build
-          npm test
-          printf '%s\n' "$GITHUB_SHA" > dist/revision.txt
-          tar -czf "$RUNNER_TEMP/amss-presentation.tar.gz" dist server.mjs package.json package-lock.json deploy
+          npx reveal-classroom build --config reveal-classroom.config.json
+          npx reveal-classroom bundle --dist dist --deploy deploy --revision "$GITHUB_SHA" --out "$RUNNER_TEMP/amss-presentation.tar.gz"
+      - name: Smoke-test the bundle
+        run: |
+          mkdir "$RUNNER_TEMP/smoke"
+          tar -xzf "$RUNNER_TEMP/amss-presentation.tar.gz" -C "$RUNNER_TEMP/smoke"
+          cd "$RUNNER_TEMP/smoke"
+          npm ci --omit=dev --ignore-scripts --no-audit --no-fund
+          PRESENTATION_PASSWORD=ci-only PORT=3107 BASE_PATH=/~tserbanuta/amss node server.mjs &
+          for i in 1 2 3 4 5 6 7 8 9 10; do curl -fsS http://127.0.0.1:3107/~tserbanuta/amss/health && break; sleep 1; done
+          curl -fsS http://127.0.0.1:3107/~tserbanuta/amss/decks.json
+          kill %1
       - name: Publish server update
         env:
           GH_TOKEN: ${{ github.token }}

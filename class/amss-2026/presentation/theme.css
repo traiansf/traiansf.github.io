@@ -47,30 +47,5 @@ body { background:white; }
 .reveal.has-dark-background .slide-number { color:var(--light); }
 .reveal .progress { color:var(--teal); }
 .reveal .controls { color:var(--teal); bottom:38px; }
-#connection-status { position:fixed; z-index:50; top:0; right:0; padding:8px 14px; background:#fff2ce; color:#352700; font:16px system-ui; }
-#connection-status[hidden] { display:none; }
-#mobile-presenter[hidden] { display:none; }
-body.mobile-controller { display:grid; grid-template-rows:min(40dvh, 56.25vw) minmax(0,1fr); width:100%; height:100vh; height:100dvh; margin:0; overflow:hidden; }
-.mobile-controller > .reveal { width:100%; height:100%; min-height:0; }
-/* Reveal.js jumps to the proportional slide when its progress bar is tapped; on the phone it only shows the position. */
-.mobile-controller .reveal .progress { pointer-events:none; }
-#mobile-presenter { display:grid; grid-template-rows:minmax(0,1fr) auto; min-height:0; font:18px/1.5 system-ui,sans-serif; color:#1d2a2e; background:#fff; }
-#mobile-presenter nav { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:4px 8px; padding:10px 12px max(10px, env(safe-area-inset-bottom)); border-top:1px solid #d5e0e3; background:#f3f7f8; }
-#mobile-presenter button { min-height:48px; padding:10px 18px; border:0; border-radius:6px; background:var(--teal); color:white; font:600 18px system-ui; touch-action:manipulation; }
-#mobile-presenter button:disabled { opacity:.4; }
-#mobile-presenter button:focus-visible { outline:3px solid var(--navy); outline-offset:2px; }
-#mobile-presenter #mobile-timer { justify-self:center; min-height:48px; padding:2px 10px; background:transparent; color:var(--navy); font:600 20px system-ui; font-variant-numeric:tabular-nums; }
-#mobile-pace { grid-column:1 / -1; text-align:center; font:600 15px system-ui; }
-#mobile-pace[data-pace=on-time] { color:var(--teal); }
-#mobile-pace[data-pace=slower] { color:#1f5fa8; }
-#mobile-pace[data-pace=faster] { color:#a3330e; }
-#mobile-notes { overflow:auto; overscroll-behavior:contain; padding:12px 18px; border-top:1px solid #d5e0e3; touch-action:pan-y; }
-#mobile-notes p { margin:0 0 .8em; }
-#mobile-notes ul,#mobile-notes ol { padding-left:1.4em; }
-#mobile-notes a { color:var(--teal); }
-#mobile-notes pre { white-space:pre-wrap; overflow-wrap:anywhere; }
-#mobile-notes img { max-width:100%; }
-@media (orientation:landscape) {
-  body.mobile-controller { grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-rows:minmax(0,1fr); }
-  #mobile-presenter { border-left:1px solid #d5e0e3; }
-}
+/* Phone controller in the AMSS colors (engine rules: client/reveal-classroom.css). */
+:root { --rc-accent:var(--teal); --rc-strong:var(--navy); }

@@ -7,6 +7,8 @@ Același material poate fi prezentat în două moduri:
 
 Sursele sunt aceleași Markdown din `curs/` și `lab/`, inclusiv `::: notes` și `{.transition}`. Sunt generate numai prezentările din `RELEASED`; Laboratorul 0 rămâne document. HTML-urile publicate pentru consultare și PDF-urile Beamer își păstrează fluxul de generare. Nu editați fișierele din `dist/`.
 
+Motorul de prezentare este proiectul independent [reveal-classroom](https://github.com/traiansf/reveal-classroom), fixat la o versiune în `package.json`; documentația lui completă este în `docs/` din acel depozit. Acest folder conține doar instanța cursului: `reveal-classroom.config.json` (limba română, lista `RELEASED`, filtrele Pandoc și sigla cursului), `theme.css`, `template.html` și scripturile serverului cs.unibuc.ro din `deploy/`. Modificările motorului se fac în reveal-classroom; aici se actualizează doar versiunea (vedeți [Actualizarea motorului](#actualizarea-motorului)).
+
 ## Instalare și generare
 
 Sunt necesare Node.js 22 sau ulterior și instrumentele Pandoc/Mermaid descrise în [BUILD.md](../BUILD.md). Generarea se face pe calculatorul autorului; serverul Ubuntu nu are nevoie de Pandoc, TeX sau Mermaid.
@@ -74,7 +76,7 @@ După activare, verificați adresa publică, inclusiv `/~tserbanuta/amss/health`
 
 HTML-urile de pe GitHub Pages folosesc tema statică a cursului. Cele pentru prezentarea sincronizată sunt generate separat pentru Reveal.js, din aceleași surse Markdown și aceeași listă `RELEASED`.
 
-Workflow-ul [AMSS presentation on cs.unibuc.ro](../../../.github/workflows/amss-presentation.yml) rulează la fiecare push pe `main` și poate fi pornit manual din GitHub Actions. Instalează instrumentele de generare, construiește prezentările Reveal.js, execută testele de sincronizare și publică pachetul în release-ul GitHub `amss-live`. Pe server, un timer systemd verifică release-ul la fiecare minut, descarcă pachetul prin HTTPS, verifică SHA-256 și instalează actualizarea. Acest flux nu cere acces SSH din infrastructura GitHub, de unde conexiunea către server este refuzată. Nu trebuie să generați sau să copiați manual `dist/` după push. Un build sau test eșuat oprește publicarea pachetului. Instalarea are loc de regulă în 1–2 minute după terminarea jobului CI; o eroare de descărcare sau de verificare a integrității păstrează versiunea existentă și este reîncercată la următoarea verificare.
+Workflow-ul [AMSS presentation on cs.unibuc.ro](../../../.github/workflows/amss-presentation.yml) rulează la fiecare push pe `main` și poate fi pornit manual din GitHub Actions. Instalează instrumentele de generare și reveal-classroom (versiunea din `package-lock.json`), construiește prezentările Reveal.js, creează pachetul (`reveal-classroom bundle`, cu `deploy/` al cursului), îl verifică pornind serverul din pachet (`/health`, `decks.json`) și îl publică în release-ul GitHub `amss-live`. Pe server, un timer systemd verifică release-ul la fiecare minut, descarcă pachetul prin HTTPS, verifică SHA-256 și instalează actualizarea. Acest flux nu cere acces SSH din infrastructura GitHub, de unde conexiunea către server este refuzată. Nu trebuie să generați sau să copiați manual `dist/` după push. Un build sau test eșuat oprește publicarea pachetului. Instalarea are loc de regulă în 1–2 minute după terminarea jobului CI; o eroare de descărcare sau de verificare a integrității păstrează versiunea existentă și este reîncercată la următoarea verificare.
 
 Serverul servește copia din `~/.local/share/amss-presentation/app/dist/`; `decks.json` conține lista prezentărilor, iar `revision.txt` identifică commit-ul din pachet. `~/.local/share/amss-presentation/installed-revision` înregistrează ultima instalare încheiată cu succes. Fișierele nu sunt citite de pe GitHub Pages la fiecare acces. Publicarea Pages și actualizarea serviciului sunt două procese independente, urmărite separat în GitHub Actions.
 
@@ -92,41 +94,16 @@ cat ~/.local/share/amss-presentation/installed-revision
 
 Pentru o verificare imediată: `systemctl --user start amss-update.service`. Pentru a suspenda actualizările pe durata unei prezentări: `systemctl --user stop amss-update.timer`; la final: `systemctl --user start amss-update.timer`. O instalare deja pornită continuă. Nu opriți serviciul de prezentare pentru a suspenda actualizările.
 
-Pentru actualizare manuală de rezervă, generați din nou `dist/`, împachetați `dist`, `server.mjs`, `package.json`, `package-lock.json` și `deploy` în `amss-presentation-deploy.tar.gz`, apoi copiați arhiva în directorul personal de pe server. Rulați [install-cs-user.sh](deploy/install-cs-user.sh) din pachet.
+Pentru actualizare manuală de rezervă, generați din nou `dist/`, creați pachetul cu `npm.cmd run bundle -- --out amss-presentation-deploy.tar.gz`, copiați arhiva în directorul personal de pe server și rulați [install-cs-user.sh](deploy/install-cs-user.sh) din pachet.
 
-### Instalare generică pe alt server Ubuntu
+### Alte instalări
 
-Pachetul de instalare conține `dist/`, `server.mjs`, `package.json` și `package-lock.json`. După `npm run build`, acestea pot fi copiate în `/opt/amss-presentation`. Păstrați această cale separată de site-urile existente.
+Pentru alt server, Docker sau găzduire statică cu relay public, vedeți [ghidul de deploy al reveal-classroom](https://github.com/traiansf/reveal-classroom/blob/main/docs/deployment.md). Scripturile din `deploy/` sunt cele instalate pe cs.unibuc.ro: pachetele le includ peste kitul generic al motorului, iar `receive-ci.sh`, deja instalat pe server, verifică structura arhivei (`dist/`, `deploy/`, `server.mjs`, `package.json`, `package-lock.json`) înainte de instalare. Nu le înlocuiți cu kitul generic fără o migrare planificată.
 
-Pe server:
+## Actualizarea motorului
 
-1. Asigurați Node.js 22+ și rulați `npm ci --omit=dev` în directorul aplicației.
-2. Folosiți un utilizator de sistem dedicat `amss-presentation`, cu drepturi de citire și execuție asupra aplicației.
-3. Creați `/etc/amss-presentation.env`, citibil numai de administrator, cu:
+1. În `package.json`, schimbați eticheta din `git+https://github.com/traiansf/reveal-classroom.git#vX.Y.Z` și rulați `npm.cmd install`.
+2. Rulați `npm.cmd run build` și verificați în browser o prezentare: notele (**S**), controlul de pe telefon (fereastră sub 600 px), fragmentele și o sesiune între două browsere (`npm.cmd start`).
+3. Faceți push în afara orelor: instalarea pe server repornește serviciul și închide sesiunile active.
 
-   ```ini
-   HOST=127.0.0.1
-   PORT=3000
-   BASE_PATH=
-   PRESENTATION_PASSWORD=<o-parola-lunga-generata-pentru-profesor>
-   ```
-
-4. Instalați [unitatea systemd](deploy/amss-presentation.service), adaptați calea Node dacă este necesar și porniți serviciul.
-5. Integrați un virtual host bazat pe [exemplul Nginx](deploy/nginx.conf.example), cu un nume DNS real și certificatul TLS administrat pe server. Proxy-ul trebuie să transmită și conexiunile WebSocket, inclusiv `/socket.io/`. Verificați configurația înainte de reîncărcare.
-6. Verificați `/health`, creați o sesiune și testați proiecția de pe altă conexiune la internet.
-
-Nu expuneți direct portul 3000 când serviciul este în spatele proxy-ului. Fișierele de configurare sunt exemple de instalare, nu modifică automat serverul existent. Parola nu se adaugă în Git sau în paginile publice.
-
-Există și un [Dockerfile](Dockerfile), care împachetează rezultatul deja generat. Acesta folosește `HOST=0.0.0.0` în container și cere `PRESENTATION_PASSWORD` la pornire. Publicați portul containerului numai pe interfața locală a gazdei când folosiți un proxy HTTPS.
-
-## Implementare și verificări
-
-reveal.js oferă afișarea slide-urilor și fereastra profesorului. Sincronizarea folosește un serviciu Socket.IO propriu, cu aceeași arhitectură de control/proiecție ca Multiplex, plus stare reținută pentru conectări târzii și verificarea dreptului de control pe server. Nu depinde de serverul demonstrativ Multiplex.
-
-```powershell
-npm.cmd test
-```
-
-Testele verifică autentificarea, separarea sesiunilor, asocierea cu prezentarea, interzicerea comenzilor trimise de proiecție, fragmentele, pauza, conectarea târzie, reconectarea și eliminarea notelor din HTML-ul proiecției. După schimbări de aspect, verificați fiecare slide și fereastra profesorului în browser, inclusiv o prezentare cu Mermaid și coloane.
-
-Dependențele sunt fixate în `package-lock.json`; reveal.js și Socket.IO folosesc licența MIT. Licența reveal.js este copiată în pachetul generat. Documentație: [Speaker View](https://revealjs.com/speaker-view/), [API reveal.js](https://revealjs.com/api/), [Multiplex](https://github.com/reveal/multiplex).
+Testele motorului (autentificare, izolarea sesiunilor, fragmente, reconectare, eliminarea notelor, relay, configurare) rulează în depozitul reveal-classroom; workflow-ul cursului verifică doar pachetul generat. reveal.js și Socket.IO folosesc licența MIT; licența reveal.js este copiată în pachetul generat. Documentație: [reveal-classroom](https://github.com/traiansf/reveal-classroom), [Speaker View](https://revealjs.com/speaker-view/), [API reveal.js](https://revealjs.com/api/).

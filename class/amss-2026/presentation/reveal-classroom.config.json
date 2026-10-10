@@ -1,0 +1,22 @@
+{
+  "title": "AMSS — prezentare",
+  "language": "ro",
+  "output": "dist",
+  "theme": "theme.css",
+  "decks": {
+    "root": "..",
+    "list": "../RELEASED",
+    "include": ["curs/*", "lab/*"],
+    "exclude": ["lab/00-pregatire"]
+  },
+  "pandoc": {
+    "template": "template.html",
+    "filters": ["../diagram/diagram.lua", "../theme/amss.lua"],
+    "metadataFiles": ["../theme/course.yaml"],
+    "highlightStyle": "../theme/code.theme",
+    "variables": { "logo-path": { "path": "../static/assets/amss-2026-logo-480.webp" } },
+    "env": { "win32": { "MERMAID_BIN": "mmdc.cmd", "PLANTUML_BIN": "plantuml.cmd" } }
+  },
+  "launcher": { "preselect": "^curs-(\\d+)" },
+  "slideBackgrounds": { "transition": "#0a2145" }
+}
