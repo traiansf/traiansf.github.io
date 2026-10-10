@@ -139,6 +139,14 @@ button, input, select, textarea { font-family: inherit; }
 }
 .home p { margin: 0.5rem 0; }
 .home .lead { max-width: 38rem; color: var(--muted); }
+.home .online-lab {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 0.4rem 0.4rem 0;
+  background: var(--surface);
+}
 
 /* The semester: each row pairs two lectures with the lab that follows them. */
 .schedule { width: 100%; margin-top: 1rem; border-collapse: collapse; }
