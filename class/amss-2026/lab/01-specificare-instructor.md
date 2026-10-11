@@ -8,7 +8,7 @@ Materiale: [prezentarea](01-specificare.md), [scenariul](scenarios/01-specificar
 
 | Minute | Activitate | Ce urmărește profesorul |
 |---|---|---|
-| 0–10 | Citat și prima interpretare individuală, apoi în pereche. | Argument din regula alăturării intervalelor. |
+| 0–10 | Citat, prima interpretare și întrebări pentru beneficiar, în pereche. | Argument din regula alăturării intervalelor; legătura dintre o întrebare și o decizie. |
 | 10–30 | Citirea faptelor și explicații cu roluri schimbate. | Distincția între convenit, dedus, ipoteză, întrebare și propunere. |
 | 30–50 | Două perechi își pun explicațiile la încercare. | Alt coleg poate justifica rezultatul din reguli. |
 | 50–75 | Comparație cu AI sau captura; revizuire și decizie. | Numărul acceptărilor și prioritatea nu sunt aceeași garanție. |

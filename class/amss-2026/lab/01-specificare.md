@@ -44,12 +44,15 @@ Locatarii se programează la **Albastra** sau **Verdea**, într-o singură zi vi
 
 Ioana are Albastra **10:00–11:00**. Radu cere aceeași mașină **11:00–12:00**.
 
-**Acceptăm cererea? Ce informație justifică răspunsul?**
+1. **Acceptăm cererea? Ce informație justifică răspunsul?**
+2. **Ce întrebare i-ați pune beneficiarului al cărei răspuns ar schimba proiectarea?**
 
 ::: notes
 Acceptăm: intervalele sunt alăturate, nu suprapuse. Exersăm argumentul din regulă înainte de AI sau de o formulă de comparare a intervalelor. Nu se cer instalări, repository sau alegerea unei tehnologii.
 
-**Organizare:** 6 min, inclusiv discuția. []{.pace dur=6}
+Întrebări probabile: același locatar pe ambele mașini simultan, cine câștigă la două cereri simultane, anularea, o durată maximă sau o limită de programări. Cereți legătura cu o decizie: ce s-ar schimba după răspuns. „Reguli pe care le putem explica” și fișa arată care sunt deja convenite și care rămân deschise (Q1–Q3).
+
+**Organizare:** 6 min: 2 pentru cerere, 2 pentru întrebări în pereche, 2 pentru câteva întrebări împărtășite în plen. []{.pace dur=6}
 :::
 
 ---
