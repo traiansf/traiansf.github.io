@@ -44,7 +44,7 @@ Locatarii se programează la **Albastra** sau **Verdea**, într-o singură zi vi
 
 Ioana are Albastra **10:00–11:00**. Radu cere aceeași mașină **11:00–12:00**.
 
-Un minut individual, apoi cu un coleg: **acceptăm cererea? Ce informație justifică răspunsul?**
+**Acceptăm cererea? Ce informație justifică răspunsul?**
 
 ::: notes
 Acceptăm: intervalele sunt alăturate, nu suprapuse. Exersăm argumentul din regulă înainte de AI sau de o formulă de comparare a intervalelor. Nu se cer instalări, repository sau alegerea unei tehnologii.
@@ -101,7 +101,7 @@ Scopul schimbului este să observăm ce ar înțelege altcineva din explicația 
 
 ---
 
-# Alegeți un caz pentru colegi
+# Alegeți un caz pentru altă pereche
 
 **Fiecare caz pornește separat:** Ioana are Albastra 10:00–11:00; celelalte intervale sunt libere. Toate cererile sunt pentru D.
 
@@ -114,7 +114,7 @@ Scopul schimbului este să observăm ce ar înțelege altcineva din explicația 
 
 Fără suprapuneri pe aceeași mașină; alăturarea este permisă. Titularul poate anula înainte de început. Suprapunerea aceluiași locatar pe mașini diferite rămâne neconvenită.
 
-**Ce rezultat puteți promite și de ce?** Cealaltă pereche îl explică prima.
+**Ce rezultat puteți promite și de ce?** Răspunde întâi perechea care primește cazul.
 
 ::: notes
 Rezultate: respingere, confirmare, anulare urmată de confirmare, respectiv rezultat încă neconvenit. Comparați două cazuri care au făcut perechile să ezite; nu trebuie parcurse toate public. Extensie: Radu nu poate anula programarea Ioanei; încercarea o păstrează.
@@ -160,13 +160,17 @@ Nu. F5 garantează deja numărul acceptărilor; nu spune cine câștigă. Q1 pri
 
 # Verificăm și revizuirea
 
-Într-un context nou, dați unui **evaluator (agent AI de revizuire)** fișa, sarcina și răspunsul. Cereți observații legate de reguli și cazuri. Sau invitați altă pereche să facă această verificare.
+Într-un context nou, dați unui **evaluator (agent AI de revizuire)** fișa, sarcina și răspunsul analistului: al vostru sau captura integrală. Cereți observații legate de reguli și cazuri. Sau invitați altă pereche să facă această verificare.
 
 **Captură reală · Haiku 4.5 · 10.10.2026 · evaluator 02**, fragment:
 
 > Propunerea corect deduce rezultatul (una/una), dar greșit o conectează la întrebarea existentă.
 
+„Una/una”: o cerere confirmată, una respinsă. „Întrebarea existentă”: Q1.
+
 **Acceptați observația?** Explicați colegului ce corectați și ce păstrați: F5 garantează exact o acceptare la două cereri simultane conflictuale pe mașina liberă.
+
+[Capturile pregătite: răspunsul integral al analistului și instrucțiunea evaluatorului](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/01-specificare/prepared-fixture.md)
 
 ::: notes
 Observația este susținută: Q1 privește mașini diferite, iar S5 aceeași mașină. Fragmentul este din revizuirea 02, care a primit și sarcina analistului AI. În activitatea studenților furnizăm explicit și sarcina analistului AI, ca revizuirea să poată aprecia limitele cerute. Nu acceptăm automat toate observațiile dintr-o revizuire.
