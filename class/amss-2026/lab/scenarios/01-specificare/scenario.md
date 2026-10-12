@@ -54,7 +54,7 @@ Folosiți aceleași cinci tipuri ca în cursul 2:
 
 ## Cum lucrăm împreună
 
-Începeți cu o scurtă reflecție individuală, apoi comparați interpretările în pereche. Un coleg explică o regulă, celălalt cere un exemplu sau o sursă; schimbați rolurile. Invitați altă pereche să încerce un caz pe explicația voastră.
+Începeți cu o scurtă reflecție individuală, apoi comparați interpretările în pereche. Un coleg explică o regulă, celălalt cere un exemplu sau o sursă; schimbați rolurile. Invitați altă pereche să încerce un caz pe explicația voastră. În laboratorul online, aceleași schimburi au loc în întâlnirea comună: răspunsuri în chat trimise la semnal, explicații la microfon și colegi numiți în locul perechilor.
 
 Comparați o propunere proprie cu un răspuns AI, cu [capturile pregătite](prepared-fixture.md) sau cu interpretarea colegilor. Dacă folosiți un evaluator (agent AI de revizuire), oferiți într-un context nou regulile, sarcina și răspunsul verificat. Decideți împreună ce observație este susținută și ce rămâne de clarificat.
 

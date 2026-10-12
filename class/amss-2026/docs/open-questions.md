@@ -8,7 +8,7 @@ When a point below is settled, change the materials it names and delete it from 
 
 ## Decisions for the instructor
 
-None at the moment.
+- **Online variants of Labs 2–5.** The online group meets on Teams every two weeks, without breakout groups. Lab 1 got an `-online` variant on 12 October 2026 (same slides and timings; chat answers sent at a signal, a speaking relay, named colleagues). Decide whether each of Labs 2–5 gets one built the same way, or whether the online group should work differently. Touches `lab/`, `RELEASED`, `static/index.html` and the lab instructor guides.
 
 ## Checks nobody has done yet
 
