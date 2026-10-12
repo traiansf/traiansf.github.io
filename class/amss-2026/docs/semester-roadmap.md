@@ -198,6 +198,8 @@ Each project has a public GitHub or GitLab repository, created and linked when a
 
 **Collaboration decision, 10 October 2026:** thematic labs emphasize explaining, comparing and discussing together, with fewer slides. Labs 1 and 2 now each have 14 slides including the cover and a 100-minute activity plan. Sketches and notes are optional conversation aids; no exercise dossier, transcript, individual written defense or upload is required. Keep brief individual thinking followed by pair discussion and rotate roles. AI tools are optional: use prepared genuine captures or peer review when unavailable. Carry this direction into later thematic labs; the confirmed project requirements for Labs 6–7 remain separate.
 
+**Online decision, 12 October 2026:** the group that meets on Teams uses an online variant of every lab, `lab/NN-cuvant-online.md`, built once the classroom version is stable and released with it (same landing-page line, a „Varianta online” section in the instructor guide). Same slides, cases, captures and timings; pair work becomes chat answers sent at a signal, speaking relays and named colleagues, since the meeting has no breakout groups. Labs 6–7 adapt only the Teams logistics. See [Lab 1 online](../lab/01-specificare-online.md).
+
 ### Lab 0 — Optional preparation and orientation
 
 Use the [self-study guide](../lab/00-pregatire.md) and [instructor guide](../lab/00-pregatire-instructor.md). This optional 90-minute meeting can take place immediately after Course 1; all groups can follow the same material independently. Lab 1 follows Courses 1–2 and may take place in Week 3. Announce group dates on Teams.
