@@ -22,7 +22,7 @@ Discutați înainte de a citi revizuirea: ce parte este susținută de reguli ș
 
 Fragment din [evaluatorul AI 02](captures/2026-10-10/haiku45-evaluator-02-response.md); restul răspunsului este omis:
 
-> Propunerea presupune că identitatea e **(cod vizită + ordine)**. Contextul nu specifică acest format.
+> Propunerea presupune că identitatea e **(cod vizită + ordine)**. Contextul nu specifică acest format. […] De ce nu cod global pentru problemă?
 
 Explicați colegului de ce acceptați sau respingeți observația. Nu există o fișă de completat sau de predat.
 

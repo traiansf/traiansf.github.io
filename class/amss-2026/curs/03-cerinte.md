@@ -29,7 +29,7 @@ Ce trebuie să convenim înainte de a proiecta o soluție?
 ::: notes
 Dacă nu convenim ce înseamnă „rezolvat”, o implementare impecabilă poate livra alt rezultat decât cel cerut. Clarificarea cerințelor privește comportamentul convenit cu beneficiarul.
 
-**Sursă:** textul original, secțiunea Requirements refinement and rapid prototyping, pagina numerotată 13 (pagina PDF 13). Citatul și traducerea sunt păstrate din materialul anterior, verificat în registrul `docs/quotations.md`.
+**Sursă:** textul original, secțiunea Requirements refinement and rapid prototyping, pagina numerotată 13 (pagina PDF 13). Citatul și traducerea sunt păstrate din materialul anterior, verificate în registrul `docs/quotations.md`.
 :::
 
 ---
@@ -66,7 +66,7 @@ Problema: studentul nu poate afla starea sesizării fără să întrebe din nou.
 
 **Cine trebuie ascultat?** Studentul care raportează și administrația (beneficiarul), care preia și actualizează sesizările.
 
-O pagină care funcționează nu înseamnă, singură, că defecțiunile sunt reparate mai repede.
+Obiectivul nu promite reparații mai rapide: o pagină care funcționează nu le garantează.
 
 ::: notes
 Părțile interesate sunt persoanele sau organizațiile ale căror nevoi și constrângeri contează. Studentul și administrația au perspective diferite asupra aceluiași rezultat. Echipa de intervenție ar trebui consultată dacă includem organizarea reparațiilor, dar aceasta nu intră în exercițiul nostru.
@@ -90,9 +90,9 @@ Clarificarea transformă o întrebare deschisă sau o ipoteză într-o informaț
 
 # Primele răspunsuri ale administrației
 
-**R1 — Înregistrare:** studentul identificat indică locul și descrierea defecțiunii; ambele sunt obligatorii. O sesizare acceptată are un număr unic, un autor și starea „înregistrată”; studentul îi vede numărul și starea.
+**R1 — Înregistrare:** studentul identificat indică locul și descrierea defecțiunii; ambele sunt obligatorii. Sesizarea înregistrată primește un număr unic, are studentul ca autor și starea „înregistrată”; studentul îi vede numărul și starea.
 
-**R2 — Acces:** studentul își poate consulta numai propriile sesizări și nu le schimbă starea. Personalul administrației le poate consulta pe toate și le actualizează starea.
+**R2 — Acces:** studentul își poate consulta numai propriile sesizări și nu le schimbă starea. Personalul administrației le poate consulta pe toate și le poate actualiza starea.
 
 **Limită convenită:** identitatea și rolul utilizatorului sunt deja cunoscute; autentificarea este în afara exercițiului.
 
@@ -104,7 +104,7 @@ La respingerea unei înregistrări incomplete nu se creează sesizarea; formular
 
 ---
 
-# Limitele primei versiuni
+# Limitele convenite pentru prima versiune
 
 | În prima versiune | În afara primei versiuni |
 |---|---|
@@ -112,7 +112,7 @@ La respingerea unei înregistrări incomplete nu se creează sesizarea; formular
 | Consultarea stării | Repartizarea echipelor de intervenție |
 | Actualizarea stării de către administrație | Prioritizarea și termenele de reparație |
 
-**Rezultat urmărit:** studentul poate afla ce stare a înregistrat administrația.
+**Obiectivul versiunii:** studentul poate afla ce stare a înregistrat administrația.
 
 **Limită:** sistemul nu garantează când se repară defecțiunea.
 
@@ -126,11 +126,11 @@ Delimitarea trebuie convenită, nu dedusă din lipsa unei funcții în enunț. A
 
 # Ce știm și ce rămâne de convenit?
 
-**Acum știm:** R1 cere un număr unic; notificările sunt excluse; nicio cerință de calitate nu este încă convenită.
+**Convenit până acum:** R1 (număr unic, văzut de student) și R2 (acces). **În afara versiunii:** fotografii, notificări, repartizare, prioritizare, termene. **Calitate:** nimic convenit încă.
 
-**Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 2 fără clarificări, 10 octombrie 2026.** Modelul AI primise doar cererea inițială și sarcina de a propune o specificație.
+**Fragmente dintr-un răspuns AI real — Claude Haiku 4.5, 10 octombrie 2026, a doua din două rulări.** Modelul AI primise doar cererea inițială și sarcina de a propune o specificație.
 
-| Afirmație capturată | Cum o tratăm acum? |
+| Afirmația din răspunsul AI | Cum o tratăm acum? |
 |---|---|
 | Sistem generează ticket unic (ID automat) | ? |
 | Confirmare imediată via email/mesaj cu ID-ul ticket-ului | ? |
@@ -141,7 +141,7 @@ Ce este confirmat, ce depășește limitele și ce rămâne de convenit?
 ::: notes
 Unicitatea este confirmată prin R1. Notificarea prin email/mesaj nu intră în versiunea convenită; R1 cere însă ca studentul să vadă numărul în interfață. Disponibilitatea de 99% este o cerință de calitate propusă, nediscutată cu administrația: ar trebui convenite și perioada, și modul de măsurare.
 
-Modelul AI nu primise clarificările: discutăm ce păstrăm după răspunsurile administrației, nu încălcarea unor reguli pe care nu le primise. Promptul integral va fi afișat în etapa demo. Formulările și terminologia modelului AI sunt păstrate.
+Modelul AI nu primise clarificările: discutăm ce păstrăm după răspunsurile administrației, nu încălcarea unor reguli pe care nu le primise. Promptul integral apare pe slide-ul 22. Formulările și terminologia modelului AI sunt păstrate.
 
 **Sursă:** `scenarios/03-sesizari/captures/2026-10-10/haiku45-initial-02-response.md`; două puncte din „Raportare problemă” și celula din rândul „Disponibilitate”, fără modificări de conținut.
 
@@ -159,7 +159,7 @@ Modelul AI nu primise clarificările: discutăm ce păstrăm după răspunsurile
 - **Varianta A:** ambele sesizări primesc numere proprii.
 - **Varianta B:** Bogdan este asociat sesizării deja existente.
 
-Ce întrebare îi puneți administrației, ca ea să aleagă între variante? Ce ar trebui să vadă Bogdan după trimitere?
+Ce întrebare îi puneți administrației pentru a putea alege între variante? Ce vede Bogdan după trimitere în fiecare variantă?
 
 ::: notes
 Întrebarea concretă ar putea fi: „Doriți o evidență separată pentru fiecare raportare sau o singură sesizare urmărită de mai mulți studenți?” Mai trebuie lămurit cine stabilește că este aceeași defecțiune. B ridică și o întrebare de acces: Bogdan nu poate consulta sesizarea Anei prin R2, deci politica ar cere o modificare explicită.
@@ -200,7 +200,7 @@ Reunirea ar putea fi o alegere legitimă într-o altă versiune. Acordul asupra 
 O cerință utilă descrie **un rezultat observabil** și condițiile în care îl cerem.
 
 ::: notes
-Tipurile se pot suprapune: controlul accesului este exprimat prin comportament, dar privește și securitatea. Nu cerem o clasificare unică. Etichetele R1–R4 numerotează răspunsurile administrației; un astfel de răspuns poate conține cerințe de tipuri diferite. Cerințele de calitate sunt adesea numite nefuncționale; și ele trebuie să poată fi evaluate.
+Tipurile se pot suprapune: controlul accesului este exprimat prin comportament, dar privește și securitatea. Nu cerem o clasificare unică. Etichetele R1, R2, … numerotează răspunsurile administrației; un astfel de răspuns poate conține cerințe de tipuri diferite. Cerințele de calitate sunt adesea numite nefuncționale; și ele trebuie să poată fi evaluate.
 
 Deosebirea importantă este între un comportament convenit și o formulare care lasă rezultatul la interpretarea proiectantului. Revenim la „rapid” cu un criteriu concret.
 :::
@@ -229,7 +229,7 @@ Un exemplu de acceptare concretizează o regulă. El poate scoate la iveală o �
 
 Urmărim: **cine**, **în ce condiții**, **ce rezultat** și **ce se întâmplă la respingere**.
 
-Un **exemplu de acceptare** verifică cerința pe date concrete: starea inițială, cine cere ce și rezultatul observabil, inclusiv la respingere.
+Un **exemplu de acceptare** verifică cerința pe date concrete: *Ana nu are sesizări → trimite locul „A12” și descrierea „robinetul curge” → există o sesizare nouă a Anei, „înregistrată”; Ana îi vede numărul și starea.*
 
 ::: notes
 Aceasta este forma completă a lui R1, convenită în scenariul didactic. Face observabil și succesul, și respingerea. Nu prescrie formularul, baza de date sau algoritmul de generare a numărului.
@@ -241,12 +241,12 @@ Aceasta este forma completă a lui R1, convenită în scenariul didactic. Face o
 
 # Ce înseamnă actualizarea stării?
 
-**R4 — Regula convenită:** numai administrația poate face aceste schimbări:
+**R4 — Schimbarea stării:** numai administrația poate face aceste două schimbări:
 
 - „înregistrată” → „în lucru”;
 - „în lucru” → „rezolvată”.
 
-Orice altă cerere de schimbare, inclusiv repetarea stării curente, este respinsă; starea rămâne aceeași, iar utilizatorul vede motivul.
+Orice altă cerere de schimbare este respinsă, inclusiv cererea de a trece în starea curentă; starea rămâne aceeași, iar utilizatorul vede motivul.
 
 „Rezolvată” înseamnă că **administrația a declarat reparația încheiată**. Redeschiderea nu este inclusă.
 
@@ -255,20 +255,20 @@ Poate sistemul să constate singur că robinetul a fost reparat?
 ::: notes
 Sistemul consemnează declarația unei persoane autorizate; nu verifică fizic reparația. Această distincție previne o promisiune pe care sistemul nu o poate susține.
 
-R4 explicitează și respingerea unei cereri care repetă starea curentă. Folosim regula pentru a scrie exemple, fără să dezvoltăm încă modelarea stărilor sau contractele operațiilor; acestea au cursuri proprii.
+R4 explicitează și respingerea unei cereri de trecere în starea curentă, de exemplu „înregistrată” → „înregistrată”. Folosim regula pentru a scrie exemple, fără să dezvoltăm încă modelarea stărilor sau contractele operațiilor; acestea au cursuri proprii.
 :::
 
 ---
 
 # În perechi: exemple de acceptare
 
-**R4:** numai administrația schimbă starea: „înregistrată” → „în lucru” → „rezolvată”. Orice altă cerere de schimbare, inclusiv repetarea stării curente, este respinsă, cu motiv și fără modificarea stării.
+**R4:** numai administrația schimbă starea, și numai „înregistrată” → „în lucru” sau „în lucru” → „rezolvată”. Orice altă cerere de schimbare, inclusiv trecerea în starea curentă, este respinsă, cu motiv și fără modificarea stării.
 
 **Date:** S41 este „înregistrată”. Ana este autoarea sesizării; Daria lucrează în administrație. Fiecare exemplu pornește separat de la această stare.
 
 1. Scrieți două exemple de acceptare: o cerere de schimbare permisă și una respinsă.
 2. Pentru fiecare: **starea inițială → cine cere ce schimbare → rezultatul observabil**.
-3. Schimbați foaia cu o altă pereche: rezultatul urmează din regulă?
+3. Schimbați foaia cu o altă pereche: rezultatul decurge din regulă?
 
 ::: notes
 Permisă: Daria cere trecerea la „în lucru”; noua stare este afișată. Respinsă din cauza rolului: Ana cere aceeași schimbare; motivul este lipsa dreptului. Respinsă din cauza schimbării nepermise: Daria cere direct „rezolvată” sau repetă „înregistrată”. În toate respingerile, S41 rămâne „înregistrată”.
@@ -284,14 +284,14 @@ Cazurile sunt independente. Un exemplu care schimbă simultan rolul și tranziț
 
 **R1:** o sesizare nouă primește un număr unic, un autor și starea „înregistrată”.
 
-**R3:** sesizările repetate rămân separate și nu sunt respinse automat. O sesizare nouă nu modifică autorul, numărul sau starea uneia existente.
+**R3:** fiecare sesizare se păstrează separat, chiar dacă descrie aceeași defecțiune; sesizările repetate nu se reunesc și nu se resping automat.
 
 **Situația inițială:** S41, a Anei, descrie robinetul din A12 și este „în lucru”. Bogdan trimite o sesizare validă despre același robinet.
 
-Pe hârtie: ce trebuie să existe după înregistrare? Precizați rezultatul pentru **Bogdan** și starea lui **S41**.
+Pe hârtie, scrieți exemplul de acceptare: **starea inițială → cine cere ce → rezultatul observabil**. Precizați ce primește **Bogdan** și ce rămâne neschimbat la **S41**.
 
 ::: notes
-Bogdan primește o sesizare distinctă, de exemplu S42, în starea „înregistrată”. S41 rămâne a Anei, „în lucru”. Identitatea, autorul și starea vechii sesizări nu sunt rescrise de noua raportare.
+Consecință dedusă din R3: o sesizare nouă nu modifică autorul, numărul sau starea uneia existente. Bogdan primește o sesizare distinctă, de exemplu S42, în starea „înregistrată”. S41 rămâne a Anei, „în lucru”. Identitatea, autorul și starea vechii sesizări nu sunt rescrise de noua raportare.
 
 Exemplul verifică mai mult decât apariția unui mesaj de succes. Nu cerem un anumit format al identificatorului.
 
@@ -304,7 +304,7 @@ Exemplul verifică mai mult decât apariția unui mesaj de succes. Nu cerem un a
 
 Administrația vrea ca studentul să vadă **rapid** starea sesizării.
 
-Pot fi interpretări diferite:
+Sunt posibile interpretări diferite:
 
 - pagina afișează repede o stare deja înregistrată;
 - personalul actualizează repede starea după intervenție;
@@ -317,26 +317,26 @@ De unde până unde măsurăm? Cu câte sesizări și câte consultări simultan
 ::: notes
 Cele trei intervale implică responsabilități diferite. Nu putem transforma o cerință despre afișare într-o promisiune despre durata reparației. Un prag numeric fără operație, puncte de măsurare și condiții poate rămâne la fel de ambiguu ca adjectivul inițial.
 
-**Organizare:** cereți o interpretare înainte de a arăta slide-ul următor.
+**Organizare:** cereți răspunsuri la cele trei întrebări de jos înainte de a arăta Q1.
 :::
 
 ---
 
 # O cerință de calitate convenită
 
-**Q1 — Timpul de consultare** *(valori stabilite pentru exercițiu)*
+**Q1 — Timpul de consultare** *(cerință de calitate; valori stabilite pentru exercițiu)*
 
 | Element | Acordul cu administrația |
 |----|------------|
 | Interval măsurat | Acțiunea de consultare în browser → afișarea stării. |
-| Condiții | Rețeaua campusului; 10.000 de sesizări; 20 de consultări simultane. |
+| Condiții | Rețeaua campusului; 10.000 de sesizări existente; 20 de consultări simultane. |
 | Lot de verificare | 1.000 de consultări valide ale propriilor sesizări. |
 | Prag | Cel puțin 950 afișează starea corectă în cel mult 2 secunde. |
 
-**Pragurile și condițiile se convin cu beneficiarul.**
+**Valide:** consultări permise de R2: fiecare student își consultă propria sesizare.
 
 ::: notes
-950 din 1.000 înseamnă 95%. Nici celelalte 50 nu pot afișa date greșite: R2 și cerința funcțională continuă să se aplice; Q1 privește pragul de timp. „Valide” înseamnă consultări permise de R2 (studentul, propria sesizare), nu consultări reușite: o consultare care eșuează rămâne în lot, dar nu intră între cele 950 reușite la timp.
+950 din 1.000 înseamnă 95%. Nici celelalte 50 nu pot afișa date greșite: R2 și cerința funcțională continuă să se aplice; Q1 privește pragul de timp. „Valide” nu înseamnă consultări reușite: o consultare care eșuează rămâne în lot, dar nu intră între cele 950 reușite la timp.
 
 Nu există măsurători reale aici. Un plan de măsurare complet ar fixa și dispozitivele, browserul, profilul cererilor, setul de date și condițiile rețelei. Acestea trebuie convenite înaintea verificării; exemplul nu constituie un acord operațional complet.
 :::
@@ -368,7 +368,7 @@ Un lot reușit susține o afirmație limitată la condițiile verificării. Nu s
 
 ---
 
-# Revizuim înainte de a preda mai departe {.transition}
+# Verificăm răspunsurile AI față de sursă {.transition}
 
 Ce acceptăm, ce corectăm și ce rămâne de decis?
 
@@ -382,7 +382,7 @@ Revizuirea confruntă fiecare afirmație cu sursa și cu exemplele. Urmărim tre
 
 # Promptul inițial: fără clarificări
 
-**Prompt integral — trimis identic în două contexte noi, Claude Haiku 4.5:**
+**Prompt integral, trimis identic în două contexte noi:**
 
 > Administrația campusului cere:
 >
@@ -390,7 +390,7 @@ Revizuirea confruntă fiecare afirmație cu sursa și cu exemplele. Urmărim tre
 >
 > Propune o specificație concisă: cerințe funcționale, cerințe de calitate și trei exemple de acceptare. Răspunde în română, în maximum 500 de cuvinte.
 
-*Claude Code, 10 octombrie 2026. Fără regulile convenite sau soluția profesorului.*
+*Claude Haiku 4.5 prin Claude Code, 10 octombrie 2026. Fără regulile convenite sau soluția profesorului. Din a doua rulare provin și fragmentele de mai devreme (ticket unic, email/mesaj, 99%).*
 
 ::: notes
 Cererea lasă deschise politicile și criteriile de calitate. Un răspuns util poate propune variante, dar trebuie să distingem propunerile de acordul beneficiarului. Nu cerem modelului AI să greșească și nu îi furnizăm un răspuns de imitat.
@@ -404,7 +404,7 @@ Cererea lasă deschise politicile și criteriile de calitate. Un răspuns util p
 
 # Răspunsul AI completează ce beneficiarul nu a spus
 
-**Cererea primită:** studentul să raporteze o problemă și să-i vadă rapid starea. Niciun prag, nicio reluare și niciun termen de închidere precizat.
+**Cererea primită** spune doar că studentul trebuie să poată raporta o problemă și să-i vadă rapid starea. Nu precizează niciun prag, nicio reluare și niciun termen de închidere.
 
 **Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 2 fără clarificări, 10 octombrie 2026:**
 
@@ -420,7 +420,7 @@ Cererea lasă deschise politicile și criteriile de calitate. Un răspuns util p
 ::: notes
 Primul fragment introduce un prag și alege încărcarea paginii ca operație măsurată. Studenții pot observa că și Q1 are 2 secunde: valoarea coincide, dar propunerea măsoară altă operație, folosește „<” în loc de „cel mult” și nu are condiții sau lot. Al doilea fragment adaugă, după „Rezolvat”, o cerere de reluare (redeschiderea este exclusă), o stare nouă și închiderea automată dacă studentul nu reacționează în 3 zile. Cererea nu justifică aceste alegeri; ele pot fi discutate ca propuneri, nu tratate ca acord deja obținut.
 
-Promptul cerea explicit cerințe de calitate, fără să ceară separarea propunerilor de informațiile convenite: o valoare propusă era previzibilă. Promptul analistului AI cere această separare. Nu afirmăm că modelul AI a încălcat R1–R4 sau Q1: nu le primise. Prima încercare inventează, între altele, o promisiune de verificare în 24 de ore; a doua are un exemplu mai scurt de politică neconfirmată. Selecția nu măsoară comportamentul tipic al modelului AI.
+Promptul cerea explicit cerințe de calitate, fără să ceară separarea propunerilor de informațiile convenite: o valoare propusă era previzibilă. Promptul analistului AI cere această separare. Nu afirmăm că modelul AI a încălcat R1–R4 sau Q1: nu le primise. Prima încercare inventează, între altele, o promisiune de verificare în 24 de ore; a doua, selectată aici, are exemple mai scurte. Selecția nu măsoară comportamentul tipic al modelului AI.
 
 **Sursă:** `haiku45-initial-02-response.md`, celula din rândul „Timp de răspuns” și ultimele două linii din „Exemplul 3: Ticket închis”. Fragmente literale; analiza este a profesorului.
 
@@ -442,7 +442,7 @@ Promptul cerea explicit cerințe de calitate, fără să ceară separarea propun
 ::: notes
 Contextul cu răspunsurile administrației înlocuiește ipotezele cu informații convenite. Un context nou permite să observăm analiza regulilor furnizate fără influența primei propuneri. Nu este o continuare ascunsă a conversației inițiale.
 
-**Sursă:** instrucțiune integrală din `analist-instructiune.md`. `analist-prompt.md` include și copia nemodificată a contextului din `context-clarificat.md`: cererea și regulile consolidate, fără soluția de referință. Regulile relevante exercițiului următor sunt repetate pe acel slide.
+**Sursă:** instrucțiune integrală din `analist-instructiune.md`. `analist-prompt.md` include și copia nemodificată a contextului din `context-clarificat.md`: cererea și regulile consolidate, fără soluția de referință. Regulile relevante pentru exercițiul următor sunt repetate pe acel slide.
 
 **Organizare:** 2 min. []{.pace dur=2}
 :::
@@ -455,7 +455,7 @@ Contextul cu răspunsurile administrației înlocuiește ipotezele cu informați
 
 > Cu 10.000 sesizări și 20 consultări simultane, cel puțin 950/1.000 consultări asupra propriilor sesizări afișează stare corectă în ≤ 2 secunde.
 
-**Q1 primit de analistul AI:** aceleași valori, plus **rețeaua campusului** și intervalul măsurat **de la acțiunea de consultare în browser până la afișarea stării**.
+**Q1, în contextul primit de analistul AI:** aceleași valori, dar și **rețeaua campusului** și intervalul măsurat, **de la acțiunea de consultare în browser până la afișarea stării**.
 
 Pe hârtie: ce s-ar putea măsura diferit dacă predăm numai rezumatul? **Rescrieți cerința, păstrând toate condițiile.**
 
@@ -481,8 +481,10 @@ Corecția profesorului: cu 10.000 de sesizări și 20 de consultări simultane �
 
 *Claude Haiku 4.5, două rulări independente cu aceeași intrare, 10 octombrie 2026.*
 
+**Înainte de răspuns:** va semnala evaluatorul AI cele două condiții pe care le-ați restabilit?
+
 ::: notes
-Evaluatorul AI primește sursa, nu doar rezumatul de examinat. Cele două rulări de revizuire sunt independente și primesc același răspuns al analistului AI (rularea 1), inclusiv secțiunile care nu apar pe slide-uri. Nu îi semnalăm în prompt omisiunea descoperită de noi și nu îi cerem un număr minim de defecte.
+Evaluatorul AI primește sursa, nu doar rezumatul de examinat. Cele două rulări de revizuire sunt independente și primesc același răspuns al analistului AI (rularea 1), inclusiv secțiunile care nu apar pe slide-uri. Nu îi semnalăm în prompt omisiunea descoperită de noi și nu îi cerem un număr minim de defecte. Evaluatorul AI nu a primit sarcina analistului AI, care cerea explicit păstrarea condițiilor din Q1; în laborator o furnizăm. Nu știm dacă ar fi schimbat rezultatul.
 
 **Sursă:** instrucțiune integrală din `evaluator-instructiune.md`; intrarea completă în `evaluator-prompt.md`. Claude Haiku 4.5, două contexte noi, 10 octombrie 2026.
 
@@ -491,13 +493,13 @@ Evaluatorul AI primește sursa, nu doar rezumatul de examinat. Cele două rulăr
 
 ---
 
-# Verificăm și revizuirea AI
+# Ce semnalează evaluatorul AI?
 
 **Fragment din răspunsul AI — Claude Haiku 4.5, evaluator AI, rularea 1, 10 octombrie 2026:**
 
 > **Q1**: Pragul de performanță este transcris exact, […]
 
-**Comparația noastră între Q1 și specificația analistului AI:**
+**Comparația noastră cu Q1:**
 
 | Element din Q1 | Se păstrează? |
 |---|---|
@@ -505,7 +507,7 @@ Evaluatorul AI primește sursa, nu doar rezumatul de examinat. Cele două rulăr
 | Rețeaua campusului | Nu |
 | Acțiunea de consultare în browser → afișarea stării | Nu |
 
-**Decizia noastră:** pragul este transcris corect, dar revizuirea nu semnalează cele două condiții pierdute de analistul AI. Le restabilim înainte de a preda specificația mai departe: acordul evaluatorului AI nu înlocuiește comparația cu sursa.
+**Decizia noastră:** restabilim cele două condiții înainte de a transmite specificația; acordul evaluatorului AI nu înlocuiește comparația cu sursa.
 
 ::: notes
 Nu transformăm observația despre prag într-o afirmație că întregul Q1 ar fi verificat. Numerele sunt transcrise corect, dar evaluatorul AI nu identifică pierderea rețelei și a intervalului măsurat. În „Limitări ale Verificării”, el amintește configurația rețelei și browserul doar ca limite ale verificării, nu ca omisiuni din Q1-ul analistului AI.
@@ -514,7 +516,7 @@ Revizuirea are și o constatare utilă: „afișează confirmarea” nu spune ex
 
 **Sursă:** `haiku45-evaluator-01-response.md`, începutul punctului Q1 din „Alinieri Corecte”, cu finalul omis explicit. Tabelul și decizia sunt analiza profesorului. Toate cele șase încercări sunt păstrate, inclusiv cele nefolosite pe slide-uri.
 
-**Organizare:** 8 min: 5 pentru explicarea diferenței dintre confirmarea unui prag și verificarea cerinței întregi, 3 pentru întrebări; treceți la exercițiul final la minutul 90. []{.pace dur=8}
+**Organizare:** 8 min: 5 pentru predicțiile studenților și diferența dintre confirmarea unui prag și verificarea cerinței întregi, 3 pentru întrebări; treceți la exercițiul final la minutul 90. []{.pace dur=8}
 :::
 
 ---
@@ -533,13 +535,13 @@ Schimbarea domeniului verifică dacă studenții pot folosi distincțiile, nu do
 
 # Exercițiu final: loc la consultații
 
-**Profesorul cere:** „Studenții să se poată înscrie ușor la consultații.”
+**Un profesor (beneficiarul) cere:** „Studenții să se poată înscrie ușor la consultații.”
 
-**Clarificări confirmate:** există intervale de 15 minute, fiecare cu un singur loc. Înscrierile sunt înregistrate pe rând. Un student nu se poate înscrie la un interval deja ocupat. Anularea înscrierii nu intră în exercițiu.
+**Clarificări convenite:** există intervale de 15 minute, fiecare cu un singur loc. Înscrierile se procesează pe rând, câte una. Un student nu se poate înscrie la un interval deja ocupat. Anularea înscrierii nu intră în exercițiu.
 
 Individual, pe hârtie, fără asistent AI, scrieți:
 
-1. O cerință pentru încercarea de înscriere la un interval ocupat.
+1. O cerință (cine, în ce condiții, ce rezultat) pentru încercarea de înscriere la un interval ocupat.
 2. Un exemplu concret care o verifică.
 3. O întrebare care ar clarifica termenul „ușor”.
 
@@ -555,7 +557,7 @@ Răspuns posibil: încercarea este respinsă și înscrierea existentă se păst
 
 # Trei întrebări de păstrat
 
-1. **De unde știm?** Informație convenită, consecință dedusă, ipoteză sau propunere?
+1. **De unde știm?** Informație convenită, consecință dedusă, ipoteză sau propunere — inclusiv când afirmația vine de la un agent AI?
 2. **Ce observăm?** În ce condiții sistemul acceptă sau respinge o cerere și ce rămâne neschimbat?
 3. **Ce mai trebuie decis?** Cine poate răspunde și ce depinde de răspuns?
 

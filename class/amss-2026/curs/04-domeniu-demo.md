@@ -16,7 +16,7 @@ Prezentarea [04-domeniu.md](04-domeniu.md) are **30 de slide-uri cu tot cu coper
 
 ## Pregătire
 
-Citiți [enunțul](scenarios/04-fotografii/brief.md) și [referința](scenarios/04-fotografii/reference.md). Regulile sunt didactice; nu reprezintă observații despre un produs real. Cazurile S1–S4 sunt redate pe slide-uri înaintea capturilor. Toate datele necesare exercițiilor sunt pe slide-ul lăsat pe ecran. Diagrama ilustrează instanțe; tabelul de cardinalități exprimă modelul general.
+Citiți [enunțul](scenarios/04-fotografii/brief.md) și [referința](scenarios/04-fotografii/reference.md). Regulile sunt didactice; nu reprezintă observații despre un produs real. Cazurile S1–S5 sunt etichetate pe slide-uri la prima apariție, înaintea capturilor. Toate datele necesare exercițiilor sunt pe slide-ul lăsat pe ecran. Diagrama ilustrează instanțe; tabelul de cardinalități exprimă modelul general.
 
 Prompturile și răspunsurile provin din [rulări reale Claude Haiku 4.5 din 10.10.2026](scenarios/04-fotografii/captures/2026-10-10/README.md). Modelul este declarat de instrument, fără a pretinde un identificator de versiune mai precis. Se păstrează cinci încercări: două analize și trei revizuiri. Primele două revizuiri au avut diacriticele instrucțiunii deteriorate la transmiterea prin shell; sunt arhivate, dar nu selectate pentru prezentare. Revizuirea 03 folosește instrucțiunea corectă și include explicit și sarcina analistului AI.
 
