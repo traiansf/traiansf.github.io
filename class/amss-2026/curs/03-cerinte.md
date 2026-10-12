@@ -90,7 +90,7 @@ Clarificarea transformă o întrebare deschisă sau o ipoteză într-o informaț
 
 # Primele răspunsuri ale administrației
 
-**R1 — Înregistrare:** studentul identificat indică locul și descrierea defecțiunii; ambele sunt obligatorii. Sesizarea înregistrată primește un număr unic, are studentul ca autor și starea „înregistrată”; studentul îi vede numărul și starea.
+**R1 — Înregistrare:** studentul identificat indică locul și descrierea defecțiunii; ambele sunt obligatorii. Sistemul creează sesizarea cu un număr unic, cu studentul ca autor și în starea „înregistrată”; studentul îi vede numărul și starea.
 
 **R2 — Acces:** studentul își poate consulta numai propriile sesizări și nu le schimbă starea. Personalul administrației le poate consulta pe toate și le poate actualiza starea.
 
@@ -112,7 +112,7 @@ La respingerea unei înregistrări incomplete nu se creează sesizarea; formular
 | Consultarea stării | Repartizarea echipelor de intervenție |
 | Actualizarea stării de către administrație | Prioritizarea și termenele de reparație |
 
-**Obiectivul versiunii:** studentul poate afla ce stare a înregistrat administrația.
+**Obiectivul versiunii:** studentul își poate înregistra sesizarea și poate afla starea consemnată de administrație.
 
 **Limită:** sistemul nu garantează când se repară defecțiunea.
 
@@ -159,7 +159,7 @@ Modelul AI nu primise clarificările: discutăm ce păstrăm după răspunsurile
 - **Varianta A:** ambele sesizări primesc numere proprii.
 - **Varianta B:** Bogdan este asociat sesizării deja existente.
 
-Ce întrebare îi puneți administrației pentru a putea alege între variante? Ce vede Bogdan după trimitere în fiecare variantă?
+Ce întrebare îi puneți administrației, astfel încât răspunsul ei să decidă între variante? Ce vede Bogdan după trimitere în fiecare variantă?
 
 ::: notes
 Întrebarea concretă ar putea fi: „Doriți o evidență separată pentru fiecare raportare sau o singură sesizare urmărită de mai mulți studenți?” Mai trebuie lămurit cine stabilește că este aceeași defecțiune. B ridică și o întrebare de acces: Bogdan nu poate consulta sesizarea Anei prin R2, deci politica ar cere o modificare explicită.
@@ -177,12 +177,12 @@ Nu alegem A doar pentru că este mai ușor de implementat. Exemplul scoate la iv
 
 > „În prima versiune păstrăm fiecare sesizare separat, chiar dacă descrie aceeași defecțiune. Nu reunim și nu respingem automat sesizările repetate.”
 
-Ana primește S41, Bogdan primește S42. Fiecare își consultă propria sesizare.
+Fiecare student primește și consultă propria sesizare.
 
 **Consecință dedusă, acceptată de administrație:** cele două sesizări se actualizează separat, chiar dacă o singură intervenție repară robinetul.
 
 ::: notes
-Această decizie păstrează o evidență a fiecărei raportări, cu un cost operațional pentru administrație. Identificatorii S41 și S42 sunt exemple, nu o cerință de numerotare consecutivă.
+Această decizie păstrează o evidență a fiecărei raportări, cu un cost operațional pentru administrație.
 
 Reunirea ar putea fi o alegere legitimă într-o altă versiune. Acordul asupra R3 este ceea ce face verificabil rezultatul cerut aici.
 :::
@@ -195,7 +195,7 @@ Reunirea ar putea fi o alegere legitimă într-o altă versiune. Acordul asupra 
 |------|-----|---------|
 | Ce poate face utilizatorul? | Cerință funcțională | Studentul consultă starea propriei sesizări. |
 | Ce politică a administrației trebuie respectată? | Regulă a domeniului | Sesizările repetate se păstrează separat. |
-| În ce condiții și cât de bine? | Cerință de calitate | Starea se afișează într-un timp convenit, cu un număr precizat de sesizări și de consultări simultane. |
+| În ce condiții și cât de bine? | Cerință de calitate | Starea se afișează într-un timp convenit, cu un număr precizat de sesizări existente și de consultări simultane. |
 
 O cerință utilă descrie **un rezultat observabil** și condițiile în care îl cerem.
 
@@ -241,7 +241,7 @@ Aceasta este forma completă a lui R1, convenită în scenariul didactic. Face o
 
 # Ce înseamnă actualizarea stării?
 
-**R4 — Schimbarea stării:** numai administrația poate face aceste două schimbări:
+**R4 — Schimbarea stării**, răspunsul administrației: numai administrația poate face aceste două schimbări:
 
 - „înregistrată” → „în lucru”;
 - „în lucru” → „rezolvată”.
@@ -262,7 +262,7 @@ R4 explicitează și respingerea unei cereri de trecere în starea curentă, de 
 
 # În perechi: exemple de acceptare
 
-**R4:** numai administrația schimbă starea, și numai „înregistrată” → „în lucru” sau „în lucru” → „rezolvată”. Orice altă cerere de schimbare, inclusiv trecerea în starea curentă, este respinsă, cu motiv și fără modificarea stării.
+**R4:** numai administrația schimbă starea, și numai „înregistrată” → „în lucru” sau „în lucru” → „rezolvată”. Orice altă cerere de schimbare, inclusiv cererea de a trece în starea curentă, este respinsă, cu motiv și fără modificarea stării.
 
 **Date:** S41 este „înregistrată”. Ana este autoarea sesizării; Daria lucrează în administrație. Fiecare exemplu pornește separat de la această stare.
 
@@ -271,7 +271,7 @@ R4 explicitează și respingerea unei cereri de trecere în starea curentă, de 
 3. Schimbați foaia cu o altă pereche: rezultatul decurge din regulă?
 
 ::: notes
-Permisă: Daria cere trecerea la „în lucru”; noua stare este afișată. Respinsă din cauza rolului: Ana cere aceeași schimbare; motivul este lipsa dreptului. Respinsă din cauza schimbării nepermise: Daria cere direct „rezolvată” sau repetă „înregistrată”. În toate respingerile, S41 rămâne „înregistrată”.
+Permisă: Daria cere trecerea la „în lucru”; noua stare este afișată. Respinsă din cauza rolului: Ana cere aceeași schimbare; motivul este lipsa dreptului. Respinsă din cauza schimbării nepermise: Daria cere direct „rezolvată” sau cere trecerea în „înregistrată”. În toate respingerile, S41 rămâne „înregistrată”.
 
 Cazurile sunt independente. Un exemplu care schimbă simultan rolul și tranziția nu izolează motivul respingerii; invitați perechea să-l îmbunătățească.
 
@@ -291,7 +291,7 @@ Cazurile sunt independente. Un exemplu care schimbă simultan rolul și tranziț
 Pe hârtie, scrieți exemplul de acceptare: **starea inițială → cine cere ce → rezultatul observabil**. Precizați ce primește **Bogdan** și ce rămâne neschimbat la **S41**.
 
 ::: notes
-Consecință dedusă din R3: o sesizare nouă nu modifică autorul, numărul sau starea uneia existente. Bogdan primește o sesizare distinctă, de exemplu S42, în starea „înregistrată”. S41 rămâne a Anei, „în lucru”. Identitatea, autorul și starea vechii sesizări nu sunt rescrise de noua raportare.
+Consecință dedusă din R3: o sesizare nouă nu modifică autorul, numărul sau starea uneia existente. Bogdan primește o sesizare distinctă, de exemplu S42, în starea „înregistrată”. S41 rămâne a Anei, „în lucru”. Identificatorii S41 și S42 sunt exemple, nu o cerință de numerotare consecutivă.
 
 Exemplul verifică mai mult decât apariția unui mesaj de succes. Nu cerem un anumit format al identificatorului.
 
@@ -333,7 +333,7 @@ Cele trei intervale implică responsabilități diferite. Nu putem transforma o 
 | Lot de verificare | 1.000 de consultări valide ale propriilor sesizări. |
 | Prag | Cel puțin 950 afișează starea corectă în cel mult 2 secunde. |
 
-**Valide:** consultări permise de R2: fiecare student își consultă propria sesizare.
+**Consultări valide:** cele permise de R2, adică fiecare student își consultă propria sesizare.
 
 ::: notes
 950 din 1.000 înseamnă 95%. Nici celelalte 50 nu pot afișa date greșite: R2 și cerința funcțională continuă să se aplice; Q1 privește pragul de timp. „Valide” nu înseamnă consultări reușite: o consultare care eșuează rămâne în lot, dar nu intră între cele 950 reușite la timp.
@@ -481,14 +481,14 @@ Corecția profesorului: cu 10.000 de sesizări și 20 de consultări simultane �
 
 *Claude Haiku 4.5, două rulări independente cu aceeași intrare, 10 octombrie 2026.*
 
-**Înainte de răspuns:** va semnala evaluatorul AI cele două condiții pe care le-ați restabilit?
+**Predicție, înainte de a vedea răspunsul AI:** va semnala evaluatorul AI cele două condiții pe care le-ați restabilit?
 
 ::: notes
 Evaluatorul AI primește sursa, nu doar rezumatul de examinat. Cele două rulări de revizuire sunt independente și primesc același răspuns al analistului AI (rularea 1), inclusiv secțiunile care nu apar pe slide-uri. Nu îi semnalăm în prompt omisiunea descoperită de noi și nu îi cerem un număr minim de defecte. Evaluatorul AI nu a primit sarcina analistului AI, care cerea explicit păstrarea condițiilor din Q1; în laborator o furnizăm. Nu știm dacă ar fi schimbat rezultatul.
 
 **Sursă:** instrucțiune integrală din `evaluator-instructiune.md`; intrarea completă în `evaluator-prompt.md`. Claude Haiku 4.5, două contexte noi, 10 octombrie 2026.
 
-**Organizare:** 2 min. []{.pace dur=2}
+**Organizare:** 2 min pentru prompt; cereți predicțiile prin ridicarea mâinii, fără discuție, și comparați-le cu răspunsul pe slide-ul următor. []{.pace dur=2}
 :::
 
 ---
@@ -499,9 +499,9 @@ Evaluatorul AI primește sursa, nu doar rezumatul de examinat. Cele două rulăr
 
 > **Q1**: Pragul de performanță este transcris exact, […]
 
-**Comparația noastră cu Q1:**
+**Comparația noastră: Q1 față de specificația analistului AI**
 
-| Element din Q1 | Se păstrează? |
+| Element din Q1 | Păstrat de analistul AI? |
 |---|---|
 | Cel puțin 950/1.000 în cel mult 2 secunde | Da |
 | Rețeaua campusului | Nu |
@@ -516,7 +516,7 @@ Revizuirea are și o constatare utilă: „afișează confirmarea” nu spune ex
 
 **Sursă:** `haiku45-evaluator-01-response.md`, începutul punctului Q1 din „Alinieri Corecte”, cu finalul omis explicit. Tabelul și decizia sunt analiza profesorului. Toate cele șase încercări sunt păstrate, inclusiv cele nefolosite pe slide-uri.
 
-**Organizare:** 8 min: 5 pentru predicțiile studenților și diferența dintre confirmarea unui prag și verificarea cerinței întregi, 3 pentru întrebări; treceți la exercițiul final la minutul 90. []{.pace dur=8}
+**Organizare:** 8 min: 5 pentru compararea predicțiilor cu răspunsul și diferența dintre confirmarea unui prag și verificarea cerinței întregi, 3 pentru întrebări; treceți la exercițiul final la minutul 90. []{.pace dur=8}
 :::
 
 ---

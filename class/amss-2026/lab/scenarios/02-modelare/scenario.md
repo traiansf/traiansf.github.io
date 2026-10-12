@@ -30,4 +30,4 @@ P1 și P3 sunt înregistrări distincte, chiar dacă au același text. Datele su
 3. Cum arătați că o vizită poate aștepta atribuirea unui responsabil, dar trebuie să aibă o problemă raportată?
 4. Dacă P1 și P3 au același text, le puteți uni fără să pierdeți ce s-a raportat la fiecare vizită?
 
-Explicați modelul unei perechi vecine printr-un caz concret. Un desen, un tabel sau câteva propoziții sunt suficiente. Cereți apoi unui asistent AI sau altor colegi o comparație delimitată, fără a înlocui discuția voastră.
+Explicați printr-un caz concret schița unei perechi vecine; autorii completează apoi. Un desen, un tabel sau câteva propoziții sunt suficiente. Cereți apoi unui asistent AI sau altor colegi o comparație delimitată, fără a înlocui discuția voastră.

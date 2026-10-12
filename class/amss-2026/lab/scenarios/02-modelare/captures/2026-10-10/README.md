@@ -21,7 +21,7 @@ Fiecare rulare pornește Claude Code într-un director temporar gol, fără unel
 
 ## Schimbarea inputului și selecția
 
-Primele revizuiri au primit instrucțiunea cu diacritice înlocuite accidental cu „?” la transferul prin shell. Contextul și răspunsul analizat au rămas intacte. Fișierele și rezultatele acestor încercări sunt păstrate nemodificate. Rularea finală folosește `evaluator-v2-prompt.md`: repară transmiterea instrucțiunii și include explicit sarcina analistului AI, necesară ca revizuirea să poată aprecia corect limitele cerute. Nu comparăm cele două versiuni ca experiment controlat asupra modelului.
+Prima revizuire a primit instrucțiunea cu diacritice înlocuite accidental cu „?” la transferul prin shell. Contextul și răspunsul analizat au rămas intacte. Fișierele și rezultatul acestei încercări sunt păstrate nemodificate. Rularea finală folosește `evaluator-v2-prompt.md`: repară transmiterea instrucțiunii și include explicit sarcina analistului AI, necesară ca revizuirea să poată aprecia corect limitele cerute. Nu comparăm cele două versiuni ca experiment controlat asupra modelului.
 
 Analistul AI 01 păstrează corect vizitele și relațiile, dar prezintă identificarea problemei prin (cod vizită + ordine) fără a o eticheta drept alegere. Evaluatorul AI 02 observă corect că R3 nu specifică acest format. Discutăm o reprezentare posibilă, nu o contradicție demonstrată cu cerințele.
 

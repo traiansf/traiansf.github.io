@@ -8,7 +8,7 @@ Prezentarea [04-domeniu.md](04-domeniu.md) are **30 de slide-uri cu tot cu coper
 |---|---|---|
 | 0–15 | Ce selectăm din domeniu; aceeași legendă, două fotografii. | 7 min: reflecție, pereche, discuție. |
 | 15–35 | Identitate, fotografie și versiune; prima editare. | 8 min pentru schiță și comparație. |
-| 35–60 | Vocabular, relații, cardinalități, ramuri și limite. | 8 min pentru reeditarea originalului. |
+| 35–60 | Vocabular, relații, ramuri, cardinalități și limite. | 8 min pentru reeditarea originalului. |
 | 60–90 | Prompturi, analiză AI, revizuire, corecție și reprezentări. | 5 + 5 min pe fragmentele analistului AI; 4 + 4 min pe revizuire și decizie. |
 | 90–100 | Transfer la piesă–reprezentație și încheiere. | 7 min exercițiu, 3 min sinteză. |
 

@@ -26,7 +26,7 @@ Reperele cumulative sunt în notele tranzițiilor și în marcajele `.pace`. Dur
 
 ## Exemplul principal
 
-[Enunțul consolidat](scenarios/03-sesizari/brief.md) și [raționamentul de referință](scenarios/03-sesizari/reference.md) susțin pregătirea. Scenariul, răspunsurile administrației și loturile de măsurători sunt didactice. **Răspunsurile AI și revizuirile sunt capturi reale**, nu texte redactate pentru a simula un model. Loturile de timp nu sunt rezultate ale unor execuții.
+[Enunțul consolidat](scenarios/03-sesizari/brief.md) și [raționamentul de referință](scenarios/03-sesizari/reference.md) susțin pregătirea. Scenariul, răspunsurile administrației și loturile de măsurători sunt didactice. **Răspunsurile AI și revizuirile sunt capturi reale**, nu texte redactate pentru a simula un model AI. Loturile de timp nu sunt rezultate ale unor execuții.
 
 Răspunsurile administrației se dezvăluie progresiv. La primul exercițiu acceptați întrebările utile chiar dacă ating o funcție pe care o vom exclude ulterior. Nu evaluați întrebările și ipotezele inițiale prin reguli pe care studenții nu le-au primit încă.
 
@@ -46,7 +46,7 @@ Nu prezentăm revizuirea ca integral greșită: ea observă util că „afișeaz
 
 ## Dacă discuția ocupă mai mult timp
 
-- La minutul 35 începeți etapa exemplelor. Folosiți R3 ca sinteză a discuției despre cele două politici, fără a mai cere un tur de răspunsuri la tabelul tipurilor de cerințe.
+- La minutul 35 începeți etapa exemplelor. Folosiți R3 ca sinteză a discuției despre cele două politici, și prezentați pe scurt tabelul tipurilor de cerințe.
 - La minutul 65 treceți la etapa capturilor AI; răspunsurile exercițiului în perechi se discută în cele 9 minute deja rezervate. Pe Q1 păstrați distincția dintre prag și medie.
 - Absorbiți întâi depășirile în cele 3 minute de întrebări ale etapei capturilor AI. Prompturile sunt de citit și explicat pe scurt; cele trei comparații sunt locul principal al discuției. Păstrați exercițiul final și justificările studenților.
 

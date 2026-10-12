@@ -25,5 +25,5 @@
     }
   ],
   "instructor_analysis": "Întrebările și corecțiile din prezentare sunt ale profesorului, distincte de fragmentele capturate.",
-  "review_activity": "Slide-ul 11 propune o sarcină pentru studenți; aceasta nu pretinde că reproduce promptul arhivat. Promptul real integral este în evaluator-v2-prompt.md și în fișa de capturi."
+  "review_activity": "Slide-ul 11 propune o sarcină pentru studenți; aceasta nu pretinde că reproduce promptul arhivat. Instrucțiunea reală este în prepared-fixture.md; promptul integral, în evaluator-v2-prompt.md."
 }

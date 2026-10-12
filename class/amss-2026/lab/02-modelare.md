@@ -26,10 +26,10 @@ Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relaț
 
 — **Eric Evans**
 
-[Sursa: Domain-Driven Design Reference — definiția modelului](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6)
+[Sursa: Domain-Driven Design Reference — definiția modelului, p. 6 (PDF)](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6)
 
 ::: notes
-Reluăm citatul din cursul 4. Selectăm aspectele necesare urmăririi vizitelor; nu proiectăm întregul atelier și nu începem de la clase sau de la schema unei baze de date.
+Selectăm aspectele necesare urmăririi vizitelor; nu proiectăm întregul atelier și nu începem de la clase sau de la schema unei baze de date. Reluăm citatul din cursul 4.
 
 **Sursă:** publicația autorului, Definitions, intrarea model, pagina PDF 6. Fragment păstrat din materialul anterior verificat în `docs/quotations.md`; finalul după domain este omis explicit.
 :::
@@ -68,7 +68,7 @@ Ce relații ne ajută să explicăm toate cele trei vizite?
 ::: notes
 Verbalizarea unei legături este mai importantă decât forma săgeții. Colegul care întreabă cere un exemplu și o regulă pentru fiecare alegere importantă.
 
-**Organizare:** minutul 10 din 100; interval 10–35 (25 min). Sprijinul pentru discuție este o referință, fără completare obligatorie. []{.pace at=10}
+**Organizare:** minutul 10 din 100; interval 10–35 (25 min). Scenariul de pe slide-ul următor este referința; nu se completează nimic. []{.pace at=10}
 :::
 
 ---
@@ -77,16 +77,16 @@ Verbalizarea unei legături este mai importantă decât forma săgeții. Colegul
 
 - **R1–R2:** aparatul se identifică prin cod, nu prin model. O vizită are cod și dată și privește exact un aparat; un aparat are zero sau mai multe vizite.
 - **R3:** o vizită are cel puțin o problemă raportată; fiecare problemă aparține exact unei vizite; textele pot coincide.
-- **R4–R5:** o vizită are zero sau un voluntar responsabil, identificat prin cod; un voluntar poate răspunde de mai multe vizite. O vizită nouă nu înlocuiește și nu copiază problemele sau responsabilul celor anterioare.
+- **R4–R5:** o vizită are zero sau un voluntar responsabil, identificat prin cod; un voluntar poate răspunde de mai multe vizite. O vizită nouă nu înlocuiește și nu preia automat problemele sau responsabilul celor anterioare.
 
-Unul schițează și explică J1 și J2: **cum rămâne Mara responsabilă de J1 după ce Radu devine responsabil de J2?** Celălalt cere regula și un exemplu. La semnal, schimbați rolurile și verificați pe J3.
+Unul schițează și explică J1 și J2: **cum rămâne Mara responsabilă de J1 după ce Radu devine responsabil de J2?** Celălalt cere regula și un exemplu. La semnal, schimbați rolurile și explicați J3.
 
 [Scenariul complet: R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md) · R6: fără inventar, plăți sau proprietari.
 
 ::: notes
 Responsabilul se leagă de vizită, nu de aparat (R4–R5). Un voluntar poate răspunde de mai multe vizite, iar numele voluntarilor pot coincide. Sunt suficiente cuvinte, un tabel sau o schiță pe hârtie; nu cerem notație UML sau implementare.
 
-**Organizare:** 24 min după tranziție: 4 citire și întrebări, 8 propunere, 8 schimbarea rolurilor și verificare pe J3, 4 discuție. []{.pace dur=24}
+**Organizare:** 24 min după tranziție: 4 citire și întrebări, 8 propunere, 8 schimbarea rolurilor și explicarea lui J3, 4 discuție. []{.pace dur=24}
 :::
 
 ---
@@ -108,13 +108,13 @@ Diferența dintre intenție și interpretare arată unde trebuie clarificat mode
 # Un caz pentru schița altei perechi
 
 1. **Revenire:** A17 are J1 cu Mara; apare J2 cu Radu. Puteți afla în continuare cine răspundea de J1?
-2. **Același text:** P1 în J1 și P3 în J3 spun „Pârghia nu rămâne jos”. R3 permite texte egale. Le-ați păstrat distincte?
-3. **Fără responsabil:** J3 nu are încă voluntar responsabil. R4 permite zero sau unul. Poate schița exprima situația?
+2. **Același text:** P1 în J1 și P3 în J3 spun „Pârghia nu rămâne jos”. R3 permite texte egale. Rămân distincte în schiță?
+3. **Două probleme:** la o nouă vizită J4, A18 vine cu două probleme raportate. R3 permite una sau mai multe. Poate schița exprima situația?
 
 Fiecare pereche alege un caz pentru cealaltă. **Perechea care primește cazul îl rezolvă pe schița celeilalte și explică prima**; autorii completează abia după aceea. Apoi inversați rolurile și discutați o neclaritate sau o diferență între soluții.
 
 ::: notes
-Toate cele trei situații trebuie să poată fi exprimate. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Dacă timpul permite, adăugați un aparat înregistrat fără vizite și verificați limita zero din R2.
+Toate cele trei situații trebuie să poată fi exprimate: J1 își păstrează responsabilul, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Dacă timpul permite, adăugați un aparat înregistrat fără vizite și verificați limita zero din R2.
 
 **Organizare:** 19 min: 2 citire, 12 schimb și comparație, 5 discuție comună. []{.pace dur=19}
 :::
@@ -137,7 +137,7 @@ Un agent AI poate propune o alegere de reprezentare rezonabilă pe care organiza
 
 # Cum identifică analistul AI o problemă raportată?
 
-**Instrucțiunea reală**; în prompt urmează scenariul complet (R1–R6 și datele):
+**Instrucțiunea reală**, urmată în prompt de scenariu (R1–R6 și datele):
 
 > Propune un model de domeniu pentru acest atelier. Explică identitățile, relațiile și numărul permis de asocieri. Urmărește datele A17, A18, J1–J3 și spune ce informație se păstrează la o nouă vizită. Nu adăuga funcții. Răspunde în română, în maximum 400 de cuvinte.
 
@@ -145,10 +145,10 @@ Un agent AI poate propune o alegere de reprezentare rezonabilă pe care organiza
 
 > **Problemă raportată** — identitate: compusă din (cod vizită + ordine).
 
-**R3:** fiecare problemă raportată aparține exact unei vizite; textul ei poate coincide cu al altei probleme. **Este identificarea prin (cod vizită + ordine) o cerință, o alegere de reprezentare sau o contradicție?** Cum ați identificat voi P1–P3 în schița voastră?
+**R3:** fiecare problemă raportată aparține exact unei vizite; textul ei poate coincide cu al altei probleme. **Este identificarea prin (cod vizită + ordine) o cerință, o alegere de reprezentare sau o contradicție?** Un coleg explică: cum ați identificat P1–P3 în schiță?
 
 ::: notes
-Este o alegere de reprezentare posibilă, prezentată prea categoric. Nu o respingem automat; discutăm ce înseamnă „ordine” și dacă identificarea rămâne stabilă când ordinea de afișare se schimbă. Captura integrală este în pachet, inclusiv relațiile corecte și explicația istoricului.
+Este o alegere de reprezentare posibilă, prezentată prea categoric. Nu o respingem automat; discutăm ce înseamnă „ordine” și dacă identificarea rămâne stabilă când ordinea de afișare se schimbă. Captura integrală este în capturile pregătite, inclusiv relațiile corecte și explicația istoricului.
 
 **Organizare:** 12 min: 2 citire, 6 comparație în pereche cu propunerea proprie, 4 schimb de argumente. La o rulare proprie folosiți contextul complet, nu doar instrucțiunea. []{.pace dur=12}
 :::
@@ -157,13 +157,13 @@ Este o alegere de reprezentare posibilă, prezentată prea categoric. Nu o respi
 
 # Revizuirea este tot o propunere
 
-**Într-un context nou**, dați unui evaluator (agent AI de revizuire) scenariul complet, sarcina analistului AI și răspunsul de verificat: modelul vostru sau captura integrală. Cereți observații legate de reguli și exemple, cu încălcările separate de alegerile de reprezentare. Sau rugați altă pereche să facă aceeași verificare.
+**Într-un context nou**, dați unui evaluator (agent AI de revizuire) scenariul complet, sarcina analistului AI și răspunsul de verificat: modelul vostru sau captura integrală. Cereți observații legate de reguli și exemple, cu încălcările separate de alegerile de reprezentare. Sau cereți aceeași verificare altei perechi.
 
 **Captură reală · Claude Haiku 4.5 · 10.10.2026 · evaluator AI 02**, despre identificator:
 
 > Propunerea presupune că identitatea e **(cod vizită + ordine)**. Contextul nu specifică acest format. […] De ce nu cod global pentru problemă?
 
-**Ce păstrați în model și ce clarificați?** Acum conduce discuția celălalt coleg.
+**Acceptați observația? Ce păstrați și ce clarificați?** Acum conduce discuția celălalt coleg.
 
 [Capturile pregătite: instrucțiunea reală a evaluatorului și răspunsurile integrale](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/prepared-fixture.md)
 
@@ -200,18 +200,18 @@ Schimbarea arată dacă modelul separă conceptele utile. Nu introducem repartiz
 Gândiți individual, apoi explicați colegului:
 
 - ce relație și ce cardinalitate se schimbă și ce păstrați despre J1;
-- un exemplu de acceptare pentru noua limită, inclusiv o respingere;
+- două exemple de acceptare pentru noua limită: unul permis și unul respins;
 - o întrebare pentru organizatori despre responsabilitatea comună.
 
 ::: notes
-Relația vizită–voluntar devine zero până la doi; nu schimbăm identitatea aparatului sau a vizitei. J1 rămâne asociată Marei, iar J2 ambilor. Încercarea de a adăuga un al treilea responsabil este respinsă, iar asocierile existente rămân. Întrebări utile: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil?
+Relația vizită–voluntar devine zero până la doi; nu schimbăm identitatea aparatului sau a vizitei. J1 rămâne asociată Marei, iar J2 ambilor. Încercarea de a adăuga un al treilea responsabil este respinsă, iar asocierile existente rămân. Întrebări utile: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil? Limita se aplică oricărei vizite; modelul nu înregistrează dacă reparația este complicată (R6 exclude efectuarea reparației). Dacă o pereche observă diferența, este o întrebare bună pentru organizatori.
 
 **Organizare:** 10 min: 2 individual, 5 în pereche, 3 compararea explicațiilor. []{.pace dur=10}
 :::
 
 ---
 
-# Ce a schimbat sau a confirmat modelul?
+# De ce am schimbat sau am păstrat modelul?
 
 Discutăm câteva exemple din grupă:
 
@@ -222,7 +222,7 @@ Discutăm câteva exemple din grupă:
 Păstrați schițele și notițele care vă ajută la studiu. **Activitatea se încheie prin discuție; nu avem documente de predat.**
 
 ::: notes
-Urmărim dacă perechea leagă schimbarea sau confirmarea modelului de o regulă și un exemplu. Este util și un model păstrat după verificare, dacă perechea poate explica regula și exemplul care îl susțin.
+Urmărim dacă perechea leagă schimbarea sau păstrarea modelului de o regulă și un exemplu; un model confirmat după verificare este un rezultat la fel de bun.
 
 **Organizare:** 9 min; două sau trei perechi cu raționamente diferite, fără prezentări formale; încheiere la minutul 100. []{.pace dur=9}
 :::
