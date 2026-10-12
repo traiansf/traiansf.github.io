@@ -50,7 +50,7 @@ Selectăm aspectele necesare urmăririi vizitelor; nu proiectăm întregul ateli
 2. **Ce întrebare le-ați pune organizatorilor al cărei răspuns ar schimba modelul?**
 
 ::: notes
-A17 apare în două vizite distincte; modelul T2 nu identifică aparatul. P1 și P3 au același text, dar sunt raportări distincte; J2 și J3 au aceeași dată, dar sunt vizite distincte. Păstrarea numai a ultimei probleme ar pierde P1, raportată la J1; dacă și responsabilul ar fi ținut la aparat, s-ar pierde și asocierea J1–Mara. Problema raportată nu este încă un diagnostic confirmat.
+A17 apare în două vizite distincte; modelul T2 nu identifică aparatul. P1 și P3 au același text, dar sunt raportări distincte; J2 și J3 au aceeași dată, dar sunt vizite distincte. Păstrarea numai a ultimei probleme ar pierde P1, raportată la J1; dacă și responsabilul ar fi asociat aparatului, s-ar pierde și asocierea J1–Mara. Problema raportată nu este încă un diagnostic confirmat.
 
 Întrebări probabile: mai multe probleme la aceeași vizită (R3 le permite), ștergerea sau corectarea unei vizite (rămân deschise în R6), doi voluntari la aceeași vizită (pregătește schimbarea finală), proprietarul aparatului (exclus în R6). Cereți legătura cu modelul: ce relație s-ar schimba după răspuns.
 

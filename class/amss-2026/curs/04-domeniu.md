@@ -388,7 +388,7 @@ Revizuirea nu primește comentariile profesorului sau conversația analistului A
 Explicați observația prin două săgeți. Dacă S3 este permis, rezultă că orice DAG este permis?
 
 ::: notes
-Observația despre ramuri este corectă; verificarea unui exemplu nu justifică generalizarea la toate grafurile fără cicluri. Predicția se confirmă doar parțial: revizuirea observă că un DAG admite mai mulți părinți și propune un arbore, dar tratează problema ca una de prezentare (pădure vs. DAG) și validează separat derivarea recursivă; legătura cu limita de o sursă din R4 o facem noi. Cererile ei despre mecanismele de implementare și prevenirea ștergerii depășesc sarcina de modelare și limitele R6; nu le adoptăm automat.
+Observația despre ramuri este corectă; verificarea unui exemplu nu justifică generalizarea la toate grafurile fără cicluri. Răspunsul la întrebarea de predicție este „parțial”: revizuirea observă că un DAG admite mai mulți părinți și propune un arbore, dar tratează problema ca una de prezentare (pădure vs. DAG) și validează separat derivarea recursivă; legătura cu limita de o sursă din R4 o facem noi. Cererile ei despre mecanismele de implementare și prevenirea ștergerii depășesc sarcina de modelare și limitele R6; nu le adoptăm automat.
 
 Analistul AI nu afirmă explicit că V3 și V4 sunt copaci independenți; revizuirea reacționează la propoziția omisă despre „pădure de versiuni”. Observația este corectă despre domeniu; dacă studenții remarcă nepotrivirea, o confirmăm: verificăm și ce anume contrazice o observație.
 

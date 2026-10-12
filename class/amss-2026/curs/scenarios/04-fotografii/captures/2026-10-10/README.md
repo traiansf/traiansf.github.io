@@ -7,7 +7,7 @@ Sunt păstrate **5 rulări reale**. Pe slide-uri apar analistul AI 02 și evalua
 - [Contextul trimis](context.md) și [sursa la momentul capturării](source-at-capture.md); hashurile sunt în `context-metadata.json`.
 - [Instrucțiunea analistului AI](analist-instructiune.md) și [promptul complet](analist-prompt.md). În promptul complet, eticheta CONTEXT a fost trimisă cu ultima literă chirilică (Т, U+0422); instrucțiunea și contextul sunt altfel intacte, iar fișierul rămâne cel trimis.
 - [Instrucțiunea finală de revizuire](evaluator-v2-instructiune.md) și [promptul complet](evaluator-v2-prompt.md), cu sarcina analistului AI și răspunsul său integral.
-- `excerpts.json` mapează fragmentele fidele la slide-uri; restul răspunsurilor nu este proiectat. Elipsele marchează intervalele omise între două fragmente.
+- `excerpts.json` mapează fragmentele fidele la slide-uri; restul răspunsurilor nu este proiectat. Elipsele marchează textul omis înaintea unui fragment sau între două fragmente.
 
 Fiecare rulare pornește Claude Code într-un director temporar gol, fără unelte, MCP, setări personale/de proiect sau persistența sesiunii. `capture.py` păstrează răspunsul integral, rezultatul JSON și metadatele; refuză suprascrierea încercărilor. Se folosește promptul de sistem implicit al CLI, care nu este exportat integral; nu pretindem că lipsește orice context de sistem. Model cerut și declarat: `claude-haiku-4-5`. Temperatura nu este raportată, efortul nu a fost setat explicit; versiunea CLI și argumentele exacte apar în fiecare fișier de metadate.
 
