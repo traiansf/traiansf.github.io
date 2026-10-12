@@ -61,7 +61,7 @@ Pentru arhiva noastră vrem să putem spune:
 
 - despre **care fotografie** vorbim, chiar dacă îi schimbăm legenda;
 - **ce versiuni** îi aparțin;
-- **din ce versiune** provine o editare.
+- **din ce versiune** provine o versiune obținută prin editare.
 
 Nu modelăm albume, drepturi de acces, ștergeri sau stocarea fișierelor.
 
@@ -381,20 +381,20 @@ Revizuirea nu primește comentariile profesorului sau conversația analistului A
 
 **Fragment din răspunsul AI — Claude Haiku 4.5, evaluator AI, rularea 3, 10 octombrie 2026:**
 
-> În S3, V3 și V4 nu sunt „doi copaci independenți" — sunt două noduri la același nivel în același arbore, ambii cu sursă V1.
+> […] un **DAG** (graph aciclic orientat) permite noduri cu mai mulți părinți și configurații arbitrare. În S3, V3 și V4 nu sunt „doi copaci independenți" — sunt două noduri la același nivel în același arbore, ambii cu sursă V1.
 
 **Cazul S3:** V3 provine din V1; edităm din nou V1 și obținem V4.
 
 Explicați observația prin două săgeți. Dacă S3 este permis, rezultă că orice DAG este permis?
 
 ::: notes
-Observația despre ramuri este corectă; verificarea unui exemplu nu justifică generalizarea la toate grafurile fără cicluri. Revizuirea integrală observă și că un DAG poate avea noduri cu mai mulți părinți; verificăm această observație prin limita de o sursă din R4. Cererile ei despre mecanismele de implementare și prevenirea ștergerii depășesc sarcina de modelare și limitele R6; nu le adoptăm automat.
+Observația despre ramuri este corectă; verificarea unui exemplu nu justifică generalizarea la toate grafurile fără cicluri. Predicția se confirmă doar parțial: revizuirea observă că un DAG admite mai mulți părinți și propune un arbore, dar tratează problema ca una de prezentare (pădure vs. DAG) și validează separat derivarea recursivă; legătura cu limita de o sursă din R4 o facem noi. Cererile ei despre mecanismele de implementare și prevenirea ștergerii depășesc sarcina de modelare și limitele R6; nu le adoptăm automat.
 
 Analistul AI nu afirmă explicit că V3 și V4 sunt copaci independenți; revizuirea reacționează la propoziția omisă despre „pădure de versiuni”. Observația este corectă despre domeniu; dacă studenții remarcă nepotrivirea, o confirmăm: verificăm și ce anume contrazice o observație.
 
 Și revizuirea citează inexact: în citatul ei din analistul AI lipsesc repetiția „orice” și finalul propoziției. Citatele unei revizuiri se verifică și ele în sursă. Ghilimelele inegale și acordul „ambii” sunt în original.
 
-**Sursă:** `haiku45-evaluator-03-response.md`, observația 1, paragraful „Problemă”, a treia propoziție, literală.
+**Sursă:** `haiku45-evaluator-03-response.md`, observația 1, paragraful „Problemă”: a doua propoziție, de la „un DAG”, și a treia, literale. „graph” este în original.
 
 **Organizare:** 4 min, inclusiv răspunsuri. []{.pace dur=4}
 :::
@@ -425,7 +425,7 @@ Aceasta este corecția umană, nu o a treia captură AI. Justificarea: fiecare v
 
 **Referințe între obiecte:** versiunea V3 se referă la fotografia F1 și la versiunea-sursă V1.
 
-**Înregistrare cu identificatori:**
+**Înregistrări legate prin identificatori:**
 
 | Versiune | Fotografie | Sursă |
 |---|---|---|

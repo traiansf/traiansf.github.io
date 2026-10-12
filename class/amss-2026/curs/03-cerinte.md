@@ -264,7 +264,7 @@ R4 explicitează și respingerea unei cereri de trecere în starea curentă, de 
 
 **R4:** numai administrația schimbă starea, și numai „înregistrată” → „în lucru” sau „în lucru” → „rezolvată”. Orice altă cerere de schimbare, inclusiv cererea de a trece în starea curentă, este respinsă, cu motiv și fără modificarea stării.
 
-**Date:** S41 este „înregistrată”. Ana este autoarea sesizării; Daria lucrează în administrație. Fiecare exemplu pornește separat de la această stare.
+**Date:** sesizarea S41, a Anei, este „înregistrată”; Daria lucrează în administrație. Fiecare exemplu pornește separat de la această stare.
 
 1. Scrieți două exemple de acceptare: o cerere de schimbare permisă și una respinsă.
 2. Pentru fiecare: **starea inițială → cine cere ce schimbare → rezultatul observabil**.
@@ -282,7 +282,7 @@ Cazurile sunt independente. Un exemplu care schimbă simultan rolul și tranziț
 
 # Un exemplu verifică și ce rămâne neschimbat
 
-**R1:** o sesizare nouă primește un număr unic, un autor și starea „înregistrată”.
+**R1:** o sesizare nouă primește un număr unic și starea „înregistrată”; autorul ei este studentul care a trimis-o.
 
 **R3:** fiecare sesizare se păstrează separat, chiar dacă descrie aceeași defecțiune; sesizările repetate nu se reunesc și nu se resping automat.
 
@@ -306,16 +306,16 @@ Administrația vrea ca studentul să vadă **rapid** starea sesizării.
 
 Sunt posibile interpretări diferite:
 
-- pagina afișează repede o stare deja înregistrată;
+- pagina afișează repede starea deja consemnată;
 - personalul actualizează repede starea după intervenție;
 - echipa repară repede defecțiunea.
 
-**Clarificare convenită:** cerința de timp privește doar **afișarea stării deja înregistrate**.
+**Clarificare convenită:** cerința de timp privește doar **afișarea stării deja consemnate**.
 
 De unde până unde măsurăm? Cu câte sesizări și câte consultări simultane? Câte consultări trebuie să se încadreze în timp?
 
 ::: notes
-Cele trei intervale implică responsabilități diferite. Nu putem transforma o cerință despre afișare într-o promisiune despre durata reparației. Un prag numeric fără operație, puncte de măsurare și condiții poate rămâne la fel de ambiguu ca adjectivul inițial.
+Cele trei intervale implică responsabilități diferite. Nu putem transforma o cerință despre afișare într-o promisiune despre durata reparației. Un prag numeric fără operație, puncte de măsurare și condiții poate rămâne la fel de ambiguu ca termenul inițial „rapid”.
 
 **Organizare:** cereți răspunsuri la cele trei întrebări de jos înainte de a arăta Q1.
 :::

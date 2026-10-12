@@ -46,7 +46,7 @@ Nu prezentăm revizuirea ca integral greșită: ea observă util că „afișeaz
 
 ## Dacă discuția ocupă mai mult timp
 
-- La minutul 35 începeți etapa exemplelor. Folosiți R3 ca sinteză a discuției despre cele două politici, și prezentați pe scurt tabelul tipurilor de cerințe.
+- La minutul 35 începeți etapa exemplelor. Folosiți R3 ca sinteză a discuției despre cele două politici și prezentați pe scurt tabelul tipurilor de cerințe.
 - La minutul 65 treceți la etapa capturilor AI; răspunsurile exercițiului în perechi se discută în cele 9 minute deja rezervate. Pe Q1 păstrați distincția dintre prag și medie.
 - Absorbiți întâi depășirile în cele 3 minute de întrebări ale etapei capturilor AI. Prompturile sunt de citit și explicat pe scurt; cele trei comparații sunt locul principal al discuției. Păstrați exercițiul final și justificările studenților.
 

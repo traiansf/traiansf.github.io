@@ -28,7 +28,7 @@
         24
       ],
       "source": "haiku45-evaluator-03-response.md",
-      "text": "În S3, V3 și V4 nu sunt „doi copaci independenți\" — sunt două noduri la același nivel în același arbore, ambii cu sursă V1."
+      "text": "[…] un **DAG** (graph aciclic orientat) permite noduri cu mai mulți părinți și configurații arbitrare. În S3, V3 și V4 nu sunt „doi copaci independenți\" — sunt două noduri la același nivel în același arbore, ambii cu sursă V1."
     }
   ],
   "prompts": [

@@ -22,9 +22,9 @@ Prompturile și răspunsurile provin din [rulări reale Claude Haiku 4.5 din 10.
 
 ## Capturile din prezentare
 
-Numerotarea include coperta. Slide-ul 20 arată instrucțiunea exactă a analistului AI și identifică contextul; slide-urile 21–22 arată fragmente din analistul AI 02. Primul fragment este corect, al doilea generalizează excesiv de la ramuri la orice DAG. Cerem verdict, exemplu și regulă înainte de a arăta revizuirea.
+Numerotarea include coperta. Slide-ul 20 arată instrucțiunea exactă a analistului AI și identifică contextul; slide-urile 21–22 arată fragmente din analistul AI 02. Fragmentul de pe slide-ul 21 este corect; slide-ul 22 pune alături „zero sau o Sursă”, care respectă R4, și generalizarea excesivă de la ramuri la orice DAG. Cerem verdict, exemplu și regulă înainte de a arăta revizuirea.
 
-Slide-ul 23 arată instrucțiunea exactă a evaluatorului (agent AI de revizuire), iar 24 un fragment din rularea 03. Revizuirea recunoaște cele două ramuri pornite din V1. Studenții verifică observația și limita de o sursă. Slide-ul 25 este explicit analiza profesorului; 26 compară două reprezentări ale modelului corectat. Aceste slide-uri nu sunt output AI.
+Slide-ul 23 arată instrucțiunea exactă a evaluatorului (agent AI de revizuire), iar 24 un fragment din rularea 03. Revizuirea observă că un DAG admite mai mulți părinți și recunoaște cele două ramuri pornite din V1, dar nu leagă observația de limita de o sursă. Studenții verifică observația și limita de o sursă. Slide-ul 25 este explicit analiza profesorului; 26 compară două reprezentări ale modelului corectat. Aceste slide-uri nu sunt output AI.
 
 În răspunsurile integrale există și observații secundare; nu este necesar să le citiți în timpul cursului. Nu transformați greșelile de limbă în obiectul demonstrației. Registrul `excerpts.json` indică sursa fiecărui fragment, iar README explică selecția și limitele capturilor.
 

@@ -9,7 +9,7 @@ Scenariu didactic: un atelier comunitar de reparații ține evidența aparatelor
 - **R3 — Problemă raportată:** fiecare vizită conține cel puțin o problemă raportată. O astfel de înregistrare aparține exact unei vizite; textul poate coincide cu textul unei probleme de la altă vizită. Ea descrie ce a observat persoana care a adus aparatul, nu un diagnostic confirmat.
 - **R4 — Voluntar:** fiecare voluntar are un cod stabil și un nume. O vizită poate să nu aibă încă responsabil sau poate avea exact un voluntar responsabil. Un voluntar poate răspunde de mai multe vizite. Numele nu este identificator unic.
 - **R5 — Revenire:** o nouă vizită nu înlocuiește problemele raportate sau responsabilul vizitelor anterioare. Nu se copiază implicit problemele vechi în vizita nouă. Asocierea unui responsabil privește vizita, nu aparatul în general.
-- **R6 — Limite:** inventarul pieselor, plățile, proprietarii, programările, competențele voluntarilor și efectuarea reparației sunt excluse. Nu analizăm concurența. Ștergerea și corectarea retroactivă a unei vizite rămân de clarificat dacă vor fi cerute. Nu cerem implementare sau o anumită reprezentare.
+- **R6 — Limite:** inventarul pieselor, plățile, proprietarii, programările, competențele voluntarilor și efectuarea reparației sunt excluse. Nu analizăm accesul simultan la date. Ștergerea și corectarea retroactivă a unei vizite rămân de clarificat dacă vor fi cerute. Nu cerem implementare sau o anumită reprezentare.
 
 ## Date pentru discuție
 
