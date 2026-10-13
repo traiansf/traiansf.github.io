@@ -54,4 +54,5 @@ Verificat pe exportul din 4 octombrie 2026:
 
 - Treapta a patra a scalei K1–K6 apare în formular ca „Pot realiza independent pe o problemă mică” (la K3: „Mă descurc independent pentru o problemă mică”), nu ca în `initial.csv`. Scriptul numără aceste variante la aceeași treaptă. Formularul final păstrează etichetele din `final.csv`; comparația dintre chestionare se face după poziția opțiunii pe scală, nu după text.
 - Limita „cel mult trei variante” nu a fost aplicată în formular la T1 și T3; unii respondenți au ales mai multe. La formularul final, setați validarea **Select at most 3** și verificați-o.
+- La T1, opțiunea apare în formular ca „Contracte și invariante”, nu „Contracte și invarianți”; scriptul o numără la opțiunea definită. Formularul final păstrează eticheta din `final.csv`.
 - Exportul conține o coloană „Scor”, goală: formularul pare creat în modul Quiz. Verificați că modul este dezactivat sau că studenții nu văd un punctaj ori „răspunsuri corecte”.

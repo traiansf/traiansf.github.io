@@ -28,6 +28,10 @@ AICI = os.path.dirname(os.path.abspath(__file__))
 # conține cheia este numărată la opțiunea definită care conține aceeași cheie.
 ALIASURI = ["independent"]
 
+# Opțiuni de selecție multiplă scrise altfel în formularul publicat (la T1:
+# „invariante” în loc de „invarianți”). Se înlocuiesc înainte de despărțire.
+FORMULARI = {"Contracte și invariante": "Contracte și invarianți"}
+
 # Răspunsul de referință al scenariilor D1–D3 (vezi README.md): indexul
 # opțiunii, de la 0.
 REFERINTA = {"D1": 1, "D2": 1, "D3": 2}
@@ -77,6 +81,8 @@ def desparte(valoare, optiuni):
     Opțiunile pot conține virgule, de aceea se consumă textul potrivind
     întâi opțiunile cele mai lungi."""
     rest = valoare.strip()
+    for publicat, definit in FORMULARI.items():
+        rest = rest.replace(publicat, definit)
     alese = []
     while rest:
         for o in sorted(optiuni, key=len, reverse=True):
