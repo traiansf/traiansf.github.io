@@ -63,28 +63,29 @@ A17 apare în două vizite distincte; modelul T2 nu identifică aparatul. P1 și
 
 **10–35 min · Un coleg propune, celălalt întreabă; apoi schimbați rolurile**
 
-Ce relații ne ajută să explicăm toate cele trei vizite?
+Ce relații ne ajută să păstrăm informația despre fiecare vizită?
 
 ::: notes
 Verbalizarea unei legături este mai importantă decât forma săgeții. Colegul care întreabă cere un exemplu și o regulă pentru fiecare alegere importantă.
 
-**Organizare:** minutul 10 din 100; interval 10–35 (25 min). Scenariul de pe slide-ul următor este referința; nu se completează nimic. []{.pace at=10}
+**Organizare:** minutul 10 din 100; interval 10–35 (25 min). Regulile de pe slide-ul următor sunt referința; schițăm liber, fără formular de completat. []{.pace at=10}
 :::
 
 ---
 
 # Reguli pentru schița voastră
 
-- **R1–R2:** aparatul se identifică prin cod, nu prin model. O vizită are cod și dată și privește exact un aparat; un aparat are zero sau mai multe vizite.
-- **R3:** o vizită are cel puțin o problemă raportată; fiecare problemă aparține exact unei vizite; textele pot coincide.
-- **R4–R5:** o vizită are zero sau un voluntar responsabil, identificat prin cod; un voluntar poate răspunde de mai multe vizite. O vizită nouă nu înlocuiește și nu preia automat problemele sau responsabilul celor anterioare.
+- **Aparat–vizită (R1–R2):** fiecare are cod propriu. O vizită are dată și privește exact un aparat; un aparat are zero sau mai multe vizite.
+- **Vizită–problemă (R3):** o vizită are cel puțin o problemă raportată; fiecare problemă aparține exact unei vizite. Textele pot coincide.
+- **Vizită–voluntar (R4):** o vizită are zero sau un responsabil; un voluntar poate răspunde de mai multe vizite. Voluntarul se identifică prin cod.
+- **Revenire (R5):** vizita nouă păstrează istoricul vizitelor anterioare; problemele și responsabilul se asociază fiecărei vizite separat.
 
 Unul schițează și explică J1 și J2: **cum rămâne Mara responsabilă de J1 după ce Radu devine responsabil de J2?** Celălalt cere regula și un exemplu. La semnal, schimbați rolurile și explicați J3.
 
 [Scenariul complet: R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md) · R6: fără inventar, plăți sau proprietari.
 
 ::: notes
-Responsabilul se leagă de vizită, nu de aparat (R4–R5). Un voluntar poate răspunde de mai multe vizite, iar numele voluntarilor pot coincide. Sunt suficiente cuvinte, un tabel sau o schiță pe hârtie; nu cerem notație UML sau implementare.
+Responsabilul se leagă de vizită, nu de aparat (R4–R5). O vizită nouă nu suprascrie datele celor anterioare și nu preia automat problemele lor. Numele voluntarilor pot coincide, la fel ca modelele aparatelor; codurile le disting. O problemă raportată descrie observația celui care a adus aparatul, nu un diagnostic confirmat. Sunt suficiente cuvinte, un tabel sau o schiță pe hârtie; nu cerem notație UML sau implementare.
 
 **Organizare:** 24 min după tranziție: 4 citire și întrebări, 8 propunere, 8 schimbarea rolurilor și explicarea lui J3, 4 discuție. []{.pace dur=24}
 :::
@@ -105,13 +106,13 @@ Diferența dintre intenție și interpretare arată unde trebuie clarificat mode
 
 ---
 
-# Un caz pentru schița altei perechi
+# Încercăm schița altei perechi
 
 1. **Revenire:** A17 are J1 cu Mara; apare J2 cu Radu. Puteți afla în continuare cine răspundea de J1?
 2. **Același text:** P1 în J1 și P3 în J3 spun „Pârghia nu rămâne jos”. R3 permite texte egale. Rămân distincte în schiță?
 3. **Două probleme:** la o nouă vizită J4, A18 vine cu două probleme raportate. R3 permite una sau mai multe. Poate schița exprima situația?
 
-Fiecare pereche alege un caz pentru cealaltă. **Perechea care primește cazul îl rezolvă pe schița celeilalte și explică prima**; autorii completează abia după aceea. Apoi inversați rolurile și discutați o neclaritate sau o diferență între soluții.
+**Pe schița perechii A, perechea B alege un caz și explică prima** cum îl exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Discutați o neclaritate sau o diferență între soluții.
 
 ::: notes
 Toate cele trei situații trebuie să poată fi exprimate: J1 își păstrează responsabilul, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Dacă timpul permite, adăugați un aparat înregistrat fără vizite și verificați limita zero din R2.
@@ -148,27 +149,27 @@ Un agent AI poate propune o alegere de reprezentare rezonabilă pe care organiza
 **R3:** fiecare problemă raportată aparține exact unei vizite; textul ei poate coincide cu al altei probleme. **Este identificarea prin (cod vizită + ordine) o cerință, o alegere de reprezentare sau o contradicție?** Un coleg explică: cum ați identificat P1–P3 în schiță?
 
 ::: notes
-Este o alegere de reprezentare posibilă, prezentată prea categoric. Nu o respingem automat; discutăm ce înseamnă „ordine” și dacă identificarea rămâne stabilă când ordinea de afișare se schimbă. Captura integrală este în capturile pregătite, inclusiv relațiile corecte și explicația istoricului.
+Este o alegere de reprezentare posibilă, prezentată fără a fi marcată ca alegere. R3 cere să distingem înregistrările, dar nu impune forma identificatorului. Discutăm ce înseamnă „ordine”: un număr atribuit și păstrat în cadrul vizitei sau poziția curentă într-o listă sortată? Doar prima convenție poate păstra identificarea după o reordonare. Captura integrală este în capturile pregătite, inclusiv relațiile corecte și explicația istoricului.
 
 **Organizare:** 12 min: 2 citire, 6 comparație în pereche cu propunerea proprie, 4 schimb de argumente. La o rulare proprie folosiți contextul complet, nu doar instrucțiunea. []{.pace dur=12}
 :::
 
 ---
 
-# Revizuirea este tot o propunere
+# Verificăm și observația evaluatorului
 
-**Într-un context nou**, dați unui evaluator (agent AI de revizuire) scenariul complet, sarcina analistului AI și răspunsul de verificat: modelul vostru sau captura integrală. Cereți observații legate de reguli și exemple, cu încălcările separate de alegerile de reprezentare. Sau cereți aceeași verificare altei perechi.
+**Într-un context nou**, dați evaluatorului AI regulile R1–R6, datele inițiale, sarcina și răspunsul de verificat: modelul vostru sau captura integrală. Cereți observații susținute de reguli și exemple, cu încălcările separate de alegerile de reprezentare. Puteți cere aceeași verificare altei perechi.
 
 **Captură reală · Claude Haiku 4.5 · 10.10.2026 · evaluator AI 02**, despre identificator:
 
 > Propunerea presupune că identitatea e **(cod vizită + ordine)**. Contextul nu specifică acest format. […] De ce nu cod global pentru problemă?
 
-**Acceptați observația? Ce păstrați și ce clarificați?** Acum conduce discuția celălalt coleg.
+**Ce parte acceptați? Este obligatoriu un cod global?** Celălalt coleg conduce discuția: ce păstrați și cum precizați alegerea?
 
 [Capturile pregătite: instrucțiunea reală a evaluatorului și răspunsurile integrale](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/prepared-fixture.md)
 
 ::: notes
-Acceptăm observația: R3 nu fixează forma identificatorului, iar datele nu spun dacă P1–P3 sunt coduri globale sau locale vizitei. Identificarea prin ordine este o alegere posibilă numai cu o convenție clară de unicitate și stabilitate. Nu confundăm poziția curentă într-o listă sortată cu identitatea înregistrării.
+Acceptăm observația că formatul identificatorului nu este cerut de R3; datele nu spun dacă P1–P3 sunt coduri globale sau locale vizitei. Întrebarea „De ce nu cod global?” propune o alternativă, nu dovedește că ea este obligatorie. Păstrăm identificarea prin (cod vizită + număr local) dacă numărul este unic în vizită și rămâne stabil; o etichetăm ca alegere. Și un cod global poate respecta aceleași reguli. Nu confundăm poziția curentă într-o listă sortată cu identitatea înregistrării.
 
 Fragmentul provine din revizuirea pregătită la 10.10.2026, în context nou, cu sarcina analistului AI inclusă. Formularea de pe slide este sarcina activității studenților, nu promptul arhivat; acesta este în capturile pregătite.
 
@@ -193,18 +194,20 @@ Schimbarea arată dacă modelul separă conceptele utile. Nu introducem repartiz
 
 # Doi voluntari pentru aceeași vizită
 
-**Organizatorii cer:** la reparațiile complicate lucrează doi voluntari și amândoi trebuie să apară ca responsabili. De acum înainte, o vizită are **zero, unul sau doi voluntari responsabili**. Celelalte reguli rămân neschimbate.
+**Organizatorii schimbă R4:** o vizită poate avea **zero, unul sau doi voluntari responsabili**. Limita se aplică oricărei vizite; celelalte reguli rămân neschimbate.
 
-**Înainte:** Mara este responsabilă de J1, iar Radu de J2, ambele vizite pentru A17. **Acum:** Mara se alătură lui Radu la J2.
+**Inițial:** J1 o are pe Mara (M1), iar J2 pe Radu (M2); ambele vizite sunt pentru A17.
 
 Gândiți individual, apoi explicați colegului:
 
-- ce relație și ce cardinalitate se schimbă și ce păstrați despre J1;
-- două exemple de acceptare pentru noua limită: unul permis și unul respins;
-- o întrebare pentru organizatori despre responsabilitatea comună.
+1. Ce relație și ce cardinalitate se schimbă?
+2. Formulați **înainte → cerere → după** pentru două cereri succesive: adăugarea Marei la J2, apoi adăugarea Ioanei (M3) la J2. Ce acceptați, ce respingeți și cine rămâne asociat fiecărei vizite?
+3. Ce ați întreba organizatorii despre responsabilitatea comună?
 
 ::: notes
-Relația vizită–voluntar devine zero până la doi; nu schimbăm identitatea aparatului sau a vizitei. J1 rămâne asociată Marei, iar J2 ambilor. Încercarea de a adăuga un al treilea responsabil este respinsă, iar asocierile existente rămân. Întrebări utile: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil? Limita se aplică oricărei vizite; modelul nu înregistrează dacă reparația este complicată (R6 exclude efectuarea reparației). Dacă o pereche observă diferența, este o întrebare bună pentru organizatori.
+Cardinalitatea vizită → voluntari devine 0–2; voluntar → vizite rămâne zero sau mai multe. Nu schimbăm identitatea aparatului sau a vizitei. Cererile se încearcă succesiv: (1) J1–Mara, J2–Radu → adăugăm Mara la J2 → acceptat; J1–Mara, J2–Mara și Radu. (2) Pornind de aici, cerem și Ioana la J2 → respins; J1–Mara, J2–Mara și Radu rămân. Un rezultat care elimină un responsabil existent pentru a face loc celui nou nu respectă cererea de adăugare. Problemele și legăturile vizită–aparat se păstrează în ambele exemple.
+
+Întrebări utile: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil? Nu cerem acum proiectarea efectuării reparației, exclusă prin R6.
 
 **Organizare:** 10 min: 2 individual, 5 în pereche, 3 compararea explicațiilor. []{.pace dur=10}
 :::

@@ -2,6 +2,12 @@
 
 Material redactat pentru pregătirea profesorului, pe baza [enunțului](brief.md). Nu este răspuns AI capturat. Rezultatele sunt raționamente despre cerințe, fără implementare sau execuție de teste.
 
+Un exemplu de acceptare precizează rezultatul prin care sistemul respectă cerința. O cerere respinsă corect este un astfel de exemplu, chiar dacă utilizatorul nu obține schimbarea solicitată.
+
+## Decizia despre sesizări repetate
+
+R1 și R2 stabilesc deja crearea unei sesizări la fiecare raportare validă și accesul studentului numai la propriile sesizări. Varianta în care Bogdan urmărește sesizarea Anei fără să primească una nouă ar modifica ambele reguli. R3 confirmă păstrarea raportărilor separate; nu presupunem că alternativa comună ar fi fost permisă de regulile inițiale.
+
 ## De la sursă la rezultat
 
 | Caz independent | Rezultat și justificare |
@@ -11,6 +17,7 @@ Material redactat pentru pregătirea profesorului, pe baza [enunțului](brief.md
 | Daria din administrație cere „în lucru” pentru S41 „înregistrată” | R2 și R4: acceptare, S41 devine „în lucru”. |
 | Ana cere aceeași schimbare | R2: respingere prin rol, cu motiv; S41 rămâne „înregistrată”. |
 | Daria cere direct „rezolvată” pentru S41 „înregistrată” | R4: respingere prin schimbare nepermisă, cu motiv; starea se păstrează. |
+| Daria cere „înregistrată” pentru S41 deja „înregistrată” | R4: repetarea stării curente este respinsă, cu motiv; starea se păstrează. |
 | Bogdan raportează robinetul deja descris de S41, aflată „în lucru” | R1 și R3: o nouă sesizare, de exemplu S42, a lui Bogdan, „înregistrată”; S41 rămâne a Anei, „în lucru”. R2: fiecare student o consultă pe a sa. |
 | Lotul A: 950/1.000 afișări corecte în cel mult 2 secunde | Îndeplinește Q1, exact la prag. Nu generalizăm la orice încărcare. |
 | Lotul B: 949/1.000 la timp | Nu îndeplinește Q1. O medie bună nu înlocuiește pragul convenit. |

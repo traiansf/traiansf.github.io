@@ -10,7 +10,7 @@ Materiale: [prezentare](02-modelare.md), [scenariu](scenarios/02-modelare/scenar
 |---|---|---|
 | 0–10 | Citat, reflecție inițială, comparație A17/A18 și J1–J3. | Cereți un exemplu de informație pierdută și o întrebare pentru organizatori. |
 | 10–35 | Citirea regulilor, schiță și explicații cu roluri schimbate. | „De ce este responsabilul legat aici?” |
-| 35–55 | Două perechi își explică reciproc modelele. | Perechea care primește cazul interpretează prima schița. |
+| 35–55 | Două perechi își explică reciproc modelele. | Colegii care nu au desenat schița aleg un caz și o interpretează primii. |
 | 55–80 | Comparație cu AI sau captura pregătită; revizuire. | Cereți să se distingă o alegere de reprezentare de o cerință. |
 | 80–100 | Maximum doi responsabili per vizită; discuție finală. | Ascultați două sau trei explicații, fără prezentări formale. |
 
@@ -31,14 +31,25 @@ La înregistrarea J2 pentru A17, J1, P1 și asocierea J1–Mara rămân; J2 are 
 
 Sunt acceptabile cuvinte, tabele sau diagrame care exprimă aceste distincții. „Original” și relația de sursă de la cursul 4 nu se transferă aici. Nu cereți clase, scheme SQL, operații cu pre/postcondiții sau teoria responsabilităților din cursul 5. Dacă o pereche termină devreme, poate încerca un aparat încă fără vizite.
 
+La comparația între perechi, B alege unul dintre cazurile afișate și îl explică folosind schița lui A. A ascultă, apoi clarifică. Repetați cu schița lui B și rolurile inversate. Verificați sensul relațiilor, nu convenția grafică. La cazul J4, modelul trebuie să permită două probleme distincte pentru aceeași vizită, chiar dacă datele inițiale aveau doar câte una.
+
 ## Comparația cu AI
 
-Instrucțiunea analistului AI și un fragment real sunt pe slide-ul 10; arhiva conține contextul complet. Analistul AI 01 propune o identitate de forma (cod vizită + ordine). R3 nu o impune: este o alegere de reprezentare posibilă, cu condiții de unicitate și stabilitate, nu o încălcare automată. O ordine de afișare modificabilă nu trebuie confundată cu identitatea.
+Instrucțiunea analistului AI și un fragment real sunt pe slide-ul 10; arhiva conține contextul complet. Pentru rulări proprii folosiți R1–R6 și datele inițiale; schimbarea la doi responsabili se introduce abia la minutul 80. Analistul AI 01 propune o identitate de forma (cod vizită + ordine). R3 nu o impune: este o alegere de reprezentare posibilă, cu condiții de unicitate și stabilitate, nu o încălcare automată. O ordine de afișare modificabilă nu trebuie confundată cu identitatea.
 
-Evaluatorul (agent AI de revizuire) 02 primește regulile, sarcina exactă și răspunsul integral într-un context nou. Observă corect că formatul nu este specificat și că datele nu spun dacă P1–P3 sunt coduri globale sau locale vizitei, apoi întreabă de ce nu se folosește un cod global. Selectăm această observație pe slide-ul 11, apoi perechile explică ce aleg și de ce. Sarcina de revizuire de pe slide este pentru activitatea studenților; instrucțiunea arhivată este în capturile pregătite. Nu cerem un număr de defecte sau transcrierea conversației AI. Arhiva păstrează și prima revizuire, înlocuită după corectarea transmiterii diacriticelor și completarea inputului cu sarcina exactă.
+Evaluatorul (agent AI de revizuire) 02 primește regulile, sarcina exactă și răspunsul integral într-un context nou. Observă corect că formatul nu este specificat și că datele nu spun dacă P1–P3 sunt coduri globale sau locale vizitei, apoi întreabă de ce nu se folosește un cod global. Selectăm această observație pe slide-ul 11. Acceptăm nevoia de a explica alegerea; întrebarea nu face obligatoriu codul global. Un număr local unic și stabil, împreună cu codul vizitei, poate respecta aceleași reguli. Perechile precizează ce aleg și de ce.
+
+Sarcina de revizuire de pe slide este pentru activitatea studenților; instrucțiunea arhivată este în capturile pregătite. Nu cerem un număr de defecte sau transcrierea conversației AI. Arhiva păstrează și prima revizuire, înlocuită după corectarea transmiterii diacriticelor și completarea inputului cu sarcina exactă. Dacă perechile citesc răspunsul integral, observați și că posibilitatea de a avea mai multe probleme la o vizită este cerută de R3, deși evaluatorul o discută sub titlul „Alegeri de design neexplicite”. Exemplul J4 o verifică.
 
 ## Schimbarea și încheierea
 
-La minutul 80 organizatorii cer ca la reparațiile complicate să apară doi responsabili: de acum, zero până la doi voluntari pentru aceeași vizită. J2 îi poate asocia pe Mara și Radu, în timp ce J1 rămâne legată de Mara. Un al treilea responsabil ar depăși noua limită; perechile formulează două exemple de acceptare, unul permis și unul respins (al treilea responsabil), și pun o întrebare despre responsabilitatea comună. Nu cerem cod sau migrarea unei baze de date.
+La minutul 80 organizatorii schimbă R4: orice vizită poate avea zero, unul sau doi responsabili. Se schimbă cardinalitatea vizită → voluntari; voluntar → vizite rămâne zero sau mai multe. Perechile formulează două exemple de acceptare succesive, în forma din cursul 3: înainte → cerere → după.
+
+| Înainte | Cerere | După |
+|---|---|---|
+| J1–Mara; J2–Radu | Adăugarea Marei la J2 | Acceptată: J1–Mara; J2–Mara și Radu. |
+| J1–Mara; J2–Mara și Radu | Adăugarea Ioanei (M3) la J2 | Respinsă: asocierile ambelor vizite se păstrează. |
+
+Precizați și ce rămâne neschimbat: aparatele, vizitele și problemele lor. Respingerea nu elimină un responsabil pentru a face loc altuia. Perechile pun o întrebare despre responsabilitatea comună: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil? Nu cerem cod, migrarea unei baze de date sau proiectarea efectuării reparației.
 
 Încheiați cu exemple din două sau trei perechi: o neînțelegere, un caz care a clarificat modelul, o sugestie AI acceptată sau respinsă. Notați pentru pregătirea următoare dificultățile recurente. Nu colectați fișe individuale; eventualele notițe rămân studenților. Dacă ritmul întârzie, reduceți numărul răspunsurilor în plen, păstrând comparația între colegi și conversația finală.

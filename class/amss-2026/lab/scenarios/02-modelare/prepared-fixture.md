@@ -24,8 +24,10 @@ Fragment din [evaluatorul AI 02](captures/2026-10-10/haiku45-evaluator-02-respon
 
 > Propunerea presupune că identitatea e **(cod vizită + ordine)**. Contextul nu specifică acest format. […] De ce nu cod global pentru problemă?
 
-Explicați colegului de ce acceptați sau respingeți observația. Nu există o fișă de completat sau de predat.
+Explicați colegului ce parte acceptați și de ce. Întrebarea evaluatorului face obligatoriu un cod global? Precizați alegerea voastră și condițiile în care păstrează identitatea. Nu există o fișă de completat sau de predat.
 
 ## Reper pentru discuție — analiza profesorului
 
-R3 nu impune forma identificatorului. (Cod vizită + ordine) poate fi o alegere dacă identificarea este unică și stabilă; ordinea curentă de afișare nu garantează singură aceste proprietăți. Păstrăm separarea vizitelor și problemelor și etichetăm reprezentarea ca alegere.
+R3 nu impune forma identificatorului. Acceptăm observația că acesta trebuie prezentat ca alegere, dar codul global este o alternativă, nu o obligație. (Cod vizită + număr local) poate identifica o problemă dacă numărul este unic în cadrul vizitei și rămâne stabil. Poziția curentă într-o listă sortată nu oferă aceeași garanție. Păstrăm separarea vizitelor și problemelor și explicăm convenția aleasă.
+
+O altă observație din răspunsul integral este plasată sub „Alegeri de design neexplicite”: posibilitatea de a avea mai multe probleme la o vizită. Aceasta este însă cerută de R3 („cel puțin o problemă”), chiar dacă datele inițiale au doar câte una. Cazul J4, cu două probleme, verifică regula. Titlul unei secțiuni din revizuire nu stabilește statutul observațiilor din ea.

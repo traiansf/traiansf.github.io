@@ -1,4 +1,4 @@
-# Două vizite cu același aparat — Laboratorul 2
+# Același aparat, vizite distincte — Laboratorul 2
 
 Scenariu didactic: un atelier comunitar de reparații ține evidența aparatelor aduse, a vizitelor, a problemelor raportate și a voluntarilor responsabili. Lucrăm în perechi sau grupuri de trei, după cursurile 3–4. Schițele și notițele sunt suport pentru discuție, fără predare obligatorie.
 
@@ -30,4 +30,12 @@ P1 și P3 sunt înregistrări distincte, chiar dacă au același text. Datele su
 3. Cum arătați că o vizită poate aștepta atribuirea unui responsabil, dar trebuie să aibă o problemă raportată?
 4. Dacă P1 și P3 au același text, le puteți uni fără să pierdeți ce s-a raportat la fiecare vizită?
 
-Explicați printr-un caz concret schița unei perechi vecine; autorii completează apoi. Un desen, un tabel sau câteva propoziții sunt suficiente. Cereți apoi unui asistent AI sau altor colegi o comparație delimitată, fără a înlocui discuția voastră.
+Pe schița perechii A, perechea B alege un caz și explică prima cum îl exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Un desen, un tabel sau câteva propoziții sunt suficiente.
+
+La comparația cu AI, furnizați acordul R1–R6 și datele inițiale, sarcina și răspunsul de verificat într-un context nou. Schimbarea finală de mai jos nu se include încă. Distingeți regulile de alegerile de reprezentare: R3 cere să putem distinge problemele raportate, fără a impune forma identificatorului. Puteți folosi [capturile pregătite](prepared-fixture.md) sau cere colegilor aceeași verificare.
+
+## Schimbarea finală, după comparația modelelor
+
+Organizatorii schimbă R4: orice vizită poate avea **zero, unul sau doi voluntari responsabili**. Celelalte reguli rămân neschimbate. La început, J1 o are pe Mara (M1), iar J2 pe Radu (M2); ambele vizite sunt pentru A17.
+
+Încercați succesiv două cereri: adăugarea Marei la J2, apoi adăugarea Ioanei (M3) la J2. Formulați **înainte → cerere → după** pentru fiecare: ce se acceptă, ce se respinge și cine rămâne asociat fiecărei vizite? Precizați cardinalitatea care se schimbă și o întrebare despre responsabilitatea comună.

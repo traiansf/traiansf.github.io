@@ -1,5 +1,5 @@
 ---
-title: "AMSS 2026/2027 — Cursul 3: Formularea problemei și cerințe"
+title: "AMSS 2026/2027 — Cursul 3: Formularea problemei și a cerințelor"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
 ---
@@ -90,7 +90,7 @@ Clarificarea transformă o întrebare deschisă sau o ipoteză într-o informaț
 
 # Primele răspunsuri ale administrației
 
-**R1 — Înregistrare:** studentul identificat indică locul și descrierea defecțiunii; ambele sunt obligatorii. Sistemul creează sesizarea cu un număr unic, cu studentul ca autor și în starea „înregistrată”; studentul îi vede numărul și starea.
+**R1 — Înregistrare:** studentul identificat indică locul și descrierea defecțiunii; ambele sunt obligatorii. Sistemul creează o sesizare nouă, cu număr unic, studentul ca autor și starea „înregistrată”. Studentul vede numărul și starea.
 
 **R2 — Acces:** studentul își poate consulta numai propriile sesizări și nu le schimbă starea. Personalul administrației le poate consulta pe toate și le poate actualiza starea.
 
@@ -126,9 +126,9 @@ Delimitarea trebuie convenită, nu dedusă din lipsa unei funcții în enunț. A
 
 # Ce știm și ce rămâne de convenit?
 
-**Convenit până acum:** R1 (număr unic, văzut de student) și R2 (acces). **În afara versiunii:** fotografii, notificări, repartizare, prioritizare, termene. **Calitate:** nimic convenit încă.
+**Pentru comparație:** R1 cere un număr unic, afișat studentului. Notificările sunt excluse. Nu am convenit încă praguri de calitate.
 
-**Fragmente dintr-un răspuns AI real — Claude Haiku 4.5, 10 octombrie 2026, a doua din două rulări.** Modelul AI primise doar cererea inițială și sarcina de a propune o specificație.
+**Captură reală:** Claude Haiku 4.5 · 10.10.2026 · inițial 2/2, fără clarificări.
 
 | Afirmația din răspunsul AI | Cum o tratăm acum? |
 |---|---|
@@ -138,10 +138,12 @@ Delimitarea trebuie convenită, nu dedusă din lipsa unei funcții în enunț. A
 
 Ce este confirmat, ce depășește limitele și ce rămâne de convenit?
 
+**Ipoteză:** presupunere de verificat. **Propunere:** opțiune de discutat.
+
 ::: notes
 Unicitatea este confirmată prin R1. Notificarea prin email/mesaj nu intră în versiunea convenită; R1 cere însă ca studentul să vadă numărul în interfață. Disponibilitatea de 99% este o cerință de calitate propusă, nediscutată cu administrația: ar trebui convenite și perioada, și modul de măsurare.
 
-Modelul AI nu primise clarificările: discutăm ce păstrăm după răspunsurile administrației, nu încălcarea unor reguli pe care nu le primise. Promptul integral apare pe slide-ul 22. Formulările și terminologia modelului AI sunt păstrate.
+Modelul AI primise numai cererea inițială și sarcina de a propune o specificație, fără clarificări. Discutăm ce păstrăm după răspunsurile administrației, nu încălcarea unor reguli pe care nu le primise. Nici ipoteza, nici propunerea nu constituie un acord. Promptul integral apare pe slide-ul 22. Formulările și terminologia modelului AI sunt păstrate. Captura provine din a doua dintre cele două rulări inițiale, la 10 octombrie 2026.
 
 **Sursă:** `scenarios/03-sesizari/captures/2026-10-10/haiku45-initial-02-response.md`; două puncte din „Raportare problemă” și celula din rândul „Disponibilitate”, fără modificări de conținut.
 
@@ -150,19 +152,19 @@ Modelul AI nu primise clarificările: discutăm ce păstrăm după răspunsurile
 
 ---
 
-# Sesizări repetate: două politici posibile
+# Sesizări repetate: păstrăm sau schimbăm regulile?
 
 **Situație:** Ana raportează robinetul care curge în sala A12. Bogdan raportează mai târziu același robinet.
 
-**Nu există încă o regulă despre sesizări repetate.**
+**Până acum:** R1 creează o sesizare nouă la fiecare trimitere validă; R2 permite studentului să consulte numai propriile sesizări.
 
-- **Varianta A:** ambele sesizări primesc numere proprii.
-- **Varianta B:** Bogdan este asociat sesizării deja existente.
+- **A — păstrăm regulile:** fiecare raportare primește număr propriu.
+- **B — revizuim R1 și R2:** Bogdan urmărește sesizarea Anei, fără să se creeze una nouă.
 
 Ce întrebare îi puneți administrației, astfel încât răspunsul ei să decidă între variante? Ce vede Bogdan după trimitere în fiecare variantă?
 
 ::: notes
-Întrebarea concretă ar putea fi: „Doriți o evidență separată pentru fiecare raportare sau o singură sesizare urmărită de mai mulți studenți?” Mai trebuie lămurit cine stabilește că este aceeași defecțiune. B ridică și o întrebare de acces: Bogdan nu poate consulta sesizarea Anei prin R2, deci politica ar cere o modificare explicită.
+Întrebarea concretă ar putea fi: „Doriți o evidență separată pentru fiecare raportare sau o singură sesizare urmărită de mai mulți studenți?” Mai trebuie lămurit cine stabilește că este aceeași defecțiune. B ar modifica două acorduri: R1 nu ar mai crea o sesizare la fiecare trimitere validă, iar R2 ar trebui să permită accesul lui Bogdan la sesizarea Anei. Nu prezentăm B ca fiind deja compatibilă cu regulile convenite.
 
 Nu alegem A doar pentru că este mai ușor de implementat. Exemplul scoate la iveală o decizie a beneficiarului.
 
@@ -184,7 +186,7 @@ Fiecare student primește și consultă propria sesizare.
 ::: notes
 Această decizie păstrează o evidență a fiecărei raportări, cu un cost operațional pentru administrație.
 
-Reunirea ar putea fi o alegere legitimă într-o altă versiune. Acordul asupra R3 este ceea ce face verificabil rezultatul cerut aici.
+R3 confirmă că păstrăm R1 și R2 și pentru raportări despre aceeași defecțiune. Reunirea ar putea fi o alegere legitimă într-o altă versiune, după revizuirea explicită a regulilor afectate.
 :::
 
 ---
@@ -195,7 +197,7 @@ Reunirea ar putea fi o alegere legitimă într-o altă versiune. Acordul asupra 
 |------|-----|---------|
 | Ce poate face utilizatorul? | Cerință funcțională | Studentul consultă starea propriei sesizări. |
 | Ce politică a administrației trebuie respectată? | Regulă a domeniului | Sesizările repetate se păstrează separat. |
-| În ce condiții și cât de bine? | Cerință de calitate | Starea se afișează într-un timp convenit, cu un număr precizat de sesizări existente și de consultări simultane. |
+| În ce condiții și cât de bine? | Cerință de calitate | Starea se afișează într-un timp convenit, la o încărcare precizată. |
 
 O cerință utilă descrie **un rezultat observabil** și condițiile în care îl cerem.
 
@@ -223,25 +225,27 @@ Un exemplu de acceptare concretizează o regulă. El poate scoate la iveală o �
 
 „Studentul poate raporta o defecțiune” devine:
 
-**Când** studentul identificat trimite un loc și o descriere nevidă, **sistemul înregistrează** sesizarea, cu studentul ca autor, și îi afișează numărul unic și starea „înregistrată”.
+**Când** studentul identificat trimite locul și descrierea defecțiunii, ambele nevide, **sistemul creează** sesizarea, cu studentul ca autor, și îi afișează numărul unic și starea „înregistrată”.
 
 **Dacă lipsește** locul sau descrierea, sistemul indică informația lipsă și nu creează sesizarea.
 
-Urmărim: **cine**, **în ce condiții**, **ce rezultat** și **ce se întâmplă la respingere**.
+Un **exemplu de acceptare** descrie un caz concret și rezultatul așteptat. Poate verifica și **o respingere corectă**.
 
-Un **exemplu de acceptare** verifică cerința pe date concrete: *Ana nu are sesizări → trimite locul „A12” și descrierea „robinetul curge” → există o sesizare nouă a Anei, „înregistrată”; Ana îi vede numărul și starea.*
+*Ana trimite „A12” și „robinetul curge” → sesizare nouă a Anei, „înregistrată”; Ana vede numărul și starea.*
 
 ::: notes
-Aceasta este forma completă a lui R1, convenită în scenariul didactic. Face observabil și succesul, și respingerea. Nu prescrie formularul, baza de date sau algoritmul de generare a numărului.
+Aceasta este forma completă a lui R1, convenită în scenariul didactic. Urmărim cine cere, în ce condiții și ce rezultat observabil trebuie să obțină, inclusiv la respingere. Nu prescriem formularul, baza de date sau algoritmul de generare a numărului.
 
-„Nevidă” este suficient pentru exemplele de astăzi; validarea unui loc real sau tratarea șirurilor formate doar din spații ar necesita precizări dacă le includem. Nu pretindem că o singură propoziție epuizează toate condițiile unui produs real.
+„Nevide” este suficient pentru exemplele de astăzi; validarea unui loc real sau tratarea șirurilor formate doar din spații ar necesita precizări dacă le includem. Nu pretindem că o singură propoziție epuizează toate condițiile unui produs real.
+
+„Acceptare” privește conformitatea sistemului cu cerința, nu aprobarea fiecărei cereri a utilizatorului. Exemplul se poate discuta înaintea implementării; încă nu este un rezultat de test executat.
 :::
 
 ---
 
 # Ce înseamnă actualizarea stării?
 
-**R4 — Schimbarea stării**, răspunsul administrației: numai administrația poate face aceste două schimbări:
+**R4 — Schimbarea stării:** numai administrația poate face aceste două schimbări:
 
 - „înregistrată” → „în lucru”;
 - „în lucru” → „rezolvată”.
@@ -262,11 +266,11 @@ R4 explicitează și respingerea unei cereri de trecere în starea curentă, de 
 
 # În perechi: exemple de acceptare
 
-**R4:** numai administrația schimbă starea, și numai „înregistrată” → „în lucru” sau „în lucru” → „rezolvată”. Orice altă cerere de schimbare, inclusiv cererea de a trece în starea curentă, este respinsă, cu motiv și fără modificarea stării.
+**R4:** numai administrația schimbă starea: „înregistrată” → „în lucru” sau „în lucru” → „rezolvată”. Orice altă cerere de schimbare, inclusiv repetarea stării curente, este respinsă: motiv afișat, stare neschimbată.
 
 **Date:** sesizarea S41, a Anei, este „înregistrată”; Daria lucrează în administrație. Fiecare exemplu pornește separat de la această stare.
 
-1. Scrieți două exemple de acceptare: o cerere de schimbare permisă și una respinsă.
+1. Scrieți două exemple: unul cu o schimbare permisă, unul cu o cerere respinsă corect.
 2. Pentru fiecare: **starea inițială → cine cere ce schimbare → rezultatul observabil**.
 3. Schimbați foaia cu o altă pereche: rezultatul decurge din regulă?
 
@@ -284,7 +288,7 @@ Cazurile sunt independente. Un exemplu care schimbă simultan rolul și tranziț
 
 **R1:** o sesizare nouă primește un număr unic și starea „înregistrată”; autorul ei este studentul care a trimis-o.
 
-**R3:** fiecare sesizare se păstrează separat, chiar dacă descrie aceeași defecțiune; sesizările repetate nu se reunesc și nu se resping automat.
+**R3:** sesizările despre aceeași defecțiune se păstrează separat; nu se reunesc și nu se resping automat.
 
 **Situația inițială:** S41, a Anei, descrie robinetul din A12 și este „în lucru”. Bogdan trimite o sesizare validă despre același robinet.
 
@@ -312,12 +316,12 @@ Sunt posibile interpretări diferite:
 
 **Clarificare convenită:** cerința de timp privește doar **afișarea stării deja consemnate**.
 
-De unde până unde măsurăm? Cu câte sesizări și câte consultări simultane? Câte consultări trebuie să se încadreze în timp?
+De unde până unde măsurăm? Cu câte sesizări și câte consultări simultane? Câte consultări trebuie să respecte pragul de timp?
 
 ::: notes
 Cele trei intervale implică responsabilități diferite. Nu putem transforma o cerință despre afișare într-o promisiune despre durata reparației. Un prag numeric fără operație, puncte de măsurare și condiții poate rămâne la fel de ambiguu ca termenul inițial „rapid”.
 
-**Organizare:** cereți răspunsuri la cele trei întrebări de jos înainte de a arăta Q1.
+**Organizare:** cereți răspunsuri la cele trei întrebări de jos înainte de a arăta Q1: ele fixează intervalul măsurat, condițiile și proporția consultărilor care trebuie să respecte pragul de timp.
 :::
 
 ---
@@ -335,6 +339,8 @@ Cele trei intervale implică responsabilități diferite. Nu putem transforma o 
 
 **Consultări valide:** cele permise de R2, adică fiecare student își consultă propria sesizare.
 
+Pragul de timp nu permite afișarea unor stări greșite în celelalte 50 de consultări.
+
 ::: notes
 950 din 1.000 înseamnă 95%. Nici celelalte 50 nu pot afișa date greșite: R2 și cerința funcțională continuă să se aplice; Q1 privește pragul de timp. „Valide” nu înseamnă consultări reușite: o consultare care eșuează rămâne în lot, dar nu intră între cele 950 reușite la timp.
 
@@ -351,8 +357,8 @@ Două loturi independente, în aceleași condiții:
 
 | Lot | Îndeplinește Q1? |
 |------------|---|
-| A: 950 afișează corect în cel mult 2 secunde; celelalte 50, în 3 secunde. | ? |
-| B: 949 afișează corect în cel mult 2 secunde; celelalte 51, în 3 secunde. | ? |
+| A: 950 afișează corect în cel mult 2 secunde; celelalte 50 afișează corect în 3 secunde. | ? |
+| B: 949 afișează corect în cel mult 2 secunde; celelalte 51 afișează corect în 3 secunde. | ? |
 
 Dacă am ști doar media unui lot, de exemplu 1,2 secunde, am putea decide?
 
@@ -404,7 +410,7 @@ Cererea lasă deschise politicile și criteriile de calitate. Un răspuns util p
 
 # Răspunsul AI completează ce beneficiarul nu a spus
 
-**Cererea primită** spune doar că studentul trebuie să poată raporta o problemă și să-i vadă rapid starea. Nu precizează niciun prag, nicio reluare și niciun termen de închidere.
+**Cererea primită:** studentul trebuie să poată raporta o problemă și să-i vadă rapid starea. Nu precizează praguri de timp, redeschiderea sau închiderea automată.
 
 **Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 2 fără clarificări, 10 octombrie 2026:**
 
@@ -413,7 +419,7 @@ Cererea lasă deschise politicile și criteriile de calitate. Un răspuns util p
 > ȘI: poate cere reluarea dacă crede că nu e bine\
 > ȘI: după 3 zile fără răspuns, ticket se marchează "Închis"
 
-În perechi: **ce trebuie confirmat cu administrația înainte ca aceste propuneri să devină cerințe?**
+În perechi: **ce decizii trebuie cerute administrației pentru fiecare propunere?**
 
 *Selecție din două încercări; ambele au introdus detalii neconfirmate.*
 

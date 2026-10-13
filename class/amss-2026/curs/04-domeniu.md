@@ -57,6 +57,8 @@ Se schimbă numai legenda lui F1. F2 și identificatorii F1, F2, V1, V2 rămân 
 
 # Un model răspunde la întrebări
 
+Un **model de domeniu** descrie conceptele relevante, relațiile dintre ele și regulile care le limitează.
+
 Pentru arhiva noastră vrem să putem spune:
 
 - despre **care fotografie** vorbim, chiar dacă îi schimbăm legenda;
@@ -121,7 +123,7 @@ Fotografia reprezintă continuitatea dintre editări; versiunea reprezintă un c
 
 **R4:** editarea oricărei versiuni existente creează o versiune nouă a aceleiași fotografii. Versiunea nouă este o **derivată**; versiunea de la care pornește editarea este **sursa** ei. Fiecare derivată are exact o sursă, din aceeași fotografie.
 
-**R5:** editarea nu mută versiuni între fotografii și nu modifică versiunile existente sau legenda. Schimbarea legendei nu modifică versiunile. Operațiile se execută pe rând.
+**R5:** editarea păstrează legenda fotografiei și, pentru versiunile existente, conținutul, identitatea, apartenența și sursa. Schimbarea legendei nu modifică versiunile. Operațiile se execută pe rând.
 
 ::: notes
 „Derivată” și „sursă” sunt roluri în relația de editare: aceeași versiune poate fi derivata uneia și sursa alteia. Sursa trebuie să existe înaintea noii versiuni. Executarea operațiilor pe rând ne scutește aici de întrebările despre editări simultane.
@@ -131,11 +133,11 @@ Fotografia reprezintă continuitatea dintre editări; versiunea reprezintă un c
 
 # După prima editare
 
-**Înainte:** fotografia F1, legenda „Curte”, originalul V1.
+**Pornim din nou din situația inițială, independent de S1:** fotografia F1, legenda „Curte”, originalul V1.
 
 **Cazul S2:** din V1 se creează, prin editare, versiunea V3.
 
-**Reguli (R4–R5):** versiunea nouă are identitate proprie, aparține aceleiași fotografii și are ca sursă versiunea de la care a pornit editarea. Editarea păstrează versiunile existente și legenda.
+**Reguli (R2, R4–R5):** versiunea nouă are identitate proprie, aparține aceleiași fotografii și are ca sursă versiunea de la care a pornit editarea. Editarea păstrează conținutul versiunilor existente și legenda.
 
 În pereche, schițați situația de după editare. Arătați **ce s-a adăugat**, **ce legătură a apărut** și **ce s-a păstrat**. Apoi comparați cu perechea vecină.
 
@@ -156,10 +158,10 @@ Așteptăm aceeași fotografie F1, acum cu V1 și V3; sursa lui V3 este V1. Con�
 | Versiune derivată | — | V3, aparține lui F1 |
 | Sursa lui V3 | — | V1 |
 
-**Concluzie:** editarea adaugă o versiune și o legătură de sursă; nimic din ce exista nu se schimbă.
+**Concluzie:** F1 are acum două versiuni. Identitatea sa, legenda și conținutul lui V1 se păstrează; V3 are sursa V1.
 
 ::: notes
-Acesta este răspunsul de referință construit de profesor din R2–R5, nu o captură AI. Nu confundăm „fotografia are o versiune nouă” cu „originalul are acum alt conținut”.
+Acesta este răspunsul de referință construit de profesor din R2–R5, nu o captură AI. Se adaugă două relații: V3 aparține lui F1 și are sursa V1. Nu spunem că „nimic din ce exista nu se schimbă”: F1 are acum încă o versiune, iar V1 este și sursă pentru V3. Se păstrează faptele existente despre identitate, legendă, conținut, apartenență și sursă.
 :::
 
 ---
@@ -253,18 +255,18 @@ Cardinalitatea nu spune totul: „exact o sursă” ar admite și o sursă din a
 
 ---
 
-# Interzis sau neconvenit?
+# Interzis sau încă neconvenit?
 
 **Cazul S4 — o asociere interzisă:** V1 aparține lui F1. Cineva propune V5 pentru F2, cu sursa V1. R4 o exclude: sursa și derivata trebuie să aparțină aceleiași fotografii.
 
 **Cazul S5 — o întrebare deschisă:** importăm din nou același fișier. Refolosim fotografia existentă sau creăm alta?
 
-**R6:** sunt excluse ștergerea, albumele, drepturile de acces, formatul și stocarea fișierelor, detectarea fișierelor identice și algoritmii de editare.
+**R6 — limitele exercițiului:** nu modelăm ștergerea, albumele, accesul, formatul și stocarea fișierelor, detectarea fișierelor identice sau algoritmii de editare.
 
-Nicio regulă nu dă răspunsul pentru S5: îl convenim cu arhivista.
+S4 încalcă o regulă. Pentru S5, **răspunsul rămâne deschis** până convenim cu arhivista extinderea modelului.
 
 ::: notes
-„Interzis” și „neconvenit” cer reacții diferite. Pentru S4 avem un rezultat justificat; pentru S5 trebuie discutat cu beneficiarul dacă extindem domeniul. Identificatorii sunt deja disponibili; nu proiectăm generarea lor.
+„Interzis” și „neconvenit” cer reacții diferite. Pentru S4 avem un rezultat justificat; pentru S5 trebuie discutat cu beneficiarul dacă extindem domeniul. O excludere din exercițiu nu este o interdicție a unei funcții într-un produs real: aici nu stabilim, de exemplu, o politică de ștergere. Identificatorii sunt deja disponibili; nu proiectăm generarea lor.
 :::
 
 ---
@@ -321,10 +323,12 @@ Contextul conține regulile și cazurile discutate până acum, fără soluția 
 
 **R1:** fotografia are identificator stabil și legendă modificabilă. **R5:** schimbarea legendei nu modifică versiunile.
 
-În pereche: aplicați fragmentul la S1 (F1 devine „Dimineață”, F2 rămâne „Curte”). Ce rămâne neschimbat? Ce s-ar strica dacă legenda ar aparține fiecărei versiuni?
+**S1:** F1 are originalul V1, F2 are originalul V2; ambele au legenda „Curte”. Schimbăm doar legenda lui F1 în „Dimineață”.
+
+În pereche: ce se păstrează? Ce regulă am încălca dacă schimbarea legendei ar modifica V1?
 
 ::: notes
-Fragmentul este corect: confirmăm o parte bună, nu căutăm obligatoriu o eroare în fiecare fragment. Rămân F1, F2, V1, V2 și legenda lui F2. Dacă legenda ar ține de versiune, V1 și V3 ar putea avea legende diferite, iar schimbarea legendei lui F1 ar modifica versiunile, contrar lui R5; R1 atribuie legenda fotografiei.
+Fragmentul este corect: confirmăm o parte bună, nu căutăm obligatoriu o eroare în fiecare fragment. Se păstrează identitățile F1, F2, V1, V2, conținutul și apartenența versiunilor, precum și legenda lui F2. Modificarea lui V1 la schimbarea legendei ar încălca R5; R1 atribuie legenda fotografiei. Nu confundăm regula de domeniu cu o alegere ulterioară despre stocarea acelei informații.
 
 **Sursă:** `haiku45-analist-02-response.md`, „Concepte și identități”, ultimul paragraf, integral; restul răspunsului este omis.
 
@@ -343,12 +347,14 @@ Fragmentul este corect: confirmăm o parte bună, nu căutăm obligatoriu o eroa
 >
 > Doi copaci independenți (V3 și V4 din V1) nu sunt definiți; modelul permite orice orice configurație DAG cu original ca sursă indirectă.
 
-Un graf orientat fără cicluri (**DAG**) interzice doar ciclurile; nu limitează câte săgeți intră într-un nod sau ies din el.
+Un **DAG** este un graf orientat fără cicluri: urmând sensul săgeților, nu poți reveni la nodul de plecare.
 
-În pereche: desenați V6, cu sursele V3 și V4, toate în F1, folosind săgeți „are sursa”. Este un DAG? Îl admite R4? Care fragment trebuie corectat?
+**Date:** V1 este originalul; V3 și V4 au sursa V1; toate aparțin lui F1. **R4:** fiecare derivată are exact o sursă.
+
+În pereche: adăugați V6 în F1 cu sursele V3 și V4. Desenați săgeți „are sursa”. Graful are cicluri? Respectă R4? Care fragment trebuie corectat?
 
 ::: notes
-„Zero sau o Sursă” respectă R4, dar „orice configurație DAG” admite și o versiune cu două surse. V6 nu are cicluri, deci este un DAG, dar încalcă R4: corectăm generalizarea. Răspunsul descrie corect cazul celor două ramuri în alt paragraf; defectul este generalizarea, nu întregul model. Nu cerem teorie a grafurilor: două săgeți „are sursa” care pleacă din aceeași derivată sunt suficiente ca exemplu.
+„Zero sau o Sursă” este compatibil cu R3–R4, dacă distingem originalul de derivate, dar „orice configurație DAG” admite și o versiune cu două surse. Graful cu V6 nu are cicluri, dar încalcă R4: corectăm generalizarea. Răspunsul descrie corect cazul celor două ramuri în alt paragraf; defectul este generalizarea, nu întregul model. Nu cerem teorie a grafurilor: V6 → V3 și V6 → V4 înseamnă două surse; V3 → V1 și V4 → V1 completează contraexemplul. Orientarea săgeților este cea a relației „are sursa”, spre versiunea anterioară.
 
 Repetiția „orice orice” este în original; nu discutăm formularea lingvistică.
 
@@ -381,20 +387,20 @@ Revizuirea nu primește comentariile profesorului sau conversația analistului A
 
 **Fragment din răspunsul AI — Claude Haiku 4.5, evaluator AI, rularea 3, 10 octombrie 2026:**
 
-> […] un **DAG** (graph aciclic orientat) permite noduri cu mai mulți părinți și configurații arbitrare. În S3, V3 și V4 nu sunt „doi copaci independenți" — sunt două noduri la același nivel în același arbore, ambii cu sursă V1.
+> […] un **DAG** (graph aciclic orientat) permite noduri cu mai mulți părinți și configurații arbitrare.
 
-**Cazul S3:** V3 provine din V1; edităm din nou V1 și obținem V4.
+**Două situații:** V3 și V4 au fiecare sursa V1 (S3); V6 ar avea sursele V3 și V4. **R4:** fiecare derivată are exact o sursă.
 
-Explicați observația prin două săgeți. Dacă S3 este permis, rezultă că orice DAG este permis?
+Ce situație respectă R4? Folosiți-o pe cealaltă pentru a explica de ce „fără cicluri” nu este suficient.
 
 ::: notes
-Observația despre ramuri este corectă; verificarea unui exemplu nu justifică generalizarea la toate grafurile fără cicluri. Răspunsul la întrebarea de predicție este „parțial”: revizuirea observă că un DAG admite mai mulți părinți și propune un arbore, dar tratează problema ca una de prezentare (pădure vs. DAG) și validează separat derivarea recursivă; legătura cu limita de o sursă din R4 o facem noi. Cererile ei despre mecanismele de implementare și prevenirea ștergerii depășesc sarcina de modelare și limitele R6; nu le adoptăm automat.
+Observația este corectă: un graf fără cicluri poate admite mai multe surse pentru aceeași derivată. S3 respectă R4; V6 cu două surse o încalcă. Răspunsul la întrebarea de predicție este „parțial”: revizuirea observă că un DAG admite mai mulți părinți și propune un arbore în răspunsul integral, dar tratează problema ca una de prezentare (pădure vs. DAG) și validează separat derivarea recursivă; legătura explicită cu limita de o sursă din R4 o facem noi. „Părinți” este termenul folosit în captură pentru surse; pe schițele noastre săgețile „are sursa” merg de la derivată la sursă.
 
-Analistul AI nu afirmă explicit că V3 și V4 sunt copaci independenți; revizuirea reacționează la propoziția omisă despre „pădure de versiuni”. Observația este corectă despre domeniu; dacă studenții remarcă nepotrivirea, o confirmăm: verificăm și ce anume contrazice o observație.
+Cererile revizuirii despre mecanismele de implementare și prevenirea ștergerii depășesc sarcina de modelare și limitele R6; nu le adoptăm automat. În textul integral, revizuirea discută și „doi copaci independenți”, deși analistul AI nu afirmă explicit asta. Acest pasaj nu este proiectat: nu avem nevoie de el pentru a verifica limita de o sursă.
 
-Și revizuirea citează inexact: în citatul ei din analistul AI lipsesc repetiția „orice” și finalul propoziției. Citatele unei revizuiri se verifică și ele în sursă. Ghilimelele inegale și acordul „ambii” sunt în original.
+În răspunsul integral, revizuirea citează și inexact: din citatul ei din analistul AI lipsesc repetiția „orice” și finalul propoziției. Citatele unei revizuiri se verifică și ele în sursă.
 
-**Sursă:** `haiku45-evaluator-03-response.md`, observația 1, paragraful „Problemă”: a doua propoziție, de la „un DAG”, și a treia, literale. „graph” este în original.
+**Sursă:** `haiku45-evaluator-03-response.md`, observația 1, paragraful „Problemă”: finalul celei de-a doua propoziții, de la „un DAG”, literal; restul este omis. „graph” este în original.
 
 **Organizare:** 4 min, inclusiv răspunsuri. []{.pace dur=4}
 :::
@@ -407,14 +413,14 @@ Analistul AI nu afirmă explicit că V3 și V4 sunt copaci independenți; revizu
 
 - Păstrăm identitățile și separarea fotografiei de versiuni.
 - Păstrăm mai multe derivate directe din aceeași sursă.
-- Înlocuim „orice DAG” cu **un arbore cu rădăcina în original: fiecare derivată are exact o sursă**.
+- Pentru **fiecare fotografie**, versiunile formează **un arbore cu rădăcina în original**: fiecare derivată are exact o sursă.
 
-**R3–R4:** originalul nu are sursă; sursa unei derivate este o versiune care exista deja.
+**R3–R5:** originalul este unic și nu are sursă; o derivată indică o versiune existentă anterior, din aceeași fotografie. Legăturile existente se păstrează.
 
 **În pereche:** de ce ajungem mereu la original, fără cicluri, dacă urmărim sursele din orice versiune?
 
 ::: notes
-Aceasta este corecția umană, nu o a treia captură AI. Justificarea: fiecare versiune nouă se adaugă printr-o singură legătură spre o versiune care exista deja. Urmărind sursele, trecem mereu la o versiune mai veche și ne oprim la original, singura fără sursă. Nu introducem acum operația de combinare a două versiuni.
+Aceasta este corecția umană a generalizării „orice DAG”, nu o a treia captură AI. Justificarea: fiecare versiune nouă se adaugă printr-o singură legătură spre o versiune care exista deja, fără a schimba sursele versiunilor anterioare. Urmărind sursele, trecem mereu la o versiune mai veche și ne oprim la originalul fotografiei, singura ei versiune fără sursă. Vorbim despre relațiile de sursă, nu despre săgețile de apartenență. Întreaga arhivă poate avea mai mulți arbori, câte unul pentru fiecare fotografie. Nu introducem acum operația de combinare a două versiuni.
 
 **Organizare:** 4 min, cu o justificare oferită de studenți. []{.pace dur=4}
 :::
@@ -433,10 +439,12 @@ Aceasta este corecția umană, nu o a treia captură AI. Justificarea: fiecare v
 | V3 | F1 | V1 |
 | V4 | F1 | V1 |
 
-În ambele variante, **ce ar trebui verificat înainte de a adăuga o versiune?**
+**Reguli:** fiecare fotografie are un original fără sursă. Fiecare derivată are o singură sursă existentă, din aceeași fotografie.
+
+Vrem să adăugăm V7 la F2, cu sursa V3. **Ce regulă încalcă propunerea în ambele reprezentări?**
 
 ::: notes
-O versiune fără sursă se acceptă doar la catalogare, ca unic original al unei fotografii noi. Altfel, sursa trebuie să existe, să fie una singură și să aparțină aceleiași fotografii; noua versiune primește identitate distinctă și nu înlocuiește conținutul alteia. Tabelul este reprezentarea unui exemplu, nu o schemă de bază de date prescrisă. Variantele sunt construite de profesor din modelul corectat.
+V3 aparține lui F1, deci nu poate fi sursa unei versiuni a lui F2 (R4), indiferent dacă folosim referințe sau identificatori. Pentru o verificare mai amplă: o versiune fără sursă se acceptă doar la catalogare, ca unic original al unei fotografii noi; o derivată are o singură sursă existentă, din aceeași fotografie. Noua versiune primește identitate distinctă și nu înlocuiește conținutul alteia. Tabelul este reprezentarea unui exemplu, nu o schemă de bază de date prescrisă. Variantele sunt construite de profesor din modelul corectat.
 :::
 
 ---
@@ -473,15 +481,15 @@ Transferul arată dacă studenții pot recunoaște nevoia de identitate și rela
 
 # Aceeași piesă, două reprezentații
 
-Un teatru identifică piesa **P7**, cu titlu modificabil. Piese distincte pot avea același titlu.
+Un teatru identifică piesa **P7**, cu titlu modificabil și identificator stabil. Piese distincte pot avea același titlu.
 
-P7 are reprezentațiile **Rp1**, vineri, și **Rp2**, sâmbătă. Fiecare reprezentație are identificator propriu și privește exact o piesă. O piesă poate exista fără reprezentații programate.
+P7 are reprezentațiile **Rp1**, vineri, și **Rp2**, sâmbătă. Fiecare reprezentație are identificator propriu și prezintă exact o piesă. O piesă poate avea oricâte reprezentații, inclusiv niciuna. Schimbarea titlului nu modifică reprezentațiile.
 
 Pe hârtie, apoi cu un coleg:
 
 1. Se schimbă titlul lui P7. Ce identități se păstrează?
 2. Câte reprezentații poate avea o piesă? Câte piese are o reprezentație?
-3. Ce informație pierdem dacă pentru P7 păstrăm doar titlul și data ultimei reprezentații?
+3. Ce informație despre reprezentații pierdem dacă pentru P7 păstrăm doar titlul și data ultimei reprezentații?
 
 ::: notes
 P7, Rp1 și Rp2 se păstrează. Piesa poate avea zero sau mai multe reprezentații; fiecare reprezentație exact o piesă. Data ultimei reprezentații nu păstrează ambele reprezentații și identitățile lor. Nu transferăm relația de sursă a editărilor: nu este cerută aici.

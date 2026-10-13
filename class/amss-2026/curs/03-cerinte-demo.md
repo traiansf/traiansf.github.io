@@ -1,4 +1,4 @@
-# Ghid pentru profesor — Cursul 3: Formularea problemei și cerințe
+# Ghid pentru profesor — Cursul 3: Formularea problemei și a cerințelor
 
 Prezentarea [03-cerinte.md](03-cerinte.md) are **30 de slide-uri cu tot cu copertă**, pentru 100 de minute. Enunțurile, prompturile, fragmentele AI discutate și comparațiile cu sursa sunt pe slide-uri; studenții folosesc numai coli albe și un pix. Acest document este pentru pregătirea profesorului.
 
@@ -8,7 +8,7 @@ Feedbackul titularului din 10 octombrie 2026: studenții au participat bine, au 
 
 Reducerea de la 45 la 30 de slide-uri, incluzând coperta, este însoțită de restrângerea obiectivelor: separarea informațiilor convenite de ipoteze și propuneri, delimitarea problemei și formularea unor cerințe verificabile. Nu comprimăm vechiul volum în slide-uri mai dense. Studenții au timp să formuleze și să argumenteze răspunsuri; exemplele lor fac parte din bugetul întâlnirii.
 
-La cererea titularului, etapa capturilor folosește acum **răspunsuri AI reale**, inclusiv pentru greșelile discutate. Pentru a păstra cele 30 de slide-uri, tabelul care relua rezolvarea exercițiului în perechi a fost eliminat; răspunsurile rămân în notele exercițiului. Etapa finală de revizuire are trei perechi prompt–răspuns. Exercițiul separat despre redeschidere și lista de predare au fost înlocuite de acest parcurs; redeschiderea rămâne exclusă în enunț.
+Etapa capturilor folosește **răspunsuri AI reale**, inclusiv pentru greșelile discutate, în trei perechi prompt–răspuns. Rezolvările exercițiilor rămân în notele lor, pentru a fi discutate cât timp datele și întrebarea sunt pe ecran. Redeschiderea sesizărilor este exclusă; o discuție suplimentară despre această schimbare este opțională și nu intră în cele 100 de minute.
 
 ## Parcurs și repere
 
@@ -30,7 +30,11 @@ Reperele cumulative sunt în notele tranzițiilor și în marcajele `.pace`. Dur
 
 Răspunsurile administrației se dezvăluie progresiv. La primul exercițiu acceptați întrebările utile chiar dacă ating o funcție pe care o vom exclude ulterior. Nu evaluați întrebările și ipotezele inițiale prin reguli pe care studenții nu le-au primit încă.
 
-Pentru R3, permiteți discutarea ambelor politici înainte să arătați acordul asupra sesizărilor separate. Legătura importantă: alegerea schimbă rezultatul cerut și drepturile de consultare. Pentru Q1, distingeți timpul de afișare de timpul de actualizare de către personal și de timpul reparației; pragul numeric vine abia după această clarificare.
+Pentru R3, permiteți discutarea ambelor politici înainte să arătați acordul asupra sesizărilor separate. Varianta comună ar modifica **ambele** reguli deja convenite: R1 nu ar mai crea o sesizare la fiecare trimitere validă, iar R2 ar permite și consultarea unei sesizări create de alt student. R3 confirmă păstrarea regulilor și pentru raportări despre aceeași defecțiune. Legătura importantă: o clarificare poate confirma o regulă sau poate cere revizuirea explicită a acordurilor anterioare.
+
+Un exemplu de acceptare arată rezultatul prin care sistemul respectă cerința. Acesta poate fi și **respingerea corectă** a unei cereri; nu echivalăm „acceptarea sistemului” cu aprobarea fiecărei acțiuni a utilizatorului. În exercițiul despre R4, cereți să fie precizate și motivul respingerii, și starea păstrată.
+
+Pentru Q1, distingeți timpul de afișare de timpul de actualizare de către personal și de timpul reparației; pragul numeric vine abia după această clarificare. Pragul de 95% privește timpul, nu permite afișări incorecte în restul lotului.
 
 ## Revizuirea și rolurile AI
 
