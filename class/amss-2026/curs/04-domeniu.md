@@ -227,7 +227,7 @@ F1 are originalul **V1** și derivata **V3**, creată din V1 (S2).
 Individual, apoi în pereche:
 
 1. Desenați relațiile de sursă după S3. De ce V4 nu are sursa V3?
-2. Ce ar răspunde la S3 un model care permite numai editarea ultimei versiuni? Ce regulă îl contrazice?
+2. Cum ar trata S3 un model care permite numai editarea ultimei versiuni? Ce regulă îl contrazice?
 
 ::: notes
 V3 și V4 au ambele sursa V1: două ramuri, nu lanțul V1–V3–V4. Sursa este versiunea de la care a pornit editarea, nu cea mai recentă versiune a fotografiei. Un model „numai ultima versiune” ar respinge S3, o acțiune permisă explicit de R4. Aici verificăm modelul printr-un caz care separă cele două interpretări.
@@ -441,7 +441,7 @@ Aceasta este corecția umană a generalizării „orice DAG”, nu o a treia cap
 
 **Reguli:** fiecare fotografie are un original fără sursă. Fiecare derivată are o singură sursă existentă, din aceeași fotografie.
 
-Vrem să adăugăm V7 la F2, cu sursa V3. R4 o respinge. **Cum se vede încălcarea în fiecare reprezentare:** ce comparăm în tabel și ce comparăm între referințe?
+Vrem să adăugăm V7 la F2, cu sursa V3. R4 respinge această adăugare. **Cum se vede încălcarea în fiecare reprezentare:** ce comparăm în tabel și ce comparăm între referințe?
 
 ::: notes
 V3 aparține lui F1, deci nu poate fi sursa unei versiuni a lui F2 (R4). În tabel, comparăm coloana Fotografie a rândului V7 (F2) cu cea a rândului sursei V3 (F1). Între referințe, comparăm fotografia la care se referă V7 cu fotografia la care se referă sursa ei V3. Ambele reprezentări permit verificarea; niciuna nu o face singură. Pentru o verificare mai amplă: o versiune fără sursă se acceptă doar la catalogare, ca unic original al unei fotografii noi; o derivată are o singură sursă existentă, din aceeași fotografie. Noua versiune primește identitate distinctă și nu înlocuiește conținutul alteia. Tabelul este reprezentarea unui exemplu, nu o schemă de bază de date prescrisă. Variantele sunt construite de profesor din modelul corectat.
@@ -472,7 +472,7 @@ Acesta este rezumatul pentru o conversație de proiectare, nu un șablon de livr
 Ce distincție păstrăm într-un domeniu nou?
 
 ::: notes
-Transferul arată dacă studenții pot recunoaște nevoia de identitate și relații fără vocabularul fotografiilor. Folosim doar regulile afișate în exercițiu.
+Transferul arată dacă studenții pot recunoaște nevoia de identitate și relații fără vocabularul fotografiilor. Folosim doar datele afișate în exercițiu.
 
 **Organizare:** minutul 90 din 100; interval 90–100 (10 min): exercițiu și discuție 7, încheiere 3. []{.pace at=90}
 :::
@@ -481,7 +481,7 @@ Transferul arată dacă studenții pot recunoaște nevoia de identitate și rela
 
 # Aceeași piesă, două reprezentații
 
-Un teatru ține evidența pieselor și a reprezentațiilor lor. Piesa **P7** are identificator stabil și titlul „Furtuna”; piesa **P8** are același titlu și nicio reprezentație încă. P7 are reprezentațiile **Rp1**, vineri, și **Rp2**, sâmbătă; fiecare reprezentație are identificator propriu.
+Un teatru ține evidența pieselor și a reprezentațiilor lor. Piesa **P7** are identificator stabil și titlul „Furtuna”; piesa **P8** are același titlu, dar nu are încă nicio reprezentație. P7 are reprezentațiile **Rp1**, vineri, și **Rp2**, sâmbătă; fiecare reprezentație are identificator propriu.
 
 Pe hârtie, apoi cu un coleg:
 

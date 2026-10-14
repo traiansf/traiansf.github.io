@@ -108,7 +108,7 @@ Diferența dintre intenție și interpretare arată unde trebuie clarificat mode
 
 # Încercăm schița altei perechi
 
-1. **Aparat fără vizite:** A19 a fost înregistrat, dar nu a venit încă la atelier. R2 permite zero vizite. Poate schița exprima situația?
+1. **Aparat fără vizite:** A19 a fost înregistrat, dar nu a venit încă la atelier. R2 permite zero vizite. Are schița loc pentru el?
 2. **Același text:** P1 în J1 și P3 în J3 spun „Pârghia nu rămâne jos”. R3 permite texte egale. Rămân distincte în schiță?
 3. **Două probleme:** la o nouă vizită J4, A18 vine cu două probleme raportate. R3 permite una sau mai multe. Poate schița exprima situația?
 

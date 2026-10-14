@@ -19,7 +19,7 @@ Fiecare rulare pornește Claude Code într-un director temporar gol, fără unel
 | [haiku45-evaluator-01](haiku45-evaluator-01-response.md) | [evaluator-prompt.md](evaluator-prompt.md) | Păstrată pentru trasabilitate; nu este proiectată. |
 | [haiku45-evaluator-02](haiku45-evaluator-02-response.md) | [evaluator-v2-prompt.md](evaluator-v2-prompt.md) | Fragment pe slide. |
 
-## Schimbarea intrării și selecția
+## Schimbarea datelor de intrare și selecția
 
 Prima revizuire a primit instrucțiunea cu diacritice înlocuite accidental cu „?” la transferul prin shell. Contextul și răspunsul analizat au rămas intacte. Fișierele și rezultatul acestei încercări sunt păstrate nemodificate. Rularea finală folosește `evaluator-v2-prompt.md`: repară transmiterea instrucțiunii și include explicit sarcina analistului AI, necesară ca revizuirea să poată aprecia corect limitele cerute. Nu comparăm cele două versiuni ca experiment controlat asupra modelului.
 

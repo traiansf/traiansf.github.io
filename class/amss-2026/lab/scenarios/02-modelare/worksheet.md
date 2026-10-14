@@ -4,7 +4,7 @@ Folosiți [scenariul](scenario.md) ca sursă. Nu este un formular de completat s
 
 1. Un coleg explică diferența dintre A17 și J1; celălalt cere un exemplu în care distincția contează. Schimbați rolurile pentru problemă raportată și voluntar.
 2. Schițați numai relațiile necesare. Spuneți în cuvinte câte asocieri sunt permise și ce regulă susține răspunsul.
-3. Invitați altă pereche să interpreteze schița folosind J1 și J2, înainte de explicațiile voastre. Verificați că J1 își păstrează problema și responsabilul. Inversați rolurile pentru schița celeilalte perechi.
+3. Invitați altă pereche să interpreteze schița pe cazurile de pe slide (A19 fără vizite, textul identic P1/P3, J4 cu două probleme), înainte de explicațiile voastre. Verificați și că J1 își păstrează problema și responsabilul după J2. Inversați rolurile pentru schița celeilalte perechi.
 4. Comparați o sugestie AI sau observația colegilor cu regulile. Este cerută de o regulă, este o alegere de reprezentare, contrazice o regulă sau ridică o întrebare? Ce parte acceptați și de ce?
 5. La schimbarea limitei la doi responsabili per vizită, explicați ce cardinalitate modificați. Încercați adăugarea Marei la J2, apoi a Ioanei (M3). Pentru fiecare cerere, precizați rezultatul și asocierile păstrate la J1 și J2.
 

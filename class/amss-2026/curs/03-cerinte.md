@@ -337,7 +337,7 @@ Cele trei intervale implică responsabilități diferite. Nu putem transforma o 
 
 **Consultări valide:** cele permise de R2, adică fiecare student își consultă propria sesizare.
 
-Celelalte 50 de consultări pot depăși 2 secunde, dar trebuie să afișeze tot starea corectă.
+Celelalte 50 de consultări pot depăși 2 secunde, dar trebuie să afișeze și ele starea corectă.
 
 ::: notes
 950 din 1.000 înseamnă 95%. Nici celelalte 50 nu pot afișa date greșite: R2 și cerința funcțională continuă să se aplice; Q1 privește pragul de timp. „Valide” privește dreptul de acces (R2), nu reușita: o consultare care eșuează rămâne în lot, nu se numără printre cele 950 reușite la timp, iar lipsa stării corecte încalcă cerința funcțională de consultare, indiferent de prag.
@@ -408,7 +408,7 @@ Cererea lasă deschise politicile și criteriile de calitate. Un răspuns util p
 
 # Răspunsul AI completează ce beneficiarul nu a spus
 
-**Cererea primită** nu precizează praguri de timp, redeschiderea sau închiderea automată.
+**Cererea primită** nu precizează praguri de timp, redeschiderea sau închiderea automată. Între timp am convenit Q1 (afișarea stării în cel mult 2 secunde, în condiții stabilite) și R4 (fără redeschidere).
 
 **Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 2 fără clarificări, 10 octombrie 2026:**
 
@@ -419,7 +419,7 @@ Cererea lasă deschise politicile și criteriile de calitate. Un răspuns util p
 > ȘI: poate cere reluarea dacă crede că nu e bine\
 > ȘI: după 3 zile fără răspuns, ticket se marchează "Închis"
 
-În perechi: **ce ar fi trebuit convenit cu administrația pentru fiecare propunere? Ce am convenit deja (R4, Q1)?**
+În perechi: **ce ar fi trebuit convenit cu administrația pentru fiecare propunere, și ce am convenit deja?**
 
 *Selecție din două încercări; ambele au introdus detalii neconfirmate.*
 

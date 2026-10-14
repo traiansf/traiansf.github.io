@@ -16,7 +16,7 @@ Materiale: [prezentare](02-modelare.md), [scenariu](scenarios/02-modelare/scenar
 
 ## Modelul de referință
 
-Analiză a profesorului, nu răspuns AI. Aparatul este un lucru fizic cu identitate stabilă; vizita este o ocazie distinctă în istoricul lui. Problema raportată aparține vizitei; nu este un diagnostic confirmat și nici o proprietate a aparatului, suprascrisă la fiecare vizită. Responsabilul se asociază vizitei, nu aparatului (R5).
+Analiză a profesorului, nu un răspuns AI. Aparatul este un lucru fizic cu identitate stabilă; vizita este o ocazie distinctă în istoricul lui. Problema raportată aparține vizitei; nu este un diagnostic confirmat și nici o proprietate a aparatului, suprascrisă la fiecare vizită. Responsabilul se asociază vizitei, nu aparatului (R5).
 
 | Relație | Număr permis |
 |---|---|
@@ -29,7 +29,7 @@ Analiză a profesorului, nu răspuns AI. Aparatul este un lucru fizic cu identit
 
 La înregistrarea J2 pentru A17, J1, P1 și asocierea J1–Mara rămân; J2 are P2 și Radu. P1 nu se copiază automat. J3 pentru A18 poate exista fără responsabil. P1 și P3 sunt distincte, deși textele coincid. Nu deducem că A17 și A18 sunt același aparat din modelul comun T2, nici că doi voluntari sunt aceeași persoană din nume.
 
-Sunt acceptabile cuvinte, tabele sau diagrame care exprimă aceste distincții. „Original” și relația de sursă de la cursul 4 nu se transferă aici. Nu cereți clase, scheme SQL, operații cu pre/postcondiții sau teoria responsabilităților din cursul 5. Dacă o pereche termină devreme, poate verifica pe schița celeilalte și revenirea: cine răspundea de J1 după înregistrarea lui J2.
+Sunt acceptabile cuvinte, tabele sau diagrame care exprimă aceste distincții. „Original” și relația de sursă de la cursul 4 nu se transferă aici. Nu cereți clase, scheme SQL, operații cu pre/postcondiții sau teoria responsabilităților din cursul 5. Dacă o pereche termină devreme, poate verifica, pe schița celeilalte, și revenirea: cine răspundea de J1 după înregistrarea lui J2.
 
 La comparația între perechi, B alege unul dintre cazurile afișate și îl explică folosind schița lui A. A ascultă, apoi clarifică. Repetați cu schița lui B și rolurile inversate. Verificați sensul relațiilor, nu convenția grafică. La cazul A19, modelul trebuie să admită un aparat înregistrat fără vizite (R2); la cazul J4, două probleme distincte pentru aceeași vizită, chiar dacă datele inițiale aveau doar câte una.
 
