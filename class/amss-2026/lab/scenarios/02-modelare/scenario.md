@@ -38,4 +38,4 @@ La comparația cu AI, furnizați acordul R1–R6 și datele inițiale, sarcina �
 
 Organizatorii schimbă R4: orice vizită poate avea **zero, unul sau doi voluntari responsabili**. Celelalte reguli rămân neschimbate. La început, J1 o are pe Mara (M1), iar J2 pe Radu (M2); ambele vizite sunt pentru A17.
 
-Încercați succesiv două cereri: adăugarea Marei la J2, apoi adăugarea Ioanei (M3) la J2. Formulați **înainte → cerere → după** pentru fiecare: ce se acceptă, ce se respinge și cine rămâne asociat fiecărei vizite? Precizați cardinalitatea care se schimbă și o întrebare despre responsabilitatea comună.
+Încercați succesiv două cereri ale organizatorilor: adăugarea Marei la J2, apoi adăugarea Ioanei (M3) la J2. Formulați pentru fiecare un exemplu de acceptare, ca la cursul 3 (**starea inițială → cine cere ce → rezultatul observabil**): ce se acceptă, ce se respinge și cine rămâne asociat fiecărei vizite? Precizați cardinalitatea care se schimbă și o întrebare despre responsabilitatea comună.

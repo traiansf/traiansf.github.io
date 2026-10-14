@@ -126,9 +126,9 @@ Delimitarea trebuie convenită, nu dedusă din lipsa unei funcții în enunț. A
 
 # Ce știm și ce rămâne de convenit?
 
-**Pentru comparație:** R1 cere un număr unic, afișat studentului. Notificările sunt excluse. Nu am convenit încă praguri de calitate.
+**Reamintim:** R1 creează sesizarea cu număr unic, afișat studentului; R2 stabilește accesul. În afara primei versiuni: fotografii, notificări, repartizarea echipelor, prioritizarea, termenele.
 
-**Captură reală:** Claude Haiku 4.5 · 10.10.2026 · inițial 2/2, fără clarificări.
+**Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 2 fără clarificări, 10 octombrie 2026:**
 
 | Afirmația din răspunsul AI | Cum o tratăm acum? |
 |---|---|
@@ -136,9 +136,7 @@ Delimitarea trebuie convenită, nu dedusă din lipsa unei funcții în enunț. A
 | Confirmare imediată via email/mesaj cu ID-ul ticket-ului | ? |
 | 99% timp de funcționare | ? |
 
-Ce este confirmat, ce depășește limitele și ce rămâne de convenit?
-
-**Ipoteză:** presupunere de verificat. **Propunere:** opțiune de discutat.
+Pentru fiecare: **confirmată**, **în afara limitelor**, **ipoteză** de verificat sau **propunere** de discutat?
 
 ::: notes
 Unicitatea este confirmată prin R1. Notificarea prin email/mesaj nu intră în versiunea convenită; R1 cere însă ca studentul să vadă numărul în interfață. Disponibilitatea de 99% este o cerință de calitate propusă, nediscutată cu administrația: ar trebui convenite și perioada, și modul de măsurare.
@@ -223,7 +221,7 @@ Un exemplu de acceptare concretizează o regulă. El poate scoate la iveală o �
 
 # De la intenție la cerință
 
-„Studentul poate raporta o defecțiune” devine:
+„Studentul poate raporta o defecțiune” devine cerința **R1**, în forma completă:
 
 **Când** studentul identificat trimite locul și descrierea defecțiunii, ambele nevide, **sistemul creează** sesizarea, cu studentul ca autor, și îi afișează numărul unic și starea „înregistrată”.
 
@@ -339,10 +337,10 @@ Cele trei intervale implică responsabilități diferite. Nu putem transforma o 
 
 **Consultări valide:** cele permise de R2, adică fiecare student își consultă propria sesizare.
 
-Pragul de timp nu permite afișarea unor stări greșite în celelalte 50 de consultări.
+Celelalte 50 de consultări pot depăși 2 secunde, dar trebuie să afișeze tot starea corectă.
 
 ::: notes
-950 din 1.000 înseamnă 95%. Nici celelalte 50 nu pot afișa date greșite: R2 și cerința funcțională continuă să se aplice; Q1 privește pragul de timp. „Valide” nu înseamnă consultări reușite: o consultare care eșuează rămâne în lot, dar nu intră între cele 950 reușite la timp.
+950 din 1.000 înseamnă 95%. Nici celelalte 50 nu pot afișa date greșite: R2 și cerința funcțională continuă să se aplice; Q1 privește pragul de timp. „Valide” privește dreptul de acces (R2), nu reușita: o consultare care eșuează rămâne în lot, nu se numără printre cele 950 reușite la timp, iar lipsa stării corecte încalcă cerința funcțională de consultare, indiferent de prag.
 
 Nu există măsurători reale aici. Un plan de măsurare complet ar fixa și dispozitivele, browserul, profilul cererilor, setul de date și condițiile rețelei. Acestea trebuie convenite înaintea verificării; exemplul nu constituie un acord operațional complet.
 :::
@@ -410,16 +408,18 @@ Cererea lasă deschise politicile și criteriile de calitate. Un răspuns util p
 
 # Răspunsul AI completează ce beneficiarul nu a spus
 
-**Cererea primită:** studentul trebuie să poată raporta o problemă și să-i vadă rapid starea. Nu precizează praguri de timp, redeschiderea sau închiderea automată.
+**Cererea primită** nu precizează praguri de timp, redeschiderea sau închiderea automată.
 
 **Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 2 fără clarificări, 10 octombrie 2026:**
 
 > < 2 secunde pentru încărcarea paginii
 
+*Din exemplul de acceptare 3 al aceluiași răspuns, după ce administrația marchează „Rezolvat”:*
+
 > ȘI: poate cere reluarea dacă crede că nu e bine\
 > ȘI: după 3 zile fără răspuns, ticket se marchează "Închis"
 
-În perechi: **ce decizii trebuie cerute administrației pentru fiecare propunere?**
+În perechi: **ce ar fi trebuit convenit cu administrația pentru fiecare propunere? Ce am convenit deja (R4, Q1)?**
 
 *Selecție din două încercări; ambele au introdus detalii neconfirmate.*
 
@@ -463,7 +463,7 @@ Contextul cu răspunsurile administrației înlocuiește ipotezele cu informați
 
 **Q1, în contextul primit de analistul AI:** aceleași valori, dar și **rețeaua campusului** și intervalul măsurat, **de la acțiunea de consultare în browser până la afișarea stării**.
 
-Pe hârtie: ce s-ar putea măsura diferit dacă predăm numai rezumatul? **Rescrieți cerința, păstrând toate condițiile.**
+Pe hârtie: ce s-ar putea măsura diferit dacă transmitem mai departe numai rezumatul? **Rescrieți cerința, păstrând toate condițiile.**
 
 ::: notes
 Lipsesc rețeaua și punctele de măsurare. Cineva ar putea măsura doar răspunsul serverului, ignorând timpul până la afișarea în browser, sau ar putea evalua în altă rețea. Numerele corecte nu compensează pierderea condițiilor.
@@ -479,7 +479,7 @@ Corecția profesorului: cu 10.000 de sesizări și 20 de consultări simultane �
 
 # Promptul evaluatorului AI
 
-**Evaluator (agent AI de revizuire), context separat:** cererea, regulile convenite și excluderile, plus răspunsul integral al analistului AI din rularea 1. Fără sarcina analistului AI și fără corecția profesorului.
+**Evaluator (agent AI de revizuire), context separat:** cererea, regulile convenite și excluderile, plus răspunsul integral al analistului AI (rularea 1); fără sarcina analistului AI și fără corecția profesorului.
 
 **Instrucțiunea exactă, la finalul promptului:**
 

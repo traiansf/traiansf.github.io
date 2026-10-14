@@ -24,7 +24,7 @@ Fragment din [evaluatorul AI 02](captures/2026-10-10/haiku45-evaluator-02-respon
 
 > Propunerea presupune că identitatea e **(cod vizită + ordine)**. Contextul nu specifică acest format. […] De ce nu cod global pentru problemă?
 
-Explicați colegului ce parte acceptați și de ce. Întrebarea evaluatorului face obligatoriu un cod global? Precizați alegerea voastră și condițiile în care păstrează identitatea. Nu există o fișă de completat sau de predat.
+Explicați colegului ce parte acceptați și de ce. Întrebarea evaluatorului AI face obligatoriu un cod global? Precizați alegerea voastră și condițiile în care păstrează identitatea. Nu există o fișă de completat sau de predat.
 
 ## Reper pentru discuție — analiza profesorului
 

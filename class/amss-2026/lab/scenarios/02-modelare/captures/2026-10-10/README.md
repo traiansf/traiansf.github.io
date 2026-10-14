@@ -19,10 +19,10 @@ Fiecare rulare pornește Claude Code într-un director temporar gol, fără unel
 | [haiku45-evaluator-01](haiku45-evaluator-01-response.md) | [evaluator-prompt.md](evaluator-prompt.md) | Păstrată pentru trasabilitate; nu este proiectată. |
 | [haiku45-evaluator-02](haiku45-evaluator-02-response.md) | [evaluator-v2-prompt.md](evaluator-v2-prompt.md) | Fragment pe slide. |
 
-## Schimbarea inputului și selecția
+## Schimbarea intrării și selecția
 
 Prima revizuire a primit instrucțiunea cu diacritice înlocuite accidental cu „?” la transferul prin shell. Contextul și răspunsul analizat au rămas intacte. Fișierele și rezultatul acestei încercări sunt păstrate nemodificate. Rularea finală folosește `evaluator-v2-prompt.md`: repară transmiterea instrucțiunii și include explicit sarcina analistului AI, necesară ca revizuirea să poată aprecia corect limitele cerute. Nu comparăm cele două versiuni ca experiment controlat asupra modelului.
 
 Analistul AI 01 păstrează corect vizitele și relațiile, dar prezintă identificarea problemei prin (cod vizită + ordine) fără a o eticheta drept alegere. Evaluatorul AI 02 observă corect că R3 nu specifică acest format. Discutăm o reprezentare posibilă, nu o contradicție demonstrată cu cerințele.
 
-Exemplele au fost selectate pentru discuție, fără prompturi care să ceară introducerea unor greșeli. Nu estimăm frecvența erorilor, nu evaluăm statistic modelul și nu garantăm repetarea aceluiași output. Analiza și corecțiile profesorului sunt separate de citatele AI.
+Exemplele au fost selectate pentru discuție, fără prompturi care să ceară introducerea unor greșeli. Nu estimăm frecvența erorilor, nu evaluăm statistic modelul și nu garantăm repetarea aceluiași răspuns. Analiza și corecțiile profesorului sunt separate de citatele AI.

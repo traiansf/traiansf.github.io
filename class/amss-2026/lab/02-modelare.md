@@ -38,7 +38,7 @@ Selectăm aspectele necesare urmăririi vizitelor; nu proiectăm întregul ateli
 
 # Trei vizite la atelier
 
-**A17 și A18 sunt aparate fizice distincte**, deși ambele sunt prăjitoare de pâine model T2.
+Organizatorii unui atelier comunitar de reparații (beneficiarul) țin evidența aparatelor aduse, a vizitelor, a problemelor raportate și a voluntarilor responsabili. **A17 și A18 sunt aparate fizice distincte**, deși ambele sunt prăjitoare de pâine model T2.
 
 | Vizită | Aparat | Problemă raportată | Responsabil |
 |---|---|---|---|
@@ -108,14 +108,14 @@ Diferența dintre intenție și interpretare arată unde trebuie clarificat mode
 
 # Încercăm schița altei perechi
 
-1. **Revenire:** A17 are J1 cu Mara; apare J2 cu Radu. Puteți afla în continuare cine răspundea de J1?
+1. **Aparat fără vizite:** A19 a fost înregistrat, dar nu a venit încă la atelier. R2 permite zero vizite. Poate schița exprima situația?
 2. **Același text:** P1 în J1 și P3 în J3 spun „Pârghia nu rămâne jos”. R3 permite texte egale. Rămân distincte în schiță?
 3. **Două probleme:** la o nouă vizită J4, A18 vine cu două probleme raportate. R3 permite una sau mai multe. Poate schița exprima situația?
 
 **Pe schița perechii A, perechea B alege un caz și explică prima** cum îl exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Discutați o neclaritate sau o diferență între soluții.
 
 ::: notes
-Toate cele trei situații trebuie să poată fi exprimate: J1 își păstrează responsabilul, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Dacă timpul permite, adăugați un aparat înregistrat fără vizite și verificați limita zero din R2.
+Toate cele trei situații trebuie să poată fi exprimate: A19 există fără nicio vizită, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Revenirea (cine răspundea de J1 după J2) a fost sarcina de construcție; rămâne un caz de rezervă dacă o pereche termină devreme.
 
 **Organizare:** 19 min: 2 citire, 12 schimb și comparație, 5 discuție comună. []{.pace dur=19}
 :::
@@ -156,9 +156,9 @@ Este o alegere de reprezentare posibilă, prezentată fără a fi marcată ca al
 
 ---
 
-# Verificăm și observația evaluatorului
+# Verificăm și observația evaluatorului AI
 
-**Într-un context nou**, dați evaluatorului AI regulile R1–R6, datele inițiale, sarcina și răspunsul de verificat: modelul vostru sau captura integrală. Cereți observații susținute de reguli și exemple, cu încălcările separate de alegerile de reprezentare. Puteți cere aceeași verificare altei perechi.
+**Într-un context nou**, dați unui **evaluator (agent AI de revizuire)** regulile R1–R6, datele inițiale, sarcina și răspunsul de verificat: modelul vostru sau captura integrală. Cereți observații susținute de reguli și exemple, cu încălcările separate de alegerile de reprezentare. Puteți cere aceeași verificare altei perechi.
 
 **Captură reală · Claude Haiku 4.5 · 10.10.2026 · evaluator AI 02**, despre identificator:
 
@@ -166,7 +166,7 @@ Este o alegere de reprezentare posibilă, prezentată fără a fi marcată ca al
 
 **Ce parte acceptați? Este obligatoriu un cod global?** Celălalt coleg conduce discuția: ce păstrați și cum precizați alegerea?
 
-[Capturile pregătite: instrucțiunea reală a evaluatorului și răspunsurile integrale](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/prepared-fixture.md)
+[Capturile pregătite: instrucțiunea reală a evaluatorului AI și răspunsurile integrale](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/prepared-fixture.md)
 
 ::: notes
 Acceptăm observația că formatul identificatorului nu este cerut de R3; datele nu spun dacă P1–P3 sunt coduri globale sau locale vizitei. Întrebarea „De ce nu cod global?” propune o alternativă, nu dovedește că ea este obligatorie. Păstrăm identificarea prin (cod vizită + număr local) dacă numărul este unic în vizită și rămâne stabil; o etichetăm ca alegere. Și un cod global poate respecta aceleași reguli. Nu confundăm poziția curentă într-o listă sortată cu identitatea înregistrării.
@@ -200,8 +200,8 @@ Schimbarea arată dacă modelul separă conceptele utile. Nu introducem repartiz
 
 Gândiți individual, apoi explicați colegului:
 
-1. Ce relație și ce cardinalitate se schimbă?
-2. Formulați **înainte → cerere → după** pentru două cereri succesive: adăugarea Marei la J2, apoi adăugarea Ioanei (M3) la J2. Ce acceptați, ce respingeți și cine rămâne asociat fiecărei vizite?
+1. Ce relație și ce cardinalitate (numărul permis de asocieri) se schimbă?
+2. Scrieți două exemple de acceptare, ca la cursul 3 (**starea inițială → cine cere ce → rezultatul observabil**), pentru două cereri succesive ale organizatorilor: adăugarea Marei la J2, apoi adăugarea Ioanei (M3) la J2. Ce acceptați, ce respingeți și cine rămâne asociat fiecărei vizite?
 3. Ce ați întreba organizatorii despre responsabilitatea comună?
 
 ::: notes

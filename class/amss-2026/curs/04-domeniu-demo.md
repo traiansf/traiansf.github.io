@@ -24,7 +24,7 @@ Prompturile și răspunsurile provin din [rulări reale Claude Haiku 4.5 din 10.
 
 Numerotarea include coperta. Slide-ul 20 arată instrucțiunea exactă a analistului AI și identifică contextul; slide-urile 21–22 arată fragmente din analistul AI 02. Fragmentul de pe slide-ul 21 este corect. Slide-ul 22 pune alături „zero sau o Sursă”, compatibil cu R3–R4 dacă distingem originalul de derivate, și generalizarea excesivă de la ramuri la orice DAG. R4 și datele necesare contraexemplului sunt pe același slide. Cerem verdict, exemplu și regulă înainte de a arăta revizuirea.
 
-Slide-ul 23 arată instrucțiunea exactă a evaluatorului (agent AI de revizuire), iar 24 un fragment din rularea 03: observația că un DAG admite mai mulți părinți. Studenții compară două derivate cu sursa comună V1 și o derivată cu două surse; leagă astfel observația de R4. Pasajul revizuirii despre „doi copaci independenți” rămâne în sursa integrală, dar nu este proiectat: aduce o problemă de citare care ar distrage discuția. Slide-ul 25 este explicit analiza profesorului și precizează că avem un arbore de versiuni pentru fiecare fotografie; 26 verifică aceeași regulă de apartenență în două reprezentări. Aceste slide-uri nu sunt răspunsuri AI.
+Slide-ul 23 arată instrucțiunea exactă a evaluatorului (agent AI de revizuire), iar 24 un fragment din rularea 03: observația că un DAG admite mai mulți părinți. Studenții verifică predicția de pe slide-ul 23: fragmentul confirmă problema, dar nu numește limita „exact o sursă” din R4 și nici contraexemplul V6 construit pe slide-ul 22; legătura o adăugăm noi. Pasajul revizuirii despre „doi copaci independenți” rămâne în sursa integrală, dar nu este proiectat: aduce o problemă de citare care ar distrage discuția. Slide-ul 25 este explicit analiza profesorului și precizează că avem un arbore de versiuni pentru fiecare fotografie; 26 verifică aceeași regulă de apartenență în două reprezentări. Aceste slide-uri nu sunt răspunsuri AI.
 
 În răspunsurile integrale există și observații secundare; nu este necesar să le citiți în timpul cursului. Nu transformați greșelile de limbă în obiectul demonstrației. Registrul `excerpts.json` indică sursa fiecărui fragment, iar README explică selecția și limitele capturilor.
 
@@ -32,9 +32,9 @@ Slide-ul 23 arată instrucțiunea exactă a evaluatorului (agent AI de revizuire
 
 - La două legende egale, cereți să fie identificate ambele fotografii după schimbarea uneia dintre legende.
 - La prima editare, cereți să fie arătate conținutul păstrat și relațiile noi: V3 aparține lui F1 și are sursa V1. F1 are încă o versiune; „nimic nu se schimbă” ar fi imprecis.
-- La reeditarea originalului, întrebați de ce V4 nu trebuie să provină din V3.
+- La reeditarea originalului, întrebarea de pe slide este de ce V4 nu provine din V3: sursa este versiunea editată, nu cea mai recentă.
 - La „orice DAG”, folosiți doar cazul unei derivate cu două surse; nu deduceți că analistul AI a greșit toate relațiile.
 - La R6, separați excluderea din model de o interdicție a unei funcții într-un produs real. S4 încalcă R4; S5 rămâne o întrebare pentru extinderea modelului.
-- În transferul final, piesa are zero sau mai multe reprezentații, fiecare reprezentație exact o piesă. Nu transferăm relația de sursă: nu există în noul enunț.
+- În transferul final, studenții propun cardinalitățile din exemple: P8 arată zero reprezentații, P7 două; „o reprezentație prezintă o piesă” este susținut de date, dar o limită strictă ar fi de convenit cu teatrul. Nu transferăm relația de sursă: nu există în noul enunț.
 
 După predare, notați unde discuția a avut nevoie de mai mult timp și ce idei au cerut reluare. Ajustăm selecția ideilor, fără a înghesui mai mult text în cele 30 de slide-uri.

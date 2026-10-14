@@ -1,6 +1,6 @@
 # Arhiva fotografică — raționament de referință
 
-Analiză a profesorului, derivată din [regulile scenariului](brief.md). Nu este output capturat de la un agent AI.
+Analiză a profesorului, derivată din [regulile scenariului](brief.md). Nu este răspuns capturat de la un agent AI.
 
 Fotografia are identitate stabilă și legendă modificabilă. Versiunea are identitate proprie, conținut păstrat și apartenență la exact o fotografie. Originalul este rolul unicei versiuni create la catalogare; nu impune o clasă separată. Legenda nu identifică fotografia și nu aparține fiecărei versiuni.
 
