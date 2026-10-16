@@ -243,18 +243,20 @@ Un exemplu de acceptare concretizează o regulă. El poate scoate la iveală o �
 
 # De la intenție la cerință
 
-„Studentul poate raporta o defecțiune” devine cerința **R1**, în forma completă:
+**Cererea** spunea „să poată raporta o problemă”. **Răspunsul administrației** (R1, mai devreme) a adăugat cine, ce date și ce rezultat. **Forma verificabilă** adaugă condiția precisă și cazul de respingere:
 
 > **Când** studentul autentificat trimite locul și descrierea defecțiunii, ambele nevide, **sistemul creează** sesizarea, cu studentul ca autor, și îi afișează numărul unic și starea „înregistrată”.
 >
 > **Dacă lipsește** locul sau descrierea, sistemul indică informația lipsă și nu creează sesizarea.
 
-Un **exemplu de acceptare** descrie un caz concret și rezultatul așteptat. Poate verifica și **o respingere corectă**.
+Un **exemplu de acceptare** descrie un caz concret și rezultatul așteptat; poate verifica și **o respingere corectă**:
 
 *Ana trimite „A12” și „robinetul curge” → sesizare nouă a Anei, „înregistrată”; Ana vede numărul și starea.*
 
 ::: notes
-Aceasta este forma completă a lui R1, convenită în scenariul didactic. Urmărim cine cere, în ce condiții și ce rezultat observabil trebuie să obțină, inclusiv la respingere. Nu prescriem formularul, baza de date sau algoritmul de generare a numărului.
+Conținutul convenit nu se schimbă; se adaugă precizia necesară unei decizii. „Obligatorii” devine „ambele nevide”: o condiție pe care două echipe o verifică la fel. Din „obligatorii” deducem că fără loc sau descriere sesizarea nu se creează (consecință dedusă). Că sistemul indică informația lipsă este propunerea noastră, confirmată de administrație în scenariul didactic. Cereți studenților tipul fiecărui adaos.
+
+Urmărim cine cere, în ce condiții și ce rezultat observabil obține, inclusiv la respingere. Nu prescriem formularul, baza de date sau algoritmul de generare a numărului.
 
 „Nevide” este suficient pentru exemplele de astăzi; validarea unui loc real sau tratarea șirurilor formate doar din spații ar necesita precizări dacă le includem. Nu pretindem că o singură propoziție epuizează toate condițiile unui produs real.
 
