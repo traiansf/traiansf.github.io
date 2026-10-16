@@ -10,6 +10,6 @@
     "bundle": "reveal-classroom bundle --dist dist --deploy deploy"
   },
   "dependencies": {
-    "reveal-classroom": "github:traiansf/reveal-classroom#v0.2.0"
+    "reveal-classroom": "github:traiansf/reveal-classroom#v0.3.0"
   }
 }
