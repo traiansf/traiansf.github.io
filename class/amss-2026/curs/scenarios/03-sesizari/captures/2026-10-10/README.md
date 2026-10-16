@@ -14,10 +14,10 @@
 | Rulare | Răspuns integral | Observație și utilizare |
 |---|---|---|
 | Inițial 1 | [haiku45-initial-01-response.md](haiku45-initial-01-response.md) | Introduce notificări, repartizare, praguri numerice și o promisiune de verificare în 24 de ore. Păstrat, neproiectat. |
-| **Inițial 2** | [haiku45-initial-02-response.md](haiku45-initial-02-response.md) | **Selectat** pentru exemple scurte: email/mesaj și 99% timp de funcționare (slide-ul 9); sub două secunde, cererea de reluare și închiderea după trei zile (slide-ul 23). |
-| **Analist 1** | [haiku45-analist-01-response.md](haiku45-analist-01-response.md) | **Selectat** pentru propoziția compactă despre Q1: păstrează numerele, omite rețeaua și punctele de măsurare. Slide-ul 25; răspunsul integral este trimis ambilor evaluatori AI. |
+| **Inițial 2** | [haiku45-initial-02-response.md](haiku45-initial-02-response.md) | **Selectat** pentru exemple scurte: email/mesaj și 99% timp de funcționare (slide-ul 10); sub două secunde, cererea de reluare și închiderea după trei zile (slide-ul 24). |
+| **Analist 1** | [haiku45-analist-01-response.md](haiku45-analist-01-response.md) | **Selectat** pentru propoziția compactă despre Q1: păstrează numerele, omite rețeaua și punctele de măsurare. Slide-ul 26; răspunsul integral este trimis ambilor evaluatori AI. |
 | Analist 2 | [haiku45-analist-02-response.md](haiku45-analist-02-response.md) | Păstrează pragul și încărcarea, dar omite aceleași două condiții. Păstrat, neproiectat. |
-| **Evaluator 1** | [haiku45-evaluator-01-response.md](haiku45-evaluator-01-response.md) | **Selectat** pentru confirmarea explicită a pragului numeric, fără semnalarea celor două condiții omise. Observă util și ambiguitatea „afișează confirmarea”. Slide-ul 27. |
+| **Evaluator 1** | [haiku45-evaluator-01-response.md](haiku45-evaluator-01-response.md) | **Selectat** pentru confirmarea explicită a pragului numeric, fără semnalarea celor două condiții omise. Observă util și ambiguitatea „afișează confirmarea”. Slide-ul 28. |
 | Evaluator 2 | [haiku45-evaluator-02-response.md](haiku45-evaluator-02-response.md) | Discută alte omisiuni, inclusiv corectitudinea consultărilor mai lente, dar nu semnalează rețeaua și punctele de măsurare. Păstrat, neproiectat. |
 
 Nu au fost necesare alte încercări. Nu s-a schimbat promptul între repetările aceluiași rol. Cele trei prompturi diferă pentru că răspund unor etape distincte ale lecției, nu pentru a induce un răspuns greșit. Nu am cerut erori, un număr minim de defecte sau imitarea unui exemplu redactat.
@@ -48,4 +48,4 @@ Fișierele `*-response.md` păstrează integral câmpul `result` al răspunsului
 
 [Registrul fragmentelor](excerpts.json) leagă textele proiectate de răspunsurile integrale. Se extrag puncte, celule sau propoziții fidele; doar marcajele listei și încadrarea vizuală se schimbă. În citatul evaluatorului AI, finalul omis este marcat `[…]`. Tabelul de comparație și corecțiile sunt analiza profesorului, nu continuarea răspunsului AI.
 
-Promptul inițial este integral pe slide-ul 22. Pe slide-urile 24 și 26 apar instrucțiunile exacte și lista contextului predat; regulile relevante sunt deja în prezentare și sunt repetate lângă fragmentele analizate. Nu este nevoie de documentele din acest director în timpul cursului.
+Promptul inițial este integral pe slide-ul 23. Pe slide-urile 25 și 27 apar instrucțiunile exacte și lista contextului predat; regulile relevante sunt deja în prezentare și sunt repetate lângă fragmentele analizate. Nu este nevoie de documentele din acest director în timpul cursului.
