@@ -83,7 +83,7 @@ Care afirmații sunt convenite și care încă așteaptă un răspuns?
 ::: notes
 Clarificarea transformă o întrebare deschisă sau o ipoteză într-o informație convenită. Pentru fiecare cerință trebuie să putem indica sursa sau persoana care a convenit-o.
 
-**Organizare:** minutul 15 din 100; interval 15–35 (20 min), cu întrebări și discuția despre sesizări repetate. []{.pace at=15}
+**Organizare:** minutul 15 din 100; interval 15–35 (20 min), cu întrebări, discuția despre sesizări repetate și tipurile de cerințe. []{.pace at=15}
 :::
 
 ---
@@ -163,7 +163,7 @@ Pentru fiecare: **informație convenită** (inclusă sau exclusă), **consecinț
 ::: notes
 Unicitatea este informație convenită prin R1; generarea automată a numărului este o consecință dedusă: R1 spune că sistemul creează sesizarea cu număr unic, iar studentul indică doar locul și descrierea. Notificarea prin email/mesaj este exclusă explicit din prima versiune; R1 cere însă ca studentul să vadă numărul în interfață. Disponibilitatea de 99% este o propunere de cerință de calitate, nediscutată cu administrația; ea ridică întrebări deschise: ce disponibilitate vrea administrația, pe ce perioadă și cum se măsoară.
 
-Modelul AI primise numai cererea inițială și sarcina de a propune o specificație, fără clarificări. Discutăm ce păstrăm după răspunsurile administrației, nu încălcarea unor reguli pe care nu le primise. Nici ipoteza, nici propunerea nu constituie un acord. Promptul integral apare pe slide-ul 23. Formulările și terminologia modelului AI sunt păstrate. Captura provine din a doua dintre cele două rulări inițiale, la 10 octombrie 2026.
+Modelul AI primise numai cererea inițială și sarcina de a propune o specificație, fără clarificări. Discutăm ce păstrăm după răspunsurile administrației, nu încălcarea unor reguli pe care nu le primise. Nici ipoteza, nici propunerea nu constituie un acord. Promptul integral apare pe slide-ul 24. Formulările și terminologia modelului AI sunt păstrate. Captura provine din a doua dintre cele două rulări inițiale, la 10 octombrie 2026.
 
 **Sursă:** `scenarios/03-sesizari/captures/2026-10-10/haiku45-initial-02-response.md`; două puncte din „Raportare problemă” și celula din rândul „Disponibilitate”, fără modificări de conținut.
 
@@ -211,20 +211,46 @@ R3 confirmă că păstrăm R1 și R2 și pentru raportări despre aceeași defec
 
 ---
 
-# Cerințele răspund la întrebări diferite
+# Tipuri de cerințe
 
-| Întrebare | Tip de cerință | Exemplu |
+| Tip de cerință | La ce întrebare răspunde | Exemplu din campus |
 |------|-----|---------|
-| Ce poate face utilizatorul? | Cerință funcțională | Studentul consultă starea propriei sesizări. |
-| Ce politică a administrației trebuie respectată? | Regulă a domeniului | Sesizările repetate se păstrează separat. |
-| În ce condiții și cât de bine? | Cerință de calitate | Starea se afișează într-un timp convenit, la o încărcare precizată. |
+| Cerință funcțională | Ce face sistemul pentru utilizator? | Studentul consultă starea propriei sesizări. |
+| Regulă a domeniului | Ce politică se aplică, cu sau fără sistem? | Sesizările repetate se păstrează separat. |
+| Cerință de calitate (nefuncțională) | Cât de bine și în ce condiții? | Starea se afișează într-un timp convenit, la o încărcare dată. |
+| Restricție | Ce nu putem alege noi? | Identitatea utilizatorului vine din sistemul universității. |
 
-O cerință utilă descrie **un rezultat observabil** și condițiile în care îl cerem.
+O cerință descrie **un rezultat observabil** și condițiile în care îl cerem.
 
 ::: notes
-Tipurile de cerințe se pot suprapune: controlul accesului este exprimat prin comportament, dar privește și securitatea. Nu cerem o clasificare unică. Etichetele R1, R2, … numerotează răspunsurile administrației; un astfel de răspuns poate conține cerințe de tipuri diferite. Cerințele de calitate sunt adesea numite nefuncționale; și ele trebuie să poată fi evaluate.
+O limită a versiunii („fotografiile nu intră acum”) nu este o cerință: spune ce lăsăm în afară; apare ca opțiune în exercițiul următor.
 
-Deosebirea importantă este între un comportament convenit și o formulare care lasă rezultatul la interpretarea proiectantului. Revenim la „rapid” cu un criteriu concret.
+Cerința funcțională descrie o interacțiune cu sistemul și rezultatul ei. Regula domeniului este politica organizației: administrația o aplica și când sesizările veneau prin telefon; sistemul trebuie să o respecte, nu o inventează. Cerința de calitate spune cât de bine se face ceva, și trebuie să poată fi evaluată: un prag, condiții, un mod de măsurare; adesea este numită nefuncțională. Restricția este impusă din afară: o tehnologie existentă, legea, bugetul; nu o convenim, o consemnăm.
+
+Tipurile se pot suprapune: controlul accesului este exprimat prin comportament, dar privește și securitatea. Nu cerem o clasificare unică; cerem să știm ce întrebare pune cerința, pentru că fiecare tip se verifică altfel: prin exemple de acceptare, prin confirmarea beneficiarului, prin măsurare. Etichetele R1, R2, … numerotează răspunsurile administrației; un răspuns poate conține cerințe de tipuri diferite.
+
+Deosebirea importantă rămâne între un comportament convenit și o formulare care lasă rezultatul la interpretarea proiectantului. Revenim la „rapid” cu un criteriu concret.
+:::
+
+---
+
+# Ce tip de cerință este?
+
+Pe hârtie, pentru fiecare afirmație: **funcțională**, **regulă a domeniului**, **de calitate**, **restricție** sau **limită a versiunii**? Unele admit două răspunsuri.
+
+1. Studentul vede numărul și starea sesizării imediat după trimitere.
+2. Numai administrația poate schimba starea unei sesizări.
+3. Fiecare sesizare primește un număr unic.
+4. Sistemul rămâne utilizabil cu 10.000 de sesizări înregistrate.
+5. Autentificarea este asigurată de contul universității, deja existent.
+6. Notificările prin email nu intră în prima versiune.
+
+::: notes
+1 este funcțională. 2 este o regulă a domeniului (cine are dreptul să declare starea) exprimată și ca cerință funcțională de control al accesului; acceptați ambele răspunsuri. 3 este funcțională: un rezultat al sistemului, nu o politică a administrației. 4 este o cerință de calitate, încă neverificabilă: nu spune ce înseamnă „utilizabil”, nici cum măsurăm; o completăm la Q1. 5 este o restricție. 6 este o limită a versiunii, nu o cerință.
+
+Întrebarea utilă pentru fiecare răspuns: cum am verifica-o? Dacă răspunsul este „întrebăm administrația”, este regulă sau restricție; dacă este „măsurăm”, este de calitate; dacă este „scriem un exemplu”, este funcțională.
+
+**Organizare:** 3 min: 1 individual, 2 pentru răspunsuri. []{.pace dur=3}
 :::
 
 ---

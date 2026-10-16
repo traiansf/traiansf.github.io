@@ -1,12 +1,12 @@
 # Ghid pentru profesor — Cursul 3: Formularea problemei și a cerințelor
 
-Prezentarea [03-cerinte.md](03-cerinte.md) are **31 de slide-uri cu tot cu copertă**, pentru 100 de minute. Enunțurile, prompturile, fragmentele AI discutate și comparațiile cu sursa sunt pe slide-uri; studenții folosesc numai coli albe și un pix. Acest document este pentru pregătirea profesorului.
+Prezentarea [03-cerinte.md](03-cerinte.md) are **32 de slide-uri cu tot cu copertă**, pentru 100 de minute. Enunțurile, prompturile, fragmentele AI discutate și comparațiile cu sursa sunt pe slide-uri; studenții folosesc numai coli albe și un pix. Acest document este pentru pregătirea profesorului.
 
 ## Ajustarea după Cursul 2
 
 Feedbackul titularului din 10 octombrie 2026: studenții au participat bine, au dat exemple și au comentat, dar materialul a fost prea mult pentru 100 de minute. A fost parcurs aproape integral, într-un ritm prea rapid. Pentru Cursul 3, titularul a propus aproximativ 30 de slide-uri. Nu este necesară recuperarea unei secțiuni întregi din Cursul 2.
 
-Reducerea de la 45 la 31 de slide-uri, incluzând coperta, este însoțită de restrângerea obiectivelor: clasificarea afirmațiilor în cele cinci tipuri din Cursul 2 (informație convenită, consecință dedusă, întrebare deschisă, ipoteză, propunere de proiectare), delimitarea problemei și formularea unor cerințe verificabile. Nu comprimăm vechiul volum în slide-uri mai dense. Studenții au timp să formuleze și să argumenteze răspunsuri; exemplele lor fac parte din bugetul întâlnirii.
+Reducerea de la 45 la 32 de slide-uri, incluzând coperta, este însoțită de restrângerea obiectivelor: clasificarea afirmațiilor în cele cinci tipuri din Cursul 2 (informație convenită, consecință dedusă, întrebare deschisă, ipoteză, propunere de proiectare), delimitarea problemei și formularea unor cerințe verificabile. Nu comprimăm vechiul volum în slide-uri mai dense. Studenții au timp să formuleze și să argumenteze răspunsuri; exemplele lor fac parte din bugetul întâlnirii.
 
 Etapa capturilor folosește **răspunsuri AI reale**, inclusiv pentru greșelile discutate, în trei perechi prompt–răspuns. Rezolvările exercițiilor rămân în notele lor, pentru a fi discutate cât timp datele și întrebarea sunt pe ecran. Redeschiderea sesizărilor este exclusă; o discuție suplimentară despre această schimbare este opțională și nu intră în cele 100 de minute.
 
@@ -17,10 +17,10 @@ Numerele includ coperta generată automat. Nu planificați două minute pentru f
 | Interval | Slide-uri | Activitate și timp de discuție |
 |---|---|---|
 | 0–15 | 1–5 | Deschidere scurtă, citat, 7 min pentru analiza cererii și răspunsuri; problema, obiectivul și părțile interesate. |
-| 15–35 | 6–13 | Recapitularea celor cinci tipuri de afirmații din Cursul 2, 2 min; limite și surse; 4 min pentru clasificarea unor afirmații AI reale, 4 min pentru două politici privind sesizările repetate. |
-| 35–65 | 14–21 | Cerințe și exemple; 9 min de lucru în perechi, 3 min pentru sesizări repetate, 4 min pentru pragul de timp. |
-| 65–90 | 22–28 | Tranziție și trei prompturi: 7 min; trei comparații cu răspunsurile: câte 5 min; 3 min pentru întrebări. |
-| 90–100 | 29–31 | 7 min pentru transferul la înscrierea la consultații și discutarea răspunsurilor; 3 min de încheiere. |
+| 15–35 | 6–14 | Recapitularea celor cinci tipuri de afirmații din Cursul 2, 2 min; limite și surse; 4 min pentru clasificarea unor afirmații AI reale, 4 min pentru două politici privind sesizările repetate; tipurile de cerințe, cu 3 min de clasificare. |
+| 35–65 | 15–22 | Cerințe și exemple; 9 min de lucru în perechi, 3 min pentru sesizări repetate, 4 min pentru pragul de timp. |
+| 65–90 | 23–29 | Tranziție și trei prompturi: 7 min; trei comparații cu răspunsurile: câte 5 min; 3 min pentru întrebări. |
+| 90–100 | 30–32 | 7 min pentru transferul la înscrierea la consultații și discutarea răspunsurilor; 3 min de încheiere. |
 
 Reperele cumulative sunt în notele tranzițiilor și în marcajele `.pace`. Duratele exercițiilor includ discutarea răspunsurilor; nu adăugați încă o etapă de corectare după fiecare durată anunțată.
 
@@ -40,11 +40,11 @@ Pentru Q1, distingeți timpul de afișare de timpul de actualizare de către per
 
 [Arhiva capturilor din 10 octombrie 2026](scenarios/03-sesizari/captures/2026-10-10/README.md) păstrează șase încercări: două inițiale, două de analiză cu reguli și două de revizuire. Toate folosesc Claude Code 2.1.294, model declarat `claude-haiku-4-5`, contexte noi, fără unelte, fără configurația și fișierele proiectului. Intrările exacte, răspunsurile integrale și metadatele sunt păstrate. Temperatura nu este raportată; nu a fost setat explicit un nivel de efort. Selecția servește lecției, nu măsoară performanța tipică a modelului AI.
 
-**Slide-urile 23–24 — fără clarificări.** Promptul integral cere o specificație pornind doar de la cererea administrației. A doua încercare introduce pragul „< 2 secunde” pentru încărcarea paginii și, după „Rezolvat”, o cerere de reluare și închiderea automată dacă studentul nu reacționează în trei zile. Studenții pot observa că și Q1 are 2 secunde: valoarea coincide, dar operația măsurată, comparația și condițiile diferă. Același răspuns furnizează fragmentele de pe slide-ul 10 (identificatorul unic, confirmarea prin email/mesaj și 99% timp de funcționare). Modelul AI nu primise R1–R4 sau Q1: întrebăm ce trebuie confirmat, nu îl acuzăm că a încălcat reguli necunoscute. Prima încercare introduce alte detalii neconfirmate, inclusiv verificarea în 24 de ore.
+**Slide-urile 24–25 — fără clarificări.** Promptul integral cere o specificație pornind doar de la cererea administrației. A doua încercare introduce pragul „< 2 secunde” pentru încărcarea paginii și, după „Rezolvat”, o cerere de reluare și închiderea automată dacă studentul nu reacționează în trei zile. Studenții pot observa că și Q1 are 2 secunde: valoarea coincide, dar operația măsurată, comparația și condițiile diferă. Același răspuns furnizează fragmentele de pe slide-ul 10 (identificatorul unic, confirmarea prin email/mesaj și 99% timp de funcționare). Modelul AI nu primise R1–R4 sau Q1: întrebăm ce trebuie confirmat, nu îl acuzăm că a încălcat reguli necunoscute. Prima încercare introduce alte detalii neconfirmate, inclusiv verificarea în 24 de ore.
 
-**Slide-urile 25–26 — analiza clarificată.** Un context nou primește cererea, R1–R4, Q1 și excluderile, fără răspunsul inițial sau soluția profesorului. Instrucțiunea exactă este pe slide. Primul analist AI păstrează numerele din Q1, dar omite rețeaua campusului și intervalul de la acțiunea în browser până la afișarea stării. Și a doua analiză AI are aceste omisiuni. Cerem un exemplu de măsurare diferită, apoi refacerea cerinței pe hârtie. Măsurarea doar a timpului serverului nu ar verifica acordul original.
+**Slide-urile 26–27 — analiza clarificată.** Un context nou primește cererea, R1–R4, Q1 și excluderile, fără răspunsul inițial sau soluția profesorului. Instrucțiunea exactă este pe slide. Primul analist AI păstrează numerele din Q1, dar omite rețeaua campusului și intervalul de la acțiunea în browser până la afișarea stării. Și a doua analiză AI are aceste omisiuni. Cerem un exemplu de măsurare diferită, apoi refacerea cerinței pe hârtie. Măsurarea doar a timpului serverului nu ar verifica acordul original.
 
-**Slide-urile 27–28 — revizuirea.** Evaluatorul (agent AI de revizuire) primește sursa și răspunsul integral al primului analist AI într-un context separat, fără corecția profesorului și fără sarcina analistului AI. Pe slide-ul 27 studenții prezic dacă revizuirea va semnala condițiile restabilite. Prima revizuire confirmă corect pragul numeric, dar nu observă cele două condiții dispărute. Tabelul și decizia de a restabili condițiile sunt analiza profesorului, separată de citatul AI. Nici a doua revizuire nu identifică aceste două omisiuni, deși discută alte aspecte ale lui Q1.
+**Slide-urile 28–29 — revizuirea.** Evaluatorul (agent AI de revizuire) primește sursa și răspunsul integral al primului analist AI într-un context separat, fără corecția profesorului și fără sarcina analistului AI. Pe slide-ul 28 studenții prezic dacă revizuirea va semnala condițiile restabilite. Prima revizuire confirmă corect pragul numeric, dar nu observă cele două condiții dispărute. Tabelul și decizia de a restabili condițiile sunt analiza profesorului, separată de citatul AI. Nici a doua revizuire nu identifică aceste două omisiuni, deși discută alte aspecte ale lui Q1.
 
 Nu prezentăm revizuirea ca integral greșită: ea observă util că „afișează confirmarea” nu garantează explicit afișarea numărului și a stării. Lecția este că o constatare corectă sau o revizuire utilă poate rămâne incompletă. La curs se folosesc numai slide-urile, fără rulări live.
 
