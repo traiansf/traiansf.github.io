@@ -36,7 +36,7 @@ Un model de domeniu ne ajută să explicăm situațiile cerute folosind concepte
 
 # Aceeași legendă, două fotografii
 
-O arhivistă catalogează fotografii; fiecare intră în arhivă cu o **versiune originală**, iar editările produc alte versiuni. Arhiva conține două fotografii distincte:
+O arhivistă catalogează fotografii; fiecare intră în arhivă cu o **versiune originală**, iar editările produc alte versiuni. Versiunile sunt numerotate în toată arhiva, în ordinea creării:
 
 | Fotografie | Legendă | Versiune originală |
 |---|---|---|
@@ -48,7 +48,7 @@ O arhivistă catalogează fotografii; fiecare intră în arhivă cu o **versiune
 **Cazul S1:** schimbăm legenda lui F1 în „Dimineață”. Pe hârtie, apoi în pereche: **ce se schimbă și ce rămâne?** Am putea folosi legenda pentru a identifica fotografia?
 
 ::: notes
-Se schimbă numai legenda lui F1. F2 și identificatorii F1, F2, V1, V2 rămân aceiași. Legenda nu identifică fotografia: poate coincide și se poate schimba. Separăm ce spune enunțul de o presupunere despre identitatea imaginilor după conținut.
+Se schimbă numai legenda lui F1. F2 și identificatorii F1, F2, V1, V2 rămân aceiași. V2 este originalul lui F2, nu a doua versiune a lui F1: numărul este un identificator al arhivei, la fel ca F2, nu numără versiunile unei fotografii. Aceeași numerotare continuă cu V3 și V4 pentru F1, V5 propusă pentru F2. Legenda nu identifică fotografia: poate coincide și se poate schimba. Separăm ce spune enunțul de o presupunere despre identitatea imaginilor după conținut.
 
 **Organizare:** 7 min: 2 individual, 2 în pereche, 3 discuție. Datele sunt construite pentru curs. []{.pace dur=7}
 :::

@@ -13,7 +13,7 @@ Scenariu didactic. O arhivistă dorește să catalogheze fotografii și versiuni
 
 ## Date și situații
 
-Inițial există F1 și F2, ambele cu legenda „Curte”. F1 are doar originalul V1; F2 are doar originalul V2. V1 și V2 au conținuturi diferite. Fiecare situație pornește independent de aici, dacă nu se precizează altfel.
+Inițial există F1 și F2, ambele cu legenda „Curte”. F1 are doar originalul V1; F2 are doar originalul V2. V1 și V2 au conținuturi diferite. Versiunile sunt numerotate în ordinea creării, în toată arhiva, nu pentru fiecare fotografie: V2 este originalul lui F2, nu a doua versiune a lui F1. Fiecare situație pornește independent de aici, dacă nu se precizează altfel.
 
 - **S1:** legenda lui F1 devine „Dimineață”. F2 rămâne „Curte”; fotografiile și versiunile își păstrează identitatea.
 - **S2:** pornind din nou din situația inițială, din V1 se creează V3 printr-o editare. Conținutul lui V1 și legenda „Curte” a lui F1 se păstrează; V3 aparține lui F1 și are sursa V1.
