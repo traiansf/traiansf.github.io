@@ -1,6 +1,6 @@
 # AMSS 2026/2027 — Instructor implementation roadmap
 
-This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 have authored, unreleased drafts; Lab 1 has been refactored around collaboration and discussion. Weeks 5–13 and Labs 3–5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
+This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 are released; Lab 1 has been refactored around collaboration and discussion. Weeks 5–13 and Labs 3–5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
 
 ## Teaching commitments
 
@@ -68,7 +68,7 @@ The library request now has an operational outcome: requests for unavailable tit
 
 **Observable outcomes:** distinguish identity from descriptive attributes; state a relationship constraint with examples; explain why a conceptual distinction need not imply a class or table.
 
-**Authored first draft:** [Lecture 4](../curs/04-domeniu.md), [instructor guide](../curs/04-domeniu-demo.md), [brief](../curs/scenarios/04-fotografii/brief.md), and [reference reasoning](../curs/scenarios/04-fotografii/reference.md). The photographic archive distinguishes photographs, immutable versions, the original, and the source of an edit. Equal captions do not identify photographs; editing an earlier version permits branches. Deletion, storage and duplicate-import policy remain outside scope.
+**Released 21 October 2026:** [Lecture 4](../curs/04-domeniu.md), [instructor guide](../curs/04-domeniu-demo.md), [brief](../curs/scenarios/04-fotografii/brief.md), and [reference reasoning](../curs/scenarios/04-fotografii/reference.md). The photographic archive distinguishes photographs, immutable versions, the original, and the source of an edit. Equal captions do not identify photographs; editing an earlier version permits branches. Deletion, storage and duplicate-import policy remain outside scope.
 
 **Sequence, 100 minutes:** opening and equal captions 15; identity and first edit 20; relationships, cardinalities and branching 25; captured AI analysis/review and representation comparison 30; transfer and closing 10. Timing checkpoints: 0, 15, 35, 60, 90 and 100. The deck has 30 slides including its cover, with activity-based pacing and all classroom data on slides.
 
@@ -211,7 +211,7 @@ Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructo
 ### Lab 2, after Courses 3–4 — Requirements and domain modeling
 
 **Foundations:** Courses 3–4, with introductory practice from Courses 1–2. Do not assume Course 5 responsibility-assignment theory.
-**Authored first draft:** [Lab 2](../lab/02-modelare.md), [instructor guide](../lab/02-modelare-instructor.md), [scenario](../lab/scenarios/02-modelare/scenario.md), [optional discussion aid](../lab/scenarios/02-modelare/worksheet.md), and [prepared captures](../lab/scenarios/02-modelare/prepared-fixture.md). A community repair workshop distinguishes a physical device, its visits, reported problems and responsible volunteers; inventory and payment are excluded.
+**Released 21 October 2026, with the online variant [Lab 2 (online)](../lab/02-modelare-online.md):** [Lab 2](../lab/02-modelare.md), [instructor guide](../lab/02-modelare-instructor.md), [scenario](../lab/scenarios/02-modelare/scenario.md), [optional discussion aid](../lab/scenarios/02-modelare/worksheet.md), and [prepared captures](../lab/scenarios/02-modelare/prepared-fixture.md). A community repair workshop distinguishes a physical device, its visits, reported problems and responsible volunteers; inventory and payment are excluded.
 **Outcomes:** distinguish identity and repeated descriptions; explain relationship cardinalities; preserve visit history; compare a requirement with a representation choice.
 **100 minutes:** opening 10; paired modeling with role rotation 25; exchange between pairs 20; AI or peer comparison and review 25; a change to at most two volunteers and closing discussion 20. Fourteen slides including the cover.
 **Discussion:** explain J1 and J2 for A17, retain past volunteers/problems, handle J3 without a volunteer, and examine the AI's optional composite identifier. No artifact or upload is required. Three real Haiku 4.5 attempts are preserved; the selected review uses corrected input. This draft is not added to `RELEASED`.

@@ -16,7 +16,7 @@ Materiale: [prezentare](02-modelare.md), [scenariu](scenarios/02-modelare/scenar
 
 ## Modelul de referință
 
-Analiză a profesorului, nu un răspuns AI. Aparatul este un lucru fizic cu identitate stabilă; vizita este o ocazie distinctă în istoricul lui. Problema raportată aparține vizitei; nu este un diagnostic confirmat și nici o proprietate a aparatului, suprascrisă la fiecare vizită. Responsabilul se asociază vizitei, nu aparatului (R5).
+Analiză a profesorului, nu un răspuns AI. Aparatul este un lucru fizic cu identitate stabilă; vizita este o ocazie distinctă în istoricul lui. Problema raportată aparține vizitei; nu este un diagnostic confirmat și nici o proprietate a aparatului, suprascrisă la fiecare vizită. Responsabilul se asociază vizitei, nu aparatului (R5). În tipologia cerințelor din cursul 3, R1–R5 sunt reguli ale domeniului, iar R6 este limita exercițiului; schimbarea finală modifică o regulă a domeniului și se verifică prin exemple de acceptare.
 
 | Relație | Număr permis |
 |---|---|

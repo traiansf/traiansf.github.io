@@ -85,7 +85,7 @@ Fiecare schițează J1 și J2: **cum rămâne Mara responsabilă de J1 după ce 
 [Scenariul complet: R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md) · R6: fără inventar, plăți sau proprietari.
 
 ::: notes
-Responsabilul se leagă de vizită, nu de aparat (R4–R5). O vizită nouă nu suprascrie datele celor anterioare și nu preia automat problemele lor. Numele voluntarilor pot coincide, la fel ca modelele aparatelor; codurile le disting. O problemă raportată descrie observația celui care a adus aparatul, nu un diagnostic confirmat. Sunt suficiente cuvinte, un tabel sau o schiță pe hârtie; nu cerem notație UML sau implementare.
+Responsabilul se leagă de vizită, nu de aparat (R4–R5). O vizită nouă nu suprascrie datele celor anterioare și nu preia automat problemele lor. Numele voluntarilor pot coincide, la fel ca modelele aparatelor; codurile le disting. O problemă raportată descrie observația celui care a adus aparatul, nu un diagnostic confirmat. În tipologia din cursul 3, R1–R5 sunt reguli ale domeniului: politica atelierului, valabilă și într-un registru pe hârtie; R6 este limita exercițiului, nu o cerință. Sunt suficiente cuvinte, un tabel sau o schiță pe hârtie; nu cerem notație UML sau implementare.
 
 **Organizare:** 24 min după tranziție: 4 citire și întrebări, 8 schiță individuală, 8 ștafetă cu J1–J2 și J3, 4 discuție. Dați cuvântul pe nume sau după mâinile ridicate; vorbitorul numește colegul următor. []{.pace dur=24}
 :::
@@ -158,7 +158,7 @@ Este o alegere de reprezentare posibilă, prezentată fără a fi marcată ca al
 
 # Verificăm și observația evaluatorului AI
 
-Un coleg care nu a rulat analistul dă unui **evaluator (agent AI de revizuire)**, **într-un context nou**, regulile R1–R6, datele inițiale, sarcina și răspunsul de verificat: modelul unui coleg sau captura integrală. Partajează ecranul și cere observații susținute de reguli și exemple, cu încălcările separate de alegerile de reprezentare. Sau un alt coleg face verificarea cu voce tare.
+Un coleg care nu a rulat analistul AI dă unui **evaluator (agent AI de revizuire)**, **într-un context nou**, regulile R1–R6, datele inițiale, sarcina și răspunsul de verificat: modelul unui coleg sau captura integrală. Partajează ecranul și cere observații susținute de reguli și exemple, cu încălcările separate de alegerile de reprezentare. Sau un alt coleg face verificarea cu voce tare.
 
 **Captură reală · Claude Haiku 4.5 · 10.10.2026 · evaluator AI 02**, despre identificator:
 
@@ -173,7 +173,7 @@ Acceptăm observația că formatul identificatorului nu este cerut de R3; datele
 
 Fragmentul provine din revizuirea pregătită la 10.10.2026, în context nou, cu sarcina analistului AI inclusă. Formularea de pe slide este sarcina activității studenților, nu promptul arhivat; acesta este în capturile pregătite.
 
-**Organizare:** 12 min: 5 revizuire partajată sau citirea capturii, 4 decizie argumentată la microfon, 3 discuție comună. Analistul și evaluatorul AI rulați live revin unor colegi diferiți: contextele rămân separate. []{.pace dur=12}
+**Organizare:** 12 min: 5 revizuire partajată sau citirea capturii, 4 decizie argumentată la microfon, 3 discuție comună. Analistul AI și evaluatorul AI rulați live revin unor colegi diferiți: contextele rămân separate. []{.pace dur=12}
 :::
 
 ---
@@ -205,7 +205,7 @@ Gândiți individual, apoi discutăm împreună:
 3. Ce ați întreba organizatorii despre responsabilitatea comună?
 
 ::: notes
-Cardinalitatea vizită → voluntari devine 0–2; voluntar → vizite rămâne zero sau mai multe. Nu schimbăm identitatea aparatului sau a vizitei. Cererile se încearcă succesiv: (1) J1–Mara, J2–Radu → adăugăm Mara la J2 → acceptat; J1–Mara, J2–Mara și Radu. (2) Pornind de aici, cerem și Ioana la J2 → respins; J1–Mara, J2–Mara și Radu rămân. Un rezultat care elimină un responsabil existent pentru a face loc celui nou nu respectă cererea de adăugare. Problemele și legăturile vizită–aparat se păstrează în ambele exemple.
+Cardinalitatea vizită → voluntari devine 0–2; voluntar → vizite rămâne zero sau mai multe. Nu schimbăm identitatea aparatului sau a vizitei. Organizatorii schimbă o regulă a domeniului; exemplele de acceptare, în forma din cursul 3, verifică noua regulă înainte de orice implementare. Cererile se încearcă succesiv: (1) J1–Mara, J2–Radu → adăugăm Mara la J2 → acceptat; J1–Mara, J2–Mara și Radu. (2) Pornind de aici, cerem și Ioana la J2 → respins; J1–Mara, J2–Mara și Radu rămân. Un rezultat care elimină un responsabil existent pentru a face loc celui nou nu respectă cererea de adăugare. Problemele și legăturile vizită–aparat se păstrează în ambele exemple.
 
 Întrebări utile: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil? Nu cerem acum proiectarea efectuării reparației, exclusă prin R6.
 

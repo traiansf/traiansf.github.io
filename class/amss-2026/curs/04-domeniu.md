@@ -68,7 +68,7 @@ Pentru arhiva noastră vrem să putem spune:
 Nu modelăm albume, drepturi de acces, ștergeri sau stocarea fișierelor.
 
 ::: notes
-Aceste întrebări selectează conceptele utile. Modelul nu trebuie să reproducă toate proprietățile unei fotografii sau toate funcțiile unei arhive reale. Regulile și limitele sunt convenite în scenariul didactic, nu descoperite de un agent AI.
+Aceste întrebări selectează conceptele utile. Modelul nu trebuie să reproducă toate proprietățile unei fotografii sau toate funcțiile unei arhive reale. Regulile și limitele sunt convenite în scenariul didactic, nu descoperite de un agent AI. În tipologia din cursul 3, R1–R5 sunt reguli ale domeniului: politica arhivei, valabilă cu sau fără sistem; R6 este o limită a exercițiului, nu o cerință.
 :::
 
 ---
@@ -266,7 +266,7 @@ Cardinalitatea nu spune totul: „exact o sursă” ar admite și o sursă din a
 S4 încalcă o regulă. Pentru S5, **răspunsul rămâne deschis** până convenim cu arhivista extinderea modelului.
 
 ::: notes
-„Interzis” și „neconvenit” cer reacții diferite. Pentru S4 avem un rezultat justificat; pentru S5 trebuie discutat cu beneficiarul dacă extindem domeniul. O excludere din exercițiu nu este o interdicție a unei funcții într-un produs real: aici nu stabilim, de exemplu, o politică de ștergere. Identificatorii sunt deja disponibili; nu proiectăm generarea lor.
+„Interzis” și „neconvenit” cer reacții diferite. Pentru S4 avem un rezultat justificat; pentru S5 trebuie discutat cu beneficiarul dacă extindem domeniul. În termenii cursului 3, S4 încalcă o informație convenită, iar S5 este o întrebare deschisă; un răspuns provizoriu ar fi o ipoteză, nu o regulă. O excludere din exercițiu nu este o interdicție a unei funcții într-un produs real: aici nu stabilim, de exemplu, o politică de ștergere. Identificatorii sunt deja disponibili; nu proiectăm generarea lor.
 :::
 
 ---
@@ -294,7 +294,7 @@ Ce păstrăm, ce corectăm și pe ce regulă ne bazăm?
 ::: notes
 Un răspuns poate fi util și totuși să conțină o generalizare nejustificată. Folosim răspunsuri reale pregătite înainte de curs, cu toate încercările păstrate; analiza umană precedă verdictul asupra revizuirii.
 
-**Organizare:** minutul 60 din 100; interval 60–90 (30 min): tranziție și două prompturi 6, două comparații ale analizei 10, revizuire și corecție 8, reprezentare și sinteză 6. Fără rulări live. []{.pace at=60}
+**Organizare:** minutul 60 din 100; interval 60–90 (30 min): tranziție și două prompturi 6, două comparații ale analizei 10, revizuire și corecție 8, reprezentare și sinteză 6. Fără rulări live. []{.pace at=60 dur=1}
 :::
 
 ---
@@ -311,6 +311,8 @@ Un răspuns poate fi util și totuși să conțină o generalizare nejustificat�
 Contextul conține regulile și cazurile discutate până acum, fără soluția profesorului. Nu cerem un anumit defect. Două rulări Claude Haiku 4.5 au primit același prompt; analizăm rularea 2.
 
 **Sursă:** instrucțiunea integrală din `scenarios/04-fotografii/captures/2026-10-10/analist-instructiune.md`; contextul integral în `context.md`, promptul complet și ambele răspunsuri în același director.
+
+**Organizare:** 2 min. []{.pace dur=2}
 :::
 
 ---
@@ -377,6 +379,8 @@ Repetiția „orice orice” este în original; nu discutăm formularea lingvist
 Revizuirea nu primește comentariile profesorului sau conversația analistului AI. Un context nou nu garantează independența erorilor sau corectitudinea verdictului.
 
 **Sursă:** instrucțiunea integrală din `evaluator-v2-instructiune.md`; intrarea completă în `evaluator-v2-prompt.md`. Pe slide-ul următor apare rularea 3. Primele două revizuiri, cu diacriticele instrucțiunii deteriorate la transmitere, sunt păstrate în arhivă și nu apar pe slide-uri.
+
+**Organizare:** 3 min, cu predicția scrisă pe hârtie înainte de slide-ul următor. []{.pace dur=3}
 :::
 
 ---
@@ -445,6 +449,8 @@ Vrem să adăugăm V7 la F2, cu sursa V3. R4 respinge această adăugare. **Cum 
 
 ::: notes
 V3 aparține lui F1, deci nu poate fi sursa unei versiuni a lui F2 (R4). În tabel, comparăm coloana Fotografie a rândului V7 (F2) cu cea a rândului sursei V3 (F1). Între referințe, comparăm fotografia la care se referă V7 cu fotografia la care se referă sursa ei V3. Ambele reprezentări permit verificarea; niciuna nu o face singură. Pentru o verificare mai amplă: o versiune fără sursă se acceptă doar la catalogare, ca unic original al unei fotografii noi; o derivată are o singură sursă existentă, din aceeași fotografie. Noua versiune primește identitate distinctă și nu înlocuiește conținutul alteia. Tabelul este reprezentarea unui exemplu, nu o schemă de bază de date prescrisă. Variantele sunt construite de profesor din modelul corectat.
+
+**Organizare:** 3 min. []{.pace dur=3}
 :::
 
 ---
@@ -463,6 +469,8 @@ O diagramă ajută când putem explica fiecare legătură printr-o regulă sau u
 
 ::: notes
 Acesta este rezumatul pentru o conversație de proiectare, nu un șablon de livrabil. Întrebările despre cine execută operațiile și unde se verifică regulile pregătesc cursul 5, fără să îi anticipăm teoria.
+
+**Organizare:** 3 min; încheie etapa la minutul 90. []{.pace dur=3}
 :::
 
 ---
