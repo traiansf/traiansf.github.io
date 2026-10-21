@@ -18,18 +18,18 @@ Un model de domeniu ne ajută să explicăm situațiile cerute folosind concepte
 
 # Citatul zilei
 
-> „Un sistem de abstractizări care descrie aspecte selectate ale unui domeniu […]”
+> „**Model:** un sistem de abstractizări care descrie aspecte selectate ale unui domeniu […]”
 >
-> Original: “A system of abstractions that describes selected aspects of a domain […]”
+> Original: “**model:** A system of abstractions that describes selected aspects of a domain […]”
 
 — **Eric Evans**
 
-[Sursa: Domain-Driven Design Reference — definiția modelului, p. 6 (PDF)](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6)
+[Sursa: Domain-Driven Design Reference, Definitions, p. 6 (PDF)](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6)
 
 ::: notes
 „Selectate” contează: păstrăm distincțiile necesare întrebărilor noastre. Arhiva de azi urmărește fotografiile și proveniența editărilor, fără să modeleze algoritmul care schimbă pixelii.
 
-**Sursă:** publicația autorului, Definitions, intrarea model, pagina PDF 6. Fragment păstrat din materialul anterior verificat în `docs/quotations.md`; finalul după domain este omis explicit.
+**Sursă:** publicația autorului, Definitions, intrarea model, pagina PDF 6. Termenul definit este titlul intrării; îl redăm înaintea definiției, ca să se vadă pe slide ce se definește. Fragment păstrat din materialul anterior verificat în `docs/quotations.md`; finalul după domain este omis explicit.
 :::
 
 ---

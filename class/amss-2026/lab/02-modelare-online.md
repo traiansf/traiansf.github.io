@@ -20,18 +20,18 @@ Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relaț
 
 # Citatul zilei
 
-> „Un sistem de abstractizări care descrie aspecte selectate ale unui domeniu […]”
+> „**Model:** un sistem de abstractizări care descrie aspecte selectate ale unui domeniu […]”
 >
-> Original: “A system of abstractions that describes selected aspects of a domain […]”
+> Original: “**model:** A system of abstractions that describes selected aspects of a domain […]”
 
 — **Eric Evans**
 
-[Sursa: Domain-Driven Design Reference — definiția modelului, p. 6 (PDF)](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6)
+[Sursa: Domain-Driven Design Reference, Definitions, p. 6 (PDF)](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf#page=6)
 
 ::: notes
 Selectăm aspectele necesare urmăririi vizitelor; nu proiectăm întregul atelier și nu începem de la clase sau de la schema unei baze de date. Reluăm citatul din cursul 4.
 
-**Sursă:** publicația autorului, Definitions, intrarea model, pagina PDF 6. Fragment păstrat din materialul anterior verificat în `docs/quotations.md`; finalul după domain este omis explicit.
+**Sursă:** publicația autorului, Definitions, intrarea model, pagina PDF 6. Termenul definit este titlul intrării; îl redăm înaintea definiției, ca să se vadă pe slide ce se definește. Fragment păstrat din materialul anterior verificat în `docs/quotations.md`; finalul după domain este omis explicit.
 :::
 
 ---
