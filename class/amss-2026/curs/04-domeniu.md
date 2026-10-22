@@ -45,12 +45,12 @@ O arhivistă catalogează fotografii; fiecare intră în arhivă cu o **versiune
 
 **Regula convenită cu arhivista (beneficiarul):** legenda se poate schimba; fotografia își păstrează identificatorul.
 
-**Cazul S1:** schimbăm legenda lui F1 în „Dimineață”. Pe hârtie, apoi în pereche: **ce se schimbă și ce rămâne?** Am putea folosi legenda pentru a identifica fotografia?
+**Cazul S1:** schimbăm legenda lui F1 în „Dimineață”. **Ce se schimbă și ce rămâne?** Am putea folosi legenda pentru a identifica fotografia?
 
 ::: notes
 Se schimbă numai legenda lui F1. F2 și identificatorii F1, F2, V1, V2 rămân aceiași. V2 este originalul lui F2, nu a doua versiune a lui F1: numărul este un identificator al arhivei, la fel ca F2, nu numără versiunile unei fotografii. Aceeași numerotare continuă cu V3 și V4 pentru F1, V5 propusă pentru F2. Legenda nu identifică fotografia: poate coincide și se poate schimba. Separăm ce spune enunțul de o presupunere despre identitatea imaginilor după conținut.
 
-**Organizare:** 7 min: 2 individual, 2 în pereche, 3 discuție. Datele sunt construite pentru curs. []{.pace dur=7}
+**Organizare:** 2 min: întrebare către clasă, așteptăm răspunsul. Datele sunt construite pentru curs. []{.pace dur=2}
 :::
 
 ---
