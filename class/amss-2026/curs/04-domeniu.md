@@ -9,7 +9,7 @@ lang: ro-RO
 Două descrieri identice înseamnă același lucru?
 
 ::: notes
-Un model de domeniu ne ajută să explicăm situațiile cerute folosind concepte, identități și relații. Reluăm din cursul 3 legătura dintre o afirmație și regula care o susține.
+Un model al domeniului ne ajută să explicăm situațiile cerute folosind concepte, identități și relații. Reluăm din cursul 3 legătura dintre o afirmație și regula care o susține.
 
 **Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul și discuția inițială. 30 de slide-uri cu tot cu copertă. []{.pace at=0 of=100}
 :::
@@ -57,7 +57,7 @@ Se schimbă numai legenda lui F1. F2 și identificatorii F1, F2, V1, V2 rămân 
 
 # Un model răspunde la întrebări
 
-Un **model de domeniu** descrie conceptele relevante, relațiile dintre ele și regulile care le limitează.
+Un **model al domeniului** descrie conceptele relevante, relațiile dintre ele și regulile care le limitează.
 
 Pentru arhiva noastră vrem să putem spune:
 

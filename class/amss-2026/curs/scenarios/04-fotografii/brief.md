@@ -21,6 +21,6 @@ Inițial există F1 și F2, ambele cu legenda „Curte”. F1 are doar originalu
 - **S4:** cineva propune o versiune V5 a lui F2, cu sursa V1 a lui F1. R4 nu permite această asociere.
 - **S5:** se importă din nou același fișier. Comportamentul importului repetat nu este convenit prin aceste reguli; nu deducem identitatea fotografiei din egalitatea fișierelor. Dacă vrem să tratăm acest caz, convenim cu arhivista o extindere a modelului.
 
-Pentru discuție distingem identitatea, atributele, relațiile și restricțiile asupra lor. Un model de domeniu selectează conceptele care explică regulile; nu este automat proiectarea claselor sau a bazei de date.
+Pentru discuție distingem identitatea, atributele, relațiile și restricțiile asupra lor. Un model al domeniului selectează conceptele care explică regulile; nu este automat proiectarea claselor sau a bazei de date.
 
 Fișa curentă explicitează formulări folosite la predare. [Contextul trimis la rulările AI](captures/2026-10-10/context.md) se păstrează în forma de la capturare.
