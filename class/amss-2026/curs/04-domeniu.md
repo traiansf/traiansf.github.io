@@ -11,7 +11,7 @@ Două descrieri identice înseamnă același lucru?
 ::: notes
 Un model al domeniului ne ajută să explicăm situațiile cerute folosind concepte, identități și relații. Reluăm din cursul 3 legătura dintre o afirmație și regula care o susține.
 
-**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul și discuția inițială. 30 de slide-uri cu tot cu copertă. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–10 (10 min), inclusiv coperta, citatul și discuția inițială. 30 de slide-uri cu tot cu copertă. []{.pace at=0 of=100}
 :::
 
 ---
@@ -80,7 +80,7 @@ Ce rămâne același lucru atunci când îi schimbăm o proprietate?
 ::: notes
 Identitatea se explică prin continuitatea pe care o cere domeniul. Un identificator o exprimă în exemplu, fără să alegem aici cum este generat sau stocat.
 
-**Organizare:** minutul 15 din 100; interval 15–35 (20 min), inclusiv exercițiul despre editare. []{.pace at=15}
+**Organizare:** minutul 10 din 100; interval 10–35 (25 min), inclusiv exercițiul despre editare. []{.pace at=10}
 :::
 
 ---

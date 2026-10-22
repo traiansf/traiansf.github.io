@@ -6,13 +6,13 @@ Prezentarea [04-domeniu.md](04-domeniu.md) are **30 de slide-uri cu tot cu coper
 
 | Minute | Activitate | Spațiu protejat pentru studenți |
 |---|---|---|
-| 0–15 | Ce selectăm din domeniu; aceeași legendă, două fotografii. | 2 min: întrebare către clasă. |
-| 15–35 | Identitate, fotografie și versiune; prima editare. | 8 min pentru schiță și comparație. |
+| 0–10 | Ce selectăm din domeniu; aceeași legendă, două fotografii. | 2 min: întrebare către clasă. |
+| 10–35 | Identitate, fotografie și versiune; prima editare. | 8 min pentru schiță și comparație. |
 | 35–60 | Vocabular, relații, ramuri, cardinalități și limite. | 8 min pentru reeditarea originalului. |
 | 60–90 | Prompturi, analiză AI, revizuire, corecție și reprezentări. | 5 + 5 min pe fragmentele analistului AI; 4 + 4 min pe revizuire și decizie. |
 | 90–100 | Transfer la piesă–reprezentație și încheiere. | 7 min exercițiu, 3 min sinteză. |
 
-Începuturile etapelor sunt 0, 15, 35, 60 și 90; notele au marcaje de ritm, iar în etapa 60–90 fiecare slide are durata precizată, astfel încât ceasul de pe telefon să urmeze exact planul de mai sus. Duratele exercițiilor includ răspunsurile în plen. Dacă o discuție depășește timpul, comprimați explicațiile repetitive despre vocabular și reprezentare, nu exercițiul final; nu adăugați o excursie despre tipurile de grafuri.
+Începuturile etapelor sunt 0, 10, 35, 60 și 90; notele au marcaje de ritm, iar în etapa 60–90 fiecare slide are durata precizată, astfel încât ceasul de pe telefon să urmeze exact planul de mai sus. Duratele exercițiilor includ răspunsurile în plen. Dacă o discuție depășește timpul, comprimați explicațiile repetitive despre vocabular și reprezentare, nu exercițiul final; nu adăugați o excursie despre tipurile de grafuri.
 
 ## Pregătire
 
