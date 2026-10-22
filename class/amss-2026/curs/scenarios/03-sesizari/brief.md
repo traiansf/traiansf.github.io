@@ -1,6 +1,6 @@
 # Sesizări despre defecțiuni în campus — enunț consolidat
 
-Material pentru pregătirea Cursului 3. Scenariu didactic redactat pentru curs; administrația și răspunsurile sale sunt fictive. În sală, prezentarea principală include toate datele necesare și dezvăluie răspunsurile progresiv.
+Material pentru pregătirea Cursului 3. Exemplu didactic redactat pentru curs; administrația și răspunsurile sale sunt fictive. În sală, prezentarea principală include toate datele necesare și dezvăluie răspunsurile progresiv.
 
 ## Cererea inițială
 
@@ -8,7 +8,7 @@ Material pentru pregătirea Cursului 3. Scenariu didactic redactat pentru curs; 
 
 Problema urmărită: studentul nu poate afla starea sesizării fără să întrebe din nou. Obiectivul versiunii: înregistrarea sesizării și consultarea stării consemnate de administrație. Nu promitem reducerea timpului de reparație.
 
-## Limite și reguli convenite în scenariu
+## Limite și reguli convenite
 
 Identitatea și rolul utilizatorului sunt deja cunoscute. Rolurile sunt student și personal al administrației. Exemplele de actualizare pornesc din stările indicate și nu analizează concurența actualizărilor. Încărcarea Q1 privește consultări.
 
@@ -20,9 +20,9 @@ Identitatea și rolul utilizatorului sunt deja cunoscute. Rolurile sunt student 
 
 Sunt excluse: autentificarea, fotografiile, notificările, prioritizarea, repartizarea echipelor, termenele de reparație și redeschiderea.
 
-## Situațiile discutate
+## Scenariile discutate
 
-Fiecare situație sau ramură pornește independent de la starea indicată; nu înlănțuim automat rândurile.
+Fiecare scenariu sau ramură pornește independent de la starea indicată; nu înlănțuim automat rândurile.
 
 1. **Politica sesizărilor repetate:** Ana și Bogdan raportează același robinet din A12. Înainte de comunicarea R3, comparăm păstrarea separată cu asocierea lui Bogdan la sesizarea Anei. Prima variantă păstrează R1 și R2; a doua le-ar modifica pe ambele, pentru a permite urmărirea aceleiași sesizări fără crearea uneia noi. R3 confirmă prima variantă.
 2. **Actualizare:** S41, a Anei, este „înregistrată”. Separat: Daria din administrație cere „în lucru”; Ana cere „în lucru”; Daria cere direct „rezolvată”.

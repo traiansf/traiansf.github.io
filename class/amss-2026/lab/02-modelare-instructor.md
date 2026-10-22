@@ -2,7 +2,7 @@
 
 **100 de minute, după cursurile 3–4; 14 slide-uri cu copertă.** Exersăm cerințe, identitate, relații și verificarea modelului prin exemple. Lucrăm în perechi sau trio, cu schimbarea colegului care propune și a celui care cere justificări. Schițele sunt suportul discuției; nu există predare obligatorie, încărcare, rubrică de documente sau notă separată pentru această activitate.
 
-Materiale: [prezentare](02-modelare.md), [scenariu](scenarios/02-modelare/scenario.md), [sprijin facultativ pentru discuție](scenarios/02-modelare/worksheet.md), [capturi pregătite](scenarios/02-modelare/prepared-fixture.md). Scenariul și sprijinul pentru discuție pot fi consultate pe calculator sau tipărite. Hârtia și conversația sunt suficiente; nu rezervăm timp pentru configurări. Dacă un instrument AI nu funcționează, perechile folosesc captura sau cer colegilor aceeași verificare.
+Materiale: [prezentare](02-modelare.md), [enunț](scenarios/02-modelare/scenario.md), [sprijin facultativ pentru discuție](scenarios/02-modelare/worksheet.md), [capturi pregătite](scenarios/02-modelare/prepared-fixture.md). Enunțul și sprijinul pentru discuție pot fi consultate pe calculator sau tipărite. Hârtia și conversația sunt suficiente; nu rezervăm timp pentru configurări. Dacă un instrument AI nu funcționează, perechile folosesc captura sau cer colegilor aceeași verificare.
 
 ## Ritmul întâlnirii
 
@@ -10,7 +10,7 @@ Materiale: [prezentare](02-modelare.md), [scenariu](scenarios/02-modelare/scenar
 |---|---|---|
 | 0–10 | Citat, reflecție inițială, comparație A17/A18 și J1–J3. | Cereți un exemplu de informație pierdută și o întrebare pentru organizatori. |
 | 10–35 | Citirea regulilor, schiță și explicații cu roluri schimbate. | „De ce este responsabilul legat aici?” |
-| 35–55 | Două perechi își explică reciproc modelele. | Colegii care nu au desenat schița aleg un caz și o interpretează primii. |
+| 35–55 | Două perechi își explică reciproc modelele. | Colegii care nu au desenat schița aleg o situație și o interpretează primii pe schiță. |
 | 55–80 | Comparație cu AI sau captura pregătită; revizuire. | Cereți să se distingă o alegere de reprezentare de o cerință. |
 | 80–100 | Maximum doi responsabili per vizită; discuție finală. | Ascultați două sau trei explicații, fără prezentări formale. |
 
@@ -31,7 +31,7 @@ La înregistrarea J2 pentru A17, J1, P1 și asocierea J1–Mara rămân; J2 are 
 
 Sunt acceptabile cuvinte, tabele sau diagrame care exprimă aceste distincții. „Original” și relația de sursă de la cursul 4 nu se transferă aici. Nu cereți clase, scheme SQL, operații cu pre/postcondiții sau teoria responsabilităților din cursul 5. Dacă o pereche termină devreme, poate verifica, pe schița celeilalte, și revenirea: cine răspundea de J1 după înregistrarea lui J2.
 
-La comparația între perechi, B alege unul dintre cazurile afișate și îl explică folosind schița lui A. A ascultă, apoi clarifică. Repetați cu schița lui B și rolurile inversate. Verificați sensul relațiilor, nu convenția grafică. La cazul A19, modelul trebuie să admită un aparat înregistrat fără vizite (R2); la cazul J4, două probleme distincte pentru aceeași vizită, chiar dacă datele inițiale aveau doar câte una.
+La comparația între perechi, B alege una dintre situațiile afișate și o explică folosind schița lui A. A ascultă, apoi clarifică. Repetați cu schița lui B și rolurile inversate. Verificați sensul relațiilor, nu convenția grafică. La situația A19, modelul trebuie să admită un aparat înregistrat fără vizite (R2); la situația J4, două probleme distincte pentru aceeași vizită, chiar dacă datele inițiale aveau doar câte una.
 
 ## Comparația cu AI
 
@@ -52,16 +52,16 @@ La minutul 80 organizatorii schimbă R4: orice vizită poate avea zero, unul sau
 
 Precizați și ce rămâne neschimbat: aparatele, vizitele și problemele lor. Respingerea nu elimină un responsabil pentru a face loc altuia. Perechile pun o întrebare despre responsabilitatea comună: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil? Nu cerem cod, migrarea unei baze de date sau proiectarea efectuării reparației.
 
-Încheiați cu exemple din două sau trei perechi: o neînțelegere, un caz care a clarificat modelul, o sugestie AI acceptată sau respinsă. Notați pentru pregătirea următoare dificultățile recurente. Nu colectați fișe individuale; eventualele notițe rămân studenților. Dacă ritmul întârzie, reduceți numărul răspunsurilor în plen, păstrând comparația între colegi și conversația finală.
+Încheiați cu exemple din două sau trei perechi: o neînțelegere, o situație care a clarificat modelul, o sugestie AI acceptată sau respinsă. Notați pentru pregătirea următoare dificultățile recurente. Nu colectați fișe individuale; eventualele notițe rămân studenților. Dacă ritmul întârzie, reduceți numărul răspunsurilor în plen, păstrând comparația între colegi și conversația finală.
 
 ## Varianta online
 
-[Prezentarea online](02-modelare-online.md) păstrează slide-urile, cazurile, capturile și timpii de mai sus, pentru o întâlnire Teams în care toți vorbesc în plen, fără grupuri separate. Se schimbă doar forma conversației:
+[Prezentarea online](02-modelare-online.md) păstrează slide-urile, situațiile, capturile și timpii de mai sus, pentru o întâlnire Teams în care toți vorbesc în plen, fără grupuri separate. Se schimbă doar forma conversației:
 
 - **Răspuns în chat, trimis la semnal**, în locul primei reflecții în pereche: fiecare scrie, dar trimite abia la semnal, ca răspunsurile să rămână independente. Citiți două răspunsuri diferite și invitați-le autorii să le explice.
 - **Schițe arătate în plen:** fiecare schițează pe hârtie; autorul își ține foaia la cameră, o trimite ca fotografie în chat sau o scrie ca tabel scurt. Ca la laboratorul clasic, schițele nu se colectează.
 - **Ștafeta** în locul schimbării rolurilor: un coleg explică J1–J2 pe schița lui, altul cere regula și un exemplu, apoi explică el J3 pe propria schiță. Dați cuvântul pe nume sau după mâinile ridicate; camera nu este necesară.
-- **Colegul numit** în locul celeilalte perechi: la etapa 35–55, cine își arată schița numește colegul care alege un caz și o citește primul; acesta își arată apoi propria schiță. Ceilalți scriu în chat „de acord” sau o obiecție. Dacă nu se oferă nimeni, scrieți în chat un model scurt sub formă de tabel și cereți colegilor să-l încerce pe cele trei cazuri.
+- **Colegul numit** în locul celeilalte perechi: la etapa 35–55, cine își arată schița numește colegul care alege o situație și o citește primul pe schiță; acesta își arată apoi propria schiță. Ceilalți scriu în chat „de acord” sau o obiecție. Dacă nu se oferă nimeni, scrieți în chat un model scurt sub formă de tabel și cereți colegilor să-l încerce pe cele trei situații.
 - **Rolurile AI pe ecrane diferite:** la o rulare live, un voluntar partajează analistul AI, iar alt coleg evaluatorul, într-un context nou. Fără rulare, folosiți capturile de pe slide-uri.
 
-Prezentarea poate fi partajată de profesor sau preluată de un student, de exemplu pentru moderarea etapei 35–55. Cu sesiunea sincronizată, studenții urmăresc slide-urile la <https://cs.unibuc.ro/~tserbanuta/amss/now>, iar ecranul partajat rămâne liber pentru o schiță, pentru scenariu sau pentru asistentul AI al unui coleg. Un student care preia prezentarea o partajează din HTML-ul publicat sau primește controlul prin Teams; nu trimiteți în chat parola profesorului sau linkul de control. În plen discuția durează mai mult: dacă ritmul întârzie, ascultați mai puține schițe, dar păstrați schimbarea finală. Mesajele din chat nu se colectează și nu se notează.
+Prezentarea poate fi partajată de profesor sau preluată de un student, de exemplu pentru moderarea etapei 35–55. Cu sesiunea sincronizată, studenții urmăresc slide-urile la <https://cs.unibuc.ro/~tserbanuta/amss/now>, iar ecranul partajat rămâne liber pentru o schiță, pentru enunț sau pentru asistentul AI al unui coleg. Un student care preia prezentarea o partajează din HTML-ul publicat sau primește controlul prin Teams; nu trimiteți în chat parola profesorului sau linkul de control. În plen discuția durează mai mult: dacă ritmul întârzie, ascultați mai puține schițe, dar păstrați schimbarea finală. Mesajele din chat nu se colectează și nu se notează.

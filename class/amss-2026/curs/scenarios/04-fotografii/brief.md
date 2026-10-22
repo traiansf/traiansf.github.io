@@ -1,6 +1,6 @@
 # Arhiva fotografică — enunț pentru Cursul 4
 
-Scenariu didactic. O arhivistă dorește să catalogheze fotografii și versiunile rezultate din editare. Vrea să poată schimba legenda și să compare editări fără să piardă originalul. Modelăm informația relevantă, nu programul de prelucrare a imaginilor.
+Exemplu didactic. O arhivistă dorește să catalogheze fotografii și versiunile rezultate din editare. Vrea să poată schimba legenda și să compare editări fără să piardă originalul. Modelăm informația relevantă, nu programul de prelucrare a imaginilor.
 
 ## Reguli convenite
 
@@ -11,7 +11,7 @@ Scenariu didactic. O arhivistă dorește să catalogheze fotografii și versiuni
 - **R5 — Păstrare:** o editare păstrează legenda fotografiei și, pentru versiunile existente, conținutul, identitatea, apartenența și sursa. Fotografia capătă o versiune nouă, iar versiunea editată devine sursa acesteia. Schimbarea legendei nu modifică versiunile sau relațiile dintre ele. Operațiile sunt tratate pe rând.
 - **R6 — Limitele exercițiului:** nu modelăm ștergerea, albumele, drepturile de acces, formatul fișierelor, stocarea fizică, detectarea fișierelor identice și algoritmii de editare. Aceste excluderi nu stabilesc interdicții pentru un produs real. Identificatorii sunt deja disponibili; nu proiectăm generarea lor. Nu cerem clase, tabele de baze de date sau o notație anume.
 
-## Date și situații
+## Date și scenarii
 
 Inițial există F1 și F2, ambele cu legenda „Curte”. F1 are doar originalul V1; F2 are doar originalul V2. V1 și V2 au conținuturi diferite. Versiunile sunt numerotate în ordinea creării, în toată arhiva, nu pentru fiecare fotografie: V2 este originalul lui F2, nu a doua versiune a lui F1. Fiecare situație pornește independent de aici, dacă nu se precizează altfel.
 
@@ -19,7 +19,7 @@ Inițial există F1 și F2, ambele cu legenda „Curte”. F1 are doar originalu
 - **S2:** pornind din nou din situația inițială, din V1 se creează V3 printr-o editare. Conținutul lui V1 și legenda „Curte” a lui F1 se păstrează; V3 aparține lui F1 și are sursa V1.
 - **S3:** după S2, o altă editare a lui V1 creează V4. V3 și V4 au aceeași sursă V1, sunt distincte și aparțin lui F1.
 - **S4:** cineva propune o versiune V5 a lui F2, cu sursa V1 a lui F1. R4 nu permite această asociere.
-- **S5:** se importă din nou același fișier. Comportamentul importului repetat nu este convenit prin aceste reguli; nu deducem identitatea fotografiei din egalitatea fișierelor. Dacă vrem să tratăm acest caz, convenim cu arhivista o extindere a modelului.
+- **S5:** se importă din nou același fișier. Comportamentul importului repetat nu este convenit prin aceste reguli; nu deducem identitatea fotografiei din egalitatea fișierelor. Dacă vrem să tratăm acest scenariu, convenim cu arhivista o extindere a modelului.
 
 Pentru discuție distingem identitatea, atributele, relațiile și restricțiile asupra lor. Un model al domeniului selectează conceptele care explică regulile; nu este automat proiectarea claselor sau a bazei de date.
 

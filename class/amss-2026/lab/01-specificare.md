@@ -104,11 +104,11 @@ Scopul schimbului este să observăm ce ar înțelege altcineva din explicația 
 
 ---
 
-# Alegeți un caz pentru altă pereche
+# Alegeți un scenariu pentru altă pereche
 
-**Fiecare caz pornește separat:** Ioana are Albastra 10:00–11:00; celelalte intervale sunt libere. Toate cererile sunt pentru D.
+**Fiecare scenariu pornește separat:** Ioana are Albastra 10:00–11:00; celelalte intervale sunt libere. Toate cererile sunt pentru D.
 
-| Caz | Ce încearcă cineva |
+| Scenariu | Ce încearcă cineva |
 |---|---|
 | Suprapunere | Radu cere Albastra 10:30–11:30. |
 | Limită | Radu cere Albastra 11:00–12:00. |
@@ -117,12 +117,12 @@ Scopul schimbului este să observăm ce ar înțelege altcineva din explicația 
 
 Fără suprapuneri pe aceeași mașină; alăturarea este permisă. Titularul poate anula înainte de început. Suprapunerea aceluiași locatar pe mașini diferite rămâne neconvenită.
 
-**Ce rezultat puteți promite și de ce?** Răspunde întâi perechea care primește cazul.
+**Ce rezultat puteți promite și de ce?** Răspunde întâi perechea care primește scenariul.
 
 ::: notes
-Rezultate: respingere, confirmare, anulare urmată de confirmare, respectiv rezultat încă neconvenit. Comparați două cazuri care au făcut perechile să ezite; nu trebuie parcurse toate public. Extensie: Radu nu poate anula programarea Ioanei; încercarea o păstrează.
+Rezultate: respingere, confirmare, anulare urmată de confirmare, respectiv rezultat încă neconvenit. Comparați două scenarii care au făcut perechile să ezite; nu trebuie parcurse toate public. Extensie: Radu nu poate anula programarea Ioanei; încercarea o păstrează.
 
-**Organizare:** 19 min: 2 alegerea cazului, 12 schimb între perechi, 5 discuție. []{.pace dur=19}
+**Organizare:** 19 min: 2 alegerea scenariului, 12 schimb între perechi, 5 discuție. []{.pace dur=19}
 :::
 
 ---
@@ -163,7 +163,7 @@ Nu. F5 garantează deja numărul acceptărilor; nu spune cine câștigă. Q1 pri
 
 # Verificăm și revizuirea
 
-Într-un context nou, dați unui **evaluator (agent AI de revizuire)** fișa, sarcina și răspunsul analistului: al vostru sau captura integrală. Cereți observații legate de reguli și cazuri. Sau invitați altă pereche să facă această verificare.
+Într-un context nou, dați unui **evaluator (agent AI de revizuire)** fișa, sarcina și răspunsul analistului: al vostru sau captura integrală. Cereți observații legate de reguli și scenarii. Sau invitați altă pereche să facă această verificare.
 
 **Captură reală · Haiku 4.5 · 10.10.2026 · evaluator 02**, fragment:
 

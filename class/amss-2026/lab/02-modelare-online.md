@@ -13,7 +13,7 @@ Ce trebuie să păstrăm când un aparat revine la atelier?
 ::: notes
 Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relații și exemple care verifică un model. Schița este suportul conversației; nu cerem documente de predat. Online, conversația în pereche devine un schimb în plen: fiecare răspunde întâi singur în chat, apoi câțiva colegi explică la microfon și își răspund unul altuia. Schițele de pe hârtie se arată la cameră, ca fotografie în chat sau ca tabel scris în chat. Mesajele și schițele nu se colectează și nu se notează.
 
-**Organizare:** minutul 0 din 100; interval 0–10 (10 min), cu copertă, citat și observații inițiale. Puneți în chat linkurile prezentării și scenariului, plus adresa `/now` dacă porniți sesiunea sincronizată. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–10 (10 min), cu copertă, citat și observații inițiale. Puneți în chat linkurile prezentării și enunțului, plus adresa `/now` dacă porniți sesiunea sincronizată. []{.pace at=0 of=100}
 :::
 
 ---
@@ -82,7 +82,7 @@ Verbalizarea unei legături este mai importantă decât forma săgeții. Colegul
 
 Fiecare schițează J1 și J2: **cum rămâne Mara responsabilă de J1 după ce Radu devine responsabil de J2?** **Ștafetă:** un coleg își arată schița și o explică; altul cere regula și un exemplu, apoi explică J3 pe propria schiță.
 
-[Scenariul complet: R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md) · R6: fără inventar, plăți sau proprietari.
+[Enunțul complet: R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md) · R6: fără inventar, plăți sau proprietari.
 
 ::: notes
 Responsabilul se leagă de vizită, nu de aparat (R4–R5). O vizită nouă nu suprascrie datele celor anterioare și nu preia automat problemele lor. Numele voluntarilor pot coincide, la fel ca modelele aparatelor; codurile le disting. O problemă raportată descrie observația celui care a adus aparatul, nu un diagnostic confirmat. În tipologia din cursul 3, R1–R5 sunt reguli ale domeniului: politica atelierului, valabilă și într-un registru pe hârtie; R6 este limita exercițiului, nu o cerință. Sunt suficiente cuvinte, un tabel sau o schiță pe hârtie; nu cerem notație UML sau implementare.
@@ -112,12 +112,12 @@ Diferența dintre intenție și interpretare arată unde trebuie clarificat mode
 2. **Același text:** P1 în J1 și P3 în J3 spun „Pârghia nu rămâne jos”. R3 permite texte egale. Rămân distincte în schiță?
 3. **Două probleme:** la o nouă vizită J4, A18 vine cu două probleme raportate. R3 permite una sau mai multe. Poate schița exprima situația?
 
-**Un coleg își arată schița; colegul numit alege un caz și explică primul** cum îl exprimă modelul; autorul ascultă, apoi clarifică. Ceilalți scriu în chat „de acord” sau o obiecție. Repetați cu schița colegului care a explicat. Discutați o neclaritate sau o diferență între soluții.
+**Un coleg își arată schița; colegul numit alege o situație și explică primul** cum o exprimă modelul; autorul ascultă, apoi clarifică. Ceilalți scriu în chat „de acord” sau o obiecție. Repetați cu schița colegului care a explicat. Discutați o neclaritate sau o diferență între soluții.
 
 ::: notes
-Toate cele trei situații trebuie să poată fi exprimate: A19 există fără nicio vizită, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Revenirea (cine răspundea de J1 după J2) a fost sarcina de construcție; rămâne un caz de rezervă dacă rămâne timp.
+Toate cele trei situații trebuie să poată fi exprimate: A19 există fără nicio vizită, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Revenirea (cine răspundea de J1 după J2) a fost sarcina de construcție; rămâne o situație de rezervă dacă rămâne timp.
 
-**Organizare:** 19 min: 2 citire, 12 ștafeta schițelor cu obiecțiile din chat, 5 discuție comună. Cine a explicat își arată apoi propria schiță și numește colegul care o citește. Dacă nu se oferă nimeni, profesorul scrie în chat un model scurt sub formă de tabel, iar colegii îl încearcă pe cele trei cazuri. []{.pace dur=19}
+**Organizare:** 19 min: 2 citire, 12 ștafeta schițelor cu obiecțiile din chat, 5 discuție comună. Cine a explicat își arată apoi propria schiță și numește colegul care o citește. Dacă nu se oferă nimeni, profesorul scrie în chat un model scurt sub formă de tabel, iar colegii îl încearcă pe cele trei situații. []{.pace dur=19}
 :::
 
 ---
@@ -138,7 +138,7 @@ Un agent AI poate propune o alegere de reprezentare rezonabilă pe care organiza
 
 # Cum identifică analistul AI o problemă raportată?
 
-**Instrucțiunea reală**, urmată în prompt de scenariu (R1–R6 și datele):
+**Instrucțiunea reală**, urmată în prompt de enunț (R1–R6 și datele):
 
 > Propune un model de domeniu pentru acest atelier. Explică identitățile, relațiile și numărul permis de asocieri. Urmărește datele A17, A18, J1–J3 și spune ce informație se păstrează la o nouă vizită. Nu adăuga funcții. Răspunde în română, în maximum 400 de cuvinte.
 
@@ -151,7 +151,7 @@ Un agent AI poate propune o alegere de reprezentare rezonabilă pe care organiza
 ::: notes
 Este o alegere de reprezentare posibilă, prezentată fără a fi marcată ca alegere. R3 cere să distingem înregistrările, dar nu impune forma identificatorului. Discutăm ce înseamnă „ordine”: un număr atribuit și păstrat în cadrul vizitei sau poziția curentă într-o listă sortată? Doar prima convenție poate păstra identificarea după o reordonare. Captura integrală este în capturile pregătite, inclusiv relațiile corecte și explicația istoricului.
 
-**Organizare:** 12 min: 2 citire și răspuns în chat, 6 doi colegi cu răspunsuri diferite își compară argumentele cu propriile schițe, 4 schimb de argumente. Opțional, un voluntar rulează promptul cu scenariul în propriul asistent AI și partajează ecranul; folosiți contextul complet, nu doar instrucțiunea. []{.pace dur=12}
+**Organizare:** 12 min: 2 citire și răspuns în chat, 6 doi colegi cu răspunsuri diferite își compară argumentele cu propriile schițe, 4 schimb de argumente. Opțional, un voluntar rulează promptul cu enunțul în propriul asistent AI și partajează ecranul; folosiți contextul complet, nu doar instrucțiunea. []{.pace dur=12}
 :::
 
 ---
@@ -219,7 +219,7 @@ Cardinalitatea vizită → voluntari devine 0–2; voluntar → vizite rămâne 
 Fiecare scrie în chat un exemplu; doi sau trei colegi își dezvoltă exemplul la microfon:
 
 - Ce a înțeles colegul altfel decât intenționați?
-- Ce caz a arătat că o relație era greșită sau neclară?
+- Ce situație a arătat că o relație era greșită sau neclară?
 - Ce observație a evaluatorului AI sau a unui coleg ați acceptat, reformulat sau respins și de ce?
 
 Păstrați schițele și notițele care vă ajută la studiu. **Activitatea se încheie prin discuție; nu avem documente de predat, iar chatul nu se notează.**

@@ -1,6 +1,6 @@
 # Capturi pregătite pentru discuție — atelierul de reparații
 
-Material de rezervă când nu folosiți un instrument AI propriu. Răspunsuri reale Claude Haiku 4.5, din 10.10.2026; scenariul este didactic. Fragmentele sunt fidele; răspunsurile integrale și toate încercările sunt în [arhivă](captures/2026-10-10/README.md). Puteți cere unui coleg aceeași analiză.
+Material de rezervă când nu folosiți un instrument AI propriu. Răspunsuri reale Claude Haiku 4.5, din 10.10.2026; exemplul este didactic. Fragmentele sunt fidele; răspunsurile integrale și toate încercările sunt în [arhivă](captures/2026-10-10/README.md). Puteți cere unui coleg aceeași analiză.
 
 ## Sarcina analistului AI
 

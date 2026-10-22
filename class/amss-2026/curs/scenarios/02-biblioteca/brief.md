@@ -37,7 +37,7 @@ Regulile sunt precizări ale bibliotecarei care reprezintă biblioteca fictivă.
 
 Sunt suficiente un glosar, un tabel, o schiță sau pseudocod. Nu se cere o aplicație sau o anumită diagramă.
 
-## Situații concrete de verificat
+## Scenarii de verificat
 
 **Stare inițială:** titlul T are exemplarele C1 și C2 disponibile; membrii M1, M2, M3 și M4 există; niciun împrumut, nicio cerere de împrumut, nicio rezervare.
 

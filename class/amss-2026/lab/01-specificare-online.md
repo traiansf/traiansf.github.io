@@ -94,7 +94,7 @@ Citim și limitele din fișă: confirmarea are cod, respingerea explică regula;
 
 # Punem explicația la încercare {.transition}
 
-**30–50 min · Un coleg propune un caz, altul răspunde**
+**30–50 min · Un coleg propune un scenariu, altul răspunde**
 
 Ce exemplu desparte două interpretări?
 
@@ -106,11 +106,11 @@ Scopul schimbului este să observăm ce ar înțelege altcineva din explicația 
 
 ---
 
-# Alegeți un caz pentru un coleg
+# Alegeți un scenariu pentru un coleg
 
-**Fiecare caz pornește separat:** Ioana are Albastra 10:00–11:00; celelalte intervale sunt libere. Toate cererile sunt pentru D.
+**Fiecare scenariu pornește separat:** Ioana are Albastra 10:00–11:00; celelalte intervale sunt libere. Toate cererile sunt pentru D.
 
-| Caz | Ce încearcă cineva |
+| Scenariu | Ce încearcă cineva |
 |---|---|
 | Suprapunere | Radu cere Albastra 10:30–11:30. |
 | Limită | Radu cere Albastra 11:00–12:00. |
@@ -122,9 +122,9 @@ Fără suprapuneri pe aceeași mașină; alăturarea este permisă. Titularul po
 **Ce rezultat puteți promite și de ce?** Răspunde întâi colegul numit; obiecțiile, în chat.
 
 ::: notes
-Rezultate: respingere, confirmare, anulare urmată de confirmare, respectiv rezultat încă neconvenit. Comparați două cazuri care au făcut colegii să ezite; nu trebuie parcurse toate public. Extensie: Radu nu poate anula programarea Ioanei; încercarea o păstrează. Un coleg poate propune și un caz nou, de exemplu un interval vid sau unul în afara programului.
+Rezultate: respingere, confirmare, anulare urmată de confirmare, respectiv rezultat încă neconvenit. Comparați două scenarii care au făcut colegii să ezite; nu trebuie parcurse toate public. Extensie: Radu nu poate anula programarea Ioanei; încercarea o păstrează. Un coleg poate propune și un scenariu nou, de exemplu un interval vid sau unul în afara programului.
 
-**Organizare:** 19 min: 2 alegerea primului caz, 12 ștafeta cazurilor cu obiecțiile din chat, 5 discuție. Cine alege cazul numește colegul care răspunde; acesta alege apoi cazul următor. Ceilalți scriu în chat „de acord” sau o obiecție. []{.pace dur=19}
+**Organizare:** 19 min: 2 alegerea primului scenariu, 12 ștafeta scenariilor cu obiecțiile din chat, 5 discuție. Cine alege scenariul numește colegul care răspunde; acesta alege apoi scenariul următor. Ceilalți scriu în chat „de acord” sau o obiecție. []{.pace dur=19}
 :::
 
 ---
@@ -165,7 +165,7 @@ Nu. F5 garantează deja numărul acceptărilor; nu spune cine câștigă. Q1 pri
 
 # Verificăm și revizuirea
 
-Un coleg care nu a rulat analistul dă unui **evaluator (agent AI de revizuire)**, într-un context nou, fișa, sarcina și răspunsul analistului: cel rulat de colegi sau captura integrală. Partajează ecranul și cere observații legate de reguli și cazuri. Sau un alt coleg face verificarea cu voce tare.
+Un coleg care nu a rulat analistul dă unui **evaluator (agent AI de revizuire)**, într-un context nou, fișa, sarcina și răspunsul analistului: cel rulat de colegi sau captura integrală. Partajează ecranul și cere observații legate de reguli și scenarii. Sau un alt coleg face verificarea cu voce tare.
 
 **Captură reală · Haiku 4.5 · 10.10.2026 · evaluator 02**, fragment:
 

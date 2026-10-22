@@ -10,7 +10,7 @@ Alocați orientativ 90 de minute: acces la materiale 10; experiențe individuale
 
 Discutați cerințe interpretate diferit, schimbări cu efecte ample și verificarea rezultatelor AI. Cereți-le studenților o întrebare care ar fi schimbat o decizie. Dacă nu au un exemplu, folosiți-l pe cel din ghid, cu pagina pentru notițe. Nu intrați aici în detalii despre modele, contracte, invarianți sau notații de diagrame.
 
-Păstrați scenariul mașinilor de spălat din cămin pentru Laboratorul 1 și demonstrația bibliotecii pentru cursul 2. Lab 0 nu le înlocuiește și nu dă unei singure grupe material tehnic suplimentar, de care va fi nevoie mai târziu.
+Păstrați enunțul cu mașinile de spălat din cămin pentru Laboratorul 1 și demonstrația bibliotecii pentru cursul 2. Lab 0 nu le înlocuiește și nu dă unei singure grupe material tehnic suplimentar, de care va fi nevoie mai târziu.
 
 ## Material și acces independent
 

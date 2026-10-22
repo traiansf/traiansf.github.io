@@ -46,7 +46,7 @@ Pe hârtie, apoi cu un coleg:
 2. Scrieți două întrebări importante pentru administrație.
 3. Pentru una dintre ele, explicați ce s-ar schimba în funcție de răspuns.
 
-*Scenariu didactic; cererea și clarificările sunt construite pentru acest curs.*
+*Exemplu didactic; cererea și clarificările sunt construite pentru acest curs.*
 
 ::: notes
 Problema: studentul nu poate afla starea sesizării fără să întrebe din nou. Nu știm încă ce se înregistrează, cine actualizează starea sau ce înseamnă „rapid”. O întrebare utilă deosebește rezultatele posibile: două sesizări pentru aceeași defecțiune rămân distincte sau se reunesc?
@@ -119,7 +119,7 @@ Consecința dedusă rezultă din ce s-a convenit, dar o verificăm tot cu benefi
 **Limită convenită:** identitatea și rolul utilizatorului sunt deja cunoscute; autentificarea este în afara exercițiului.
 
 ::: notes
-„Sesizare” desemnează înregistrarea făcută de un student, nu defecțiunea fizică. Numărul identifică sesizarea, chiar dacă descrierea seamănă cu a alteia. R1 și R2 sunt răspunsuri ale beneficiarului din scenariul didactic, nu fapte despre un sistem real al universității.
+„Sesizare” desemnează înregistrarea făcută de un student, nu defecțiunea fizică. Numărul identifică sesizarea, chiar dacă descrierea seamănă cu a alteia. R1 și R2 sunt răspunsuri ale beneficiarului din exemplul didactic, nu fapte despre un sistem real al universității.
 
 La respingerea unei înregistrări incomplete nu se creează sesizarea; formularea completă apare în etapa următoare. Deocamdată verificăm dacă răspunsurile acoperă întrebările inițiale ale studenților.
 :::
@@ -174,7 +174,7 @@ Modelul AI primise numai cererea inițială și sarcina de a propune o specifica
 
 # Sesizări repetate: păstrăm sau schimbăm regulile?
 
-**Situație:** Ana raportează robinetul care curge în sala A12. Bogdan raportează mai târziu același robinet.
+**Scenariu:** Ana raportează robinetul care curge în sala A12. Bogdan raportează mai târziu același robinet.
 
 **Până acum:** R1 creează o sesizare nouă la fiecare trimitere validă; R2 permite studentului să consulte numai propriile sesizări.
 
@@ -280,7 +280,7 @@ Un **exemplu de acceptare** descrie un caz concret și rezultatul așteptat; poa
 *Ana trimite „A12” și „robinetul curge” → sesizare nouă a Anei, „înregistrată”; Ana vede numărul și starea.*
 
 ::: notes
-Conținutul convenit nu se schimbă; se adaugă precizia necesară unei decizii. „Obligatorii” devine „ambele nevide”: o condiție pe care două echipe o verifică la fel. Din „obligatorii” deducem că fără loc sau descriere sesizarea nu se creează (consecință dedusă). Că sistemul indică informația lipsă este propunerea noastră, confirmată de administrație în scenariul didactic. Cereți studenților tipul fiecărui adaos.
+Conținutul convenit nu se schimbă; se adaugă precizia necesară unei decizii. „Obligatorii” devine „ambele nevide”: o condiție pe care două echipe o verifică la fel. Din „obligatorii” deducem că fără loc sau descriere sesizarea nu se creează (consecință dedusă). Că sistemul indică informația lipsă este propunerea noastră, confirmată de administrație în exemplul didactic. Cereți studenților tipul fiecărui adaos.
 
 Urmărim cine cere, în ce condiții și ce rezultat observabil obține, inclusiv la respingere. Nu prescriem formularul, baza de date sau algoritmul de generare a numărului.
 

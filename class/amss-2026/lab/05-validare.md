@@ -6,7 +6,7 @@ date: "2026"
 
 # Lab 5: Validare și abstractizare
 
-**Plan de laborator — scenariul și materialele de lucru urmează să fie dezvoltate înainte de publicare.**
+**Plan de laborator — enunțul și materialele de lucru urmează să fie dezvoltate înainte de publicare.**
 
 Aplicăm cursurile **9–10**, deja predate: proprietăți și limite ale verificării, apoi alegerea unei abstractizări potrivite unei variații.
 

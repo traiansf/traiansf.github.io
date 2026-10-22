@@ -82,7 +82,7 @@ Verbalizarea unei legături este mai importantă decât forma săgeții. Colegul
 
 Unul schițează și explică J1 și J2: **cum rămâne Mara responsabilă de J1 după ce Radu devine responsabil de J2?** Celălalt cere regula și un exemplu. La semnal, schimbați rolurile și explicați J3.
 
-[Scenariul complet: R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md) · R6: fără inventar, plăți sau proprietari.
+[Enunțul complet: R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md) · R6: fără inventar, plăți sau proprietari.
 
 ::: notes
 Responsabilul se leagă de vizită, nu de aparat (R4–R5). O vizită nouă nu suprascrie datele celor anterioare și nu preia automat problemele lor. Numele voluntarilor pot coincide, la fel ca modelele aparatelor; codurile le disting. O problemă raportată descrie observația celui care a adus aparatul, nu un diagnostic confirmat. În tipologia din cursul 3, R1–R5 sunt reguli ale domeniului: politica atelierului, valabilă și într-un registru pe hârtie; R6 este limita exercițiului, nu o cerință. Sunt suficiente cuvinte, un tabel sau o schiță pe hârtie; nu cerem notație UML sau implementare.
@@ -112,10 +112,10 @@ Diferența dintre intenție și interpretare arată unde trebuie clarificat mode
 2. **Același text:** P1 în J1 și P3 în J3 spun „Pârghia nu rămâne jos”. R3 permite texte egale. Rămân distincte în schiță?
 3. **Două probleme:** la o nouă vizită J4, A18 vine cu două probleme raportate. R3 permite una sau mai multe. Poate schița exprima situația?
 
-**Pe schița perechii A, perechea B alege un caz și explică prima** cum îl exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Discutați o neclaritate sau o diferență între soluții.
+**Pe schița perechii A, perechea B alege o situație și explică prima** cum o exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Discutați o neclaritate sau o diferență între soluții.
 
 ::: notes
-Toate cele trei situații trebuie să poată fi exprimate: A19 există fără nicio vizită, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Revenirea (cine răspundea de J1 după J2) a fost sarcina de construcție; rămâne un caz de rezervă dacă o pereche termină devreme.
+Toate cele trei situații trebuie să poată fi exprimate: A19 există fără nicio vizită, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Revenirea (cine răspundea de J1 după J2) a fost sarcina de construcție; rămâne o situație de rezervă dacă o pereche termină devreme.
 
 **Organizare:** 19 min: 2 citire, 12 schimb și comparație, 5 discuție comună. []{.pace dur=19}
 :::
@@ -138,7 +138,7 @@ Un agent AI poate propune o alegere de reprezentare rezonabilă pe care organiza
 
 # Cum identifică analistul AI o problemă raportată?
 
-**Instrucțiunea reală**, urmată în prompt de scenariu (R1–R6 și datele):
+**Instrucțiunea reală**, urmată în prompt de enunț (R1–R6 și datele):
 
 > Propune un model de domeniu pentru acest atelier. Explică identitățile, relațiile și numărul permis de asocieri. Urmărește datele A17, A18, J1–J3 și spune ce informație se păstrează la o nouă vizită. Nu adăuga funcții. Răspunde în română, în maximum 400 de cuvinte.
 
@@ -219,7 +219,7 @@ Cardinalitatea vizită → voluntari devine 0–2; voluntar → vizite rămâne 
 Discutăm câteva exemple din grupă:
 
 - Ce a înțeles colegul altfel decât intenționați?
-- Ce caz a arătat că o relație era greșită sau neclară?
+- Ce situație a arătat că o relație era greșită sau neclară?
 - Ce observație a evaluatorului AI sau a altei perechi ați acceptat, reformulat sau respins și de ce?
 
 Păstrați schițele și notițele care vă ajută la studiu. **Activitatea se încheie prin discuție; nu avem documente de predat.**

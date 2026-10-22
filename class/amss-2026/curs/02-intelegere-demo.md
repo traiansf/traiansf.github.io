@@ -16,7 +16,7 @@ Arătați „Exemplu pregătit: delegare și verificare”, apoi „Ce îi cerem
 
 ## 2. Verificarea propunerii (2 minute)
 
-Lăsați pe ecran „Proiectarea AI păstrează legăturile necesare?”. Fragmentul capturat, situația S2, regulile și întrebarea sunt vizibile împreună. Studenții notează legăturile necesare pentru decizia asupra lui M3: C1 → rezervare → cerere → M2. M3 nu poate împrumuta C1; împrumutul său pentru C2 nu îi dă acest drept.
+Lăsați pe ecran „Proiectarea AI păstrează legăturile necesare?”. Fragmentul capturat, scenariul S2, regulile și întrebarea sunt vizibile împreună. Studenții notează legăturile necesare pentru decizia asupra lui M3: C1 → rezervare → cerere → M2. M3 nu poate împrumuta C1; împrumutul său pentru C2 nu îi dă acest drept.
 
 Proiectarea păstrează informația necesară. Nu impunem găsirea unui defect într-un fragment corect.
 

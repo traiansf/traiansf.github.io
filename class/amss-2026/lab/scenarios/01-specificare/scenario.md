@@ -1,6 +1,6 @@
 # Laboratorul 1 — fișă: programarea mașinilor de spălat din cămin
 
-Acesta este un **scenariu didactic pregătit**. Informațiile de mai jos sunt cerințele convenite cu beneficiarul pentru exercițiu. Ele descriu un pilot cu limite clare, nu regulile unui cămin real.
+Acesta este un **exemplu didactic pregătit**. Informațiile de mai jos sunt cerințele convenite cu beneficiarul pentru exercițiu. Ele descriu un pilot cu limite clare, nu regulile unui cămin real.
 
 ## Scopul și informațiile convenite
 
@@ -17,7 +17,7 @@ Locatarii căminului trebuie să își poată programa o mașină de spălat din
 | F7 | La o programare reușită se returnează un cod de programare. Răspunsul la o cerere respinsă explică ce regulă convenită a împiedicat-o. Nu s-au specificat nici formatul interfeței, nici o limită pentru timpul de răspuns. |
 | F8 | Plățile, programările recurente, listele de așteptare, administrarea mașinilor, semnalarea defecțiunilor și notificările sunt excluse din pilot. |
 
-O cerere obișnuită care satisface regulile convenite poate fi confirmată. Pentru cazurile deschise de mai jos, regulile trebuie decise explicit înainte de a afirma că proiectarea le acoperă complet.
+O cerere obișnuită care satisface regulile convenite poate fi confirmată. Pentru întrebările deschise de mai jos, regulile trebuie decise explicit înainte de a afirma că proiectarea le acoperă complet.
 
 ## Întrebări încă deschise
 
@@ -40,7 +40,7 @@ Toate identitățile de mai jos sunt verificate; cererile folosesc mașinile din
 - **S7:** la 09:00, Radu încearcă să anuleze programarea confirmată a Ioanei pentru Albastra 10:00–11:00.
 - **S8:** cu S1 confirmat, Ioana cere Verdea 10:30–11:30. Ce întrebare trebuie rezolvată înainte de a promite un rezultat?
 
-Alegeți pentru discuție cazurile care vă ajută să separați interpretări diferite. Explicați rezultatul așteptat sau decizia încă deschisă și indicați sursa. Lista este o rezervă de exemple, nu un tabel de completat integral. Puteți adăuga un interval vid sau o cerere în afara programului dacă ajută la clarificarea unei reguli.
+Alegeți pentru discuție scenariile care vă ajută să separați interpretări diferite. Explicați rezultatul așteptat sau decizia încă deschisă și indicați sursa. Lista este o rezervă de exemple, nu un tabel de completat integral. Puteți adăuga un interval vid sau o cerere în afara programului dacă ajută la clarificarea unei reguli.
 
 ## Cinci tipuri de afirmații
 

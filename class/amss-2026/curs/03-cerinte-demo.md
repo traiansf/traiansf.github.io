@@ -26,7 +26,7 @@ Reperele cumulative sunt în notele tranzițiilor și în marcajele `.pace`. Dur
 
 ## Exemplul principal
 
-[Enunțul consolidat](scenarios/03-sesizari/brief.md) și [raționamentul de referință](scenarios/03-sesizari/reference.md) susțin pregătirea. Scenariul, răspunsurile administrației și loturile de măsurători sunt didactice. **Răspunsurile AI și revizuirile sunt capturi reale**, nu texte redactate pentru a simula un model AI. Loturile de timp nu sunt rezultate ale unor execuții.
+[Enunțul consolidat](scenarios/03-sesizari/brief.md) și [raționamentul de referință](scenarios/03-sesizari/reference.md) susțin pregătirea. Exemplul, răspunsurile administrației și loturile de măsurători sunt didactice. **Răspunsurile AI și revizuirile sunt capturi reale**, nu texte redactate pentru a simula un model AI. Loturile de timp nu sunt rezultate ale unor execuții.
 
 Răspunsurile administrației se dezvăluie progresiv. La primul exercițiu acceptați întrebările utile chiar dacă ating o funcție pe care o vom exclude ulterior. Nu evaluați întrebările și ipotezele inițiale prin reguli pe care studenții nu le-au primit încă. Cereți de fiecare dată tipul afirmației: ipoteza din recapitulare devine informație convenită la R3, întrebarea deschisă despre „rapid” la Q1.
 

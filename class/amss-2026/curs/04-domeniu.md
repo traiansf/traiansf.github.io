@@ -45,7 +45,7 @@ O arhivistă catalogează fotografii; fiecare intră în arhivă cu o **versiune
 
 **Regula convenită cu arhivista (beneficiarul):** legenda se poate schimba; fotografia își păstrează identificatorul.
 
-**Cazul S1:** schimbăm legenda lui F1 în „Dimineață”. **Ce se schimbă și ce rămâne?** Am putea folosi legenda pentru a identifica fotografia?
+**Scenariul S1:** schimbăm legenda lui F1 în „Dimineață”. **Ce se schimbă și ce rămâne?** Am putea folosi legenda pentru a identifica fotografia?
 
 ::: notes
 Se schimbă numai legenda lui F1. F2 și identificatorii F1, F2, V1, V2 rămân aceiași. V2 este originalul lui F2, nu a doua versiune a lui F1: numărul este un identificator al arhivei, la fel ca F2, nu numără versiunile unei fotografii. Aceeași numerotare continuă cu V3 și V4 pentru F1, V5 propusă pentru F2. Legenda nu identifică fotografia: poate coincide și se poate schimba. Separăm ce spune enunțul de o presupunere despre identitatea imaginilor după conținut.
@@ -68,7 +68,7 @@ Pentru arhiva noastră vrem să putem spune:
 Nu modelăm albume, drepturi de acces, ștergeri sau stocarea fișierelor.
 
 ::: notes
-Aceste întrebări selectează conceptele utile. Modelul nu trebuie să reproducă toate proprietățile unei fotografii sau toate funcțiile unei arhive reale. Regulile și limitele sunt convenite în scenariul didactic, nu descoperite de un agent AI. În tipologia din cursul 3, R1–R5 sunt reguli ale domeniului: politica arhivei, valabilă cu sau fără sistem; R6 este o limită a exercițiului, nu o cerință.
+Aceste întrebări selectează conceptele utile. Modelul nu trebuie să reproducă toate proprietățile unei fotografii sau toate funcțiile unei arhive reale. Regulile și limitele sunt convenite în acest exemplu didactic, nu descoperite de un agent AI. În tipologia din cursul 3, R1–R5 sunt reguli ale domeniului: politica arhivei, valabilă cu sau fără sistem; R6 este o limită a exercițiului, nu o cerință.
 :::
 
 ---
@@ -135,7 +135,7 @@ Fotografia reprezintă continuitatea dintre editări; versiunea reprezintă un c
 
 **Pornim din nou din situația inițială, independent de S1:** fotografia F1, legenda „Curte”, originalul V1.
 
-**Cazul S2:** din V1 se creează, prin editare, versiunea V3.
+**Scenariul S2:** din V1 se creează, prin editare, versiunea V3.
 
 **Reguli (R2, R4–R5):** versiunea nouă are identitate proprie, aparține aceleiași fotografii și are ca sursă versiunea de la care a pornit editarea. Editarea păstrează conținutul versiunilor existente și legenda.
 
@@ -222,7 +222,7 @@ F1 are originalul **V1** și derivata **V3**, creată din V1 (S2).
 
 **R4:** orice versiune existentă poate fi editată; noua versiune are exact o sursă, din aceeași fotografie. **R5:** versiunile existente se păstrează.
 
-**Cazul S3:** edităm din nou V1 și obținem V4.
+**Scenariul S3:** edităm din nou V1 și obținem V4.
 
 Individual, apoi în pereche:
 
@@ -257,9 +257,9 @@ Cardinalitatea nu spune totul: „exact o sursă” ar admite și o sursă din a
 
 # Interzis sau încă neconvenit?
 
-**Cazul S4 — o asociere interzisă:** V1 aparține lui F1. Cineva propune V5 pentru F2, cu sursa V1. R4 o exclude: sursa și derivata trebuie să aparțină aceleiași fotografii.
+**Scenariul S4 — o asociere interzisă:** V1 aparține lui F1. Cineva propune V5 pentru F2, cu sursa V1. R4 o exclude: sursa și derivata trebuie să aparțină aceleiași fotografii.
 
-**Cazul S5 — o întrebare deschisă:** importăm din nou același fișier. Refolosim fotografia existentă sau creăm alta?
+**Scenariul S5 — o întrebare deschisă:** importăm din nou același fișier. Refolosim fotografia existentă sau creăm alta?
 
 **R6 — limitele exercițiului:** nu modelăm ștergerea, albumele, accesul, formatul și stocarea fișierelor, detectarea fișierelor identice sau algoritmii de editare.
 
@@ -305,10 +305,10 @@ Un răspuns poate fi util și totuși să conțină o generalizare nejustificat�
 
 > Propune un model de domeniu pentru regulile de mai jos: concepte, identități, relații și restricții. Explică prin S1–S4 cum susține modelul regulile. Separă alegerile de reprezentare de cerințe. Nu scrie cod și nu impune o notație. Răspunde în română, în maximum 450 de cuvinte.
 
-**Context, în același prompt:** R1–R6 și cazurile S1–S5 (S1 legenda, S2 prima editare, S3 a doua editare a lui V1, S4 sursa din altă fotografie, S5 importul repetat, neconvenit).
+**Context, în același prompt:** R1–R6 și scenariile S1–S5 (S1 legenda, S2 prima editare, S3 a doua editare a lui V1, S4 sursa din altă fotografie, S5 importul repetat, neconvenit).
 
 ::: notes
-Contextul conține regulile și cazurile discutate până acum, fără soluția profesorului. Nu cerem un anumit defect. Două rulări Claude Haiku 4.5 au primit același prompt; analizăm rularea 2.
+Contextul conține regulile și scenariile discutate până acum, fără soluția profesorului. Nu cerem un anumit defect. Două rulări Claude Haiku 4.5 au primit același prompt; analizăm rularea 2.
 
 **Sursă:** instrucțiunea integrală din `scenarios/04-fotografii/captures/2026-10-10/analist-instructiune.md`; contextul integral în `context.md`, promptul complet și ambele răspunsuri în același director.
 
@@ -371,7 +371,7 @@ Repetiția „orice orice” este în original; nu discutăm formularea lingvist
 
 > Ești evaluator (agent AI de revizuire). Verifică propunerea de mai jos exclusiv față de contextul și sarcina furnizate. Identifică afirmațiile susținute, contradicțiile, omisiunile relevante și alegerile prezentate ca cerințe. Pentru fiecare observație, indică fragmentul și regula sau scenariul relevant. Nu presupune că trebuie să existe greșeli; dacă o afirmație este corectă, explică de ce. Nu scrie cod. Răspunde în română, în maximum 400 de cuvinte.
 
-**Context nou:** aceleași reguli și cazuri, sarcina analistului AI și răspunsul său integral (rularea 2).
+**Context nou:** aceleași reguli și scenarii, sarcina analistului AI și răspunsul său integral (rularea 2).
 
 **Predicție, înainte de a vedea răspunsul AI:** va observa evaluatorul AI contradicția dintre „zero sau o Sursă” și „orice DAG”?
 

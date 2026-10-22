@@ -10,7 +10,7 @@ R1 și R2 stabilesc deja crearea unei sesizări la fiecare raportare validă și
 
 ## De la sursă la rezultat
 
-| Caz independent | Rezultat și justificare |
+| Scenariu independent | Rezultat și justificare |
 |---|---|
 | Student identificat, loc și descriere prezente | R1: sesizare nouă, număr unic, autorul păstrat, stare „înregistrată”; numărul și starea sunt afișate. |
 | Lipsește locul sau descrierea | R1: respingere, informația lipsă indicată, nicio sesizare creată. |
