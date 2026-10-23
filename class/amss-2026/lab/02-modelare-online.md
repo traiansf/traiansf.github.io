@@ -13,7 +13,7 @@ Ce trebuie să păstrăm când un aparat revine la atelier?
 ::: notes
 Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relații și exemple care verifică un model. Schița este suportul conversației; nu cerem documente de predat. Online, conversația în pereche devine un schimb în plen: fiecare răspunde întâi singur în chat, apoi câțiva colegi explică la microfon și își răspund unul altuia. Schițele de pe hârtie se arată la cameră, ca fotografie în chat sau ca tabel scris în chat. Mesajele și schițele nu se colectează și nu se notează.
 
-**Organizare:** minutul 0 din 100; interval 0–10 (10 min), cu copertă, citat și observații inițiale. Puneți în chat linkurile prezentării și enunțului, plus adresa `/now` dacă porniți sesiunea sincronizată. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–10 (10 min): copertă și citat, recapitularea din cursul 4, observații inițiale. Puneți în chat linkurile prezentării și enunțului, plus adresa `/now` dacă porniți sesiunea sincronizată. []{.pace at=0 of=100}
 :::
 
 ---
@@ -32,6 +32,26 @@ Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relaț
 Selectăm aspectele necesare urmăririi vizitelor; nu proiectăm întregul atelier și nu începem de la clase sau de la schema unei baze de date. Reluăm citatul din cursul 4.
 
 **Sursă:** publicația autorului, Definitions, intrarea model, pagina PDF 6. Termenul definit este titlul intrării; îl redăm înaintea definiției, ca să se vadă pe slide ce se definește. Fragment păstrat din materialul anterior verificat în `docs/quotations.md`; finalul după domain este omis explicit.
+:::
+
+---
+
+# Ce urmărim când cerem un model
+
+Din cursul 4: un model pe care îl putem discuta cu altă persoană conține:
+
+- **sensuri:** conceptele și ce înseamnă fiecare;
+- **reguli:** identitate, apartenență și numărul permis de asocieri;
+- **exemple și contraexemple:** situații pe care regulile le permit și situații pe care le exclud;
+- **limite:** ce excludem explicit;
+- **întrebări deschise:** ce nu stabilește încă enunțul.
+
+O schiță ajută când putem explica fiecare legătură printr-o regulă sau un exemplu.
+
+::: notes
+Recapitulăm lista de la sfârșitul cursului 4, fără exemplele arhivei foto: așa vom judeca schițele de azi. În atelier le vom întâlni pe rând: aparat, vizită, problemă raportată și voluntar responsabil; regulile R1–R5; vizitele J1–J3 ca exemple; limita R6; întrebările adresate organizatorilor. Lista nu este un șablon de livrabil.
+
+**Organizare:** 2 min, fără exercițiu. []{.pace dur=2}
 :::
 
 ---

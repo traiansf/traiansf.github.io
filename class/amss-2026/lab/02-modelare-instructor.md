@@ -1,6 +1,6 @@
 # Laboratorul 2 — ghid pentru profesor
 
-**100 de minute, după cursurile 3–4; 14 slide-uri cu copertă.** Exersăm cerințe, identitate, relații și verificarea modelului prin exemple. Lucrăm în perechi sau trio, cu schimbarea colegului care propune și a celui care cere justificări. Schițele sunt suportul discuției; nu există predare obligatorie, încărcare, rubrică de documente sau notă separată pentru această activitate.
+**100 de minute, după cursurile 3–4; 15 slide-uri cu copertă.** Exersăm cerințe, identitate, relații și verificarea modelului prin exemple. Lucrăm în perechi sau trio, cu schimbarea colegului care propune și a celui care cere justificări. Schițele sunt suportul discuției; nu există predare obligatorie, încărcare, rubrică de documente sau notă separată pentru această activitate.
 
 Materiale: [prezentare](02-modelare.md), [enunț](scenarios/02-modelare/scenario.md), [sprijin facultativ pentru discuție](scenarios/02-modelare/worksheet.md), [capturi pregătite](scenarios/02-modelare/prepared-fixture.md). Enunțul și sprijinul pentru discuție pot fi consultate pe calculator sau tipărite. Hârtia și conversația sunt suficiente; nu rezervăm timp pentru configurări. Dacă un instrument AI nu funcționează, perechile folosesc captura sau cer colegilor aceeași verificare.
 
@@ -8,7 +8,7 @@ Materiale: [prezentare](02-modelare.md), [enunț](scenarios/02-modelare/scenario
 
 | Minute | Activitate | Intervenția profesorului |
 |---|---|---|
-| 0–10 | Citat, reflecție inițială, comparație A17/A18 și J1–J3. | Cereți un exemplu de informație pierdută și o întrebare pentru organizatori. |
+| 0–10 | Citat, recapitularea din cursul 4 (ce urmărim când cerem un model), reflecție inițială, comparație A17/A18 și J1–J3. | Cereți un exemplu de informație pierdută și o întrebare pentru organizatori. |
 | 10–35 | Citirea regulilor, schiță și explicații cu roluri schimbate. | „De ce este responsabilul legat aici?” |
 | 35–55 | Două perechi își explică reciproc modelele. | Colegii care nu au desenat schița aleg o situație și o interpretează primii pe schiță. |
 | 55–80 | Comparație cu AI sau captura pregătită; revizuire. | Cereți să se distingă o alegere de reprezentare de o cerință. |
