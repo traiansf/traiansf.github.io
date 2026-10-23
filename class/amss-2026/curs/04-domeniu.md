@@ -18,7 +18,7 @@ Un model al domeniului ne ajută să explicăm situațiile cerute folosind conce
 
 # Citatul zilei
 
-> „**Model:** un sistem de abstractizări care descrie aspecte selectate ale unui domeniu […]”
+> „**Model:** un sistem de abstractizări care descrie aspecte alese ale unui domeniu […]”
 >
 > Original: “**model:** A system of abstractions that describes selected aspects of a domain […]”
 

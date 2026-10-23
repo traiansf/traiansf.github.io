@@ -20,7 +20,7 @@ Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relaț
 
 # Citatul zilei
 
-> „**Model:** un sistem de abstractizări care descrie aspecte selectate ale unui domeniu […]”
+> „**Model:** un sistem de abstractizări care descrie aspecte alese ale unui domeniu […]”
 >
 > Original: “**model:** A system of abstractions that describes selected aspects of a domain […]”
 
