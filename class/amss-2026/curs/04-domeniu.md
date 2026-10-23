@@ -59,11 +59,11 @@ Se schimbă numai legenda lui F1. F2 și identificatorii F1, F2, V1, V2 rămân 
 
 Un **model al domeniului** descrie conceptele relevante, relațiile dintre ele și regulile care le limitează.
 
-Pentru arhiva noastră vrem să putem spune:
+Pentru arhiva noastră, modelul trebuie să răspundă la următoarele întrebări:
 
-- despre **care fotografie** vorbim, chiar dacă îi schimbăm legenda;
-- **ce versiuni** îi aparțin;
-- **din ce versiune** provine o versiune obținută prin editare.
+- Despre **care fotografie** vorbim, chiar dacă îi schimbăm legenda?
+- **Ce versiuni** îi aparțin?
+- **Din ce versiune** provine o versiune obținută prin editare?
 
 Nu modelăm albume, drepturi de acces, ștergeri sau stocarea fișierelor.
 
