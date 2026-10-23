@@ -10,16 +10,12 @@ Organizatorii unui atelier comunitar de reparații (beneficiarul) țin evidența
 
 Construim împreună un model al domeniului, îl verificăm pe situații concrete, îl comparăm cu un răspuns AI și îl adaptăm când o regulă se schimbă.
 
-- [Enunțul: regulile R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md)
-- [Sprijin facultativ pentru discuție](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/worksheet.md)
-- [Capturile AI pregătite](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/prepared-fixture.md)
-
 Exemplu didactic. Hârtia și conversația sunt suficiente.
 
 ::: notes
 Fixăm problema înainte de exercițiu: un aparat cu mai multe vizite, fiecare cu problemele și responsabilul ei. Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relații și exemple care verifică un model.
 
-**Organizare:** minutul 0 din 100; deschidere 0–4 (4 min): ce modelăm azi, citatul, recapitularea din cursul 4. Puneți în chat linkurile prezentării și ale materialelor de pe acest slide, plus adresa `/now` dacă porniți sesiunea sincronizată. []{.pace at=0 of=100 dur=1}
+**Organizare:** minutul 0 din 100; deschidere 0–4 (4 min): ce modelăm azi, citatul, recapitularea din cursul 4. Puneți în chat linkul prezentării, plus adresa `/now` dacă porniți sesiunea sincronizată; linkul enunțului îl dați la slide-ul cu regulile. []{.pace at=0 of=100 dur=1}
 :::
 
 ---
@@ -127,9 +123,9 @@ Fiecare schițează J1 și J2: **cum rămâne Mara responsabilă de J1 după ce 
 [Enunțul complet: R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md) · R6: fără inventar, plăți sau proprietari.
 
 ::: notes
-Responsabilul se leagă de vizită, nu de aparat (R4–R5). O vizită nouă nu suprascrie datele celor anterioare și nu preia automat problemele lor. Numele voluntarilor pot coincide, la fel ca modelele aparatelor; codurile le disting. O problemă raportată descrie observația celui care a adus aparatul, nu un diagnostic confirmat. În tipologia din cursul 3, R1–R5 sunt reguli ale domeniului: politica atelierului, valabilă și într-un registru pe hârtie; R6 este limita exercițiului, nu o cerință. Sunt suficiente cuvinte, un tabel sau o schiță pe hârtie; nu cerem notație UML sau implementare.
+Aici parcurgem enunțul, pornind de la întrebările puse la „Trei vizite”: mai multe probleme la aceeași vizită (R3), ștergerea sau corectarea unei vizite (deschise în R6), proprietarul (exclus în R6), doi voluntari (R4 spune zero sau unul; revenim la minutul 80). Responsabilul se leagă de vizită, nu de aparat (R4–R5). O vizită nouă nu suprascrie datele celor anterioare și nu preia automat problemele lor. Numele voluntarilor pot coincide, la fel ca modelele aparatelor; codurile le disting. O problemă raportată descrie observația celui care a adus aparatul, nu un diagnostic confirmat. În tipologia din cursul 3, R1–R5 sunt reguli ale domeniului: politica atelierului, valabilă și într-un registru pe hârtie; R6 este limita exercițiului, nu o cerință. Sunt suficiente cuvinte, un tabel sau o schiță pe hârtie; nu cerem notație UML sau implementare.
 
-**Organizare:** 24 min după tranziție: 4 citire și întrebări, 8 schiță individuală, 8 ștafetă cu J1–J2 și J3, 4 discuție. Dați cuvântul pe nume sau după mâinile ridicate; vorbitorul numește colegul următor. []{.pace dur=24}
+**Organizare:** 24 min după tranziție: 4 citire și întrebări, cu linkul enunțului pus în chat, 8 schiță individuală, 8 ștafetă cu J1–J2 și J3, 4 discuție. Dați cuvântul pe nume sau după mâinile ridicate; vorbitorul numește colegul următor. []{.pace dur=24}
 :::
 
 ---
