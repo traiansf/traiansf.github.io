@@ -123,7 +123,7 @@ Fotografia reprezintă continuitatea dintre editări; versiunea reprezintă un c
 
 # Editarea creează o versiune nouă
 
-**R4:** editarea oricărei versiuni existente creează o versiune nouă a aceleiași fotografii. Versiunea nouă este o **derivată**; versiunea de la care pornește editarea este **sursa** ei. Fiecare derivată are exact o sursă, din aceeași fotografie.
+**R4:** editarea oricărei versiuni existente creează o versiune nouă a aceleiași fotografii. Versiunea nouă este o **derivată**; versiunea editată este **sursa** ei. Fiecare derivată are exact o sursă, din aceeași fotografie.
 
 **R5:** editarea păstrează legenda fotografiei și, pentru versiunile existente, conținutul, identitatea, apartenența și sursa. Schimbarea legendei nu modifică versiunile. Operațiile se execută pe rând.
 
@@ -139,7 +139,7 @@ Fotografia reprezintă continuitatea dintre editări; versiunea reprezintă un c
 
 **Scenariul S2:** din V1 se creează, prin editare, versiunea V3.
 
-**Reguli (R2, R4–R5):** versiunea nouă are identitate proprie, aparține aceleiași fotografii și are ca sursă versiunea de la care a pornit editarea. Editarea păstrează conținutul versiunilor existente și legenda.
+**Reguli (R2, R4–R5):** versiunea nouă are identitate proprie, aparține aceleiași fotografii și are ca sursă versiunea editată. Editarea păstrează conținutul versiunilor existente și legenda.
 
 În pereche, schițați situația de după editare. Arătați **ce s-a adăugat**, **ce legătură a apărut** și **ce s-a păstrat**. Apoi comparați cu perechea vecină.
 
@@ -222,7 +222,7 @@ Aceasta este o diagramă a unui exemplu concret, situația de după S2, nu model
 
 F1 are originalul **V1** și derivata **V3**, creată din V1 (S2).
 
-**R4:** orice versiune existentă poate fi editată; noua versiune are exact o sursă, din aceeași fotografie. **R5:** versiunile existente se păstrează.
+**R4:** orice versiune existentă poate fi editată; versiunea nouă aparține aceleiași fotografii și are ca sursă versiunea editată. **R5:** versiunile existente se păstrează.
 
 **Scenariul S3:** edităm din nou V1 și obținem V4.
 
@@ -232,7 +232,7 @@ Individual, apoi în pereche:
 2. Cum ar trata S3 un model care permite numai editarea ultimei versiuni? Ce regulă îl contrazice?
 
 ::: notes
-V3 și V4 au ambele sursa V1: două ramuri, nu lanțul V1–V3–V4. Sursa este versiunea de la care a pornit editarea, nu cea mai recentă versiune a fotografiei. Un model „numai ultima versiune” ar respinge S3, o acțiune permisă explicit de R4. Aici verificăm modelul printr-un caz care separă cele două interpretări.
+V3 și V4 au ambele sursa V1: două ramuri, nu lanțul V1–V3–V4. Sursa este versiunea editată, nu cea mai recentă versiune a fotografiei. Un model „numai ultima versiune” ar respinge S3, o acțiune permisă explicit de R4. Aici verificăm modelul printr-un caz care separă cele două interpretări.
 
 **Organizare:** 8 min: 2 individual, 3 comparație în pereche, 3 discuție. []{.pace dur=8}
 :::
