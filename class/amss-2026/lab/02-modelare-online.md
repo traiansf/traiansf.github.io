@@ -4,16 +4,22 @@ author: "Traian-Florin Șerbănuță"
 lang: ro-RO
 ---
 
-# Același aparat, altă vizită {.transition}
+# Ce modelăm azi
 
-**0–10 min · Răspundem în chat, apoi discutăm împreună**
+Organizatorii unui atelier comunitar de reparații (beneficiarul) țin evidența aparatelor aduse, a vizitelor, a problemelor raportate și a voluntarilor responsabili. **Același aparat poate reveni de mai multe ori:** ce păstrăm despre fiecare vizită?
 
-Ce trebuie să păstrăm când un aparat revine la atelier?
+Construim împreună un model al domeniului, îl verificăm pe situații concrete, îl comparăm cu un răspuns AI și îl adaptăm când o regulă se schimbă.
+
+- [Enunțul: regulile R1–R6 și datele](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/scenario.md)
+- [Sprijin facultativ pentru discuție](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/worksheet.md)
+- [Capturile AI pregătite](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/02-modelare/prepared-fixture.md)
+
+Exemplu didactic. Hârtia și conversația sunt suficiente.
 
 ::: notes
-Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relații și exemple care verifică un model. Schița este suportul conversației; nu cerem documente de predat. Online, conversația în pereche devine un schimb în plen: fiecare răspunde întâi singur în chat, apoi câțiva colegi explică la microfon și își răspund unul altuia. Schițele de pe hârtie se arată la cameră, ca fotografie în chat sau ca tabel scris în chat. Mesajele și schițele nu se colectează și nu se notează.
+Fixăm problema înainte de exercițiu: un aparat cu mai multe vizite, fiecare cu problemele și responsabilul ei. Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relații și exemple care verifică un model.
 
-**Organizare:** minutul 0 din 100; interval 0–10 (10 min): copertă și citat, recapitularea din cursul 4, observații inițiale. Puneți în chat linkurile prezentării și enunțului, plus adresa `/now` dacă porniți sesiunea sincronizată. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; deschidere 0–4 (4 min): ce modelăm azi, citatul, recapitularea din cursul 4. Puneți în chat linkurile prezentării și ale materialelor de pe acest slide, plus adresa `/now` dacă porniți sesiunea sincronizată. []{.pace at=0 of=100 dur=1}
 :::
 
 ---
@@ -32,6 +38,8 @@ Aplicăm distincțiile din cursurile 3–4: reguli convenite, identitate, relaț
 Selectăm aspectele necesare urmăririi vizitelor; nu proiectăm întregul atelier și nu începem de la clase sau de la schema unei baze de date. Reluăm citatul din cursul 4.
 
 **Sursă:** publicația autorului, Definitions, intrarea model, pagina PDF 6. Termenul definit este titlul intrării; îl redăm înaintea definiției, ca să se vadă pe slide ce se definește. Fragment păstrat din materialul anterior verificat în `docs/quotations.md`; finalul după domain este omis explicit.
+
+**Organizare:** 1 min. []{.pace dur=1}
 :::
 
 ---
@@ -56,9 +64,23 @@ Recapitulăm lista de la sfârșitul cursului 4, fără exemplele arhivei foto: 
 
 ---
 
+# Același aparat, altă vizită {.transition}
+
+**4–10 min · Răspundem în chat, apoi discutăm împreună**
+
+Ce trebuie să păstrăm când un aparat revine la atelier?
+
+::: notes
+Pornim de la date concrete: ce este același și ce este distinct. Schița este suportul conversației; nu cerem documente de predat. Online, conversația în pereche devine un schimb în plen: fiecare răspunde întâi singur în chat, apoi câțiva colegi explică la microfon și își răspund unul altuia. Schițele de pe hârtie se arată la cameră, ca fotografie în chat sau ca tabel scris în chat. Mesajele și schițele nu se colectează și nu se notează.
+
+**Organizare:** minutul 4 din 100; interval 4–10 (6 min): observații inițiale. []{.pace at=4}
+:::
+
+---
+
 # Trei vizite la atelier
 
-Organizatorii unui atelier comunitar de reparații (beneficiarul) țin evidența aparatelor aduse, a vizitelor, a problemelor raportate și a voluntarilor responsabili. **A17 și A18 sunt aparate fizice distincte**, deși ambele sunt prăjitoare de pâine model T2.
+**A17 și A18 sunt aparate fizice distincte**, deși ambele sunt prăjitoare de pâine model T2.
 
 | Vizită | Aparat | Problemă raportată | Responsabil |
 |---|---|---|---|
