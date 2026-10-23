@@ -107,14 +107,16 @@ Nici importul repetat al aceluiași fișier nu este convenit; nu deducem că ar 
 
 # Fotografia și versiunile ei
 
-**R2:** fiecare versiune are identificator propriu și aparține exact unei fotografii. O fotografie are cel puțin o versiune.
+**R2:** fiecare versiune are identificator propriu și aparține exact unei fotografii.
 
-**R3:** fiecare fotografie are exact un **original**, creat la catalogare (adăugarea fotografiei în arhivă). Originalul se păstrează și nu provine din altă versiune.
+**R3:** fiecare fotografie are exact o **versiune originală**, creată la catalogare (adăugarea fotografiei în arhivă). Originalul se păstrează și nu provine din altă versiune.
+
+**Dedus din R3:** fiecare fotografie are cel puțin o versiune.
 
 În arhiva noastră: F1 are originalul V1, iar F2 are originalul V2.
 
 ::: notes
-Fotografia reprezintă continuitatea dintre editări; versiunea reprezintă un conținut păstrat. „Original” este rolul unei versiuni, nu neapărat un al treilea tip de obiect.
+Fotografia reprezintă continuitatea dintre editări; versiunea reprezintă un conținut păstrat. „Original” este rolul unei versiuni, nu neapărat un al treilea tip de obiect. „Cel puțin o versiune” nu este o regulă separată: rezultă din R3, pentru că originalul este o versiune.
 :::
 
 ---
