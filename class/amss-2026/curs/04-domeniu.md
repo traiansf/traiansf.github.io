@@ -415,7 +415,7 @@ Cererile revizuirii despre mecanismele de implementare și prevenirea ștergerii
 
 # Decizia noastră asupra modelului
 
-**Analiza profesorului:**
+**Corecția noastră:**
 
 - Păstrăm identitățile și separarea fotografiei de versiuni.
 - Păstrăm mai multe derivate directe din aceeași sursă.
