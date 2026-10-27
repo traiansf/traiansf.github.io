@@ -10,14 +10,12 @@ Un depozit are 10 adaptoare identice, pe care clienții le pot rezerva și ridic
 
 Discutăm în plen pe Teams, apoi urmărim împreună **o analiză AI și o revizuire**, conduse de profesor.
 
-Materiale: [enunț](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/03-contracte/scenario.md), [sprijin facultativ pentru discuție](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/03-contracte/worksheet.md).
-
 Exemplu didactic. Schițele sunt facultative; nu predăm documente. Nu sunt necesare conturi AI pentru studenți.
 
 ::: notes
 Aplicăm responsabilitățile din cursul 5 și contractele din cursul 6. Nu cerem o aplicație sau o diagramă de stări. Valori precum activă/ridicată/anulată sunt deja date în enunț.
 
-**Organizare:** minutul 0 din 100; deschidere 0–10 (10 min): problema și materialele 3, citatul 2, recapitularea și sensurile cantităților 5. 16 slide-uri cu copertă; Teams în plen, fără grupuri separate. Profesorul conduce etapa AI. Predicțiile se trimit în chat la semnal. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; deschidere 0–10 (10 min): problema 3, citatul 2, recapitularea și sensurile cantităților 5. 16 slide-uri cu copertă; Teams în plen, fără grupuri separate. Profesorul conduce etapa AI. Predicțiile se trimit în chat la semnal. []{.pace at=0 of=100}
 :::
 
 ---
@@ -80,8 +78,10 @@ Aceeași cerere vine din formular și din import.
 2. La semnal, trimiteți predicțiile în chat. Un coleg propune verificări în fiecare canal; un coleg numit propune operații ale unui registru comun. Comparați dependențele.
 3. Continuăm ștafeta cu alt coleg: cine împiedică importul să ocolească regula?
 
+[Enunțul complet: R1–R5 și scenariile S1–S7](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/03-contracte/scenario.md)
+
 ::: notes
-6: acceptat, F=10, R=10, D=0. 7: refuz, exact I. Registrul comun verifică toate apelurile; o verificare în formular poate ajuta utilizatorul, dar nu trebuie să fie singura. Codul B identifică o rezervare nouă; I numește starea inițială.
+6: acceptat, F=10, R=10, D=0. 7: refuz, exact I. Registrul comun verifică toate apelurile; o verificare în formular poate ajuta utilizatorul, dar nu trebuie să fie singura. Codul B identifică o rezervare nouă; I numește starea inițială. Linkul de pe slide duce la enunțul complet (R1–R5, S1–S7), ca referință; regulile necesare fiecărui exercițiu sunt pe slide-uri.
 
 **Organizare:** 20 min pentru întreaga etapă, cu duratele din tranziție. []{.pace dur=20}
 :::
