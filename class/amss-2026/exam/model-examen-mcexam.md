@@ -1,5 +1,16 @@
 # AMSS 2026/2027 — Model de examen
 
+Modelul arată tipul întrebărilor de la examenul individual, notat cu **3 puncte** din nota finală. Examenul verifică raționamentul despre probleme și artefacte date: cerințe, modele, contracte, stări, repartizarea responsabilităților și validare. Nu verifică notații, instrumente sau cunoștințe despre un anumit model AI.
+
+- **24 de întrebări**, fiecare cu **un singur răspuns corect** din patru variante. Durata propusă este de **60 de minute**; numărul întrebărilor și durata se confirmă pe Teams înaintea examenului.
+- Nota examenului: **3 × (răspunsuri corecte) / 24**. Un răspuns greșit sau lipsă nu se depunctează.
+- La examen, fiecare student primește o variantă proprie, cu o foaie de răspuns corectată automat. Întrebările unui caz rămân împreună și în aceeași ordine, dar variantele de răspuns apar în altă ordine pe fiecare foaie.
+- Lucrați fără materiale și fără calculator. Toate datele necesare sunt în enunțuri; nu presupuneți reguli nedate.
+- Fiecare întrebare se rezolvă independent de celelalte. Dacă nu se precizează altfel, fiecare întrebare pornește din starea descrisă în enunțul cazului sau în întrebare.
+- Situațiile, numele și sumele sunt inventate pentru examen.
+
+La restanță și la mărire, examenul are mai multe întrebări din aceleași domenii și valorează **9 puncte**, plus punctul din oficiu.
+
 ## Încadrarea problemei și cerințe
 
 ### Rezervarea terenurilor de tenis

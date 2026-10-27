@@ -8,19 +8,13 @@ TARGETS = $(foreach d,$(DOCS),$(OUTDIR)/$(d).html $(OUTDIR)/$(d).pdf)
 
 include ../include.mk
 
-# The paper's PDF is laid out like a printed exam: a cover with the answer
-# sheet, then one page per case.
-$(OUTDIR)/model-examen.pdf: EXAM_PDF_OPTIONS = --lua-filter=exam.lua \
-	--include-in-header=exam.tex -V geometry=left=22mm,right=22mm,top=24mm,bottom=22mm
-$(OUTDIR)/model-examen.pdf: exam.lua exam.tex
-
 $(DOCS:%=$(OUTDIR)/%.html): $(OUTDIR)/%.html: %.md Makefile $(DOC_HTML_DEPS)
 	@mkdir -p $(dir $@)
 	pandoc $(DOC_HTML_OPTIONS) -V pdf-url=$*.pdf -o $@ $<
 
-$(DOCS:%=$(OUTDIR)/%.pdf): $(OUTDIR)/%.pdf: %.md Makefile $(DOC_PDF_DEPS)
+$(OUTDIR)/model-examen-barem.pdf: model-examen-barem.md Makefile $(DOC_PDF_DEPS)
 	@mkdir -p $(dir $@)
-	pandoc $(DOC_PDF_OPTIONS) $(EXAM_PDF_OPTIONS) -o $@ $<
+	pandoc $(DOC_PDF_OPTIONS) -o $@ $<
 
 # The bank for multiple_choice_exam (mcexam), built from the paper and the
 # key's summary table; not published. Then: mcexam lint --input $(BANK)
@@ -32,3 +26,11 @@ bank: $(BANK)
 
 $(BANK): model-examen.md model-examen-barem.md mcexam-bank.py
 	$(PYTHON) mcexam-bank.py
+
+# The paper's PDF is mcexam's sample sheet for that bank, as at the exam: the
+# answer sheet, the instructions, then one page per case (the script fails if
+# a case no longer fits on a page). Needs mcexam (MCEXAM, default "mcexam")
+# and, on Windows, MCEXAM_FONT_DIR; see BUILD.md.
+$(OUTDIR)/model-examen.pdf: model-examen.md model-examen-barem.md mcexam-bank.py
+	@mkdir -p $(dir $@)
+	$(PYTHON) mcexam-bank.py --sample $@

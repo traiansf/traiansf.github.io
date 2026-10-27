@@ -20,6 +20,7 @@ network access. See [Course look](#course-look).
 | `rsvg-convert` | SVG images in PDFs | ships with the Windows pandoc installer; `librsvg2-bin` on Linux |
 | Java ≥ 11 + PlantUML + Graphviz (`dot`) | `plantuml` blocks | |
 | Node.js + `@mermaid-js/mermaid-cli` (`mmdc`) + headless Chrome | `mermaid` blocks | |
+| [multiple_choice_exam](https://github.com/traiansf/multiple_choice_exam) (`mcexam`, Python ≥ 3.11) | the sample exam's PDF | `pip install -e generator` in a clone (branch `feat/shared-stems` until merged); set `MCEXAM` if `mcexam` is not on the `PATH`; on Windows, set `MCEXAM_FONT_DIR` to a folder with the DejaVu fonts (for example TeX Live's `fonts/truetype/public/dejavu`) |
 
 ## Linux (Debian/Ubuntu)
 

@@ -3,17 +3,27 @@
 The paper (model-examen.md) and its key (model-examen-barem.md) stay the
 single source: this script reads the cases, stems, questions and options
 from the paper, the correct letters and domains from the key's summary
-table, and writes model-examen-mcexam.md in mcexam's format v2: one section
-per assessed domain, each case a '###' unit with its stem and '####'
-questions, so a variant keeps a case's questions together and shuffles only
-the options. See https://github.com/traiansf/multiple_choice_exam.
+table, and writes model-examen-mcexam.md in mcexam's format v2: the paper's
+"Despre acest model" section as the preamble, one section per assessed
+domain, each case a '###' unit with its stem and '####' questions, so a
+variant keeps a case's questions together and shuffles only the options.
+See https://github.com/traiansf/multiple_choice_exam.
 
-Usage (from exam/):  python mcexam-bank.py
+Usage (from exam/):  python mcexam-bank.py [--sample OUT.pdf]
 Then:                mcexam lint --input model-examen-mcexam.md
+
+--sample also writes the published sample paper: mcexam's sample sheet
+(--no-shuffle, every case, Romanian labels), whose question numbers and
+option letters match the key. MCEXAM names the mcexam command (default
+"mcexam"); on Windows, MCEXAM_FONT_DIR must point to the DejaVu fonts.
 """
 
+import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -21,6 +31,7 @@ PAPER = HERE / "model-examen.md"
 KEY = HERE / "model-examen-barem.md"
 OUT = HERE / "model-examen-mcexam.md"
 
+PREAMBLE_HEADING = "# Despre acest model"
 CASE_RE = re.compile(r"^# Cazul ([A-Z]) — (.+)$")
 QUESTION_RE = re.compile(r"^\*\*(\d+)\.\*\* (.+)$")
 OPTION_RE = re.compile(r"^([A-D])\. (.+)$")
@@ -50,11 +61,22 @@ def read_key() -> tuple[dict[str, str], dict[int, str]]:
     return domains, answers
 
 
-def read_paper() -> list[dict]:
-    """Cases in paper order: letter, title, stem lines, questions."""
+def read_paper() -> tuple[list[str], list[dict]]:
+    """The preamble lines and the cases in paper order: letter, title, stem
+    lines, questions."""
     cases: list[dict] = []
+    preamble: list[str] | None = None
     question: dict | None = None
     for line in PAPER.read_text(encoding="utf-8").splitlines():
+        if line == PREAMBLE_HEADING:
+            preamble = []
+            continue
+        if preamble is not None and not cases:
+            if line.startswith("# "):
+                cases.append(None)
+            elif line != "---":
+                preamble.append(line)
+                continue
         if line.startswith("# "):
             match = CASE_RE.match(line)
             cases.append({"letter": match[1], "title": match[2], "stem": [], "questions": []}
@@ -75,14 +97,46 @@ def read_paper() -> list[dict]:
             case["stem"].append(line)
         elif line.strip():
             fail(f"question {question['number']}: unexpected line: {line}")
-    return [case for case in cases if case is not None]
+    if not preamble:
+        fail(f"the paper has no '{PREAMBLE_HEADING}' section before the cases")
+    return preamble, [case for case in cases if case is not None]
+
+
+def write_sample(out: Path, domains: list[str]) -> None:
+    """Renders the bank with mcexam as a sample sheet: every case, in paper
+    order, options unshuffled. mcexam keeps a case on one page when it fits;
+    more than the answer sheet, the instructions and one page per case means
+    some case is too long for a page."""
+    mcexam = os.environ.get("MCEXAM", "mcexam")
+    counts = [arg for domain in dict.fromkeys(domains) for arg in
+              ("--count", f"{domain}={domains.count(domain)}")]
+    with tempfile.TemporaryDirectory() as tmp:
+        command = [mcexam, "generate", "--input", str(OUT), "--no-shuffle", "--lang", "ro",
+                   "--out", tmp, *counts]
+        try:
+            subprocess.run(command, check=True)
+        except (OSError, subprocess.CalledProcessError) as exc:
+            fail(f"mcexam failed ({exc}); install multiple_choice_exam or set MCEXAM")
+        pdf = Path(tmp) / "sample.pdf"
+        # Without DejaVu, mcexam falls back to Helvetica and loses the diacritics.
+        data = pdf.read_bytes()
+        if b"DejaVu" not in data:
+            fail("mcexam did not find the DejaVu fonts; set MCEXAM_FONT_DIR")
+        pages = len(re.findall(rb"/Type /Page\b", data))
+        if pages > 2 + len(domains):
+            fail(f"{pages} pages for {len(domains)} cases: a case no longer fits on one page;"
+                 " shorten it")
+        out.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(pdf, out)
+    print(f"wrote {out}")
 
 
 def main() -> None:
     domains, answers = read_key()
-    cases = read_paper()
+    preamble, cases = read_paper()
     title = "AMSS 2026/2027 — Model de examen"
-    lines = [f"# {title}"]
+    lines = [f"# {title}", ""]
+    lines += "\n".join(preamble).strip("\n").splitlines()
     for case in cases:
         domain = domains.get(case["letter"])
         if domain is None:
@@ -103,6 +157,10 @@ def main() -> None:
     OUT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     total = sum(len(case["questions"]) for case in cases)
     print(f"wrote {OUT.name}: {len(cases)} cases, {total} questions")
+    if len(sys.argv) == 3 and sys.argv[1] == "--sample":
+        write_sample(Path(sys.argv[2]), [domains[case["letter"]] for case in cases])
+    elif len(sys.argv) != 1:
+        fail("usage: mcexam-bank.py [--sample OUT.pdf]")
 
 
 if __name__ == "__main__":
