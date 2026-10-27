@@ -26,6 +26,6 @@ Cauza primelor două eșecuri nu a fost stabilită; un test scurt reușit înain
 
 Analiza 03 verifică S1–S5 corect, dar lasă nedefinite „limitele” stocate: nu spune dacă limita plicului și pragul tarifului sunt valori separate. A ales singură exemplul „plic acceptat până la 1500 g”, absent din enunțul trimis. Analiza 04 este tot corectă pe S1–S5 și oferă mai puține puncte de discuție.
 
-Revizuirea 01 deduce corect că S2 costă 18 lei după C1, dar reproșează analistului AI absența lui C1 și consideră comparația cerută o recomandare din afara sarcinii; nu verifică separarea limitelor. Revizuirea 02 conține erori de alt tip (posibil refuz pentru ambalaj la cutia de 0 g; prag „≥1000 g”) și ar fi deviat discuția de la tema cursului.
+Revizuirea 01 deduce corect că S2 costă 18 lei după C1, răspunzând instrucțiunii, dar formulează consecința drept omisiune a analistului AI, care nu primise C1, și consideră comparația cerută o recomandare din afara sarcinii; nu verifică separarea limitelor. Revizuirea 02 conține erori de alt tip (posibil refuz pentru ambalaj la cutia de 0 g; prag „≥1000 g”) și ar fi deviat discuția de la tema cursului.
 
 Am căutat câte o pereche care să susțină discuția despre responsabilități și despre verificarea revizuirii, nu un eșec anume. Selecția nu descrie performanța tipică a modelului. Fragmentele de pe slide-uri sunt fidele, cu omisiunile marcate; analiza și decizia noastră apar separat. `capture.py` refuză suprascrierea unei încercări.

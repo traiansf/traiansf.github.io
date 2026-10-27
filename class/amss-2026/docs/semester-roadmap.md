@@ -1,6 +1,6 @@
 # AMSS 2026/2027 — Instructor implementation roadmap
 
-This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 are released; Lab 1 has been refactored around collaboration and discussion. Courses 5–6 and Lab 3 were authored on 27 October 2026 and remain unreleased; they include labeled teaching examples and prepared AI prompts, with genuine captures still pending. Weeks 7–13 and Labs 4–5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
+This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 are released; Lab 1 has been refactored around collaboration and discussion. Courses 5–6 and Lab 3 were authored on 27 October 2026 and remain unreleased; their AI sections use genuine Claude Haiku 4.5 captures of 27 October 2026 (two attempts per role, selection rationale archived). Weeks 7–13 and Labs 4–5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
 
 ## Teaching commitments
 
@@ -86,7 +86,7 @@ The library request now has an operational outcome: requests for unavailable tit
 
 **100 minutes:** opening and unaided allocation 10; responsibilities and dependencies 20; compare designs 25; change analysis 20; delegation and review 20; transfer 5. Checkpoints: 0, 10, 30, 55, 75, 95, 100. Every rule-based exercise repeats usable rule summaries on its slide.
 
-**AI status:** [two attempted captures](../curs/scenarios/05-colete/captures/2026-10-27/README.md) timed out without responses. Both exact inputs and metadata are retained; the second fixes instruction encoding. Slides explicitly use constructed teaching examples, not purported AI output. Genuine analysis/review captures can replace them after preparation; no live tools in the lecture.
+**AI status:** [two attempted captures](../curs/scenarios/05-colete/captures/2026-10-27/README.md) timed out without responses and are retained; two further analyses with the current brief (without C1) and two fresh-context reviews (given C1 as a later change) succeeded the same day. The slides use analyst 03 and reviewer 01, with faithful excerpts and our decision kept separate; the copied-rules variant remains a labeled constructed example. No live tools in the lecture.
 
 ### Week 6 — Contracts and invariants
 
@@ -98,7 +98,7 @@ The library request now has an operational outcome: requests for unavailable tit
 
 **100 minutes:** initial prediction 10; contract vocabulary and classification 20; assignment/release contracts 25; counterexample, repair and invariant preservation 25; delegation and review 15; transfer 5. Checkpoints: 0, 10, 30, 55, 80, 95, 100. Relevant rules remain on every comparison slide.
 
-**AI status:** [prepared prompts](../curs/scenarios/06-dulapuri/ai/README.md), without executed captures. The deck labels its incomplete contract and review observation as constructed teaching examples. No live generation or code execution is required.
+**AI status:** [genuine captures](../curs/scenarios/06-dulapuri/captures/2026-10-27/README.md) of 27 October 2026 from the [prepared prompts](../curs/scenarios/06-dulapuri/ai/README.md); the slides use analyst 01 (frame property filed also under invariants) and reviewer 02 („complet corectă”). The traced pseudocode remains a labeled constructed example. No live generation or code execution is required.
 
 ### Week 7 — State and behavior
 
@@ -226,7 +226,7 @@ Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructo
 
 **100 minutes:** opening/recap 10; responsibilities 20; contracts and invariants 25; one instructor-led AI analysis/review and human decision 25; peer explanation and closing 20. Checkpoints: 0, 10, 30, 55, 80, 100.
 
-**Student feedback applied:** rule summaries stay on the slides that use them. The AI segment is a single plenary analysis and fresh-context review operated by the instructor; students predict and discuss, without parallel AI sessions. [Prepared prompts](../lab/scenarios/03-contracte/ai/README.md) support live use or later genuine captures. The current fallback is a clearly labeled [constructed teaching example](../lab/scenarios/03-contracte/prepared-fixture.md), not a capture. The Teams variant preserves content and timings, replacing pairs with chat predictions and speaking relays. Release both variants together only when requested.
+**Student feedback applied:** rule summaries stay on the slides that use them. The AI segment is a single plenary analysis and fresh-context review operated by the instructor; students predict and discuss, without parallel AI sessions. [Prepared prompts](../lab/scenarios/03-contracte/ai/README.md) support live use or later genuine captures. Without a live run, the slides and the [prepared fixture](../lab/scenarios/03-contracte/prepared-fixture.md) use genuine Claude Haiku 4.5 captures of 27 October 2026. The Teams variant preserves content and timings, replacing pairs with chat predictions and speaking relays. Release both variants together only when requested.
 
 ### Lab 4, after Courses 7–8 — State, behavior, and interactions
 

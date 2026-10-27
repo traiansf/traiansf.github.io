@@ -432,7 +432,7 @@ Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral. Un evalu
 Ce rol are fiecare afirmație? Care se verifică într-o singură stare?
 
 ::: notes
-Condiția de succes este separată corect de precondiții, iar refuzul păstrează registrul, cum cere R3. Unicitatea este un invariant: se verifică într-o singură stare. „Toate asocierile … se păstrează” compară starea de după cu cea de dinainte: este o postcondiție de efect limitat (R5), nu un invariant. Regula este corectă, dar clasificată greșit; la fel „seturile de vizitatori și dulapuri rămân neschimbate”, omis aici. În încheierea răspunsului, a doua eliberare din S5 este numărată printre refuzuri, deși întoarce `fara_dulap`.
+Condiția de succes este separată corect de precondiții, iar refuzul păstrează registrul, cum cere R3. Unicitatea este un invariant: se verifică într-o singură stare. „Toate asocierile … se păstrează” compară starea de după cu cea de dinainte: este o postcondiție de efect limitat (R5), nu un invariant. Regula este corectă și apare și la „Ceea ce rămâne neschimbat”, dar este trecută și printre invarianți; la fel „seturile de vizitatori și dulapuri rămân neschimbate”, omis aici. În încheierea răspunsului, a doua eliberare din S5 este numărată printre refuzuri, deși întoarce `fara_dulap`.
 
 **Organizare:** 5 min: răspuns individual, apoi discuție. []{.pace dur=5}
 :::
@@ -441,7 +441,7 @@ Condiția de succes este separată corect de precondiții, iar refuzul păstreaz
 
 # Revizuire și decizie
 
-**Evaluatorul AI (context nou: enunț, sarcină, răspuns integral) — Claude Haiku 4.5, 27 octombrie 2026; fragmente:**
+**Evaluatorul (agent AI de revizuire), context nou: enunț, sarcină, răspuns integral — Claude Haiku 4.5, 27 octombrie 2026; fragmente:**
 
 > Propunerea este **complet corectă** […]
 >
@@ -451,7 +451,7 @@ Condiția de succes este separată corect de precondiții, iar refuzul păstreaz
 
 **Reguli:** un invariant privește fiecare stare validă; păstrarea celorlalte asocieri compară două stări (R5). Eliberarea fără asociere întoarce `fara_dulap`.
 
-Observația este corectă, dar suficientă? **Decizia noastră:** păstrăm condiția de succes, refuzul și unicitatea; mutăm păstrarea celorlalte asocieri la postcondiții; a doua eliberare din S5 întoarce `fara_dulap`, nu `refuz`.
+Observația este corectă, dar suficientă? **Decizia noastră:** păstrăm condiția de succes, refuzul și unicitatea; scoatem păstrarea celorlalte asocieri dintre invarianți: este postcondiție (R5); a doua eliberare din S5 întoarce `fara_dulap`, nu `refuz`.
 
 ::: notes
 O confirmare corectă local nu certifică întregul contract. Evaluatorul AI confirmă conținutul regulii, dar nu întreabă dacă este un invariant. Cealaltă revizuire păstrată confirmă la fel contractul și semnalează numai o formulare neclară a motivelor de refuz. Cerem un contraexemplu pentru fiecare corecție: un registru care conține numai V3–D3 după `atribuie(V3,D3)` din B satisface unicitatea, dar pierde V1–D1 și V2–D2.

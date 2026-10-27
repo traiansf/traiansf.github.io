@@ -14,7 +14,7 @@ Fragmente din [analistul AI 01](captures/2026-10-27/haiku45-analist-01-response.
 >
 > **Refuz:** Orice precondițiune încălcată ⇒ stare neschimbată
 >
-> **S3:** `ridica(A)` — A activ ✓ → Marcheaza A ridicată; F=10−4=**6**; R=4−4=**0**; D=6 (nemodificat).
+> **S3:** `ridica(A)` — A activ ✓ → Marcheaza A ridicată; F=10−4=**6**; R=4−4=**0**; D=6 (nemodificat). […]
 
 Înainte de revizuire: ce parte este susținută de reguli? Ce promite contractul pentru `rezerva(B,7)` dacă D ≥ q este precondiție?
 
@@ -32,6 +32,6 @@ Fragmente din [evaluatorul AI 02](captures/2026-10-27/haiku45-evaluator-02-respo
 
 ## Decizia noastră
 
-Confirmăm calculele S2, S3 și S5 și responsabilitatea comună a registrului. Acceptăm observația evaluatorului AI: R5 cere ca o operație să nu modifice alte rezervări, iar contractul trebuie să o spună. Corectăm ce nu a observat nici evaluatorul AI: codul nou, q>0 și q≤D sunt **condiții de succes**, nu precondiții; refuzul lor este promis și păstrează întregul registru. Precondițiile rămân cele din R1 (registru valid, apeluri pe rând, cantitate întreagă, identificator nenul). „id ≠ 0” nu este cerut de enunț.
+Confirmăm calculele S2, S3 și S5 și responsabilitatea comună a registrului. Acceptăm observația evaluatorului AI: R5 cere ca o operație să nu modifice alte rezervări, iar contractul trebuie să o spună. Corectăm ce nu a observat nici evaluatorul AI: codul nou, q>0 și q≤D sunt **condiții de succes**, nu precondiții; refuzul lor este promis și păstrează întregul registru. Precondițiile rămân cele din R1 (registru valid, apeluri pe rând, cantitate întreagă, identificator nenul). „id ≠ 0” citește literal cuvântul „nenuli” din enunțul trimis; enunțul spune acum „nevizi”, iar răspunsul nu este greșit în această privință.
 
 Într-o rulare live folosim propunerea și observațiile efective. Dacă acestea sunt deja complete, le confirmăm; nu atribuim omisiunile acestor capturi unui alt răspuns.

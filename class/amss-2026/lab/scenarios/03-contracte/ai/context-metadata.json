@@ -1,7 +1,8 @@
 {
   "source": "../scenario.md",
-  "context_sha256": "6ec9035a3ddf94fc7bc120e139279800b88b65649a6ecccfe0331a2f21efeba4",
+  "context_sha256": "34438bfbad1fcf6b74fef2c29e66595f7d20f130e9df175e5865565e7f803465",
   "status": "prepared_not_executed",
   "prepared_on": "2026-10-27",
-  "updated_on": "2026-10-27"
+  "updated_on": "2026-10-27",
+  "note": "R1: „nevizi” în loc de „nenuli” după capturile din 27 octombrie 2026; capturile păstrează enunțul trimis atunci."
 }

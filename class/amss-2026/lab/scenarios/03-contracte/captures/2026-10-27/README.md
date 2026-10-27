@@ -13,7 +13,7 @@ Instrument: Claude Code 2.1.311, `claude -p --model claude-haiku-4-5 --safe-mode
 
 ## Selecție
 
-Analiza 01 calculează corect S2, S3 și S5, dar trece codul nou, q>0 și disponibilitatea printre precondiții, apoi le folosește ca motive de refuz. Analiza 02 are aceeași confuzie și mai multe greșeli de redactare; păstrată, nefolosită.
+Analiza 01 calculează corect S2, S3 și S5, dar trece codul nou, q>0 și disponibilitatea printre precondiții, apoi le folosește ca motive de refuz. „id ≠ 0” citește literal cuvântul „nenuli” din enunțul trimis; enunțul curent spune „nevizi”. Analiza 02 are aceeași confuzie și mai multe greșeli de redactare; păstrată, nefolosită.
 
 Revizuirea 02 semnalează corect lipsa efectului limitat asupra altor rezervări (R5), dar acceptă precondițiile. Revizuirea 01 declară precondițiile „necesare și suficiente” și nu găsește nicio problemă; păstrată, nefolosită.
 

@@ -13,8 +13,8 @@ Instrument: Claude Code 2.1.311, `claude -p --model claude-haiku-4-5 --safe-mode
 
 ## Selecție
 
-Analiza 01 separă corect precondițiile de condiția de succes și refuzul, dar trece păstrarea celorlalte asocieri și a mulțimilor de vizitatori și dulapuri printre invarianți, deși compară două stări; în încheiere numără a doua eliberare din S5 printre refuzuri. Analiza 02 afirmă că operațiile sunt „idempotente” și că vizitatorul „devine proprietar” al dulapului; păstrată, nefolosită.
+Analiza 01 separă corect precondițiile de condiția de succes și refuzul, dar trece păstrarea celorlalte asocieri și a mulțimilor de vizitatori și dulapuri și printre invarianți, deși compară două stări; în încheiere numără a doua eliberare din S5 printre refuzuri. Analiza 02 afirmă că operațiile sunt „idempotente” și că vizitatorul „devine proprietar” al dulapului; păstrată, nefolosită.
 
-Revizuirea 02 declară propunerea „complet corectă” și confirmă explicit clasificarea greșită. Revizuirea 01 confirmă la fel contractul și semnalează doar o formulare neclară a motivelor de refuz; păstrată, nefolosită.
+Revizuirea 02 declară propunerea „complet corectă” și confirmă conținutul fragmentului față de R5, fără să conteste eticheta de invariant. Revizuirea 01 confirmă la fel contractul și semnalează doar o formulare neclară a motivelor de refuz; păstrată, nefolosită.
 
 Am căutat câte o pereche care să susțină discuția despre contracte, nu un eșec anume. Selecția nu descrie performanța tipică a modelului. Fragmentele de pe slide-uri sunt fidele, cu omisiunile marcate; analiza și decizia noastră apar separat.

@@ -433,16 +433,16 @@ Un **evaluator (agent AI de revizuire)** a primit într-un context nou enunțul,
 
 **Evaluatorul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:**
 
-> Propunerea **nu menționa explicit ce se schimbă după C1**. […] Propunerea ar trebui să precizeze: „S2 devine acceptare la 18 lei după C1 […]”
+> Propunerea **nu menționa explicit ce se schimbă după C1**. Instrucțiunile de evaluare cer verificarea "ce trebuie să se schimbe în propunere după C1". […] Propunerea ar trebui să precizeze: „S2 devine acceptare la 18 lei după C1 […]”
 >
-> Fraza „regulile și logica estimării trebuie centralizate" e recomandare, nu cerință din enunț.
+> Observația DRY și „dificultate în testare" sunt bune, dar **depășesc sarcina analistului**, care nu cere o soluție de cod sau arhitectură.
 
 **Sarcina analistului:** compară o operație comună cu regulile copiate; enunțul primit nu conținea C1. **După C1:** plic ≤1500 g; prag tarifar 1000 g.
 
 Ce observație este susținută? Ce verificare lipsește din revizuire?
 
 ::: notes
-Consecința pentru S2 este corectă: după C1, plicul de 1001 g costă 18 lei. Reproșul este însă nedrept: analistul AI nu a primit C1. A doua observație ignoră sarcina, care cere chiar comparația dintre operația comună și regulile copiate; recomandarea se discută, dar nu iese din sarcină. Revizuirea nu verifică întrebarea esențială pentru C1: limita plicului și pragul tarifului sunt valori distincte? Cealaltă revizuire păstrată are alte erori, de exemplu un posibil refuz pentru ambalaj la cutia de 0 g.
+Consecința pentru S2 este corectă și răspunde instrucțiunii noastre: după C1, plicul de 1001 g costă 18 lei. Eticheta de „omisiune” a propunerii este însă nedreaptă: analistul AI nu a primit C1, iar enunțul trimis evaluatorului AI spunea că C1 nu trebuia anticipat. Restul revizuirii notează corect că enunțul cere rezultate egale, nu aceeași implementare; afirmația că operația comună „depășește sarcina” ignoră însă sarcina, care cere chiar comparația dintre operația comună și regulile copiate. Revizuirea nu verifică întrebarea esențială pentru C1: limita plicului și pragul tarifului sunt valori distincte? Cealaltă revizuire păstrată are alte erori, de exemplu un posibil refuz pentru ambalaj la cutia de 0 g.
 
 **Organizare:** 6 min, cu răspunsuri. []{.pace dur=6}
 :::

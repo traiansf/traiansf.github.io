@@ -8,7 +8,7 @@ Un operator gestionează rezervările pentru 10 adaptoare identice. Clienții vi
 
 ## Reguli convenite
 
-- **R1 — context:** un singur produs, 10 bucăți inițial; fără reaprovizionare, retururi sau expediere. Operațiile se desfășoară pe rând; registrul inițial este valid. Cantitățile primite sunt numere întregi; identificatorii rezervărilor sunt nenuli. Excludem erorile tehnice și concurența.
+- **R1 — context:** un singur produs, 10 bucăți inițial; fără reaprovizionare, retururi sau expediere. Operațiile se desfășoară pe rând; registrul inițial este valid. Cantitățile primite sunt numere întregi; identificatorii rezervărilor sunt nevizi. Excludem erorile tehnice și concurența.
 - **R2 — rezervare:** `rezerva(id, q)` acceptă exact când identificatorul nu a mai fost folosit, `q > 0` și există cel puțin q bucăți disponibile. Creează o rezervare activă de q bucăți; acestea devin indisponibile altora, dar rămân fizic în depozit. Altfel: `refuz`, fără nicio modificare.
 - **R3 — ridicare:** `ridica(id)` acceptă numai o rezervare activă; ridică **întreaga** ei cantitate, o scade din stocul fizic și marchează rezervarea ca ridicată. Cantitatea disponibilă nu se schimbă. Pentru un identificator necunoscut ori o rezervare deja ridicată/anulată: `refuz`, fără modificări.
 - **R4 — anulare:** `anuleaza(id)` acceptă numai o rezervare activă; o marchează anulată și redă întreaga cantitate disponibilului. Stocul fizic nu se schimbă. În celelalte situații: `refuz`, fără modificări.

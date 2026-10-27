@@ -95,7 +95,7 @@ Aceeași cerere vine din formular și din import.
 Un refuz păstrează și cantitățile, și rezervările.
 
 ::: notes
-Precondițiile comune sunt registru valid, identificatori nenuli, cantități întregi și apeluri pe rând. Pozitivitatea, disponibilitatea și identificatorul nefolosit decid succesul; refuzurile sunt specificate. Spre deosebire de muzeu, aici enunțul specifică și refuzul ridicării/anulării cu un identificator necunoscut. Domeniul promisiunii se citește din fiecare enunț.
+Precondițiile comune sunt registru valid, identificatori nevizi, cantități întregi și apeluri pe rând. Pozitivitatea, disponibilitatea și identificatorul nefolosit decid succesul; refuzurile sunt specificate. Spre deosebire de muzeu, aici enunțul specifică și refuzul ridicării/anulării cu un identificator necunoscut. Domeniul promisiunii se citește din fiecare enunț.
 
 **Organizare:** minutul 30 din 100; interval 30–55 (25 min): rezervare 10, ridicare/anulare 15. []{.pace at=30}
 :::
@@ -106,7 +106,7 @@ Precondițiile comune sunt registru valid, identificatori nenuli, cantități î
 
 **Înainte I:** F=10, A activă(4), B nefolosit, R=4, D=6; F fizic, R rezervat activ, D disponibil.
 
-**R1:** numere întregi, identificatori nenuli, registru valid, apeluri pe rând. **R2:** pentru cantitatea q>0, identificator nefolosit și q≤D → rezervare activă nouă de q bucăți; F nu se schimbă. Altfel refuz fără modificări. **R5:** celelalte rezervări se păstrează.
+**R1:** numere întregi, identificatori nevizi, registru valid, apeluri pe rând. **R2:** pentru cantitatea q>0, identificator nefolosit și q≤D → rezervare activă nouă de q bucăți; F nu se schimbă. Altfel refuz fără modificări. **R5:** celelalte rezervări se păstrează.
 
 În pereche, unul formulează contractul, celălalt verifică:
 
@@ -158,22 +158,22 @@ Profesorul conduce o singură analiză și o singură revizuire într-un context
 
 # Analiza: ce îi cerem și ce verificăm?
 
-**Cerem asistentului AI:** responsabilități și contracte, cu precondiții și condiții de succes separate.
+**Instrucțiunea trimisă:** „[…] formulează contractele operațiilor rezerva, ridica și anuleaza: precondiții, condiții de succes, efecte, refuzuri și invarianți. Calculează S2, S3 și S5. […]”
 
-**Reguli:** cod nou, 0<q≤D la rezervare; ridicare/anulare numai pentru o rezervare activă; altfel refuz, fără modificări. Ridicarea scade F și R; anularea doar R. D=F−R.
+**Reguli:** cod nou, 0<q≤D la rezervare; ridicare/anulare numai pentru o rezervare activă; altfel refuz, fără modificări. Ridicarea scade F și R; anularea doar R.
 
-**Din I** (F=10, A activă(4), R=4, D=6): S2 `rezerva(B,7)`; S3 `ridica(A)`; S5 `ridica(A)`, apoi `anuleaza(A)`. **Predicție:** ce rezultate așteptăm?
+**Din I** (F=10, A activă(4), R=4, D=F−R=6): S2 `rezerva(B,7)`; S3 `ridica(A)`; S5 `ridica(A)`, apoi `anuleaza(A)`. **Predicție:** ce rezultate așteptăm?
 
 . . .
 
-**Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente pentru `rezerva` și S3:**
+**Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente din contractul `rezerva`:**
 
-> **Precondiții:** id ≠ 0; id nu apare deja în registru; q > 0; D ≥ q\n> **Refuz:** Orice precondițiune încălcată ⇒ stare neschimbată
+> **Precondiții:** id ≠ 0; id nu apare deja în registru; q > 0; D ≥ q
 >
-> **S3:** `ridica(A)` — A activ ✓ → Marcheaza A ridicată; F=10−4=**6**; R=4−4=**0**; D=6 (nemodificat).
+> **Refuz:** Orice precondițiune încălcată ⇒ stare neschimbată
 
 ::: notes
-Calculele S2, S3 și S5 sunt corecte, iar registrul este singurul care modifică starea. Sarcina cerea însă separat condițiile de succes: codul nefolosit, q>0 și disponibilitatea sunt trecute la precondiții, apoi folosite ca motive de refuz. După cursul 6: dacă D≥q ar fi precondiție, refuzul pentru D<q nu ar mai fi promis. „id ≠ 0” transformă „identificator nenul” într-o condiție numerică. Cealaltă analiză păstrată are aceeași confuzie. Răspunsul integral este în materialele laboratorului.
+Răspunsul calculează corect S2, S3 și S5 (de exemplu S3: F=6, R=0, D=6, A ridicată), iar registrul este singurul care modifică starea. Sarcina cerea însă separat condițiile de succes: codul nefolosit, q>0 și disponibilitatea sunt trecute la precondiții, apoi folosite ca motive de refuz. După cursul 6: dacă D≥q ar fi precondiție, refuzul pentru D<q nu ar mai fi promis. „id ≠ 0” citește literal cuvântul „nenuli” din enunțul trimis atunci; de aceea enunțul spune acum „nevizi”. Nu îl reproșăm modelului. Cealaltă analiză păstrată are aceeași confuzie. Răspunsul integral este în materialele laboratorului.
 
 **Organizare:** 10 min: predicție 2, analiză afișată 3, discuție 5. O rulare live are cel mult 2 min, incluse; altfel folosim captura. []{.pace dur=10}
 :::
