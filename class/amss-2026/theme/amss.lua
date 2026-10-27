@@ -22,6 +22,8 @@
 --   bold and rules off the rows, as the HTML decks do; in HTML decks, turns
 --   each pause (". . .") into a marker for theme/deck.js, because pandoc
 --   prints a pause inside a column, a quotation or a list as text.
+-- * In HTML, keeps the labels of a Mermaid diagram no larger than the text
+--   around them.
 
 local stringify = pandoc.utils.stringify
 
@@ -474,6 +476,25 @@ local function style_transitions(blocks)
   return result
 end
 
+-- A Mermaid SVG has width 100%, so a small diagram is blown up to the full
+-- slide width and its labels end up larger than the text around it. In HTML
+-- its width is capped where the labels reach the size of the surrounding
+-- text; the cap is in em, so it follows the deck's --fit as well.
+local function size_diagram(img)
+  local mime, contents = pandoc.mediabag.lookup(img.src)
+  if mime ~= 'image/svg+xml' or not contents then
+    return nil
+  end
+  local root = contents:match('^%s*<svg[^>]*>')
+  local width = root and root:match('max%-width:%s*([%d.]+)px')
+  local font = contents:match('#my%-svg{[^}]-font%-size:([%d.]+)px')
+  if not (width and font) then
+    return nil
+  end
+  img.attributes.style = string.format('max-width: %.1fem', tonumber(width) / tonumber(font))
+  return img
+end
+
 local function tidy_document(doc)
   local blocks = doc.blocks
   if is_doc and full_title then
@@ -514,6 +535,7 @@ return {
     CodeBlock = focusable_code,
     Table = pdf_table,
     Div = drop_notes,
+    Image = is_html and size_diagram or nil,
   },
   {
     traverse = 'topdown',
