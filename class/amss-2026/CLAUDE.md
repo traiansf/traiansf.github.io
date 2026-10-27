@@ -104,7 +104,7 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - `tooling/`: portable setup and workflow; optional templates preserve student tool/model choices.
 - `static/`: landing page, shared stylesheet (`amss.css`), and assets copied into published output.
 - `theme/`: the course look — pandoc templates, styles, and script for HTML decks and documents, LaTeX headers for the PDFs, and the Lua filter that prepares titles and epigraphs. See `BUILD.md`, “Course look”.
-- `exam/`: the scenario-based sample paper and its key, built as documents (`exam/Makefile` uses static pattern rules, since the generic `%.md` rules build slide decks). Published, not yet linked.
+- `exam/`: the scenario-based sample paper and its key, built as documents (`exam/Makefile` uses static pattern rules, since the generic `%.md` rules build slide decks). The paper's PDF adds `exam/exam.lua` and `exam/exam.tex`: a cover with the instructions and an answer sheet, then one page per case with its questions; keep each case within one page when editing it. Published, not yet linked.
 - `../amss2026/`: generated site, built directly from the course sources; do not maintain a separate `output/redesign-preview/` copy.
 
 Pending lectures keep the file names the landing page already links, to avoid link churn; the roadmap maps those names to the new topics and to the archived drafts that may be reused. Do not assume an archived deck implements its landing-page title.

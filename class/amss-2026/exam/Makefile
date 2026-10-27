@@ -8,10 +8,16 @@ TARGETS = $(foreach d,$(DOCS),$(OUTDIR)/$(d).html $(OUTDIR)/$(d).pdf)
 
 include ../include.mk
 
+# The paper's PDF is laid out like a printed exam: a cover with the answer
+# sheet, then one page per case.
+$(OUTDIR)/model-examen.pdf: EXAM_PDF_OPTIONS = --lua-filter=exam.lua \
+	--include-in-header=exam.tex -V geometry=left=22mm,right=22mm,top=24mm,bottom=22mm
+$(OUTDIR)/model-examen.pdf: exam.lua exam.tex
+
 $(DOCS:%=$(OUTDIR)/%.html): $(OUTDIR)/%.html: %.md Makefile $(DOC_HTML_DEPS)
 	@mkdir -p $(dir $@)
 	pandoc $(DOC_HTML_OPTIONS) -V pdf-url=$*.pdf -o $@ $<
 
 $(DOCS:%=$(OUTDIR)/%.pdf): $(OUTDIR)/%.pdf: %.md Makefile $(DOC_PDF_DEPS)
 	@mkdir -p $(dir $@)
-	pandoc $(DOC_PDF_OPTIONS) -o $@ $<
+	pandoc $(DOC_PDF_OPTIONS) $(EXAM_PDF_OPTIONS) -o $@ $<
