@@ -1,0 +1,1 @@
+Propune responsabilitățile și dependențele pentru estimarea unui colet. Compară o operație comună cu regulile copiate în cele două interfețe. Verifică S1–S5. Nu scrie cod, nu impune clase sau servicii. Răspunde în română, în maximum 350 de cuvinte.

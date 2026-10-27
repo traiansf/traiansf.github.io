@@ -1,6 +1,6 @@
 # AMSS 2026/2027 — Instructor implementation roadmap
 
-This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 are released; Lab 1 has been refactored around collaboration and discussion. Weeks 5–13 and Labs 3–5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
+This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 are released; Lab 1 has been refactored around collaboration and discussion. Courses 5–6 and Lab 3 were authored on 27 October 2026 and remain unreleased; they include labeled teaching examples and prepared AI prompts, with genuine captures still pending. Weeks 7–13 and Labs 4–5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
 
 ## Teaching commitments
 
@@ -9,6 +9,8 @@ Lecture students need only blank paper and a pen: do not assume computers, phone
 Assume master's students who program fluently but have little design experience. Introduce each design concept through a concrete decision before naming it. Students first analyze without AI, then examine prepared AI output in lectures; in labs they may use a chosen AI assistant to investigate a bounded question. A sound generated answer is useful evidence to explain, not a failed demonstration.
 
 The five priorities are problem framing and requirements; domain modeling; contracts and invariants; state and behavior; and responsibility assignment with cohesion and coupling. Abstraction, boundaries, patterns, testing, tradeoffs, and change develop through these foundations. Establish a substantial specification and design before substantial implementation. Small executable models and prototypes may resolve design uncertainty; the project does not require a working application.
+
+Student feedback, 27 October 2026: keep the relevant rules or a sufficient summary on every slide that applies them. In thematic labs, use one instructor-led plenary AI analysis and review, with predictions and discussion, rather than separate AI sessions for each pair. Preserve peer collaboration in other phases.
 
 Use explicit analyst/designer and reviewer roles, handoffs, and evidence for human decisions. Review occurs in a fresh context with the original brief, current artifact version, criteria, and unresolved questions. Sessions may run sequentially using the same tool/model. [Tooling guidance](../tooling/README.md) supplies the common workflow. Representations remain optional and question-driven.
 
@@ -26,7 +28,7 @@ The multiple-choice exam assesses reasoning about supplied problems, requirement
 
 All lecture demos below are prepared slide walkthroughs, not live tool use. AI proposals, reviews, code runs and rechecks are produced before class; students predict, compare and explain the displayed results.
 
-Durations below are instructor planning notes. Each full lecture in Weeks 3–13 totals **100 minutes**, including discussion and a short exit exercise. Keep these timings off student slides. New domains below are proposals except the authored Week 2 library, Week 3 campus maintenance reporting, Week 4 photographic archive, Lab 1 dorm laundry machines, and Lab 2 repair-café scenarios.
+Durations below are instructor planning notes. Each full lecture in Weeks 3–13 totals **100 minutes**, including discussion and a short exit exercise. Keep these timings off student slides. New domains below are proposals except the authored Weeks 2–6 and Labs 1–3.
 
 **Teaching feedback, 10 October 2026:** Lecture 2 elicited good participation, examples, and comments, but almost all of its 45 slides (including the cover) were covered too quickly. The instructor requested approximately **30 slides for Lecture 3**, including the cover and transitions. Budget by activity rather than assuming two minutes per slide; reduce conceptual scope and protect discussion time instead of making slides denser. Later lectures should be calibrated from delivery feedback.
 
@@ -76,27 +78,27 @@ The library request now has an operational outcome: requests for unavailable tit
 
 ### Week 5 — Responsibility assignment, cohesion, and coupling
 
+**Authored, unreleased (27 October 2026):** [lecture](../curs/05-responsabilitati.md), [guide](../curs/05-responsabilitati-demo.md), [brief](../curs/scenarios/05-colete/brief.md), [reference](../curs/scenarios/05-colete/reference.md). 29 slides including the cover.
+
 **Question:** Where should a rule be enforced, and what does that decision make other parts depend on?
 
-**Observable outcomes:** assign ownership of a behavior; explain cohesion and coupling through a concrete dependency; compare two allocations under a stated change.
+**Outcomes:** assign behavior to a responsible part; explain cohesion and coupling through concrete dependencies; compare two allocations under a change. Parcel quotations compare copied rules with a common operation, including direct calls and exact boundaries. C1 changes the envelope limit from 1000 to 1500 g while keeping the price threshold at 1000 g; an envelope of 1200 g costs 18 lei after the change. A single function and an operation with two internal functions are both defensible.
 
-**Sequence, 100 minutes:** allocate a rule unaided 10; responsibility, cohesion, and coupling 20; compare designs 25; trace a requirement change 25; fresh review and tradeoff decision 15; exit rationale 5.
+**100 minutes:** opening and unaided allocation 10; responsibilities and dependencies 20; compare designs 25; change analysis 20; delegation and review 20; transfer 5. Checkpoints: 0, 10, 30, 55, 75, 95, 100. Every rule-based exercise repeats usable rule summaries on its slide.
 
-**Proposed demo:** parcel quotation with supplied weight-band and packaging rules, limited to producing a quote. Compare rule checks duplicated in two user interfaces with a shared quotation operation. Humans first choose who should reject an unsupported package. AI proposes responsibilities and dependencies; check identical inputs through both interfaces, exact band boundaries, and a changed packaging limit. Payments and carrier integration are excluded.
-
-**Good output / fallback:** ask what the shared operation costs and whether splitting every rule into its own component helps this scope. Prepare two defensible allocations and one inconsistent boundary check; require a reasoned choice rather than a preferred architecture vocabulary.
+**AI status:** [two attempted captures](../curs/scenarios/05-colete/captures/2026-10-27/README.md) timed out without responses. Both exact inputs and metadata are retained; the second fixes instruction encoding. Slides explicitly use constructed teaching examples, not purported AI output. Genuine analysis/review captures can replace them after preparation; no live tools in the lecture.
 
 ### Week 6 — Contracts and invariants
 
+**Authored, unreleased (27 October 2026):** [lecture](../curs/06-contracte.md), [guide](../curs/06-contracte-demo.md), [brief](../curs/scenarios/06-dulapuri/brief.md), [reference](../curs/scenarios/06-dulapuri/reference.md). 28 slides including the cover.
+
 **Question:** What must an operation guarantee, including when it cannot succeed?
 
-**Observable outcomes:** distinguish a precondition, a postcondition, and an invariant; specify rejection and unchanged state; derive examples that test a contract independently of a proposed implementation.
+**Outcomes:** distinguish preconditions, success conditions, postconditions and invariants; specify rejection and unchanged state; derive independent examples. Museum locker assignment uses known identifiers and serial operations. Occupancy is a success condition, not a precondition of the public operation, since rejection is promised. A constructed faulty operation loses the visitor’s old locker on rejection while preserving uniqueness; its trace is explicitly manual. Release and repeated release preserve the same final state but return different results.
 
-**Sequence, 100 minutes:** predict boundary cases 10; contracts, invariants, and failure outcomes 20; contract demo 25; examples and consistency checks 25; fresh review of guarantees 15; exit distinction 5.
+**100 minutes:** initial prediction 10; contract vocabulary and classification 20; assignment/release contracts 25; counterexample, repair and invariant preservation 25; delegation and review 15; transfer 5. Checkpoints: 0, 10, 30, 55, 80, 95, 100. Relevant rules remain on every comparison slide.
 
-**Proposed demo:** museum locker assignment with known visitor/locker identifiers and serial operations. Supply rules: at most one visitor per locker and one locker per visitor; assignment and release are explicit operations. Students state what an unsuccessful assignment must preserve before AI writes contracts. Check occupied lockers, already-assigned visitors, repeat release, and an unaffected second locker. Authentication and physical lock behavior are excluded.
-
-**Good output / fallback:** turn a correct contract into independent assertions and explain what an assertion cannot establish. Prepare an authored operation that releases a visitor's old locker before discovering the new one is occupied; a before/after state exposes the broken rejection contract.
+**AI status:** [prepared prompts](../curs/scenarios/06-dulapuri/ai/README.md), without executed captures. The deck labels its incomplete contract and review observation as constructed teaching examples. No live generation or code execution is required.
 
 ### Week 7 — State and behavior
 
@@ -218,11 +220,13 @@ Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructo
 
 ### Lab 3, after Courses 5–6 — Responsibilities, contracts, and invariants
 
-**Foundations:** Courses 5–6, using requirements and domain concepts already taught. Do not assume Course 7 lifecycle theory.
-**Proposed domain/input:** warehouse quantity reservations with serial operations and fixed stock. Supply rules for reserve, pick, and cancel-before-picking; exclude replenishment and shipment.
-**Outcomes:** assign ownership of stock-changing operations; state preconditions, postconditions, invariants, and rejection guarantees; compare two responsibility allocations.
-**100 minutes:** boundary examples 10; responsibilities and dependencies 20; contracts and invariants 25; AI comparison 20; independent review and before/after scenarios 15; explanation 10.
-**Possible discussion supports (not required submissions):** responsibility table, operation contracts, success/rejection quantity examples, compared alternative, and justified revisions. A lifecycle table is not a prerequisite or required artifact.
+**Authored, unreleased (27 October 2026):** [in-person deck](../lab/03-contracte.md), [Teams deck](../lab/03-contracte-online.md), [instructor guide](../lab/03-contracte-instructor.md), [brief](../lab/scenarios/03-contracte/scenario.md), [reference](../lab/scenarios/03-contracte/reference.md), [optional discussion aid](../lab/scenarios/03-contracte/worksheet.md). Both decks have 16 slides including the cover. No lifecycle-theory prerequisite, implementation, submission or separate grade.
+
+**Domain:** warehouse quantity reservations with serial operations, fixed initial stock, full pickup and cancellation before pickup. Students distinguish physical stock F, active reservations R and availability D=F−R; rejection preserves the complete register and identifiers remain in history.
+
+**100 minutes:** opening/recap 10; responsibilities 20; contracts and invariants 25; one instructor-led AI analysis/review and human decision 25; peer explanation and closing 20. Checkpoints: 0, 10, 30, 55, 80, 100.
+
+**Student feedback applied:** rule summaries stay on the slides that use them. The AI segment is a single plenary analysis and fresh-context review operated by the instructor; students predict and discuss, without parallel AI sessions. [Prepared prompts](../lab/scenarios/03-contracte/ai/README.md) support live use or later genuine captures. The current fallback is a clearly labeled [constructed teaching example](../lab/scenarios/03-contracte/prepared-fixture.md), not a capture. The Teams variant preserves content and timings, replacing pairs with chat predictions and speaking relays. Release both variants together only when requested.
 
 ### Lab 4, after Courses 7–8 — State, behavior, and interactions
 
@@ -270,7 +274,7 @@ These are reuse targets, not a claim that the old decks already teach the new se
 | [Lab 2](../archive/lab/Lab02.md), [Lab 3](../archive/lab/Lab03.md), [Lab 4](../archive/lab/Lab04.md), with instructor guides | Labs 2–4 | Reuse comparisons and prepared examples; replace notation-based defect hunts with explicit source rules and evidence. |
 | [Lab 5](../lab/05-validare.md), [Lab 6](../lab/06-proiect.md), [Lab 7](../lab/07-interviu.md), with instructor guides | Labs 5–7 | Lab 5 practices validation and abstraction on a supplied problem; Lab 6 is an open session for finishing the project and discussion; Lab 7 is the clarification interview finalizing the five-point dossier score. |
 
-Develop the next package in teaching order: review the authored Courses 3–4 and Lab 2 drafts with the discussion-led Lab 1 refactor, then develop Courses 5–6 with Lab 3. Prototype Course 9's small explorer early enough to validate its bounds and repair before writing its slides. For each session, finish the source brief and reference reasoning first, then the demo and labeled fallback, student exercise, deck with notes, and delivery checks. Keep unfinished sessions unpublished under the existing `RELEASED` mechanism; this roadmap does not change release state.
+Develop the next package in teaching order: review the authored Courses 5–6 and Lab 3, obtain genuine AI captures when available, then develop Courses 7–8 with Lab 4. Prototype Course 9's small explorer early enough to validate its bounds and repair before writing its slides. For each session, finish the source brief and reference reasoning first, then the demo and labeled fallback, student exercise, deck with notes, and delivery checks. Keep unfinished sessions unpublished under the existing `RELEASED` mechanism; this roadmap does not change release state.
 
 ## Current course order and source identifiers
 
