@@ -5,6 +5,7 @@ These files are the lecture and lab drafts written for the earlier 2026 design (
 - `curs/`: the English decks `02-requirements.md` … `12-presentation-skills.md`, the retired `13-workshop.md`, `14-final.md`, and their `*-demo.md` instructor runbooks.
 - `curs/fallback/`: the instructor-only fallback decks of those lectures, with the HTML and PDF they were last built to. The runbooks' paths (`curs/fallback/…`) refer to the old location.
 - `lab/`: the English Labs 2–4 with their instructor runbooks.
+- `exam/`: the earlier UML-focused written sample (`examen-2026.tex`) and its model solutions, with their diagrams; retired on 27 October 2026, when the scenario-based multiple-choice sample (`exam/model-examen.md`) replaced it. Its published PDFs were removed.
 
 Nothing here is built or published: the Makefiles only look at `curs/`, `lab/`, `proiect/` and `exam/`, and the landing page shows the planned sessions as „în curând” until their new decks are released. The new decks are written from scratch under the file names of `docs/semester-roadmap.md` („Current course order and source identifiers”); the roadmap's „Source reuse” table says what each archived deck may contribute.
 

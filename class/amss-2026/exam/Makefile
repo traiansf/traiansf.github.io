@@ -1,17 +1,17 @@
 SUBDIR = exam
 
-TEXS = $(wildcard *.tex)
-PDFS = $(patsubst %.tex,$(OUTDIR)/%.pdf,$(TEXS))
-AUX_EXTS = aux log toc fls fdb_latexmk out
-AUX_FILES = $(foreach ext,$(AUX_EXTS),$(patsubst %.tex,$(OUTDIR)/%.$(ext),$(TEXS)))
+# The sample paper and its key, published as documents (HTML and PDF). Static
+# pattern rules, because the generic %.md rules of include.mk build slide decks.
+DOCS = model-examen model-examen-barem
 
-TARGETS = $(PDFS)
+TARGETS = $(foreach d,$(DOCS),$(OUTDIR)/$(d).html $(OUTDIR)/$(d).pdf)
 
 include ../include.mk
 
-clean::
-	rm -f $(AUX_FILES)
-
-$(OUTDIR)/%.pdf: %.tex
+$(DOCS:%=$(OUTDIR)/%.html): $(OUTDIR)/%.html: %.md Makefile $(DOC_HTML_DEPS)
 	@mkdir -p $(dir $@)
-	cd $(dir $<) && lualatex -interaction=nonstopmode -output-directory=$(OUTDIR) $(notdir $<)
+	pandoc $(DOC_HTML_OPTIONS) -V pdf-url=$*.pdf -o $@ $<
+
+$(DOCS:%=$(OUTDIR)/%.pdf): $(OUTDIR)/%.pdf: %.md Makefile $(DOC_PDF_DEPS)
+	@mkdir -p $(dir $@)
+	pandoc $(DOC_PDF_OPTIONS) -o $@ $<

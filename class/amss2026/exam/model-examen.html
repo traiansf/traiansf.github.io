@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0a2145">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Traian-Florin Șerbănuță">
+  <title>AMSS 2026/2027 — Model de examen</title>
+  <link href="data:image/png;base64,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" rel="icon" type="image/png">
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root {
+--bg: #ffffff;
+--surface: #f3f7f8;
+--text: #1d2a2e;
+--muted: #4a5a60;
+--line: #d5e0e3;
+--brand: #0a2145; 
+--accent: #087373; 
+--accent-strong: #065a5a;
+--header-bg: #0a2145;
+--header-text: #ffffff;
+--header-accent: #8fd6d2;
+--focus: #b35c00;
+--sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, "DejaVu Sans", sans-serif;
+--mono: ui-monospace, Consolas, "Cascadia Mono", "DejaVu Sans Mono", "Liberation Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+:root {
+--bg: #11181b;
+--surface: #182125;
+--text: #e8eff1;
+--muted: #a9b9be;
+--line: #2b3a3f;
+--brand: #f2f6f7;
+--accent: #6fcac6; 
+--accent-strong: #a5e3df;
+--header-bg: #0b1a33;
+--focus: #ffb454;
+}
+
+.site-header, .doc-bar { border-bottom: 1px solid var(--line); }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
+body {
+margin: 0;
+background: var(--bg);
+color: var(--text);
+font: 1rem/1.6 var(--sans);
+}
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { color: var(--accent-strong); text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+code, pre, kbd, samp { font-family: var(--mono); }
+button, input, select, textarea { font-family: inherit; }
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
+.skip-link {
+position: absolute; left: 0.5rem; top: -4rem; z-index: 10;
+padding: 0.6rem 1rem;
+border: 2px solid var(--focus); border-radius: 0.4rem;
+background: var(--bg); color: var(--text);
+}
+.skip-link:focus { top: 0.5rem; }
+.visually-hidden {
+position: absolute; width: 1px; height: 1px; overflow: hidden;
+clip-path: inset(50%); white-space: nowrap;
+}
+
+.nowrap { white-space: nowrap; }
+
+.home p, .home li, .prose p, .prose li { text-wrap: pretty; }
+
+.site-header { background: var(--header-bg); color: var(--header-text); }
+.site-header a { color: inherit; }
+.site-header a:hover { color: inherit; text-decoration-thickness: 3px; }
+.site-header :focus-visible { outline-color: #ffffff; }
+
+.intro {
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 0.6rem 0.9rem;
+align-items: center;
+padding-top: 1.1rem;
+padding-bottom: 1.25rem;
+}
+.intro > div { display: contents; }
+.intro .logo {
+width: 3.5rem; height: auto;
+padding: 0.2rem;
+border-radius: 0.5rem;
+background: #ffffff;
+}
+.intro h1 {
+grid-column: 1 / -1;
+margin: 0;
+font-size: clamp(1.75rem, 5.2vw, 2.6rem);
+line-height: 1.12;
+letter-spacing: -0.015em;
+text-wrap: balance;
+}
+.intro p { margin: 0; }
+.intro .edition { color: var(--header-accent); font-weight: 600; }
+.intro .tagline { grid-column: 1 / -1; font-size: 1rem; line-height: 1.4; opacity: 0.95; }
+.site-header nav { background: rgba(0, 0, 0, 0.22); }
+.site-header nav ul { display: flex; flex-wrap: wrap; gap: 0 0.05rem; margin: 0 0 0 -0.6rem; padding: 0; list-style: none; }
+.site-header nav a { display: inline-block; min-height: 2.75rem; padding: 0.7rem 0.6rem; font-weight: 600; text-decoration: none; }
+.site-header nav a:hover { text-decoration: underline; }
+.site-header nav a:focus-visible { outline-offset: -5px; }
+@media (min-width: 40rem) {
+.intro { gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.intro > div { display: block; }
+.intro .logo { width: 9.5rem; padding: 0.5rem; border-radius: 0.75rem; }
+.intro .edition { margin-bottom: 0.35rem; }
+.intro .tagline { margin-top: 0.6rem; font-size: 1.1rem; }
+}
+
+.home main { padding-bottom: 3rem; }
+.home section { padding-top: 2.5rem; }
+.home h2 {
+margin: 0 0 1rem;
+padding-bottom: 0.4rem;
+border-bottom: 2px solid var(--line);
+color: var(--brand);
+font-size: 1.5rem;
+line-height: 1.25;
+}
+.home p { margin: 0.5rem 0; }
+.home .lead { max-width: 38rem; color: var(--muted); }
+.home .online-lab {
+max-width: 38rem;
+margin: 1rem 0 0;
+padding: 0.6rem 0.9rem;
+border-left: 3px solid var(--accent);
+border-radius: 0 0.4rem 0.4rem 0;
+background: var(--surface);
+}
+
+.schedule { width: 100%; margin-top: 1rem; border-collapse: collapse; }
+.schedule th {
+padding: 0 0 0.5rem 2.3rem; 
+color: var(--muted);
+font-size: 0.95rem;
+font-weight: 600;
+text-align: left;
+}
+.schedule th + th { padding-left: 4.3rem; }
+.schedule td { padding: 0.7rem 0; border-top: 1px solid var(--line); vertical-align: top; }
+.schedule td + td { padding-left: 2rem; }
+.schedule ol { margin: 0; padding: 0 0 0 2.1rem; }
+.schedule li { padding: 0.15rem 0 0.15rem 0.2rem; }
+.schedule li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+.schedule li.locked { color: var(--muted); }
+.schedule .format {
+display: inline-block;
+min-width: 2.75rem;
+margin-left: 0.4rem;
+padding: 0.15rem 0.5rem;
+border: 1px solid var(--line);
+border-radius: 0.3rem;
+font-size: 0.8rem;
+font-weight: 600;
+line-height: 1.4;
+text-align: center;
+text-decoration: none;
+white-space: nowrap;
+}
+.schedule .format:hover { border-color: currentColor; }
+.schedule .note { display: block; color: var(--muted); font-size: 0.9rem; }
+@media print, (min-width: 48rem) {
+.schedule th:first-child, .schedule td:first-child { width: 54%; }
+}
+@media screen and (min-width: 48rem) and (max-width: 59.99rem) {
+.schedule th:first-child, .schedule td:first-child { width: 50%; }
+}
+@media screen and (max-width: 47.99rem) {
+.schedule thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.schedule, .schedule tbody, .schedule tr, .schedule td { display: block; }
+.schedule tr { padding: 0.7rem 0; border-top: 1px solid var(--line); }
+.schedule td { padding: 0; border: 0; }
+.schedule td + td {
+margin: 0.5rem 0 0 0.6rem;
+padding: 0.5rem 0.75rem;
+border-left: 3px solid var(--accent);
+border-radius: 0 0.4rem 0.4rem 0;
+background: var(--surface);
+}
+.schedule td + td::before {
+content: "Laborator";
+display: block;
+color: var(--muted);
+font-size: 0.85rem;
+font-weight: 600;
+}
+}
+
+.facts { margin: 0; }
+.facts > div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.facts > div:last-child { border-bottom: 0; }
+
+.facts > div:target { box-shadow: -0.75rem 0 0 var(--bg), -1rem 0 0 var(--accent); }
+.facts dt { color: var(--brand); font-weight: 700; }
+.facts dd { margin: 0.2rem 0 0; }
+.facts dd > :first-child { margin-top: 0; }
+.facts dd > :last-child { margin-bottom: 0; }
+.facts dd > p { max-width: 38rem; }
+.facts ul { margin: 0.4rem 0; padding-left: 1.25rem; }
+.facts li + li { margin-top: 0.25rem; }
+.facts li::marker { color: var(--accent); }
+@media (min-width: 40rem) {
+.facts > div { display: grid; grid-template-columns: 11rem 1fr; gap: 0 1.5rem; }
+.facts dd { margin-top: 0; }
+}
+.points { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.points th, .points td { padding: 0.2rem 0; border-bottom: 1px solid var(--line); font-weight: 400; text-align: left; }
+.points td { padding-left: 2rem; text-align: right; white-space: nowrap; }
+.points tr:first-child > * { padding-top: 0; }
+.points tr:last-child th, .points tr:last-child td { border-bottom: 0; }
+code.join { padding: 0.1rem 0.4rem; border-radius: 0.3rem; background: var(--surface); font-size: 0.95em; font-weight: 700; }
+
+.site-footer { margin-top: 1rem; padding-bottom: 2.5rem; color: var(--muted); font-size: 0.95rem; }
+.site-footer::before { content: ""; display: block; margin-bottom: 1.5rem; border-top: 1px solid var(--line); }
+.site-footer p { margin: 0.2rem 0; }
+
+.doc-bar { background: var(--header-bg); color: var(--header-text); }
+.doc-bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1rem; min-height: 3.25rem; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.doc-bar a { display: inline-flex; align-items: center; gap: 0.6rem; color: inherit; font-weight: 700; text-decoration: none; }
+.doc-bar a:hover { color: inherit; text-decoration: underline; }
+.doc-bar a::before {
+content: "";
+width: 2rem; height: 2rem;
+border-radius: 0.35rem;
+background: #ffffff url(data:image/png;base64,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) center / 1.7rem no-repeat;
+}
+.doc-bar .course { color: var(--header-accent); font-size: 0.95rem; }
+.doc-bar :focus-visible { outline-color: #ffffff; }
+.doc main { padding-top: 2.25rem; padding-bottom: 2rem; }
+.doc-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 3rem; }
+.doc-layout > * { min-width: 0; max-width: 40rem; }
+.prose { font-size: 1.0625rem; line-height: 1.65; overflow-wrap: break-word; }
+.doc-title { margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--line); }
+.doc-title .session { margin: 0 0 0.3rem; color: var(--accent); font-size: 1.1rem; font-weight: 700; }
+.doc-title h1 {
+margin: 0;
+color: var(--brand);
+font-size: clamp(1.9rem, 5.5vw, 2.6rem);
+line-height: 1.12;
+letter-spacing: -0.015em;
+text-wrap: balance;
+}
+.doc-title .byline { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.95rem; }
+.doc-title .formats { margin: 0.3rem 0 0; font-size: 0.95rem; font-weight: 600; }
+.prose h2 { margin: 2.4rem 0 0.7rem; color: var(--brand); font-size: 1.45rem; line-height: 1.25; letter-spacing: -0.005em; text-wrap: balance; }
+.prose h3 { margin: 2rem 0 0.5rem; color: var(--brand); font-size: 1.2rem; line-height: 1.3; }
+.prose h4 { margin: 1.5rem 0 0.4rem; color: var(--brand); font-size: 1rem; }
+.prose p { margin: 0 0 1rem; }
+.prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+.prose li + li { margin-top: 0.3rem; }
+.prose li > ul, .prose li > ol { margin: 0.3rem 0 0; }
+.prose ul > li::marker { color: var(--accent); }
+.prose ol > li::marker { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+.prose strong { color: var(--brand); }
+.prose hr { margin: 2rem 0; border: 0; border-top: 1px solid var(--line); }
+.prose img { max-width: 100%; height: auto; }
+.prose blockquote { margin: 0 0 1rem; padding: 0.1rem 0 0.1rem 1rem; border-left: 0.25rem solid var(--accent); }
+.prose blockquote > :last-child { margin-bottom: 0; }
+
+.prose h2.epigraph { margin-bottom: 0.6rem; color: var(--muted); font-size: 1.05rem; letter-spacing: 0; }
+.prose .epigraph + blockquote { color: var(--brand); font-size: 1.4rem; font-weight: 600; line-height: 1.3; }
+.prose .epigraph + blockquote p { text-wrap: balance; }
+.prose .epigraph + blockquote p + p { margin-top: 0.5rem; color: var(--muted); font-size: 1rem; font-weight: 400; } 
+.prose .epigraph + blockquote + p { margin-bottom: 0.2rem; }
+.prose .epigraph + blockquote + p + p { color: var(--muted); font-size: 0.9rem; }
+
+.table-wrap { margin: 0 0 1.25rem; overflow-x: auto; }
+.prose table { width: auto; min-width: min(100%, 22rem); border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.prose th, .prose td { padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.prose th:last-child, .prose td:last-child { padding-right: 0; }
+.prose thead th { border-bottom: 2px solid var(--brand); color: var(--brand); }
+.prose caption { margin-bottom: 0.4rem; color: var(--muted); text-align: left; }
+
+@media (max-width: 36rem) {
+.rubric thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.rubric table, .rubric tbody { display: block; width: 100%; }
+.rubric tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.25rem 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+.rubric tr:first-child { border-top: 2px solid var(--brand); }
+.rubric td { display: block; padding: 0; border: 0; }
+.rubric td:nth-child(2)::after { content: " p."; color: var(--muted); font-weight: 400; }
+.rubric td:nth-child(3) { grid-column: 1 / -1; font-size: 1rem; }
+}
+.prose code { padding: 0.1em 0.25em; border-radius: 0.25em; background: var(--surface); font-size: 0.9em; }
+
+.prose pre, .prose div.sourceCode {
+margin: 0 0 1.1rem;
+overflow-x: auto;
+border: 1px solid var(--line);
+border-radius: 0.4rem;
+background: var(--surface);
+}
+.prose pre { padding: 0.8rem 1rem; font-size: 0.9rem; line-height: 1.5; }
+.prose pre code { padding: 0; background: none; font-size: 1em; }
+.prose div.sourceCode > pre { margin: 0; overflow: visible; border: 0; background: none; }
+@media (max-width: 36rem) {
+
+.prose pre.markdown > code.sourceCode { white-space: pre-wrap; }
+}
+
+.prose ul.task-list { padding-left: 0; }
+.prose ul.task-list li { display: block; }
+.prose ul.task-list label { display: flex; gap: 0.6rem; align-items: baseline; }
+.prose ul.task-list input[type="checkbox"] { flex: none; width: 1.05rem; height: 1.05rem; margin: 0; accent-color: var(--accent); transform: translateY(0.15rem); }
+
+.doc-toc { margin: 0 0 1.75rem; border: 1px solid var(--line); border-radius: 0.5rem; font-size: 0.95rem; line-height: 1.4; }
+.doc-toc summary { padding: 0.7rem 1rem; color: var(--muted); font-weight: 700; cursor: pointer; }
+.doc-toc nav { padding: 0 1rem 0.6rem; }
+.doc-toc ul { margin: 0; padding: 0; list-style: none; }
+.doc-toc ul ul { display: none; }
+.doc-toc a { display: block; padding: 0.35rem 0; text-decoration: none; text-wrap: balance; }
+.doc-toc a:hover { text-decoration: underline; }
+@media (min-width: 45rem) and (max-width: 61.99rem) {
+
+.doc main.wrap, .doc .site-footer, .doc .doc-bar .wrap { max-width: 42.5rem; }
+}
+@media (min-width: 62rem) {
+.doc-layout { grid-template-columns: minmax(0, 40rem) minmax(0, 1fr); grid-template-rows: auto 1fr; }
+.doc-title { grid-column: 1; grid-row: 1; }
+.doc-layout > .prose { grid-column: 1; grid-row: 2; }
+.doc-toc {
+grid-column: 2; grid-row: 1 / span 2;
+position: sticky; top: 1.5rem; align-self: start;
+max-height: calc(100vh - 3rem); overflow-y: auto;
+margin: 0;
+padding: 0.5rem 0.5rem 0.5rem 0; 
+border: 0; border-left: 2px solid var(--line); border-radius: 0;
+}
+.doc-toc summary { margin-left: 1.1rem; padding: 0 0 0.5rem; }
+.doc-toc nav { padding: 0 0 0 1.1rem; }
+.doc-toc a { padding: 0.22rem 0; }
+.doc-toc :focus-visible { outline-offset: 2px; }
+}
+
+@media (prefers-color-scheme: dark) {
+.prose code span { color: inherit; }
+.prose code span.kw, .prose code span.cf, .prose code span.im, .prose code span.ot { color: #7fc8e8; }
+.prose code span.fu, .prose code span.bu, .prose code span.ex { color: #a9c7ff; }
+.prose code span.st, .prose code span.ch, .prose code span.vs, .prose code span.sc { color: #a8d8a0; }
+.prose code span.co, .prose code span.an, .prose code span.cv, .prose code span.do { color: #9aabb0; }
+.prose code span.dv, .prose code span.fl, .prose code span.bn, .prose code span.cn { color: #f0b98d; }
+.prose code span.at, .prose code span.va, .prose code span.dt { color: #d7c58a; }
+}
+@media (prefers-contrast: more) {
+:root { --muted: var(--text); --line: currentColor; }
+}
+@media (forced-colors: active) {
+
+.intro .logo, .doc-bar a::before { forced-color-adjust: none; }
+}
+@media print {
+:root { --bg: #ffffff; --surface: #f3f7f8; --text: #000000; --muted: #333333; --line: #999999; --brand: #0a2145; --accent: #065a5a; }
+body { font-size: 10.5pt; }
+.site-header, .doc-bar { background: none; color: #000000; border-bottom: 2px solid #000000; }
+.site-header nav, .skip-link, .doc-toc, .doc-title .formats, .schedule .format { display: none; }
+
+.intro { gap: 1.25rem; padding-top: 0; padding-bottom: 0.75rem; }
+.intro .logo { width: 6rem; padding: 0; }
+.intro .tagline { margin-top: 0.3rem; }
+.home section { padding-top: 1.25rem; }
+.home section + section { break-before: page; } 
+.schedule td { padding: 0.45rem 0; }
+.intro .edition { color: #000000; }
+.doc-bar .course { color: #000000; }
+a { color: #000000; }
+.prose a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; overflow-wrap: anywhere; }
+.prose a[href*="teams."]::after { content: none; } 
+.prose { max-width: none; font-size: inherit; }
+h2, h3 { break-after: avoid; }
+pre, table, blockquote, .site-footer { break-inside: avoid; }
+.schedule { break-inside: auto; }
+.schedule tr { break-inside: avoid; }
+}
+</style>
+</head>
+<body class="doc">
+  <a class="skip-link" href="#main">Sari la conținut</a>
+  <header class="doc-bar">
+    <div class="wrap">
+      <a href="../">AMSS 2026/2027</a>
+      <span class="course">Analiza și Modelarea Sistemelor Software</span>
+    </div>
+  </header>
+  <main id="main" class="wrap doc-layout">
+    <header class="doc-title">
+      <h1>Model de examen</h1>
+      <p class="byline">Traian-Florin Șerbănuță</p>
+      <p class="formats"><a href="model-examen.pdf">Versiunea PDF, pentru tipărire</a></p>
+    </header>
+    <details class="doc-toc" id="toc">
+      <summary>Pe această pagină</summary>
+      <nav aria-label="Pe această pagină">
+        <ul>
+        <li><a href="#despre-acest-model" id="toc-despre-acest-model">Despre acest model</a></li>
+        <li><a href="#cazul-a-rezervarea-terenurilor-de-tenis" id="toc-cazul-a-rezervarea-terenurilor-de-tenis">Cazul A — Rezervarea terenurilor de tenis</a></li>
+        <li><a href="#cazul-b-registrul-arborilor-din-parcuri" id="toc-cazul-b-registrul-arborilor-din-parcuri">Cazul B — Registrul arborilor din parcuri</a></li>
+        <li><a href="#cazul-c-cardul-de-călătorie" id="toc-cazul-c-cardul-de-călătorie">Cazul C — Cardul de călătorie</a></li>
+        <li><a href="#cazul-d-cererea-de-decontare" id="toc-cazul-d-cererea-de-decontare">Cazul D — Cererea de decontare</a></li>
+        <li><a href="#cazul-e-cota-de-întreținere" id="toc-cazul-e-cota-de-întreținere">Cazul E — Cota de întreținere</a></li>
+        <li><a href="#cazul-f-sasul-unui-laborator" id="toc-cazul-f-sasul-unui-laborator">Cazul F — Sasul unui laborator</a></li>
+        </ul>
+      </nav>
+    </details>
+    <script>
+      // The outline is open beside the text on a wide window and collapsed above
+      // it on a narrow one (static/amss.css), also after a resize or rotation.
+      (function (toc, wide) {
+        function sync() { toc.open = wide.matches; }
+        sync();
+        if (wide.addEventListener) wide.addEventListener('change', sync);
+      })(document.getElementById('toc'), matchMedia('(min-width: 62rem)'));
+    </script>
+    <article class="prose">
+<h1 id="despre-acest-model">Despre acest model</h1>
+<p>Modelul arată tipul întrebărilor de la examenul individual, notat cu <strong>3 puncte</strong> din nota finală. Examenul verifică raționamentul despre probleme și artefacte date: cerințe, modele, contracte, stări, repartizarea responsabilităților și validare. Nu verifică notații, instrumente sau cunoștințe despre un anumit model AI.</p>
+<ul>
+<li><strong>24 de întrebări</strong>, fiecare cu <strong>un singur răspuns corect</strong> din patru variante. Durata propusă este de <strong>60 de minute</strong>; numărul întrebărilor și durata se confirmă pe Teams înaintea examenului.</li>
+<li>Nota examenului: <strong>3 × (răspunsuri corecte) / 24</strong>. Un răspuns greșit sau lipsă nu se depunctează.</li>
+<li>Lucrați fără materiale și fără calculator. Toate datele necesare sunt în enunțuri; nu presupuneți reguli nedate.</li>
+<li>Fiecare întrebare se rezolvă independent de celelalte. Dacă nu se precizează altfel, fiecare întrebare pornește din starea descrisă în enunțul cazului sau în întrebare.</li>
+<li>Situațiile, numele și sumele sunt inventate pentru examen.</li>
+</ul>
+<p>La restanță și la mărire, examenul are mai multe întrebări din aceleași domenii și valorează <strong>9 puncte</strong>, plus punctul din oficiu.</p>
+<hr />
+<h1 id="cazul-a-rezervarea-terenurilor-de-tenis">Cazul A — Rezervarea terenurilor de tenis</h1>
+<p>Un club are trei terenuri. Membrii rezervă un teren pentru o oră întreagă, între 8:00 și 22:00.</p>
+<ul>
+<li><strong>R1:</strong> un membru poate avea cel mult două rezervări viitoare.</li>
+<li><strong>R2:</strong> o rezervare se face cu cel mult 7 zile înainte.</li>
+<li><strong>R3:</strong> anularea este gratuită dacă se face cu <strong>cel puțin 24 de ore</strong> înaintea orei rezervate; altfel rezervarea rămâne taxată.</li>
+<li><strong>R4:</strong> clubul confirmă sau refuză o cerere de rezervare în cel mult 2 secunde, pentru 95% dintre cereri.</li>
+</ul>
+<p>Administratorul adaugă: „Membrii se plâng că nu găsesc terenuri libere seara.”</p>
+<p><strong>1.</strong> Care afirmație se sprijină pe o <strong>presupunere</strong> care nu rezultă din enunț?</p>
+<p>A. Un membru poate avea cel mult două rezervări viitoare.</p>
+<p>B. O rezervare durează o oră întreagă.</p>
+<p>C. O anulare făcută cu 30 de ore înainte este gratuită.</p>
+<p>D. Membrii nu găsesc terenuri seara pentru că unii rezervă terenuri pe care nu le folosesc.</p>
+<p><strong>2.</strong> Azi este marți, ora 18:30. Membrul M are o rezervare <strong>azi, <span class="nowrap">18:00–19:00</span></strong>, și una joi. M cere acum o rezervare pentru sâmbătă, la 10:00. Ce informație lipsește pentru a decide dacă cererea respectă R1?</p>
+<p>A. Dacă o rezervare aflată în desfășurare se mai numără printre rezervările viitoare.</p>
+<p>B. Dacă sâmbătă la 10:00 se află în intervalul permis de R2.</p>
+<p>C. Dacă anularea rezervării de joi ar fi gratuită.</p>
+<p>D. Dacă răspunsul la cerere sosește în cel mult 2 secunde.</p>
+<p><strong>3.</strong> O rezervare este pentru <strong>sâmbătă, ora 10:00</strong>. Care scenariu verifică R3 <strong>exact la limită</strong>, cu rezultatul așteptat corect?</p>
+<p>A. Anulare joi la 10:00 → gratuită.</p>
+<p>B. Anulare vineri la 10:00 → taxată.</p>
+<p>C. Anulare vineri la 10:00 → gratuită.</p>
+<p>D. Anulare vineri la 11:00 → gratuită.</p>
+<p><strong>4.</strong> Administratorul cere ulterior: „Membrii cu abonament premium pot avea cel mult patru rezervări viitoare.” Ce efect are cererea asupra enunțului?</p>
+<p>A. Modifică R1 și cere o informație nouă despre membri; scenariile cu a treia sau a patra rezervare se reverifică.</p>
+<p>B. Reformulează R1 fără să schimbe rezultatul vreunei cereri; scenariile existente rămân valabile.</p>
+<p>C. Este o cerință de calitate, de același tip cu R4, deci nu schimbă regulile de rezervare.</p>
+<p>D. Modifică numai R2, pentru că membrii cu mai multe rezervări au nevoie de o fereastră mai lungă.</p>
+<hr />
+<h1 id="cazul-b-registrul-arborilor-din-parcuri">Cazul B — Registrul arborilor din parcuri</h1>
+<p>Primăria ține un registru al arborilor din parcurile orașului.</p>
+<ul>
+<li><strong>R1:</strong> fiecare arbore are un număr de inventar unic, care nu se schimbă și nu se refolosește.</li>
+<li><strong>R2:</strong> un arbore aparține unei specii, de exemplu „tei argintiu”; mai mulți arbori pot avea aceeași specie.</li>
+<li><strong>R3:</strong> un arbore se află <span class="nowrap">într-un</span> singur parc la un moment dat. Poate fi mutat în alt parc; registrul păstrează parcurile prin care a trecut.</li>
+<li><strong>R4:</strong> o inspecție privește un singur arbore, are o dată și constată o stare: sănătos, de supravegheat sau periculos. Un arbore poate avea oricâte inspecții, inclusiv niciuna.</li>
+<li><strong>R5:</strong> un arbore tăiat rămâne în registru, marcat ca tăiat, împreună cu inspecțiile lui.</li>
+</ul>
+<p><strong>5.</strong> Doi arbori din același parc au aceeași specie, aceeași înălțime și au fost plantați în aceeași zi. Ce îi distinge în registru?</p>
+<p>A. Combinația dintre specie, parc și data plantării.</p>
+<p>B. Numărul de inventar al fiecăruia.</p>
+<p>C. Ordinea în care au fost inspectați.</p>
+<p>D. Nimic: în registru sunt același arbore.</p>
+<p><strong>6.</strong> Un model propune o singură înregistrare pentru fiecare arbore, fără o listă de inspecții: <em>număr de inventar, specie, parcurile prin care a trecut (cu datele mutărilor), starea constatată la ultima inspecție („necunoscută” înaintea primei inspecții), tăiat (da/nu)</em>. În care situație modelul pierde informație cerută de enunț?</p>
+<p>A. Doi arbori diferiți au aceeași specie.</p>
+<p>B. Arborele 105 este găsit sănătos în martie și periculos în septembrie.</p>
+<p>C. Un arbore plantat ieri, încă neinspectat, este adăugat în registru.</p>
+<p>D. Arborele 105 este mutat din parcul Tineretului în parcul Titan.</p>
+<p><strong>7.</strong> Care afirmație despre inspecții este susținută de enunț?</p>
+<p>A. O inspecție poate privi mai mulți arbori din același parc.</p>
+<p>B. La tăierea unui arbore, inspecțiile lui se șterg.</p>
+<p>C. După mutarea unui arbore, inspecțiile lui se păstrează; mutarea nu creează un arbore nou.</p>
+<p>D. Un arbore nu poate fi înregistrat înaintea primei inspecții.</p>
+<p><strong>8.</strong> Arborele 212 a fost tăiat. În același loc se plantează un tei nou. Ce număr de inventar primește teiul nou?</p>
+<p>A. 212, pentru că ocupă același loc.</p>
+<p>B. 212, după ce arborele tăiat este șters din registru.</p>
+<p>C. Niciunul, până la prima inspecție.</p>
+<p>D. Un număr nefolosit până atunci; 212 rămâne la arborele tăiat.</p>
+<hr />
+<h1 id="cazul-c-cardul-de-călătorie">Cazul C — Cardul de călătorie</h1>
+<p>Un card de călătorie are un <strong>sold</strong> în lei (număr întreg) și o <strong>stare</strong>: activ sau blocat. Operațiile se apelează pe rând, numai pentru carduri cunoscute, cu sume întregi.</p>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Operație</th>
+<th>Când reușește și ce face</th>
+<th>Altfel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>incarca(c, s)</code></td>
+<td>c este activ și 1 ≤ s ≤ 200: soldul crește cu s; întoarce <code>incarcat</code>.</td>
+<td><code>refuz</code>, fără nicio modificare.</td>
+</tr>
+<tr>
+<td><code>valideaza(c)</code></td>
+<td>c este activ și soldul ≥ 3: soldul scade cu 3; întoarce <code>calatorie</code>.</td>
+<td><code>refuz</code>, fără nicio modificare.</td>
+</tr>
+<tr>
+<td><code>blocheaza(c)</code></td>
+<td>Întotdeauna: c devine blocat, soldul se păstrează; întoarce <code>blocat</code>.</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Invariant:</strong> soldul fiecărui card este ≥ 0. Nicio operație nu modifică alte carduri.</p>
+<p><strong>9.</strong> Cardul K este activ și are soldul 2. Se apelează <code>valideaza(K)</code>. Ce rezultat respectă regulile?</p>
+<p>A. <code>calatorie</code>; K activ, sold −1.</p>
+<p>B. <code>calatorie</code>; K activ, sold 0.</p>
+<p>C. <code>refuz</code>; K activ, sold 2.</p>
+<p>D. <code>refuz</code>; K activ, sold 0.</p>
+<p><strong>10.</strong> Ce rol are condiția „soldul ≥ 3” în contractul lui <code>valideaza</code>?</p>
+<p>A. Este o condiție de succes: când nu este îndeplinită, contractul promite <code>refuz</code> fără nicio modificare.</p>
+<p>B. Este o precondiție: apelantul trebuie să o asigure, iar altfel rezultatul nu este specificat.</p>
+<p>C. Este un invariant pe care îl respectă toate cardurile, în orice stare.</p>
+<p>D. Este o postcondiție a lui <code>incarca</code>, garantată după orice încărcare reușită.</p>
+<p><strong>11.</strong> O implementare propusă pentru <code>incarca</code> este: <em>„dacă c este activ: soldul crește cu s și întoarce <code>incarcat</code>; altfel întoarce <code>refuz</code>”</em>. Care apel arată că implementarea încalcă contractul, <strong>deși invariantul rămâne adevărat</strong>?</p>
+<p>A. K activ, sold 10: <code>incarca(K, 50)</code>.</p>
+<p>B. K blocat, sold 10: <code>incarca(K, 50)</code>.</p>
+<p>C. K activ, sold 0: <code>incarca(K, -5)</code>.</p>
+<p>D. K activ, sold 10: <code>incarca(K, 250)</code>.</p>
+<p><strong>12.</strong> O implementare greșită a lui <code>valideaza</code> are o singură abatere de la contract: când refuză, blochează cardul. Rezultatul întors și soldul sunt cele prevăzute de contract. Cardul K este activ și are soldul 2; se apelează <code>valideaza(K)</code>. Ce verificare deosebește implementarea corectă de cea greșită?</p>
+<p>A. Rezultatul întors este <code>refuz</code>.</p>
+<p>B. K rămâne activ după apel.</p>
+<p>C. Soldul lui K după apel este 2.</p>
+<p>D. Soldul lui K după apel este ≥ 0.</p>
+<hr />
+<h1 id="cazul-d-cererea-de-decontare">Cazul D — Cererea de decontare</h1>
+<p>O cerere de decontare a unei cheltuieli începe în starea <strong>Ciornă</strong>. Tabelul conține <strong>toate</strong> tranzițiile permise:</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Stare curentă</th>
+<th>Eveniment</th>
+<th>Condiție</th>
+<th>Stare următoare</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ciornă</td>
+<td>trimite</td>
+<td>suma &gt; 0 și documentele sunt atașate</td>
+<td>Trimisă</td>
+</tr>
+<tr>
+<td>Ciornă</td>
+<td>renunță</td>
+<td>—</td>
+<td>Anulată</td>
+</tr>
+<tr>
+<td>Trimisă</td>
+<td>aprobă</td>
+<td>—</td>
+<td>Aprobată</td>
+</tr>
+<tr>
+<td>Trimisă</td>
+<td>respinge</td>
+<td>—</td>
+<td>Ciornă</td>
+</tr>
+<tr>
+<td>Trimisă</td>
+<td>renunță</td>
+<td>—</td>
+<td>Anulată</td>
+</tr>
+<tr>
+<td>Aprobată</td>
+<td>plătește</td>
+<td>—</td>
+<td>Plătită</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplinită, este <strong>respins</strong> și nu schimbă starea. Evenimentele se procesează pe rând. <strong>Plătită</strong> și <strong>Anulată</strong> sunt stări finale intenționate. Suma și documentele nu se schimbă pe parcursul unei secvențe.</p>
+<p><strong>13.</strong> Cererea este în Ciornă, are suma 120 și documentele atașate. Urmează evenimentele: trimite, respinge, trimite, aprobă, renunță. Care sunt starea finală și rezultatul ultimului eveniment?</p>
+<p>A. Anulată; ultimul eveniment reușește.</p>
+<p>B. Aprobată; ultimul eveniment este respins.</p>
+<p>C. Plătită; ultimul eveniment este respins.</p>
+<p>D. Ciornă; ultimul eveniment este respins.</p>
+<p><strong>14.</strong> Cererea este în Ciornă, are suma 120, dar <strong>nu</strong> are documente atașate. Ce produce evenimentul trimite?</p>
+<p>A. Cererea trece în Trimisă, iar documentele se cer ulterior.</p>
+<p>B. Cererea trece în Anulată.</p>
+<p>C. Cererea trece în Trimisă, pentru că suma este pozitivă.</p>
+<p>D. Evenimentul este respins; cererea rămâne în Ciornă.</p>
+<p><strong>15.</strong> Cererea este în Ciornă și îndeplinește condiția lui trimite. Care secvență o aduce în <strong>Plătită</strong>?</p>
+<p>A. trimite, aprobă, plătește.</p>
+<p>B. trimite, plătește.</p>
+<p>C. aprobă, trimite, plătește.</p>
+<p>D. trimite, respinge, aprobă, plătește.</p>
+<p><strong>16.</strong> Un contabil observă: „Nu se mai poate renunța la o cerere aprobată.” Ce afirmație este susținută de tabel?</p>
+<p>A. Aprobată este o stare de blocaj, pentru că nu are nicio tranziție de ieșire.</p>
+<p>B. Tabelul este incomplet, pentru că orice stare trebuie să permită evenimentul renunță.</p>
+<p>C. Aprobată nu este finală: singura ieșire este plătește, iar renunță este respins acolo.</p>
+<p>D. Aprobată este o stare finală intenționată, ca Plătită și Anulată.</p>
+<hr />
+<h1 id="cazul-e-cota-de-întreținere">Cazul E — Cota de întreținere</h1>
+<p>O asociație de proprietari calculează lunar cota fiecărui apartament.</p>
+<ul>
+<li><strong>R1:</strong> cheltuielile comune ale lunii se împart proporțional cu suprafața apartamentelor; cota se rotunjește la bani.</li>
+<li><strong>R2:</strong> cota apare în <strong>lista lunară</strong> afișată la avizier și în <strong>portalul</strong> prin care proprietarii plătesc. Ambele trebuie să arate aceeași sumă pentru același apartament și aceeași lună; formatul afișării poate diferi.</li>
+</ul>
+<p>Două organizări sunt în discuție:</p>
+<ul>
+<li><strong>Varianta X:</strong> lista și portalul calculează fiecare cota după formula din R1.</li>
+<li><strong>Varianta Y:</strong> lista și portalul apelează aceeași operație <code>cota(apartament, luna)</code> și își formatează singure afișarea.</li>
+</ul>
+<p><strong>17.</strong> Asociația vrea ca fiecare regulă de calcul să fie scrisă <span class="nowrap">într-un</span> singur loc. În varianta Y, unde trebuie aplicată rotunjirea la bani?</p>
+<p>A. În fiecare canal, la afișare, după aceeași regulă.</p>
+<p>B. În portal, pentru că acolo se încasează banii.</p>
+<p>C. În listă, pentru că este documentul afișat oficial.</p>
+<p>D. În operația comună, care întoarce suma finală de plată.</p>
+<p><strong>18.</strong> Asociația decide: „Apartamentele cu centrală proprie nu plătesc partea de încălzire din cheltuielile comune.” Unde se schimbă regula de calcul?</p>
+<p>A. În X: în listă și în portal, care trebuie să rămână concordante; în Y: în operația comună.</p>
+<p>B. În X: numai în listă; în Y: în listă și în portal, care apelează operația.</p>
+<p>C. În X și în Y: numai în portal, pentru că acolo se plătește cota.</p>
+<p>D. În Y: nicăieri, pentru că operația comună nu depinde de canale.</p>
+<p><strong>19.</strong> În varianta Y, portalul transmite operației comune obiectul care descrie <strong>pagina de plată</strong>, iar operația citește din el apartamentul și luna. Care este consecința?</p>
+<p>A. Niciuna: cât timp suma rămâne aceeași, dependențele operației nu contează.</p>
+<p>B. Cuplarea scade: operația primește de la portal toate datele de care ar putea avea nevoie.</p>
+<p>C. Operația depinde de structura paginii de plată; lista ar trebui să construiască un asemenea obiect ca să o apeleze.</p>
+<p>D. Coeziunea operației crește: calculul și citirea paginii de plată sunt acum în același loc.</p>
+<p><strong>20.</strong> Un coleg propune ca operația comună să fie împărțită în patru componente: suprafețe, cheltuieli, împărțirea cheltuielilor și rotunjire. Asociația își schimbă anual regulile de împărțire; rotunjirea nu <span class="nowrap">s-a</span> schimbat niciodată. Ce argument este susținut de aceste date?</p>
+<p>A. Cele patru componente sunt justificate, pentru că fiecare va avea o singură sarcină.</p>
+<p>B. Izolarea regulilor de împărțire este justificată de schimbările anuale; rotunjirea nu are un motiv dat.</p>
+<p>C. Nicio separare nu este justificată, pentru că ambele canale trebuie să arate aceeași sumă.</p>
+<p>D. Rotunjirea trebuie separată prima, pentru că afectează sumele afișate în ambele canale.</p>
+<hr />
+<h1 id="cazul-f-sasul-unui-laborator">Cazul F — Sasul unui laborator</h1>
+<p>Un sas are două uși: <strong>U1</strong>, spre hol, și <strong>U2</strong>, spre laborator. Fiecare ușă este închisă (Î) sau deschisă (D); starea sasului se scrie (U1, U2), iar starea inițială este (Î, Î). Modelul are numai aceste acțiuni, executate pe rând, și presupune că ușile execută comenzile:</p>
+<ul>
+<li><code>deschide(Ui)</code>: permisă numai dacă Ui este închisă <strong>și cealaltă ușă este închisă</strong>;</li>
+<li><code>inchide(Ui)</code>: permisă numai dacă Ui este deschisă.</li>
+</ul>
+<p><strong>Proprietatea P:</strong> în nicio stare accesibilă cele două uși nu sunt deschise simultan.</p>
+<p><strong>21.</strong> O versiune greșită a modelului permite <code>deschide(U2)</code> și când U1 este deschisă. Explorarea modelului găsește traseul (Î, Î) → <code>deschide(U1)</code> → (D, Î) → <code>deschide(U2)</code> → (D, D). Ce stabilește acest traseu?</p>
+<p>A. Că proprietatea P este încălcată în modelul greșit, <span class="nowrap">printr-o</span> execuție concretă.</p>
+<p>B. Că sasul real din laborator va avea accidente.</p>
+<p>C. Că modelul greșit are o stare de blocaj.</p>
+<p>D. Că proprietatea P este adevărată, pentru că starea inițială o respectă.</p>
+<p><strong>22.</strong> Modelului corect i se adaugă acțiunea <code>alarma()</code>, permisă în orice stare a ușilor: ambele uși se închid, iar sasul intră în starea <strong>Blocat</strong>, în care nu mai este permisă nicio acțiune. Specificația spune că sasul rămâne blocat până la o intervenție manuală, care nu face parte din model. Explorarea raportează: „Starea Blocat nu are acțiuni permise.” Ce concluzie este corectă?</p>
+<p>A. Este un blocaj neintenționat (deadlock); modelul trebuie corectat.</p>
+<p>B. Proprietatea P este încălcată în starea Blocat, deci alarma este greșită.</p>
+<p>C. Explorarea este greșită: orice stare a unui model trebuie să aibă o acțiune.</p>
+<p>D. Este o stare finală intenționată; verificăm că se ajunge în ea numai prin <code>alarma()</code>.</p>
+<p><strong>23.</strong> Explorarea <strong>completă</strong> a modelului corect (fără <code>alarma()</code>) vizitează toate stările accesibile și nu găsește nicio încălcare a lui P. Ce stabilește această explorare, singură?</p>
+<p>A. Că ușile sasului real nu vor fi niciodată deschise simultan.</p>
+<p>B. Că nu rezultă nimic, pentru că explorarea nu a folosit sasul real.</p>
+<p>C. Că P este adevărată în toate execuțiile acestui model finit, în ipotezele lui.</p>
+<p>D. Că P este adevărată și pentru un sas cu trei uși, al cărui model nu a fost explorat.</p>
+<p><strong>24.</strong> Apare o cerință nouă: „U2 se poate deschide numai după ce U1 a stat închisă cel puțin un minut.” Ce trebuie revizuit?</p>
+<p>A. Numai textul afișat lângă U2; modelul și proprietatea P rămân neschimbate.</p>
+<p>B. Modelul reține timpul de la închiderea lui U1; <code>deschide(U2)</code> primește o condiție nouă; P se reverifică.</p>
+<p>C. Nimic: proprietatea P garantează deja că U1 stă închisă un minut.</p>
+<p>D. Numai condiția lui <code>deschide(U1)</code>, care trebuie să aștepte un minut.</p>
+    </article>
+  </main>
+  <footer class="wrap site-footer">
+    <p><a href="../">AMSS 2026/2027: pagina cursului</a></p>
+    <p><a href="https://traiansf.github.io/">Traian-Florin Șerbănuță</a>, Facultatea de Matematică și Informatică, Universitatea din București</p>
+  </footer>
+</body>
+</html>

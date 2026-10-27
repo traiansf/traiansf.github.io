@@ -6,9 +6,9 @@ lang: ro-RO
 
 # Barem și justificări
 
-Barem pentru [modelul de examen](model-examen.md), construit după `docs/assessment-blueprint.md`: 24 de întrebări, câte patru pentru fiecare domeniu evaluat, un singur răspuns corect, fără depunctare. Nota examenului este 3 × C / 24, unde C este numărul răspunsurilor corecte. Pe ansamblu, fiecare literă este răspunsul corect de șase ori; în interiorul unui caz, pozițiile nu urmează un tipar.
+Barem pentru [modelul de examen](https://traiansf.github.io/class/amss2026/exam/model-examen.html): 24 de întrebări, câte patru pentru fiecare domeniu evaluat, un singur răspuns corect, fără depunctare. Nota examenului este 3 × C / 24, unde C este numărul răspunsurilor corecte. Pe ansamblu, fiecare literă este răspunsul corect de șase ori; în interiorul unui caz, pozițiile nu urmează un tipar.
 
-Pentru fiecare variantă greșită este notată regula sau contraexemplul care o exclude. Cheia trebuie verificată de titular; justificările de mai jos nu o înlocuiesc. Întrebările modelului nu se refolosesc la examen: formele de examen folosesc întrebări noi, echivalente ca dificultate.
+Pentru fiecare variantă greșită este notată regula sau contraexemplul care o exclude. Întrebările modelului nu se refolosesc la examen: formele de examen folosesc întrebări noi, echivalente ca dificultate.
 
 | Caz | Domeniu principal | Întrebări | Chei |
 |---|---|---|---|

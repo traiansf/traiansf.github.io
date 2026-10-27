@@ -53,7 +53,7 @@ Teams have 3–5 students. Each project has a public GitHub or GitLab repository
 
 There is no scheduled checkpoint. Teams may request feedback at any time during the semester. Only Labs 6–7 are dedicated to projects: Lab 6 is an open session for finishing the project, instructor questions, and cross-team discussion; Lab 7 is a team interview about unclear dossier points, finalizing its five-point score on the published criteria. The deliverable (the public repository) must be final about one week before the interview, so that the dossier can be pre-read; require no presentation slides or separate per-student oral exam. Labs 1–5 each practice an important course topic using a distinct bounded problem. Classroom unaided exercises are formative. There is no separately graded individual decision note.
 
-The project page contains the student-facing rubric; docs/assessment-blueprint.md specifies the proposed scenario-based exam design. Resits and grade-improvement attempts (restanță / mărire) use a multiple-choice exam worth nine points plus one automatic point; dossier and attendance marks do not carry over. The older UML-specific resit sample has not yet been redesigned and must not be presented as the new assessment specification.
+The project page contains the student-facing rubric; docs/assessment-blueprint.md specifies the proposed scenario-based exam design. Resits and grade-improvement attempts (restanță / mărire) use a multiple-choice exam worth nine points plus one automatic point; dossier and attendance marks do not carry over. The sample paper `exam/model-examen.md` and its key `exam/model-examen-barem.md` (27 October 2026) follow the blueprint; both are built and published under `amss2026/exam/` (HTML and PDF) but not linked from any page until the instructor decides where. The earlier UML-specific sample was retired to `archive/exam/` on 27 October 2026; do not reinstate it.
 
 ## Authoring conventions
 
@@ -104,7 +104,7 @@ The project page contains the student-facing rubric; docs/assessment-blueprint.m
 - `tooling/`: portable setup and workflow; optional templates preserve student tool/model choices.
 - `static/`: landing page, shared stylesheet (`amss.css`), and assets copied into published output.
 - `theme/`: the course look — pandoc templates, styles, and script for HTML decks and documents, LaTeX headers for the PDFs, and the Lua filter that prepares titles and epigraphs. See `BUILD.md`, “Course look”.
-- `exam/`: earlier resit material, awaiting alignment with the new course.
+- `exam/`: the scenario-based sample paper and its key, built as documents (`exam/Makefile` uses static pattern rules, since the generic `%.md` rules build slide decks). Published, not yet linked.
 - `../amss2026/`: generated site, built directly from the course sources; do not maintain a separate `output/redesign-preview/` copy.
 
 Pending lectures keep the file names the landing page already links, to avoid link churn; the roadmap maps those names to the new topics and to the archived drafts that may be reused. Do not assume an archived deck implements its landing-page title.
