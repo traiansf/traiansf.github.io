@@ -10,6 +10,7 @@ Modelul arată tipul întrebărilor de la examenul individual, notat cu **3 punc
 
 - **24 de întrebări**, fiecare cu **un singur răspuns corect** din patru variante. Durata propusă este de **60 de minute**; numărul întrebărilor și durata se confirmă pe Teams înaintea examenului.
 - Nota examenului: **3 × (răspunsuri corecte) / 24**. Un răspuns greșit sau lipsă nu se depunctează.
+- La examen, fiecare student primește o variantă proprie, cu o foaie de răspuns corectată automat. Întrebările unui caz rămân împreună și în aceeași ordine, dar variantele de răspuns apar în altă ordine pe fiecare foaie.
 - Lucrați fără materiale și fără calculator. Toate datele necesare sunt în enunțuri; nu presupuneți reguli nedate.
 - Fiecare întrebare se rezolvă independent de celelalte. Dacă nu se precizează altfel, fiecare întrebare pornește din starea descrisă în enunțul cazului sau în întrebare.
 - Situațiile, numele și sumele sunt inventate pentru examen.
