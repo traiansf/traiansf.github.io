@@ -382,7 +382,7 @@ Transmiterea trebuie să păstreze legătura cu enunțul și cu versiunea lui: d
 Cum judecăm o propunere înainte să acceptăm etichetele ei?
 
 ::: notes
-Această versiune folosește o propunere și o revizuire construite didactic, etichetate explicit; încercările de captură AI nu au produs un răspuns. Nu prezentăm aceste texte ca rezultate AI. Prompturile sunt pregătite pentru o captură ulterioară; la curs nu rulăm instrumente.
+Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.311, la 27 octombrie 2026, fără unelte și fără contextul proiectului. Analistul AI a primit enunțul fără C1; evaluatorul AI a primit, într-un context nou, enunțul, sarcina, răspunsul integral și C1 ca schimbare ulterioară. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
 
 **Organizare:** minutul 75 din 100; interval 75–95 (20 min): predare 4, propunere 6, revizuire 6, decizie 4. []{.pace at=75}
 :::
@@ -391,14 +391,14 @@ Această versiune folosește o propunere și o revizuire construite didactic, et
 
 # O sarcină delimitată pentru un asistent AI
 
-> Propune responsabilitățile și dependențele pentru estimarea costului expedierii. Compară o operație comună cu regulile copiate în cele două interfețe. Verifică intrările de mai jos. Nu scrie cod, nu impune clase sau servicii.
+> Propune responsabilitățile și dependențele pentru estimarea costului expedierii. Compară o operație comună cu regulile copiate în cele două interfețe. Verifică scenariile S1–S5. Nu scrie cod, nu impune clase sau servicii. Răspunde în română, în maximum 350 de cuvinte.
 
-**Context inițial, înainte de C1:** masă 1–5000 g; plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste; refuz fără preț; aceeași politică în web și ghișeu.
+**Enunțul trimis, înainte de C1:** masă 1–5000 g; plic ≤1000 g; cutie pe tot intervalul; preț 10 lei până la 1000 g, 18 lei peste; refuz fără preț; aceleași rezultate în web și la ghișeu.
 
-**Verificări:** plic 1000/1001 g; cutie 1001/0/5000/5001 g. Fără plată sau expediere.
+**S1–S5:** plic 1000 g / 1001 g; cutie 1001 g / 0 g / 5000 g și 5001 g. Fără plată sau expediere.
 
 ::: notes
-Predăm o versiune explicită, fără a amesteca C1 cu enunțul inițial. Fragmentul este o instrucțiune pregătită, nu o rulare efectuată cu succes. Promptul integral și încercările nereușite sunt în dosarul enunțului.
+Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral fără C1. Predăm o versiune explicită, fără a amesteca C1 cu enunțul inițial: C1 apare numai la revizuire, ca schimbare ulterioară. Criteriile de verificare: responsabilitățile canalelor și ale operației, rezultatele S1–S5 și sensul fiecărei limite.
 
 **Organizare:** 4 min, cu identificarea criteriilor de verificare. []{.pace dur=4}
 :::
@@ -407,16 +407,20 @@ Predăm o versiune explicită, fără a amesteca C1 cu enunțul inițial. Fragme
 
 # O propunere de verificat
 
-**Exemplu didactic construit; nu captură AI:**
+**Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:**
 
-> Ambele canale apelează `estimeaza`. Operația primește masa și ambalajul, verifică acceptarea și întoarce prețul sau un refuz. Canalele aleg mesajul afișat. Aceeași constantă de 1000 g este folosită pentru limita plicului și pragul prețului.
+> **Logica de estimare** — aplică R2–R4 […] Produce un răspuns standardizat: acceptat+preț sau refuz.
+>
+> **Definirea regulilor** — stochează limitele, costurile, restricțiile per ambalaj. Accesibilă ambelor interfețe.
+>
+> **Risc de inconsistență:** dacă R3 se modifică (plic acceptat până la 1500 g), trebuie actualizat în două locuri; greșelile sunt posibile.
 
-**Inițial:** plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste. **C1:** numai limita plicului devine 1500 g.
+Răspunsul verifică S1–S5 corect. **Reguli:** plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste. **C1:** numai limita plicului devine 1500 g.
 
-Ce păstrăm? Ce separăm? Folosiți un plic de **1200 g după C1** ca justificare.
+Ce păstrăm? Ce trebuie precizat despre „limitele” stocate? Folosiți un plic de **1200 g după C1**.
 
 ::: notes
-Păstrăm operația comună și independența față de afișare. Separăm sensurile celor două praguri; după C1 coletul costă 18 lei. Propunerea permite verificarea unui defect fără a pretinde că un model AI l-a produs.
+Păstrăm operația comună, independența față de afișare și verificarea S1–S5. Răspunsul nu spune dacă „limitele” conțin o singură valoare de 1000 g sau două valori cu sensuri diferite. După C1, plicul de 1200 g este acceptat și costă 18 lei: limita plicului și pragul tarifului trebuie numite separat. Modelul a ales singur 1500 g ca exemplu de schimbare; enunțul trimis nu conține această valoare. Riscul numit privește numai copiile din canale, nu pragul tarifului. „DRY”, din restul răspunsului, este o etichetă; nu o adoptăm ca argument.
 
 **Organizare:** 6 min: predicție individuală, comparație în pereche și răspunsuri. []{.pace dur=6}
 :::
@@ -425,18 +429,20 @@ Păstrăm operația comună și independența față de afișare. Separăm sensu
 
 # Revizuirea are nevoie de propria verificare
 
-Un **evaluator (agent AI de revizuire)** ar primi într-un context nou enunțul inițial, C1, sarcina și propunerea integrală; îi cerem fragment, regulă și verificare pentru fiecare observație.
+Un **evaluator (agent AI de revizuire)** a primit într-un context nou enunțul, sarcina analistului AI, răspunsul integral și C1.
 
-**Observație construită didactic, nu captură AI:**
+**Evaluatorul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:**
 
-> Separați limita plicului de pragul tarifului. Puneți acceptarea și calculul în două funcții interne.
+> Propunerea **nu menționa explicit ce se schimbă după C1**. […] Propunerea ar trebui să precizeze: „S2 devine acceptare la 18 lei după C1 […]”
+>
+> Fraza „regulile și logica estimării trebuie centralizate" e recomandare, nu cerință din enunț.
 
-**Reguli:** numai estimare, două canale, aceleași rezultate; C1 schimbă limita plicului la 1500 g, păstrând pragul tarifar de 1000 g.
+**Sarcina analistului:** compară o operație comună cu regulile copiate; enunțul primit nu conținea C1. **După C1:** plic ≤1500 g; prag tarifar 1000 g.
 
-Ce schimbare este necesară pentru respectarea regulilor? Ce alegere de organizare rămâne de justificat?
+Ce observație este susținută? Ce verificare lipsește din revizuire?
 
 ::: notes
-C1 cere două limite cu sensuri distincte. Două valori numite distinct într-o funcție pot fi suficiente; două funcții interne sunt și ele defensabile. Solicităm un beneficiu și costuri pentru separarea funcțiilor. Revizuirea combină o corecție necesară cu o alegere de proiectare; nu le tratăm ca aceeași obligație.
+Consecința pentru S2 este corectă: după C1, plicul de 1001 g costă 18 lei. Reproșul este însă nedrept: analistul AI nu a primit C1. A doua observație ignoră sarcina, care cere chiar comparația dintre operația comună și regulile copiate; recomandarea se discută, dar nu iese din sarcină. Revizuirea nu verifică întrebarea esențială pentru C1: limita plicului și pragul tarifului sunt valori distincte? Cealaltă revizuire păstrată are alte erori, de exemplu un posibil refuz pentru ambalaj la cutia de 0 g.
 
 **Organizare:** 6 min, cu răspunsuri. []{.pace dur=6}
 :::
@@ -445,14 +451,14 @@ C1 cere două limite cu sensuri distincte. Două valori numite distinct într-o 
 
 # Decizia noastră
 
-Păstrăm operația comună și separăm **limita ambalajului** de **pragul tarifului**.
+Păstrăm operația comună și verificările S1–S5. Separăm **limita ambalajului** de **pragul tarifului**.
+
+**Acceptăm din revizuire:** după C1, S2 (plic de 1001 g) → acceptat, 18 lei. **Respingem:** ideea că operația comună iese din sarcină; sarcina cere explicit comparația.
 
 **După C1:** plic ≤1500 g; preț 10 lei până la 1000 g, 18 lei peste. Verificăm: plic de 1200 g → 18 lei; plic de 1501 g → refuz, în ambele canale.
 
-Alegerea unei funcții sau a două funcții interne rămâne de justificat prin claritate și costul schimbării.
-
 ::: notes
-Verdictul aparține oamenilor și se sprijină pe regulă și scenariu. Nu cerem ca orice propunere sau revizuire să fie greșită; aceleași verificări pot confirma o propunere bună.
+Verdictul aparține oamenilor și se sprijină pe regulă și scenariu. O revizuire poate conține o consecință corectă și o critică nejustificată; le judecăm separat. Nu cerem ca orice propunere sau revizuire să fie greșită; aceleași verificări pot confirma o propunere bună.
 
 **Organizare:** 4 min; încheierea etapei la minutul 95. []{.pace dur=4}
 :::

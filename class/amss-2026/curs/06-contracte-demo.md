@@ -25,11 +25,13 @@ S1–S4 și S6 repornesc independent din B={V1–D1,V2–D2}, cu V3 fără dulap
 
 Trasarea pseudocodului greșit este manuală, nu un jurnal de execuție. Eliminarea vechii asocieri înaintea verificării șterge asocierea vizitatorului la refuz și poate înlocui dulapul deja atribuit. Corecția decide înainte de modificare. Argumentul este limitat la apelurile seriale și absența întreruperilor tehnice din enunț.
 
-## Pregătirea AI și alternativa didactică
+## Pregătirea AI și proveniența
 
-Instrucțiunea de analiză și contextul sunt pregătite în [dosarul AI](scenarios/06-dulapuri/ai/README.md). Nu există capturi AI pentru acest pachet. Prezentarea folosește un contract incomplet și o observație de revizuire **construite didactic, etichetate ca atare**. Acestea permit predarea fără rulări live. Nu pretindem că un model a produs omisiunile.
+Prezentarea folosește **capturi reale** Claude Haiku 4.5, obținute la 27 octombrie 2026 prin Claude Code 2.1.311, fără unelte și fără contextul proiectului; [arhiva](scenarios/06-dulapuri/captures/2026-10-27/README.md) păstrează promptul exact, contextul, răspunsurile integrale, metadatele și ambele încercări pentru fiecare rol.
 
-La o captură ulterioară, evaluatorul (agent AI de revizuire) primește enunțul, sarcina și răspunsul integral într-un context nou. Cereți verificarea fiecărei ramuri, a efectului limitat și a ipotezelor, fără a impune defecte. Păstrați prompturi, răspunsuri, modelul declarat, setările cunoscute și toate încercările. Dacă răspunsul este bun, transformați-l în exemple independente, fără a inventa erori.
+Am ales analiza 01: separă corect precondițiile de condiția de succes și formulează refuzul cu registrul identic, dar trece păstrarea celorlalte asocieri și a mulțimilor de vizitatori și dulapuri printre invarianți, deși ele compară două stări. În încheiere numără a doua eliberare din S5 printre refuzuri, deși întoarce `fara_dulap`. Analiza 02 afirmă că operațiile sunt „idempotente”, termen pe care cursul îl evită. Evaluatorul AI a primit într-un context nou enunțul, sarcina și răspunsul integral. Am ales revizuirea 02, care declară propunerea „complet corectă” și confirmă explicit clasificarea greșită; revizuirea 01 confirmă la fel contractul și semnalează doar o formulare neclară a motivelor de refuz. Selecția nu descrie performanța tipică a modelului.
+
+Discuția nu cere găsirea unui defect cu orice preț: analistul AI separă corect condiția de succes, iar slide-ul o confirmă. Corecția noastră privește numai clasificarea efectului limitat și rezultatul celei de-a doua eliberări din S5. Pseudocodul trasat în etapa 55–80 rămâne exemplu didactic construit.
 
 ## Încheiere și calibrare
 

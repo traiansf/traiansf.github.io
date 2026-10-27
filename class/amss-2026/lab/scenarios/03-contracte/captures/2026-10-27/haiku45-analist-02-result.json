@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 24119,
+  "stop_reason": "end_turn",
+  "session_id": "b0e38347-82e6-4732-864b-31c359ee1fb2",
+  "total_cost_usd": 0.021439,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5025,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2276,
+    "output_tokens_details": {
+      "thinking_tokens": 1037
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5025,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2276,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5025,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5025
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2276,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5025,
+      "webSearchRequests": 0,
+      "costUSD": 0.021439,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1037,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5025,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Analiză: Rezervări în depozit — Responsabilități și Contracte\n\n## Repartizarea responsabilităților\n\n**Registrul** este singurul custode al stării (F, R, lista rezervărilor cu stare și cantitate). Orice modificare merge numai prin operațiile sale.\n\n**Operatorul** (formular) și **importul** apelează aceleași trei operații; ambele sunt canale de intrare, nu gestori de stare. Responsabilitatea motorului registrului este garantarea contractelor: acceptare sau refuz atomic, fără modificări parțiale.\n\n## Contracte pentru operații\n\n### `rezerva(id, q)`\n- **Precondiție:** id nenul și nefolosit anterior; q > 0; D ≥ q (bucăți disponibile suficiente).\n- **Succes:** Id adăugat la registru ca activ, cantitate q; R creşte cu q, D scade cu q. F ineschimbat.\n- **Refuz:** Oricare dintre precondiții nu e îndeplinită → fără nicio modificare (stare ineschimbată).\n- **Efect invariant:** D se reduce exact cu q; nici o altă rezervare nu e afectată.\n\n### `ridica(id)`\n- **Precondiție:** id găsit cu stare activă.\n- **Succes:** Rezervare marcată ridicată; F scade cu cantitatea sa q; R scade cu q (id nu mai e activ); D ineschimbat (scad ambii termeni).\n- **Refuz:** Id necunoscut sau stare non-activă (ridicată/anulată) → fără modificări.\n- **Efect invariant:** Ridicarea conservă D; istoric păstrat, id nu se reutilizează.\n\n### `anuleaza(id)`\n- **Precondiție:** id găsit cu stare activă.\n- **Succes:** Marcată anulată; R scade cu cantitatea; D creşte cu aceea. F ineschimbat.\n- **Refuz:** Id necunoscut sau stare non-activă → fără modificări.\n- **Efect invariant:** Anularea redă disponibilul; istoric păstrat.\n\n## Calculul S2, S3, S5\n\n| Scenariu | Acțiune | Precondiții | Rezultat |\n|---|---|---|---|\n| **S2** | `rezerva(B, 7)` din I | B nefolosit ✓; 7>0 ✓; D=6<7 ✗ | **Refuz**. Stare: F=10, A activ 4, R=4, D=6 |\n| **S3** | `ridica(A)` din I | A activ ✓ | **Succes**. F=6, A ridicat 4, R=0, D=6 |\n| **S5** | `ridica(A)` apoi `anuleaza(A)` | După ridica: F=6, A ridicat, R=0. `anuleaza` necesită stare activă. ✗ | **Refuz anulării**. Stare: F=6, A ridicat, R=0, D=6 |\n\n## Comparație: Formular, Import, Operații\n\nAtât formularul operatorului cât și importul de cereri apelează aceleași trei operații. Diferența nu este în logică, ci în sursă: formularul este intrare sincronă manuală, importul este lotul automatizat. Ambele au aceeași responsabilitate: să respecte rezultatul (acceptare sau refuz) al motorului.\n\n**Verificări separate în formular și import sunt redundante** — contractele operațiilor garantează invarianții. Dacă importul apelează `ridica(A)` și A nu e activ, motorul refuză, nu formularul. Duplicarea verificărilor în canal duce la incoerenţă: o cerere acceptată în formular ar putea fi refuzată la import dacă verificările diferă.\n\n**Soluția:** Un singur loc de decizie — motorul registrului. Canale (formular, import) doar transmit comenzi. Rezultatul (`{acceptat, refuz}`) este comunicat înapoi canalului; nu există stări parțiale.\n\n## Invarianți persistenți\n\n1. **D = F − R**, unde R = suma cantităților ale rezervărilor active.\n2. Fiecare id apare cel mult o dată; unei anulate nu i se atribuie id nou.\n3. Operațiile sunt atomice: nu apar modificări parțiale.\n4. Refuzul nu modifă F, R, nici starea vreunei rezervări.\n\n**Concluzie:** Contractele sunt suficiente pentru a valida ambele canale de intrare cu un singur motor.",
+  "ttft_ms": 11119,
+  "type": "result",
+  "duration_ms": 24353,
+  "uuid": "282ee7b4-c952-48b9-9a21-3950f928285a",
+  "ttft_stream_ms": 888,
+  "time_to_request_ms": 228,
+  "first_content_frame_ms": 888,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

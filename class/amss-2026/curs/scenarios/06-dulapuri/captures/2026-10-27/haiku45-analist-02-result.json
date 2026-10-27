@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 18312,
+  "stop_reason": "end_turn",
+  "session_id": "4c39ca14-2305-43a9-8441-0f6e1e355145",
+  "total_cost_usd": 0.021082999999999998,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4787,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2300,
+    "output_tokens_details": {
+      "thinking_tokens": 1222
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4787,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2300,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4787,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4787
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2300,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4787,
+      "webSearchRequests": 0,
+      "costUSD": 0.021082999999999998,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1222,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4787,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Contractele pentru `atribuie` și `elibereaza`\n\n## **Precondițiile asumate (R1)**\n- Identificatorii vizitatorilor și dulapurilor sunt valizi și cunoscuți\n- Registrul inițial este valid (respectă R2: relație injectivă)\n- Operațiile se desfășoară secvențial, pornind din stare coerentă\n\n---\n\n## **Operația `atribuie(v, d)`**\n\n### Condiție de succes\n- Vizitatorul `v` **nu are dulap alocat**  \n- Dulapul `d` **este liber** (nealocate niciunui vizitator)\n\n### Postcondiție la succes (returnează `atribuit`)\n- Asocierea `(v, d)` se adaugă la registru\n- `v` devine proprietar al `d`\n- `d` devine ocupat de `v`\n- Toate celelalte asocieri rămân intacte\n\n### Postcondiție la eșec (returnează `refuz`)\n- **Registrul rămâne identic** — nicio modificare\n- Situații de refuz: `v` are deja dulap, `d` este ocupat, sau ambele\n\n---\n\n## **Operația `elibereaza(v)`**\n\n### Precondițiile\n- Niciuna specifică dincolo de R1 (nu se impune ca `v` să aibă dulap)\n\n### Postcondiție la succes (returnează `eliberat`)\n- Asocierea dintre `v` și dulapul anterior este eliminată\n- `v` nu mai are dulap; dulapul devine din nou liber\n- Toate celelalte asocieri rămân intacte\n\n### Postcondiție la eșec (returnează `fara_dulap`)\n- **Registrul rămâne identic** — nicio modificare\n- Situație: `v` nu are (nu avea) dulap; repetarea nu este eroare\n\n---\n\n## **Invarianți (adevărați înainte și după succes)**\n- **R2 persistent**: relație injectivă (maximum 1-la-1)\n- **Conservare entități**: niciun vizitator/dulap nu apare sau dispare\n- **Integritate**: registrul gol rămâne valid; seturile de vizitatori și dulapuri sunt fixe\n\n---\n\n## **Ceea ce rămâne neschimbat**\n- La refuz: **întregul registru**\n- La succes: **toate asocierile neprivind `v` (la `atribuie`)** sau **asocierile cu alți vizitatori (la `elibereaza`)**\n- **Mulțimile de identificatori** ale vizitatorilor și dulapurilor\n\n---\n\n## **Verificarea scenariilor**\n\n| Scenariu | Condiție | Rezultat | Stare finală |\n|---|---|---|---|\n| **S1** | V3 liber ✓, D3 liber ✓ | `atribuit` | B + V3–D3 |\n| **S2** | V3 liber ✓, D2 ocupat ✗ | `refuz` | B (identic) |\n| **S3** | V1 ocupat ✗, D3 liber ✓ | `refuz` | B (V1–D1 intact) |\n| **S4** | V1 ocupat ✗, D2 ocupat ✗ | `refuz` | B (V1–D1 rămâne!) |\n| **S5** | Prima: V1 ocupat ✓; a 2-a: V1 liber ✗ | `eliberat`, `fara_dulap` | {V2–D2} în ambele |\n| **S6** | V1 ocupat ✗ (cu D1), chiar dacă D1 ar fi „liber\" abstract | `refuz` | B (exact) |\n\n**Contractul este o specificație comportamentală completă**: operațiile sunt idempotente și defensive, respectând invarianții și oferind o interfață deterministă prin coduri de ieșire și postcondiții clare pentru fiecare cale de execuție.",
+  "ttft_ms": 10895,
+  "type": "result",
+  "duration_ms": 18543,
+  "uuid": "0583cb44-2a8b-4dd4-8b89-8e4218e72f0c",
+  "ttft_stream_ms": 909,
+  "time_to_request_ms": 223,
+  "first_content_frame_ms": 909,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

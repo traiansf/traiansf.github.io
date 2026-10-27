@@ -394,7 +394,7 @@ Obținerea rezultatului așteptat într-un scenariu nu garantează corectitudine
 O formulare convingătoare spune tot ce avem nevoie?
 
 ::: notes
-Folosim prompturi pregătite și exemple didactice etichetate. Nu există o captură AI reușită pentru această versiune; nu atribuim modelului formulările construite pentru discuție.
+Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.311, la 27 octombrie 2026, fără unelte și fără contextul proiectului. Evaluatorul AI a primit într-un context nou enunțul, sarcina și răspunsul integral. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor.
 
 **Organizare:** minutul 80 din 100; interval 80–95 (15 min): sarcină 3, analiză 5, revizuire 5, decizie 2. []{.pace at=80}
 :::
@@ -403,14 +403,14 @@ Folosim prompturi pregătite și exemple didactice etichetate. Nu există o capt
 
 # Ce cerem asistentului AI?
 
-> Propune contractele pentru `atribuie` și `elibereaza`: precondiții, condiții de succes, postcondiții pentru fiecare rezultat, invarianți și ce rămâne neschimbat. Verifică scenariile. Nu scrie cod.
+> Propune contractele pentru atribuie și elibereaza: precondiții, condiții de succes, postcondiții pentru fiecare rezultat, invarianți și ce rămâne neschimbat. Verifică S1–S6. Nu scrie cod. Răspunde în română, în maximum 400 de cuvinte.
 
 **Context:** identificatori cunoscuți; apeluri pe rând; cel mult un dulap pentru fiecare vizitator și invers. Atribuim dacă vizitatorul nu are dulap și dulapul este liber; altfel refuz fără modificări. Eliberăm numai asocierea vizată; dacă lipsește, `fara_dulap`. Restul se păstrează.
 
-**Date:** V1–D1, V2–D2; V3 fără dulap, D3 liber. Verificăm succesul, fiecare motiv de refuz și repetarea.
+**Date:** B = V1–D1, V2–D2; V3 fără dulap, D3 liber. S1–S6: succesul, fiecare motiv de refuz, eliberarea repetată și repetarea atribuirii.
 
 ::: notes
-Instrucțiunea este pregătită pentru delegare; nu confirmă efectuarea unei rulări. Contextul complet și scenariile sunt în enunț. Un evaluator (agent AI de revizuire) va primi și sarcina exactă, pentru a nu cere cod când am cerut contracte.
+Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral. Un evaluator (agent AI de revizuire) a primit apoi și sarcina exactă, pentru a judeca propunerea față de ce s-a cerut.
 
 **Organizare:** 3 min. []{.pace dur=3}
 :::
@@ -419,16 +419,20 @@ Instrucțiunea este pregătită pentru delegare; nu confirmă efectuarea unei ru
 
 # Ce promite această propunere?
 
-**Exemplu didactic construit; nu captură AI:**
+**Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente din contractul `atribuie`:**
 
-> Precondiție pentru `atribuie(v,d)`: vizitatorul nu are dulap și dulapul este liber. Postcondiție: vizitatorul are dulapul cerut. Invariant: maximum un dulap per vizitator și invers.
+> **Condiția de succes:** v nu are dulap asociat. d este liber (nu e ocupat).
+>
+> **Postcondițiile pentru eșec (`refuz`):** Registrul este identic cu cel inițial (nicio modificare). […]
+>
+> **Invarianți:** Unicitatea: un vizitator ↔ cel mult un dulap; un dulap ↔ cel mult un vizitator. […] Toate asocierile (v', d') cu v' ≠ v și d' ≠ d se păstrează.
 
-**Reguli cerute:** apelurile cu identificatori cunoscuți sunt admise și când dulapul este ocupat; atunci refuzăm fără modificări. La succes păstrăm toate celelalte asocieri.
+**Reguli:** precondiții — identificatori cunoscuți, registru valid, apeluri pe rând. Succes numai dacă v nu are dulap și d este liber; altfel refuz, registru identic. La succes se păstrează celelalte asocieri.
 
-**B:** V1–D1, V2–D2; V3 este cunoscut și fără dulap, D3 liber. Ce promite propunerea pentru `atribuie(V3,D2)`? Ce omite chiar pentru un succes?
+Ce rol are fiecare afirmație? Care se verifică într-o singură stare?
 
 ::: notes
-Apelul pentru un dulap ocupat nu îndeplinește precondiția propusă, deci nu există promisiunea de refuz cerută. La succes lipsește păstrarea celorlalte asocieri. Nu confundăm problema cu lipsa unui anumit cuvânt: cerem efectul complet, în orice reprezentare.
+Condiția de succes este separată corect de precondiții, iar refuzul păstrează registrul, cum cere R3. Unicitatea este un invariant: se verifică într-o singură stare. „Toate asocierile … se păstrează” compară starea de după cu cea de dinainte: este o postcondiție de efect limitat (R5), nu un invariant. Regula este corectă, dar clasificată greșit; la fel „seturile de vizitatori și dulapuri rămân neschimbate”, omis aici. În încheierea răspunsului, a doua eliberare din S5 este numărată printre refuzuri, deși întoarce `fara_dulap`.
 
 **Organizare:** 5 min: răspuns individual, apoi discuție. []{.pace dur=5}
 :::
@@ -437,16 +441,20 @@ Apelul pentru un dulap ocupat nu îndeplinește precondiția propusă, deci nu e
 
 # Revizuire și decizie
 
-**Propunerea didactică:** precondiție — vizitator fără dulap, dulap liber; postcondiție — vizitatorul are dulapul cerut; invariant — unicitate în ambele sensuri.
+**Evaluatorul AI (context nou: enunț, sarcină, răspuns integral) — Claude Haiku 4.5, 27 octombrie 2026; fragmente:**
 
-**Revizuire construită didactic:** „Unicitatea este formulată corect.”
+> Propunerea este **complet corectă** […]
+>
+> Propunerea: "[…] Toate asocierile (v', d') cu v' ≠ v și d' ≠ d se păstrează." […] ✓ Corect și precis.
+>
+> **Concluzie:** Propunerea nu conține erori.
 
-**Reguli cerute:** cel mult o asociere pentru fiecare vizitator și fiecare dulap; succesul păstrează celelalte asocieri; dulap ocupat → refuz, cu întregul registru păstrat.
+**Reguli:** un invariant privește fiecare stare validă; păstrarea celorlalte asocieri compară două stări (R5). Eliberarea fără asociere întoarce `fara_dulap`.
 
-Observația este corectă, dar suficientă? **Decizia noastră:** păstrăm invariantul; „vizitator fără dulap, dulap liber” devine condiție de succes, nu precondiție; completăm ramura de refuz și efectul limitat la succes.
+Observația este corectă, dar suficientă? **Decizia noastră:** păstrăm condiția de succes, refuzul și unicitatea; mutăm păstrarea celorlalte asocieri la postcondiții; a doua eliberare din S5 întoarce `fara_dulap`, nu `refuz`.
 
 ::: notes
-Evaluatorul AI primește într-un context nou enunțul, sarcina și propunerea integrală. O confirmare locală corectă nu certifică întregul contract. Cerem un contraexemplu pentru fiecare omisiune: S2 pentru refuz, S1 cu pierderea V2–D2 pentru efectul limitat. Nu este un rezultat AI real, ci o ilustrare a felului în care evaluăm o revizuire.
+O confirmare corectă local nu certifică întregul contract. Evaluatorul AI confirmă conținutul regulii, dar nu întreabă dacă este un invariant. Cealaltă revizuire păstrată confirmă la fel contractul și semnalează numai o formulare neclară a motivelor de refuz. Cerem un contraexemplu pentru fiecare corecție: un registru care conține numai V3–D3 după `atribuie(V3,D3)` din B satisface unicitatea, dar pierde V1–D1 și V2–D2.
 
 **Organizare:** 7 min: revizuire 5, decizie 2; minutul 95. []{.pace dur=7}
 :::

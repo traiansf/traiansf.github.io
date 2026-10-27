@@ -1,6 +1,6 @@
 # Pregătirea demonstrației AI comune — depozit
 
-**Prompturi pregătite, nu capturi.** Profesorul conduce o singură analiză și o singură revizuire în plen, live sau pornind de la răspunsuri reale obținute înaintea laboratorului. Nu există încă asemenea răspunsuri în acest dosar. Studenții nu au nevoie de conturi AI și nu pornesc sesiuni proprii.
+**Prompturi pregătite.** Pe baza lor s-au obținut la 27 octombrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri; vezi [arhiva capturilor](../captures/2026-10-27/README.md). Fișierele de aici rămân sursa pentru o rulare live sau pentru capturi noi.
 
 ## Analiză
 
@@ -14,6 +14,6 @@ Deschideți un context nou, cu același enunț, sarcina analistului AI și propu
 
 Salvați promptul efectiv cu propunerea inclusă înainte de rulare, apoi răspunsul integral. Înregistrați data, instrumentul, modelul declarat și setările cunoscute; nu inventați metadate care nu sunt disponibile. Pentru capturi pregătite creați un dosar datat în `../captures/`, păstrând toate încercările și motivul selecției.
 
-## Alternativa fără răspuns AI
+## Fără rulare live
 
-Folosiți [exemplul pregătit](../prepared-fixture.md), etichetat drept **exemplu didactic construit**, și revizuiți-l în plen. Nu îl prezentați drept răspuns al unui model. Regulile rezumate rămân pe ecran, alături de fragmentul analizat. Nu distribuiți încercări separate studenților dacă instrumentul profesorului nu funcționează.
+Folosiți [capturile pregătite](../prepared-fixture.md): răspunsuri reale Claude Haiku 4.5, cu fragmente fidele și sursa lor. Regulile rezumate rămân pe ecran, alături de fragmentul analizat. Nu distribuiți încercări separate studenților dacă instrumentul profesorului nu funcționează.

@@ -1,14 +1,31 @@
-# Încercări de captură — 27 octombrie 2026
+# Capturi AI — 27 octombrie 2026
 
-**Niciuna dintre cele două încercări nu a produs un răspuns AI.** Nu există fragmente selectate pentru prezentare și nu s-a executat o revizuire AI. Textele de comparație din curs sunt exemple didactice, etichetate separat.
+Instrument: Claude Code 2.1.311, `claude -p --model claude-haiku-4-5 --safe-mode`, fără unelte, fără contextul proiectului, fără sesiuni salvate (vezi `argv` în metadate). Fiecare încercare pornește un context nou. Temperatura nu este raportată; efortul nu a fost setat explicit. Metadatele păstrează ora UTC, hash-urile intrărilor și ieșirilor, costul și modelul raportat de instrument.
+
+## Analiză
 
 | Încercare | Intrare exactă | Rezultat |
 |---|---|---|
-| `haiku45-analist-01` | `analist-prompt.md` | Limită de așteptare de 55 s depășită; fără răspuns. Diacriticele instrucțiunii fuseseră deteriorate la transmiterea prin shell. |
-| `haiku45-analist-02` | `analist-v2-prompt.md` | Aceeași limită de așteptare depășită; fără răspuns. Instrucțiune retransmisă corect în UTF-8. |
+| `haiku45-analist-01` | `analist-prompt.md` (enunțul de atunci, `source-at-capture.md`) | Limită de așteptare de 55 s depășită; fără răspuns. Diacriticele instrucțiunii fuseseră deteriorate la transmiterea prin shell. |
+| `haiku45-analist-02` | `analist-v2-prompt.md` | Aceeași limită depășită; fără răspuns. Instrucțiune corectă în UTF-8. |
+| `haiku45-analist-03` | `analist-v3-prompt.md` | Răspuns (15 s, claude-haiku-4-5). **Selectat.** |
+| `haiku45-analist-04` | `analist-v3-prompt.md` | Răspuns (16 s, claude-haiku-4-5). Păstrat, nefolosit. |
 
-Instrument: Claude Code 2.1.311. Model **cerut**: `claude-haiku-4-5`; niciun model nu a fost raportat într-un rezultat, deci nu confirmăm ce model ar fi executat cererea. Metadatele păstrează comanda, ora UTC, contextul nou, uneltele dezactivate și valorile cunoscute. Cauza întârzierii nu a fost stabilită; nu atribuim lipsa răspunsului calității modelului.
+Cauza primelor două eșecuri nu a fost stabilită; un test scurt reușit înaintea încercărilor 03–04 sugerează o problemă temporară de conexiune. Pentru 03–04, `capture.py` folosește limita de 240 s a cursului 4. `analist-v3-prompt.md` = instrucțiunea din `analist-v3-instructiune.md` (identică cu cea de pe slide) + `context-v3.md`, adică enunțul curent până la scenariile S1–S5, fără C1 și fără sarcina de proiectare care menționează C1; hash-urile sunt în `context-v3-metadata.json`.
 
-`source-at-capture.md` este enunțul integral la momentul încercării. `context.md` include numai regulile și scenariile inițiale, fără C1. Hash-ul sursei este în `context-metadata.json`, iar hash-urile prompturilor sunt în metadatele fiecărei încercări. Păstrăm ambele instrucțiuni și prompturi, inclusiv intrarea cu diacritice deteriorate.
+## Revizuire
 
-`capture.py` este scriptul reutilizat din pachetul cursului 4, cu limita de așteptare redusă la 55 s; refuză suprascrierea încercărilor. Pentru o nouă încercare folosiți un alt identificator și consemnați selecția, toate rezultatele și setările cunoscute. După o analiză reușită, pregătiți un context nou de revizuire care include enunțul, sarcina, răspunsul integral și C1 ca schimbare ulterioară. Nu folosiți un exemplu didactic drept „răspuns capturat”.
+`evaluator-prompt.md` = `evaluator-instructiune.md` + contextul v3 + C1 ca schimbare ulterioară + sarcina analistului AI + răspunsul integral 03. Hash-urile și motivul selecției analizei sunt în `evaluator-input-metadata.json`.
+
+| Încercare | Rezultat |
+|---|---|
+| `haiku45-evaluator-01` | Răspuns (22 s, claude-haiku-4-5). **Selectat.** |
+| `haiku45-evaluator-02` | Răspuns (27 s, claude-haiku-4-5). Păstrat, nefolosit. |
+
+## Selecție
+
+Analiza 03 verifică S1–S5 corect, dar lasă nedefinite „limitele” stocate: nu spune dacă limita plicului și pragul tarifului sunt valori separate. A ales singură exemplul „plic acceptat până la 1500 g”, absent din enunțul trimis. Analiza 04 este tot corectă pe S1–S5 și oferă mai puține puncte de discuție.
+
+Revizuirea 01 deduce corect că S2 costă 18 lei după C1, dar reproșează analistului AI absența lui C1 și consideră comparația cerută o recomandare din afara sarcinii; nu verifică separarea limitelor. Revizuirea 02 conține erori de alt tip (posibil refuz pentru ambalaj la cutia de 0 g; prag „≥1000 g”) și ar fi deviat discuția de la tema cursului.
+
+Am căutat câte o pereche care să susțină discuția despre responsabilități și despre verificarea revizuirii, nu un eșec anume. Selecția nu descrie performanța tipică a modelului. Fragmentele de pe slide-uri sunt fidele, cu omisiunile marcate; analiza și decizia noastră apar separat. `capture.py` refuză suprascrierea unei încercări.

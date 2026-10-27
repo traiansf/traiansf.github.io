@@ -149,7 +149,7 @@ S3: F=6, R=0, D=6, A ridicată(4). S4: F=10, R=0, D=10, A anulată(4). S5: primu
 Prezicem răspunsul, îl verificăm, apoi decidem ce păstrăm.
 
 ::: notes
-Profesorul conduce o singură analiză și o singură revizuire într-un context nou. Perechile nu pornesc sesiuni AI proprii. În lipsa unei rulări, folosiți exemplele didactice de pe următoarele slide-uri, fără a le numi capturi. La o rulare live păstrați regulile rezumate vizibile alături de rezultat.
+Profesorul conduce o singură analiză și o singură revizuire într-un context nou. Perechile nu pornesc sesiuni AI proprii. Slide-urile următoare conțin capturi reale Claude Haiku 4.5 din 27 octombrie 2026, obținute înaintea laboratorului prin Claude Code, fără unelte și fără contextul proiectului; o rulare live le poate înlocui. Am rulat câte două încercări și am ales câte una; selecția nu descrie performanța tipică a modelului. La o rulare live păstrați regulile rezumate vizibile alături de rezultat.
 
 **Organizare:** minutul 55 din 100; interval 55–80 (25 min): analiza 10, revizuirea 10, decizia 5. []{.pace at=55}
 :::
@@ -158,36 +158,44 @@ Profesorul conduce o singură analiză și o singură revizuire într-un context
 
 # Analiza: ce îi cerem și ce verificăm?
 
-**Cerem asistentului AI:** responsabilități și contracte. Verificăm `rezerva(B,7)` și, separat din I, `ridica(A)`.
+**Cerem asistentului AI:** responsabilități și contracte, cu precondiții și condiții de succes separate.
 
-**Reguli:** cod nou, 0<q≤D la rezervare; ridicare/anulare numai dacă rezervarea este activă. Ridicarea scade F și R; anularea doar R. Refuzul și celelalte rezervări: fără modificări. D=F−R.
+**Reguli:** cod nou, 0<q≤D la rezervare; ridicare/anulare numai pentru o rezervare activă; altfel refuz, fără modificări. Ridicarea scade F și R; anularea doar R. D=F−R.
 
-**I:** F=10, A activă(4), B nefolosit, R=4, D=6. **Predicție:** ce rezultate așteptăm?
+**Din I** (F=10, A activă(4), R=4, D=6): S2 `rezerva(B,7)`; S3 `ridica(A)`; S5 `ridica(A)`, apoi `anuleaza(A)`. **Predicție:** ce rezultate așteptăm?
 
 . . .
 
-**Propunere didactică, nu captură AI:** „Canalele folosesc registrul comun. `ridica(A)`: acceptat, A ridicată(4), F=6, R=0, D=6; restul neschimbat.”
+**Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente pentru `rezerva` și S3:**
+
+> **Precondiții:** id ≠ 0; id nu apare deja în registru; q > 0; D ≥ q\n> **Refuz:** Orice precondițiune încălcată ⇒ stare neschimbată
+>
+> **S3:** `ridica(A)` — A activ ✓ → Marcheaza A ridicată; F=10−4=**6**; R=4−4=**0**; D=6 (nemodificat).
 
 ::: notes
-Fragmentul provine din unica propunere din prepared-fixture.md; următorul slide examinează contractul anulării din aceeași propunere. Propunerea integrală este disponibilă în materialele laboratorului. Fragmentul de aici este corect și util: verificăm că ridicarea nu eliberează cantitatea pentru altă rezervare și că ambele canale folosesc registrul. Rularea live, dacă există, înlocuiește exemplul pentru discuție; nu suprapunem mai multe analize. Arătați rezultatul lângă rezumatul regulilor. Limităm așteptarea instrumentului la 2 min, incluse în etapă; apoi folosim exemplul etichetat.
+Calculele S2, S3 și S5 sunt corecte, iar registrul este singurul care modifică starea. Sarcina cerea însă separat condițiile de succes: codul nefolosit, q>0 și disponibilitatea sunt trecute la precondiții, apoi folosite ca motive de refuz. După cursul 6: dacă D≥q ar fi precondiție, refuzul pentru D<q nu ar mai fi promis. „id ≠ 0” transformă „identificator nenul” într-o condiție numerică. Cealaltă analiză păstrată are aceeași confuzie. Răspunsul integral este în materialele laboratorului.
 
-**Organizare:** 10 min: predicție 2, analiză afișată 3, discuție 5. []{.pace dur=10}
+**Organizare:** 10 min: predicție 2, analiză afișată 3, discuție 5. O rulare live are cel mult 2 min, incluse; altfel folosim captura. []{.pace dur=10}
 :::
 
 ---
 
 # Revizuirea: o observație trebuie justificată
 
-**Evaluatorul (agent AI de revizuire)** primește enunțul, sarcina și propunerea integrală într-un context nou. Fragmentul de verificat din propunere: „Anularea redă cantitatea disponibilului.”
+**Evaluatorul (agent AI de revizuire)** a primit într-un context nou enunțul, sarcina și propunerea integrală.
 
-**Reguli:** ridicare/anulare numai pentru rezervări active. Ridicarea scade F și R cu cantitatea rezervată; D=F−R. Refuzul păstrează tot registrul. **S5:** F=10, A activă(4), R=4, D=6 → `ridica(A)` → `anuleaza(A)`.
+**Evaluatorul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:**
 
-**Observație didactică, nu captură AI:** „Lipsește condiția anulării și efectul refuzului. Verificați anularea după ridicare.”
+> **3. Efect asupra altor rezervări** Propunerea nu enumeră explicit "alte rezervări rămân neschimbate". […]
+>
+> **Concluzie:** Propunerea e substantiv corectă. […] Nu sunt remedieri logice necesare.
 
-În plen: calculați cei doi pași. Ar fi suficientă doar verificarea `D≥0`?
+**Reguli:** R5 — o operație nu modifică alte rezervări. Cod nou, q>0 și q≤D decid succesul; altfel refuz, cu întregul registru identic.
+
+În plen: observația 3 este susținută de R5? Ce nu a verificat evaluatorul AI la „Precondiții: … D ≥ q”?
 
 ::: notes
-După ridicare: F=6, A ridicată(4), R=0, D=6. Anularea se refuză, fără schimbări. O implementare greșită ar putea marca A anulată și produce tot un D nenegativ; invariantul singur nu specifică tranziția cerută. Dacă analiza AI a acoperit corect S5, confirmăm aceasta și nu inventăm o omisiune. Recitim observațiile evaluatorului AI în raport cu propunerea efectivă.
+Observația 3 este corectă: R5 cere efectul limitat, iar propunerea nu îl formulează. Evaluatorul AI acceptă însă disponibilitatea drept precondiție, deși refuzul pentru D<q trebuie promis: aceasta este o condiție de succes. Cealaltă revizuire păstrată declară precondițiile „necesare și suficiente”. Dacă o rulare live acoperă corect aceste puncte, o confirmăm și nu inventăm o omisiune.
 
 **Organizare:** 10 min: predicție 2, revizuire afișată 3, discuție 5. []{.pace dur=10}
 :::
@@ -201,14 +209,14 @@ După ridicare: F=6, A ridicată(4), R=0, D=6. Anularea se refuză, fără schim
 | Întrebare | Reper pentru decizie |
 |---|---|
 | Cine modifică registrul? | Aceleași operații pentru formular și import. |
-| Ce înseamnă ridicare? | F și R scad cu aceeași cantitate; D=F−R nu se schimbă. |
+| Ce decide succesul? | Cod nou, q>0, q≤D: condiții de succes, cu refuz promis. |
 | Ce înseamnă refuz? | Întregul registru identic, inclusiv istoricul. |
 | Ce păstrăm la succes? | Celelalte rezervări integral; codul și cantitatea celei vizate. |
 
 Un coleg explică o afirmație acceptată; alt coleg o verifică printr-un exemplu. Nu este obligatoriu să găsim o eroare.
 
 ::: notes
-Cerem decizia umană, nu un vot de încredere în instrument. Dacă folosim alternativa didactică, spunem explicit acest lucru. Nu colectăm prompturi, conversații sau fișe individuale.
+Cerem decizia umană, nu un vot de încredere în instrument. Precizăm proveniența fragmentului discutat: captură pregătită sau rulare live. Nu colectăm prompturi, conversații sau fișe individuale.
 
 **Organizare:** 5 min; încheierea etapei la minutul 80. []{.pace dur=5}
 :::

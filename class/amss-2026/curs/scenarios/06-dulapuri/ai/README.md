@@ -1,6 +1,6 @@
 # Pregătirea analizei și revizuirii AI — dulapuri
 
-Acest dosar conține **prompturi pregătite, nu capturi AI**. Nu a fost executată o analiză sau o revizuire pentru acest enunț. Exemplele din prezentare sunt construite didactic și etichetate ca atare.
+**Prompturi pregătite.** Pe baza lor s-au obținut la 27 octombrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri; vezi [arhiva capturilor](../captures/2026-10-27/README.md). Fișierele de aici rămân sursa pentru o rulare live sau pentru capturi noi.
 
 `analist-prompt.md` reunește instrucțiunea și enunțul fără soluția de referință. `context.md` este contextul furnizat, cu versiunea identificată prin hash în `context-metadata.json`.
 

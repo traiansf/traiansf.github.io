@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 24404,
+  "stop_reason": "end_turn",
+  "session_id": "2d33bc10-952b-425e-b8dc-35dc21ab3d2d",
+  "total_cost_usd": 0.024567,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 6384,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2358,
+    "output_tokens_details": {
+      "thinking_tokens": 1521
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 6384,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2358,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 6384,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 6384
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2358,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 6384,
+      "webSearchRequests": 0,
+      "costUSD": 0.024567,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1521,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 6384,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Revizuire: Analiza responsabilităților, contractelor și invarianților\n\n## Observații pozitive\n\nPropunerea este **corectă și bine structurată**. Repartizarea responsabilităților (registrul ca gatekeeper; formular și import ca clienți) respectă principiul sursei unice de adevăr. Contractele celor trei operații sunt precis formulate și corespund regulilor R2–R4.\n\n## Verificări detaliate\n\n**REZERVA:** Precondiții și efecte sunt corecte. Precondițiile (id nou, q > 0, D ≥ q) sunt necesare și suficiente; refuzul atomicității este garantat.\n\n**RIDICA:** Calculul D este subtil și corect. Propunerea notează: „D nemodificat (se scade q din ambii termeni)\". Aceasta respectă R3: cantitatea disponibilă nu se schimbă, dar stocul fizic și rezervările active scad cu aceeași valoare. ✓\n\n**ANULEAZA:** Efectele (R ↓, D ↑, F neschimbat) și invarianții sunt corecți. ✓\n\n## Calculele scenariilor\n\n| Scenariu | Verificare | Rezultat |\n|---|---|---|\n| **S2: `rezerva(B, 7)`** | D=6 < 7 → precondițiile nu se îndeplinesc | **REFUZ corect**; stare I neschimbată ✓ |\n| **S3: `ridica(A)`** | A activ; F: 10→6, R: 4→0, D: 6→6 | Calcule corecte; istoric păstrat ✓ |\n| **S5: `ridica(A)`, `anuleaza(A)`** | După ridica, A devine ridicat (inactiv). Anuleaza cere stare activă | **REFUZ corect** pentru anuleaza; F, R, D rămân după ridicare ✓ |\n\n## Consistența cu enunțul\n\nPropunerea respectă integral R1–R5:\n- Identificatorii nu se reutilizează ✓\n- Refuzul nu modifică starea ✓\n- Istoricul se păstrează ✓\n- O operație nu afectează alte rezervări ✓\n\n## Observații minore\n\n1. Precondițiile RIDICA notează: „(F ≥ q garantat dacă invarianți respectați)\". Aceasta e adevărată, dar e o observație de optimizare, nu o precondiție obligatorie — nu schimbă corectitudinea.\n\n2. Comparația formular vs. import e precisă: aceleași reguli, diferență doar în interactivitate și cumulare a refuzurilor.\n\n3. Ar fi util explicit: S6 (`anuleaza(A)`, `rezerva(A, 2)`) ar refuza pe a doua operație, fiindcă A e în istoric. Propunerea nu-l calculează, dar nu era cerut.\n\n## Concluzie\n\nPropunerea este **validă**. Contractele sunt complete, calculele exacte, și invarianții sunt menținuți corect. Nici o eroare conceptuală detectată.",
+  "ttft_ms": 15967,
+  "type": "result",
+  "duration_ms": 24632,
+  "uuid": "b6dafd4a-377c-4b9c-8cc9-278a079c4fb9",
+  "ttft_stream_ms": 935,
+  "time_to_request_ms": 223,
+  "first_content_frame_ms": 935,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

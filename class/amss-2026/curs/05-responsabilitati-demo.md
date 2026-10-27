@@ -27,13 +27,11 @@ C1 modifică limita ambalajului la 1500 g, nu pragul tarifului. Plicurile de 120
 
 ## Pregătirea AI și proveniența
 
-[Arhiva din 27 octombrie](scenarios/05-colete/captures/2026-10-27/README.md) păstrează două încercări de analiză, ambele încheiate fără răspuns după limita de așteptare. Prima instrucțiune a avut diacritice deteriorate la transmitere; a doua are instrucțiunea corectă, verificată în UTF-8. Nu există răspuns AI selectat sau revizuire AI executată pentru acest pachet.
+Prezentarea folosește **capturi reale** Claude Haiku 4.5, obținute la 27 octombrie 2026 prin Claude Code 2.1.311, fără unelte și fără contextul proiectului; [arhiva](scenarios/05-colete/captures/2026-10-27/README.md) păstrează toate încercările. Primele două încercări de analiză s-au încheiat fără răspuns după limita de așteptare de 55 s; prima avea și diacritice deteriorate. Următoarele două, cu enunțul curent fără C1 și limita de așteptare a cursului 4 (240 s), au răspuns în circa 15 s.
 
-Prezentarea poate fi predată integral folosind **exemplele didactice etichetate**: o propunere cu operație comună, dar cu o constantă comună pentru două sensuri, și o observație de revizuire care combină separarea necesară a celor două sensuri cu alegerea facultativă a două funcții interne. Acestea nu sunt capturi și nu susțin afirmații despre performanța unui model. Instrucțiunea pregătită poate fi folosită ulterior pentru obținerea unui răspuns real, păstrând toate încercările. Nu este necesar ca răspunsul să aibă greșeli.
+Am ales analiza 03: verifică S1–S5 corect, dar lasă nedefinite „limitele” stocate, adică nu spune dacă limita plicului și pragul tarifului sunt valori separate. Exemplul de schimbare din răspuns (plic până la 1500 g) a fost ales de model; enunțul trimis nu conține valoarea. Evaluatorul AI a primit într-un context nou enunțul, sarcina, răspunsul integral și C1. Am ales revizuirea 01: deduce corect că S2 costă 18 lei după C1, dar reproșează analistului AI absența lui C1, pe care nu o primise, și consideră comparația cerută o recomandare din afara sarcinii. Nu verifică separarea celor două limite; decizia noastră o adaugă. Revizuirea 02 are erori diferite (posibil refuz pentru ambalaj la cutia de 0 g; prag „≥1000 g”). Selecția nu descrie performanța tipică a modelului.
 
-Arhiva păstrează exact enunțul încercărilor inițiale. Formulările curente clarifică rolul aplicației ghișeului, intrările și sensul concordanței dintre canale; nu rescriem retrospectiv prompturile arhivate.
-
-Pentru o captură ulterioară: folosiți versiunea curentă a enunțului fără C1 în analiza AI; păstrați răspunsul integral. Evaluatorul (agent AI de revizuire) primește într-un context nou enunțul, sarcina, răspunsul și C1 ca schimbare ulterioară, cerând fragment, regulă și scenariu pentru fiecare observație. Integrați fragmente fidele pe slide-uri, cu sursă și omisiuni; păstrați corecțiile umane distincte. Nu înlocuiți eticheta unui exemplu didactic cu un nume de model.
+Pe slide-uri apar fragmente fidele, cu omisiunile marcate; analiza și decizia noastră sunt separate de răspunsuri. Varianta cu reguli copiate (`masa < 1000` / `masa <= 1000`) rămâne un exemplu didactic construit, etichetat ca atare.
 
 ## Feedback aplicat
 

@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 15939,
+  "stop_reason": "end_turn",
+  "session_id": "92d8cc56-dacd-4bf6-9736-7ec351fc1e4f",
+  "total_cost_usd": 0.017474,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4705,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1611,
+    "output_tokens_details": {
+      "thinking_tokens": 729
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4705,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1611,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4705,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4705
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1611,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4705,
+      "webSearchRequests": 0,
+      "costUSD": 0.017474,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 729,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4705,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Analiză: Responsabilități și Dependențe pentru Estimarea Costului Expedierii\n\n## Responsabilități Principale\n\nFluxul estimării se descompune în patru responsabilități distincte:\n\n1. **Interpretare intrării** – fiecare canal (web, ghișeu) convertește textul utilizatorului în date structurate (masă: întreg, ambalaj: tip). Această responsabilitate este **locală canalului**, pentru că textele și formatele diferă între interfețe.\n\n2. **Validare date** – aplicarea regulilor R2 și R3. Deoarece sunt identice în ambele canale (conform R5), această responsabilitate ar trebui **partajată**, nu duplicată.\n\n3. **Calcul preț** – aplicarea regulii R4 pentru colete acceptate. Și aceasta este **partajată** între canale.\n\n4. **Formatare răspuns** – prezentarea rezultatului (preț, refuz, motiv). Responsabilitate **locală canalului** (texte și aspect diferite).\n\n## Dependențele Critice\n\n- Validarea depinde de interpretare reușită.\n- Calcul depinde de validare pozitivă (acceptare).\n- Răspunsul depinde de etapele anterioare, dar nu de ordinea lor logică.\n\n**Riscul principal:** Regulile R2, R3, R4 sunt **copiate în două interfețe**. Orice modificare trebuie replicată în ambele locuri; inconsistența (o regulă aplicată diferit) violează R5. Această dependență ascunsă între canale nu apare în codul fiecărui canal, dar o afectează pe amândouă.\n\n## Verificarea Scenariilor S1–S5\n\n| Scen. | Masă | Ambalaj | R2? | R3? | R4 | Rezultat | Corect? |\n|-------|------|---------|-----|-----|-----|----------|---------|\n| S1 | 1000g | plic | ✓ | ✓ | 10 lei | Acceptat, 10 lei | ✓ |\n| S2 | 1001g | plic | ✓ | ✗ (plic > 1000g) | — | Refuz | ✓ |\n| S3 | 1001g | cutie | ✓ | ✓ | 18 lei | Acceptată, 18 lei | ✓ |\n| S4 | 0g | cutie | ✗ (< 1) | — | — | Refuz | ✓ |\n| S5a | 5000g | cutie | ✓ | ✓ | 18 lei | Acceptată, 18 lei | ✓ |\n| S5b | 5001g | cutie | ✗ (> 5000) | — | — | Refuz | ✓ |\n\nToate scenariile respectă regulile. Ordinea verificării (R2 înainte de R3) nu afectează rezultatul – ambele refuzuri ajung la răspunsul corect.\n\n## Concluzie\n\nResponsabilitatea de validare și calcul trebuie **centralizată logic** (nu duplicată în cod), pentru a respecta R5 și a minimiza riscul de evoluție inconsistentă. Canalele rămân responsabile doar pentru interpretare și formatare răspunsului.",
+  "ttft_ms": 7793,
+  "type": "result",
+  "duration_ms": 16062,
+  "uuid": "f2e05c66-37d4-4cf9-97a5-91d13ae487bf",
+  "ttft_stream_ms": 913,
+  "time_to_request_ms": 116,
+  "first_content_frame_ms": 913,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

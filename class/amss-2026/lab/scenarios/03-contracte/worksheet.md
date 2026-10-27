@@ -20,7 +20,7 @@ Fiecare scenariu S1–S7 din enunț repornește din I (F=10, A activă 4, R=4, D
 
 ## Analiza și revizuirea AI
 
-Profesorul conduce o singură analiză și o singură revizuire în plen. Preziceți o consecință înainte de răspuns, apoi verificați o afirmație folosind o regulă și un scenariu. Nu porniți sesiuni separate pentru fiecare pereche. Dacă instrumentul nu răspunde, discutăm exemplul didactic pregătit, cu aceeași metodă.
+Profesorul conduce o singură analiză și o singură revizuire în plen. Preziceți o consecință înainte de răspuns, apoi verificați o afirmație folosind o regulă și un scenariu. Nu porniți sesiuni separate pentru fiecare pereche. Dacă instrumentul nu răspunde, discutăm capturile reale pregătite, cu aceeași metodă.
 
 ## Comparație finală
 

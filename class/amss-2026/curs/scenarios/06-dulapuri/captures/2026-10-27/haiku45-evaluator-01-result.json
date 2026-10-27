@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 54780,
+  "stop_reason": "end_turn",
+  "session_id": "497e1487-4c77-48b1-8d69-c7611c69d997",
+  "total_cost_usd": 0.042720999999999995,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5781,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 6230,
+    "output_tokens_details": {
+      "thinking_tokens": 5338
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5781,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 6230,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5781,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5781
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 6230,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5781,
+      "webSearchRequests": 0,
+      "costUSD": 0.042720999999999995,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 5338,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5781,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Verificare propunere — Contracte pentru atribuie și elibereaza\n\n## Conformitate cu sarcina\n\nPropunerea respectă structura solicitată: separă precondițiile (R1), condiția de succes, postcondițiile pe rezultate, invarianți și ceea ce rămâne neschimbat. Răspunsul nu conține cod. Observații:\n\n---\n\n## Confirmare — Puncte corecte\n\n1. **Precondițiile pentru atribuie** (R1): identificatori valizi și registru valid sunt corect presupuse. ✓\n\n2. **Condiția de succes pentru atribuie**: „v nu are dulap ȘI d este liber\" corespunde exact R3 („reușește exact când\"). ✓\n\n3. **Postcondițiile pentru eșec — atribuie**: „registrul este identic cu cel inițial\" este esențial și corect din R3. ✓\n\n4. **Repetarea — atribuie**: observația că „repetarea aceleiași atribuiri se refuză\" confirmă R3 („Inclusiv repetarea\"). ✓\n\n5. **Condiția de succes — elibereaza**: „v are exact o asociere\" corespunde singurei situații în care R4 întoarce `eliberat`. ✓\n\n6. **Postcondițiile pentru eșec — elibereaza**: „repetarea nu este eroare\" parafrazează corect R4 („nu este o eroare tehnică\"). ✓\n\n7. **Invarianții unicității**: ambele operații conservă proprietatea „un vizitator ↔ cel mult un dulap\" (R2). ✓\n\n8. **Efectul limitat (R5)**: postcondițiile pentru eșec și pentru succes (păstrarea asocierilor neimplicate) sunt corect formulate. ✓\n\n9. **Verificare S1–S6**: toate 6 scenariile sunt analizate corect:\n   - S1, S5.1 reușesc (condiții satisfăcute).\n   - S2–S4, S5.2, S6 se refuză (condiții nesatisfăcute); registrul rămâne identic.\n   - ✓\n\n---\n\n## Observație minoră\n\n**Pentru atribuie — enumerarea cazurilor de eșec** (fragment: „v deja ocupat, d deja ocupat, sau ambele\"):\n\nEnumerarea este incompletă din perspectiva logicii. Eșecul se întâmplă dacă:\n- v are dulap **ȘI** d liber, **SAU**\n- v liber **ȘI** d ocupat, **SAU**\n- v ocupat **ȘI** d ocupat.\n\nFormularea „trei cazuri\" este neclară; „ambele\" nu este caz independent, ci intersecția primelor două. Mai precis: eșecul se întâmplă dacă **(v ocupat) ∨ (d ocupat)**. Propunerea ar fi mai clară cu această formă logică.\n\n---\n\n## Concluzie\n\nContractele sunt corect proiectate și complete. Precondițiile, condițiile de succes, postcondițiile și invarianții sunt separați riguros. Toate scenariile S1–S6 se verifică. Singura ușoară imprecizie este în enumerarea cazurilor de eșec pentru atribuie, dar nu afectează corectitudinea analizei.",
+  "ttft_ms": 46643,
+  "type": "result",
+  "duration_ms": 55029,
+  "uuid": "29eb6336-cc45-4f9e-b125-5410c01c3977",
+  "ttft_stream_ms": 1017,
+  "time_to_request_ms": 243,
+  "first_content_frame_ms": 1017,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

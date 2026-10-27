@@ -1,0 +1,1 @@
+Propune o repartizare a responsabilităților pentru modificarea registrului și formulează contractele operațiilor rezerva, ridica și anuleaza: precondiții, condiții de succes, efecte, refuzuri și invarianți. Calculează S2, S3 și S5. Compară pe scurt cu verificări separate în formular și import. Nu scrie cod. Răspunde în română, în maximum 450 de cuvinte.

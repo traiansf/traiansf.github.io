@@ -35,13 +35,15 @@ Contractele trebuie să separe R1 (apeluri seriale, registru valid, identificato
 
 Feedbackul din 27 octombrie cere o demonstrație comună, condusă de profesor; nu cereți fiecărei perechi să opereze un asistent AI. Studenții lucrează individual și între colegi în celelalte etape. Nu este necesar să aibă conturi AI.
 
-Pregătiți [instrucțiunea și contextul](scenarios/03-contracte/ai/README.md). Pentru rularea live, folosiți instrumentul disponibil al profesorului, fără a impune un model. Nu furnizați referința cu soluții ca parte a analizei. În această versiune **nu există capturi AI pregătite**. Alternativa de pe slide-uri reia fragmente din aceeași [propunere didactică](scenarios/03-contracte/prepared-fixture.md), cu proveniența explicită; nu o atribuim unui model.
+Slide-urile conțin **capturi reale pregătite** Claude Haiku 4.5, din 27 octombrie 2026 (Claude Code 2.1.311, fără unelte și fără contextul proiectului). [Fragmentele selectate](scenarios/03-contracte/prepared-fixture.md) și [arhiva](scenarios/03-contracte/captures/2026-10-27/README.md) păstrează promptul exact, contextul, răspunsurile integrale și ambele încercări pentru fiecare rol. Analiza 01 calculează corect S2, S3 și S5, dar trece codul nou, q>0 și disponibilitatea printre precondiții, apoi le folosește ca motive de refuz. Revizuirea 02 semnalează corect lipsa efectului limitat (R5), dar acceptă precondițiile. Selecția nu descrie performanța tipică a modelului.
 
-1. **Analiză, 10 min:** cereți două predicții individuale; profesorul trimite o singură sarcină cu enunțul integral. Afișați răspunsul și comparați responsabilitatea registrului și calculul ridicării. Limitați așteptarea la două minute incluse în etapă; dacă instrumentul nu răspunde, folosiți exemplul didactic. Nu treceți la configurări de conturi în timpul laboratorului.
-2. **Revizuire, 10 min:** într-un context nou, transmiteți evaluatorului (agent AI de revizuire) același enunț, sarcina exactă și propunerea integrală. Cereți afirmații susținute, omisiuni și contradicții, cu fragment, regulă și scenariu; fără număr obligatoriu de defecte. Studenții prezic rezultatul S5 înainte de a vedea revizuirea. Dacă analiza a folosit alternativa didactică, o puteți revizui între colegi în plen, etichetând tot parcursul corect.
+O rulare live poate înlocui capturile: folosiți [instrucțiunea și contextul](scenarios/03-contracte/ai/README.md) cu instrumentul disponibil al profesorului, fără a impune un model, și nu furnizați referința cu soluții. Discutați atunci rezultatul efectiv, nu omisiunile capturii.
+
+1. **Analiză, 10 min:** cereți două predicții individuale; profesorul trimite o singură sarcină cu enunțul integral. Afișați răspunsul și comparați responsabilitatea registrului și calculul ridicării. Limitați așteptarea la două minute incluse în etapă; dacă instrumentul nu răspunde, folosiți captura pregătită. Nu treceți la configurări de conturi în timpul laboratorului.
+2. **Revizuire, 10 min:** într-un context nou, transmiteți evaluatorului (agent AI de revizuire) același enunț, sarcina exactă și propunerea integrală. Cereți afirmații susținute, omisiuni și contradicții, cu fragment, regulă și scenariu; fără număr obligatoriu de defecte. Studenții prezic ce ar trebui să observe evaluatorul AI despre precondiții înainte de a vedea revizuirea. Dacă analiza a fost live și revizuirea nu răspunde, o puteți revizui între colegi în plen, etichetând corect parcursul.
 3. **Decizie, 5 min:** o afirmație acceptată ori corectată, justificată prin regulă și scenariu. Un răspuns corect este suficient pentru o discuție utilă. Nu impuneți rescrierea printr-un nou prompt și nu adăugați alte rulări de analiză în paralel.
 
-**Regulile rămân vizibile:** la afișarea rezultatului live, folosiți două ferestre alăturate, una cu slide-ul de repere și una cu răspunsul. Nu înlocuiți tot ecranul cu o conversație care nu mai arată regulile. În pregătirea ulterioară a unor capturi, puneți fragmentele și rezumatul regulilor pe același slide, cu proveniență și omisiuni marcate. Păstrați promptul, contextul, răspunsul integral, data, instrumentul, modelul declarat și setările cunoscute; nu cereți studenților transcrieri.
+**Regulile rămân vizibile:** la afișarea rezultatului live, folosiți două ferestre alăturate, una cu slide-ul de repere și una cu răspunsul. Nu înlocuiți tot ecranul cu o conversație care nu mai arată regulile. La capturile noi, puneți fragmentele și rezumatul regulilor pe același slide, cu proveniență și omisiuni marcate. Păstrați promptul, contextul, răspunsul integral, data, instrumentul, modelul declarat și setările cunoscute; nu cereți studenților transcrieri.
 
 ## Comparația finală
 
@@ -49,7 +51,7 @@ Pornim cu A activă(4), B activă(6), F=10, R=10, D=0. Anularea lui A produce F=
 
 ## Varianta online
 
-[Prezentarea online](03-contracte-online.md) păstrează cele 16 slide-uri, regulile, scenariile, exemplul pregătit și toate duratele. Întâlnirea Teams se desfășoară numai în plen, fără grupuri separate:
+[Prezentarea online](03-contracte-online.md) păstrează cele 16 slide-uri, regulile, scenariile, capturile pregătite și toate duratele. Întâlnirea Teams se desfășoară numai în plen, fără grupuri separate:
 
 - Predicțiile individuale se scriu în chat și se trimit la semnal.
 - Explicațiile se dau în ștafetă: un coleg propune, un coleg numit verifică regula și continuă cu următoarea operație.

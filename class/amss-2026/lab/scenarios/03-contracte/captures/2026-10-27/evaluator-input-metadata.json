@@ -1,0 +1,10 @@
+{
+  "context_file": "context.md",
+  "context_sha256": "a17dcd31b1357898e699f48036dddebc841dad009f7f0ce9f8961bb41aaf61fa",
+  "analyst_task_file": "analist-instructiune.md",
+  "analyst_task_sha256": "d781cb0f12fa99d108bc954931318fa5845985f288cf876ea2897075b6c28952",
+  "response_file": "haiku45-analist-01-response.md",
+  "response_sha256": "b3793a9e9bfd6a02526f2711be49d790ff2e77af9af70185272a322c81fc73c4",
+  "later_change_included": false,
+  "selection_reason": "Analiza 01 selectată: calcule S2, S3, S5 corecte; trece disponibilitatea și identificatorul nefolosit printre precondiții deși sarcina cere separat condițiile de succes, apoi le folosește ca motive de refuz — subiect direct al cursului 6. Analiza 02 (păstrată) are aceeași confuzie și mai multe greșeli de redactare."
+}

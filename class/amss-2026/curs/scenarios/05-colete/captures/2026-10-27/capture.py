@@ -44,9 +44,9 @@ metadata = {
 metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 try:
     result = subprocess.run(args, input=prompt, text=True, encoding='utf-8',
-                            capture_output=True, cwd=workdir, timeout=55)
+                            capture_output=True, cwd=workdir, timeout=240)
 except subprocess.TimeoutExpired as error:
-    metadata.update({'status': 'timeout', 'timeout_seconds': 55})
+    metadata.update({'status': 'timeout', 'timeout_seconds': 240})
     for channel in ('stdout', 'stderr'):
         raw = getattr(error, channel)
         if raw:
