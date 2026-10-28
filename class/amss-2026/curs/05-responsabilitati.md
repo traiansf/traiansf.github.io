@@ -59,11 +59,10 @@ Site-ul respectă regula: plicul de 1200 g depășește limita. Nu aflăm asta c
 Un coleg propune: „Fiecare interfață verifică limita înainte să calculeze prețul.”
 
 1. Individual: ce trebuie să știe fiecare interfață ca să aplice propunerea? Cine răspunde dacă cele două canale ajung să dea rezultate diferite?
-2. În pereche: propuneți altă repartizare a deciziei de acceptare și numiți o obligație pe care o aduce.
-3. Ce ar trebui să știe interfața despre partea care decide?
+2. În pereche: propuneți altă repartizare a deciziei de acceptare. Ce ar trebui să știe interfața despre partea care decide și ce obligație aduce această repartizare?
 
 ::: notes
-Fiecare interfață ar trebui să cunoască limita și regula de preț; două copii trebuie ținute în acord, iar nicio parte nu răspunde de acordul lor. Alternativa este o operație comună care primește masa și ambalajul și întoarce acceptare/preț sau refuz; obligația ei: intrările și rezultatele trebuie convenite și păstrate. Interfața trebuie să știe doar ce îi trimite și ce primește. Nu numim încă alternativa „corectă”: cerem costul și informațiile necesare. Schimbarea unei reguli o urmărim în a doua parte a cursului.
+Fiecare interfață ar trebui să cunoască limita și regula de preț; două copii trebuie ținute în acord, iar nicio parte nu răspunde de acordul lor. Alternativa este o operație comună care primește masa și ambalajul și întoarce acceptare/preț sau refuz; obligația ei: intrările și rezultatele trebuie convenite și păstrate. În noua repartizare, interfața trebuie să știe doar ce îi trimite și ce primește. Nu numim încă alternativa „corectă”: cerem costul și informațiile necesare. Schimbarea unei reguli o urmărim în a doua parte a cursului.
 
 **Organizare:** 7 min: 2 individual, 2 în pereche, 3 discuție. []{.pace dur=7}
 :::
