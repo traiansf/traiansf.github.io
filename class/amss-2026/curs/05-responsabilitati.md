@@ -11,7 +11,7 @@ Am distins conceptele și regulile unui domeniu. Cine le aplică și ce trebuie 
 ::: notes
 Legătura cu modelarea domeniului din cursul 4: după ce distingem conceptele și regulile, atribuim comportamentele unor părți ale soluției. O parte poate fi o funcție sau un modul; nu presupunem clase. Astăzi alegem cine decide, de ce informații are nevoie și ce se schimbă când se schimbă o regulă.
 
-**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, exercițiul inițial și slide-ul despre responsabilități. 31 de slide-uri cu copertă. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, exercițiul inițial și slide-ul despre responsabilități. 32 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
 
 ---
@@ -58,12 +58,12 @@ Site-ul respectă regula: plicul de 1200 g depășește limita. Nu aflăm asta c
 
 Un coleg propune: „Fiecare interfață verifică limita înainte să calculeze prețul.”
 
-1. Individual: ce trebuie modificat dacă limita devine 1500 g?
-2. În pereche: propuneți alt loc pentru decizia de acceptare.
-3. Ce ar trebui să știe interfața despre acel loc?
+1. Individual: ce trebuie să știe fiecare interfață ca să aplice propunerea? Cine răspunde dacă cele două canale ajung să dea rezultate diferite?
+2. În pereche: propuneți altă repartizare a deciziei de acceptare și numiți o obligație pe care o aduce.
+3. Ce ar trebui să știe interfața despre partea care decide?
 
 ::: notes
-Două copii cer două actualizări și verificarea concordanței. Alternativa este o operație comună care primește masa și ambalajul și întoarce acceptare/preț sau refuz. Nu numim încă alternativa „corectă”: cerem costul și informațiile necesare.
+Fiecare interfață ar trebui să cunoască limita și regula de preț; două copii trebuie ținute în acord, iar nicio parte nu răspunde de acordul lor. Alternativa este o operație comună care primește masa și ambalajul și întoarce acceptare/preț sau refuz; obligația ei: intrările și rezultatele trebuie convenite și păstrate. Interfața trebuie să știe doar ce îi trimite și ce primește. Nu numim încă alternativa „corectă”: cerem costul și informațiile necesare. Schimbarea unei reguli o urmărim în a doua parte a cursului.
 
 **Organizare:** 7 min: 2 individual, 2 în pereche, 3 discuție. []{.pace dur=7}
 :::
@@ -172,16 +172,14 @@ Webul și ghișeul depind de intrările și rezultatele operației. Operația nu
 
 # Coeziunea: de ce sunt împreună?
 
-**Coeziune:** cât de bine contribuie responsabilitățile unei părți la un scop comun.
-
-Pentru estimare: acceptarea coletului și calculul sumei contribuie la același răspuns.
-
 **Reguli:** plicul peste 1000 g este refuzat; fiecare interfață poate alege textul prin care explică refuzul.
 
 Propunere: `estimeaza` întoarce un mesaj gata de afișat. În pereche: ce simplifică aceasta? Ce se întâmplă dacă site-ul cere un text scurt, iar ghișeul o explicație detaliată?
 
+Am comparat cât de bine servesc responsabilitățile unei părți același scop: aceasta este **coeziunea**. Acceptarea coletului și calculul sumei contribuie la același răspuns; formularea mesajului servește scopul fiecărui canal.
+
 ::: notes
-Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși, pentru textele diferite permise de R5, operația ar trebui să cunoască fiecare canal. Un motiv de refuz separat de text lasă formularea interfeței. Coeziunea se discută prin scopuri și motive de schimbare, nu prin lungimea fișierului.
+Lăsați perechile să răspundă înainte de a numi conceptul. Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși, pentru textele diferite permise de R5, operația ar trebui să cunoască fiecare canal. Un motiv de refuz separat de text lasă formularea interfeței. Coeziunea se discută prin scopuri și motive de schimbare, nu prin lungimea fișierului.
 
 **Organizare:** 3 min, inclusiv răspunsurile. []{.pace dur=3}
 :::
@@ -190,7 +188,7 @@ Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși
 
 # Cuplarea: ce trebuie să cunoască ceilalți?
 
-**Cuplare:** dependențele dintre părți și detaliile pe care trebuie să le cunoască una despre cealaltă.
+**R5:** cele două canale trebuie să rămână de acord. Ce poate cunoaște o interfață despre estimare?
 
 | Interfața cunoaște… | Consecință |
 |---|---|
@@ -198,10 +196,10 @@ Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși
 | Pragurile și ordinea verificărilor | Trebuie actualizată când se schimbă politica. |
 | Variabilele interne ale calculului | O reorganizare internă îi poate afecta comportamentul. |
 
-**R5:** cele două canale trebuie să rămână de acord. Ce dependență ne ajută și ce dependență ne încurcă?
+Ce dependență ne ajută și ce dependență ne încurcă? Dependențele dintre părți și detaliile pe care trebuie să le cunoască una despre cealaltă formează **cuplarea**.
 
 ::: notes
-Apelul operației este o dependență utilă. Eliminarea tuturor dependențelor nu este obiectivul. O interfață mai mică poate proteja decizii interne, dar trebuie să exprime suficient pentru colaborare.
+Cereți întâi răspunsul pentru fiecare rând, apoi numiți conceptul. Apelul operației este o dependență utilă. Eliminarea tuturor dependențelor nu este obiectivul. O interfață mai mică poate proteja decizii interne, dar trebuie să exprime suficient pentru colaborare.
 
 **Organizare:** 3 min, încheierea etapei la minutul 30. []{.pace dur=3}
 :::
@@ -231,7 +229,7 @@ Exemplu didactic construit pentru comparație:
 | Web | `masa < 1000` |
 | Ghișeu | `masa <= 1000` |
 
-Fiecare canal calculează apoi singur prețul. Copiile pot coincide inițial și se pot despărți la o modificare.
+Fiecare canal calculează apoi singur prețul. Copiile pot coincide inițial și pot ajunge să aplice reguli diferite după o modificare.
 
 ::: notes
 Defectul este explicit la limita inclusă. Nu este o captură AI sau o eroare observată într-o aplicație reală. Chiar dacă reparăm semnul, obligația de sincronizare a copiilor rămâne.
@@ -259,16 +257,16 @@ Centralizarea responsabilității nu garantează că regula este implementată c
 
 **Reguli:** plic ≤1000 g; masă 1–5000 g; colet acceptat ≤1000 g → 10 lei, peste → 18 lei. Aceleași rezultate în ambele canale.
 
-**Propunerea copiată:** webul acceptă plicul dacă `masa < 1000`; ghișeul dacă `masa <= 1000`.
+**Trei propuneri pentru condiția plicului:** A — web `masa < 1000`, ghișeu `masa <= 1000`; B — ambele `masa < 1000`; C — ambele `masa <= 1000`.
 
 Pe hârtie, apoi în pereche:
 
-1. S1: plic de 1000 g. Ce întoarce fiecare canal și ce ar trebui să întoarcă?
-2. S2: plic de 1001 g. Dacă ambele refuză, este suficient pentru a valida propunerea?
-3. Formulați corecția și responsabilitatea care trebuie păstrată comună.
+1. Alegeți o intrare care deosebește cele trei propuneri. Ce întoarce fiecare canal și ce cere regula?
+2. În B, canalele sunt de acord. Respectă regula firmei? Ce verificare o arată?
+3. Ce nu putem afla din aceste rezultate despre locul în care sunt păstrate regulile?
 
 ::: notes
-S1: web refuză incorect; ghișeu acceptă la 10 lei. S2: ambele refuză corect, dar un singur acord nu stabilește respectarea întregii reguli. Corectăm limita și discutăm eliminarea copiilor independente ale politicii.
+Plicul de 1000 g deosebește propunerile: A — webul refuză, ghișeul acceptă la 10 lei; B — ambele refuză, de acord și totuși greșit; C — ambele acceptă la 10 lei, corect. Plicul de 1001 g nu deosebește nimic: toate refuză corect. Acordul dintre canale și respectarea regulii sunt verificări distincte; a doua se face față de enunț. Rezultatele nu arată dacă regula este copiată sau comună: o operație comună cu limita greșită produce exact B. De aici următoarea întrebare: unde păstrăm decizia, ca o corecție să fie făcută o singură dată?
 
 **Organizare:** 8 min: 2 individual, 3 în pereche, 3 comparație. []{.pace dur=8}
 :::
@@ -290,7 +288,7 @@ S1: web refuză incorect; ghișeu acceptă la 10 lei. S2: ambele refuză corect,
 Ce justificare ați cere înainte de a separa fiecare regulă într-o altă componentă?
 
 ::: notes
-Ambele variante sunt defensabile. Separarea cere un motiv: evoluție independentă, reutilizare reală sau claritate. Dacă părțile trebuie permanent schimbate împreună, separarea poate adăuga coordonare fără beneficiu. Nu introducem catalogul de șabloane de proiectare.
+Ambele variante pot fi justificate. Separarea cere un motiv: evoluție independentă, reutilizare reală sau claritate. Dacă părțile trebuie permanent schimbate împreună, separarea poate adăuga coordonare fără beneficiu. Nu introducem catalogul de șabloane de proiectare.
 
 **Organizare:** 6 min, cu argumente pro și contra. []{.pace dur=6}
 :::
@@ -375,16 +373,16 @@ Un text de ajutor „maximum 1000 g” trebuie actualizat chiar dacă operația 
 
 **Situația curentă:** plic ≤1500 g; prag tarifar 1000 g; webul și ghișeul apelează `estimeaza`.
 
-A. Webul schimbă culoarea butonului.
+A. Site-ul adaugă o avertizare imediată când plicul depășește limita, înainte de a cere estimarea.
 
 B. Apare o a treia interfață, care trebuie să respecte aceeași politică.
 
 C. Se schimbă numai prețul treptei de peste 1000 g.
 
-În pereche: pentru fiecare schimbare numiți partea responsabilă și o verificare. Care dependență permite schimbarea fără copierea regulilor?
+În pereche: pentru fiecare schimbare numiți partea responsabilă și o verificare. La A: cine decide acceptarea? Ce se întâmplă dacă avertizarea folosește încă limita veche?
 
 ::: notes
-A: afișare web, fără modificarea estimării. B: noul canal apelează operația; verificăm concordanța și interpretarea intrărilor. C: calculul comun și rezultatele așteptate, plus textele care ar afișa sume fixate. Nu schimbăm ipotetic și masa sau ambalajul.
+A: afișarea web; avertizarea ajută utilizatorul, dar nu decide: operația comună verifică oricum înainte de a accepta. Cu limita veche în avertizare, site-ul ar avertiza greșit la 1200 g, iar estimarea ar accepta: verificăm concordanța textului cu politica, nu mutăm decizia în interfață. O verificare repetată nu este greșită în sine; greșită ar fi o a doua autoritate. B: noul canal apelează operația; verificăm concordanța și interpretarea intrărilor. C: calculul comun și rezultatele așteptate, plus textele care ar afișa sume fixate. Nu schimbăm ipotetic și masa sau ambalajul.
 
 **Organizare:** 4 min, continuând comparația cu harta schimbării. []{.pace dur=4}
 :::
@@ -399,7 +397,7 @@ A: afișare web, fără modificarea estimării. B: noul canal apelează operați
 
 **Decizia protejată:** politica poate evolua fără copii independente în canale.
 
-**Cost și limite:** trebuie păstrat acordul operației; textele explicative pot necesita actualizare. Nu am proiectat transportul sau plata.
+**Cost și limite:** trebuie respectate semnificațiile convenite ale intrărilor și rezultatelor; textele explicative pot necesita actualizare. Nu am proiectat transportul sau plata.
 
 ::: notes
 Transmiterea trebuie să păstreze legătura cu enunțul și cu versiunea lui: după C1, plicul de 1001 g nu mai este refuzat. Alegerea unei reprezentări nu înlocuiește regulile și exemplele.
@@ -414,9 +412,9 @@ Transmiterea trebuie să păstreze legătura cu enunțul și cu versiunea lui: d
 Cum judecăm o propunere înainte să acceptăm etichetele ei?
 
 ::: notes
-Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.311, la 27 octombrie 2026, fără unelte și fără contextul proiectului. Analistul AI a primit enunțul fără C1; evaluatorul AI a primit, într-un context nou, enunțul, sarcina, răspunsul integral și C1 ca schimbare ulterioară. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
+Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.311, la 27 octombrie 2026, fără unelte și fără contextul proiectului. Analistul AI a primit enunțul fără C1; evaluatorul (agent AI de revizuire) a primit, într-un context nou, enunțul, sarcina, răspunsul integral și C1 ca schimbare ulterioară. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
 
-**Organizare:** minutul 75 din 100; interval 75–95 (20 min): predare 4, propunere 6, revizuire 6, decizie 4. []{.pace at=75}
+**Organizare:** minutul 75 din 100; interval 75–95 (20 min): predare 4, propunere 5, promptul evaluatorului AI 2, revizuire 5, decizie 4. []{.pace at=75}
 :::
 
 ---
@@ -439,44 +437,66 @@ Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral fără C1
 
 # O propunere de verificat
 
-**Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:**
+**Analistul AI — Claude Haiku 4.5, 27 octombrie 2026; fragmente:**
 
-> **Logica de estimare** — aplică R2–R4 […] Produce un răspuns standardizat: acceptat+preț sau refuz.
+> **Interfață (web, ghișeu)** — interpretează textul intrării […] Nu validează reguli de domeniu.
+>
+> **Logica de estimare** — aplică R2–R4 […] acceptat+preț sau refuz.
 >
 > **Definirea regulilor** — stochează limitele, costurile, restricțiile per ambalaj. Accesibilă ambelor interfețe.
 >
 > **Risc de inconsistență:** dacă R3 se modifică (plic acceptat până la 1500 g), trebuie actualizat în două locuri; greșelile sunt posibile.
 
-Răspunsul verifică S1–S5 corect. **Reguli:** plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste. **C1:** numai limita plicului devine 1500 g.
+**Reguli:** plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste. **C1:** numai limita plicului devine 1500 g.
 
-Ce păstrăm? Ce trebuie precizat despre „limitele” stocate? Folosiți un plic de **1200 g după C1**.
+Ce păstrăm? Interfețele „nu validează reguli”: ce le este totuși „accesibil” și pentru ce? Ce precizăm despre „limitele” stocate pentru un plic de **1200 g după C1**?
 
 ::: notes
-Păstrăm operația comună, independența față de afișare și verificarea S1–S5. Răspunsul nu spune dacă „limitele” conțin o singură valoare de 1000 g sau două valori cu sensuri diferite. După C1, plicul de 1200 g este acceptat și costă 18 lei: limita plicului și pragul tarifului trebuie numite separat. Modelul a ales singur 1500 g ca exemplu de schimbare; enunțul trimis nu conține această valoare. Riscul numit privește numai copiile din canale, nu pragul tarifului. „DRY”, din restul răspunsului, este o etichetă; nu o adoptăm ca argument.
+Răspunsul verifică S1–S5 corect. Păstrăm operația comună, independența față de afișare și verificarea S1–S5. Propunerea precizează că interfețele nu validează regulile domeniului, deci accesul lor la reguli nu poate însemna o decizie independentă de acceptare; rămâne neexplicat scopul lui, de exemplu afișarea limitei către utilizator. Nu prezentăm lipsa drept eroare: cerem precizarea scopului, care păstrează o singură autoritate a deciziei. Fragmentul nu stabilește cum sunt reprezentate limitele; nu putem deduce că folosește o singură constantă. Pentru C1 precizăm două decizii distincte: acceptarea plicului și calculul tarifului; plicul de 1200 g este acceptat și costă 18 lei. Modelul a ales singur 1500 g ca exemplu de schimbare; enunțul trimis nu conține această valoare. „DRY”, din restul răspunsului, este o etichetă; nu o adoptăm ca argument.
 
-**Organizare:** 6 min: predicție individuală, comparație în pereche și răspunsuri. []{.pace dur=6}
+**Organizare:** 5 min: predicție individuală, comparație în pereche și răspunsuri. []{.pace dur=5}
+:::
+
+---
+
+# Promptul evaluatorului AI
+
+**Evaluator (agent AI de revizuire), context nou:** enunțul, sarcina analistului AI, răspunsul integral și C1, prezentată ca schimbare ulterioară pe care analistul AI nu trebuia să o anticipeze.
+
+**Instrucțiunea exactă, la începutul promptului:**
+
+> Ești evaluator (agent AI de revizuire). Verifică propunerea de mai jos exclusiv față de contextul, sarcina analistului AI și schimbarea ulterioară C1. Identifică afirmațiile susținute, contradicțiile, omisiunile relevante și alegerile prezentate ca cerințe; verifică și ce trebuie să se schimbe în propunere după C1. Pentru fiecare observație, indică fragmentul, regula și un scenariu cu intrarea și rezultatul așteptat. Nu presupune că trebuie să existe greșeli; dacă o afirmație este corectă, explică de ce. Nu scrie cod. Răspunde în română, în maximum 400 de cuvinte.
+
+**Predicție, înainte de a vedea răspunsul:** va deosebi evaluatorul AI consecințele lui C1 de o omisiune a analistului AI?
+
+::: notes
+Instrucțiunea cere două lucruri diferite: verificarea propunerii față de sarcina primită de analistul AI și consecințele schimbării ulterioare. Enunțul transmis spune explicit că C1 nu trebuia anticipată. Predicția pregătește lectura critică a revizuirii: o consecință corectă poate fi formulată ca reproș nejustificat.
+
+**Sursă:** instrucțiunea integrală din `evaluator-instructiune.md`; intrarea completă în `evaluator-prompt.md`, arhiva din 27 octombrie 2026.
+
+**Organizare:** 2 min; predicții prin ridicarea mâinii, fără discuție. []{.pace dur=2}
 :::
 
 ---
 
 # Revizuirea are nevoie de propria verificare
 
-Un **evaluator (agent AI de revizuire)** a primit într-un context nou enunțul, sarcina analistului AI, răspunsul integral și C1.
-
 **Evaluatorul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:**
 
 > Propunerea **nu menționa explicit ce se schimbă după C1**. Instrucțiunile de evaluare cer verificarea "ce trebuie să se schimbe în propunere după C1". […] Propunerea ar trebui să precizeze: „S2 devine acceptare la 18 lei după C1 […]”
 >
-> Observația DRY și „dificultate în testare" sunt bune, dar **depășesc sarcina analistului**, care nu cere o soluție de cod sau arhitectură.
+> Observația DRY și „dificultate în testare" sunt bune, dar **depășesc sarcina analistului**, care nu cere o soluție de cod sau arhitectură. […]
+>
+> Merge dincolo cu sugestii de implementare (DRY, centralizare).
 
-**Sarcina analistului:** compară o operație comună cu regulile copiate; enunțul primit nu conținea C1. **După C1:** plic ≤1500 g; prag tarifar 1000 g.
+**Sarcina analistului AI:** compară o operație comună cu regulile copiate; enunțul primit nu conținea C1. **S2:** plic de 1001 g. **După C1:** plic ≤1500 g; 10 lei până la 1000 g inclusiv, 18 lei peste.
 
-Ce observație este susținută? Ce verificare lipsește din revizuire?
+Ce observație este susținută? Ce etichetă nu este susținută de sarcina analistului AI?
 
 ::: notes
-Consecința pentru S2 este corectă și răspunde instrucțiunii noastre: după C1, plicul de 1001 g costă 18 lei. Eticheta de „omisiune” a propunerii este însă nedreaptă: analistul AI nu a primit C1, iar enunțul trimis evaluatorului AI spunea că C1 nu trebuia anticipat. Restul revizuirii notează corect că enunțul cere rezultate egale, nu aceeași implementare; afirmația că operația comună „depășește sarcina” ignoră însă sarcina, care cere chiar comparația dintre operația comună și regulile copiate. Revizuirea nu verifică întrebarea esențială pentru C1: limita plicului și pragul tarifului sunt valori distincte? Cealaltă revizuire păstrată are alte erori, de exemplu un posibil refuz pentru ambalaj la cutia de 0 g.
+Consecința pentru S2 este corectă și răspunde instrucțiunii noastre: după C1, plicul de 1001 g costă 18 lei. Eticheta de „omisiune” a propunerii este însă nedreaptă: analistul AI nu a primit C1, iar enunțul trimis evaluatorului AI spunea că schimbarea C1 nu trebuia anticipată. Restul revizuirii notează corect că enunțul cere rezultate egale, nu aceeași implementare; afirmația că operația comună „depășește sarcina” ignoră însă sarcina, care cere chiar comparația dintre operația comună și regulile copiate. Revizuirea aplică distinct cele două praguri în S2 (plic ≤1500 g, 18 lei peste 1000 g), dar nu cere propunerii responsabilități separate pentru ele; noi le precizăm în decizie, fără să deducem reprezentarea internă a limitelor. Cealaltă revizuire păstrată are alte erori, de exemplu un posibil refuz pentru ambalaj la cutia de 0 g.
 
-**Organizare:** 6 min, cu răspunsuri. []{.pace dur=6}
+**Organizare:** 5 min, cu răspunsuri. []{.pace dur=5}
 :::
 
 ---

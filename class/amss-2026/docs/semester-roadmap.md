@@ -78,7 +78,7 @@ The library request now has an operational outcome: requests for unavailable tit
 
 ### Week 5 — Responsibility assignment, cohesion, and coupling
 
-**Authored, unreleased (27 October 2026):** [lecture](../curs/05-responsabilitati.md), [guide](../curs/05-responsabilitati-demo.md), [brief](../curs/scenarios/05-colete/brief.md), [reference](../curs/scenarios/05-colete/reference.md). 31 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern: transition, quotation, case question, concept slide).
+**Authored, unreleased (27 October 2026):** [lecture](../curs/05-responsabilitati.md), [guide](../curs/05-responsabilitati-demo.md), [brief](../curs/scenarios/05-colete/brief.md), [reference](../curs/scenarios/05-colete/reference.md). 32 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern: transition, quotation, case question, concept slide; GPT-6-Astra review round the same day added the evaluator-prompt slide and replaced the threshold and change exercises).
 
 **Question:** Where should a rule be enforced, and what does that decision make other parts depend on?
 
@@ -90,7 +90,7 @@ The library request now has an operational outcome: requests for unavailable tit
 
 ### Week 6 — Contracts and invariants
 
-**Authored, unreleased (27 October 2026):** [lecture](../curs/06-contracte.md), [guide](../curs/06-contracte-demo.md), [brief](../curs/scenarios/06-dulapuri/brief.md), [reference](../curs/scenarios/06-dulapuri/reference.md). 30 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern).
+**Authored, unreleased (27 October 2026):** [lecture](../curs/06-contracte.md), [guide](../curs/06-contracte-demo.md), [brief](../curs/scenarios/06-dulapuri/brief.md), [reference](../curs/scenarios/06-dulapuri/reference.md). 31 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern; GPT-6-Astra review round the same day added the evaluator-prompt slide and a second traced counterexample).
 
 **Question:** What must an operation guarantee, including when it cannot succeed?
 

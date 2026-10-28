@@ -11,7 +11,7 @@ Când o operație refuză o cerere, ce trebuie să rămână adevărat?
 ::: notes
 Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce promite partea responsabilă, inclusiv când nu poate reuși. În cursul 2 am cerut deja ca refuzul unui împrumut să păstreze starea bibliotecii; aici dezvoltăm această promisiune.
 
-**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, predicția și slide-ul despre contract. 30 de slide-uri cu copertă. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, predicția și slide-ul despre contract. 31 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
 
 ---
@@ -24,12 +24,12 @@ Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce
 
 — **Bertrand Meyer**
 
-[Sursa: Object-Oriented Software Construction, ediția a doua, §25.3, p. 873](https://bertrandmeyer.com/OOSC2/)
+[Sursa: Object-Oriented Software Construction, ediția a doua, „Using assertions”, p. 873](https://bertrandmeyer.com/OOSC2/)
 
 ::: notes
 Clientul este apelantul unei operații, nu neapărat o persoană. Furnizorul este partea care o realizează. Vom distinge obligația apelantului de situațiile pentru care operația promite un refuz.
 
-**Sursă:** citatul păstrat din materialul anterior, verificat atunci în fragmentul indexat al cărții de pe site-ul autorului, §25.3, p. 873; vezi `docs/quotations.md`. La 27 octombrie 2026 pagina autorului este accesibilă, dar descărcarea PDF întoarce 404; nu pretindem o nouă verificare a paginii 873. Folosim adresa stabilă recomandată de autor.
+**Sursă:** citatul păstrat din materialul anterior, verificat atunci în fragmentul indexat al cărții de pe site-ul autorului, subsecțiunea „Using assertions”, p. 873; vezi `docs/quotations.md`. Revizuirea din 28 octombrie 2026 situează pasajul înaintea începutului secțiunii 25.3, de aceea nu mai dăm numărul secțiunii. La 27 și 28 octombrie 2026 pagina autorului este accesibilă, dar descărcarea PDF întoarce 404; nu pretindem o nouă verificare a paginii 873. Folosim adresa stabilă recomandată de autor.
 :::
 
 ---
@@ -342,14 +342,14 @@ atribuie(v, d):
     întoarce atribuit
 ```
 
-**Date:** V1–D1, V2–D2; cerem `atribuie(V1,D2)`.
+**B:** V1–D1, V2–D2; V3 fără dulap, D3 liber.
 
-**Reguli:** maximum o asociere per vizitator/dulap; atribuirea unui vizitator deja asociat se refuză, cu întregul registru identic.
+**Reguli:** maximum o asociere per vizitator/dulap; atribuirea reușește numai dacă vizitatorul nu are dulap și dulapul este liber; altfel refuz, cu întregul registru identic.
 
-Pe hârtie: scrieți registrul după primul pas și la întoarcere. Ce regulă este încălcată?
+Pe hârtie, apoi în pereche: găsiți două apeluri independente din B: unul pentru care operația întoarce `refuz`, dar modifică registrul; altul pentru care întoarce `atribuit`, deși contractul cere refuz. Scrieți registrul final al fiecăruia și verificați unicitatea.
 
 ::: notes
-După eliminare și la refuz rămâne numai V2–D2. Unicitatea este respectată, dar R3 este încălcată. Este o trasare manuală a pseudocodului, nu jurnalul unei execuții reale.
+`atribuie(V1,D2)`: eliminarea lasă {V2–D2}, D2 este ocupat, întoarce refuz; registrul final {V2–D2} pierde V1–D1. `atribuie(V1,D3)`: eliminarea lasă {V2–D2}, D3 este liber, întoarce atribuit cu {V2–D2, V1–D3}: operația a mutat vizitatorul, deși contractul cere refuz pentru un vizitator care are deja dulap. Unicitatea este respectată în ambele registre finale; R3 este încălcată în ambele. Este o trasare manuală a pseudocodului, nu jurnalul unei execuții reale.
 
 **Organizare:** 8 min, cu predicție, comparație și explicație. []{.pace dur=8}
 :::
@@ -424,9 +424,9 @@ Obținerea rezultatului așteptat într-un scenariu nu garantează corectitudine
 O formulare convingătoare spune tot ce avem nevoie?
 
 ::: notes
-Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.311, la 27 octombrie 2026, fără unelte și fără contextul proiectului. Evaluatorul AI a primit într-un context nou enunțul, sarcina și răspunsul integral. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor.
+Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.311, la 27 octombrie 2026, fără unelte și fără contextul proiectului. Evaluatorul (agent AI de revizuire) a primit într-un context nou enunțul, sarcina și răspunsul integral. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor.
 
-**Organizare:** minutul 80 din 100; interval 80–95 (15 min): sarcină 3, analiză 5, revizuire 5, decizie 2. []{.pace at=80}
+**Organizare:** minutul 80 din 100; interval 80–95 (15 min): sarcină 3, analiză 4, promptul evaluatorului AI 2, revizuire 4, decizie 2. []{.pace at=80}
 :::
 
 ---
@@ -449,29 +449,51 @@ Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral. Un evalu
 
 # Ce promite această propunere?
 
-**Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente din contractul `atribuie`:**
+**Analistul AI — Claude Haiku 4.5, 27 octombrie 2026; fragmente din contractul `atribuie`:**
 
 > **Condiția de succes:** v nu are dulap asociat. d este liber (nu e ocupat).
 >
-> **Postcondițiile pentru eșec (`refuz`):** Registrul este identic cu cel inițial (nicio modificare). […]
+> **Postcondițiile pentru eșec (`refuz`):** Registrul este identic cu cel inițial […]
 >
 > **Invarianți:** Unicitatea: un vizitator ↔ cel mult un dulap; un dulap ↔ cel mult un vizitator. […] Toate asocierile (v', d') cu v' ≠ v și d' ≠ d se păstrează.
+>
+> **Verificare S1–S6:** […] S1 și S5.1 reușesc […]; S2–S4, S5.2, S6 se refuză […]
 
-**Reguli:** precondiții — identificatori cunoscuți, registru valid, apeluri pe rând. Succes numai dacă v nu are dulap și d este liber; altfel refuz, registru identic. La succes se păstrează celelalte asocieri.
+**Reguli:** succes numai dacă v nu are dulap și d este liber; altfel refuz, registru identic; la succes se păstrează celelalte asocieri. **S5:** din B, `elibereaza(V1)` de două ori; după primul apel rămâne {V2–D2}; fără asociere: `fara_dulap`.
 
-Ce rol are fiecare afirmație? Care se verifică într-o singură stare?
+Ce rol are fiecare afirmație? Care se verifică într-o singură stare? Ce întoarce al doilea pas din S5?
 
 ::: notes
-Condiția de succes este separată corect de precondiții, iar refuzul păstrează registrul, cum cere R3. Unicitatea este un invariant: se verifică într-o singură stare. „Toate asocierile … se păstrează” compară starea de după cu cea de dinainte: este o postcondiție de efect limitat (R5), nu un invariant. Regula este corectă și apare și la „Ceea ce rămâne neschimbat”, dar este trecută și printre invarianți; la fel „seturile de vizitatori și dulapuri rămân neschimbate”, omis aici. În încheierea răspunsului, a doua eliberare din S5 este numărată printre refuzuri, deși întoarce `fara_dulap`.
+Condiția de succes este separată corect de precondiții, iar refuzul păstrează registrul, cum cere R3. Unicitatea este un invariant: se verifică într-o singură stare. „Toate asocierile … se păstrează” compară starea de după cu cea de dinainte: este o postcondiție de efect limitat (R5), nu un invariant. Regula este corectă și apare și la „Ceea ce rămâne neschimbat”, dar este trecută și printre invarianți; la fel „seturile de vizitatori și dulapuri rămân neschimbate”, omis aici. În încheierea răspunsului, proiectată în ultimul fragment, a doua eliberare din S5 este numărată printre refuzuri, deși întoarce `fara_dulap`.
 
-**Organizare:** 5 min: răspuns individual, apoi discuție. []{.pace dur=5}
+**Organizare:** 4 min: răspuns individual, apoi discuție. []{.pace dur=4}
+:::
+
+---
+
+# Promptul evaluatorului AI
+
+**Evaluator (agent AI de revizuire), context nou:** enunțul, sarcina analistului AI și răspunsul integral; fără corecțiile noastre.
+
+**Instrucțiunea exactă, la începutul promptului:**
+
+> Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret. Verifică precondițiile, condițiile de succes, fiecare rezultat, efectul limitat și invarianții. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.
+
+**Predicție, înainte de a vedea răspunsul:** va observa evaluatorul AI că păstrarea celorlalte asocieri este trecută printre invarianți?
+
+::: notes
+Instrucțiunea cere verificarea fiecărei categorii a contractului, inclusiv a invarianților, și confirmarea afirmațiilor corecte. Nu îi semnalăm clasificarea pe care am discutat-o și nu îi cerem un număr minim de defecte. Predicția pregătește întrebarea de pe slide-ul următor: o confirmare corectă local este suficientă?
+
+**Sursă:** instrucțiunea integrală din `evaluator-instructiune.md`; intrarea completă în `evaluator-prompt.md`, arhiva din 27 octombrie 2026.
+
+**Organizare:** 2 min; predicții prin ridicarea mâinii, fără discuție. []{.pace dur=2}
 :::
 
 ---
 
 # Revizuire și decizie
 
-**Evaluatorul (agent AI de revizuire), context nou: enunț, sarcină, răspuns integral — Claude Haiku 4.5, 27 octombrie 2026; fragmente:**
+**Evaluatorul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:**
 
 > Propunerea este **complet corectă** […]
 >
@@ -486,7 +508,7 @@ Observația este corectă, dar suficientă? **Decizia noastră:** păstrăm cond
 ::: notes
 O confirmare corectă local nu certifică întregul contract. Evaluatorul AI confirmă conținutul regulii, dar nu întreabă dacă este un invariant. Cealaltă revizuire păstrată confirmă la fel contractul și semnalează numai o formulare neclară a motivelor de refuz. Cerem un contraexemplu pentru fiecare corecție: un registru care conține numai V3–D3 după `atribuie(V3,D3)` din B satisface unicitatea, dar pierde V1–D1 și V2–D2.
 
-**Organizare:** 7 min: revizuire 5, decizie 2; minutul 95. []{.pace dur=7}
+**Organizare:** 6 min: revizuire 4, decizie 2; minutul 95. []{.pace dur=6}
 :::
 
 ---

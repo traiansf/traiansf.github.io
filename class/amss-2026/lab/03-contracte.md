@@ -28,7 +28,7 @@ Aplicăm responsabilitățile din cursul 5 și contractele din cursul 6. Nu cere
 
 — **Bertrand Meyer**
 
-[Sursa: Object-Oriented Software Construction, ediția a doua, §25.3, p. 873](https://bertrandmeyer.com/OOSC2/)
+[Sursa: Object-Oriented Software Construction, ediția a doua, „Using assertions”, p. 873](https://bertrandmeyer.com/OOSC2/)
 
 ::: notes
 Refuzul unei cantități indisponibile poate fi un rezultat promis, dacă operația acceptă asemenea cereri. Nu trebuie să scoatem acea situație din contract numind disponibilitatea precondiție.
