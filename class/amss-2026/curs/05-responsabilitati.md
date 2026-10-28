@@ -4,18 +4,14 @@ author: "Traian-Florin Șerbănuță"
 lang: ro-RO
 ---
 
-# Cine calculează costul expedierii?
+# Cine aplică regula? {.transition}
 
-Un client cere o estimare pentru expedierea unui colet: pe site sau de la operatorul ghișeului. Pentru aceleași date, cele două aplicații trebuie să accepte la același preț sau să refuze.
-
-Astăzi alegem **cine decide**, **de ce informații are nevoie** și **ce se schimbă când se schimbă o regulă**.
-
-Exemplu didactic. Lucrăm pe hârtie; toate datele necesare sunt pe slide-uri.
+Am distins conceptele și regulile unui domeniu. Cine le aplică și ce trebuie să știe pentru asta?
 
 ::: notes
-Legătura cu modelarea domeniului: după ce distingem conceptele și regulile, atribuim comportamentele unor părți ale soluției. O parte poate fi o funcție sau un modul; nu presupunem clase.
+Legătura cu modelarea domeniului din cursul 4: după ce distingem conceptele și regulile, atribuim comportamentele unor părți ale soluției. O parte poate fi o funcție sau un modul; nu presupunem clase. Astăzi alegem cine decide, de ce informații are nevoie și ce se schimbă când se schimbă o regulă.
 
-**Organizare:** minutul 0 din 100; deschidere 0–10 (10 min): orientare și citat 3, exercițiu 7. 29 de slide-uri cu copertă. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, exercițiul inițial și slide-ul despre responsabilități. 31 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
 
 ---
@@ -38,6 +34,24 @@ Decizia ascunsă este una dificilă sau susceptibilă de schimbare. Pentru noi: 
 
 ---
 
+# Cine calculează costul expedierii?
+
+Un client cere o estimare pentru expedierea unui colet: pe site sau de la operatorul ghișeului. Pentru aceleași date, cele două aplicații trebuie să accepte la același preț sau să refuze. Estimăm doar costul, fără să expediem coletul.
+
+**Regula convenită cu firma (beneficiarul):** plicul poate avea cel mult **1000 g inclusiv**.
+
+Pentru un plic de 1200 g, site-ul refuză, iar ghișeul acceptă. **Care aplicație a greșit și de unde știm?**
+
+*Exemplu didactic; regulile și sumele sunt construite pentru acest curs. Lucrăm pe hârtie; toate datele necesare sunt pe slide-uri.*
+
+::: notes
+Site-ul respectă regula: plicul de 1200 g depășește limita. Nu aflăm asta comparând cele două aplicații între ele, ci comparând fiecare răspuns cu regula convenită. Dacă ambele ar accepta, ar fi de acord și totuși ambele greșite. De aici întrebarea cursului: unde stă regula, astfel încât ambele canale să o aplice la fel?
+
+**Organizare:** 2 min: întrebare către clasă, așteptăm răspunsul. []{.pace dur=2}
+:::
+
+---
+
 # Unde ați pune verificarea?
 
 **Reguli:** plicul poate avea cel mult **1000 g inclusiv**; formularul web și ghișeul trebuie să aplice aceeași limită. Estimăm costul, fără să expediem coletul.
@@ -56,14 +70,32 @@ Două copii cer două actualizări și verificarea concordanței. Alternativa es
 
 ---
 
+# O responsabilitate: rezultat și informație
+
+O **responsabilitate** este o obligație a unei părți a soluției: **ce rezultat produce** și **de ce informații are nevoie**. O parte poate fi o funcție sau un modul; nu presupunem clase.
+
+Pentru estimarea costului, repartizarea responsabilităților trebuie să răspundă la trei întrebări:
+
+- **Cine decide** dacă coletul este acceptat și cât costă?
+- **Ce trebuie să știe** fiecare interfață despre acea decizie?
+- **Ce se schimbă** când se schimbă o regulă?
+
+Nu proiectăm plata, expedierea sau transportatorul.
+
+::: notes
+Întrebările selectează ce comparăm în acest curs: nu numărul de cutii dintr-o diagramă, ci traseul unei cereri și al unei schimbări. Răspunsurile din exercițiul anterior au propus deja două locuri pentru decizie; le comparăm după regulile complete.
+:::
+
+---
+
 # De la regulă la responsabilitate {.transition}
 
 Ce trebuie să știe o parte ca să poată decide?
 
 ::: notes
-O responsabilitate este o obligație explicabilă prin rezultat și informațiile necesare, nu doar un nume de clasă.
+Trecem de la regulile enunțului la obligațiile părților: regulile complete, operația comună, dependențele, apoi coeziunea și cuplarea prin exemple.
 
-**Organizare:** minutul 10 din 100; interval 10–30 (20 min): reguli 5, responsabilități și dependențe 7, comparație și discuție 8. []{.pace at=10}
+**Organizare:** minutul 15 din 100; interval 15–30 (15 min): reguli 4, responsabilități și dependențe 5, coeziune și cuplare 6. []{.pace at=15}
 :::
 
 ---
@@ -151,7 +183,7 @@ Propunere: `estimeaza` întoarce un mesaj gata de afișat. În pereche: ce simpl
 ::: notes
 Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși, pentru textele diferite permise de R5, operația ar trebui să cunoască fiecare canal. Un motiv de refuz separat de text lasă formularea interfeței. Coeziunea se discută prin scopuri și motive de schimbare, nu prin lungimea fișierului.
 
-**Organizare:** 4 min, inclusiv răspunsurile. []{.pace dur=4}
+**Organizare:** 3 min, inclusiv răspunsurile. []{.pace dur=3}
 :::
 
 ---
@@ -171,7 +203,7 @@ Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși
 ::: notes
 Apelul operației este o dependență utilă. Eliminarea tuturor dependențelor nu este obiectivul. O interfață mai mică poate proteja decizii interne, dar trebuie să exprime suficient pentru colaborare.
 
-**Organizare:** 4 min, încheierea etapei la minutul 30. []{.pace dur=4}
+**Organizare:** 3 min, încheierea etapei la minutul 30. []{.pace dur=3}
 :::
 
 ---

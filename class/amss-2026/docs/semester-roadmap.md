@@ -78,25 +78,25 @@ The library request now has an operational outcome: requests for unavailable tit
 
 ### Week 5 — Responsibility assignment, cohesion, and coupling
 
-**Authored, unreleased (27 October 2026):** [lecture](../curs/05-responsabilitati.md), [guide](../curs/05-responsabilitati-demo.md), [brief](../curs/scenarios/05-colete/brief.md), [reference](../curs/scenarios/05-colete/reference.md). 29 slides including the cover.
+**Authored, unreleased (27 October 2026):** [lecture](../curs/05-responsabilitati.md), [guide](../curs/05-responsabilitati-demo.md), [brief](../curs/scenarios/05-colete/brief.md), [reference](../curs/scenarios/05-colete/reference.md). 31 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern: transition, quotation, case question, concept slide).
 
 **Question:** Where should a rule be enforced, and what does that decision make other parts depend on?
 
 **Outcomes:** assign behavior to a responsible part; explain cohesion and coupling through concrete dependencies; compare two allocations under a change. Parcel quotations compare copied rules with a common operation, including direct calls and exact boundaries. C1 changes the envelope limit from 1000 to 1500 g while keeping the price threshold at 1000 g; an envelope of 1200 g costs 18 lei after the change. A single function and an operation with two internal functions are both defensible.
 
-**100 minutes:** opening and unaided allocation 10; responsibilities and dependencies 20; compare designs 25; change analysis 20; delegation and review 20; transfer 5. Checkpoints: 0, 10, 30, 55, 75, 95, 100. Every rule-based exercise repeats usable rule summaries on its slide.
+**100 minutes:** opening, case question, unaided allocation and the responsibility concept 15; responsibilities and dependencies 15; compare designs 25; change analysis 20; delegation and review 20; transfer 5. Checkpoints: 0, 15, 30, 55, 75, 95, 100. Every rule-based exercise repeats usable rule summaries on its slide.
 
 **AI status:** [two attempted captures](../curs/scenarios/05-colete/captures/2026-10-27/README.md) timed out without responses and are retained; two further analyses with the current brief (without C1) and two fresh-context reviews (given C1 as a later change) succeeded the same day. The slides use analyst 03 and reviewer 01, with faithful excerpts and our decision kept separate; the copied-rules variant remains a labeled constructed example. No live tools in the lecture.
 
 ### Week 6 — Contracts and invariants
 
-**Authored, unreleased (27 October 2026):** [lecture](../curs/06-contracte.md), [guide](../curs/06-contracte-demo.md), [brief](../curs/scenarios/06-dulapuri/brief.md), [reference](../curs/scenarios/06-dulapuri/reference.md). 28 slides including the cover.
+**Authored, unreleased (27 October 2026):** [lecture](../curs/06-contracte.md), [guide](../curs/06-contracte-demo.md), [brief](../curs/scenarios/06-dulapuri/brief.md), [reference](../curs/scenarios/06-dulapuri/reference.md). 30 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern).
 
 **Question:** What must an operation guarantee, including when it cannot succeed?
 
 **Outcomes:** distinguish preconditions, success conditions, postconditions and invariants; specify rejection and unchanged state; derive independent examples. Museum locker assignment uses known identifiers and serial operations. Occupancy is a success condition, not a precondition of the public operation, since rejection is promised. A constructed faulty operation loses the visitor’s old locker on rejection while preserving uniqueness; its trace is explicitly manual. Release and repeated release preserve the same final state but return different results.
 
-**100 minutes:** initial prediction 10; contract vocabulary and classification 20; assignment/release contracts 25; counterexample, repair and invariant preservation 25; delegation and review 15; transfer 5. Checkpoints: 0, 10, 30, 55, 80, 95, 100. Relevant rules remain on every comparison slide.
+**100 minutes:** opening, case question, initial prediction and the contract concept 15; contract vocabulary and classification 15; assignment/release contracts 25; counterexample, repair and invariant preservation 25; delegation and review 15; transfer 5. Checkpoints: 0, 15, 30, 55, 80, 95, 100. Relevant rules remain on every comparison slide.
 
 **AI status:** [genuine captures](../curs/scenarios/06-dulapuri/captures/2026-10-27/README.md) of 27 October 2026 from the [prepared prompts](../curs/scenarios/06-dulapuri/ai/README.md); the slides use analyst 01 (frame property filed also under invariants) and reviewer 02 („complet corectă”). The traced pseudocode remains a labeled constructed example. No live generation or code execution is required.
 

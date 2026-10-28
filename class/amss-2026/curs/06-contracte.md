@@ -4,18 +4,14 @@ author: "Traian-Florin Șerbănuță"
 lang: ro-RO
 ---
 
-# Ce promite o operație când refuză?
+# Ce promite o operație? {.transition}
 
-La muzeu, un vizitator cere un dulap deja ocupat. Registrul răspunde „refuz”.
-
-Este suficient mesajul sau trebuie să verificăm și registrul de după cerere?
-
-Astăzi precizăm **condițiile apelului**, **rezultatele garantate** și **regulile păstrate de toate operațiile**.
+Când o operație refuză o cerere, ce trebuie să rămână adevărat?
 
 ::: notes
-Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce promite partea responsabilă. În cursul 2 am cerut deja ca refuzul unui împrumut să păstreze starea bibliotecii; aici dezvoltăm această promisiune. Exemplul este didactic și nu comandă încuietori.
+Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce promite partea responsabilă, inclusiv când nu poate reuși. În cursul 2 am cerut deja ca refuzul unui împrumut să păstreze starea bibliotecii; aici dezvoltăm această promisiune.
 
-**Organizare:** minutul 0 din 100; deschidere 0–10 (10 min): orientare și citat 3, predicție 7. 28 de slide-uri cu copertă. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, predicția și slide-ul despre contract. 30 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
 
 ---
@@ -34,6 +30,24 @@ Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce
 Clientul este apelantul unei operații, nu neapărat o persoană. Furnizorul este partea care o realizează. Vom distinge obligația apelantului de situațiile pentru care operația promite un refuz.
 
 **Sursă:** citatul păstrat din materialul anterior, verificat atunci în fragmentul indexat al cărții de pe site-ul autorului, §25.3, p. 873; vezi `docs/quotations.md`. La 27 octombrie 2026 pagina autorului este accesibilă, dar descărcarea PDF întoarce 404; nu pretindem o nouă verificare a paginii 873. Folosim adresa stabilă recomandată de autor.
+:::
+
+---
+
+# Un refuz la dulapurile muzeului
+
+La intrarea într-un muzeu, vizitatorii primesc dulapuri pentru bagaje. Un **registru** ține asocierile vizitator–dulap și răspunde la două cereri: atribuirea unui dulap și eliberarea lui.
+
+**Regula convenită cu muzeul (beneficiarul):** un vizitator are cel mult un dulap, iar un dulap are cel mult un vizitator; o cerere imposibilă este refuzată.
+
+Un vizitator cere un dulap deja ocupat. Registrul răspunde `refuz`. **Este suficient mesajul sau trebuie să verificăm și registrul de după cerere?**
+
+*Exemplu didactic; nu comandăm încuietori.*
+
+::: notes
+Mesajul singur nu ajunge: refuzul este o promisiune despre starea de după, nu doar un text întors. Trebuie să ne uităm la registru ca să știm dacă cererea refuzată a lăsat ceva în urmă. Exercițiul următor arată două registre care însoțesc același mesaj.
+
+**Organizare:** 2 min: întrebare către clasă, așteptăm răspunsul. []{.pace dur=2}
 :::
 
 ---
@@ -59,6 +73,22 @@ Doar A respectă refuzul. B păstrează unicitatea, dar șterge asocierea V1–D
 
 ---
 
+# Ce descrie un contract
+
+Un **contract** descrie ce promite o operație celor care o apelează, fără să descrie pașii prin care o realizează:
+
+- **condițiile apelului:** ce presupunem despre cerere și despre registru;
+- **rezultatele garantate:** ce întoarce și cum arată registrul după, la succes și la refuz;
+- **regulile păstrate de toate operațiile:** ce respectă orice registru valid.
+
+Pentru registrul muzeului le precizăm pe rând și le verificăm pe scenarii. Nu modelăm autentificarea, concurența sau erorile tehnice.
+
+::: notes
+Exercițiul anterior a arătat deja că a treia categorie nu este suficientă singură: ambele registre respectau unicitatea, dar numai unul respecta refuzul. Numele consacrate ale celor trei întrebări, precondiție, postcondiție și invariant, urmează după regulile complete ale registrului.
+:::
+
+---
+
 # Precizăm promisiunea {.transition}
 
 Ce presupunem și ce garantăm?
@@ -66,7 +96,7 @@ Ce presupunem și ce garantăm?
 ::: notes
 Contractul trebuie să permită verificarea unei implementări fără a copia pașii ei.
 
-**Organizare:** minutul 10 din 100; interval 10–30 (20 min): enunț 5, concepte 8, clasificare 7. []{.pace at=10}
+**Organizare:** minutul 15 din 100; interval 15–30 (15 min): enunț 3, concepte 5, clasificare 7. []{.pace at=15}
 :::
 
 ---

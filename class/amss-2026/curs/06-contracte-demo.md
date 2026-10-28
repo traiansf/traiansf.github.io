@@ -1,13 +1,13 @@
 # Cursul 6 — ghid de predare
 
-[Prezentarea](06-contracte.md) are **28 de slide-uri cu copertă** și un parcurs de **100 de minute**. [Enunțul](scenarios/06-dulapuri/brief.md) și [referința](scenarios/06-dulapuri/reference.md) fixează regulile și răspunsurile. Toate datele, regulile relevante și sarcinile folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți.
+[Prezentarea](06-contracte.md) are **30 de slide-uri cu copertă** și un parcurs de **100 de minute**. [Enunțul](scenarios/06-dulapuri/brief.md) și [referința](scenarios/06-dulapuri/reference.md) fixează regulile și răspunsurile. Toate datele, regulile relevante și sarcinile folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți.
 
 ## Parcurs
 
 | Minute | Activitate |
 |---|---|
-| 0–10 | Două refuzuri, două registre finale; predicție înainte de terminologie. |
-| 10–30 | Precondiție, condiție de succes, postcondiție și invariant. |
+| 0–15 | Orientare, citatul, problema, două registre finale pentru același refuz; predicție înainte de terminologie, ce descrie un contract. |
+| 15–30 | Precondiție, condiție de succes, postcondiție și invariant. |
 | 30–55 | Contractele atribuirii și eliberării, efectul limitat, repetarea. |
 | 55–80 | Pseudocod greșit, trasare manuală, corecție și conservarea unicității. |
 | 80–95 | Sarcină AI pregătită, contract de revizuit și decizie. |

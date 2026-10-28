@@ -1,13 +1,13 @@
 # Cursul 5 — ghid de predare
 
-[Prezentarea](05-responsabilitati.md) are **29 de slide-uri cu copertă**, pentru **100 de minute**. [Enunțul](scenarios/05-colete/brief.md) și [raționamentul de referință](scenarios/05-colete/reference.md) sunt surse pentru pregătire. La curs folosim numai prezentarea, hârtia și discuția, fără rulări AI, cod executat sau fișe separate.
+[Prezentarea](05-responsabilitati.md) are **31 de slide-uri cu copertă**, pentru **100 de minute**. [Enunțul](scenarios/05-colete/brief.md) și [raționamentul de referință](scenarios/05-colete/reference.md) sunt surse pentru pregătire. La curs folosim numai prezentarea, hârtia și discuția, fără rulări AI, cod executat sau fișe separate.
 
 ## Parcurs
 
 | Minute | Activitate |
 |---|---|
-| 0–10 | Problema, citatul, alegerea inițială a locului verificării. |
-| 10–30 | Reguli, responsabilități, coeziune și cuplare prin exemple. |
+| 0–15 | Orientare, citatul, problema, alegerea inițială a locului verificării, ce este o responsabilitate. |
+| 15–30 | Reguli, responsabilități, coeziune și cuplare prin exemple. |
 | 30–55 | Reguli copiate versus operație comună; valori-limită; două repartizări defensabile. |
 | 55–75 | C1: limita plicului crește, pragul de preț rămâne. |
 | 75–95 | Sarcină delegată, propunere, revizuire și decizie umană. |
