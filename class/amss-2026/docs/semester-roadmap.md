@@ -1,6 +1,6 @@
 # AMSS 2026/2027 — Instructor implementation roadmap
 
-This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 are released; Lab 1 has been refactored around collaboration and discussion. Courses 5–6 and Lab 3 were authored on 27 October 2026 and remain unreleased; their AI sections use genuine Claude Haiku 4.5 captures of 27 October 2026 (two attempts per role, selection rationale archived). Weeks 7–13 and Labs 4–5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
+This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 are released; Lab 1 has been refactored around collaboration and discussion. Courses 5–6 and Lab 3 were authored on 27 October 2026; Course 5 was released on 29 October 2026, Course 6 and Lab 3 remain unreleased; their AI sections use genuine Claude Haiku 4.5 captures of 27 October 2026 (two attempts per role, selection rationale archived). Weeks 7–13 and Labs 4–5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
 
 ## Teaching commitments
 
@@ -78,7 +78,7 @@ The library request now has an operational outcome: requests for unavailable tit
 
 ### Week 5 — Responsibility assignment, cohesion, and coupling
 
-**Authored, unreleased (27 October 2026):** [lecture](../curs/05-responsabilitati.md), [guide](../curs/05-responsabilitati-demo.md), [brief](../curs/scenarios/05-colete/brief.md), [reference](../curs/scenarios/05-colete/reference.md). 32 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern: transition, quotation, case question, concept slide; GPT-6-Astra review round the same day added the evaluator-prompt slide and replaced the threshold and change exercises).
+**Authored 27 October 2026, released 29 October 2026:** [lecture](../curs/05-responsabilitati.md), [guide](../curs/05-responsabilitati-demo.md), [brief](../curs/scenarios/05-colete/brief.md), [reference](../curs/scenarios/05-colete/reference.md). 32 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern: transition, quotation, case question, concept slide; GPT-6-Astra review round the same day added the evaluator-prompt slide and replaced the threshold and change exercises).
 
 **Question:** Where should a rule be enforced, and what does that decision make other parts depend on?
 
