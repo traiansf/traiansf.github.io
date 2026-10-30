@@ -103,10 +103,10 @@ Trecem de la regulile enunțului la obligațiile componentelor: regulile complet
 
 | Regulă | Conținut |
 |--------|------------------------------------------|
-| R1 | Masa în grame întregi și tipul ambalajului. Canalul interpretează textul; operația verifică valorile. |
-| R2 | Acceptăm numai mase între 1 și 5000 g inclusiv. |
-| R3 | Plic: cel mult 1000 g; cutie: întregul interval R2. Alt ambalaj: refuz. |
-| R4 | Colet acceptat: până la 1000 g inclusiv → 10 lei; peste → 18 lei. |
+| R1 (intrare) | Coletul este descris prin masa în grame întregi și tipul ambalajului. Canalul interpretează textul introdus; operația verifică valorile primite. |
+| R2 (masa acceptată) | Acceptăm numai mase între 1 și 5000 g inclusiv. |
+| R3 (ambalaj) | Un plic poate avea cel mult 1000 g; o cutie poate avea orice masă permisă de R2 (masa acceptată). Alt ambalaj este refuzat. |
+| R4 (preț) | Un colet acceptat costă 10 lei până la 1000 g inclusiv și 18 lei peste. |
 
 Un refuz nu include preț. Sumele sunt date didactice.
 
@@ -118,9 +118,9 @@ Eligibilitatea și tariful sunt două decizii. O cutie de 1001 g este acceptată
 
 # Ce trebuie să fie comun?
 
-**R5:** pentru aceeași masă și același ambalaj, ambele canale acceptă la același preț sau refuză. Textele și aspectul afișării pot diferi.
+**R5 (canale):** pentru aceeași masă și același ambalaj, ambele canale acceptă la același preț sau refuză. Textele și aspectul afișării pot diferi.
 
-**R6:** doar estimare, fără salvare, plată, expediere sau transportator extern.
+**R6 (limitele sarcinii):** producem doar o estimare, fără salvare, plată, expediere sau transportator extern.
 
 | Obligație | Informația necesară |
 |---|---|
@@ -180,7 +180,7 @@ Propunere: `estimeaza` întoarce un mesaj gata de afișat. În pereche: ce simpl
 Am comparat cât de bine servesc responsabilitățile unei componente același scop: aceasta este **coeziunea**. Acceptarea coletului și calculul sumei contribuie la același răspuns; formularea mesajului servește scopul fiecărui canal.
 
 ::: notes
-Lăsați perechile să răspundă înainte de a numi conceptul. Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși, pentru textele diferite permise de R5, operația ar trebui să cunoască fiecare canal. Un motiv de refuz separat de text lasă formularea canalului. Coeziunea se discută prin scopuri și motive de schimbare, nu prin lungimea fișierului.
+Lăsați perechile să răspundă înainte de a numi conceptul. Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși, pentru textele diferite permise de R5 (canale), operația ar trebui să cunoască fiecare canal. Un motiv de refuz separat de text lasă formularea canalului. Coeziunea se discută prin scopuri și motive de schimbare, nu prin lungimea fișierului.
 
 **Organizare:** 3 min, inclusiv răspunsurile. []{.pace dur=3}
 :::
@@ -189,7 +189,7 @@ Lăsați perechile să răspundă înainte de a numi conceptul. Mesajul comun si
 
 # Cuplarea: ce trebuie să cunoască ceilalți?
 
-**R5:** cele două canale trebuie să rămână de acord. Ce poate cunoaște un canal despre estimare?
+**R5 (canale):** cele două canale trebuie să rămână de acord. Ce poate cunoaște un canal despre estimare?
 
 | Canalul cunoaște… | Consecință |
 |---|---|
@@ -221,7 +221,7 @@ Nu alegem după desenul cu cele mai multe sau cele mai puține cutii. Verificăm
 
 # Varianta cu reguli copiate
 
-**R3:** plicul de **1000 g inclusiv** este permis. **R4:** la 1000 g, prețul este 10 lei. **R5:** cele două canale trebuie să dea același rezultat.
+**R3 (ambalaj):** plicul de **1000 g inclusiv** este permis. **R4 (preț):** la 1000 g, prețul este 10 lei. **R5 (canale):** cele două canale trebuie să dea același rezultat.
 
 Exemplu didactic construit pentru comparație:
 
@@ -331,7 +331,7 @@ Schimbarea separă sensuri pe care valoarea inițială comună le putea ascunde.
 
 # Limita plicului devine 1500 g
 
-**C1 modifică numai ambalajul:** plicul este acceptat până la **1500 g inclusiv**.
+**C1 (limita plicului) modifică numai regula ambalajului:** plicul este acceptat până la **1500 g inclusiv**.
 
 **Rămân:** masă 1–5000 g; preț 10 lei până la **1000 g inclusiv**, 18 lei peste; refuz fără preț; aceleași rezultate în cele două canale.
 
@@ -351,14 +351,14 @@ Individual, apoi în pereche:
 
 # Harta schimbării
 
-**C1:** numai limita plicului trece la 1500 g; pragul prețului rămâne 1000 g.
+**C1 (limita plicului):** trece la 1500 g; pragul prețului rămâne 1000 g.
 
 | Unde | Ce schimbăm? |
 |---|---|
 | Acceptarea coletului | Limita plicului și verificările la valorile-limită. |
 | Calculul prețului | Regula rămâne; verificăm noile plicuri acceptate la 18 lei. |
 | Canalele | Pot actualiza indicația afișată despre limita plicului. |
-| Exemplele de acceptare | S2 (plic 1001 g) devine acceptare la 18 lei. |
+| Exemplele de acceptare | Scenariul S2 (plic de 1001 g) devine acceptare la 18 lei. |
 
 Operația comună reduce copiile deciziei. Nu elimină toate efectele vizibile ale schimbării.
 
@@ -424,9 +424,9 @@ Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Cl
 
 > Propune responsabilitățile și dependențele pentru estimarea costului expedierii. Compară o operație comună cu regulile copiate în cele două interfețe. Verifică scenariile S1–S5. Nu scrie cod, nu impune clase sau servicii. Răspunde în română, în maximum 350 de cuvinte.
 
-**Enunțul trimis, înainte de C1:** masă 1–5000 g; plic ≤1000 g; cutie pe tot intervalul; preț 10 lei până la 1000 g, 18 lei peste; refuz fără preț; aceleași rezultate în web și la ghișeu.
+**Enunțul trimis, înainte de C1 (limita plicului):** masă 1–5000 g; plic ≤1000 g; cutie pe tot intervalul; preț 10 lei până la 1000 g, 18 lei peste; refuz fără preț; aceleași rezultate în web și la ghișeu.
 
-**S1–S5:** plic 1000 g / 1001 g; cutie 1001 g / 0 g / 5000 g și 5001 g. Fără plată sau expediere.
+**Scenariile S1–S5:** plic 1000 g / 1001 g; cutie 1001 g / 0 g / 5000 g și 5001 g. Fără plată sau expediere.
 
 ::: notes
 Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral fără C1. Ea spune „interfețe” pentru canale, ca enunțul trimis atunci; răspunsul preia cuvântul. În vocabularul nostru, interfața este semnătura operației, cu sensul intrărilor și al rezultatelor. Predăm o versiune explicită, fără a amesteca C1 cu enunțul inițial: C1 apare numai la revizuire, ca schimbare ulterioară. Criteriile de verificare: responsabilitățile canalelor și ale operației, rezultatele S1–S5 și sensul fiecărei limite.
@@ -448,7 +448,7 @@ Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral fără C1
 >
 > **Risc de inconsistență:** dacă R3 se modifică (plic acceptat până la 1500 g), trebuie actualizat în două locuri; greșelile sunt posibile.
 
-**Reguli:** plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste. **C1:** numai limita plicului devine 1500 g.
+**Reguli:** plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste. **C1 (limita plicului):** 1500 g.
 
 Ce păstrăm? Canalele (la AI: „interfețe”) „nu validează reguli”: ce le este totuși „accesibil” și pentru ce? Ce precizăm despre „limitele” stocate pentru un plic de **1200 g după C1**?
 
@@ -462,7 +462,7 @@ Răspunsul verifică S1–S5 corect. Păstrăm operația comună, independența 
 
 # Promptul evaluatorului AI
 
-**Evaluator (agent AI de revizuire), context nou:** enunțul, sarcina analistului AI, răspunsul integral și C1, prezentată ca schimbare ulterioară pe care analistul AI nu trebuia să o anticipeze.
+**Evaluator (agent AI de revizuire), context nou:** enunțul, sarcina analistului AI, răspunsul integral și C1 (limita plicului), prezentată ca schimbare ulterioară pe care analistul AI nu trebuia să o anticipeze.
 
 **Instrucțiunea exactă, la începutul promptului:**
 
@@ -490,7 +490,7 @@ Instrucțiunea cere două lucruri diferite: verificarea propunerii față de sar
 >
 > Merge dincolo cu sugestii de implementare (DRY, centralizare).
 
-**Sarcina analistului AI:** compară o operație comună cu regulile copiate; enunțul primit nu conținea C1. **S2:** plic de 1001 g. **După C1:** plic ≤1500 g; 10 lei până la 1000 g inclusiv, 18 lei peste.
+**Sarcina analistului AI:** compară o operație comună cu regulile copiate; enunțul primit nu conținea C1 (limita plicului). **Scenariul S2:** plic de 1001 g. **După C1:** plic ≤1500 g; 10 lei până la 1000 g inclusiv, 18 lei peste.
 
 Ce observație este susținută? Ce etichetă nu este susținută de sarcina analistului AI?
 
@@ -504,9 +504,9 @@ Consecința pentru S2 este corectă și răspunde instrucțiunii noastre: după 
 
 # Decizia noastră
 
-Păstrăm operația comună și verificările S1–S5. Separăm **limita ambalajului** de **pragul tarifului**.
+Păstrăm operația comună și verificarea scenariilor S1–S5. Separăm **limita ambalajului** de **pragul tarifului**.
 
-**Acceptăm din revizuire:** după C1, S2 (plic de 1001 g) → acceptat, 18 lei. **Respingem:** ideea că operația comună iese din sarcină; sarcina cere explicit comparația.
+**Acceptăm din revizuire:** după C1 (limita plicului), scenariul S2 (plic de 1001 g) → acceptat, 18 lei. **Respingem:** ideea că operația comună iese din sarcină; sarcina cere explicit comparația.
 
 **După C1:** plic ≤1500 g; preț 10 lei până la 1000 g, 18 lei peste. Verificăm: plic de 1200 g → 18 lei; plic de 1501 g → refuz, în ambele canale.
 

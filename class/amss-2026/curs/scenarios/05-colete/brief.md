@@ -11,7 +11,7 @@ Un client cere o estimare pe site sau de la operatorul ghișeului. Formularul we
 - **R3 — ambalaj:** un plic este acceptat numai până la 1000 g inclusiv. O cutie este acceptată pe întregul interval R2. Un ambalaj diferit produce un refuz, fără preț.
 - **R4 — preț:** pentru un colet acceptat, masa de cel mult 1000 g costă 10 lei; masa de peste 1000 g costă 18 lei. Nu există alte taxe.
 - **R5 — canale:** formularul web și aplicația ghișeului folosesc aceleași reguli; pentru aceeași masă și același ambalaj, ambele acceptă la același preț sau refuză. Fiecare canal își alege textele și aspectul afișării. Nu se cere același motiv raportat dacă sunt aplicabile mai multe motive de refuz (R6).
-- **R6 — limite:** producem doar o estimare; fără salvarea coletului, plată, expediere, integrare cu un transportator, concurență sau măsurarea masei. Un refuz pentru o intrare cu mai multe probleme poate indica oricare dintre motivele aplicabile; prioritatea lor nu este stabilită.
+- **R6 — limitele sarcinii:** producem doar o estimare; fără salvarea coletului, plată, expediere, integrare cu un transportator, concurență sau măsurarea masei. Un refuz pentru o intrare cu mai multe probleme poate indica oricare dintre motivele aplicabile; prioritatea lor nu este stabilită.
 
 ## Scenarii independente, fără stare persistentă
 
