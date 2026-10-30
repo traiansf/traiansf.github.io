@@ -490,9 +490,9 @@ Instrucțiunea cere două lucruri diferite: verificarea propunerii față de sar
 
 > Propunerea **nu menționa explicit ce se schimbă după C1**. Instrucțiunile de evaluare cer verificarea "ce trebuie să se schimbe în propunere după C1". […] Propunerea ar trebui să precizeze: „S2 devine acceptare la 18 lei după C1 […]”
 >
-> Observația DRY și „dificultate în testare" sunt bune, dar **depășesc sarcina analistului**, care nu cere o soluție de cod sau arhitectură. […]
+> […] sunt bune, dar **depășesc sarcina analistului**, care nu cere o soluție de cod sau arhitectură. […]
 >
-> Merge dincolo cu sugestii de implementare (DRY, centralizare).
+> Merge dincolo cu sugestii de implementare ([…] centralizare).
 
 **Sarcina analistului AI:** compară o operație comună cu regulile copiate; enunțul primit nu conținea C1 (limita plicului). **Scenariul S2:** plic de 1001 g. **După C1:** plic ≤1500 g; 10 lei până la 1000 g inclusiv, 18 lei peste.
 
@@ -500,6 +500,8 @@ Ce observație este susținută? Ce calificare a propunerii nu este susținută 
 
 ::: notes
 Consecința pentru S2 este corectă și răspunde instrucțiunii noastre: după C1, plicul de 1001 g costă 18 lei. Calificarea propunerii drept „omisiune” este însă nedreaptă: analistul AI nu a primit C1, iar enunțul trimis evaluatorului AI spunea că schimbarea C1 nu trebuia anticipată. Restul revizuirii notează corect că enunțul cere rezultate egale, nu aceeași implementare; afirmația că operația comună „depășește sarcina” ignoră însă sarcina, care cere chiar comparația dintre operația comună și regulile copiate. Revizuirea aplică distinct limita plicului și pragul de preț în S2 (plic ≤1500 g, 18 lei peste 1000 g), dar nu cere propunerii responsabilități separate pentru ele; noi le precizăm în decizie, fără să deducem reprezentarea internă a limitelor. Cealaltă revizuire păstrată are alte erori, de exemplu un posibil refuz pentru ambalaj la cutia de 0 g.
+
+Omisiunile din citate scot două mențiuni ale lui DRY (*Don't Repeat Yourself*), principiul invocat de analistul AI în fraza „duplicarea încalcă principiul DRY”, care nu apare pe slide-uri. Dacă un student întreabă: același lucru l-am argumentat prin costul unei schimbări, nu printr-un nume de principiu.
 
 **Organizare:** 5 min, cu răspunsuri. []{.pace dur=5}
 :::
