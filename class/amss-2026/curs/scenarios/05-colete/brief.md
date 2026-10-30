@@ -1,8 +1,8 @@
-# Enunț — estimarea costului expedierii unui colet
+# Enunț — estimarea prețului expedierii unui colet
 
-Exemplu didactic pentru Cursul 5. Regulile și sumele sunt inventate pentru exercițiu; nu descriu un transportator real. Versiune inițială: 27 octombrie 2026. Vocabular actualizat la 30 octombrie 2026: versiunea trimisă asistentului AI, păstrată în arhiva capturilor, numea canalele „interfețe”.
+Exemplu didactic pentru Cursul 5. Regulile și sumele sunt inventate pentru exercițiu; nu descriu un transportator real. Versiune inițială: 27 octombrie 2026. Vocabular actualizat la 30 octombrie 2026: versiunea trimisă asistentului AI, păstrată în arhiva capturilor, numea canalele „interfețe” și prețul „costul expedierii”.
 
-Un client cere o estimare pe site sau de la operatorul ghișeului. Formularul web și aplicația operatorului sunt cele două canale software; ambele estimează costul expedierii, fără să o efectueze.
+Un client cere o estimare pe site sau de la operatorul ghișeului. Formularul web și aplicația operatorului sunt cele două canale software; ambele estimează prețul expedierii, fără să o efectueze.
 
 ## Reguli convenite
 
