@@ -9,7 +9,7 @@ lang: ro-RO
 Am distins conceptele și regulile unui domeniu. Cine le aplică și ce trebuie să știe pentru asta?
 
 ::: notes
-Legătura cu modelarea domeniului din cursul 4: după ce distingem conceptele și regulile, atribuim comportamentele unor părți ale soluției. O parte poate fi o funcție sau un modul; nu presupunem clase. Astăzi alegem cine decide, de ce informații are nevoie și ce se schimbă când se schimbă o regulă.
+Legătura cu modelarea domeniului din cursul 4: după ce distingem conceptele și regulile, atribuim comportamentele unor componente ale soluției. O componentă poate fi o funcție, un modul sau o aplicație întreagă; nu presupunem clase. Astăzi alegem cine decide, de ce informații are nevoie și ce se schimbă când se schimbă o regulă.
 
 **Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, exercițiul inițial și slide-ul despre responsabilități. 32 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
@@ -27,7 +27,7 @@ Legătura cu modelarea domeniului din cursul 4: după ce distingem conceptele ș
 [Sursa: On the Criteria To Be Used in Decomposing Systems into Modules, p. 1058](https://akkartik.name/parnas.pdf#page=6)
 
 ::: notes
-Decizia ascunsă este una dificilă sau susceptibilă de schimbare. Pentru noi: interfețele trebuie să poată cere o estimare fără să cunoască pragurile folosite în calcul.
+Decizia ascunsă este una dificilă sau susceptibilă de schimbare. Pentru noi: canalele trebuie să poată cere o estimare fără să cunoască pragurile folosite în calcul. Ce Parnas numește „modul” numim în curs componentă.
 
 **Sursă:** articolul original, CACM 15(12), 1972, Conclusion, p. 1058, pagina PDF 6; formulare reverificată la 27 octombrie 2026. Nu deducem din citat că orice regulă cere un modul separat.
 :::
@@ -36,16 +36,16 @@ Decizia ascunsă este una dificilă sau susceptibilă de schimbare. Pentru noi: 
 
 # Cine calculează costul expedierii?
 
-Un client cere o estimare pentru expedierea unui colet: pe site sau de la operatorul ghișeului. Pentru aceleași date, cele două aplicații trebuie să accepte la același preț sau să refuze. Estimăm doar costul, fără să expediem coletul.
+Un client cere o estimare pentru expedierea unui colet pe unul dintre cele două **canale**: site-ul sau aplicația operatorului de la ghișeu. Pentru aceleași date, ambele canale trebuie să accepte la același preț sau să refuze. Estimăm doar costul, fără să expediem coletul.
 
 **Regula convenită cu firma (beneficiarul):** plicul poate avea cel mult **1000 g inclusiv**.
 
-Pentru un plic de 1200 g, site-ul refuză, iar ghișeul acceptă. **Care aplicație a greșit și de unde știm?**
+Pentru un plic de 1200 g, site-ul refuză, iar ghișeul acceptă. **Care canal a greșit și de unde știm?**
 
 *Exemplu didactic; regulile și sumele sunt construite pentru acest curs. Lucrăm pe hârtie; toate datele necesare sunt pe slide-uri.*
 
 ::: notes
-Site-ul respectă regula: plicul de 1200 g depășește limita. Nu aflăm asta comparând cele două aplicații între ele, ci comparând fiecare răspuns cu regula convenită. Dacă ambele ar accepta, ar fi de acord și totuși ambele greșite. De aici întrebarea cursului: unde stă regula, astfel încât ambele canale să o aplice la fel?
+Site-ul respectă regula: plicul de 1200 g depășește limita. Nu aflăm asta comparând cele două canale între ele, ci comparând fiecare răspuns cu regula convenită. Dacă ambele ar accepta, ar fi de acord și totuși ambele greșite. De aici întrebarea cursului: unde stă regula, astfel încât ambele canale să o aplice la fel?
 
 **Organizare:** 2 min: întrebare către clasă, așteptăm răspunsul. []{.pace dur=2}
 :::
@@ -56,13 +56,13 @@ Site-ul respectă regula: plicul de 1200 g depășește limita. Nu aflăm asta c
 
 **Reguli:** plicul poate avea cel mult **1000 g inclusiv**; formularul web și ghișeul trebuie să aplice aceeași limită. Estimăm costul, fără să expediem coletul.
 
-Un coleg propune: „Fiecare interfață verifică limita înainte să calculeze prețul.”
+Un coleg propune: „Fiecare canal verifică limita înainte să calculeze prețul.”
 
-1. Individual: ce trebuie să știe fiecare interfață ca să aplice propunerea? Cine răspunde dacă cele două canale ajung să dea rezultate diferite?
-2. În pereche: propuneți altă repartizare a deciziei de acceptare. Ce ar trebui să știe interfața despre partea care decide și ce obligație aduce această repartizare?
+1. Individual: ce trebuie să știe fiecare canal ca să aplice propunerea? Cine răspunde dacă cele două canale ajung să dea rezultate diferite?
+2. În pereche: propuneți altă repartizare a deciziei de acceptare. Ce ar trebui să știe canalul despre componenta care decide și ce obligație aduce această repartizare?
 
 ::: notes
-Fiecare interfață ar trebui să cunoască limita și regula de preț; două copii trebuie ținute în acord, iar nicio parte nu răspunde de acordul lor. Alternativa este o operație comună care primește masa și ambalajul și întoarce acceptare/preț sau refuz; obligația ei: intrările și rezultatele trebuie convenite și păstrate. În noua repartizare, interfața trebuie să știe doar ce îi trimite și ce primește. Nu numim încă alternativa „corectă”: cerem costul și informațiile necesare. Schimbarea unei reguli o urmărim în a doua parte a cursului.
+Fiecare canal ar trebui să cunoască limita și regula de preț; două copii trebuie ținute în acord, iar nicio componentă nu răspunde de acordul lor. Alternativa este o operație comună care primește masa și ambalajul și întoarce acceptare/preț sau refuz; obligația ei: intrările și rezultatele trebuie convenite și păstrate. În noua repartizare, canalul trebuie să știe doar ce trimite operației și ce primește: interfața ei, numită pe slide-ul operației. Nu numim încă alternativa „corectă”: cerem costul și informațiile necesare. Schimbarea unei reguli o urmărim în a doua parte a cursului.
 
 **Organizare:** 7 min: 2 individual, 2 în pereche, 3 discuție. []{.pace dur=7}
 :::
@@ -71,12 +71,12 @@ Fiecare interfață ar trebui să cunoască limita și regula de preț; două co
 
 # O responsabilitate: rezultat și informație
 
-O **responsabilitate** este o obligație a unei părți a soluției: **ce rezultat produce** și **de ce informații are nevoie**. O parte poate fi o funcție sau un modul; nu presupunem clase.
+O **responsabilitate** este o obligație a unei **componente** a soluției: **ce rezultat produce** și **de ce informații are nevoie**. O componentă poate fi o funcție, un modul sau o aplicație întreagă; nu presupunem clase.
 
 Pentru estimarea costului, repartizarea responsabilităților trebuie să răspundă la trei întrebări:
 
 - **Cine decide** dacă coletul este acceptat și cât costă?
-- **Ce trebuie să știe** fiecare interfață despre acea decizie?
+- **Ce trebuie să știe** fiecare canal despre acea decizie?
 - **Ce se schimbă** când se schimbă o regulă?
 
 Nu proiectăm plata, expedierea sau transportatorul.
@@ -89,10 +89,10 @@ Nu proiectăm plata, expedierea sau transportatorul.
 
 # De la regulă la responsabilitate {.transition}
 
-Ce trebuie să știe o parte ca să poată decide?
+Ce trebuie să știe o componentă ca să poată decide?
 
 ::: notes
-Trecem de la regulile enunțului la obligațiile părților: regulile complete, operația comună, dependențele, apoi coeziunea și cuplarea prin exemple.
+Trecem de la regulile enunțului la obligațiile componentelor: regulile complete, operația comună, dependențele, apoi coeziunea și cuplarea prin exemple.
 
 **Organizare:** minutul 15 din 100; interval 15–30 (15 min): reguli 4, responsabilități și dependențe 5, coeziune și cuplare 6. []{.pace at=15}
 :::
@@ -103,7 +103,7 @@ Trecem de la regulile enunțului la obligațiile părților: regulile complete, 
 
 | Regulă | Conținut |
 |--------|------------------------------------------|
-| R1 | Masa în grame întregi și tipul ambalajului. Interfața interpretează textul; operația verifică valorile. |
+| R1 | Masa în grame întregi și tipul ambalajului. Canalul interpretează textul; operația verifică valorile. |
 | R2 | Acceptăm numai mase între 1 și 5000 g inclusiv. |
 | R3 | Plic: cel mult 1000 g; cutie: întregul interval R2. Alt ambalaj: refuz. |
 | R4 | Colet acceptat: până la 1000 g inclusiv → 10 lei; peste → 18 lei. |
@@ -118,7 +118,7 @@ Eligibilitatea și tariful sunt două decizii. O cutie de 1001 g este acceptată
 
 # Ce trebuie să fie comun?
 
-**R5:** pentru aceeași masă și același ambalaj, ambele aplicații acceptă la același preț sau refuză. Textele și aspectul afișării pot diferi.
+**R5:** pentru aceeași masă și același ambalaj, ambele canale acceptă la același preț sau refuză. Textele și aspectul afișării pot diferi.
 
 **R6:** doar estimare, fără salvare, plată, expediere sau transportator extern.
 
@@ -126,7 +126,7 @@ Eligibilitatea și tariful sunt două decizii. O cutie de 1001 g este acceptată
 |---|---|
 | Interpretarea textului | Formatul intrării din acel canal. |
 | Acceptarea și prețul | Masa, ambalajul, regulile de estimare. |
-| Afișarea rezultatului | Rezultatul și convențiile interfeței. |
+| Afișarea rezultatului | Rezultatul și convențiile canalului. |
 
 ::: notes
 „Același rezultat” înseamnă acceptare cu aceeași sumă sau refuz. Nu cere mesaje identice. Pentru mai multe motive simultane nu fixăm prioritate. Responsabilitățile sunt conceptuale; tabelul nu impune trei clase.
@@ -143,10 +143,12 @@ Eligibilitatea și tariful sunt două decizii. O cutie de 1001 g este acceptată
 
 **Reper:** masa 1–5000 g; plicul cel mult 1000 g; prețul 10 lei până la 1000 g, 18 lei peste. Refuzul nu are preț.
 
+Semnătura și sensul rezultatelor formează **interfața** operației: tot ce trebuie să știe un canal ca s-o folosească.
+
 Operația poate fi o **funcție locală**. Nu are nevoie să citească formularul sau să afișeze mesaje.
 
 ::: notes
-Interfața operației este acordul despre intrări și rezultate. Nu o confundăm cu interfața grafică. Când invocăm operația direct, regulile trebuie să se aplice în continuare. Acest lucru permite verificări fără browser.
+Interfața operației este acordul despre intrări și rezultate. În curs folosim „interfață” numai în acest sens, nu pentru ecranul sau formularul unui canal. Când invocăm operația direct, regulile trebuie să se aplice în continuare. Acest lucru permite verificări fără browser.
 :::
 
 ---
@@ -155,8 +157,8 @@ Interfața operației este acordul despre intrări și rezultate. Nu o confundă
 
 ```mermaid
 flowchart LR
-  W[Formular web] -->|cere estimarea| E[Operație de estimare]
-  G[Aplicația ghișeului] -->|cere estimarea| E
+  W[Canalul web] -->|cere estimarea| E[Operație de estimare]
+  G[Canalul ghișeului] -->|cere estimarea| E
 ```
 
 Săgeata înseamnă **„folosește operația”**, nu circulația tuturor datelor.
@@ -171,14 +173,14 @@ Webul și ghișeul depind de intrările și rezultatele operației. Operația nu
 
 # Coeziunea: de ce sunt împreună?
 
-**Reguli:** plicul peste 1000 g este refuzat; fiecare interfață poate alege textul prin care explică refuzul.
+**Reguli:** plicul peste 1000 g este refuzat; fiecare canal poate alege textul prin care explică refuzul.
 
 Propunere: `estimeaza` întoarce un mesaj gata de afișat. În pereche: ce simplifică aceasta? Ce se întâmplă dacă site-ul cere un text scurt, iar ghișeul o explicație detaliată?
 
-Am comparat cât de bine servesc responsabilitățile unei părți același scop: aceasta este **coeziunea**. Acceptarea coletului și calculul sumei contribuie la același răspuns; formularea mesajului servește scopul fiecărui canal.
+Am comparat cât de bine servesc responsabilitățile unei componente același scop: aceasta este **coeziunea**. Acceptarea coletului și calculul sumei contribuie la același răspuns; formularea mesajului servește scopul fiecărui canal.
 
 ::: notes
-Lăsați perechile să răspundă înainte de a numi conceptul. Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși, pentru textele diferite permise de R5, operația ar trebui să cunoască fiecare canal. Un motiv de refuz separat de text lasă formularea interfeței. Coeziunea se discută prin scopuri și motive de schimbare, nu prin lungimea fișierului.
+Lăsați perechile să răspundă înainte de a numi conceptul. Mesajul comun simplifică inițial afișarea și evită texte duplicate. Totuși, pentru textele diferite permise de R5, operația ar trebui să cunoască fiecare canal. Un motiv de refuz separat de text lasă formularea canalului. Coeziunea se discută prin scopuri și motive de schimbare, nu prin lungimea fișierului.
 
 **Organizare:** 3 min, inclusiv răspunsurile. []{.pace dur=3}
 :::
@@ -187,18 +189,18 @@ Lăsați perechile să răspundă înainte de a numi conceptul. Mesajul comun si
 
 # Cuplarea: ce trebuie să cunoască ceilalți?
 
-**R5:** cele două canale trebuie să rămână de acord. Ce poate cunoaște o interfață despre estimare?
+**R5:** cele două canale trebuie să rămână de acord. Ce poate cunoaște un canal despre estimare?
 
-| Interfața cunoaște… | Consecință |
+| Canalul cunoaște… | Consecință |
 |---|---|
 | `estimeaza(masa, ambalaj)` și rezultatul | Poate cere estimarea fără să copieze pragurile. |
 | Pragurile și ordinea verificărilor | Trebuie actualizată când se schimbă politica. |
 | Variabilele interne ale calculului | O reorganizare internă îi poate afecta comportamentul. |
 
-Ce dependență ne ajută și ce dependență ne încurcă? Dependențele dintre părți și detaliile pe care trebuie să le cunoască una despre cealaltă formează **cuplarea**.
+Ce dependență ne ajută și ce dependență ne încurcă? Dependențele dintre componente și detaliile pe care trebuie să le cunoască una despre cealaltă formează **cuplarea**.
 
 ::: notes
-Cereți întâi răspunsul pentru fiecare rând, apoi numiți conceptul. Apelul operației este o dependență utilă. Eliminarea tuturor dependențelor nu este obiectivul. O interfață mai mică poate proteja decizii interne, dar trebuie să exprime suficient pentru colaborare.
+Cereți întâi răspunsul pentru fiecare rând, apoi numiți conceptul. Apelul operației este o dependență utilă. Eliminarea tuturor dependențelor nu este obiectivul. O interfață mai mică a operației poate proteja decizii interne, dar trebuie să exprime suficient pentru colaborare.
 
 **Organizare:** 3 min, încheierea etapei la minutul 30. []{.pace dur=3}
 :::
@@ -238,7 +240,7 @@ Defectul este explicit la limita inclusă. Nu este o captură AI sau o eroare ob
 
 # Varianta cu o operație comună
 
-Ambele interfețe cer `estimeaza(masa, ambalaj)` și afișează rezultatul.
+Ambele canale cer `estimeaza(masa, ambalaj)` și afișează rezultatul.
 
 **În operație:** masă 1–5000 g; plic până la 1000 g; preț 10 lei până la 1000 g, 18 lei peste; refuz fără preț.
 
@@ -247,7 +249,7 @@ Ambele interfețe cer `estimeaza(masa, ambalaj)` și afișează rezultatul.
 Cost: trebuie convenite și păstrate sensurile intrărilor, rezultatelor și motivelor de refuz.
 
 ::: notes
-Centralizarea responsabilității nu garantează că regula este implementată corect. Dacă operația comună are limita greșită, ambele interfețe vor greși la fel. Compararea canalelor și compararea cu enunțul sunt verificări distincte.
+Centralizarea responsabilității nu garantează că regula este implementată corect. Dacă operația comună are limita greșită, ambele canale vor greși la fel. Compararea canalelor și compararea cu enunțul sunt verificări distincte.
 :::
 
 ---
@@ -287,14 +289,14 @@ Plicul de 1000 g deosebește propunerile: A — webul refuză, ghișeul acceptă
 Ce justificare ați cere înainte de a separa fiecare regulă într-o altă componentă?
 
 ::: notes
-Ambele variante pot fi justificate. Separarea cere un motiv: evoluție independentă, reutilizare reală sau claritate. Dacă părțile trebuie permanent schimbate împreună, separarea poate adăuga coordonare fără beneficiu. Nu introducem catalogul de șabloane de proiectare.
+Ambele variante pot fi justificate. Separarea cere un motiv: evoluție independentă, reutilizare reală sau claritate. Dacă componentele trebuie permanent schimbate împreună, separarea poate adăuga coordonare fără beneficiu. Nu introducem catalogul de șabloane de proiectare.
 
 **Organizare:** 6 min, cu argumente pro și contra. []{.pace dur=6}
 :::
 
 ---
 
-# Putem verifica fără interfața grafică?
+# Putem verifica fără formular și ghișeu?
 
 Apelăm direct operația propusă, folosind **rezultatele așteptate din reguli**:
 
@@ -351,7 +353,7 @@ Individual, apoi în pereche:
 
 **C1:** numai limita plicului trece la 1500 g; pragul prețului rămâne 1000 g.
 
-| Parte | Ce schimbăm? |
+| Unde | Ce schimbăm? |
 |---|---|
 | Acceptarea coletului | Limita plicului și verificările la valorile-limită. |
 | Calculul prețului | Regula rămâne; verificăm noile plicuri acceptate la 18 lei. |
@@ -368,20 +370,20 @@ Un text de ajutor „maximum 1000 g” trebuie actualizat chiar dacă operația 
 
 ---
 
-# Altă schimbare, altă parte
+# Altă schimbare, altă componentă
 
 **Situația curentă:** plic ≤1500 g; prag tarifar 1000 g; webul și ghișeul apelează `estimeaza`.
 
 A. Site-ul adaugă o avertizare imediată când plicul depășește limita, înainte de a cere estimarea.
 
-B. Apare o a treia interfață, care trebuie să respecte aceeași politică.
+B. Apare un al treilea canal, care trebuie să respecte aceeași politică.
 
 C. Se schimbă numai prețul treptei de peste 1000 g.
 
-În pereche: pentru fiecare schimbare numiți partea responsabilă și o verificare. La A: cine decide acceptarea? Ce se întâmplă dacă avertizarea folosește încă limita veche?
+În pereche: pentru fiecare schimbare numiți componenta responsabilă și o verificare. La A: cine decide acceptarea? Ce se întâmplă dacă avertizarea folosește încă limita veche?
 
 ::: notes
-A: afișarea web; avertizarea ajută utilizatorul, dar nu decide: operația comună verifică oricum înainte de a accepta. Cu limita veche în avertizare, site-ul ar avertiza greșit la 1200 g, iar estimarea ar accepta: verificăm concordanța textului cu politica, nu mutăm decizia în interfață. O verificare repetată nu este greșită în sine; greșită ar fi o a doua autoritate. B: noul canal apelează operația; verificăm concordanța și interpretarea intrărilor. C: calculul comun și rezultatele așteptate, plus textele care ar afișa sume fixate. Nu schimbăm ipotetic și masa sau ambalajul.
+A: afișarea web; avertizarea ajută utilizatorul, dar nu decide: operația comună verifică oricum înainte de a accepta. Cu limita veche în avertizare, site-ul ar avertiza greșit la 1200 g, iar estimarea ar accepta: verificăm concordanța textului cu politica, nu mutăm decizia în canal. O verificare repetată nu este greșită în sine; greșită ar fi o a doua autoritate. B: noul canal apelează operația; verificăm concordanța și interpretarea intrărilor. C: calculul comun și rezultatele așteptate, plus textele care ar afișa sume fixate. Nu schimbăm ipotetic și masa sau ambalajul.
 
 **Organizare:** 4 min, continuând comparația cu harta schimbării. []{.pace dur=4}
 :::
@@ -427,7 +429,7 @@ Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Cl
 **S1–S5:** plic 1000 g / 1001 g; cutie 1001 g / 0 g / 5000 g și 5001 g. Fără plată sau expediere.
 
 ::: notes
-Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral fără C1. Predăm o versiune explicită, fără a amesteca C1 cu enunțul inițial: C1 apare numai la revizuire, ca schimbare ulterioară. Criteriile de verificare: responsabilitățile canalelor și ale operației, rezultatele S1–S5 și sensul fiecărei limite.
+Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral fără C1. Ea spune „interfețe” pentru canale, ca enunțul trimis atunci; răspunsul preia cuvântul. În vocabularul nostru, interfața este semnătura operației, cu sensul intrărilor și al rezultatelor. Predăm o versiune explicită, fără a amesteca C1 cu enunțul inițial: C1 apare numai la revizuire, ca schimbare ulterioară. Criteriile de verificare: responsabilitățile canalelor și ale operației, rezultatele S1–S5 și sensul fiecărei limite.
 
 **Organizare:** 4 min, cu identificarea criteriilor de verificare. []{.pace dur=4}
 :::
@@ -448,10 +450,10 @@ Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral fără C1
 
 **Reguli:** plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste. **C1:** numai limita plicului devine 1500 g.
 
-Ce păstrăm? Interfețele „nu validează reguli”: ce le este totuși „accesibil” și pentru ce? Ce precizăm despre „limitele” stocate pentru un plic de **1200 g după C1**?
+Ce păstrăm? Canalele (la AI: „interfețe”) „nu validează reguli”: ce le este totuși „accesibil” și pentru ce? Ce precizăm despre „limitele” stocate pentru un plic de **1200 g după C1**?
 
 ::: notes
-Răspunsul verifică S1–S5 corect. Păstrăm operația comună, independența față de afișare și verificarea S1–S5. Propunerea precizează că interfețele nu validează regulile domeniului, deci accesul lor la reguli nu poate însemna o decizie independentă de acceptare; rămâne neexplicat scopul lui, de exemplu afișarea limitei către utilizator. Nu prezentăm lipsa drept eroare: cerem precizarea scopului, care păstrează o singură autoritate a deciziei. Fragmentul nu stabilește cum sunt reprezentate limitele; nu putem deduce că folosește o singură constantă. Pentru C1 precizăm două decizii distincte: acceptarea plicului și calculul tarifului; plicul de 1200 g este acceptat și costă 18 lei. Modelul a ales singur 1500 g ca exemplu de schimbare; enunțul trimis nu conține această valoare. „DRY”, din restul răspunsului, este o etichetă; nu o adoptăm ca argument.
+Răspunsul verifică S1–S5 corect. Păstrăm operația comună, independența față de afișare și verificarea S1–S5. Propunerea precizează că interfețele, adică în vocabularul nostru canalele, nu validează regulile domeniului, deci accesul lor la reguli nu poate însemna o decizie independentă de acceptare; rămâne neexplicat scopul lui, de exemplu afișarea limitei către utilizator. Nu prezentăm lipsa drept eroare: cerem precizarea scopului, care păstrează o singură autoritate a deciziei. Fragmentul nu stabilește cum sunt reprezentate limitele; nu putem deduce că folosește o singură constantă. Pentru C1 precizăm două decizii distincte: acceptarea plicului și calculul tarifului; plicul de 1200 g este acceptat și costă 18 lei. Modelul a ales singur 1500 g ca exemplu de schimbare; enunțul trimis nu conține această valoare. „DRY”, din restul răspunsului, este o etichetă; nu o adoptăm ca argument.
 
 **Organizare:** 5 min: predicție individuală, comparație în pereche și răspunsuri. []{.pace dur=5}
 :::

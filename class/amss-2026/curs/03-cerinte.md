@@ -161,7 +161,7 @@ Delimitarea trebuie convenită, nu dedusă din lipsa unei funcții în enunț. A
 Pentru fiecare: **informație convenită** (inclusă sau exclusă), **consecință dedusă**, **întrebare deschisă**, **ipoteză** de verificat sau **propunere** de discutat?
 
 ::: notes
-Unicitatea este informație convenită prin R1; generarea automată a numărului este o consecință dedusă: R1 spune că sistemul creează sesizarea cu număr unic, iar studentul indică doar locul și descrierea. Notificarea prin email/mesaj este exclusă explicit din prima versiune; R1 cere însă ca studentul să vadă numărul în interfață. Disponibilitatea de 99% este o propunere de cerință de calitate, nediscutată cu administrația; ea ridică întrebări deschise: ce disponibilitate vrea administrația, pe ce perioadă și cum se măsoară.
+Unicitatea este informație convenită prin R1; generarea automată a numărului este o consecință dedusă: R1 spune că sistemul creează sesizarea cu număr unic, iar studentul indică doar locul și descrierea. Notificarea prin email/mesaj este exclusă explicit din prima versiune; R1 cere însă ca studentul să vadă numărul pe ecran. Disponibilitatea de 99% este o propunere de cerință de calitate, nediscutată cu administrația; ea ridică întrebări deschise: ce disponibilitate vrea administrația, pe ce perioadă și cum se măsoară.
 
 Modelul AI primise numai cererea inițială și sarcina de a propune o specificație, fără clarificări. Discutăm ce păstrăm după răspunsurile administrației, nu încălcarea unor reguli pe care nu le primise. Nici ipoteza, nici propunerea nu constituie un acord. Promptul integral apare pe slide-ul 24. Formulările și terminologia modelului AI sunt păstrate. Captura provine din a doua dintre cele două rulări inițiale, la 10 octombrie 2026.
 

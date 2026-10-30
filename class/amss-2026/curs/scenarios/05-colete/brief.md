@@ -1,12 +1,12 @@
 # Enunț — estimarea costului expedierii unui colet
 
-Exemplu didactic pentru Cursul 5. Regulile și sumele sunt inventate pentru exercițiu; nu descriu un transportator real. Versiune inițială: 27 octombrie 2026.
+Exemplu didactic pentru Cursul 5. Regulile și sumele sunt inventate pentru exercițiu; nu descriu un transportator real. Versiune inițială: 27 octombrie 2026. Vocabular actualizat la 30 octombrie 2026: versiunea trimisă asistentului AI, păstrată în arhiva capturilor, numea canalele „interfețe”.
 
 Un client cere o estimare pe site sau de la operatorul ghișeului. Formularul web și aplicația operatorului sunt cele două canale software; ambele estimează costul expedierii, fără să o efectueze.
 
 ## Reguli convenite
 
-- **R1 — intrare:** estimăm expedierea unui singur colet, descris prin masa în grame (număr întreg) și tipul ambalajului. Interfața interpretează textul; dacă masa nu poate fi interpretată ca număr întreg, cere corectarea ei. Operația verifică valorile primite conform R2–R3, inclusiv un tip de ambalaj neacceptat.
+- **R1 — intrare:** estimăm expedierea unui singur colet, descris prin masa în grame (număr întreg) și tipul ambalajului. Canalul interpretează textul; dacă masa nu poate fi interpretată ca număr întreg, cere corectarea ei. Operația verifică valorile primite conform R2–R3, inclusiv un tip de ambalaj neacceptat.
 - **R2 — masa acceptată:** `1 ≤ masa ≤ 5000`. Orice altă masă produce un refuz, fără preț.
 - **R3 — ambalaj:** un plic este acceptat numai până la 1000 g inclusiv. O cutie este acceptată pe întregul interval R2. Un ambalaj diferit produce un refuz, fără preț.
 - **R4 — preț:** pentru un colet acceptat, masa de cel mult 1000 g costă 10 lei; masa de peste 1000 g costă 18 lei. Nu există alte taxe.
@@ -29,4 +29,4 @@ Limita pentru plic devine **1500 g inclusiv**. Numai R3 se schimbă: pragul de p
 
 ## Sarcina de proiectare
 
-Comparați verificări și calcul copiate în cele două interfețe cu o operație comună `estimeaza(masa, ambalaj)`. Atribuiți interpretarea intrării, acceptarea coletului, calculul și afișarea. Explicați cine depinde de ce și unde se schimbă C1. O operație comună poate fi o funcție locală; nu se cere serviciu de rețea, clasă, cadru software sau un anumit tip de diagramă.
+Comparați verificări și calcul copiate în cele două canale cu o operație comună `estimeaza(masa, ambalaj)`. Atribuiți interpretarea intrării, acceptarea coletului, calculul și afișarea. Explicați cine depinde de ce și unde se schimbă C1. O operație comună poate fi o funcție locală; nu se cere serviciu de rețea, clasă, cadru software sau un anumit tip de diagramă.

@@ -267,10 +267,10 @@ Ea trebuie să:
 2. Verifice că exemplarul nu este împrumutat și nici rezervat altui membru.
 3. Înregistreze împrumutul; la ridicare, să încheie rezervarea și să marcheze cererea îndeplinită.
 
-O astfel de obligație a unei părți a soluției (funcție, obiect, serviciu) se numește **responsabilitate**. Interfața poate afișa disponibilitatea, dar regula trebuie verificată și în momentul împrumutului.
+O astfel de obligație a unei componente a soluției (funcție, obiect, serviciu) se numește **responsabilitate**. Ecranul poate afișa disponibilitatea, dar regula trebuie verificată și în momentul împrumutului.
 
 ::: notes
-La fel, înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4). Dacă și interfața, și operația ar verifica R2, o schimbare a regulii ar trebui făcută în două locuri: această dependență se numește cuplare. Verificările aceleiași reguli, grupate într-un singur loc, dau coeziune. Ambele revin în cursul despre responsabilități.
+La fel, înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4). Dacă și ecranul, și operația ar verifica R2, o schimbare a regulii ar trebui făcută în două locuri: această dependență se numește cuplare. Verificările aceleiași reguli, grupate într-un singur loc, dau coeziune. Ambele revin în cursul despre responsabilități.
 
 **Organizare:** termenii coeziune și cuplare doar se menționează; R6 cere procesare pe rând, deci nu discutăm aici mecanisme de blocare.
 :::
@@ -753,7 +753,7 @@ Nici reproiectarea din mesajul 3 nu este completă: exemplarul rezervat nu mai i
 Cursurile următoare reiau aceste idei, fiecare pe o altă problemă de dimensiuni reduse.
 
 ::: notes
-Coeziunea și cuplarea țin de atribuirea responsabilităților; amintiți exemplul cu verificarea R2 în interfață și în operație. Celelalte teme ale cursului, precum abstractizarea, granițele dintre componente, șabloanele de proiectare, testarea, compromisurile și validarea modelelor, inclusiv o introducere în modelarea formală, se sprijină pe aceste cinci.
+Coeziunea și cuplarea țin de atribuirea responsabilităților; amintiți exemplul cu verificarea R2 pe ecran și în operație. Celelalte teme ale cursului, precum abstractizarea, granițele dintre componente, șabloanele de proiectare, testarea, compromisurile și validarea modelelor, inclusiv o introducere în modelarea formală, se sprijină pe aceste cinci.
 
 **Organizare:** planul detaliat este în `../docs/redesign-2026-2027.md`.
 :::

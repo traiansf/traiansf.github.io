@@ -9,7 +9,7 @@ lang: ro-RO
 Când o operație refuză o cerere, ce trebuie să rămână adevărat?
 
 ::: notes
-Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce promite partea responsabilă, inclusiv când nu poate reuși. În cursul 2 am cerut deja ca refuzul unui împrumut să păstreze starea bibliotecii; aici dezvoltăm această promisiune.
+Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce promite componenta responsabilă, inclusiv când nu poate reuși. În cursul 2 am cerut deja ca refuzul unui împrumut să păstreze starea bibliotecii; aici dezvoltăm această promisiune.
 
 **Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, predicția și slide-ul despre contract. 31 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
@@ -27,7 +27,7 @@ Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce
 [Sursa: Object-Oriented Software Construction, ediția a doua, „Using assertions”, p. 873](https://bertrandmeyer.com/OOSC2/)
 
 ::: notes
-Clientul este apelantul unei operații, nu neapărat o persoană. Furnizorul este partea care o realizează. Vom distinge obligația apelantului de situațiile pentru care operația promite un refuz.
+Clientul este apelantul unei operații, nu neapărat o persoană. Furnizorul este componenta care o realizează. Vom distinge obligația apelantului de situațiile pentru care operația promite un refuz.
 
 **Sursă:** citatul păstrat din materialul anterior, verificat atunci în fragmentul indexat al cărții de pe site-ul autorului, subsecțiunea „Using assertions”, p. 873; vezi `docs/quotations.md`. Revizuirea din 28 octombrie 2026 situează pasajul înaintea începutului secțiunii 25.3, de aceea nu mai dăm numărul secțiunii. La 27 și 28 octombrie 2026 pagina autorului este accesibilă, dar descărcarea PDF întoarce 404; nu pretindem o nouă verificare a paginii 873. Folosim adresa stabilă recomandată de autor.
 :::
