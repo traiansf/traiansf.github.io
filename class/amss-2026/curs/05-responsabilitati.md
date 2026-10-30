@@ -374,13 +374,17 @@ Un text de ajutor „maximum 1000 g” trebuie actualizat chiar dacă operația 
 
 **Regulile curente:** plic ≤1500 g; pragul de preț 1000 g; webul și ghișeul apelează `estimeaza`.
 
+Trei schimbări distincte; fiecare pornește independent de la regulile curente.
+
 A. Site-ul adaugă o avertizare imediată când plicul depășește limita, înainte de a cere estimarea.
 
 B. Apare un al treilea canal, care trebuie să respecte aceleași reguli.
 
 C. Se schimbă numai prețul treptei de peste 1000 g.
 
-În pereche: pentru fiecare schimbare numiți componenta responsabilă și o verificare. La A: cine decide acceptarea? Ce se întâmplă dacă avertizarea folosește încă limita veche?
+În pereche: pentru fiecare schimbare numiți componenta responsabilă și o verificare.
+
+**În plus, pentru A:** cine decide acceptarea? Ce se întâmplă dacă avertizarea folosește încă limita veche?
 
 ::: notes
 A: afișarea web; avertizarea ajută utilizatorul, dar nu decide: operația comună verifică oricum înainte de a accepta. Cu limita veche în avertizare, site-ul ar avertiza greșit la 1200 g, iar estimarea ar accepta: verificăm concordanța textului cu regulile, nu mutăm decizia în canal. O verificare repetată nu este greșită în sine; greșită ar fi o a doua componentă care decide. B: noul canal apelează operația; verificăm concordanța și interpretarea intrărilor. C: calculul comun și rezultatele așteptate, plus textele care ar afișa sume fixate. Nu schimbăm ipotetic și masa sau ambalajul.
@@ -410,7 +414,7 @@ Transmiterea trebuie să păstreze legătura cu enunțul și cu versiunea lui: d
 
 # Delegăm și verificăm decizia {.transition}
 
-Cum judecăm o propunere înainte să acceptăm etichetele ei?
+Judecăm o propunere după argumentele ei, nu după termenii pe care îi invocă.
 
 ::: notes
 Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.311, la 27 octombrie 2026, fără unelte și fără contextul proiectului. Analistul AI a primit enunțul fără C1; evaluatorul (agent AI de revizuire) a primit, într-un context nou, enunțul, sarcina, răspunsul integral și C1 ca schimbare ulterioară. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
@@ -453,7 +457,7 @@ Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral fără C1
 Ce păstrăm? Canalele (la AI: „interfețe”) „nu validează reguli”: ce le este totuși „accesibil” și pentru ce? Ce precizăm despre „limitele” stocate pentru un plic de **1200 g după C1**?
 
 ::: notes
-Răspunsul verifică S1–S5 corect. Păstrăm operația comună, independența față de afișare și verificarea S1–S5. Propunerea precizează că interfețele, adică în vocabularul nostru canalele, nu validează regulile domeniului, deci accesul lor la reguli nu poate însemna o decizie independentă de acceptare; rămâne neexplicat scopul lui, de exemplu afișarea limitei către utilizator. Nu prezentăm lipsa drept eroare: cerem precizarea scopului, care păstrează o singură componentă care decide. Fragmentul nu stabilește cum sunt reprezentate limitele; nu putem deduce că folosește o singură constantă. Pentru C1 precizăm două decizii distincte: acceptarea plicului și calculul prețului; plicul de 1200 g este acceptat și costă 18 lei. Modelul a ales singur 1500 g ca exemplu de schimbare; enunțul trimis nu conține această valoare. „DRY”, din restul răspunsului, este o etichetă; nu o adoptăm ca argument.
+Răspunsul verifică S1–S5 corect. Păstrăm operația comună, independența față de afișare și verificarea S1–S5. Propunerea precizează că interfețele, adică în vocabularul nostru canalele, nu validează regulile domeniului, deci accesul lor la reguli nu poate însemna o decizie independentă de acceptare; rămâne neexplicat scopul lui, de exemplu afișarea limitei către utilizator. Nu prezentăm lipsa drept eroare: cerem precizarea scopului, care păstrează o singură componentă care decide. Fragmentul nu stabilește cum sunt reprezentate limitele; nu putem deduce că folosește o singură constantă. Pentru C1 precizăm două decizii distincte: acceptarea plicului și calculul prețului; plicul de 1200 g este acceptat și costă 18 lei. Modelul a ales singur 1500 g ca exemplu de schimbare; enunțul trimis nu conține această valoare. „DRY”, din restul răspunsului, numește un principiu fără să arate ce câștigăm aici; nu îl adoptăm ca argument.
 
 **Organizare:** 5 min: predicție individuală, comparație în pereche și răspunsuri. []{.pace dur=5}
 :::
@@ -492,10 +496,10 @@ Instrucțiunea cere două lucruri diferite: verificarea propunerii față de sar
 
 **Sarcina analistului AI:** compară o operație comună cu regulile copiate; enunțul primit nu conținea C1 (limita plicului). **Scenariul S2:** plic de 1001 g. **După C1:** plic ≤1500 g; 10 lei până la 1000 g inclusiv, 18 lei peste.
 
-Ce observație este susținută? Ce etichetă nu este susținută de sarcina analistului AI?
+Ce observație este susținută? Ce calificare a propunerii nu este susținută de sarcina analistului AI?
 
 ::: notes
-Consecința pentru S2 este corectă și răspunde instrucțiunii noastre: după C1, plicul de 1001 g costă 18 lei. Eticheta de „omisiune” a propunerii este însă nedreaptă: analistul AI nu a primit C1, iar enunțul trimis evaluatorului AI spunea că schimbarea C1 nu trebuia anticipată. Restul revizuirii notează corect că enunțul cere rezultate egale, nu aceeași implementare; afirmația că operația comună „depășește sarcina” ignoră însă sarcina, care cere chiar comparația dintre operația comună și regulile copiate. Revizuirea aplică distinct limita plicului și pragul de preț în S2 (plic ≤1500 g, 18 lei peste 1000 g), dar nu cere propunerii responsabilități separate pentru ele; noi le precizăm în decizie, fără să deducem reprezentarea internă a limitelor. Cealaltă revizuire păstrată are alte erori, de exemplu un posibil refuz pentru ambalaj la cutia de 0 g.
+Consecința pentru S2 este corectă și răspunde instrucțiunii noastre: după C1, plicul de 1001 g costă 18 lei. Calificarea propunerii drept „omisiune” este însă nedreaptă: analistul AI nu a primit C1, iar enunțul trimis evaluatorului AI spunea că schimbarea C1 nu trebuia anticipată. Restul revizuirii notează corect că enunțul cere rezultate egale, nu aceeași implementare; afirmația că operația comună „depășește sarcina” ignoră însă sarcina, care cere chiar comparația dintre operația comună și regulile copiate. Revizuirea aplică distinct limita plicului și pragul de preț în S2 (plic ≤1500 g, 18 lei peste 1000 g), dar nu cere propunerii responsabilități separate pentru ele; noi le precizăm în decizie, fără să deducem reprezentarea internă a limitelor. Cealaltă revizuire păstrată are alte erori, de exemplu un posibil refuz pentru ambalaj la cutia de 0 g.
 
 **Organizare:** 5 min, cu răspunsuri. []{.pace dur=5}
 :::
