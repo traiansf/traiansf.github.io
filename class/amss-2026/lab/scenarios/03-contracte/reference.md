@@ -4,7 +4,7 @@ Material de pregătire pentru [enunț](scenario.md), construit didactic; nu capt
 
 ## Responsabilități
 
-Registrul deține rezervările și stocul fizic și decide operațiile care le modifică. Formularul și importul interpretează intrările și apelează aceleași operații. Disponibilul poate fi calculat din F și suma rezervărilor active; dacă este stocat separat, apare obligația de a-l sincroniza. Nicio alegere de reprezentare nu elimină regulile.
+Registrul deține rezervările și stocul fizic și decide operațiile care le modifică. Formularul și importul interpretează intrările și apelează aceleași operații. Disponibilul poate fi calculat din F și suma rezervărilor active; dacă este stocat separat, apare costul sincronizării lui. Nicio alegere de reprezentare nu elimină regulile.
 
 O altă repartizare defensabilă a responsabilităților: o funcție de decizie primește o situație coerentă și propune modificarea, iar un coordonator o aplică integral înaintea următorului apel. Costul: coordonatorul trebuie să păstreze coerența dintre decizie și aplicare. Nu cerem microservicii, tranzacții distribuite sau teoria cursurilor 7–8 (stări, interacțiuni și granițe). „Activă”, „ridicată”, „anulată” sunt valori date în enunț, suficiente pentru condițiile operațiilor.
 
@@ -12,7 +12,7 @@ O altă repartizare defensabilă a responsabilităților: o funcție de decizie 
 
 Opțional, pentru verificarea stocului total, notăm cu P suma cantităților din rezervările ridicate; cele anulate nu contribuie la P.
 
-Cantitățile rezervărilor sunt strict pozitive; identificatorii sunt unici. `0 ≤ R ≤ F ≤ 10`, `D = F − R ≥ 0`, `F + P = 10`. Ultima egalitate folosește absența reaprovizionării și retururilor. Istoricul cu cantitățile ridicate permite calcularea lui P. Păstrarea identificatorilor și cantităților de la o stare la alta este o obligație a operațiilor, distinctă de unicitatea verificabilă într-o singură stare.
+Cantitățile rezervărilor sunt strict pozitive; identificatorii sunt unici. `0 ≤ R ≤ F ≤ 10`, `D = F − R ≥ 0`, `F + P = 10`. Ultima egalitate folosește absența reaprovizionării și retururilor. Istoricul cu cantitățile ridicate permite calcularea lui P. Păstrarea identificatorilor și cantităților de la o stare la alta este o responsabilitate a operațiilor, distinctă de unicitatea verificabilă într-o singură stare.
 
 Precondiții comune: R1 (registru valid, apeluri seriale, cantitate întreagă unde există, identificator nevid). Cantitatea q strict pozitivă, disponibilitatea și identificatorul nefolosit sunt **condiții de succes**, nu precondiții care ar lăsa refuzul nespecificat.
 

@@ -267,7 +267,7 @@ Ea trebuie să:
 2. Verifice că exemplarul nu este împrumutat și nici rezervat altui membru.
 3. Înregistreze împrumutul; la ridicare, să încheie rezervarea și să marcheze cererea îndeplinită.
 
-O astfel de obligație a unei componente a soluției (funcție, obiect, serviciu) se numește **responsabilitate**. Ecranul poate afișa disponibilitatea, dar regula trebuie verificată și în momentul împrumutului.
+Ceea ce trebuie să asigure astfel o componentă a soluției (funcție, obiect, serviciu) se numește **responsabilitate**. Ecranul poate afișa disponibilitatea, dar regula trebuie verificată și în momentul împrumutului.
 
 ::: notes
 La fel, înregistrarea cererii verifică lipsa exemplarelor disponibile și unicitatea cererii neîncheiate, apoi îi atribuie ordinea (R4). Dacă și ecranul, și operația ar verifica R2, o schimbare a regulii ar trebui făcută în două locuri: această dependență se numește cuplare. Verificările aceleiași reguli, grupate într-un singur loc, dau coeziune. Ambele revin în cursul despre responsabilități.

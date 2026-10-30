@@ -27,7 +27,7 @@ Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce
 [Sursa: Object-Oriented Software Construction, ediția a doua, „Using assertions”, p. 873](https://bertrandmeyer.com/OOSC2/)
 
 ::: notes
-Clientul este apelantul unei operații, nu neapărat o persoană. Furnizorul este componenta care o realizează. Vom distinge obligația apelantului de situațiile pentru care operația promite un refuz.
+Clientul este apelantul unei operații, nu neapărat o persoană. Furnizorul este componenta care o realizează. Vom distinge ce cere precondiția de la apelant de situațiile pentru care operația promite un refuz.
 
 **Sursă:** citatul păstrat din materialul anterior, verificat atunci în fragmentul indexat al cărții de pe site-ul autorului, subsecțiunea „Using assertions”, p. 873; vezi `docs/quotations.md`. Revizuirea din 28 octombrie 2026 situează pasajul înaintea începutului secțiunii 25.3, de aceea nu mai dăm numărul secțiunii. La 27 și 28 octombrie 2026 pagina autorului este accesibilă, dar descărcarea PDF întoarce 404; nu pretindem o nouă verificare a paginii 873. Folosim adresa stabilă recomandată de autor.
 :::

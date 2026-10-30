@@ -59,10 +59,10 @@ Site-ul respectă regula: plicul de 1200 g depășește limita. Nu aflăm asta c
 Un coleg propune: „Fiecare canal verifică limita înainte să calculeze prețul.”
 
 1. Individual: ce trebuie să știe fiecare canal ca să aplice propunerea? Cine răspunde dacă cele două canale ajung să dea rezultate diferite?
-2. În pereche: propuneți altă repartizare a deciziei de acceptare. Ce ar trebui să știe canalul despre componenta care decide și ce obligație aduce această repartizare?
+2. În pereche: propuneți altă repartizare a deciziei de acceptare. Ce ar trebui să știe canalul despre componenta care decide și ce cost aduce această repartizare?
 
 ::: notes
-Fiecare canal ar trebui să cunoască limita și regula de preț; două copii trebuie ținute în acord, iar nicio componentă nu răspunde de acordul lor. Alternativa este o operație comună care primește masa și ambalajul și întoarce acceptare/preț sau refuz; obligația ei: intrările și rezultatele trebuie convenite și păstrate. În noua repartizare, canalul trebuie să știe doar ce trimite operației și ce primește: interfața ei, numită pe slide-ul operației. Nu numim încă alternativa „corectă”: cerem costul și informațiile necesare. Schimbarea unei reguli o urmărim în a doua parte a cursului.
+Fiecare canal ar trebui să cunoască limita și regula de preț; două copii trebuie ținute în acord, iar nicio componentă nu răspunde de acordul lor. Alternativa este o operație comună care primește masa și ambalajul și întoarce acceptare/preț sau refuz; costul ei: intrările și rezultatele trebuie convenite și păstrate. În noua repartizare, canalul trebuie să știe doar ce trimite operației și ce primește: interfața ei, numită pe slide-ul operației. Nu numim încă alternativa „corectă”: cerem costul și informațiile necesare. Schimbarea unei reguli o urmărim în a doua parte a cursului.
 
 **Organizare:** 7 min: 2 individual, 2 în pereche, 3 discuție. []{.pace dur=7}
 :::
@@ -71,7 +71,7 @@ Fiecare canal ar trebui să cunoască limita și regula de preț; două copii tr
 
 # O responsabilitate: rezultat și informație
 
-O **responsabilitate** este o obligație a unei **componente** a soluției: **ce rezultat produce** și **de ce informații are nevoie**. O componentă poate fi o funcție, un modul sau o aplicație întreagă; nu presupunem clase.
+O **responsabilitate** este ceea ce trebuie să asigure o **componentă** a soluției: **ce rezultat produce** și **de ce informații are nevoie**. O componentă poate fi o funcție, un modul sau o aplicație întreagă; nu presupunem clase.
 
 Pentru estimarea costului, repartizarea responsabilităților trebuie să răspundă la trei întrebări:
 
@@ -92,7 +92,7 @@ Nu proiectăm plata, expedierea sau transportatorul.
 Ce trebuie să știe o componentă ca să poată decide?
 
 ::: notes
-Trecem de la regulile enunțului la obligațiile componentelor: regulile complete, operația comună, dependențele, apoi coeziunea și cuplarea prin exemple.
+Trecem de la regulile enunțului la responsabilitățile componentelor: regulile complete, operația comună, dependențele, apoi coeziunea și cuplarea prin exemple.
 
 **Organizare:** minutul 15 din 100; interval 15–30 (15 min): reguli 4, responsabilități și dependențe 5, coeziune și cuplare 6. []{.pace at=15}
 :::
@@ -122,7 +122,7 @@ Eligibilitatea și tariful sunt două decizii. O cutie de 1001 g este acceptată
 
 **R6 (limitele sarcinii):** producem doar o estimare, fără salvare, plată, expediere sau transportator extern.
 
-| Obligație | Informația necesară |
+| Responsabilitate | Informația necesară |
 |---|---|
 | Interpretarea textului | Formatul intrării din acel canal. |
 | Acceptarea și prețul | Masa, ambalajul, regulile de estimare. |
@@ -209,7 +209,7 @@ Cereți întâi răspunsul pentru fiecare rând, apoi numiți conceptul. Apelul 
 
 # Comparăm două repartizări {.transition}
 
-Aceleași rezultate, obligații diferite pentru cei care schimbă sistemul.
+Aceleași rezultate, costuri diferite pentru cei care schimbă sistemul.
 
 ::: notes
 Nu alegem după desenul cu cele mai multe sau cele mai puține cutii. Verificăm traseul unei cereri și al unei schimbări.
@@ -233,7 +233,7 @@ Exemplu didactic construit pentru comparație:
 Fiecare canal calculează apoi singur prețul. Copiile pot coincide inițial și pot ajunge să aplice reguli diferite după o modificare.
 
 ::: notes
-Defectul este explicit la limita inclusă. Nu este o captură AI sau o eroare observată într-o aplicație reală. Chiar dacă reparăm semnul, obligația de sincronizare a copiilor rămâne.
+Defectul este explicit la limita inclusă. Nu este o captură AI sau o eroare observată într-o aplicație reală. Chiar dacă reparăm semnul, costul sincronizării copiilor rămâne.
 :::
 
 ---
