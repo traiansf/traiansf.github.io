@@ -8,7 +8,7 @@ lang: ro-RO
 
 Organizatorii unui atelier comunitar de reparații (beneficiarul) țin evidența aparatelor aduse, a vizitelor, a problemelor raportate și a voluntarilor responsabili. **Același aparat poate reveni de mai multe ori:** ce păstrăm despre fiecare vizită?
 
-Construim împreună un model al domeniului, îl verificăm pe situații concrete, îl comparăm cu un răspuns AI și îl adaptăm când o regulă se schimbă.
+Construim împreună un model al domeniului, îl verificăm pe stări concrete, îl comparăm cu un răspuns AI și îl adaptăm când o regulă se schimbă.
 
 Exemplu didactic. Hârtia și conversația sunt suficiente.
 
@@ -46,11 +46,11 @@ Din cursul 4: un model pe care îl putem discuta cu altă persoană conține:
 
 - **sensuri:** conceptele și ce înseamnă fiecare;
 - **reguli:** identitate, apartenență și numărul permis de asocieri;
-- **exemple și contraexemple:** situații pe care regulile le permit și situații pe care le exclud;
+- **exemple și contraexemple:** stări pe care regulile le permit și stări pe care le exclud;
 - **limite:** ce excludem explicit;
 - **întrebări deschise:** ce nu stabilește încă enunțul.
 
-O schiță ajută când putem explica fiecare legătură printr-o regulă sau un exemplu.
+O schiță ajută când putem explica fiecare relație printr-o regulă sau un exemplu.
 
 ::: notes
 Recapitulăm lista de la sfârșitul cursului 4, fără exemplele arhivei foto: așa vom judeca schițele de azi. În atelier le vom întâlni pe rând: aparat, vizită, problemă raportată și voluntar responsabil; regulile R1–R5; vizitele J1–J3 ca exemple; limita R6; întrebările adresate organizatorilor. Lista nu este un șablon de livrabil.
@@ -104,7 +104,7 @@ A17 apare în două vizite distincte; modelul T2 nu identifică aparatul. P1 și
 Ce relații ne ajută să păstrăm informația despre fiecare vizită?
 
 ::: notes
-Verbalizarea unei legături este mai importantă decât forma săgeții. Colegul care întreabă cere un exemplu și o regulă pentru fiecare alegere importantă.
+Verbalizarea unei relații este mai importantă decât forma săgeții. Colegul care întreabă cere un exemplu și o regulă pentru fiecare alegere importantă.
 
 **Organizare:** minutul 10 din 100; interval 10–35 (25 min). Regulile de pe slide-ul următor sunt referința; schițăm liber, fără formular de completat. []{.pace at=10}
 :::
@@ -148,12 +148,12 @@ Diferența dintre intenție și interpretare arată unde trebuie clarificat mode
 
 1. **Aparat fără vizite:** A19 a fost înregistrat, dar nu a venit încă la atelier. R2 permite zero vizite. Are schița loc pentru el?
 2. **Același text:** P1 în J1 și P3 în J3 spun „Pârghia nu rămâne jos”. R3 permite texte egale. Rămân distincte în schiță?
-3. **Două probleme:** la o nouă vizită J4, A18 vine cu două probleme raportate. R3 permite una sau mai multe. Poate schița exprima situația?
+3. **Două probleme:** la o nouă vizită J4, A18 vine cu două probleme raportate. R3 permite una sau mai multe. Poate schița exprima starea?
 
-**Pe schița perechii A, perechea B alege o situație și explică prima** cum o exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Discutați o neclaritate sau o diferență între soluții.
+**Pe schița perechii A, perechea B alege o stare și explică prima** cum o exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Discutați o neclaritate sau o diferență între soluții.
 
 ::: notes
-Toate cele trei situații trebuie să poată fi exprimate: A19 există fără nicio vizită, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Revenirea (cine răspundea de J1 după J2) a fost sarcina de construcție; rămâne o situație de rezervă dacă o pereche termină devreme.
+Toate cele trei stări trebuie să poată fi exprimate: A19 există fără nicio vizită, P1 și P3 rămân înregistrări distincte, iar J4 are două probleme, fiecare legată numai de J4. O convenție diferită de desenare nu este o eroare dacă sensul relațiilor rămâne clar. Revenirea (cine răspundea de J1 după J2) a fost sarcina de construcție; rămâne o stare de rezervă dacă o pereche termină devreme.
 
 **Organizare:** 19 min: 2 citire, 12 schimb și comparație, 5 discuție comună. []{.pace dur=19}
 :::
@@ -243,7 +243,7 @@ Gândiți individual, apoi explicați colegului:
 3. Ce ați întreba organizatorii despre responsabilitatea comună?
 
 ::: notes
-Cardinalitatea vizită → voluntari devine 0–2; voluntar → vizite rămâne zero sau mai multe. Nu schimbăm identitatea aparatului sau a vizitei. Organizatorii schimbă o regulă a domeniului; exemplele de acceptare, în forma din cursul 3, verifică noua regulă înainte de orice implementare. Cererile se încearcă succesiv: (1) J1–Mara, J2–Radu → adăugăm Mara la J2 → acceptat; J1–Mara, J2–Mara și Radu. (2) Pornind de aici, cerem și Ioana la J2 → respins; J1–Mara, J2–Mara și Radu rămân. Un rezultat care elimină un responsabil existent pentru a face loc celui nou nu respectă cererea de adăugare. Problemele și legăturile vizită–aparat se păstrează în ambele exemple.
+Cardinalitatea vizită → voluntari devine 0–2; voluntar → vizite rămâne zero sau mai multe. Nu schimbăm identitatea aparatului sau a vizitei. Organizatorii schimbă o regulă a domeniului; exemplele de acceptare, în forma din cursul 3, verifică noua regulă înainte de orice implementare. Cererile se încearcă succesiv: (1) J1–Mara, J2–Radu → adăugăm Mara la J2 → acceptat; J1–Mara, J2–Mara și Radu. (2) Pornind de aici, cerem și Ioana la J2 → respins; J1–Mara, J2–Mara și Radu rămân. Un rezultat care elimină un responsabil existent pentru a face loc celui nou nu respectă cererea de adăugare. Problemele și asocierile vizită–aparat se păstrează în ambele exemple.
 
 Întrebări utile: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil? Nu cerem acum proiectarea efectuării reparației, exclusă prin R6.
 
@@ -257,7 +257,7 @@ Cardinalitatea vizită → voluntari devine 0–2; voluntar → vizite rămâne 
 Discutăm câteva exemple din grupă:
 
 - Ce a înțeles colegul altfel decât intenționați?
-- Ce situație a arătat că o relație era greșită sau neclară?
+- Ce stare a arătat că o relație era greșită sau neclară?
 - Ce observație a evaluatorului AI sau a altei perechi ați acceptat, reformulat sau respins și de ce?
 
 Păstrați schițele și notițele care vă ajută la studiu. **Activitatea se încheie prin discuție; nu avem documente de predat.**

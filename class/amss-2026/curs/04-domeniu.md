@@ -9,7 +9,7 @@ lang: ro-RO
 Două descrieri identice înseamnă același lucru?
 
 ::: notes
-Un model al domeniului ne ajută să explicăm situațiile cerute folosind concepte, identități și relații. Reluăm din cursul 3 legătura dintre o afirmație și regula care o susține.
+Un model al domeniului ne ajută să explicăm stările cerute folosind concepte, identități și relații. Reluăm din cursul 3 legătura dintre o afirmație și regula care o susține.
 
 **Organizare:** minutul 0 din 100; interval 0–10 (10 min), inclusiv coperta, citatul și discuția inițială. 30 de slide-uri cu tot cu copertă. []{.pace at=0 of=100}
 :::
@@ -135,13 +135,13 @@ Fotografia reprezintă continuitatea dintre editări; versiunea reprezintă un c
 
 # După prima editare
 
-**Pornim din nou din situația inițială, independent de S1:** fotografia F1, legenda „Curte”, originalul V1.
+**Pornim din nou din starea inițială, independent de S1:** fotografia F1, legenda „Curte”, originalul V1.
 
 **Scenariul S2:** din V1 se creează, prin editare, versiunea V3.
 
 **Reguli (R2, R4–R5):** versiunea nouă are identitate proprie, aparține aceleiași fotografii și are ca sursă versiunea editată. Editarea păstrează conținutul versiunilor existente și legenda.
 
-În pereche, schițați situația de după editare. Arătați **ce s-a adăugat**, **ce legătură a apărut** și **ce s-a păstrat**. Apoi comparați cu perechea vecină.
+În pereche, schițați starea de după editare. Arătați **ce s-a adăugat**, **ce asociere a apărut** și **ce s-a păstrat**. Apoi comparați cu perechea vecină.
 
 ::: notes
 Așteptăm aceeași fotografie F1, acum cu V1 și V3; sursa lui V3 este V1. Conținutul lui V1 și legenda „Curte” rămân. O simplă săgeată este suficientă; nu cerem clase, metode sau o notație UML.
@@ -170,10 +170,10 @@ Acesta este răspunsul de referință construit de profesor din R2–R5, nu o ca
 
 # Relațiile au reguli {.transition}
 
-Ce situații permite schița noastră și ce situații exclude?
+Ce stări permite schița noastră și ce stări exclude?
 
 ::: notes
-Numele conceptelor nu sunt suficiente. Numărul permis de asocieri și restricțiile dintre ele decid ce situații poate exprima modelul.
+Numele conceptelor nu sunt suficiente. Numărul permis de asocieri și restricțiile dintre ele decid ce stări poate exprima modelul.
 
 **Organizare:** minutul 35 din 100; interval 35–60 (25 min), inclusiv construirea și compararea ramurilor de editare. []{.pace at=35}
 :::
@@ -213,7 +213,7 @@ flowchart LR
 Săgețile arată relațiile numite pe ele; nu reprezintă ordinea execuției.
 
 ::: notes
-Aceasta este o diagramă a unui exemplu concret, situația de după S2, nu modelul complet: toate nodurile sunt identificate. S3 pornește din această situație; apoi generalizăm câte asocieri sunt permise. O singură diagramă fără reguli nu ar exclude, de exemplu, două originale pentru F1.
+Aceasta este o diagramă a unui exemplu concret, starea de după S2, nu modelul complet: toate nodurile sunt identificate. S3 pornește din această stare; apoi generalizăm câte asocieri sunt permise. O singură diagramă fără reguli nu ar exclude, de exemplu, două originale pentru F1.
 :::
 
 ---
@@ -275,7 +275,7 @@ S4 încalcă o regulă. Pentru S5, **răspunsul rămâne deschis** până conven
 
 # Conceptul nu impune reprezentarea
 
-Legătura „V3 are sursa V1” poate fi exprimată prin:
+Asocierea „V3 are sursa V1” poate fi exprimată prin:
 
 - o referință între obiecte;
 - înregistrări legate prin identificatori;
@@ -284,7 +284,7 @@ Legătura „V3 are sursa V1” poate fi exprimată prin:
 Oricare variantă trebuie să păstreze **sursa unică**, **apartenența** și **originalul unic**.
 
 ::: notes
-Nu evaluăm modelul după numărul de clase sau de tabele. Un atribut pentru rolul de original sau o legătură explicită spre original pot exprima aceeași regulă, dacă păstrăm coerența. Alegerea implementării cere alte întrebări decât cele abordate astăzi.
+Nu evaluăm modelul după numărul de clase sau de tabele. Un atribut pentru rolul de original sau o asociere explicită spre original pot exprima aceeași regulă, dacă păstrăm coerența. Alegerea implementării cere alte întrebări decât cele abordate astăzi.
 :::
 
 ---
@@ -349,7 +349,7 @@ Fragmentul este corect: confirmăm o parte bună, nu căutăm obligatoriu o eroa
 >
 > […] Doi copaci independenți (V3 și V4 din V1) nu sunt definiți; modelul permite orice orice configurație DAG cu original ca sursă indirectă.
 
-„Relație recursivă”: legătură de la o versiune la altă versiune. Un **DAG** este un graf orientat fără cicluri: urmând sensul săgeților, nu poți reveni la nodul de plecare.
+„Relație recursivă”: relație de la o versiune la altă versiune. Un **DAG** este un graf orientat fără cicluri: urmând sensul săgeților, nu poți reveni la nodul de plecare.
 
 **Date:** V1 este originalul; V3 și V4 au sursa V1; toate aparțin lui F1. **R4:** fiecare derivată are exact o sursă.
 
@@ -421,12 +421,12 @@ Cererile revizuirii despre mecanismele de implementare și prevenirea ștergerii
 - Păstrăm mai multe derivate directe din aceeași sursă.
 - Pentru **fiecare fotografie**, versiunile formează **un arbore cu rădăcina în original**: fiecare derivată are exact o sursă.
 
-**R3–R5:** originalul este unic și nu are sursă; o derivată indică o versiune existentă anterior, din aceeași fotografie. Legăturile existente se păstrează.
+**R3–R5:** originalul este unic și nu are sursă; o derivată indică o versiune existentă anterior, din aceeași fotografie. Asocierile existente se păstrează.
 
 **În pereche:** de ce ajungem mereu la original, fără cicluri, dacă urmărim sursele din orice versiune?
 
 ::: notes
-Aceasta este corecția umană a generalizării „orice DAG”, nu o a treia captură AI. Justificarea: fiecare versiune nouă se adaugă printr-o singură legătură spre o versiune care exista deja, fără a schimba sursele versiunilor anterioare. Urmărind sursele, trecem mereu la o versiune mai veche și ne oprim la originalul fotografiei, singura ei versiune fără sursă. Vorbim despre relațiile de sursă, nu despre săgețile de apartenență. Întreaga arhivă poate avea mai mulți arbori, câte unul pentru fiecare fotografie. Nu introducem acum operația de combinare a două versiuni.
+Aceasta este corecția umană a generalizării „orice DAG”, nu o a treia captură AI. Justificarea: fiecare versiune nouă se adaugă printr-o singură asociere spre o versiune care exista deja, fără a schimba sursele versiunilor anterioare. Urmărind sursele, trecem mereu la o versiune mai veche și ne oprim la originalul fotografiei, singura ei versiune fără sursă. Vorbim despre relațiile de sursă, nu despre săgețile de apartenență. Întreaga arhivă poate avea mai mulți arbori, câte unul pentru fiecare fotografie. Nu introducem acum operația de combinare a două versiuni.
 
 **Organizare:** 4 min, cu o justificare oferită de studenți. []{.pace dur=4}
 :::
@@ -467,7 +467,7 @@ Un model pe care îl putem discuta cu altă persoană conține:
 - **limite:** ce excludem explicit (R6);
 - **întrebări deschise:** politica importului repetat (S5).
 
-O diagramă ajută când putem explica fiecare legătură printr-o regulă sau un exemplu.
+O diagramă ajută când putem explica fiecare relație printr-o regulă sau un exemplu.
 
 ::: notes
 Acesta este rezumatul pentru o conversație de proiectare, nu un șablon de livrabil. Întrebările despre cine execută operațiile și unde se verifică regulile pregătesc cursul 5, fără să îi anticipăm teoria.
@@ -518,7 +518,7 @@ Se schimbă doar titlul; P7, P8, Rp1 și Rp2 se păstrează. Titlul nu identific
 La laborator aplicăm aceste întrebări unui atelier comunitar de reparații, prin schițe, comparații și discuții.
 
 ::: notes
-Modelul este util dacă distincțiile lui explică situațiile cerute. Capturile AI au oferit atât afirmații corecte, cât și o generalizare de corectat; verdictul a venit din reguli și exemple.
+Modelul este util dacă distincțiile lui explică stările cerute. Capturile AI au oferit atât afirmații corecte, cât și o generalizare de corectat; verdictul a venit din reguli și exemple.
 
 **Organizare:** ultimele 3 min; încheiere la minutul 100. []{.pace dur=3}
 :::

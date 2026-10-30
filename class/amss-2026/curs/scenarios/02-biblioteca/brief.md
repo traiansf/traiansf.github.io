@@ -11,7 +11,7 @@ Biblioteca este beneficiarul sistemului informatic. Bibliotecara o reprezintă �
 Înainte de a consulta un asistent AI:
 
 1. Scrieți două întrebări ale căror răspunsuri ar putea schimba proiectarea.
-2. Descrieți o situație concretă de împrumut.
+2. Descrieți un exemplu concret de împrumut.
 3. Numiți un lucru pe care l-ați exclude din prima versiune.
 
 Alegeți una dintre întrebările formulate și explicați cum ar putea răspunsul bibliotecarei să influențeze proiectarea. Faceți acest lucru înainte de a citi clarificările de mai jos.

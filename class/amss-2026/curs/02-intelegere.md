@@ -73,7 +73,7 @@ Solicitarea bibliotecarei este intenționat incompletă. Cuvinte aparent clare, 
 Lucrați pe o coală albă, mai întâi singuri, apoi cu un coleg.
 
 1. Scrieți două întrebări ale căror răspunsuri ar putea schimba proiectarea.
-2. Descrieți o situație concretă de împrumut.
+2. Descrieți un exemplu concret de împrumut.
 3. Numiți un lucru pe care l-ați exclude din prima versiune.
 
 În pereche: alegeți una dintre întrebări și explicați **cum ar putea răspunsul bibliotecarei să schimbe proiectarea**.
@@ -189,7 +189,7 @@ Cererea produce un flux util: loc în ordinea de așteptare → exemplar rezerva
 Ce concepte, responsabilități și reguli explică problema?
 
 ::: notes
-Transformăm regulile în concepte, legături și responsabilități. Modelul trebuie să explice ce se schimbă și ce trebuie să rămână adevărat.
+Transformăm regulile în concepte, relații și responsabilități. Modelul trebuie să explice ce se schimbă și ce trebuie să rămână adevărat.
 
 **Organizare:** minutul 25 din 100; interval 25–45 (20 min), din care 8 min pentru propunerile studenților. []{.pace at=25}
 :::
@@ -224,12 +224,12 @@ Ipoteza răspunde provizoriu unei întrebări deschise și rămâne marcată pâ
 
 Pe hârtie, apoi în pereche:
 
-1. Descrieți situația după returnarea lui C1: ce elemente există, ce știm despre fiecare și cum sunt legate?
+1. Descrieți starea după returnarea lui C1: ce elemente există, ce știm despre fiecare și cum sunt legate?
 2. Ce informație permite respingerea unei încercări a lui M3 de a împrumuta C1?
 3. Ce se schimbă atunci când M2 ridică C1?
 
 ::: notes
-Cererea lui M2 se acceptă: ambele exemplare sunt împrumutate. După returnare, împrumutul lui M1 este închis și păstrat în istoric, C1 este rezervat lui M2, iar C2 rămâne împrumutat lui M3. Legătura rezervării C1–M2 permite respingerea lui M3. La ridicare, M2 primește un împrumut nou; rezervarea se încheie, iar cererea este îndeplinită. Acceptați reprezentări diferite, cu justificare.
+Cererea lui M2 se acceptă: ambele exemplare sunt împrumutate. După returnare, împrumutul lui M1 este închis și păstrat în istoric, C1 este rezervat lui M2, iar C2 rămâne împrumutat lui M3. Asocierea rezervării C1–M2 permite respingerea lui M3. La ridicare, M2 primește un împrumut nou; rezervarea se încheie, iar cererea este îndeplinită. Acceptați reprezentări diferite, cu justificare.
 
 **Organizare:** 5 min individual + 3 min în pereche, cu slide-ul pe ecran. Ascultați două propuneri înaintea modelului lucrat. []{.pace dur=8}
 :::
@@ -238,7 +238,7 @@ Cererea lui M2 se acceptă: ambele exemplare sunt împrumutate. După returnare,
 
 # Modelarea domeniului
 
-Modelul domeniului: conceptele bibliotecii și legăturile lor, nu clasele unui program.
+Modelul domeniului: conceptele bibliotecii și relațiile dintre ele, nu clasele unui program.
 
 | Concept | Ce reprezintă | Reguli |
 |------------------|--------------------------------------------------|-------|
@@ -252,7 +252,7 @@ Modelul domeniului: conceptele bibliotecii și legăturile lor, nu clasele unui 
 Cererea privește un **titlu**; rezervarea și împrumutul privesc un **exemplar**.
 
 ::: notes
-La returnare se închide împrumutul și se poate aloca un exemplar unei cereri; titlul continuă să existe. O singură stare pe titlu nu exprimă aceste fapte. Rezervarea poate fi entitate separată sau legătură și stare ale cererii; comparați cu propunerile studenților, fără a impune clase.
+La returnare se închide împrumutul și se poate aloca un exemplar unei cereri; titlul continuă să existe. O singură stare pe titlu nu exprimă aceste fapte. Rezervarea poate fi un concept separat sau o asociere și o stare ale cererii; comparați cu propunerile studenților, fără a impune clase.
 :::
 
 ---
@@ -536,7 +536,7 @@ Predarea păstrează contextul necesar și criteriile de verificare, fără a de
 
 Parcursul exemplului:
 
-1. Identificăm contextul necesar unui agent AI cu rol de proiectant: enunțul clarificat al bibliotecii.
+1. Identificăm contextul necesar unui agent AI cu rol de analist: enunțul clarificat al bibliotecii.
 2. Verificăm conceptele, regulile și responsabilitățile propuse.
 3. Examinăm pachetul pentru un evaluator (agent AI de revizuire): enunțul, soluția și criteriile de verificare.
 4. Decidem ce constatări sunt susținute de enunț.
@@ -553,7 +553,7 @@ Verificarea poate confirma o afirmație, nu doar găsi defecte. Judecăm rezulta
 
 ---
 
-# Ce îi cerem agentului AI cu rol de proiectant
+# Ce îi cerem agentului AI cu rol de analist
 
 **Context predat:** solicitarea bibliotecarei, regulile R1–R6 și scenariile S1–S6 prezentate anterior. **Cele trei operații:** împrumutul (inclusiv ridicarea), returnarea și cererea de împrumut.
 
@@ -573,9 +573,9 @@ Contextul predat trebuie să susțină rezultatul cerut: enunțul integral, regu
 
 ---
 
-# Proiectarea AI păstrează legăturile necesare?
+# Proiectarea AI păstrează asocierile necesare?
 
-**Fragment din răspunsul AI — gpt-6.1-sol, proiectant, rularea 1:**
+**Fragment din răspunsul AI — gpt-6.1-sol, analist, rularea 1:**
 
 > Împrumut | Înregistrare distinctă care leagă membrul de exemplar; activă sau închisă. Împrumuturile închise rămân în istoric.
 >
@@ -587,7 +587,7 @@ Contextul predat trebuie să susțină rezultatul cerut: enunțul integral, regu
 
 **R2:** ridicarea este permisă numai solicitantului. **R5:** rezervarea identifică exemplarul alocat cererii.
 
-Pe hârtie: ce legături verificăm pentru a decide dacă M3 poate împrumuta C1?
+Pe hârtie: ce asocieri verificăm pentru a decide dacă M3 poate împrumuta C1?
 
 ::: notes
 Urmărim C1 → rezervare → cerere → M2; M3 nu este solicitantul. Respingem împrumutul fără schimbări. Împrumutul lui M3 privește C2, deci nu îi dă drept asupra lui C1. Proiectarea AI păstrează distincțiile necesare.
@@ -601,7 +601,7 @@ Urmărim C1 → rezervare → cerere → M2; M3 nu este solicitantul. Respingem 
 
 # Ce predăm evaluatorului AI
 
-**Context nou:** solicitarea, R1–R6, S1–S6 și proiectarea de examinat, fără conversația proiectantului. Poate fi același model AI, într-o conversație nouă.
+**Context nou:** solicitarea, R1–R6, S1–S6 și proiectarea de examinat, fără conversația analistului. Poate fi același model AI, într-o conversație nouă.
 
 > Revizuiește proiectarea față de regulile și scenariile date, fără să o modifici.
 >
@@ -665,7 +665,7 @@ Acceptăm: ordinea alocării nu impune ordinea ridicării. C1 devine împrumutat
 
 # Înainte de predare: ce păstrează rezumatul?
 
-**Fragment din răspunsul AI — gpt-6.1-sol, proiectant, rularea 1:**
+**Fragment din răspunsul AI — gpt-6.1-sol, analist, rularea 1:**
 
 > Cererile sunt alocate în ordinea înregistrării, separat pentru fiecare titlu. O cerere cu exemplar rezervat nu mai participă la alocări. Ordinea ridicării poate fi diferită de ordinea alocării (R5).
 

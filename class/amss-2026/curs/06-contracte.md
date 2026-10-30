@@ -27,7 +27,7 @@ Continuăm atribuirea responsabilităților din cursul 5: acum facem explicit ce
 [Sursa: Object-Oriented Software Construction, ediția a doua, „Using assertions”, p. 873](https://bertrandmeyer.com/OOSC2/)
 
 ::: notes
-Clientul este apelantul unei operații, nu neapărat o persoană. Furnizorul este componenta care o realizează. Vom distinge ce cere precondiția de la apelant de situațiile pentru care operația promite un refuz.
+Clientul este apelantul unei operații, nu neapărat o persoană. Furnizorul este componenta care o realizează. Vom distinge ce cere precondiția de la apelant de cazurile pentru care operația promite un refuz.
 
 **Sursă:** citatul păstrat din materialul anterior, verificat atunci în fragmentul indexat al cărții de pe site-ul autorului, subsecțiunea „Using assertions”, p. 873; vezi `docs/quotations.md`. Revizuirea din 28 octombrie 2026 situează pasajul înaintea începutului secțiunii 25.3, de aceea nu mai dăm numărul secțiunii. La 27 și 28 octombrie 2026 pagina autorului este accesibilă, dar descărcarea PDF întoarce 404; nu pretindem o nouă verificare a paginii 873. Folosim adresa stabilă recomandată de autor.
 :::
@@ -372,7 +372,7 @@ atribuie(v, d):
 Toate celelalte asocieri se păstrează. De ce primul pas nu are nevoie să „elibereze” ceva?
 
 ::: notes
-Operația nu promite mutare. Verificarea fără efecte poate decide refuzul fără reparații. În acest model nu apare schimbare concurentă între verificare și adăugare și nu discutăm întreruperi tehnice; corecția nu demonstrează garanții pentru acele situații.
+Operația nu promite mutare. Verificarea fără efecte poate decide refuzul fără reparații. În acest model nu apare schimbare concurentă între verificare și adăugare și nu discutăm întreruperi tehnice; corecția nu demonstrează garanții pentru acele cazuri.
 
 **Organizare:** 5 min. []{.pace dur=5}
 :::

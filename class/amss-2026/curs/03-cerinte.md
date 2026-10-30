@@ -338,7 +338,7 @@ Cazurile sunt independente. Un exemplu care schimbă simultan rolul și tranziț
 
 **R3:** sesizările despre aceeași defecțiune se păstrează separat; nu se reunesc și nu se resping automat.
 
-**Situația inițială:** S41, a Anei, descrie robinetul din A12 și este „în lucru”. Bogdan trimite o sesizare validă despre același robinet.
+**Starea inițială:** S41, a Anei, descrie robinetul din A12 și este „în lucru”. Bogdan trimite o sesizare validă despre același robinet.
 
 Pe hârtie, scrieți exemplul de acceptare: **starea inițială → cine cere ce → rezultatul observabil**. Precizați ce primește **Bogdan** și ce rămâne neschimbat la **S41**.
 

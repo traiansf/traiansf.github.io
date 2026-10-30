@@ -8,15 +8,15 @@ Prezentarea folosește [două răspunsuri AI reale](scenarios/02-biblioteca/capt
 
 Generați direct capturi reale când pregătiți exemple noi. Nu este necesară inventarea prealabilă a unor exemple didactice. Dacă un răspuns nu ilustrează bine obiectivul, repetați rularea și selectați unul potrivit; păstrați toate încercările, modificările promptului și motivul selecției. Selecția nu constituie o măsurare a performanței tipice a modelului. Nu corectați tacit răspunsurile: fragmentele sunt fidele, omisiunile marcate, explicațiile profesorului separate.
 
-Contextul proiectantului este `scenarios/02-biblioteca/brief.md` și promptul de pe slide. Evaluatorul AI primește într-un context nou același enunț, proiectarea integrală și promptul de revizuire. Nu trimiteți soluția profesorului din `reference-design.md` în aceste contexte. Rolurile pot folosi același model.
+Contextul analistului este `scenarios/02-biblioteca/brief.md` și promptul de pe slide. Evaluatorul AI primește într-un context nou același enunț, proiectarea integrală și promptul de revizuire. Nu trimiteți soluția profesorului din `reference-design.md` în aceste contexte. Rolurile pot folosi același model.
 
 ## 1. Contextul și sarcina (6 minute)
 
-Arătați „Exemplu pregătit: delegare și verificare”, apoi „Ce îi cerem agentului AI cu rol de proiectant”. Precizați proveniența reală. Enunțul, regulile și scenariile delimitează o sarcină de proiectare, fără codul aplicației. Cele trei operații din prompt sunt împrumutul (inclusiv ridicarea), returnarea și cererea de împrumut. Studenții discută promptul; nu îl trimit unui serviciu AI.
+Arătați „Exemplu pregătit: delegare și verificare”, apoi „Ce îi cerem agentului AI cu rol de analist”. Precizați proveniența reală. Enunțul, regulile și scenariile delimitează o sarcină de proiectare, fără codul aplicației. Cele trei operații din prompt sunt împrumutul (inclusiv ridicarea), returnarea și cererea de împrumut. Studenții discută promptul; nu îl trimit unui serviciu AI.
 
 ## 2. Verificarea propunerii (2 minute)
 
-Lăsați pe ecran „Proiectarea AI păstrează legăturile necesare?”. Fragmentul capturat, scenariul S2, regulile și întrebarea sunt vizibile împreună. Studenții notează legăturile necesare pentru decizia asupra lui M3: C1 → rezervare → cerere → M2. M3 nu poate împrumuta C1; împrumutul său pentru C2 nu îi dă acest drept.
+Lăsați pe ecran „Proiectarea AI păstrează asocierile necesare?”. Fragmentul capturat, scenariul S2, regulile și întrebarea sunt vizibile împreună. Studenții notează asocierile necesare pentru decizia asupra lui M3: C1 → rezervare → cerere → M2. M3 nu poate împrumuta C1; împrumutul său pentru C2 nu îi dă acest drept.
 
 Proiectarea păstrează informația necesară. Nu impunem găsirea unui defect într-un fragment corect.
 

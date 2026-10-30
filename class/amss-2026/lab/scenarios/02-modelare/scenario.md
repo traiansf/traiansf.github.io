@@ -30,7 +30,7 @@ P1 și P3 sunt înregistrări distincte, chiar dacă au același text. Datele su
 3. Cum arătați că o vizită poate aștepta atribuirea unui responsabil, dar trebuie să aibă o problemă raportată?
 4. Dacă P1 și P3 au același text, le puteți uni fără să pierdeți ce s-a raportat la fiecare vizită?
 
-Pe schița perechii A, perechea B alege o situație și explică prima cum o exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Un desen, un tabel sau câteva propoziții sunt suficiente.
+Pe schița perechii A, perechea B alege o stare și explică prima cum o exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Un desen, un tabel sau câteva propoziții sunt suficiente.
 
 La comparația cu AI, furnizați acordul R1–R6 și datele inițiale, sarcina și răspunsul de verificat într-un context nou. Schimbarea finală de mai jos nu se include încă. Distingeți regulile de alegerile de reprezentare: R3 cere să putem distinge problemele raportate, fără a impune forma identificatorului. Puteți folosi [capturile pregătite](prepared-fixture.md) sau cere colegilor aceeași verificare.
 

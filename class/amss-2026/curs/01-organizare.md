@@ -180,7 +180,7 @@ Dosarul susține deciziile echipei; examenul verifică judecata individuală pe 
 
 - Alegeți un asistent AI și un model AI la care aveți acces.
 - Creați un repository public pe GitHub sau GitLab când anunțați proiectul pe Teams; consemnați acolo progresul și contribuțiile membrilor, pe tot parcursul semestrului.
-- Definiți explicit rolurile de analist/proiectant și evaluator (agent AI de revizuire).
+- Definiți explicit rolurile de analist și evaluator (agent AI de revizuire).
 - Porniți revizuirea într-un context separat, cu sursele necesare.
 - Pregătiți-vă să explicați soluția fără asistent AI.
 

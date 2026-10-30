@@ -67,7 +67,7 @@ Alegeți reprezentări potrivite întrebărilor: glosar, exemple, tabel de respo
 
 ## Lucrul cu AI și rezultatele revizuirii
 
-Puteți alege instrumentele și modelele AI. Definiți explicit rolurile, de exemplu analist, proiectant și evaluator (agent de revizuire), și ce informații își transmit. Înainte de a delega, formulați voi problema, constrângerile și criteriile după care veți judeca rezultatul.
+Puteți alege instrumentele și modelele AI. Definiți explicit rolurile, de exemplu analist și evaluator (agent de revizuire), și ce informații își transmit. Înainte de a delega, formulați voi problema, constrângerile și criteriile după care veți judeca rezultatul.
 
 Includeți o revizuire într-o **sesiune sau într-un context nou**, care primește specificația și proiectarea curente, întrebările de verificat și criteriile de acceptare. Același model poate fi folosit într-un context separat. Agentul de revizuire trebuie să poată examina modelele și verificările, inclusiv atunci când sinteza omite un detaliu important.
 

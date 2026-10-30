@@ -11,9 +11,9 @@ Exemplu pregătit pentru predare, nu răspuns AI capturat și nici singura proie
 | Membru | Identificator |
 | Împrumut | Identificator, exemplar, membru, stare activ/închis |
 | Cerere de împrumut | Identificator, membru, titlu, ordine, stare în așteptare/cu exemplar rezervat/îndeplinită |
-| Rezervare | Legătura activă dintre o cerere și exemplarul alocat |
+| Rezervare | Asocierea activă dintre o cerere și exemplarul alocat |
 
-Rezervarea poate fi o entitate separată sau exemplarul asociat cererii aflate în starea „cu exemplar rezervat”. Nu impuneți clase, tabele sau servicii distincte pentru fiecare concept. Păstrarea cererilor îndeplinite ca istoric este o alegere a acestei referințe; păstrarea istoricului împrumuturilor este cerută de R3.
+Rezervarea poate fi un concept separat sau exemplarul asociat cererii aflate în starea „cu exemplar rezervat”. Nu impuneți clase, tabele sau servicii distincte pentru fiecare concept. Păstrarea cererilor îndeplinite ca istoric este o alegere a acestei referințe; păstrarea istoricului împrumuturilor este cerută de R3.
 
 ## Responsabilități și invarianți
 
@@ -50,7 +50,7 @@ Acestea sunt parcurgeri ale proiectării. Nu pretindeți că sunt teste executat
 
 ## Revizuire: ce acceptăm și ce respingem
 
-**Defect susținut:** un împrumut care identifică doar titlul nu precizează exemplarul; o cerere marcată „rezervată” fără legătura cu un exemplar nu permite verificarea ridicării. R1–R2 și R5 cer aceste distincții. În momentul relevant din S2, C1 este rezervat lui M2, iar C2 este împrumutat lui M3.
+**Defect susținut:** un împrumut care identifică doar titlul nu precizează exemplarul; o cerere marcată „rezervată” fără asocierea cu un exemplar nu permite verificarea ridicării. R1–R2 și R5 cer aceste distincții. În momentul relevant din S2, C1 este rezervat lui M2, iar C2 este împrumutat lui M3.
 
 **Constatare nesusținută:** „M4 nu poate ridica niciun exemplar înainte să vină M2, fiindcă M2 a depus primul cererea.” S6 respectă prioritatea la alocare: C2 merge la M2, apoi C1 la M4. R2 permite fiecăruia ridicarea propriului exemplar. Agentul AI de revizuire a confundat ordinea alocării cu ordinea ridicării.
 

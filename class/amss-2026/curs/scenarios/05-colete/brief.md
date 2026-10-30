@@ -29,4 +29,4 @@ Limita pentru plic devine **1500 g inclusiv**. Numai R3 se schimbă: pragul de p
 
 ## Sarcina de proiectare
 
-Comparați verificări și calcul copiate în cele două canale cu o operație comună `estimeaza(masa, ambalaj)`. Atribuiți interpretarea intrării, acceptarea coletului, calculul și afișarea. Explicați cine depinde de ce și unde se schimbă C1. O operație comună poate fi o funcție locală; nu se cere serviciu de rețea, clasă, cadru software sau un anumit tip de diagramă.
+Comparați verificări și calcul copiate în cele două canale cu o operație comună `estimeaza(masa, ambalaj)`. Atribuiți interpretarea intrării, acceptarea coletului, calculul și afișarea. Explicați cine depinde de ce și unde se schimbă C1. O operație comună poate fi o simplă funcție, de exemplu într-o bibliotecă folosită de ambele canale; nu se cere serviciu de rețea, clasă, cadru software sau un anumit tip de diagramă.

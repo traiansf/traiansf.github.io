@@ -6,7 +6,7 @@ Material de pregătire pentru [enunț](scenario.md), construit didactic; nu capt
 
 Registrul deține rezervările și stocul fizic și decide operațiile care le modifică. Formularul și importul interpretează intrările și apelează aceleași operații. Disponibilul poate fi calculat din F și suma rezervărilor active; dacă este stocat separat, apare costul sincronizării lui. Nicio alegere de reprezentare nu elimină regulile.
 
-O altă repartizare defensabilă a responsabilităților: o funcție de decizie primește o situație coerentă și propune modificarea, iar un coordonator o aplică integral înaintea următorului apel. Costul: coordonatorul trebuie să păstreze coerența dintre decizie și aplicare. Nu cerem microservicii, tranzacții distribuite sau teoria cursurilor 7–8 (stări, interacțiuni și granițe). „Activă”, „ridicată”, „anulată” sunt valori date în enunț, suficiente pentru condițiile operațiilor.
+O altă repartizare defensabilă a responsabilităților: o funcție de decizie primește o stare coerentă și propune modificarea, iar un coordonator o aplică integral înaintea următorului apel. Costul: coordonatorul trebuie să păstreze coerența dintre decizie și aplicare. Nu cerem microservicii, tranzacții distribuite sau teoria cursurilor 7–8 (stări, interacțiuni și granițe). „Activă”, „ridicată”, „anulată” sunt valori date în enunț, suficiente pentru condițiile operațiilor.
 
 ## Invarianți și contracte
 

@@ -574,7 +574,7 @@ break-inside: avoid;
 </ul>
 <p><strong>Reper:</strong> masa <span class="nowrap">1–5000</span> g; plicul cel mult 1000 g; prețul 10 lei până la 1000 g, 18 lei peste. Refuzul nu are preț.</p>
 <p>Semnătura și sensul rezultatelor formează <strong>interfața</strong> operației: tot ce trebuie să știe un canal ca <span class="nowrap">s-o</span> folosească.</p>
-<p>Operația poate fi o <strong>funcție locală</strong>. Nu are nevoie să citească formularul sau să afișeze mesaje.</p>
+<p>Operația poate fi o simplă funcție, de exemplu <span class="nowrap">într-o</span> bibliotecă folosită de ambele canale; nu presupune un serviciu de rețea. Nu are nevoie să citească formularul sau să afișeze mesaje.</p>
 </div>
 <div id="cine-depinde-de-cine" class="slide section level1">
 <h1>Cine depinde de cine?</h1>
@@ -590,31 +590,36 @@ break-inside: avoid;
 </div>
 <div id="cuplarea-ce-trebuie-să-cunoască-ceilalți" class="slide section level1">
 <h1>Cuplarea: ce trebuie să cunoască ceilalți?</h1>
-<p><strong>R5 (canale):</strong> cele două canale trebuie să rămână de acord. Ce poate cunoaște un canal despre estimare?</p>
+<p><strong>R5 (canale):</strong> cele două canale trebuie să rămână de acord. Trei variante:</p>
 <div class="table-wrap">
 <table>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead>
 <tr>
+<th></th>
 <th>Canalul cunoaște…</th>
 <th>Consecință</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>estimeaza(masa, ambalaj)</code> și rezultatul</td>
-<td>Poate cere estimarea fără să copieze pragurile.</td>
+<td>A</td>
+<td>numai interfața <code>estimeaza(masa, ambalaj)</code></td>
+<td>Nu copiază regulile.</td>
 </tr>
 <tr>
-<td>Pragurile și ordinea verificărilor</td>
-<td>Trebuie actualizată când se schimbă politica.</td>
+<td>B</td>
+<td>limitele, pragul de preț, ordinea verificărilor</td>
+<td>Se actualizează la orice schimbare a regulilor.</td>
 </tr>
 <tr>
-<td>Variabilele interne ale calculului</td>
-<td>O reorganizare internă îi poate afecta comportamentul.</td>
+<td>C</td>
+<td>variabilele interne ale calculului</td>
+<td>O reorganizare a operației îl poate afecta.</td>
 </tr>
 </tbody>
 </table>
@@ -649,7 +654,7 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p>Fiecare canal calculează apoi singur prețul. Copiile pot coincide inițial și pot ajunge să aplice reguli diferite după o modificare.</p>
+<p>Fiecare canal calculează apoi singur prețul. Copiile pot coincide inițial și pot ajunge să aplice reguli diferite după o schimbare.</p>
 </div>
 <div id="varianta-cu-o-operație-comună" class="slide section level1">
 <h1>Varianta cu o operație comună</h1>
@@ -690,8 +695,8 @@ break-inside: avoid;
 <td><code>estimeaza</code> coordonează <code>accepta</code> și <code>pret</code>.</td>
 </tr>
 <tr>
-<td>Mai puține legături de explicat.</td>
-<td>Eligibilitatea și tariful se pot schimba separat.</td>
+<td>Mai puține dependențe de explicat.</td>
+<td>Acceptarea și prețul se pot schimba separat.</td>
 </tr>
 <tr>
 <td>Regulile sunt grupate <span class="nowrap">într-un</span> loc.</td>
@@ -753,7 +758,7 @@ break-inside: avoid;
 </div>
 <div id="harta-schimbării" class="slide section level1">
 <h1>Harta schimbării</h1>
-<p><strong>C1 (limita plicului):</strong> trece la 1500 g; pragul prețului rămâne 1000 g.</p>
+<p><strong>C1 (limita plicului):</strong> trece la 1500 g; pragul de preț rămâne 1000 g.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -790,9 +795,9 @@ break-inside: avoid;
 </div>
 <div id="altă-schimbare-altă-componentă" class="slide section level1">
 <h1>Altă schimbare, altă componentă</h1>
-<p><strong>Situația curentă:</strong> plic ≤1500 g; prag tarifar 1000 g; webul și ghișeul apelează <code>estimeaza</code>.</p>
+<p><strong>Regulile curente:</strong> plic ≤1500 g; pragul de preț 1000 g; webul și ghișeul apelează <code>estimeaza</code>.</p>
 <p>A. <span class="nowrap">Site-ul</span> adaugă o avertizare imediată când plicul depășește limita, înainte de a cere estimarea.</p>
-<p>B. Apare un al treilea canal, care trebuie să respecte aceeași politică.</p>
+<p>B. Apare un al treilea canal, care trebuie să respecte aceleași reguli.</p>
 <p>C. Se schimbă numai prețul treptei de peste 1000 g.</p>
 <p>În pereche: pentru fiecare schimbare numiți componenta responsabilă și o verificare. La A: cine decide acceptarea? Ce se întâmplă dacă avertizarea folosește încă limita veche?</p>
 </div>
@@ -800,7 +805,7 @@ break-inside: avoid;
 <h1>Ce transmitem celui care dezvoltă soluția?</h1>
 <p><strong>Responsabilități:</strong> canalele interpretează și afișează; operația decide acceptarea și prețul.</p>
 <p><strong>Acord:</strong> intrări, rezultate, reguli și exemple la valorile-limită.</p>
-<p><strong>Decizia protejată:</strong> politica poate evolua fără copii independente în canale.</p>
+<p><strong>Decizia protejată:</strong> regulile pot evolua fără copii independente în canale.</p>
 <p><strong>Cost și limite:</strong> trebuie respectate semnificațiile convenite ale intrărilor și rezultatelor; textele explicative pot necesita actualizare. Nu am proiectat transportul sau plata.</p>
 </div>
 <div id="delegăm-și-verificăm-decizia" class="slide section level1 transition">
@@ -849,7 +854,7 @@ break-inside: avoid;
 </div>
 <div id="decizia-noastră" class="slide section level1">
 <h1>Decizia noastră</h1>
-<p>Păstrăm operația comună și verificarea scenariilor <span class="nowrap">S1–S5.</span> Separăm <strong>limita ambalajului</strong> de <strong>pragul tarifului</strong>.</p>
+<p>Păstrăm operația comună și verificarea scenariilor <span class="nowrap">S1–S5.</span> Separăm <strong>limita ambalajului</strong> de <strong>pragul de preț</strong>.</p>
 <p><strong>Acceptăm din revizuire:</strong> după C1 (limita plicului), scenariul S2 (plic de 1001 g) → acceptat, 18 lei. <strong>Respingem:</strong> ideea că operația comună iese din sarcină; sarcina cere explicit comparația.</p>
 <p><strong>După C1:</strong> plic ≤1500 g; preț 10 lei până la 1000 g, 18 lei peste. Verificăm: plic de 1200 g → 18 lei; plic de 1501 g → refuz, în ambele canale.</p>
 </div>

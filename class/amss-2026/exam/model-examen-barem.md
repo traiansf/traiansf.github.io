@@ -49,7 +49,7 @@ Pentru fiecare variantă greșită este notată regula sau contraexemplul care o
 
 **9. C.** Soldul 2 este sub 3, deci `valideaza` refuză fără nicio modificare. A încalcă invariantul și condiția de succes. B scade incorect suma și raportează succes. D modifică soldul la refuz.
 
-**10. A.** Tabelul promite `refuz` fără modificări când condiția lipsește: situația face parte din contract, deci condiția este o condiție de succes (Cursul 6). B ar lăsa rezultatul nespecificat, contrar tabelului. C: invariantul este „sold ≥ 0”; un card activ cu soldul 1 este valid. D: un contraexemplu — card activ cu soldul 0; `incarca(K, 1)` reușește, iar soldul devine 1, deci „sold ≥ 3” nu este garantat după o încărcare reușită.
+**10. A.** Tabelul promite `refuz` fără modificări când condiția lipsește: cazul face parte din contract, deci condiția este o condiție de succes (Cursul 6). B ar lăsa rezultatul nespecificat, contrar tabelului. C: invariantul este „sold ≥ 0”; un card activ cu soldul 1 este valid. D: un contraexemplu — card activ cu soldul 0; `incarca(K, 1)` reușește, iar soldul devine 1, deci „sold ≥ 3” nu este garantat după o încărcare reușită.
 
 **11. D.** Implementarea acceptă 250, deși contractul cere 1 ≤ s ≤ 200; soldul devine 260, deci invariantul rămâne adevărat, iar contractul este încălcat. A: comportament corect. B: implementarea refuză, corect. C încalcă și invariantul (sold −5), deci nu satisface condiția din întrebare.
 
@@ -75,9 +75,9 @@ Pentru fiecare variantă greșită este notată regula sau contraexemplul care o
 
 **18. A.** În X regula este copiată în ambele canale, care trebuie actualizate împreună și verificate pentru concordanță. În Y regula este într-un singur loc, operația comună, împreună cu exemplele ei de verificare. B: în X și portalul calculează cota; în Y canalele nu aplică formula. C ignoră lista. D: noua regulă schimbă chiar calculul operației comune.
 
-**19. C.** Operația citește apartamentul și luna din obiectul paginii de plată, deci depinde de structura lui: o schimbare a câmpurilor citite o poate afecta, iar lista ar trebui să construiască un asemenea obiect ca să o apeleze. A: aceeași sumă nu înseamnă aceleași dependențe. B: primirea unui obiect al portalului adaugă o dependență de structura lui; nu o elimină. D: citirea paginii de plată adaugă operației o obligație legată de un singur canal, fără legătură cu scopul calculului.
+**19. C.** Operația citește apartamentul și luna din obiectul paginii de plată, deci depinde de structura lui: o schimbare a câmpurilor citite o poate afecta, iar lista ar trebui să construiască un asemenea obiect ca să o apeleze. A: aceeași sumă nu înseamnă aceleași dependențe. B: primirea unui obiect al portalului adaugă o dependență de structura lui; nu o elimină. D: citirea paginii de plată adaugă operației o responsabilitate legată de un singur canal, fără legătură cu scopul calculului.
 
-**20. B.** Separarea are nevoie de un motiv dat: regulile de împărțire se schimbă anual, deci izolarea lor poate limita efectul schimbărilor; pentru rotunjire, enunțul nu dă un asemenea motiv. A este un slogan care ignoră costul legăturilor suplimentare (Cursul 5). C: o separare internă nu schimbă faptul că ambele canale folosesc aceeași operație. D: faptul că rotunjirea afectează ambele canale este deja rezolvat de operația comună; nu justifică o componentă separată.
+**20. B.** Separarea are nevoie de un motiv dat: regulile de împărțire se schimbă anual, deci izolarea lor poate limita efectul schimbărilor; pentru rotunjire, enunțul nu dă un asemenea motiv. A este un slogan care ignoră costul dependențelor suplimentare (Cursul 5). C: o separare internă nu schimbă faptul că ambele canale folosesc aceeași operație. D: faptul că rotunjirea afectează ambele canale este deja rezolvat de operația comună; nu justifică o componentă separată.
 
 ---
 
