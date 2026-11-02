@@ -90,7 +90,7 @@ The library request now has an operational outcome: requests for unavailable tit
 
 ### Week 6 — Contracts and invariants
 
-**Authored, unreleased (27 October 2026):** [lecture](../curs/06-contracte.md), [guide](../curs/06-contracte-demo.md), [brief](../curs/scenarios/06-dulapuri/brief.md), [reference](../curs/scenarios/06-dulapuri/reference.md). 31 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern; GPT-6-Astra review round the same day added the evaluator-prompt slide and a second traced counterexample).
+**Authored, unreleased (27 October 2026):** [lecture](../curs/06-contracte.md), [guide](../curs/06-contracte-demo.md), [brief](../curs/scenarios/06-dulapuri/brief.md), [reference](../curs/scenarios/06-dulapuri/reference.md). 32 slides including the cover (opening restructured on 28 October 2026 to the lecture pattern; GPT-6-Astra review round the same day added the evaluator-prompt slide and a second traced counterexample). Claude Fable review round on 2 November 2026: keyword convention, one word per concept, the decision on the AI review on its own slide (32 slides).
 
 **Question:** What must an operation guarantee, including when it cannot succeed?
 

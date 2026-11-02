@@ -2,7 +2,7 @@
 
 Instrument: Claude Code 2.1.311, `claude -p --model claude-haiku-4-5 --safe-mode`, fără unelte, fără contextul proiectului, fără sesiuni salvate (vezi `argv` în metadate). Fiecare încercare pornește un context nou. Temperatura nu este raportată; efortul nu a fost setat explicit. Metadatele păstrează ora UTC, hash-urile intrărilor și ieșirilor, costul și modelul raportat de instrument.
 
-`analist-prompt.md` = `analist-instructiune.md` + `context.md` (copii ale fișierelor pregătite din `../../ai/`; hash-ul enunțului în `context-metadata.json`). `evaluator-prompt.md` = `evaluator-instructiune.md` + context + sarcina analistului AI + răspunsul integral selectat; hash-urile și motivul selecției sunt în `evaluator-input-metadata.json`. `capture.py` refuză suprascrierea unei încercări.
+`analist-prompt.md` = `analist-instructiune.md` + `context.md` (copii ale fișierelor pregătite din `../../ai/`; hash-ul enunțului în `context-metadata.json`). `evaluator-prompt.md` = `evaluator-instructiune.md` + context + sarcina analistului AI + răspunsul integral selectat; hash-urile și motivul selecției sunt în `evaluator-input-metadata.json`. `capture.py` refuză suprascrierea unei încercări. Hash-ul enunțului din `context-metadata.json` (6ec9035a…) și cel din `evaluator-input-metadata.json` (a17dcd31…) privesc același `context.md`: primul a fost calculat pe copia cu terminatori CRLF, al doilea pe textul cu LF (recalculat la 2 noiembrie 2026); conținutul este identic. Cheia `status: prepared_not_executed` din `context-metadata.json` este moștenită de la pregătire și nu descrie rularea. Enunțul curent (`../../scenario.md`) a fost retușat după capturi („nevizi”, „cazuri”, „se modifică”); `context.md` păstrează textul trimis atunci.
 
 | Încercare | Rezultat |
 |---|---|

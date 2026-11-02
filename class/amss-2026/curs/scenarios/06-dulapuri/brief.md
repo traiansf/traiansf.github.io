@@ -1,10 +1,10 @@
 # Enunț — dulapurile unui muzeu
 
-Exemplu didactic pentru Cursul 6, versiunea 27 octombrie 2026. Registrul descrie asocieri între vizitatori și dulapuri; nu comandă încuietori.
+Exemplu didactic pentru Cursul 6, versiunea 27 octombrie 2026, retușată la 2 noiembrie 2026 (textul trimis agenților AI este păstrat în arhiva capturilor). Registrul descrie asocieri între vizitatori și dulapuri; nu comandă încuietori.
 
 ## Reguli convenite
 
-- **R1 — context:** identificatorii vizitatorilor și dulapurilor sunt cunoscuți și valizi; operațiile se desfășoară pe rând, pornind dintr-un registru valid. Nu discutăm identificatori necunoscuți, autentificare, concurență, întreruperi tehnice sau încuietori fizice.
+- **R1 — context:** identificatorii vizitatorilor și dulapurilor sunt cunoscuți și valizi; apelurile se fac pe rând, pornind dintr-un registru valid. Nu discutăm identificatori necunoscuți, autentificare, concurență, întreruperi tehnice sau încuietori fizice.
 - **R2 — unicitate:** un vizitator are cel mult un dulap, iar un dulap are cel mult un vizitator. Un registru gol este valid.
 - **R3 — atribuire:** `atribuie(v, d)` reușește exact când vizitatorul nu are dulap și dulapul este liber. Adaugă asocierea `(v, d)` și întoarce `atribuit`. În celelalte cazuri întoarce `refuz`, iar **întregul registru rămâne identic**. Inclusiv repetarea aceleiași atribuiri este refuzată; atribuirea nu înlocuiește dulapul deja atribuit unui vizitator.
 - **R4 — eliberare:** `elibereaza(v)` elimină unica asociere a lui `v`, dacă există, și întoarce `eliberat`. Dacă nu există, întoarce `fara_dulap`, fără modificări. Repetarea nu este o eroare tehnică.
@@ -25,4 +25,4 @@ Vizitatori: V1, V2, V3. Dulapuri: D1, D2, D3. **B = {V1–D1, V2–D2}; V3 nu ar
 
 ## Sarcina de proiectare
 
-Separați precondițiile asumate de R1, condiția de succes, postcondițiile fiecărui rezultat, invarianții și ceea ce rămâne neschimbat. Respingerea face parte din contractul operației publice: „dulap liber” nu este precondiția acesteia. Nu se cere cod sau o reprezentare particulară.
+Separați precondițiile asumate de R1, condiția de succes, postcondițiile fiecărui rezultat, invarianții și ceea ce rămâne neschimbat. Refuzul face parte din contractul operației publice: „dulap liber” nu este precondiția acesteia. Nu se cere cod sau o reprezentare particulară.

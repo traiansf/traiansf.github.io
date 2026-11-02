@@ -14,7 +14,7 @@ Opțional, pentru verificarea stocului total, notăm cu P suma cantităților di
 
 Cantitățile rezervărilor sunt strict pozitive; identificatorii sunt unici. `0 ≤ R ≤ F ≤ 10`, `D = F − R ≥ 0`, `F + P = 10`. Ultima egalitate folosește absența reaprovizionării și retururilor. Istoricul cu cantitățile ridicate permite calcularea lui P. Păstrarea identificatorilor și cantităților de la o stare la alta este o responsabilitate a operațiilor, distinctă de unicitatea verificabilă într-o singură stare.
 
-Precondiții comune: R1 (registru valid, apeluri seriale, cantitate întreagă unde există, identificator nevid). Cantitatea q strict pozitivă, disponibilitatea și identificatorul nefolosit sunt **condiții de succes**, nu precondiții care ar lăsa refuzul nespecificat.
+Precondiții comune: R1 (context: registru valid, apeluri pe rând, cantitate întreagă unde există, identificator nevid). Cantitatea q strict pozitivă, disponibilitatea și identificatorul nefolosit sunt **condiții de succes**, nu precondiții care ar lăsa refuzul nespecificat.
 
 | Operație acceptată | Efect asupra cantităților | Efect asupra registrului |
 |---|---|---|
