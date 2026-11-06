@@ -508,7 +508,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <p>D. Un număr nefolosit până atunci; 212 rămâne la arborele tăiat.</p>
 <hr />
 <h1 id="cazul-c-cardul-de-călătorie">Cazul C — Cardul de călătorie</h1>
-<p>Un card de călătorie are un <strong>sold</strong> în lei (număr întreg) și o <strong>stare</strong>: activ sau blocat. Operațiile se apelează pe rând, numai pentru carduri cunoscute, cu sume întregi.</p>
+<p>Un card de călătorie are un <strong>sold</strong> în lei (număr întreg) și o <strong>stare</strong>: activ sau blocat. Operațiile se apelează secvențial, numai pentru carduri cunoscute, cu sume întregi.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -616,7 +616,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 </tbody>
 </table>
 </div>
-<p>Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplinită, este <strong>respins</strong> și nu schimbă starea. Evenimentele se procesează pe rând. <strong>Plătită</strong> și <strong>Anulată</strong> sunt stări finale intenționate. Suma și documentele nu se schimbă pe parcursul unei secvențe.</p>
+<p>Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplinită, este <strong>respins</strong> și nu schimbă starea. Evenimentele se procesează secvențial. <strong>Plătită</strong> și <strong>Anulată</strong> sunt stări finale intenționate. Suma și documentele nu se schimbă pe parcursul unei secvențe.</p>
 <p><strong>13.</strong> Cererea este în Ciornă, are suma 120 și documentele atașate. Urmează evenimentele: trimite, respinge, trimite, aprobă, renunță. Care sunt starea finală și rezultatul ultimului eveniment?</p>
 <p>A. Anulată; ultimul eveniment reușește.</p>
 <p>B. Aprobată; ultimul eveniment este respins.</p>
@@ -671,7 +671,7 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <p>D. Rotunjirea trebuie separată prima, pentru că afectează sumele afișate în ambele canale.</p>
 <hr />
 <h1 id="cazul-f-sasul-unui-laborator">Cazul F — Sasul unui laborator</h1>
-<p>Un sas are două uși: <strong>U1</strong>, spre hol, și <strong>U2</strong>, spre laborator. Fiecare ușă este închisă (Î) sau deschisă (D); starea sasului se scrie (U1, U2), iar starea inițială este (Î, Î). Modelul are numai aceste acțiuni, executate pe rând, și presupune că ușile execută comenzile:</p>
+<p>Un sas are două uși: <strong>U1</strong>, spre hol, și <strong>U2</strong>, spre laborator. Fiecare ușă este închisă (Î) sau deschisă (D); starea sasului se scrie (U1, U2), iar starea inițială este (Î, Î). Modelul are numai aceste acțiuni, executate secvențial, și presupune că ușile execută comenzile:</p>
 <ul>
 <li><code>deschide(Ui)</code>: permisă numai dacă Ui este închisă <strong>și cealaltă ușă este închisă</strong>;</li>
 <li><code>inchide(Ui)</code>: permisă numai dacă Ui este deschisă.</li>

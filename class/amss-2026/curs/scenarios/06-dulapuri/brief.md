@@ -1,10 +1,10 @@
 # Enunț — dulapurile unui muzeu
 
-Exemplu didactic pentru Cursul 6, versiunea 27 octombrie 2026, retușată la 2 noiembrie 2026 (textul trimis agenților AI este păstrat în arhiva capturilor). Registrul descrie asocieri între vizitatori și dulapuri; nu comandă încuietori.
+Exemplu didactic pentru Cursul 6, versiunea 27 octombrie 2026, retușată la 2 și 6 noiembrie 2026 (textul trimis agenților AI este păstrat în arhiva capturilor). Registrul descrie asocieri între vizitatori și dulapuri; nu comandă încuietori.
 
 ## Reguli convenite
 
-- **R1 — context:** identificatorii vizitatorilor și dulapurilor sunt cunoscuți și valizi; apelurile se fac pe rând, pornind dintr-un registru valid. Nu discutăm identificatori necunoscuți, autentificare, concurență, întreruperi tehnice sau încuietori fizice.
+- **R1 — context:** identificatorii vizitatorilor și dulapurilor sunt cunoscuți și valizi; apelurile sunt secvențiale, fiecare începând după încheierea celui anterior, pornind dintr-un registru valid. Nu discutăm identificatori necunoscuți, autentificare, concurență, întreruperi tehnice sau încuietori fizice.
 - **R2 — unicitate:** un vizitator are cel mult un dulap, iar un dulap are cel mult un vizitator. Un registru gol este valid.
 - **R3 — atribuire:** `atribuie(v, d)` reușește exact când vizitatorul nu are dulap și dulapul este liber. Adaugă asocierea `(v, d)` și întoarce `atribuit`. În celelalte cazuri întoarce `refuz`, iar **întregul registru rămâne identic**. Inclusiv repetarea aceleiași atribuiri este refuzată; atribuirea nu înlocuiește dulapul deja atribuit unui vizitator.
 - **R4 — eliberare:** `elibereaza(v)` elimină unica asociere a lui `v`, dacă există, și întoarce `eliberat`. Dacă nu există, întoarce `fara_dulap`, fără modificări. Repetarea nu este o eroare tehnică.

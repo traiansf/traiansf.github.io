@@ -46,9 +46,9 @@ Reluăm citatul din cursul 6. Clientul lui Meyer este apelantul operației. Refu
 
 **Contract:** precondiția (ce presupunem despre apel), condiția de succes (când reușim) și postcondițiile (ce întoarcem și ce păstrăm, la succes și la refuz).
 
-**Invariant:** ce relații respectă toate stările valide?
+**Invariant:** ce relații trebuie să fie adevărate în orice stare? O stare este **validă** dacă îi respectă pe toți.
 
-Astăzi: **F** = bucăți fizic în depozit; **R** = suma cantităților rezervate activ; **D = F − R** = disponibil. „A activă(4)” înseamnă rezervarea A, activă, pentru 4 bucăți. Inițial avem 10 bucăți, fără reaprovizionare sau retururi; operațiile se execută pe rând.
+Astăzi: **F** = bucăți fizic în depozit; **R** = suma cantităților rezervate activ; **D = F − R** = disponibil. „A activă(4)” înseamnă rezervarea A, activă, pentru 4 bucăți. Inițial avem 10 bucăți, fără reaprovizionare sau retururi; apelurile sunt secvențiale: fiecare începe după încheierea celui anterior.
 
 ::: notes
 Rezervarea reduce disponibilul, nu stocul fizic. Ridicarea reduce simultan stocul fizic și rezervatul. Abrevierile sunt repetate pe slide-urile de lucru. Litera R numește cantitatea rezervată; regulile poartă mereu un număr și cuvinte-cheie, de exemplu R2 (rezervare). P reprezintă totalul ridicat și va fi introdus doar în discuția de referință, dacă ajută.
@@ -99,7 +99,7 @@ S1: acceptat, F=10, R=10, D=0. S2: refuz, exact I. Registrul comun verifică toa
 Un refuz păstrează și cantitățile, și rezervările.
 
 ::: notes
-Precondițiile comune sunt registru valid, identificatori nevizi, cantități întregi și apeluri pe rând. Pozitivitatea, disponibilitatea și identificatorul nefolosit decid succesul; refuzurile sunt specificate. Spre deosebire de muzeu, aici enunțul specifică și refuzul ridicării sau anulării cu un identificator necunoscut. Domeniul promisiunii se citește din fiecare enunț.
+Precondițiile comune sunt registru valid, identificatori nevizi, cantități întregi și apeluri secvențiale. Pozitivitatea, disponibilitatea și identificatorul nefolosit decid succesul; refuzurile sunt specificate. Spre deosebire de muzeu, aici enunțul specifică și refuzul ridicării sau anulării cu un identificator necunoscut. Ce garantează operația și în ce condiții se citește din fiecare enunț.
 
 **Organizare:** minutul 30 din 100; interval 30–55 (25 min): rezervare 10, ridicare și anulare 15. []{.pace at=30}
 :::
@@ -110,7 +110,7 @@ Precondițiile comune sunt registru valid, identificatori nevizi, cantități î
 
 **Starea inițială I:** F=10, A activă(4), identificatorul B nefolosit, R=4, D=6; F fizic, R rezervat activ, D disponibil.
 
-**R1 (context):** cantitățile sunt numere întregi, identificatorii sunt nevizi, registrul este valid, iar apelurile vin pe rând. **R2 (rezervare):** pentru o cantitate q>0, un identificator nefolosit și q≤D, operația creează o rezervare activă nouă de q bucăți; F nu se modifică. Altfel refuză, fără modificări. **R5 (istoric și efect limitat):** celelalte rezervări se păstrează.
+**R1 (context):** cantitățile sunt numere întregi, identificatorii sunt nevizi, registrul este valid, iar apelurile sunt secvențiale. **R2 (rezervare):** pentru o cantitate q>0, un identificator nefolosit și q≤D, operația creează o rezervare activă nouă de q bucăți; F nu se modifică. Altfel refuză, fără modificări. **R5 (istoric și efect limitat):** celelalte rezervări se păstrează.
 
 În pereche, unul formulează contractul (precondiții, condiție de succes, postcondiții), iar celălalt verifică; apoi schimbați rolurile:
 
@@ -160,9 +160,9 @@ Profesorul conduce o singură analiză și o singură revizuire într-un context
 
 # Analiza: ce îi cerem și ce verificăm?
 
-**Instrucțiunea trimisă:** „[…] formulează contractele operațiilor rezerva, ridica și anuleaza: precondiții, condiții de succes, efecte, refuzuri și invarianți. Calculează S2, S3 și S5. […]”
+**[Instrucțiunea trimisă](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/03-contracte/ai/analist-prompt.md):** „[…] formulează contractele operațiilor rezerva, ridica și anuleaza: precondiții, condiții de succes, efecte, refuzuri și invarianți. Calculează S2, S3 și S5. […]”
 
-**Reguli:** rezervarea reușește numai cu un identificator nefolosit și 0<q≤D; ridicarea și anularea, numai pentru o rezervare activă; altfel refuz, fără modificări. Ridicarea scade F și R cu q; anularea, doar R.
+**[Reguli](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/03-contracte/ai/context.md):** rezervarea reușește numai cu un identificator nefolosit și 0<q≤D; ridicarea și anularea, numai pentru o rezervare activă; altfel refuz, fără modificări. Ridicarea scade F și R cu q; anularea, doar R.
 
 **Din I** (F=10, A activă(4), R=4, D=F−R=6): scenariul S2 (`rezerva(B,7)`); scenariul S3 (`ridica(A)`); scenariul S5 (`ridica(A)`, apoi `anuleaza(A)`). **Predicție:** ce rezultate așteptăm?
 
@@ -177,7 +177,7 @@ Profesorul conduce o singură analiză și o singură revizuire într-un context
 ::: notes
 Răspunsul calculează corect S2, S3 și S5 (de exemplu S3: F=6, R=0, D=6, A ridicată), iar registrul este singurul care modifică starea. Sarcina cerea însă separat condițiile de succes: identificatorul nefolosit, q>0 și disponibilitatea sunt trecute la precondiții, apoi folosite ca motive de refuz. După cursul 6: dacă D≥q ar fi precondiție, refuzul pentru D<q nu ar mai fi promis. „Efectele” și „refuzurile” din sarcina trimisă sunt postcondițiile celor două cazuri. Fragmentul redă rândurile „Precondiții” și „Refuz” din tabelul propunerii; „id” este identificatorul rezervării. „id ≠ 0” citește literal cuvântul „nenuli” din enunțul trimis atunci; de aceea enunțul spune acum „nevizi”. Nu îl reproșăm modelului. Cealaltă analiză păstrată are aceeași confuzie. Răspunsul integral este în capturile pregătite, legate pe slide-ul următor.
 
-**Organizare:** 10 min: predicție 2, analiză afișată 3, discuție 5. O rulare live are cel mult 2 min, incluse; altfel folosim captura. []{.pace dur=10}
+**Organizare:** 10 min: predicție 2, analiză afișată 3, discuție 5. O rulare live are cel mult 2 min, incluse; altfel folosim captura. Pentru o rulare live, „Instrucțiunea trimisă” duce la promptul complet (instrucțiunea urmată de enunț), iar „Reguli” la context (enunțul). []{.pace dur=10}
 :::
 
 ---

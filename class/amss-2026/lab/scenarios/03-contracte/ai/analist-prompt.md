@@ -2,13 +2,13 @@ Propune o repartizare a responsabilităților pentru modificarea registrului și
 
 # Enunț — rezervarea cantităților într-un depozit
 
-Exemplu didactic pentru Laboratorul 3, după cursurile 5–6. Versiune: 27 octombrie 2026, retușată la 2 noiembrie 2026 (textul trimis agenților AI este păstrat în arhiva capturilor). Discutăm responsabilități, contracte și invarianți. Nu se cere aplicație sau diagramă de stări.
+Exemplu didactic pentru Laboratorul 3, după cursurile 5–6. Versiune: 27 octombrie 2026, retușată la 2 și 6 noiembrie 2026 (textul trimis agenților AI este păstrat în arhiva capturilor). Discutăm responsabilități, contracte și invarianți. Nu se cere aplicație sau diagramă de stări.
 
 Un operator gestionează rezervările pentru 10 adaptoare de alimentare identice. Clienții vin să ridice produsele rezervate. Cererile ajung prin formularul operatorului sau prin import; importul apelează aceleași operații pentru fiecare cerere.
 
 ## Reguli convenite
 
-- **R1 — context:** un singur produs, 10 bucăți inițial; fără reaprovizionare, retururi sau expediere. Operațiile se desfășoară pe rând; registrul inițial este valid. Cantitățile primite sunt numere întregi; identificatorii rezervărilor sunt nevizi. Excludem erorile tehnice și concurența.
+- **R1 — context:** un singur produs, 10 bucăți inițial; fără reaprovizionare, retururi sau expediere. Apelurile sunt secvențiale: fiecare începe după încheierea celui anterior; registrul inițial este valid. Cantitățile primite sunt numere întregi; identificatorii rezervărilor sunt nevizi. Excludem erorile tehnice și concurența.
 - **R2 — rezervare:** `rezerva(id, q)` acceptă exact când identificatorul nu a mai fost folosit, `q > 0` și există cel puțin q bucăți disponibile. Creează o rezervare activă de q bucăți; acestea devin indisponibile altora, dar rămân fizic în depozit. Altfel: `refuz`, fără nicio modificare.
 - **R3 — ridicare:** `ridica(id)` acceptă numai o rezervare activă; ridică **întreaga** ei cantitate, o scade din stocul fizic și marchează rezervarea ca ridicată. Cantitatea disponibilă nu se modifică. Pentru un identificator necunoscut ori o rezervare deja ridicată/anulată: `refuz`, fără modificări.
 - **R4 — anulare:** `anuleaza(id)` acceptă numai o rezervare activă; o marchează anulată și redă întreaga cantitate disponibilului. Stocul fizic nu se modifică. În celelalte cazuri: `refuz`, fără modificări.
@@ -34,6 +34,6 @@ Fiecare scenariu repornește din I, exceptând continuările explicit marcate:
 
 ## Întrebările discuției
 
-Cine are dreptul să modifice registrul? Ce trebuie să promită fiecare operație? Ce rămâne identic la refuz? Ce relații trebuie să respecte toate stările valide? Cum verificăm aceeași cerere venită din formular și din import?
+Cine are dreptul să modifice registrul? Ce trebuie să promită fiecare operație? Ce rămâne identic la refuz? Ce relații trebuie să fie adevărate în orice stare? Cum verificăm aceeași cerere venită din formular și din import?
 
 Puteți schița sau nota idei, fără documente de predat. Etapa AI este o singură analiză și o singură revizuire în plen, conduse de profesor; nu sunt necesare conturi AI pentru studenți.

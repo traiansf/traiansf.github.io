@@ -126,7 +126,7 @@ D. Un număr nefolosit până atunci; 212 rămâne la arborele tăiat.
 
 # Cazul C — Cardul de călătorie
 
-Un card de călătorie are un **sold** în lei (număr întreg) și o **stare**: activ sau blocat. Operațiile se apelează pe rând, numai pentru carduri cunoscute, cu sume întregi.
+Un card de călătorie are un **sold** în lei (număr întreg) și o **stare**: activ sau blocat. Operațiile se apelează secvențial, numai pentru carduri cunoscute, cu sume întregi.
 
 | Operație | Când reușește și ce face | Altfel |
 |---|---|---|
@@ -191,7 +191,7 @@ O cerere de decontare a unei cheltuieli începe în starea **Ciornă**. Tabelul 
 | Trimisă | renunță | — | Anulată |
 | Aprobată | plătește | — | Plătită |
 
-Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplinită, este **respins** și nu schimbă starea. Evenimentele se procesează pe rând. **Plătită** și **Anulată** sunt stări finale intenționate. Suma și documentele nu se schimbă pe parcursul unei secvențe.
+Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplinită, este **respins** și nu schimbă starea. Evenimentele se procesează secvențial. **Plătită** și **Anulată** sunt stări finale intenționate. Suma și documentele nu se schimbă pe parcursul unei secvențe.
 
 **13.** Cererea este în Ciornă, are suma 120 și documentele atașate. Urmează evenimentele: trimite, respinge, trimite, aprobă, renunță. Care sunt starea finală și rezultatul ultimului eveniment?
 
@@ -291,7 +291,7 @@ D. Rotunjirea trebuie separată prima, pentru că afectează sumele afișate în
 
 # Cazul F — Sasul unui laborator
 
-Un sas are două uși: **U1**, spre hol, și **U2**, spre laborator. Fiecare ușă este închisă (Î) sau deschisă (D); starea sasului se scrie (U1, U2), iar starea inițială este (Î, Î). Modelul are numai aceste acțiuni, executate pe rând, și presupune că ușile execută comenzile:
+Un sas are două uși: **U1**, spre hol, și **U2**, spre laborator. Fiecare ușă este închisă (Î) sau deschisă (D); starea sasului se scrie (U1, U2), iar starea inițială este (Î, Î). Modelul are numai aceste acțiuni, executate secvențial, și presupune că ușile execută comenzile:
 
 - `deschide(Ui)`: permisă numai dacă Ui este închisă **și cealaltă ușă este închisă**;
 - `inchide(Ui)`: permisă numai dacă Ui este deschisă.
