@@ -49,7 +49,7 @@ Pentru fiecare variantă greșită este notată regula sau contraexemplul care o
 
 **9. C.** Soldul 2 este sub 3, deci `valideaza` refuză fără nicio modificare. A încalcă invariantul și condiția de succes. B scade incorect suma și raportează succes. D modifică soldul la refuz.
 
-**10. A.** Tabelul promite `refuz` fără modificări când condiția lipsește: cazul face parte din contract, deci condiția este o condiție de succes (Cursul 6). B ar lăsa rezultatul nespecificat, contrar tabelului. C: invariantul este „sold ≥ 0”; un card activ cu soldul 1 este valid. D: un contraexemplu — card activ cu soldul 0; `incarca(K, 1)` reușește, iar soldul devine 1, deci „sold ≥ 3” nu este garantat după o încărcare reușită.
+**10. A.** Tabelul promite `refuz` fără modificări când condiția lipsește: cazul face parte din contract, deci „soldul ≥ 3” face parte din condiția de succes (Cursul 6). B ar lăsa rezultatul nespecificat, contrar tabelului. C: invariantul este „sold ≥ 0”; un card activ cu soldul 1 este valid. D: un contraexemplu — card activ cu soldul 0; `incarca(K, 1)` reușește, iar soldul devine 1, deci „sold ≥ 3” nu este garantat după o încărcare reușită.
 
 **11. D.** Implementarea acceptă 250, deși contractul cere 1 ≤ s ≤ 200; soldul devine 260, deci invariantul rămâne adevărat, iar contractul este încălcat. A: comportament corect. B: implementarea refuză, corect. C încalcă și invariantul (sold −5), deci nu satisface condiția din întrebare.
 

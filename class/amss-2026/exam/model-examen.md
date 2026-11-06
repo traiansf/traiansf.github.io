@@ -148,7 +148,7 @@ D. `refuz`; K activ, sold 0.
 
 **10.** Ce rol are condiția „soldul ≥ 3” în contractul lui `valideaza`?
 
-A. Este o condiție de succes: când nu este îndeplinită, contractul promite `refuz` fără nicio modificare.
+A. Face parte din condiția de succes: când nu este îndeplinită, contractul promite `refuz` fără nicio modificare.
 
 B. Este o precondiție: apelantul trebuie să o asigure, iar altfel rezultatul nu este specificat.
 

@@ -151,13 +151,13 @@ Postcondiția poate depinde de starea inițială și de rezultatul întors, incl
 
 ---
 
-# „Dulap liber”: precondiție sau condiție de succes?
+# „Dulap liber”: ține de precondiție sau de condiția de succes?
 
 **R1 (context):** apelăm secvențial, cu identificatori cunoscuți, într-un registru care respectă R2 (unicitate).
 
 **R3 (atribuire):** dacă dulapul este ocupat, `atribuie` întoarce `refuz` și păstrează întregul registru.
 
-Prin urmare, într-un singur contract, „dulap liber” este **condiție de succes**, nu precondiție a acestei operații publice. Dacă o impunem ca precondiție, nu mai promitem nimic pentru un dulap ocupat.
+Prin urmare, într-un singur contract, „dulap liber” este **o parte a condiției de succes**, alături de „vizitator fără dulap”, nu o precondiție a acestei operații publice. Dacă o impunem ca precondiție, nu mai promitem nimic pentru un dulap ocupat.
 
 **Alternativă: câte un contract pentru fiecare caz.** „Dulap liber” devine parte din precondiția contractului de succes, iar „dulap ocupat” intră în cea a contractului de refuz. Atunci trebuie să verificăm că împreună acoperă toate apelurile admise.
 
@@ -264,14 +264,14 @@ Fiecare scenariu repornește din B. Nu le tratăm ca pași succesivi. Același r
 
 # O notație scurtă pentru efectul exact
 
-**A** = mulțimea asocierilor înainte; **A′** = mulțimea după; $A[v]$ = dulapurile lui v în A; $A^{-1}[d]$ = vizitatorii lui d în A.
+**A** = mulțimea asocierilor înainte; **A′** = mulțimea după.
 
 **R3 și R5 (atribuire, efect limitat), pe scurt:**
 
 - dacă v nu are dulap în A și d este liber în A: `atribuit`, **A′ = A ∪ {(v,d)}**;
 - altfel: `refuz`, **A′ = A**.
 
-**Formal:**
+**Formal,** cu $A[v]$ = dulapurile lui v în A și $A^{-1}[d]$ = vizitatorii lui d în A:
 
 - dacă $A[v] = \emptyset \wedge A^{-1}[d] = \emptyset$ atunci *rezultat* = `atribuit` $\wedge\ A' = A \cup \{(v,d)\}$;
 - dacă $A[v] \neq \emptyset \vee A^{-1}[d] \neq \emptyset$ atunci *rezultat* = `refuz` $\wedge\ A' = A$.
@@ -488,7 +488,7 @@ Rezultat atribuie(Vizitator v, Dulap d) {
 De ce refuzul este `if`, nu `assert`? Ce spune un `assert` trecut despre alte apeluri?
 
 ::: notes
-Refuzul este un rezultat promis, deci trebuie produs mereu; un `assert` poate fi dezactivat: în Java este oprit implicit și se activează cu `-ea`, în Python `-O` îl elimină, iar în C `NDEBUG` îl dezactivează. Un `assert` eșuat semnalează un defect, nu un caz al contractului. Aici primul `assert` verifică invariantul, iar al doilea postcondiția și are nevoie de o copie a stării de dinainte. Un `assert` pentru precondiție are sens când apelantul este sub controlul nostru; aici ar acoperi R1 (context), nu „dulap liber”, care este condiție de succes. Un `assert` verifică o stare, într-o execuție; contractul privește toate apelurile admise. Faptul că trece nu spune nimic despre apelurile neexecutate.
+Refuzul este un rezultat promis, deci trebuie produs mereu; un `assert` poate fi dezactivat: în Java este oprit implicit și se activează cu `-ea`, în Python `-O` îl elimină, iar în C `NDEBUG` îl dezactivează. Un `assert` eșuat semnalează un defect, nu un caz al contractului. Aici primul `assert` verifică invariantul, iar al doilea postcondiția și are nevoie de o copie a stării de dinainte. Un `assert` pentru precondiție are sens când apelantul este sub controlul nostru; aici ar acoperi R1 (context), nu „dulap liber”, care ține de condiția de succes. Un `assert` verifică o stare, într-o execuție; contractul privește toate apelurile admise. Faptul că trece nu spune nimic despre apelurile neexecutate.
 
 **Sursă:** ghidul Oracle [Programming With Assertions](https://docs.oracle.com/cd/E19683-01/806-7930/assert/index.html), căutare din 6 noiembrie 2026: nu folosim `assert` pentru argumentele metodelor publice, dar îl putem folosi pentru postcondiții și pentru precondițiile metodelor nepublice.
 

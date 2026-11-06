@@ -1,6 +1,6 @@
 # Sprijin facultativ pentru discuție — depozit
 
-Folosiți [enunțul](scenario.md) și explicați alegerile colegilor. Notițele sunt facultative, rămân la voi și nu se predau.
+Folosiți [enunțul](scenario.md) la lucrul individual și la discuția în plen. Notițele sunt facultative, rămân la voi și nu se predau.
 
 ## Responsabilități
 
@@ -20,8 +20,8 @@ Fiecare scenariu S1–S7 din enunț repornește din I (F=10, A activă 4, R=4, D
 
 ## Analiza și revizuirea AI
 
-Profesorul conduce o singură analiză și o singură revizuire în plen. Preziceți o consecință înainte de răspuns, apoi verificați o afirmație folosind o regulă și un scenariu. Nu porniți sesiuni separate pentru fiecare pereche. Dacă instrumentul nu răspunde, discutăm capturile reale pregătite, cu aceeași metodă.
+Profesorul conduce o singură analiză și o singură revizuire în plen. Preziceți o consecință înainte de răspuns, apoi verificați o afirmație folosind o regulă și un scenariu. Nu porniți sesiuni AI proprii. Dacă instrumentul nu răspunde, discutăm capturile reale pregătite, cu aceeași metodă.
 
-## Comparație finală
+## Exercițiul final
 
-Pornim cu A activă 4 și B activă 6, F=10, R=10, D=0. Executăm `anuleaza(A)`, apoi `ridica(B)`. Explicați unui coleg ambele stări intermediare și păstrarea rezervării neatinse. Separat, după anularea lui A, încercăm reutilizarea identificatorului A: regula istoricului cere refuz fără modificări.
+Pornim cu A activă 4 și B activă 6, F=10, R=10, D=0. Executăm `anuleaza(A)`, apoi `ridica(B)`. Pregătiți explicația pentru ambele stări intermediare și pentru păstrarea rezervării neatinse. Separat, după anularea lui A, încercăm reutilizarea identificatorului A: regula istoricului cere refuz fără modificări.

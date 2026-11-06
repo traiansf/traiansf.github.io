@@ -637,11 +637,11 @@ break-inside: avoid;
 <p>Postcondiția poate depinde de o <strong>condiție de succes</strong>: dintre apelurile admise de precondiție, ea decide care reușesc și care primesc refuzul promis.</p>
 <p>În registrul nostru, precondiția cere identificatori cunoscuți, postcondiția dă efectul exact al atribuirii, iar invariantul este unicitatea <span class="nowrap">vizitator–dulap.</span></p>
 </div>
-<div id="dulap-liber-precondiție-sau-condiție-de-succes" class="slide section level1">
-<h1>„Dulap liber”: precondiție sau condiție de succes?</h1>
+<div id="dulap-liber-ține-de-precondiție-sau-de-condiția-de-succes" class="slide section level1">
+<h1>„Dulap liber”: ține de precondiție sau de condiția de succes?</h1>
 <p><strong>R1 (context):</strong> apelăm secvențial, cu identificatori cunoscuți, <span class="nowrap">într-un</span> registru care respectă R2 (unicitate).</p>
 <p><strong>R3 (atribuire):</strong> dacă dulapul este ocupat, <code>atribuie</code> întoarce <code>refuz</code> și păstrează întregul registru.</p>
-<p>Prin urmare, <span class="nowrap">într-un</span> singur contract, „dulap liber” este <strong>condiție de succes</strong>, nu precondiție a acestei operații publice. Dacă o impunem ca precondiție, nu mai promitem nimic pentru un dulap ocupat.</p>
+<p>Prin urmare, <span class="nowrap">într-un</span> singur contract, „dulap liber” este <strong>o parte a condiției de succes</strong>, alături de „vizitator fără dulap”, nu o precondiție a acestei operații publice. Dacă o impunem ca precondiție, nu mai promitem nimic pentru un dulap ocupat.</p>
 <p><strong>Alternativă: câte un contract pentru fiecare caz.</strong> „Dulap liber” devine parte din precondiția contractului de succes, iar „dulap ocupat” intră în cea a contractului de refuz. Atunci trebuie să verificăm că împreună acoperă toate apelurile admise.</p>
 </div>
 <div id="invariantul-privește-toate-operațiile" class="slide section level1">
@@ -732,13 +732,13 @@ break-inside: avoid;
 </div>
 <div id="o-notație-scurtă-pentru-efectul-exact" class="slide section level1">
 <h1>O notație scurtă pentru efectul exact</h1>
-<p><strong>A</strong> = mulțimea asocierilor înainte; <strong>A′</strong> = mulțimea după; <span class="math inline"><em>A</em>[<em>v</em>]</span> = dulapurile lui v în A; <span class="math inline"><em>A</em><sup>−1</sup>[<em>d</em>]</span> = vizitatorii lui d în A.</p>
+<p><strong>A</strong> = mulțimea asocierilor înainte; <strong>A′</strong> = mulțimea după.</p>
 <p><strong>R3 și R5 (atribuire, efect limitat), pe scurt:</strong></p>
 <ul>
 <li>dacă v nu are dulap în A și d este liber în A: <code>atribuit</code>, <strong>A′ = A ∪ {(v,d)}</strong>;</li>
 <li>altfel: <code>refuz</code>, <strong>A′ = A</strong>.</li>
 </ul>
-<p><strong>Formal:</strong></p>
+<p><strong>Formal,</strong> cu <span class="math inline"><em>A</em>[<em>v</em>]</span> = dulapurile lui v în A și <span class="math inline"><em>A</em><sup>−1</sup>[<em>d</em>]</span> = vizitatorii lui d în A:</p>
 <ul>
 <li>dacă <span class="math inline"><em>A</em>[<em>v</em>] = ∅ ∧ <em>A</em><sup>−1</sup>[<em>d</em>] = ∅</span> atunci <em>rezultat</em> = <code>atribuit</code> <span class="math inline">∧ <em>A</em>′ = <em>A</em> ∪ {(<em>v</em>, <em>d</em>)}</span>;</li>
 <li>dacă <span class="math inline"><em>A</em>[<em>v</em>] ≠ ∅ ∨ <em>A</em><sup>−1</sup>[<em>d</em>] ≠ ∅</span> atunci <em>rezultat</em> = <code>refuz</code> <span class="math inline">∧ <em>A</em>′ = <em>A</em></span>.</li>

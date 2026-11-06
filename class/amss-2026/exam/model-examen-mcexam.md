@@ -105,7 +105,7 @@ Un card de călătorie are un **sold** în lei (număr întreg) și o **stare**:
 - [ ] `refuz`; K activ, sold 0.
 
 #### Ce rol are condiția „soldul ≥ 3” în contractul lui `valideaza`?
-- [x] Este o condiție de succes: când nu este îndeplinită, contractul promite `refuz` fără nicio modificare.
+- [x] Face parte din condiția de succes: când nu este îndeplinită, contractul promite `refuz` fără nicio modificare.
 - [ ] Este o precondiție: apelantul trebuie să o asigure, iar altfel rezultatul nu este specificat.
 - [ ] Este un invariant pe care îl respectă toate cardurile, în orice stare.
 - [ ] Este o postcondiție a lui `incarca`, garantată după orice încărcare reușită.

@@ -67,7 +67,7 @@ Aceeași cerere vine din formular și din import.
 ::: notes
 Începem cu o predicție individuală înainte de compararea responsabilităților. Nu folosim AI în această etapă.
 
-**Organizare:** minutul 10 din 100; interval 10–30 (20 min): reflecție 3, explicații în ștafetă 10, discuție 7. []{.pace at=10}
+**Organizare:** minutul 10 din 100; interval 10–30 (20 min): reflecție 5, explicații în ștafetă 8, discuție 7. []{.pace at=10}
 :::
 
 ---
@@ -175,7 +175,7 @@ Profesorul conduce o singură analiză și o singură revizuire într-un context
 > **Refuz:** Orice precondițiune încălcată ⇒ stare neschimbată
 
 ::: notes
-Răspunsul calculează corect S2, S3 și S5 (de exemplu S3: F=6, R=0, D=6, A ridicată), iar registrul este singurul care modifică starea. Sarcina cerea însă separat condițiile de succes: identificatorul nefolosit, q>0 și disponibilitatea sunt trecute la precondiții, apoi folosite ca motive de refuz. După cursul 6: dacă D≥q ar fi precondiție, refuzul pentru D<q nu ar mai fi promis. „Efectele” și „refuzurile” din sarcina trimisă sunt postcondițiile celor două cazuri. Fragmentul redă rândurile „Precondiții” și „Refuz” din tabelul propunerii; „id” este identificatorul rezervării. „id ≠ 0” citește literal cuvântul „nenuli” din enunțul trimis atunci; de aceea enunțul spune acum „nevizi”. Nu îl reproșăm modelului. Cealaltă analiză păstrată are aceeași confuzie. Răspunsul integral este în capturile pregătite, legate pe slide-ul următor.
+Răspunsul calculează corect S2, S3 și S5 (de exemplu S3: F=6, R=0, D=6, A ridicată), iar registrul este singurul care modifică starea. Sarcina cerea însă separat condiția de succes: identificatorul nefolosit, q>0 și disponibilitatea sunt trecute la precondiții, apoi folosite ca motive de refuz. După cursul 6: dacă D≥q ar fi precondiție, refuzul pentru D<q nu ar mai fi promis. „Efectele” și „refuzurile” din sarcina trimisă sunt postcondițiile celor două cazuri. Fragmentul redă rândurile „Precondiții” și „Refuz” din tabelul propunerii; „id” este identificatorul rezervării. „id ≠ 0” citește literal cuvântul „nenuli” din enunțul trimis atunci; de aceea enunțul spune acum „nevizi”. Nu îl reproșăm modelului. Cealaltă analiză păstrată are aceeași confuzie. Răspunsul integral este în capturile pregătite, legate pe slide-ul următor.
 
 **Organizare:** 10 min: predicție 2, analiză afișată 3, discuție 5. O rulare live are cel mult 2 min, incluse; altfel folosim captura. Pentru o rulare live, „Instrucțiunea trimisă” duce la promptul complet (instrucțiunea urmată de enunț), iar „Reguli” la context (enunțul). []{.pace dur=10}
 :::
@@ -197,7 +197,7 @@ Răspunsul calculează corect S2, S3 și S5 (de exemplu S3: F=6, R=0, D=6, A rid
 [Capturile pregătite: instrucțiunile reale și răspunsurile integrale](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/03-contracte/prepared-fixture.md)
 
 ::: notes
-Observația 3 este corectă: R5 cere efectul limitat, iar propunerea nu îl formulează. Evaluatorul AI acceptă însă disponibilitatea drept precondiție, deși refuzul pentru D<q trebuie promis: aceasta este o condiție de succes. „Substantiv corectă” din captură înseamnă „corectă în esență”; nu corectăm textul. Cealaltă revizuire păstrată declară precondițiile „necesare și suficiente”. Dacă o rulare live acoperă corect aceste puncte, o confirmăm și nu inventăm o omisiune.
+Observația 3 este corectă: R5 cere efectul limitat, iar propunerea nu îl formulează. Evaluatorul AI acceptă însă disponibilitatea drept precondiție, deși refuzul pentru D<q trebuie promis: aceasta este o parte a condiției de succes. „Substantiv corectă” din captură înseamnă „corectă în esență”; nu corectăm textul. Cealaltă revizuire păstrată declară precondițiile „necesare și suficiente”. Dacă o rulare live acoperă corect aceste puncte, o confirmăm și nu inventăm o omisiune.
 
 **Organizare:** 10 min: predicție 2, revizuire afișată 3, discuție 5. []{.pace dur=10}
 :::
@@ -211,7 +211,7 @@ Observația 3 este corectă: R5 cere efectul limitat, iar propunerea nu îl form
 | Întrebare | Reper pentru decizie |
 |---|---|
 | Cine modifică registrul? | Aceleași operații pentru formular și import. |
-| Ce decide succesul? | Identificator nefolosit, q>0, q≤D: condiții de succes, cu refuz promis. |
+| Ce decide succesul? | Identificator nefolosit, q>0, q≤D: împreună, condiția de succes, cu refuz promis. |
 | Ce înseamnă refuz? | Întregul registru identic, inclusiv istoricul. |
 | Ce păstrăm la succes? | Celelalte rezervări, integral; identificatorul și cantitatea celei vizate. |
 
