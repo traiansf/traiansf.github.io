@@ -483,8 +483,8 @@ break-inside: avoid;
 </div>
 <div id="care-evenimente-schimbă-starea" class="slide section level1">
 <h1>Care evenimente schimbă starea?</h1>
-<p><strong>Manuscrisul M este În evaluare,</strong> cu editorul E1 și un raport Rp1.</p>
-<p><strong>Reguli:</strong> <code>ataseaza(f)</code> numai în Ciornă; <code>trimite</code> numai în Ciornă, dacă există fișier; <code>preia(e)</code> numai în Trimis; <code>inregistreaza_raport(r)</code> numai În evaluare, starea rămâne; <code>accepta</code> și <code>respinge</code> numai În evaluare, cu cel puțin un raport; <code>retrage</code> numai în Trimis sau În evaluare. Un eveniment nepermis este <strong>refuzat</strong>: nimic nu se schimbă.</p>
+<p><strong>Manuscrisul M este în evaluare,</strong> cu editorul E1 și un raport Rp1.</p>
+<p><strong>Reguli:</strong> <code>ataseaza(f)</code> numai cât timp manuscrisul este încă ciornă (netrimis); <code>trimite</code> tot numai pentru o ciornă, dacă există fișier; <code>preia(e)</code> numai pentru un manuscris trimis, încă nepreluat de un editor; <code>inregistreaza_raport(r)</code> numai cât timp manuscrisul este în evaluare, iar starea rămâne; <code>accepta</code> și <code>respinge</code> numai în evaluare, cu cel puțin un raport; <code>retrage</code> numai după trimitere, cât timp nu există decizie. Un eveniment nepermis este <strong>refuzat</strong>: nimic nu se schimbă.</p>
 <p>Individual, pentru fiecare dintre cele șapte evenimente: <strong>schimbă starea</strong>, <strong>păstrează starea dar înregistrează ceva</strong>, sau <strong>este refuzat</strong>? Apoi discutăm.</p>
 </div>
 <div id="stare-eveniment-tranziție" class="slide section level1">

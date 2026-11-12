@@ -68,9 +68,9 @@ Registrul refuză acceptarea: manuscrisul este retras, iar regula nu permite dec
 
 # Care evenimente schimbă starea?
 
-**Manuscrisul M este În evaluare,** cu editorul E1 și un raport Rp1.
+**Manuscrisul M este în evaluare,** cu editorul E1 și un raport Rp1.
 
-**Reguli:** `ataseaza(f)` numai în Ciornă; `trimite` numai în Ciornă, dacă există fișier; `preia(e)` numai în Trimis; `inregistreaza_raport(r)` numai În evaluare, starea rămâne; `accepta` și `respinge` numai În evaluare, cu cel puțin un raport; `retrage` numai în Trimis sau În evaluare. Un eveniment nepermis este **refuzat**: nimic nu se schimbă.
+**Reguli:** `ataseaza(f)` numai cât timp manuscrisul este încă ciornă (netrimis); `trimite` tot numai pentru o ciornă, dacă există fișier; `preia(e)` numai pentru un manuscris trimis, încă nepreluat de un editor; `inregistreaza_raport(r)` numai cât timp manuscrisul este în evaluare, iar starea rămâne; `accepta` și `respinge` numai în evaluare, cu cel puțin un raport; `retrage` numai după trimitere, cât timp nu există decizie. Un eveniment nepermis este **refuzat**: nimic nu se schimbă.
 
 Individual, pentru fiecare dintre cele șapte evenimente: **schimbă starea**, **păstrează starea dar înregistrează ceva**, sau **este refuzat**? Apoi discutăm.
 
