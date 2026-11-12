@@ -2,6 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 8: Interacțiuni, fluxuri de lucru și granițe"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
+operation-names: [inscrie, trimite, retrimite_confirmarile]
 ---
 
 # Cine coordonează o operație care iese din sistem? {.transition}

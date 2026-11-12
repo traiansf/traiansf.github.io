@@ -2,6 +2,7 @@
 title: "AMSS 2026/2027 — Laboratorul 3: Responsabilități, contracte și invarianți"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
+operation-names: [rezerva, ridica, anuleaza]
 ---
 
 # Ce proiectăm azi

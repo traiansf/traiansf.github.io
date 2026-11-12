@@ -569,7 +569,7 @@ break-inside: avoid;
 </div>
 <div id="o-operație-pe-care-o-putem-explica" class="slide section level1">
 <h1>O operație pe care o putem explica</h1>
-<p><code>estimeaza(masa, ambalaj)</code> primește valori și întoarce:</p>
+<p><span class="operatie">estimeaza(masa, ambalaj)</span> primește valori și întoarce:</p>
 <ul>
 <li><code>acceptat(preț)</code>; sau</li>
 <li><code>refuz(motiv)</code>.</li>
@@ -587,7 +587,7 @@ break-inside: avoid;
 <div id="coeziunea-de-ce-sunt-împreună" class="slide section level1">
 <h1>Coeziunea: de ce sunt împreună?</h1>
 <p><strong>Reguli:</strong> plicul peste 1000 g este refuzat; fiecare canal poate alege textul prin care explică refuzul.</p>
-<p>Propunere: <code>estimeaza</code> întoarce un mesaj gata de afișat. În pereche: ce simplifică aceasta? Ce se întâmplă dacă <span class="nowrap">site-ul</span> cere un text scurt, iar ghișeul o explicație detaliată?</p>
+<p>Propunere: <span class="operatie">estimeaza</span> întoarce un mesaj gata de afișat. În pereche: ce simplifică aceasta? Ce se întâmplă dacă <span class="nowrap">site-ul</span> cere un text scurt, iar ghișeul o explicație detaliată?</p>
 <p><strong>Coeziunea:</strong> cât de bine servesc responsabilitățile unei componente același scop.</p>
 </div>
 <div id="cuplarea-ce-trebuie-să-cunoască-ceilalți" class="slide section level1">
@@ -610,7 +610,7 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td>A</td>
-<td>numai interfața <code>estimeaza(masa, ambalaj)</code></td>
+<td>numai interfața <span class="operatie">estimeaza(masa, ambalaj)</span></td>
 <td>Nu copiază regulile.</td>
 </tr>
 <tr>
@@ -660,7 +660,7 @@ break-inside: avoid;
 </div>
 <div id="varianta-cu-o-operație-comună" class="slide section level1">
 <h1>Varianta cu o operație comună</h1>
-<p>Ambele canale cer <code>estimeaza(masa, ambalaj)</code> și afișează rezultatul.</p>
+<p>Ambele canale cer <span class="operatie">estimeaza(masa, ambalaj)</span> și afișează rezultatul.</p>
 <p><strong>În operație:</strong> masă <span class="nowrap">1–5000</span> g; plic până la 1000 g; preț 10 lei până la 1000 g, 18 lei peste; refuz fără preț.</p>
 <p><strong>În fiecare canal:</strong> interpretarea intrării și afișarea.</p>
 <p>Cost: trebuie convenite și păstrate sensurile intrărilor, rezultatelor și motivelor de refuz.</p>
@@ -693,8 +693,8 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td><code>estimeaza</code> decide acceptarea și suma.</td>
-<td><code>estimeaza</code> coordonează <code>accepta</code> și <code>pret</code>.</td>
+<td><span class="operatie">estimeaza</span> decide acceptarea și suma.</td>
+<td><span class="operatie">estimeaza</span> coordonează <span class="operatie">accepta</span> și <span class="operatie">pret</span>.</td>
 </tr>
 <tr>
 <td>Mai puține dependențe de explicat.</td>
@@ -702,12 +702,12 @@ break-inside: avoid;
 </tr>
 <tr>
 <td>Regulile sunt grupate <span class="nowrap">într-un</span> loc.</td>
-<td><code>pret</code> se folosește numai după acceptare.</td>
+<td><span class="operatie">pret</span> se folosește numai după acceptare.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>În ambele variante, canalele apelează doar <code>estimeaza</code>.</p>
+<p>În ambele variante, canalele apelează doar <span class="operatie">estimeaza</span>.</p>
 <p>Ce justificare ați cere înainte de a separa fiecare regulă <span class="nowrap">într-o</span> altă componentă?</p>
 </div>
 <div id="putem-verifica-fără-formular-și-ghișeu" class="slide section level1">
@@ -751,7 +751,7 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p><strong>Reper:</strong> masa <span class="nowrap">1–5000</span> g; limita plicului 1000 g; pragul de preț 1000 g. Dacă <code>estimeaza</code> ar primi formularul web în loc de masă și ambalaj, ce ar trebui construit ca să verificăm acest tabel și pentru ghișeu?</p>
+<p><strong>Reper:</strong> masa <span class="nowrap">1–5000</span> g; limita plicului 1000 g; pragul de preț 1000 g. Dacă <span class="operatie">estimeaza</span> ar primi formularul web în loc de masă și ambalaj, ce ar trebui construit ca să verificăm acest tabel și pentru ghișeu?</p>
 </div>
 <div id="urmărim-o-schimbare" class="slide section level1 transition">
 <h1 class="transition">Urmărim o schimbare</h1>
@@ -807,7 +807,7 @@ break-inside: avoid;
 </div>
 <div id="altă-schimbare-altă-componentă" class="slide section level1">
 <h1>Altă schimbare, altă componentă</h1>
-<p><strong>Regulile curente:</strong> plicul este acceptat până la 1500 g inclusiv; pragul de preț rămâne 1000 g; webul și ghișeul apelează <code>estimeaza</code>.</p>
+<p><strong>Regulile curente:</strong> plicul este acceptat până la 1500 g inclusiv; pragul de preț rămâne 1000 g; webul și ghișeul apelează <span class="operatie">estimeaza</span>.</p>
 <p>Trei schimbări distincte; fiecare pornește independent de la regulile curente.</p>
 <p>A. <span class="nowrap">Site-ul</span> adaugă o avertizare imediată când plicul depășește limita, înainte de a cere estimarea.</p>
 <p>B. Apare un al treilea canal, care trebuie să respecte aceleași reguli.</p>

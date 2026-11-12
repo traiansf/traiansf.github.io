@@ -2,6 +2,7 @@
 title: "AMSS 2026/2027 — Laboratorul 4: Stări, comportament și interacțiuni — online"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
+operation-names: [ridica, anuleaza, trimite]
 ---
 
 # Ce proiectăm azi

@@ -2,6 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 6: Contracte și invarianți"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
+operation-names: [atribuie, elibereaza]
 ---
 
 # Ce promite o operație? {.transition}

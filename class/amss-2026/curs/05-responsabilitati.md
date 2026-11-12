@@ -2,6 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 5: Responsabilități, coeziune și cuplare"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
+operation-names: [estimeaza, accepta, pret]
 ---
 
 # Cine aplică regula? {.transition}

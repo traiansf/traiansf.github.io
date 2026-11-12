@@ -552,7 +552,7 @@ break-inside: avoid;
 <div id="un-refuz-două-registre-posibile" class="slide section level1">
 <h1>Un refuz, două registre posibile</h1>
 <p><strong>Regulă:</strong> atribuirea este refuzată dacă vizitatorul are deja un dulap sau dulapul cerut este ocupat. La refuz, <strong>întregul registru rămâne identic</strong>.</p>
-<p><strong>Înainte:</strong> <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2.</span> Cerem <code>atribuie(V1, D2)</code>.</p>
+<p><strong>Înainte:</strong> <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2.</span> Cerem <span class="operatie">atribuie(V1, D2)</span>.</p>
 <div class="table-wrap">
 <table>
 <thead>
@@ -617,11 +617,11 @@ break-inside: avoid;
 </tr>
 <tr>
 <td>R3 (atribuire)</td>
-<td><code>atribuie(v,d)</code> reușește exact când v nu are dulap și d este liber; altfel refuză fără modificări.</td>
+<td><span class="operatie">atribuie(v,d)</span> reușește exact când v nu are dulap și d este liber; altfel refuză fără modificări.</td>
 </tr>
 <tr>
 <td>R4 (eliberare)</td>
-<td><code>elibereaza(v)</code> elimină asocierea lui v; dacă lipsește, întoarce <code>fara_dulap</code>, fără modificări.</td>
+<td><span class="operatie">elibereaza(v)</span> elimină asocierea lui v; dacă lipsește, întoarce <code>fara_dulap</code>, fără modificări.</td>
 </tr>
 <tr>
 <td>R5 (efect limitat)</td>
@@ -642,7 +642,7 @@ break-inside: avoid;
 <div id="dulap-liber-ține-de-precondiție-sau-de-condiția-de-succes" class="slide section level1">
 <h1>„Dulap liber”: ține de precondiție sau de condiția de succes?</h1>
 <p><strong>R1 (context):</strong> apelăm secvențial, cu identificatori cunoscuți, <span class="nowrap">într-un</span> registru care respectă R2 (unicitate).</p>
-<p><strong>R3 (atribuire):</strong> dacă dulapul este ocupat, <code>atribuie</code> întoarce <code>refuz</code> și păstrează întregul registru.</p>
+<p><strong>R3 (atribuire):</strong> dacă dulapul este ocupat, <span class="operatie">atribuie</span> întoarce <code>refuz</code> și păstrează întregul registru.</p>
 <p>Prin urmare, <span class="nowrap">într-un</span> singur contract, „dulap liber” este <strong>o parte a condiției de succes</strong>, alături de „vizitator fără dulap”, nu o precondiție a acestei operații publice. Dacă o impunem ca precondiție, nu mai promitem nimic pentru un dulap ocupat.</p>
 <p><strong>Alternativă: câte un contract pentru fiecare caz.</strong> „Dulap liber” devine parte din precondiția contractului de succes, iar „dulap ocupat” intră în cea a contractului de refuz. Atunci trebuie să verificăm că împreună acoperă toate apelurile admise.</p>
 </div>
@@ -700,7 +700,7 @@ break-inside: avoid;
 <p><strong>R1 (context):</strong> identificatorii sunt cunoscuți, registrul este valid, iar apelurile sunt secvențiale.</p>
 <p><strong>R3 (atribuire):</strong> dacă v nu are dulap și d este liber, operația întoarce <code>atribuit</code>.</p>
 <p><strong>După:</strong> adăugăm exact asocierea <span class="nowrap">v–d. </span><strong>R5 (efect limitat):</strong> toate celelalte asocieri se păstrează.</p>
-<p><strong>Scenariul S1 (V3 primește D3):</strong> înainte <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2;</span> V3 nu are dulap, D3 este liber. <code>atribuie(V3,D3)</code> produce <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2,</span> <strong><span class="nowrap">V3–D3</span></strong>.</p>
+<p><strong>Scenariul S1 (V3 primește D3):</strong> înainte <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2;</span> V3 nu are dulap, D3 este liber. <span class="operatie">atribuie(V3,D3)</span> produce <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2,</span> <strong><span class="nowrap">V3–D3</span></strong>.</p>
 </div>
 <div id="atribuire-cazul-de-refuz" class="slide section level1">
 <h1>Atribuire: cazul de refuz</h1>
@@ -716,15 +716,15 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td>S2: <code>atribuie(V3,D2)</code></td>
+<td>S2: <span class="operatie">atribuie(V3,D2)</span></td>
 <td>Dulap ocupat.</td>
 </tr>
 <tr>
-<td>S3: <code>atribuie(V1,D3)</code></td>
+<td>S3: <span class="operatie">atribuie(V1,D3)</span></td>
 <td>Vizitator deja asociat.</td>
 </tr>
 <tr>
-<td>S4: <code>atribuie(V1,D2)</code></td>
+<td>S4: <span class="operatie">atribuie(V1,D2)</span></td>
 <td>Ambele condiții împiedică succesul.</td>
 </tr>
 </tbody>
@@ -761,15 +761,15 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td><code>atribuie(V3,D3)</code></td>
+<td><span class="operatie">atribuie(V3,D3)</span></td>
 <td>?</td>
 </tr>
 <tr>
-<td><code>atribuie(V1,D3)</code></td>
+<td><span class="operatie">atribuie(V1,D3)</span></td>
 <td>?</td>
 </tr>
 <tr>
-<td><code>atribuie(V1,D1)</code></td>
+<td><span class="operatie">atribuie(V1,D1)</span></td>
 <td>?</td>
 </tr>
 </tbody>
@@ -793,12 +793,12 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td><span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2</span></td>
-<td><code>elibereaza(V1)</code></td>
+<td><span class="operatie">elibereaza(V1)</span></td>
 <td><code>eliberat</code>; <span class="nowrap">V2–D2.</span></td>
 </tr>
 <tr>
 <td><span class="nowrap">V2–D2</span></td>
-<td><code>elibereaza(V1)</code></td>
+<td><span class="operatie">elibereaza(V1)</span></td>
 <td><code>fara_dulap</code>; <span class="nowrap">V2–D2.</span></td>
 </tr>
 </tbody>
@@ -808,7 +808,7 @@ break-inside: avoid;
 </div>
 <div id="ce-lipsește-din-această-promisiune" class="slide section level1">
 <h1>Ce lipsește din această promisiune?</h1>
-<p><strong>Propunere:</strong> „După <code>elibereaza(V1)</code>, V1 nu mai are dulap.”</p>
+<p><strong>Propunere:</strong> „După <span class="operatie">elibereaza(V1)</span>, V1 nu mai are dulap.”</p>
 <p><strong>Înainte:</strong> <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2.</span> <strong>După propus:</strong> registru gol.</p>
 <p><strong>Regulile complete:</strong> eliminăm numai asocierea lui V1; toate celelalte asocieri se păstrează. Fără asociere inițială: <code>fara_dulap</code>, registru identic.</p>
 <p>Propunerea scurtă este satisfăcută? Contractul complet este respectat? Reformulați postcondiția în cuvinte.</p>
@@ -986,7 +986,7 @@ break-inside: avoid;
 <li>păstrarea celorlalte asocieri iese dintre invarianți: este postcondiție, R5 (efect limitat);</li>
 <li>a doua eliberare din scenariul S5 (eliberare repetată) întoarce <code>fara_dulap</code>, nu <code>refuz</code>.</li>
 </ul>
-<p><strong>Contraexemplul care justifică prima corecție:</strong> din B, după <code>atribuie(V3,D3)</code>, un registru care conține numai <span class="nowrap">V3–D3</span> respectă unicitatea, dar pierde <span class="nowrap">V1–D1</span> și <span class="nowrap">V2–D2.</span></p>
+<p><strong>Contraexemplul care justifică prima corecție:</strong> din B, după <span class="operatie">atribuie(V3,D3)</span>, un registru care conține numai <span class="nowrap">V3–D3</span> respectă unicitatea, dar pierde <span class="nowrap">V1–D1</span> și <span class="nowrap">V2–D2.</span></p>
 </div>
 <div id="transferăm-promisiunea" class="slide section level1 transition">
 <h1 class="transition">Transferăm promisiunea</h1>
