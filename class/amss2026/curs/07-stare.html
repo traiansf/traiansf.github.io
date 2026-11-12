@@ -487,12 +487,12 @@ break-inside: avoid;
 <ul>
 <li><code>ataseaza(f)</code>: autorul atașează fișierul f; numai cât timp manuscrisul este ciornă (netrimis);</li>
 <li><code>trimite</code>: autorul îl trimite revistei; numai pentru o ciornă, dacă există fișier;</li>
-<li><code>preia(e)</code>: editorul e îl preia; numai pentru un manuscris trimis, nepreluat;</li>
-<li><code>inregistreaza_raport(r)</code>: se adaugă raportul r; numai în evaluare, iar starea rămâne;</li>
+<li><code>preia(e)</code>: editorul e îl preia; numai pentru un manuscris trimis;</li>
+<li><code>inregistreaza_raport(r)</code>: se adaugă raportul r; numai în evaluare;</li>
 <li><code>accepta</code> și <code>respinge</code>: editorul decide; numai în evaluare, cu cel puțin un raport;</li>
 <li><code>retrage</code>: autorul îl retrage; numai după trimitere, până la decizie.</li>
 </ul>
-<p>Un eveniment nepermis este <strong>refuzat</strong>: nimic nu se schimbă.</p>
+<p>Un manuscris nou începe ca ciornă, fără fișier și fără alte date: crearea este starea inițială, nu un eveniment. Un eveniment nepermis este <strong>refuzat</strong>: nimic nu se schimbă.</p>
 <p><strong>Manuscrisul M este în evaluare,</strong> cu editorul E1 și un raport Rp1. Individual, pentru fiecare dintre cele șapte evenimente: <strong>schimbă starea</strong>, <strong>păstrează starea dar înregistrează ceva</strong>, sau <strong>este refuzat</strong>? Apoi discutăm.</p>
 </div>
 <div id="stare-eveniment-tranziție" class="slide section level1">
