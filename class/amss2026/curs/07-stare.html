@@ -497,7 +497,7 @@ break-inside: avoid;
 </div>
 <div id="stare-și-eveniment" class="slide section level1">
 <h1>Stare și eveniment</h1>
-<p><strong>Starea</strong> descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului numim <strong>stări</strong> etapele Ciornă, Trimis, În evaluare etc.; etapa, împreună cu datele păstrate (fișier, editor, rapoarte), decide <strong>ce evenimente sunt permise acum</strong>.</p>
+<p><strong>Starea</strong> descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului, <strong>stările</strong> sunt Ciornă, Trimis, În evaluare etc.; starea, împreună cu datele păstrate (fișier, editor, rapoarte), decide <strong>ce evenimente sunt permise acum</strong>.</p>
 <p>Un <strong>eveniment</strong> este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului.</p>
 </div>
 <div id="tranziție-condiție-efect" class="slide section level1">
@@ -646,14 +646,14 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p><strong>Altfel: refuzat</strong>, fără modificări. Schimbarea etapei păstrează datele existente.</p>
+<p><strong>Altfel: refuzat</strong>, fără modificări. Schimbarea stării păstrează datele existente.</p>
 </div>
 <div id="condiția-nu-este-o-stare" class="slide section level1">
 <h1>Condiția nu este o stare</h1>
 <p><code>trimite</code> cere un fișier; <code>accepta</code> cere un raport. <strong>De ce nu introducem stările „Ciornă cu fișier” și „În evaluare cu raport”?</strong></p>
-<p>Am putea: ar fi alt model corect, cu mai multe stări. Alegem <strong>starea pentru etapa convenită cu beneficiarul</strong> și <strong>condiția pentru verificarea datelor</strong>:</p>
+<p>Am putea: ar fi alt model corect, cu mai multe stări. Alegem <strong>starea pentru distincția convenită cu beneficiarul</strong> și <strong>condiția pentru verificarea datelor</strong>:</p>
 <ul>
-<li>Ciornă cu sau fără fișier este, pentru revistă, aceeași etapă: nu a fost trimis;</li>
+<li>Ciornă cu sau fără fișier este, pentru revistă, aceeași stare: nu a fost trimis;</li>
 <li>numărul rapoartelor este o dată de care avem nevoie oricum; condiția o citește.</li>
 </ul>
 <p><strong>Legătura cu cursul 6:</strong> starea curentă și condiția formează împreună condiția de succes a evenimentului; refuzul păstrează starea și datele, ca refuzul din contractul atribuirii.</p>
@@ -961,7 +961,7 @@ break-inside: avoid;
 </div>
 <div id="ce-permite-și-ce-nu-permite-p" class="slide section level1">
 <h1>Ce permite și ce nu permite P?</h1>
-<p><strong>P:</strong> în Ciornă, <code>ataseaza(f)</code> păstrează etapa și înregistrează f, iar <code>trimite</code> trece în Trimis fără condiție. <code>preia(e)</code> trece din Trimis În evaluare; de aici, <code>accepta</code>/<code>respinge</code> cer un raport. <code>retrage</code> duce din Trimis sau În evaluare în Retras. Restul este refuzat.</p>
+<p><strong>P:</strong> în Ciornă, <code>ataseaza(f)</code> păstrează starea și înregistrează f, iar <code>trimite</code> trece în Trimis fără condiție. <code>preia(e)</code> trece din Trimis În evaluare; de aici, <code>accepta</code>/<code>respinge</code> cer un raport. <code>retrage</code> duce din Trimis sau În evaluare în Retras. Restul este refuzat.</p>
 <p><strong>Regulile enunțului:</strong> trimiterea cere fișier; În evaluare putem înregistra rapoarte, necesare deciziilor. <strong>I0:</strong> Ciornă, fără date.</p>
 <p>Pe hârtie, apoi discutăm:</p>
 <ol style="list-style-type: decimal">

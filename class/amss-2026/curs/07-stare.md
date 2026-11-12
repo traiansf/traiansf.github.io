@@ -91,12 +91,12 @@ Un manuscris nou începe ca ciornă, fără fișier și fără alte date: creare
 
 # Stare și eveniment
 
-**Starea** descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului numim **stări** etapele Ciornă, Trimis, În evaluare etc.; etapa, împreună cu datele păstrate (fișier, editor, rapoarte), decide **ce evenimente sunt permise acum**.
+**Starea** descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului, **stările** sunt Ciornă, Trimis, În evaluare etc.; starea, împreună cu datele păstrate (fișier, editor, rapoarte), decide **ce evenimente sunt permise acum**.
 
 Un **eveniment** este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului.
 
 ::: notes
-Legătura cu cursul 6: starea este aceeași noțiune, valorile de la un moment dat; noutatea este că o rezumăm printr-o etapă care spune ce este permis acum, fiindcă istoricul manuscrisului contează. Etapa rezumă istoricul; datele rămân alături.
+Legătura cu cursul 6: starea este aceeași noțiune, valorile de la un moment dat; noutatea este că o rezumăm printr-o stare care spune ce este permis acum, fiindcă istoricul manuscrisului contează. Starea rezumă istoricul; datele rămân alături.
 :::
 
 ---
@@ -110,7 +110,7 @@ Un eveniment fără tranziție permisă, sau cu condiția neîndeplinită, este 
 **Ciclul de viață al manuscrisului** descrie stările și tranzițiile, pornind de la starea inițială și precizând stările finale intenționate. Îl scriem ca tabel și îl verificăm pe scenarii.
 
 ::: notes
-Legătura cu cursul 6: tabelul descrie cazurile de succes ale contractelor operațiilor; regula refuzului le completează. Starea curentă și condiția formează condiția de succes; starea următoare și efectul sunt postcondiția cazului de succes; refuzul cu starea și datele neschimbate este postcondiția cazului de refuz. Noutatea: condiția de succes depinde de etapa ciclului de viață și de celelalte date, iar tranzițiile se înlănțuie. Nu presupunem clase, enumerări sau un instrument.
+Legătura cu cursul 6: tabelul descrie cazurile de succes ale contractelor operațiilor; regula refuzului le completează. Starea curentă și condiția formează condiția de succes; starea următoare și efectul sunt postcondiția cazului de succes; refuzul cu starea și datele neschimbate este postcondiția cazului de refuz. Noutatea: condiția de succes depinde de starea din ciclul de viață și de celelalte date, iar tranzițiile se înlănțuie. Nu presupunem clase, enumerări sau un instrument.
 :::
 
 ---
@@ -168,7 +168,7 @@ R7 și R8 sunt regulile pe care le verificăm la fiecare eveniment refuzat și l
 | În evaluare | `accepta` / `respinge` | cel puțin un raport | Acceptat / Respins | decizia și data ei |
 | Trimis, În evaluare | `retrage` | — | Retras | data retragerii |
 
-**Altfel: refuzat**, fără modificări. Schimbarea etapei păstrează datele existente.
+**Altfel: refuzat**, fără modificări. Schimbarea stării păstrează datele existente.
 
 ::: notes
 Tabelul este reprezentarea pe care o verificăm. „—” la condiție înseamnă că nu cerem altceva în afară de starea indicată. Un rând descrie un caz de succes: în starea curentă, dacă condiția este adevărată, evenimentul reușește cu starea următoare și efectul. Dacă niciun rând nu se aplică, evenimentul este refuzat. Rândul `inregistreaza_raport` nu schimbă starea, dar este o tranziție: are efect asupra datelor și trebuie să fie permis undeva, altfel nicio decizie nu ar deveni posibilă. Rândurile lipsă nu sunt uitări: ele spun „refuzat”.
@@ -180,15 +180,15 @@ Tabelul este reprezentarea pe care o verificăm. „—” la condiție înseamn
 
 `trimite` cere un fișier; `accepta` cere un raport. **De ce nu introducem stările „Ciornă cu fișier” și „În evaluare cu raport”?**
 
-Am putea: ar fi alt model corect, cu mai multe stări. Alegem **starea pentru etapa convenită cu beneficiarul** și **condiția pentru verificarea datelor**:
+Am putea: ar fi alt model corect, cu mai multe stări. Alegem **starea pentru distincția convenită cu beneficiarul** și **condiția pentru verificarea datelor**:
 
-- Ciornă cu sau fără fișier este, pentru revistă, aceeași etapă: nu a fost trimis;
+- Ciornă cu sau fără fișier este, pentru revistă, aceeași stare: nu a fost trimis;
 - numărul rapoartelor este o dată de care avem nevoie oricum; condiția o citește.
 
 **Legătura cu cursul 6:** starea curentă și condiția formează împreună condiția de succes a evenimentului; refuzul păstrează starea și datele, ca refuzul din contractul atribuirii.
 
 ::: notes
-Ambele modele descriu aceleași comportamente; diferă prin ce arată. Un tabel cu stări „cu fișier”/„fără fișier” dublează rândurile și ascunde etapele în detalii; condițiile păstrează ciclul de viață la șase stări și arată explicit ce date decid. Criteriul nostru: starea grupează situațiile pe care beneficiarul le numește la fel; condiția spune ce verificăm în date. Nu există un număr „corect” de stări.
+Ambele modele descriu aceleași comportamente; diferă prin ce arată. Un tabel cu stări „cu fișier”/„fără fișier” dublează rândurile și ascunde stările în detalii; condițiile păstrează ciclul de viață la șase stări și arată explicit ce date decid. Criteriul nostru: starea grupează situațiile pe care beneficiarul le numește la fel; condiția spune ce verificăm în date. Nu există un număr „corect” de stări.
 :::
 
 ---
@@ -204,7 +204,7 @@ Ambele modele descriu aceleași comportamente; diferă prin ce arată. Un tabel 
 Starea s-a schimbat; datele au rămas, plus una nouă. **De ce contează că Rp1 rămâne?**
 
 ::: notes
-Raportul face parte din istoricul evaluării: revista poate explica ce s-a întâmplat înainte de retragere. Retrimiterea rămâne în afara enunțului; nu îi presupunem regulile. Etapa ciclului de viață nu înlocuiește celelalte date: un model care ar șterge rapoartele la retragere ar respecta tranziția din tabel și ar încălca R8. Verificăm, deci, și starea de după, și datele de după, ca la postcondițiile din cursul 6.
+Raportul face parte din istoricul evaluării: revista poate explica ce s-a întâmplat înainte de retragere. Retrimiterea rămâne în afara enunțului; nu îi presupunem regulile. Starea nu înlocuiește celelalte date: un model care ar șterge rapoartele la retragere ar respecta tranziția din tabel și ar încălca R8. Verificăm, deci, și starea de după, și datele de după, ca la postcondițiile din cursul 6.
 
 **Organizare:** 1 min: întrebare către clasă, din cele 4 ale condiției și datelor. []{.pace dur=1}
 :::
@@ -412,7 +412,7 @@ P are șase rânduri, pare complet și are două abateri față de enunț: `trim
 
 # Ce permite și ce nu permite P?
 
-**P:** în Ciornă, `ataseaza(f)` păstrează etapa și înregistrează f, iar `trimite` trece în Trimis fără condiție. `preia(e)` trece din Trimis În evaluare; de aici, `accepta`/`respinge` cer un raport. `retrage` duce din Trimis sau În evaluare în Retras. Restul este refuzat.
+**P:** în Ciornă, `ataseaza(f)` păstrează starea și înregistrează f, iar `trimite` trece în Trimis fără condiție. `preia(e)` trece din Trimis În evaluare; de aici, `accepta`/`respinge` cer un raport. `retrage` duce din Trimis sau În evaluare în Retras. Restul este refuzat.
 
 **Regulile enunțului:** trimiterea cere fișier; În evaluare putem înregistra rapoarte, necesare deciziilor. **I0:** Ciornă, fără date.
 

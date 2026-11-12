@@ -15,13 +15,13 @@ Analiză de pregătire pentru [enunț](brief.md), nu captură AI.
 | Trimis | `retrage` | — | Retras | data retragerii |
 | În evaluare | `retrage` | — | Retras | data retragerii |
 
-Orice altă combinație stare–eveniment, sau o condiție neîndeplinită, produce un eveniment refuzat: starea și datele rămân neschimbate (R7). La schimbarea etapei, datele deja înregistrate se păstrează (R8). În Ciornă, `ataseaza` poate înlocui fișierul (R3); nu cerem un istoric al versiunilor. Acceptat, Respins și Retras sunt stări finale intenționate: lipsa tranzițiilor de ieșire este o decizie a beneficiarului, nu o omisiune.
+Orice altă combinație stare–eveniment, sau o condiție neîndeplinită, produce un eveniment refuzat: starea și datele rămân neschimbate (R7). La schimbarea stării, datele deja înregistrate se păstrează (R8). În Ciornă, `ataseaza` poate înlocui fișierul (R3); nu cerem un istoric al versiunilor. Acceptat, Respins și Retras sunt stări finale intenționate: lipsa tranzițiilor de ieșire este o decizie a beneficiarului, nu o omisiune.
 
 ## Legătura cu contractele
 
-Fiecare rând descrie un caz de succes al contractului unei operații: starea curentă și condiția formează condiția de succes; starea următoare și efectul sunt postcondiția cazului de succes; refuzul cu starea și datele neschimbate este postcondiția cazului de refuz. Etapa ciclului de viață rezumă istoricul; împreună cu datele păstrate, decide ce evenimente sunt permise. Starea completă include toate aceste valori, ca în cursul 6. „Există fișier” și „cel puțin un raport” depind de date, nu de stare; de aceea le scriem ca o condiție separată, nu ca o stare suplimentară.
+Fiecare rând descrie un caz de succes al contractului unei operații: starea curentă și condiția formează condiția de succes; starea următoare și efectul sunt postcondiția cazului de succes; refuzul cu starea și datele neschimbate este postcondiția cazului de refuz. Starea rezumă istoricul; împreună cu datele păstrate, decide ce evenimente sunt permise. Ca în cursul 6, starea împreună cu datele descrie valorile de la un moment dat. „Există fișier” și „cel puțin un raport” depind de date, nu de stare; de aceea le scriem ca o condiție separată, nu ca o stare suplimentară.
 
-Invarianții modelului: un manuscris este în exact o etapă; un manuscris Acceptat sau Respins are cel puțin un raport și un editor; un manuscris în Trimis, În evaluare, Acceptat, Respins sau Retras are fișier. Proprietățile sunt adevărate inițial și sunt păstrate de fiecare tranziție. În schimb, „datele nu se modifică după atingerea unei stări finale” compară stări succesive: este o proprietate a comportamentului, nu un invariant verificabil într-o singură stare.
+Invarianții modelului: un manuscris este în exact o stare; un manuscris Acceptat sau Respins are cel puțin un raport și un editor; un manuscris în Trimis, În evaluare, Acceptat, Respins sau Retras are fișier. Proprietățile sunt adevărate inițial și sunt păstrate de fiecare tranziție. În schimb, „datele nu se modifică după atingerea unei stări finale” compară stări succesive: este o proprietate a comportamentului, nu un invariant verificabil într-o singură stare.
 
 ## Rezultatele scenariilor
 

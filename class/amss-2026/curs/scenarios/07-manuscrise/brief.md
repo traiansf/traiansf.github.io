@@ -29,7 +29,7 @@ Exemplu didactic pentru Cursul 7, versiunea 12 noiembrie 2026. Un sistem editori
 
 ## Vocabular
 
-Starea completă cuprinde etapa ciclului de viață și toate datele păstrate. O stare este **accesibilă din I0** dacă există o secvență de evenimente permise care pornește din I0 și ajunge la ea; nu este necesar un singur pas. R8 păstrează datele la schimbarea etapei; în Ciornă, R3 permite înlocuirea fișierului. Datele calendaristice deja înregistrate se păstrează.
+Un manuscris are o stare din ciclul de viață și datele păstrate. O stare este **accesibilă din I0** dacă există o secvență de evenimente permise care pornește din I0 și ajunge la ea; nu este necesar un singur pas. R8 păstrează datele la schimbarea stării; în Ciornă, R3 permite înlocuirea fișierului. Datele calendaristice deja înregistrate se păstrează.
 
 ## Sarcina de proiectare
 

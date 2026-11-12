@@ -17,9 +17,9 @@ Duratele exercițiilor includ discuția. În etapa 15–35, acordați 4 minute r
 
 ## Distincțiile importante
 
-Starea completă cuprinde etapa ciclului de viață și datele păstrate, în continuitate cu cursul 6. Etapa rezumă istoricul, dar nu decide singură dacă un eveniment este permis: condiția citește și celelalte date. Condiția unei tranziții („există fișier”, „cel puțin un raport”) este verificarea datelor; împreună cu starea curentă formează condiția de succes a evenimentului, în sensul cursului 6. Refuzul unui eveniment păstrează starea și datele, ca refuzul din contractul atribuirii. Slide-ul „Condiția nu este o stare” spune explicit că un model cu stări „Ciornă cu fișier” ar fi și el corect; criteriul nostru este etapa convenită cu beneficiarul.
+Starea (Ciornă, Trimis…) și datele păstrate decid împreună ce este permis, în continuitate cu cursul 6. Starea rezumă istoricul, dar nu decide singură dacă un eveniment este permis: condiția citește și celelalte date. Condiția unei tranziții („există fișier”, „cel puțin un raport”) este verificarea datelor; împreună cu starea curentă formează condiția de succes a evenimentului, în sensul cursului 6. Refuzul unui eveniment păstrează starea și datele, ca refuzul din contractul atribuirii. Slide-ul „Condiția nu este o stare” spune explicit că un model cu stări „Ciornă cu fișier” ar fi și el corect; criteriul nostru este etapa convenită cu beneficiarul.
 
-Datele se păstrează la schimbarea etapei (R8); în Ciornă, R3 permite înlocuirea fișierului. De exemplu, după retragere, rapoartele rămân. Verificăm, deci, și starea de după, și datele de după.
+Datele se păstrează la schimbarea stării (R8); în Ciornă, R3 permite înlocuirea fișierului. De exemplu, după retragere, rapoartele rămân. Verificăm, deci, și starea de după, și datele de după.
 
 S1, S2, S3, S5 și S7 repornesc din I0; S4 continuă S3, iar S6 pornește din starea de după primele patru evenimente ale lui S1. În S6, aceleași două evenimente în ordine diferită dau Retras, respectiv Acceptat, cu exact un eveniment refuzat în fiecare ordine; ambele ordini respectă regulile. Acceptat, Respins și Retras sunt finale intenționate prin decizia beneficiarului; lipsa unei ieșiri se notează, nu se repară.
 
