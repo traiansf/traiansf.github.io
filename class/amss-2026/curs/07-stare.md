@@ -70,7 +70,16 @@ Registrul refuză acceptarea: manuscrisul este retras, iar regula nu permite dec
 
 **Manuscrisul M este în evaluare,** cu editorul E1 și un raport Rp1.
 
-**Reguli:** `ataseaza(f)` numai cât timp manuscrisul este încă ciornă (netrimis); `trimite` tot numai pentru o ciornă, dacă există fișier; `preia(e)` numai pentru un manuscris trimis, încă nepreluat de un editor; `inregistreaza_raport(r)` numai cât timp manuscrisul este în evaluare, iar starea rămâne; `accepta` și `respinge` numai în evaluare, cu cel puțin un raport; `retrage` numai după trimitere, cât timp nu există decizie. Un eveniment nepermis este **refuzat**: nimic nu se schimbă.
+**Reguli** (operațiile sunt evenimentele cerute):
+
+- `ataseaza(f)`: autorul atașează fișierul f; numai cât timp manuscrisul este ciornă (netrimis);
+- `trimite`: autorul îl trimite revistei; numai pentru o ciornă, dacă există fișier;
+- `preia(e)`: editorul e îl preia; numai pentru un manuscris trimis, nepreluat;
+- `inregistreaza_raport(r)`: se adaugă raportul r; numai în evaluare, iar starea rămâne;
+- `accepta` și `respinge`: editorul decide; numai în evaluare, cu cel puțin un raport;
+- `retrage`: autorul îl retrage; numai după trimitere, până la decizie.
+
+Un eveniment nepermis este **refuzat**: nimic nu se schimbă.
 
 Individual, pentru fiecare dintre cele șapte evenimente: **schimbă starea**, **păstrează starea dar înregistrează ceva**, sau **este refuzat**? Apoi discutăm.
 
