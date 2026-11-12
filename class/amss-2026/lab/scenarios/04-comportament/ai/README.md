@@ -1,6 +1,6 @@
 # Pregătirea demonstrației AI comune — ghișeul de echipamente
 
-**Prompturi pregătite.** Pe baza lor s-au obținut la 12 noiembrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri; vezi [arhiva capturilor](../captures/2026-11-12/README.md). Fișierele de aici păstrează intrarea istorică, anterioară corectării stării Ridicată; nu le folosim nemodificate la o rulare nouă.
+**Prompturi pregătite.** Pe baza lor s-au obținut la 12 noiembrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri; vezi [arhiva capturilor](../captures/2026-11-12/README.md). Fișierele de aici păstrează intrarea istorică, anterioară corectării stării Ridicată; nu le folosim nemodificate la o rulare nouă. Enunțul trimis atunci numea rezervările R1 și R2, iar studenții S1 și S2; enunțul curent folosește A și B, respectiv T1 și T2, ca să nu se confunde cu etichetele regulilor și scenariilor.
 
 ## Analiză
 

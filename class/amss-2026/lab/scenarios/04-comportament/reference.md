@@ -24,21 +24,21 @@ Condiția „s este titularul” depinde de date, nu de stare: o cerere greșit�
 6. Registru: notificarea `trimisă`, respectiv `netrimisă`.
 7. Registru → Ghișeu: `ridicat` (sfârșit). La reîncercare nu se repetă pasul 3. Starea `în așteptare` din pasul 3 este intermediară; apelurile secvențiale și răspunsul garantat al expeditorului exclud o nouă cerere în acel moment.
 
-Tranziția (pasul 3) precede apelul expeditorului. Dacă registrul ar schimba starea numai după `trimis`, la `esec` studentul ar pleca cu echipamentul, iar rezervarea ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 încălcată. Registrul coordonează; ghișeul nu apelează expeditorul.
+Tranziția (pasul 3) precede apelul expeditorului. Dacă registrul ar schimba starea numai după `trimis`, la `esec` studentul ar pleca cu echipamentul, iar rezervarea ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată. Registrul coordonează; ghișeul nu apelează expeditorul.
 
 ## Rezultatele scenariilor
 
-S1, S2, S3 și S7 pornesc din I: R1 (S1, proiector) și R2 (S2, cameră) în Rezervată. S4 continuă S3; S5 și S6 continuă independent S1. Rezervarea neindicată de apel rămâne identică.
+S1, S2, S3 și S7 pornesc din I: A (T1, proiector) și B (T2, cameră) în Rezervată. S4 continuă S3; S5 și S6 continuă independent S1. Rezervarea neindicată de apel rămâne identică.
 
 | Scenariu | Rezultat |
 |---|---|
-| S1 | `ridicat`; R1 Ridicată, c1 înregistrat, notificare `trimisă`; R2 neschimbată. |
-| S2 | `refuz` (S2 nu este titularul lui R1); exact I; expeditorul nu este apelat; c1 nu se înregistrează. |
-| S3 | `ridicat`; R1 Ridicată, c1 înregistrat, notificare `netrimisă`. |
-| S4 | `ridicat` (reîncercare); R1 rămâne Ridicată, o singură ridicare; expeditorul apelat din nou → `trimisă`. |
-| S5 | `refuz` (c7 este cerere nouă, iar R1 nu mai este Rezervată); exact starea de după S1. |
-| S6 | `refuz` (anularea cere Rezervată); R1 rămâne Ridicată. |
-| S7 | `anuleaza(R2)` acceptată: R2 Anulată; `ridica(c2, R2, S2)` refuzată: R2 rămâne Anulată; fără notificare. |
+| S1 | `ridicat`; A Ridicată, c1 înregistrat, notificare `trimisă`; B neschimbată. |
+| S2 | `refuz` (T2 nu este titularul lui A); exact I; expeditorul nu este apelat; c1 nu se înregistrează. |
+| S3 | `ridicat`; A Ridicată, c1 înregistrat, notificare `netrimisă`. |
+| S4 | `ridicat` (reîncercare); A rămâne Ridicată, o singură ridicare; expeditorul apelat din nou → `trimisă`. |
+| S5 | `refuz` (c7 este cerere nouă, iar A nu mai este Rezervată); exact starea de după S1. |
+| S6 | `refuz` (anularea cere Rezervată); A rămâne Ridicată. |
+| S7 | `anuleaza(B)` acceptată: B Anulată; `ridica(c2, B, T2)` refuzată: B rămâne Anulată; fără notificare. |
 
 Ce garantează registrul, în limitele R1: o rezervare este ridicată cel mult o dată; o reîncercare primește același rezultat și nu produce o a doua ridicare; rezultatul notificării este înregistrat; un refuz nu modifică nimic și nu produce mesaje. Ce nu garantează: livrarea sau citirea mesajului; comportamentul la o cădere între pașii 3 și 6; cereri concurente.
 
@@ -51,4 +51,4 @@ Ce garantează registrul, în limitele R1: o rezervare este ridicată cel mult o
 
 ## Exercițiul final (trasări manuale)
 
-Din I, ghișeul trimite `ridica(c1, R1, S1)` cu `esec`, apoi, după ce aplicația nu a afișat răspunsul, `ridica(c8, R1, S1)` cu un identificator nou. Rezultate: `ridicat` (R1 Ridicată, notificare `netrimisă`), apoi `refuz` (R1 nu mai este Rezervată; c8 este cerere nouă). Studentul are echipamentul, rezervarea este ridicată o singură dată, iar notificarea rămâne `netrimisă` până la o reîncercare cu c1; enunțul nu oferă o operație separată de retrimitere. Dacă ghișeul ar fi reîncercat cu c1, iar expeditorul ar fi răspuns `trimis`, ar fi primit `ridicat` și notificarea ar fi devenit `trimisă`. Deosebirea dintre cele două rezultate stă numai în identificatorul cererii.
+Din I, ghișeul trimite `ridica(c1, A, T1)` cu `esec`, apoi, după ce răspunsul nu s-a afișat la ghișeu, `ridica(c8, A, T1)` cu un identificator nou. Rezultate: `ridicat` (A Ridicată, notificare `netrimisă`), apoi `refuz` (A nu mai este Rezervată; c8 este cerere nouă). Studentul are echipamentul, rezervarea este ridicată o singură dată, iar notificarea rămâne `netrimisă` până la o reîncercare cu c1; enunțul nu oferă o operație separată de retrimitere. Dacă ghișeul ar fi reîncercat cu c1, iar expeditorul ar fi răspuns `trimis`, ar fi primit `ridicat` și notificarea ar fi devenit `trimisă`. Deosebirea dintre cele două rezultate stă numai în identificatorul cererii.

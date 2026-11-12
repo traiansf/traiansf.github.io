@@ -6,7 +6,7 @@ lang: ro-RO
 
 # Ce proiectăm azi
 
-Pentru proiecțiile și filmele cluburilor studențești, laboratorul facultății împrumută echipamente pe bază de rezervare; studenții le ridică de la un **ghișeu cu operator**. Registrul rezervărilor acceptă sau refuză ridicarea; numai după acceptare cere unui **expeditor extern** o notificare. **Notificarea eșuează, ghișeul reîncearcă:** ce are voie să se întâmple cu rezervarea?
+Pentru proiecțiile și filmele cluburilor studențești, serviciul tehnic al facultății împrumută echipamente pe bază de rezervare; studenții le ridică de la un **ghișeu cu operator**. Registrul rezervărilor acceptă sau refuză ridicarea; numai după acceptare cere unui **expeditor extern** o notificare. **Notificarea eșuează, ghișeul reîncearcă:** ce are voie să se întâmple cu rezervarea?
 
 Discutăm în plen pe Teams, apoi urmărim împreună **o analiză AI și o revizuire**, conduse de profesor.
 
@@ -74,17 +74,17 @@ Alt student, aceeași rezervare: refuzat de stare sau de condiție?
 
 # Trei scenarii de prezis
 
-**Starea inițială I:** rezervarea R1 (student S1, proiector) și rezervarea R2 (student S2, cameră) sunt Rezervate; niciun identificator de cerere înregistrat.
+**Starea inițială I:** rezervarea A (titular T1, proiector) și rezervarea B (titular T2, cameră) sunt Rezervate; niciun identificator de cerere înregistrat.
 
 **R3 (ridicare):** `ridica(c, r, s)` cu c nou este acceptată exact când r este Rezervată și s este titularul: r trece în Ridicată, data și c se înregistrează, rezultat `ridicat`; altfel `refuz`, fără modificări, fără notificare. **R6 (anulare):** `anuleaza(r)` numai pentru o rezervare Rezervată → Anulată, fără notificare; altfel `refuz`. **R2 (stări):** Anulată este finală intenționată; Ridicată permite reîncercarea, fără o a doua ridicare.
 
-1. La semnal, predicțiile în chat, din I: scenariul S2 (`ridica(c1, R1, S2)`); scenariul S7 (`anuleaza(R2)`, apoi `ridica(c2, R2, S2)`); continuarea lui S1 (R1 Ridicată de S1): scenariul S5 (`ridica(c7, R1, S1)`). Rezultat, stare, ce se înregistrează.
+1. La semnal, predicțiile în chat, din I: scenariul S2 (`ridica(c1, A, T2)`); scenariul S7 (`anuleaza(B)`, apoi `ridica(c2, B, T2)`); continuarea scenariului S1 (A Ridicată, c1 înregistrat): scenariul S5 (`ridica(c7, A, T1)`). Rezultat, stare, ce se înregistrează.
 2. În ștafetă, pe rând: pentru fiecare refuz, ce îl decide: **starea** sau **condiția**?
 
 [Enunțul complet: R1–R8 și scenariile S1–S7](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/04-comportament/scenario.md)
 
 ::: notes
-S2: refuz, decis de condiție (S2 nu este titularul); I neschimbată, c1 neînregistrat. S7: anularea acceptată, R2 Anulată; ridicarea refuzată, decisă de stare (Anulată este finală); fără notificare. S5: refuz, decis de stare (R1 nu mai este Rezervată); c7 este o cerere nouă, deci R5 nu se aplică. În apeluri, R1/R2 identifică rezervări, iar S1/S2 studenți; „regula R…” și „scenariul S…” sunt etichete ale enunțului. Linkul duce la enunțul complet, ca referință; regulile necesare fiecărui exercițiu sunt pe slide-uri.
+S2: refuz, decis de condiție (T2 nu este titularul); I neschimbată, c1 neînregistrat. S7: anularea acceptată, B Anulată; ridicarea refuzată, decisă de stare (Anulată este finală); fără notificare. S5: refuz, decis de stare (A nu mai este Rezervată); c7 este o cerere nouă, deci R5 nu se aplică. Linkul duce la enunțul complet, ca referință; regulile necesare fiecărui exercițiu sunt pe slide-uri.
 
 **Organizare:** 6 min: 3 în chat, 3 în ștafetă. []{.pace dur=6}
 :::
@@ -99,7 +99,7 @@ Un coleg propune tabelul în plen (stare curentă, eveniment, condiție, stare u
 
 - în ce stare se află rezervarea când sosește o **reîncercare**? Are rândul ei?
 - care rânduri sunt refuzuri decise de condiție și care de stare?
-- ce rămâne înregistrat după `anuleaza(R2)`: titularul, echipamentul?
+- ce rămâne înregistrat după `anuleaza(B)`: titularul, echipamentul?
 
 ::: notes
 Rândurile așteptate: Rezervată + `ridica` cu c nou și s titular → Ridicată; Ridicată + `ridica` cu c înregistrat → Ridicată (reîncercare, notificarea poate fi actualizată); Rezervată + `anuleaza` → Anulată. Reîncercarea sosește în Ridicată, nu în Rezervată: c este înregistrat numai la acceptare. Mulți o pun în Rezervată; întrebarea colegului care verifică o scoate la iveală. Refuzuri de condiție: alt student; de stare: o cerere nouă de ridicare în Ridicată sau Anulată, anularea în Ridicată. Reîncercarea în Ridicată este permisă; de aceea Ridicată nu este o stare finală intenționată în sensul cursului 7. După anulare, titularul și echipamentul rămân (R8). În Ridicată, reîncercarea poate actualiza notificarea: păstrarea etapei nu înseamnă păstrarea întregii stări.
@@ -125,19 +125,19 @@ Scriem interacțiunea pentru cazul normal și pentru eșecul notificării, apoi 
 
 # Interacțiunea pentru `ridica`
 
-**Pornire independentă din I:** R1 este Rezervată, cu titular S1; c1 este neînregistrat. **R3 (ridicare):** acceptarea trece R1 în Ridicată și înregistrează data și c1.
+**Din I, independent:** A este Rezervată, cu titularul T1; c1 este neînregistrat. **R3 (ridicare):** acceptarea trece A în Ridicată și înregistrează data și c1.
 
-**R4 (notificare):** după o ridicare acceptată, registrul cere expeditorului `trimite(mesaj)`, care răspunde `trimis` sau `esec`; registrul înregistrează notificarea `trimisă` sau `netrimisă`; **eșecul nu anulează ridicarea**, ghișeul primește `ridicat`. **R7 (granița):** presupunem doar că expeditorul răspunde; `esec` nu înseamnă că mesajul nu a ajuns. Refuzul nu apelează expeditorul.
+**R4 (notificare):** după o ridicare acceptată, registrul cere expeditorului `trimite(mesaj)`, care răspunde `trimis` sau `esec`; registrul înregistrează notificarea `trimisă` sau `netrimisă`; **eșecul nu anulează ridicarea**, ghișeul primește `ridicat`. **R7 (graniță):** presupunem doar că expeditorul răspunde; `esec` nu înseamnă că mesajul nu a ajuns. Refuzul nu apelează expeditorul.
 
 În chat, la semnal, scrieți pașii (cine → cui, ce se trimite sau se întoarce, ce înregistrează registrul) pentru:
 
-- scenariul S1 (`ridica(c1, R1, S1)`, expeditorul răspunde `trimis`);
-- scenariul S3 (`ridica(c1, R1, S1)`, expeditorul răspunde `esec`).
+- scenariul S1 (`ridica(c1, A, T1)`, expeditorul răspunde `trimis`);
+- scenariul S3 (`ridica(c1, A, T1)`, expeditorul răspunde `esec`).
 
 Apoi în ștafetă: un coleg explică S1, un coleg numit S3, apoi: **în ce pas schimbă registrul starea: înainte sau după apelul expeditorului? Ce s-ar întâmpla cu S3 în ordinea inversă?**
 
 ::: notes
-S1: ghișeu → registru; registrul verifică (R1 Rezervată, S1 titular, c1 nou), trece R1 în Ridicată, înregistrează data și c1, notificarea în așteptare; registru → expeditor `trimite`; expeditor → registru `trimis`; registrul înregistrează `trimisă`; registru → ghișeu `ridicat`. S3: identic, cu `esec` și `netrimisă`; răspunsul rămâne `ridicat`. Tranziția precede apelul. În ordinea inversă (starea schimbată numai la `trimis`), la `esec` studentul ar pleca cu echipamentul, iar R1 ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 încălcată.
+S1: ghișeu → registru; registrul verifică (A Rezervată, T1 titular, c1 nou), trece A în Ridicată, înregistrează data și c1, notificarea în așteptare; registru → expeditor `trimite`; expeditor → registru `trimis`; registrul înregistrează `trimisă`; registru → ghișeu `ridicat`. S3: identic, cu `esec` și `netrimisă`; răspunsul rămâne `ridicat`. Tranziția precede apelul. În ordinea inversă (starea schimbată numai la `trimis`), la `esec` studentul ar pleca cu echipamentul, iar A ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată.
 
 **Organizare:** 12 min: 5 în chat, 7 în ștafetă. []{.pace dur=12}
 :::
@@ -150,13 +150,13 @@ S1: ghișeu → registru; registrul verifică (R1 Rezervată, S1 titular, c1 nou
 
 În chat, la semnal, **independent** una de alta:
 
-- scenariul S4 (reîncercare după eșec): continuarea lui S3 (notificare eșuată: R1 Ridicată, c1 înregistrat, notificare `netrimisă`): `ridica(c1, R1, S1)`, expeditorul răspunde `trimis`;
-- scenariul S5 (cerere nouă după ridicare): continuarea lui S1 (ridicare confirmată: R1 Ridicată, c1 înregistrat, notificare `trimisă`): `ridica(c7, R1, S1)`.
+- scenariul S4 (reîncercare după eșec): continuarea lui S3 (notificare eșuată: A Ridicată, c1 înregistrat, notificare `netrimisă`): `ridica(c1, A, T1)`, expeditorul răspunde `trimis`;
+- scenariul S5 (cerere nouă după ridicare): continuarea lui S1 (ridicare confirmată: A Ridicată, c1 înregistrat, notificare `trimisă`): `ridica(c7, A, T1)`.
 
 În ștafetă, un coleg explică S4, un coleg numit S5: **Ce deosebește cererile pentru același student și aceeași rezervare? Ce garantează registrul ghișeului în fiecare caz?**
 
 ::: notes
-S4: c1 înregistrat → reîncercare; notificarea `netrimisă` → expeditorul apelat din nou → `trimisă`; răspuns `ridicat`; R1 rămâne Ridicată, o singură ridicare. S5: c7 nou → cerere nouă; R1 nu este Rezervată → `refuz`, nimic nu se modifică, expeditorul nu este apelat. Le deosebește numai identificatorul cererii. Garanții: o rezervare este ridicată cel mult o dată; reîncercarea primește același rezultat; rezultatul notificării este înregistrat; refuzul nu produce mesaje. Nu garantăm livrarea sau citirea mesajului.
+S4: c1 înregistrat → reîncercare; notificarea `netrimisă` → expeditorul apelat din nou → `trimisă`; răspuns `ridicat`; A rămâne Ridicată, o singură ridicare. S5: c7 nou → cerere nouă; A nu este Rezervată → `refuz`, nimic nu se modifică, expeditorul nu este apelat. Le deosebește numai identificatorul cererii. Garanții: o rezervare este ridicată cel mult o dată; reîncercarea primește același rezultat; rezultatul notificării este înregistrat; refuzul nu produce mesaje. Nu garantăm livrarea sau citirea mesajului.
 
 **Organizare:** 13 min: 5 în chat, 8 în ștafetă; ajungem la minutul 55. []{.pace dur=13}
 :::
@@ -183,9 +183,9 @@ Profesorul conduce o singură analiză și o singură revizuire într-un context
 
 **Reguli:** c se înregistrează numai la acceptare. O reîncercare cu c înregistrat primește `ridicat` și retrimite notificarea `netrimisă`; o cerere nouă în Ridicată primește `refuz`.
 
-**Scenariul S4 (reîncercare după eșec):** R1 Ridicată, titular S1, c1 înregistrat, notificare `netrimisă`. Apel: `ridica(c1, R1, S1)`; expeditorul răspunde `trimis`.
+**Scenariul S4 (reîncercare după eșec):** A Ridicată, titular T1, c1 înregistrat, notificare `netrimisă`. Apel: `ridica(c1, A, T1)`; expeditorul răspunde `trimis`.
 
-**Predicție în chat:** în ce stare sosește S4 și ce rezultat primește?
+**Predicție în chat:** în ce stare se află A când sosește reîncercarea din S4 și ce rezultat primește ghișeul?
 
 . . .
 
@@ -237,7 +237,7 @@ Observația 1 este corectă, dar superficială: „handler separat” este într
 | Unde este rândul reîncercării? | În Ridicată; c se înregistrează la acceptare. R3 (ridicare). |
 | Este Ridicată finală? | Nu: R5 (reîncercare) permite un eveniment. Enunțul inițial o numea greșit finală. |
 | Ce primește o cerere nouă în Ridicată? | `refuz`, fără modificări; reîncercarea primește `ridicat`. |
-| Ce presupunem despre expeditor? | Răspunde `trimis` sau `esec`. R7 (granița). |
+| Ce presupunem despre expeditor? | Răspunde `trimis` sau `esec`. R7 (graniță). |
 
 Un coleg explică o afirmație acceptată; alt coleg o verifică printr-un scenariu.
 
@@ -265,16 +265,16 @@ Revenim la explicațiile în ștafetă după demonstrația AI comună. Nu schimb
 
 # Același conținut, alt identificator
 
-**Starea de pornire I:** R1 (titular S1) și R2 (titular S2) Rezervate; niciun identificator înregistrat.
+**Starea de pornire I:** A (titular T1) și B (titular T2) Rezervate; niciun identificator înregistrat.
 
 **Reguli:** `ridica` cu c nou: numai din Rezervată, de titular → Ridicată, c înregistrat, notificare `trimisă`/`netrimisă`; cu c înregistrat: același `ridicat`, iar notificarea `netrimisă` se reîncearcă; altfel refuz fără modificări; eșecul notificării nu anulează ridicarea.
 
-1. Din I, `ridica(c1, R1, S1)` cu `esec`; apoi, după ce aplicația nu a afișat răspunsul, ghișeul trimite `ridica(c8, R1, S1)` cu un identificator **nou**. Rezultatul, starea și notificarea după fiecare pas.
+1. Din I, `ridica(c1, A, T1)` cu `esec`; apoi, după ce răspunsul nu s-a afișat la ghișeu, ghișeul trimite `ridica(c8, A, T1)` cu un identificator **nou**. Rezultatul, starea și notificarea după fiecare pas.
 2. Un voluntar explică în plen; un coleg numit verifică primul dacă expeditorul a fost apelat la pasul al doilea. Ceilalți pot formula obiecții în chat.
-3. Alt coleg explică ramura separată, tot din starea de după pasul 1: ghișeul reîncearcă cu `ridica(c1, R1, S1)`, iar expeditorul răspunde `trimis`. **Ce diferă față de pasul 2 și de ce?**
+3. Alt coleg explică ramura separată, tot din starea de după pasul 1: ghișeul reîncearcă cu `ridica(c1, A, T1)`, iar expeditorul răspunde `trimis`. **Ce diferă față de pasul 2 și de ce?**
 
 ::: notes
-Pasul 1: `ridicat`; R1 Ridicată, c1 înregistrat, notificare `netrimisă`. Pasul 2: c8 este cerere nouă, R1 nu mai este Rezervată → `refuz`; nimic nu se modifică, expeditorul nu este apelat; notificarea rămâne `netrimisă`. Ramura 3: c1 înregistrat → reîncercare; expeditorul apelat din nou → notificarea `trimisă`; `ridicat`. Diferența stă numai în identificatorul cererii; conținutul este identic. Întrebarea de încheiere: ce ar trebui să facă aplicația ghișeului ca să nu ajungă la pasul 2?
+Pasul 1: `ridicat`; A Ridicată, c1 înregistrat, notificare `netrimisă`. Pasul 2: c8 este cerere nouă, A nu mai este Rezervată → `refuz`; nimic nu se modifică, expeditorul nu este apelat; notificarea rămâne `netrimisă`. Ramura 3: c1 înregistrat → reîncercare; expeditorul apelat din nou → notificarea `trimisă`; `ridicat`. Diferența stă numai în identificatorul cererii; conținutul este identic. Întrebarea de încheiere: ce ar trebui să facă ghișeul ca să nu ajungă la pasul 2?
 
 **Organizare:** 15 min: reflecție 4, explicații și verificări în ștafetă 8, discuție 3. []{.pace dur=15}
 :::

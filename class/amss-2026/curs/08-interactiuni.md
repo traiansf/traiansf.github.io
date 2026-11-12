@@ -18,7 +18,7 @@ Registrul a acceptat cererea, serviciul extern a raportat un eșec. Ce îi spune
 
 # Citatul zilei
 
-> „Orice organizație care proiectează un sistem (în sens larg) va produce o proiectare a cărei structură reproduce structura de comunicare a organizației.”
+> „Orice organizație care proiectează un sistem (în sens larg) va produce o soluție a cărei structură este o copie a structurii de comunicare a organizației.”
 >
 > Original: “Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.”
 
@@ -84,7 +84,7 @@ Un loc liber, o singură înscriere, răspunsul `acceptat` de două ori. A doua 
 
 # Interacțiune, graniță, coordonare
 
-O **interacțiune** este succesiunea apelurilor prin care mai multe componente realizează o operație: cine apelează pe cine, ce trimite, ce primește, ce înregistrează.
+O **interacțiune** este succesiunea apelurilor prin care mai multe componente realizează o operație: cine apelează pe cine, ce trimite, ce primește, ce înregistrează. Ordinea aleasă a pașilor este **fluxul de lucru** al operației.
 
 **Granița** sistemului nostru separă componentele pe care le proiectăm de cele pe care doar le folosim. Despre o componentă din exterior cunoaștem **interfața** ei și ce **presupunem** despre ea; nu îi cunoaștem pașii.
 
@@ -130,7 +130,7 @@ R4 vine de la beneficiar; noi nu o putem schimba, doar o putem face explicită. 
 | Regulă | Conținut |
 |--------|------------------------------------------|
 | R5 (reîncercare) | O cerere cu c deja înregistrat primește același `acceptat`, fără alt loc și fără a doua înscriere. Dacă confirmarea este `netrimisă`, registrul poate cere din nou trimiterea; dacă este `trimisă`, nu apelează expeditorul. |
-| R6 (granița) | Despre expeditor presupunem doar că răspunde la fiecare apel cu `trimis` sau `esec`. `esec` nu înseamnă că mesajul nu a ajuns; `trimis` nu înseamnă că a fost citit. `netrimisă` consemnează `esec`, nu nelivrarea. |
+| R6 (graniță) | Despre expeditor presupunem doar că răspunde la fiecare apel cu `trimis` sau `esec`. `esec` nu înseamnă că mesajul nu a ajuns; `trimis` nu înseamnă că a fost citit. `netrimisă` consemnează `esec`, nu nelivrarea. |
 | R7 (efect limitat) | O cerere nu modifică alte înscrieri și nici locurile lor. |
 
 ::: notes
@@ -155,7 +155,7 @@ flowchart TB
 ::: {.column width="46%"}
 **Interfața expeditorului:** `trimite(mesaj)` întoarce `trimis` sau `esec`. Atât știm.
 
-**R6 (granița):** presupunem că răspunde la fiecare apel.
+**R6 (graniță):** presupunem că răspunde la fiecare apel.
 
 **Ce nu presupunem:** că `esec` înseamnă „mesajul nu a ajuns”; că `trimis` înseamnă „a fost citit”; cât durează.
 :::
@@ -179,7 +179,7 @@ Site-ul este în afara graniței în sensul că nu îl proiectăm azi, deși est
 | **Registru** | decide acceptarea, consumă locul, înregistrează înscrierea și identificatorul, **apelează expeditorul**, înregistrează confirmarea, răspunde site-ului |
 | Expeditor | încearcă trimiterea și răspunde `trimis` sau `esec` |
 
-Registrul **coordonează**: site-ul nu apelează expeditorul; interfața expeditorului nu cere acces la locuri. **R4 (confirmare):** registrul înregistrează înscrierea înaintea trimiterii și o păstrează la `esec`. **Dacă site-ul ar trimite el confirmarea, ce ar trebui să știe și ce ar putea merge prost?**
+Registrul **coordonează**: site-ul nu apelează expeditorul; interfața expeditorului nu cere acces la locuri. **R4 (confirmare):** eșecul confirmării nu anulează înscrierea acceptată; de aceea registrul o înregistrează înaintea apelului expeditorului. **Dacă site-ul ar trimite el confirmarea, ce ar trebui să știe și ce ar putea merge prost?**
 
 ::: notes
 Site-ul ar trebui să cunoască rezultatul deciziei și regula R4 și ar trebui să fie el cel care înregistrează rezultatul confirmării, deși nu deține înscrierile; o confirmare ar putea pleca fără înscriere sau o înscriere ar rămâne fără urma confirmării. Coordonarea stă acolo unde stau datele și regulile pe care pașii le modifică. Ca în cursul 5, dependența utilă este apelul operației; cuplarea de regulile registrului ar fi costul variantei cu site-ul coordonator.
@@ -311,7 +311,7 @@ S3: Site → Registru; registrul găsește c1 înregistrat, confirmare `netrimis
 
 # Două ordini ale pașilor
 
-**R4 (confirmare):** eșecul confirmării nu anulează înscrierea. **R6 (granița):** `esec` nu înseamnă că mesajul nu a ajuns.
+**R4 (confirmare):** eșecul confirmării nu anulează înscrierea. **R6 (graniță):** `esec` nu înseamnă că mesajul nu a ajuns.
 
 **Pornire:** c1 nou, P1 neînscris, un loc liber. **Fluxul F (exemplu didactic):** apelează întâi expeditorul; înregistrează numai la `trimis`, iar la `esec` întoarce `refuz`.
 
@@ -383,7 +383,7 @@ Sub G: prima cerere → `acceptat`, 1 loc, înscrierea lui P1 (confirmare `netri
 
 # Trei variante după `esec`
 
-**R4 (confirmare):** eșecul nu anulează înscrierea. **R6 (granița):** `esec` nu înseamnă că mesajul nu a ajuns.
+**R4 (confirmare):** eșecul nu anulează înscrierea. **R6 (graniță):** `esec` nu înseamnă că mesajul nu a ajuns.
 
 | Varianta | Ce face registrul | Presupune | Cost |
 |:------|:-------------------------|:------------------|:------------------------|
@@ -403,7 +403,7 @@ A și B respectă R4 și se pot combina: o reîncercare imediată, apoi B. În B
 
 # Care variantă și cu ce justificare?
 
-**R4 (confirmare):** eșecul nu anulează înscrierea. **R6 (granița):** `esec` nu stabilește dacă mesajul a ajuns. **R5 (reîncercare):** o cerere deja acceptată primește același `acceptat`.
+**R4 (confirmare):** eșecul nu anulează înscrierea. **R6 (graniță):** `esec` nu stabilește dacă mesajul a ajuns. **R5 (reîncercare):** o cerere deja acceptată primește același `acceptat`.
 
 **Variantele:** A, reîncercare imediată a trimiterii; B, confirmare `netrimisă` și retrimitere printr-o operație separată; C, anularea înscrierii.
 
@@ -421,9 +421,9 @@ Individual, apoi discutăm:
 
 ---
 
-# Decizia noastră
+# Decizia noastră: varianta B
 
-**R4 (confirmare):** înscrierea rămâne acceptată la `esec`. **R5 (reîncercare):** putem retrimite o confirmare `netrimisă`. **R6 (granița):** nu cunoaștem livrarea efectivă.
+**R4 (confirmare):** înscrierea rămâne acceptată la `esec`. **R5 (reîncercare):** putem retrimite o confirmare `netrimisă`. **R6 (graniță):** nu cunoaștem livrarea efectivă.
 
 **Alegem B: retrimitere ulterioară**, cu responsabilități explicite:
 

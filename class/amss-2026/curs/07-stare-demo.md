@@ -13,7 +13,7 @@
 | 80–95 | Sarcină AI pregătită, tabel de revizuit, promptul evaluatorului (agent AI de revizuire), revizuire și, pe slide separat, decizia noastră. |
 | 95–100 | Transfer la comanda de la cafenea. |
 
-Duratele exercițiilor includ discuția. În etapa 15–35, acordați 4 minute regulilor (două slide-uri), 5 tabelului, 4 condiției și datelor (din care 1 întrebarea despre Rp1) și 7 exercițiului. În etapa 35–60: 3 diagramei, 5 trasării S1, 8 exercițiului S3–S4, 6 celor două ordini, 3 stărilor finale. În etapa 60–80: 3 tabelului P, 8 exercițiului, 4 celor trei situații, 3 corecției, 2 limitelor trasării. Tranzițiile sunt incluse în intervale.
+Duratele exercițiilor includ discuția. În etapa 15–35, acordați 4 minute regulilor (două slide-uri), 5 tabelului, 4 condiției și datelor (din care 1 întrebarea despre Rp1) și 7 exercițiului. În etapa 35–60: 3 diagramei, 5 trasării S1, 8 exercițiului S3–S4, 6 celor două ordini, 3 stărilor finale. În etapa 60–80: 3 tabelului P, 8 exercițiului, 4 celor trei cazuri, 3 corecției, 2 limitelor trasării. Tranzițiile sunt incluse în intervale.
 
 ## Distincțiile importante
 
@@ -23,7 +23,7 @@ Datele se păstrează la schimbarea etapei (R8); în Ciornă, R3 permite înlocu
 
 S1, S2, S3, S5 și S7 repornesc din I0; S4 continuă S3, iar S6 pornește din starea de după primele patru evenimente ale lui S1. În S6, aceleași două evenimente în ordine diferită dau Retras, respectiv Acceptat, cu exact un eveniment refuzat în fiecare ordine; ambele ordini respectă regulile. Acceptat, Respins și Retras sunt finale intenționate prin decizia beneficiarului; lipsa unei ieșiri se notează, nu se repară.
 
-Tabelul P are două abateri față de enunț: `trimite` fără condiția fișierului (permite prea mult: S2 ajunge în Trimis fără fișier, iar extinderea cu `preia` ajunge În evaluare) și lipsa rândului `inregistreaza_raport` (permite prea puțin: Acceptat devine inaccesibil, deoarece deciziile cer un raport pe care niciun eveniment nu îl înregistrează). Sub P, În evaluare nu este blocaj (`retrage` rămâne permis), ci obiectivul cerut este inaccesibil; slide-ul „Interzisă, finală sau inaccesibilă?” separă cele trei situații și definește blocajul ca pe un caz extrem, explorat în cursul 9. Trasarea este manuală, nu un jurnal de execuție.
+Tabelul P are două abateri față de enunț: `trimite` fără condiția fișierului (permite prea mult: S2 ajunge în Trimis fără fișier, iar extinderea cu `preia` ajunge În evaluare) și lipsa rândului `inregistreaza_raport` (permite prea puțin: Acceptat devine inaccesibil, deoarece deciziile cer un raport pe care niciun eveniment nu îl înregistrează). Sub P, În evaluare nu este blocaj (`retrage` rămâne permis), ci obiectivul cerut este inaccesibil; slide-ul „Interzisă, finală sau inaccesibilă?” separă cele trei cazuri și definește blocajul ca pe un caz extrem, explorat în cursul 9. Trasarea este manuală, nu un jurnal de execuție.
 
 Accesibilitatea: o stare este accesibilă dacă există o secvență de evenimente permise care ajunge la ea. S1 este o asemenea secvență pentru Acceptat. Afirmațiile despre toate secvențele (inaccesibilitate, invarianți ai ciclului de viață) cer un argument, nu o trasare; cursul 9 reia distincția cu un model executabil.
 

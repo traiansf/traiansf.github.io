@@ -41,6 +41,6 @@ Transferul la diplome cere trei propoziții: interiorul și exteriorul, presupun
 
 ## Feedback aplicat
 
-Fiecare exercițiu și fiecare fragment AI reia pe același slide regulile necesare, în propoziții întregi; la prima apariție dintr-un slide, identificatorii poartă cuvintele-cheie din enunț: R1 (context), R2 (cerere), R3 (acceptare), R4 (confirmare), R5 (reîncercare), R6 (granița), R7 (efect limitat). Exercițiile au lucru individual și discuție cu toată clasa, fără lucru în pereche; deschiderea are întrebarea deschisă după citat; decizia asupra revizuirii AI are slide propriu.
+Fiecare exercițiu și fiecare fragment AI reia pe același slide regulile necesare, în propoziții întregi; la prima apariție dintr-un slide, identificatorii poartă cuvintele-cheie din enunț: R1 (context), R2 (cerere), R3 (acceptare), R4 (confirmare), R5 (reîncercare), R6 (graniță), R7 (efect limitat). Exercițiile au lucru individual și discuție cu toată clasa, fără lucru în pereche; deschiderea are întrebarea deschisă după citat; decizia asupra revizuirii AI are slide propriu.
 
 Vocabular: **graniță** pentru limita sistemului nostru (nu „limită”, rezervată valorilor acceptate); **reîncercare** pentru aceeași cerere trimisă din nou, cu același identificator; **cerere nouă** pentru o cerere cu identificator nou, oricare ar fi conținutul; **expeditor** pentru serviciul extern; **coordonare** pentru responsabilitatea de a conduce pașii unei operații.

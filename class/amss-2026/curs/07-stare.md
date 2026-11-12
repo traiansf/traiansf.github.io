@@ -86,7 +86,7 @@ Individual, pentru fiecare dintre cele șapte evenimente: **schimbă starea**, *
 
 **Starea** descrie valorile relevante la un moment dat, ca în cursul 6. În ciclul de viață, numim **stări** etapele Ciornă, Trimis, În evaluare etc.; etapa, împreună cu datele păstrate, decide **ce evenimente sunt permise acum**.
 
-Un **eveniment** este o apariție relevantă pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului. O **tranziție** spune: din starea curentă, la acest eveniment, dacă **condiția** este îndeplinită, trecem în starea următoare, cu un **efect** asupra datelor.
+Un **eveniment** este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului. O **tranziție** spune: din starea curentă, la acest eveniment, dacă **condiția** este îndeplinită, trecem în starea următoare, cu un **efect** asupra datelor.
 
 Un eveniment fără tranziție permisă, sau cu condiția neîndeplinită, este **refuzat**: starea și datele rămân neschimbate.
 
@@ -143,18 +143,18 @@ R7 și R8 sunt regulile pe care le verificăm la fiecare eveniment refuzat și l
 # Tabelul de tranziții
 
 | Stare curentă | Eveniment | Condiție | Stare următoare | Efect |
-|:-------------|:--------------------------------|:-----------|:--------------|:--------------|
+|:------------|:------------------------------|:---------------|:-------------|:-----------------|
 | Ciornă | `ataseaza(f)` | — | Ciornă | fișier: f |
-| Ciornă | `trimite` | are fișier | Trimis | dată |
+| Ciornă | `trimite` | există fișier | Trimis | data trimiterii |
 | Trimis | `preia(e)` | — | În evaluare | editor: e |
 | În evaluare | `inregistreaza_raport(r)` | — | În evaluare | rapoarte: + r |
-| În evaluare | `accepta`, `respinge` | ≥ 1 raport | Acceptat / Respins | decizie și dată |
+| În evaluare | `accepta` / `respinge` | cel puțin un raport | Acceptat / Respins | decizia și data ei |
 | Trimis, În evaluare | `retrage` | — | Retras | data retragerii |
 
 **Altfel: refuzat**, fără modificări. Schimbarea etapei păstrează datele existente.
 
 ::: notes
-Tabelul este reprezentarea pe care o verificăm. „Dată” la `trimite` este data trimiterii, iar „—” la condiție înseamnă că nu cerem altceva în afară de starea indicată. Un rând descrie un caz de succes: în starea curentă, dacă condiția este adevărată, evenimentul reușește cu starea următoare și efectul. Dacă niciun rând nu se aplică, evenimentul este refuzat. Rândul `inregistreaza_raport` nu schimbă starea, dar este o tranziție: are efect asupra datelor și trebuie să fie permis undeva, altfel nicio decizie nu ar deveni posibilă. Rândurile lipsă nu sunt uitări: ele spun „refuzat”.
+Tabelul este reprezentarea pe care o verificăm. „—” la condiție înseamnă că nu cerem altceva în afară de starea indicată. Un rând descrie un caz de succes: în starea curentă, dacă condiția este adevărată, evenimentul reușește cu starea următoare și efectul. Dacă niciun rând nu se aplică, evenimentul este refuzat. Rândul `inregistreaza_raport` nu schimbă starea, dar este o tranziție: are efect asupra datelor și trebuie să fie permis undeva, altfel nicio decizie nu ar deveni posibilă. Rândurile lipsă nu sunt uitări: ele spun „refuzat”.
 :::
 
 ---
@@ -289,7 +289,7 @@ Diagrama este reprezentarea tabelului, nu un model suplimentar; efectele asupra 
 | 4 | `inregistreaza_raport(Rp1)` | În evaluare | raport Rp1 |
 | 5 | `accepta` | Acceptat | decizia și data ei |
 
-**Fișierul precede trimiterea; raportul precede acceptarea.** S1 arată că Acceptat este accesibil din I0. Datele adăugate la fiecare pas se păstrează.
+**Fișierul precede trimiterea; raportul precede acceptarea.** S1 arată că Acceptat este **accesibil** din I0: există o secvență de evenimente permise care ajunge acolo. Datele adăugate la fiecare pas se păstrează.
 
 ::: notes
 La fiecare pas sunt îndeplinite cerințele de stare și condiția; datele din coloana finală se adaugă celor existente. O trasare verifică o singură secvență, și justifică accesibilitatea: o stare este accesibilă dacă există cel puțin o secvență de evenimente permise care ajunge la ea.
@@ -301,7 +301,7 @@ La fiecare pas sunt îndeplinite cerințele de stare și condiția; datele din c
 
 # Retragerea și decizia ulterioară
 
-**Pornire I0:** M în Ciornă, fără date. În Ciornă putem atașa un fișier, apoi trimite manuscrisul; `trimite` înregistrează data. Din Trimis, `preia(E1)` înregistrează editorul și trece În evaluare, unde putem adăuga rapoarte.
+**Din I0:** M în Ciornă, fără date. În Ciornă putem atașa un fișier, apoi trimite manuscrisul; `trimite` înregistrează data. Din Trimis, `preia(E1)` înregistrează editorul și trece În evaluare, unde putem adăuga rapoarte.
 
 **Reguli:** `retrage` din Trimis sau În evaluare duce în Retras și înregistrează data; `accepta` cere În evaluare și cel puțin un raport. Datele existente se păstrează. Din Retras, orice eveniment este refuzat, fără modificări.
 
@@ -353,7 +353,7 @@ Aceleași două evenimente. Câte sunt refuzate în fiecare ordine? Care ordine 
 Lipsa unei ieșiri este o decizie de notat, nu o omisiune. **Ce ar însemna să permitem `retrage` din Acceptat?**
 
 ::: notes
-Ar fi altă regulă, cu alte consecințe (un manuscris acceptat retras înainte de publicare), pe care numai beneficiarul o poate stabili; nu o adăugăm pentru simetrie. Distingem „nu mai este nimic de făcut, intenționat” de „nu se mai poate face ce vrem, din greșeală”: etapa următoare arată a doua situație.
+Ar fi altă regulă, cu alte consecințe (un manuscris acceptat retras înainte de publicare), pe care numai beneficiarul o poate stabili; nu o adăugăm pentru simetrie. Distingem „nu mai este nimic de făcut, intenționat” de „nu se mai poate face ce vrem, din greșeală”: etapa următoare arată al doilea caz.
 
 **Organizare:** 3 min; ajungem la minutul 60. []{.pace dur=3}
 :::
@@ -367,7 +367,7 @@ Un tabel care arată bine poate ascunde un parcurs imposibil?
 ::: notes
 Verificăm un tabel propus prin trasare: căutăm un parcurs pe care regulile îl interzic, dar tabelul îl permite, și un obiectiv pe care regulile îl cer, dar tabelul nu îl poate atinge. Nu rulăm cod în timpul cursului.
 
-**Organizare:** minutul 60 din 100; interval 60–80 (20 min): tabelul propus 3, exercițiu 8, trei situații 4, corecție 3, limite 2. []{.pace at=60}
+**Organizare:** minutul 60 din 100; interval 60–80 (20 min): tabelul propus 3, exercițiu 8, trei cazuri 4, corecție 3, limite 2. []{.pace at=60}
 :::
 
 ---
@@ -415,9 +415,9 @@ Pe hârtie, apoi discutăm:
 
 # Interzisă, finală sau inaccesibilă?
 
-Trei situații cu nume diferite, pentru că se repară diferit:
+Trei cazuri cu nume diferite, pentru că se repară diferit:
 
-| Situația | Exemplu | Ce înseamnă |
+| Cazul | Exemplu | Ce înseamnă |
 |:--------------------|:-------------------|:------------------------------------|
 | **Tranziție interzisă** | `retrage` din Acceptat | regula o refuză; refuzul este corect |
 | **Stare finală intenționată** | Acceptat | nicio ieșire, prin decizia beneficiarului |
