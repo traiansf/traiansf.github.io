@@ -31,6 +31,7 @@ body { background:white; }
 .reveal img,.reveal svg { max-width:100%; max-height:390px; height:auto; object-fit:contain; }
 .reveal figure { margin:0; }
 .reveal .nowrap { white-space:nowrap; }
+.reveal .stare { color:#065a5a; font-weight:600; white-space:nowrap; }
 .reveal section.titlepage { padding:70px 65px; }
 .reveal .titlepage .logo { float:left; width:240px; padding:12px; background:white; border-radius:18px; margin:0 55px 0 0; }
 .reveal .titlepage .cover-text { overflow:hidden; }

@@ -495,8 +495,142 @@ local function size_diagram(img)
   return img
 end
 
+-- Names of lifecycle states (front matter `state-names: [Ciornă, Trimis]`)
+-- are set in one style everywhere in the deck, so that a capital letter in
+-- mid-sentence reads as a name and not as an error: a span with the class
+-- `stare` in HTML, \amssstate in the PDF (theme/beamer.tex). Code, code
+-- blocks and diagram sources are left alone.
+local ROMANIAN_LETTERS = { 'ă', 'â', 'î', 'ș', 'ț', 'ş', 'ţ', 'Ă', 'Â', 'Î', 'Ș', 'Ț', 'Ş', 'Ţ' }
+
+local function is_letter(ch)
+  if ch == nil or ch == '' then
+    return false
+  end
+  if ch:match('^%a$') then
+    return true
+  end
+  for _, l in ipairs(ROMANIAN_LETTERS) do
+    if ch == l then
+      return true
+    end
+  end
+  return false
+end
+
+local function last_char(text)
+  return text:match('[%z\1-\127\194-\244][\128-\191]*$')
+end
+
+local function first_char(text)
+  return text:match('^[%z\1-\127\194-\244][\128-\191]*')
+end
+
+local function state_names(meta)
+  local names = {}
+  if meta['state-names'] then
+    for _, item in ipairs(meta['state-names']) do
+      local words = {}
+      for word in stringify(item):gmatch('%S+') do
+        words[#words + 1] = word
+      end
+      if #words > 0 then
+        names[#names + 1] = words
+      end
+    end
+  end
+  return names
+end
+
+-- Does the name start at inline i (at the end of its Str)? Returns the
+-- index of the last inline of the name, the text before the first word and
+-- the text after the last one.
+local function match_state(inlines, i, words)
+  local first = inlines[i]
+  if first.t ~= 'Str' then
+    return nil
+  end
+  local text = first.text
+  local from = text:find(words[1], 1, true)
+  local before, rest
+  if #words == 1 then
+    while from do
+      local b, r = text:sub(1, from - 1), text:sub(from + #words[1])
+      if not is_letter(last_char(b)) and not is_letter(first_char(r)) then
+        return i, b, r
+      end
+      from = text:find(words[1], from + 1, true)
+    end
+    return nil
+  end
+  if not (from and text:sub(from) == words[1]) then
+    return nil
+  end
+  before = text:sub(1, from - 1)
+  if is_letter(last_char(before)) then
+    return nil
+  end
+  local j = i
+  for k = 2, #words do
+    local space, word = inlines[j + 1], inlines[j + 2]
+    if not (space and word and space.t == 'Space' and word.t == 'Str') then
+      return nil
+    end
+    local prefix = word.text:sub(1, #words[k])
+    if prefix ~= words[k] then
+      return nil
+    end
+    rest = word.text:sub(#words[k] + 1)
+    if k == #words and is_letter(first_char(rest)) then
+      return nil
+    end
+    j = j + 2
+  end
+  return j, before, rest
+end
+
+local function style_states(blocks, names)
+  local function styled(words)
+    local name = table.concat(words, NBSP)
+    if is_beamer or is_latex then
+      local escaped = name:gsub('[#%%&_{}$]', '\\%0')
+      return pandoc.RawInline('latex', '\\amssstate{' .. escaped .. '}')
+    end
+    return pandoc.Span({ pandoc.Str(name) }, pandoc.Attr('', { 'stare' }))
+  end
+  return blocks:walk({
+    Inlines = function(inlines)
+      local out = pandoc.Inlines({})
+      local i, changed = 1, false
+      while i <= #inlines do
+        local done = false
+        for _, words in ipairs(names) do
+          local last, before, after = match_state(inlines, i, words)
+          if last then
+            if before ~= '' then out:insert(pandoc.Str(before)) end
+            out:insert(styled(words))
+            if after ~= '' then out:insert(pandoc.Str(after)) end
+            i, changed, done = last + 1, true, true
+            break
+          end
+        end
+        if not done then
+          out:insert(inlines[i])
+          i = i + 1
+        end
+      end
+      if changed then
+        return out
+      end
+    end,
+  })
+end
+
 local function tidy_document(doc)
   local blocks = doc.blocks
+  local names = state_names(doc.meta)
+  if #names > 0 then
+    blocks = style_states(blocks, names)
+  end
   if is_doc and full_title then
     local i, first = first_visible(blocks)
     if first and first.t == 'Header' and first.level == 1 and repeats_title(first) then

@@ -174,6 +174,7 @@ background: var(--surface);
 .slide figcaption { color: var(--muted); font-size: 0.85em; }
 .slide hr { border: 0; border-top: 1px solid var(--line); margin: 1em 0; }
 .slide .nowrap { white-space: nowrap; } 
+.slide .stare { color: var(--teal-strong); font-weight: 600; white-space: nowrap; } 
 .deck-pause { display: none; } 
 
 .slide.epigraph blockquote {
@@ -497,7 +498,7 @@ break-inside: avoid;
 </div>
 <div id="stare-și-eveniment" class="slide section level1">
 <h1>Stare și eveniment</h1>
-<p><strong>Starea</strong> descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului, <strong>stările</strong> sunt „Ciornă”, „Trimis”, „În evaluare” etc. (numele lor se scriu cu majusculă); starea, împreună cu datele păstrate (fișier, editor, rapoarte), decide <strong>ce evenimente sunt permise acum</strong>.</p>
+<p><strong>Starea</strong> descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului, <strong>stările</strong> sunt <span class="stare">Ciornă</span>, <span class="stare">Trimis</span>, <span class="stare">În evaluare</span> etc. (numele stărilor sunt scrise mereu astfel); starea, împreună cu datele păstrate (fișier, editor, rapoarte), decide <strong>ce evenimente sunt permise acum</strong>.</p>
 <p>Un <strong>eveniment</strong> este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului.</p>
 </div>
 <div id="tranziție-condiție-efect" class="slide section level1">
@@ -531,15 +532,15 @@ break-inside: avoid;
 </tr>
 <tr>
 <td>R2 (stări)</td>
-<td>Exact una dintre Ciornă, Trimis, În evaluare, Acceptat, Respins, Retras. Un manuscris nou este în Ciornă, fără date.</td>
+<td>Exact una dintre <span class="stare">Ciornă</span>, <span class="stare">Trimis</span>, <span class="stare">În evaluare</span>, <span class="stare">Acceptat</span>, <span class="stare">Respins</span>, <span class="stare">Retras</span>. Un manuscris nou este în <span class="stare">Ciornă</span>, fără date.</td>
 </tr>
 <tr>
 <td>R3 (pregătire și trimitere)</td>
-<td><code>ataseaza(f)</code> numai în Ciornă: înregistrează f, înlocuind fișierul anterior, dacă există. <code>trimite</code> numai în Ciornă și numai cu fișier: trece în Trimis.</td>
+<td><code>ataseaza(f)</code> numai în <span class="stare">Ciornă</span>: înregistrează f, înlocuind fișierul anterior, dacă există. <code>trimite</code> numai în <span class="stare">Ciornă</span> și numai cu fișier: trece în <span class="stare">Trimis</span>.</td>
 </tr>
 <tr>
 <td>R4 (evaluare)</td>
-<td><code>preia(e)</code> numai în Trimis: editorul e, trece În evaluare. <code>inregistreaza_raport(r)</code> numai În evaluare: adaugă raportul, starea rămâne.</td>
+<td><code>preia(e)</code> numai în <span class="stare">Trimis</span>: editorul e, trece <span class="stare">În evaluare</span>. <code>inregistreaza_raport(r)</code> numai <span class="stare">În evaluare</span>: adaugă raportul, starea rămâne.</td>
 </tr>
 </tbody>
 </table>
@@ -562,11 +563,11 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td>R5 (decizie)</td>
-<td><code>accepta</code>, <code>respinge</code> numai În evaluare și numai cu cel puțin un raport: Acceptat, respectiv Respins.</td>
+<td><code>accepta</code>, <code>respinge</code> numai <span class="stare">În evaluare</span> și numai cu cel puțin un raport: <span class="stare">Acceptat</span>, respectiv <span class="stare">Respins</span>.</td>
 </tr>
 <tr>
 <td>R6 (retragere)</td>
-<td><code>retrage</code> numai în Trimis sau În evaluare: Retras. Nu din Ciornă, nu după decizie.</td>
+<td><code>retrage</code> numai în <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span>: <span class="stare">Retras</span>. Nu din <span class="stare">Ciornă</span>, nu după decizie.</td>
 </tr>
 <tr>
 <td>R7 (evenimente refuzate)</td>
@@ -574,7 +575,7 @@ break-inside: avoid;
 </tr>
 <tr>
 <td>R8 (datele se păstrează)</td>
-<td>Fișierul, editorul, rapoartele și decizia nu se șterg. Acceptat, Respins, Retras sunt stări finale intenționate.</td>
+<td>Fișierul, editorul, rapoartele și decizia nu se șterg. <span class="stare">Acceptat</span>, <span class="stare">Respins</span>, <span class="stare">Retras</span> sunt stări finale intenționate.</td>
 </tr>
 </tbody>
 </table>
@@ -602,45 +603,45 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td align="left">Ciornă</td>
+<td align="left"><span class="stare">Ciornă</span></td>
 <td align="left"><code>ataseaza(f)</code></td>
 <td align="left">—</td>
-<td align="left">Ciornă</td>
+<td align="left"><span class="stare">Ciornă</span></td>
 <td align="left">fișier: f</td>
 </tr>
 <tr>
-<td align="left">Ciornă</td>
+<td align="left"><span class="stare">Ciornă</span></td>
 <td align="left"><code>trimite</code></td>
 <td align="left">există fișier</td>
-<td align="left">Trimis</td>
+<td align="left"><span class="stare">Trimis</span></td>
 <td align="left">data trimiterii</td>
 </tr>
 <tr>
-<td align="left">Trimis</td>
+<td align="left"><span class="stare">Trimis</span></td>
 <td align="left"><code>preia(e)</code></td>
 <td align="left">—</td>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left">editor: e</td>
 </tr>
 <tr>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left"><code>inregistreaza_raport(r)</code></td>
 <td align="left">—</td>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left">rapoarte: + r</td>
 </tr>
 <tr>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left"><code>accepta</code> / <code>respinge</code></td>
 <td align="left">cel puțin un raport</td>
-<td align="left">Acceptat / Respins</td>
+<td align="left"><span class="stare">Acceptat</span> / <span class="stare">Respins</span></td>
 <td align="left">decizia și data ei</td>
 </tr>
 <tr>
-<td align="left">Trimis, În evaluare</td>
+<td align="left"><span class="stare">Trimis</span>, <span class="stare">În evaluare</span></td>
 <td align="left"><code>retrage</code></td>
 <td align="left">—</td>
-<td align="left">Retras</td>
+<td align="left"><span class="stare">Retras</span></td>
 <td align="left">data retragerii</td>
 </tr>
 </tbody>
@@ -650,10 +651,10 @@ break-inside: avoid;
 </div>
 <div id="condiția-nu-este-o-stare" class="slide section level1">
 <h1>Condiția nu este o stare</h1>
-<p><code>trimite</code> cere un fișier; <code>accepta</code> cere un raport. <strong>De ce nu introducem stările „Ciornă cu fișier” și „În evaluare cu raport”?</strong></p>
+<p><code>trimite</code> cere un fișier; <code>accepta</code> cere un raport. <strong>De ce nu introducem stările „<span class="stare">Ciornă</span> cu fișier” și „<span class="stare">În evaluare</span> cu raport”?</strong></p>
 <p>Am putea: ar fi alt model corect, cu mai multe stări. Alegem <strong>starea pentru distincția convenită cu beneficiarul</strong> și <strong>condiția pentru verificarea datelor</strong>:</p>
 <ul>
-<li>Ciornă cu sau fără fișier este, pentru revistă, aceeași stare: nu a fost trimis;</li>
+<li><span class="stare">Ciornă</span> cu sau fără fișier este, pentru revistă, aceeași stare: nu a fost trimis;</li>
 <li>numărul rapoartelor este o dată de care avem nevoie oricum; condiția o citește.</li>
 </ul>
 <p><strong>Legătura cu cursul 6:</strong> starea curentă și condiția formează împreună condiția de succes a evenimentului; refuzul păstrează starea și datele, ca refuzul din contractul atribuirii.</p>
@@ -661,13 +662,13 @@ break-inside: avoid;
 <div id="ce-se-păstrează-când-se-schimbă-starea" class="slide section level1">
 <h1>Ce se păstrează când se schimbă starea</h1>
 <p><strong>R8 (datele se păstrează):</strong> fișierul, editorul, rapoartele și decizia nu se șterg la nicio schimbare de stare.</p>
-<p><strong>Înainte:</strong> M În evaluare; fișier f1, editor E1, rapoarte [Rp1].</p>
-<p><strong>Eveniment:</strong> <code>retrage</code>. <strong>După:</strong> M Retras; fișier f1, editor E1, rapoarte [Rp1], data retragerii.</p>
+<p><strong>Înainte:</strong> M <span class="stare">În evaluare</span>; fișier f1, editor E1, rapoarte [Rp1].</p>
+<p><strong>Eveniment:</strong> <code>retrage</code>. <strong>După:</strong> M <span class="stare">Retras</span>; fișier f1, editor E1, rapoarte [Rp1], data retragerii.</p>
 <p>Starea <span class="nowrap">s-a</span> schimbat; datele au rămas, plus una nouă. <strong>De ce contează că Rp1 rămâne?</strong></p>
 </div>
 <div id="este-permis-accepta-acum" class="slide section level1">
 <h1>Este permis <code>accepta</code> acum?</h1>
-<p><strong>Reguli:</strong> <code>accepta</code> numai În evaluare și numai cu cel puțin un raport; Acceptat, Respins și Retras sunt finale intenționate; un eveniment nepermis este refuzat, fără modificări.</p>
+<p><strong>Reguli:</strong> <code>accepta</code> numai <span class="stare">În evaluare</span> și numai cu cel puțin un raport; <span class="stare">Acceptat</span>, <span class="stare">Respins</span> și <span class="stare">Retras</span> sunt finale intenționate; un eveniment nepermis este refuzat, fără modificări.</p>
 <div class="table-wrap">
 <table>
 <thead>
@@ -681,25 +682,25 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td align="left">1</td>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left">editor E1, rapoarte: niciunul</td>
 <td align="left">?</td>
 </tr>
 <tr>
 <td align="left">2</td>
-<td align="left">Trimis</td>
+<td align="left"><span class="stare">Trimis</span></td>
 <td align="left">fișier f1, fără editor</td>
 <td align="left">?</td>
 </tr>
 <tr>
 <td align="left">3</td>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left">editor E1, rapoarte [Rp1, Rp2]</td>
 <td align="left">?</td>
 </tr>
 <tr>
 <td align="left">4</td>
-<td align="left">Retras</td>
+<td align="left"><span class="stare">Retras</span></td>
 <td align="left">editor E1, rapoarte [Rp1]</td>
 <td align="left">?</td>
 </tr>
@@ -760,11 +761,11 @@ break-inside: avoid;
 </div>
 </div>
 </div>
-<p>Evenimentele refuzate nu sunt desenate. Diagrama arată rapid ce lipsește: din Acceptat, Respins, Retras nu pleacă nimic.</p>
+<p>Evenimentele refuzate nu sunt desenate. Diagrama arată rapid ce lipsește: din <span class="stare">Acceptat</span>, <span class="stare">Respins</span>, <span class="stare">Retras</span> nu pleacă nimic.</p>
 </div>
 <div id="scenariul-s1-parcurs-normal" class="slide section level1">
 <h1>Scenariul S1 (parcurs normal)</h1>
-<p><strong>Din I0:</strong> M în Ciornă, fără date.</p>
+<p><strong>Din I0:</strong> M în <span class="stare">Ciornă</span>, fără date.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -785,50 +786,50 @@ break-inside: avoid;
 <tr>
 <td align="left">1</td>
 <td align="left"><code>ataseaza(f1)</code></td>
-<td align="left">Ciornă</td>
+<td align="left"><span class="stare">Ciornă</span></td>
 <td align="left">fișier f1</td>
 </tr>
 <tr>
 <td align="left">2</td>
 <td align="left"><code>trimite</code></td>
-<td align="left">Trimis</td>
+<td align="left"><span class="stare">Trimis</span></td>
 <td align="left">data trimiterii</td>
 </tr>
 <tr>
 <td align="left">3</td>
 <td align="left"><code>preia(E1)</code></td>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left">editor E1</td>
 </tr>
 <tr>
 <td align="left">4</td>
 <td align="left"><code>inregistreaza_raport(Rp1)</code></td>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left">raport Rp1</td>
 </tr>
 <tr>
 <td align="left">5</td>
 <td align="left"><code>accepta</code></td>
-<td align="left">Acceptat</td>
+<td align="left"><span class="stare">Acceptat</span></td>
 <td align="left">decizia și data ei</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Fișierul precede trimiterea; raportul precede acceptarea.</strong> S1 arată că Acceptat este <strong>accesibil</strong> din I0: există o secvență de evenimente permise care ajunge acolo. Datele adăugate la fiecare pas se păstrează.</p>
+<p><strong>Fișierul precede trimiterea; raportul precede acceptarea.</strong> S1 arată că <span class="stare">Acceptat</span> este <strong>accesibil</strong> din I0: există o secvență de evenimente permise care ajunge acolo. Datele adăugate la fiecare pas se păstrează.</p>
 </div>
 <div id="retragerea-și-decizia-ulterioară" class="slide section level1">
 <h1>Retragerea și decizia ulterioară</h1>
-<p><strong>Din I0:</strong> M în Ciornă, fără date. În Ciornă putem atașa un fișier, apoi trimite manuscrisul; <code>trimite</code> înregistrează data. Din Trimis, <code>preia(E1)</code> înregistrează editorul și trece În evaluare, unde putem adăuga rapoarte.</p>
-<p><strong>Reguli:</strong> <code>retrage</code> din Trimis sau În evaluare duce în Retras și înregistrează data; <code>accepta</code> cere În evaluare și cel puțin un raport. Datele existente se păstrează. Din Retras, orice eveniment este refuzat, fără modificări.</p>
+<p><strong>Din I0:</strong> M în <span class="stare">Ciornă</span>, fără date. În <span class="stare">Ciornă</span> putem atașa un fișier, apoi trimite manuscrisul; <code>trimite</code> înregistrează data. Din <span class="stare">Trimis</span>, <code>preia(E1)</code> înregistrează editorul și trece <span class="stare">În evaluare</span>, unde putem adăuga rapoarte.</p>
+<p><strong>Reguli:</strong> <code>retrage</code> din <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span> duce în <span class="stare">Retras</span> și înregistrează data; <code>accepta</code> cere <span class="stare">În evaluare</span> și cel puțin un raport. Datele existente se păstrează. Din <span class="stare">Retras</span>, orice eveniment este refuzat, fără modificări.</p>
 <p><strong>Scenariul S3 (retragere din evaluare):</strong> din I0, <code>ataseaza(f1)</code>, <code>trimite</code>, <code>preia(E1)</code>, <code>inregistreaza_raport(Rp1)</code>, apoi <code>retrage</code>.</p>
 <p><strong>Scenariul S4 (decizie după retragere):</strong> continuarea lui S3: <code>accepta</code>.</p>
 <p>Pe hârtie, apoi discutăm: pentru fiecare pas din S3 și pentru S4, permis sau refuzat, starea și datele de după. <strong>Ce vede editorul la S4 și ce rămâne din munca lui?</strong></p>
 </div>
 <div id="scenariul-s6-două-ordini-două-rezultate" class="slide section level1">
 <h1>Scenariul S6 (două ordini): două rezultate</h1>
-<p><strong>Reguli:</strong> <code>accepta</code> numai În evaluare, cu cel puțin un raport → Acceptat; <code>retrage</code> numai în Trimis sau În evaluare → Retras; Acceptat și Retras sunt finale intenționate; evenimentul nepermis este refuzat.</p>
-<p><strong>Starea de pornire, comună:</strong> M În evaluare, fișier f1, editor E1, rapoarte [Rp1].</p>
+<p><strong>Reguli:</strong> <code>accepta</code> numai <span class="stare">În evaluare</span>, cu cel puțin un raport → <span class="stare">Acceptat</span>; <code>retrage</code> numai în <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span> → <span class="stare">Retras</span>; <span class="stare">Acceptat</span> și <span class="stare">Retras</span> sunt finale intenționate; evenimentul nepermis este refuzat.</p>
+<p><strong>Starea de pornire, comună:</strong> M <span class="stare">În evaluare</span>, fișier f1, editor E1, rapoarte [Rp1].</p>
 <div class="table-wrap">
 <table>
 <thead>
@@ -859,7 +860,7 @@ break-inside: avoid;
 </div>
 <div id="stări-finale-intenționate" class="slide section level1">
 <h1>Stări finale intenționate</h1>
-<p><strong>R8 (datele se păstrează):</strong> Acceptat, Respins și Retras nu au tranziții de ieșire, <strong>prin decizia beneficiarului</strong>: retrimiterea și programarea publicării sunt în afara exercițiului.</p>
+<p><strong>R8 (datele se păstrează):</strong> <span class="stare">Acceptat</span>, <span class="stare">Respins</span> și <span class="stare">Retras</span> nu au tranziții de ieșire, <strong>prin decizia beneficiarului</strong>: retrimiterea și programarea publicării sunt în afara exercițiului.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -876,24 +877,24 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td align="left">Acceptat</td>
+<td align="left"><span class="stare">Acceptat</span></td>
 <td align="left">nu</td>
 <td align="left">finală intenționată</td>
 </tr>
 <tr>
-<td align="left">Ciornă, fără fișier</td>
+<td align="left"><span class="stare">Ciornă</span>, fără fișier</td>
 <td align="left">da: <code>ataseaza(f)</code></td>
 <td align="left">nu este finală, deși <code>trimite</code> este refuzat</td>
 </tr>
 <tr>
-<td align="left">În evaluare, fără raport</td>
+<td align="left"><span class="stare">În evaluare</span>, fără raport</td>
 <td align="left">da: <code>inregistreaza_raport</code>, <code>retrage</code></td>
 <td align="left">nu este finală, deși deciziile sunt refuzate</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Lipsa unei ieșiri este o decizie de notat, nu o omisiune. <strong>Ce ar însemna să permitem <code>retrage</code> din Acceptat?</strong></p>
+<p>Lipsa unei ieșiri este o decizie de notat, nu o omisiune. <strong>Ce ar însemna să permitem <code>retrage</code> din <span class="stare">Acceptat</span>?</strong></p>
 </div>
 <div id="căi-excepționale" class="slide section level1 transition">
 <h1 class="transition">Căi excepționale</h1>
@@ -919,54 +920,54 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td align="left">Ciornă</td>
+<td align="left"><span class="stare">Ciornă</span></td>
 <td align="left"><code>ataseaza(f)</code></td>
 <td align="left">—</td>
-<td align="left">Ciornă</td>
+<td align="left"><span class="stare">Ciornă</span></td>
 </tr>
 <tr>
-<td align="left">Ciornă</td>
+<td align="left"><span class="stare">Ciornă</span></td>
 <td align="left"><code>trimite</code></td>
 <td align="left">—</td>
-<td align="left">Trimis</td>
+<td align="left"><span class="stare">Trimis</span></td>
 </tr>
 <tr>
-<td align="left">Trimis</td>
+<td align="left"><span class="stare">Trimis</span></td>
 <td align="left"><code>preia(e)</code></td>
 <td align="left">—</td>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 </tr>
 <tr>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left"><code>accepta</code></td>
 <td align="left">cel puțin un raport</td>
-<td align="left">Acceptat</td>
+<td align="left"><span class="stare">Acceptat</span></td>
 </tr>
 <tr>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left"><code>respinge</code></td>
 <td align="left">cel puțin un raport</td>
-<td align="left">Respins</td>
+<td align="left"><span class="stare">Respins</span></td>
 </tr>
 <tr>
-<td align="left">Trimis, În evaluare</td>
+<td align="left"><span class="stare">Trimis</span>, <span class="stare">În evaluare</span></td>
 <td align="left"><code>retrage</code></td>
 <td align="left">—</td>
-<td align="left">Retras</td>
+<td align="left"><span class="stare">Retras</span></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Altfel: refuzat. Reguli:</strong> trimiterea cere fișier; În evaluare putem înregistra rapoarte; deciziile cer un raport.</p>
+<p><strong>Altfel: refuzat. Reguli:</strong> trimiterea cere fișier; <span class="stare">În evaluare</span> putem înregistra rapoarte; deciziile cer un raport.</p>
 </div>
 <div id="ce-permite-și-ce-nu-permite-p" class="slide section level1">
 <h1>Ce permite și ce nu permite P?</h1>
-<p><strong>P:</strong> în Ciornă, <code>ataseaza(f)</code> păstrează starea și înregistrează f, iar <code>trimite</code> trece în Trimis fără condiție. <code>preia(e)</code> trece din Trimis În evaluare; de aici, <code>accepta</code>/<code>respinge</code> cer un raport. <code>retrage</code> duce din Trimis sau În evaluare în Retras. Restul este refuzat.</p>
-<p><strong>Regulile enunțului:</strong> trimiterea cere fișier; În evaluare putem înregistra rapoarte, necesare deciziilor. <strong>I0:</strong> Ciornă, fără date.</p>
+<p><strong>P:</strong> în <span class="stare">Ciornă</span>, <code>ataseaza(f)</code> păstrează starea și înregistrează f, iar <code>trimite</code> trece în <span class="stare">Trimis</span> fără condiție. <code>preia(e)</code> trece din <span class="stare">Trimis</span> <span class="stare">În evaluare</span>; de aici, <code>accepta</code>/<code>respinge</code> cer un raport. <code>retrage</code> duce din <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span> în <span class="stare">Retras</span>. Restul este refuzat.</p>
+<p><strong>Regulile enunțului:</strong> trimiterea cere fișier; <span class="stare">În evaluare</span> putem înregistra rapoarte, necesare deciziilor. <strong>I0:</strong> <span class="stare">Ciornă</span>, fără date.</p>
 <p>Pe hârtie, apoi discutăm:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Scenariul S2 (trimitere fără fișier):</strong> din I0, <code>trimite</code>; extindem apoi verificarea cu <code>preia(E1)</code>. Ce stare produce P? Ce cer regulile?</li>
-<li>Din starea obținută sub P la punctul 1, fără raport, ce evenimente permite P? Găsiți o secvență care duce M în Acceptat sub P sau explicați de ce nu există.</li>
+<li>Din starea obținută sub P la punctul 1, fără raport, ce evenimente permite P? Găsiți o secvență care duce M în <span class="stare">Acceptat</span> sub P sau explicați de ce nu există.</li>
 <li>Care rând lipsește și care condiție lipsește?</li>
 </ol>
 </div>
@@ -990,27 +991,27 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td align="left"><strong>Tranziție interzisă</strong></td>
-<td align="left"><code>retrage</code> din Acceptat</td>
+<td align="left"><code>retrage</code> din <span class="stare">Acceptat</span></td>
 <td align="left">regula o refuză; refuzul este corect</td>
 </tr>
 <tr>
 <td align="left"><strong>Stare finală intenționată</strong></td>
-<td align="left">Acceptat</td>
+<td align="left"><span class="stare">Acceptat</span></td>
 <td align="left">nicio ieșire, prin decizia beneficiarului</td>
 </tr>
 <tr>
 <td align="left"><strong>Obiectiv inaccesibil</strong></td>
-<td align="left">Acceptat, sub P</td>
+<td align="left"><span class="stare">Acceptat</span>, sub P</td>
 <td align="left">nicio secvență permisă din I0 nu ajunge acolo; P este greșit</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Un <strong>blocaj</strong> este cazul extrem: o stare în care niciun eveniment nu mai este permis, fără să fie finală intenționată. Sub P, În evaluare nu este blocaj (<code>retrage</code> rămâne permis), dar obiectivul cerut de reguli este inaccesibil.</p>
+<p>Un <strong>blocaj</strong> este cazul extrem: o stare în care niciun eveniment nu mai este permis, fără să fie finală intenționată. Sub P, <span class="stare">În evaluare</span> nu este blocaj (<code>retrage</code> rămâne permis), dar obiectivul cerut de reguli este inaccesibil.</p>
 </div>
 <div id="corecția-noastră" class="slide section level1">
 <h1>Corecția noastră</h1>
-<p><strong>R3 (pregătire și trimitere):</strong> <code>trimite</code> numai în Ciornă și numai cu fișier. <strong>R4 (evaluare):</strong> <code>inregistreaza_raport(r)</code> numai În evaluare, starea rămâne.</p>
+<p><strong>R3 (pregătire și trimitere):</strong> <code>trimite</code> numai în <span class="stare">Ciornă</span> și numai cu fișier. <strong>R4 (evaluare):</strong> <code>inregistreaza_raport(r)</code> numai <span class="stare">În evaluare</span>, starea rămâne.</p>
 <div class="table-wrap">
 <table style="width:100%;">
 <colgroup>
@@ -1031,28 +1032,28 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td align="left">Ciornă</td>
+<td align="left"><span class="stare">Ciornă</span></td>
 <td align="left"><code>trimite</code></td>
 <td align="left"><strong>există fișier</strong></td>
-<td align="left">Trimis</td>
+<td align="left"><span class="stare">Trimis</span></td>
 <td align="left">data trimiterii</td>
 </tr>
 <tr>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left"><strong><code>inregistreaza_raport(r)</code></strong></td>
 <td align="left">—</td>
-<td align="left">În evaluare</td>
+<td align="left"><span class="stare">În evaluare</span></td>
 <td align="left">r se adaugă</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Reverificăm:</strong> scenariul S2 (trimitere fără fișier) → <code>trimite</code> refuzat, M rămâne în Ciornă; scenariul S1 (parcurs normal) → Acceptat accesibil, prin pasul 4.</p>
+<p><strong>Reverificăm:</strong> scenariul S2 (trimitere fără fișier) → <code>trimite</code> refuzat, M rămâne în <span class="stare">Ciornă</span>; scenariul S1 (parcurs normal) → <span class="stare">Acceptat</span> accesibil, prin pasul 4.</p>
 </div>
 <div id="ce-stabilește-o-trasare" class="slide section level1">
 <h1>Ce stabilește o trasare</h1>
-<p><strong>Scenariul S1 (parcurs normal)</strong> arată că Acceptat este accesibil: o secvență ajunge acolo.</p>
-<p><strong>„Niciun manuscris fără fișier nu ajunge În evaluare”</strong> privește <strong>toate</strong> secvențele. O trasare nu o poate stabili; o justificăm din I0: intrarea în Trimis cere fișier, intrarea În evaluare se face numai din Trimis, iar fișierul nu se șterge.</p>
+<p><strong>Scenariul S1 (parcurs normal)</strong> arată că <span class="stare">Acceptat</span> este accesibil: o secvență ajunge acolo.</p>
+<p><strong>„Niciun manuscris fără fișier nu ajunge <span class="stare">În evaluare</span>”</strong> privește <strong>toate</strong> secvențele. O trasare nu o poate stabili; o justificăm din I0: intrarea în <span class="stare">Trimis</span> cere fișier, intrarea <span class="stare">În evaluare</span> se face numai din <span class="stare">Trimis</span>, iar fișierul nu se șterge.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -1089,20 +1090,20 @@ break-inside: avoid;
 <div id="ce-cerem-asistentului-ai" class="slide section level1">
 <h1>Ce cerem asistentului AI?</h1>
 <blockquote>
-<p>Propune tabelul de tranziții al manuscrisului: stare curentă, eveniment, condiție, stare următoare și efect asupra datelor. Precizează ce se întâmplă cu un eveniment refuzat și ce date se păstrează la schimbarea stării. Verifică <span class="nowrap">S1–S7</span> […]. Spune care stări sunt finale intenționate și dacă Acceptat este accesibil <span class="nowrap">dintr-o</span> ciornă nouă. Nu scrie cod. Răspunde în română, în maximum 450 de cuvinte.</p>
+<p>Propune tabelul de tranziții al manuscrisului: stare curentă, eveniment, condiție, stare următoare și efect asupra datelor. Precizează ce se întâmplă cu un eveniment refuzat și ce date se păstrează la schimbarea stării. Verifică <span class="nowrap">S1–S7</span> […]. Spune care stări sunt finale intenționate și dacă <span class="stare">Acceptat</span> este accesibil <span class="nowrap">dintr-o</span> ciornă nouă. Nu scrie cod. Răspunde în română, în maximum 450 de cuvinte.</p>
 </blockquote>
-<p><strong>Context:</strong> regulile <span class="nowrap">R1–R8</span> de mai devreme, integral: evenimentele permise în fiecare stare, condițiile lui <code>trimite</code> (fișier) și ale deciziilor (un raport), retragerea din Trimis sau În evaluare, refuzul fără modificări, datele păstrate.</p>
-<p><strong>Date:</strong> I0 = Ciornă fără date; scenariile <span class="nowrap">S1–S7:</span> parcursul normal, trimiterea fără fișier, retragerea din evaluare, decizia după retragere, acceptarea fără raport, cele două ordini, retragerea unei ciorne.</p>
+<p><strong>Context:</strong> regulile <span class="nowrap">R1–R8</span> de mai devreme, integral: evenimentele permise în fiecare stare, condițiile lui <code>trimite</code> (fișier) și ale deciziilor (un raport), retragerea din <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span>, refuzul fără modificări, datele păstrate.</p>
+<p><strong>Date:</strong> I0 = <span class="stare">Ciornă</span> fără date; scenariile <span class="nowrap">S1–S7:</span> parcursul normal, trimiterea fără fișier, retragerea din evaluare, decizia după retragere, acceptarea fără raport, cele două ordini, retragerea unei ciorne.</p>
 </div>
 <div id="ce-propune-analistul-ai" class="slide section level1">
 <h1>Ce propune analistul AI?</h1>
 <p><strong>Analistul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:</strong></p>
 <blockquote>
-<div class="line-block">În evaluare | <code>accepta</code> | ≥1 raport | Acceptat | Decizie + dată înregistrate; <strong>toate datele anterioare păstrate</strong> |</div>
-<p><strong>S1</strong> (normal): ataseaza(f1)✓→Ciornă, trimite✓→Trimis, preia(E1)✓→ÎnEval, inregistreaza_raport(Rp1)✓→ÎnEval, accepta✓→Acceptat. ✓ <strong>Permis</strong> complet.</p>
-<p><strong>Acceptat accesibil din Ciornă nouă?</strong> <strong>NU.</strong> Singura cale către Acceptat este evenimentul <code>accepta</code> din ÎnEval, care necesită ≥1 raport. […] Lanțul este <strong>unic: Ciornă → Trimis → ÎnEval → Acceptat</strong>. Acceptat nu este direct accesibil din Ciornă.</p>
+<div class="line-block"><span class="stare">În evaluare</span> | <code>accepta</code> | ≥1 raport | <span class="stare">Acceptat</span> | Decizie + dată înregistrate; <strong>toate datele anterioare păstrate</strong> |</div>
+<p><strong>S1</strong> (normal): ataseaza(f1)✓→<span class="stare">Ciornă</span>, trimite✓→<span class="stare">Trimis</span>, preia(E1)✓→ÎnEval, inregistreaza_raport(Rp1)✓→ÎnEval, accepta✓→<span class="stare">Acceptat</span>. ✓ <strong>Permis</strong> complet.</p>
+<p><strong><span class="stare">Acceptat</span> accesibil din <span class="stare">Ciornă</span> nouă?</strong> <strong>NU.</strong> Singura cale către <span class="stare">Acceptat</span> este evenimentul <code>accepta</code> din ÎnEval, care necesită ≥1 raport. […] Lanțul este <strong>unic: <span class="stare">Ciornă</span> → <span class="stare">Trimis</span> → ÎnEval → <span class="stare">Acceptat</span></strong>. <span class="stare">Acceptat</span> nu este direct accesibil din <span class="stare">Ciornă</span>.</p>
 </blockquote>
-<p><strong>Reguli:</strong> o stare este accesibilă dacă există o secvență de evenimente permise care ajunge la ea; <code>accepta</code> numai În evaluare, cu cel puțin un raport.</p>
+<p><strong>Reguli:</strong> o stare este accesibilă dacă există o secvență de evenimente permise care ajunge la ea; <code>accepta</code> numai <span class="stare">În evaluare</span>, cu cel puțin un raport.</p>
 <p><strong>Răspunsul „NU” este susținut de scenariul S1 (parcurs normal) din aceeași propunere?</strong></p>
 </div>
 <div id="promptul-evaluatorului-ai" class="slide section level1">
@@ -1110,17 +1111,17 @@ break-inside: avoid;
 <p><strong>Evaluator (agent AI de revizuire), context nou:</strong> enunțul, sarcina analistului AI și răspunsul integral; fără observațiile noastre.</p>
 <p><strong>Instrucțiunea exactă, la începutul promptului:</strong></p>
 <blockquote>
-<p>Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret, cu starea de pornire și rezultatul așteptat. Verifică fiecare rând al tabelului de tranziții, condițiile, efectele, evenimentele refuzate, datele păstrate, stările finale intenționate și accesibilitatea lui Acceptat. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.</p>
+<p>Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret, cu starea de pornire și rezultatul așteptat. Verifică fiecare rând al tabelului de tranziții, condițiile, efectele, evenimentele refuzate, datele păstrate, stările finale intenționate și accesibilitatea lui <span class="stare">Acceptat</span>. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.</p>
 </blockquote>
-<p><strong>Reper:</strong> „accesibil” înseamnă că există o secvență permisă. În scenariul S1 (parcurs normal), propunerea ajunge din Ciornă în Acceptat, dar concluzia spune „NU, inaccesibil”. <strong>Va observa evaluatorul AI contradicția?</strong></p>
+<p><strong>Reper:</strong> „accesibil” înseamnă că există o secvență permisă. În scenariul S1 (parcurs normal), propunerea ajunge din <span class="stare">Ciornă</span> în <span class="stare">Acceptat</span>, dar concluzia spune „NU, inaccesibil”. <strong>Va observa evaluatorul AI contradicția?</strong></p>
 </div>
 <div id="revizuirea-confirmă-fiecare-fragment" class="slide section level1">
 <h1>Revizuirea confirmă fiecare fragment</h1>
 <p><strong>Evaluatorul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:</strong></p>
 <blockquote>
 <p>Propunerea este <strong>corectă și completă</strong>. […]</p>
-<p><strong>S1</strong> (normal): Lanțul Ciornă → Trimis → ÎnEval → ÎnEval → Acceptat este valid; toate evenimentele permise. ✓</p>
-<p><strong>Accesibilitate Acceptat:</strong> NU din Ciornă nouă — argumentul lanțului obligatoriu (Ciornă → Trimis → ÎnEval → Acceptat) este riguros. […] ✓</p>
+<p><strong>S1</strong> (normal): Lanțul <span class="stare">Ciornă</span> → <span class="stare">Trimis</span> → ÎnEval → ÎnEval → <span class="stare">Acceptat</span> este valid; toate evenimentele permise. ✓</p>
+<p><strong>Accesibilitate <span class="stare">Acceptat</span>:</strong> NU din <span class="stare">Ciornă</span> nouă — argumentul lanțului obligatoriu (<span class="stare">Ciornă</span> → <span class="stare">Trimis</span> → ÎnEval → <span class="stare">Acceptat</span>) este riguros. […] ✓</p>
 </blockquote>
 <p><strong>Reguli:</strong> o stare este accesibilă dacă există o secvență de evenimente permise care ajunge la ea; scenariul S1 (parcurs normal) este o asemenea secvență.</p>
 <p>Evaluatorul AI confirmă S1 și confirmă „NU”. <strong>Cele două confirmări pot fi adevărate împreună? Ce ar fi trebuit să confrunte?</strong></p>
@@ -1128,7 +1129,7 @@ break-inside: avoid;
 <div id="decizia-noastră" class="slide section level1">
 <h1>Decizia noastră</h1>
 <p><strong>Păstrăm</strong> din propunere tabelul de tranziții, scenariile <span class="nowrap">S1–S7,</span> datele păstrate și stările finale intenționate: sunt susținute de reguli, cu precizarea că verificăm rezultatele față de enunțul trimis atunci.</p>
-<p><strong>Corectăm</strong> un punct: <strong>Acceptat este accesibil</strong> <span class="nowrap">dintr-o</span> ciornă nouă. Justificarea este chiar scenariul S1 (parcurs normal): cinci evenimente permise, din I0 în Acceptat. „Accesibil” înseamnă <span class="nowrap">„printr-o</span> secvență de evenimente permise”, nu <span class="nowrap">„într-un</span> singur pas”.</p>
+<p><strong>Corectăm</strong> un punct: <strong><span class="stare">Acceptat</span> este accesibil</strong> <span class="nowrap">dintr-o</span> ciornă nouă. Justificarea este chiar scenariul S1 (parcurs normal): cinci evenimente permise, din I0 în <span class="stare">Acceptat</span>. „Accesibil” înseamnă <span class="nowrap">„printr-o</span> secvență de evenimente permise”, nu <span class="nowrap">„într-un</span> singur pas”.</p>
 <p><strong>Clarificăm enunțul:</strong> „accesibil din I0” înseamnă că există o secvență de evenimente permise din I0 până la starea căutată. Capturile păstrează formularea inițială; pentru analize viitoare folosim definiția explicită.</p>
 </div>
 <div id="transferăm-ciclul-de-viață" class="slide section level1 transition">
