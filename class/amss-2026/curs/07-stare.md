@@ -91,7 +91,7 @@ Un manuscris nou începe ca ciornă, fără fișier și fără alte date: creare
 
 # Stare și eveniment
 
-**Starea** descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului, **stările** sunt Ciornă, Trimis, În evaluare etc.; starea, împreună cu datele păstrate (fișier, editor, rapoarte), decide **ce evenimente sunt permise acum**.
+**Starea** descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului, **stările** sunt „Ciornă”, „Trimis”, „În evaluare” etc. (numele lor se scriu cu majusculă); starea, împreună cu datele păstrate (fișier, editor, rapoarte), decide **ce evenimente sunt permise acum**.
 
 Un **eveniment** este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului.
 
