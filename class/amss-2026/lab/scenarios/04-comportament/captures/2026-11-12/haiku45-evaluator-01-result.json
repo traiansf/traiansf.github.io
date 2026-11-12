@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 26782,
+  "stop_reason": "end_turn",
+  "session_id": "4ec9cbd8-9d1b-499d-bb83-718f8c258d13",
+  "total_cost_usd": 0.028122,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 7079,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2791,
+    "output_tokens_details": {
+      "thinking_tokens": 1782
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 7079,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2791,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 7079,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 7079
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2791,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 7079,
+      "webSearchRequests": 0,
+      "costUSD": 0.028122,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1782,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 7079,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Verificare propunere — Ridicarea echipamentelor\n\nPropunerea este **corectă și completă**. Verific conform regulilor și calculelor.\n\n## Tabelul de tranziții ✓\n\nCele 7 rânduri respectă regulile:\n- **Rândurile 1–2** (ridica pe Rezervată): Condiția c neînregistrat ∧ s = titular → Ridicată; altfel → Rezervată (R3). Corect.\n- **Rândul 3** (c înregistrat): Marcând drept „handler separat\" este precis (R5). ✓\n- **Rândul 4** (anulare pe Rezervată): Tranziție directă fără notificare (R6). ✓\n- **Rândurile 5–6** (stări finale): Nicio ieșire din Ridicată și Anulată (R2). ✓\n- **Rândul 7** (Anulată): Nicio tranziție (R2). ✓\n\n## Tabelul interacțiunii ✓\n\nCei 6 pași sunt în ordinea corectă:\n1. Ghișeu → Registru: `ridica(c, r, s)` (inițiator)\n2. Registru validează condiția (R3)\n3. Registru: tranziție + înregistrare dată și c (R3, R8)\n4. Registru → Expeditor: `trimite(mesaj)` (R4)\n5. Expeditor → Registru: `trimis`/`esec`\n6. Registru: înregistrare rezultat (`trimisă`/`netrimisă`) + return `ridicat` (R4)\n\n**Reîncercare (c înregistrat):** Ramificație corectă conform R5 — dacă `trimisă`, nu apelează expeditorul; dacă `netrimisă`, reapelează și actualizează. ✓\n\n## Garantii și presupuneri ✓\n\n- **Idempotență** (R5): același c → același răspuns și stare invariante ✓\n- **Decuplare** (R4): eșec notificare ≠ anulare ridicare ✓\n- **Expeditor:** asumări valide din R7 (răspunde, fără memorie, esec ≠ non-livrare) ✓\n\n## Calculele scenariilor ✓\n\n- **S2** (`ridica(c1, R1, S2)`, S2 ≠ titular S1): Condiție eșuează → `refuz`, R1 rămâne Rezervată ✓\n- **S4** (reîncercare după S3 cu esec): c1 înregistrat + notificare = `netrimisă` → expeditor reapelat, primește `trimis` → actualizare la `trimisă` → `ridicat` ✓\n- **S7** (`anuleaza(R2)`, apoi `ridica(c2, R2, S2)`): R2 în Anulată → condiție Rezervată eșuează → `refuz` ✓\n\n## Observații minore\n\nPropunerea ar putea fi și mai precis clarificată în privința **timpului înregistrării data ridicării**: se înregistrează o singură dată (pas 3), și reîncercările nu o rescriu (R8). Tabelul înregistrării pe pasul 6 este ușor ambiguu — pare că se înregistrează doar rezultatul notificării, nu și data din nou. Ar putea explicit: *„Pas 3: Înregistrează c și data ridicării (o singură dată, invariant la reîncercări)\"*.\n\n**Concluzie:** Analiza este solidă, corect implementează regulile R1–R8, ordine pași corecte, condițiile precise, calculele scenariilor exacte.",
+  "ttft_ms": 17168,
+  "type": "result",
+  "duration_ms": 26876,
+  "uuid": "2a4b7162-9c15-4ce6-a206-3cbedcf3f000",
+  "ttft_stream_ms": 762,
+  "time_to_request_ms": 138,
+  "first_content_frame_ms": 762,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-11T16:09:10.697Z"
+}

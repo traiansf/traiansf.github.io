@@ -1,0 +1,10 @@
+{
+  "context_file": "context.md",
+  "context_sha256": "dfd1bf85b2d150dbc36434bf58c4ce816edbb8344ec1cdae5643c6802289a071",
+  "analyst_task_file": "analist-instructiune.md",
+  "analyst_task_sha256": "a7dca57e4e7391aba29e503359f025d0aad6537520f0f445c00519362295049c",
+  "response_file": "haiku45-analist-01-response.md",
+  "response_sha256": "4a5cf3866d0f8e10430ba29534085788d67e466efa3f4bdcd485f058fefce4eb",
+  "later_change_included": false,
+  "selection_reason": "Analiza 01 selectată: pașii au ordinea cerută de R4 (locul consumat și înscrierea înregistrată înaintea apelului expeditorului), scenariile S1–S6 sunt corecte; adaugă un refuz neconvenit pentru o reîncercare cu alt participant sau atelier („pentru protecție”) și descrie garanțiile cu termeni neglosați („atomicitate”). Analiza 02 (păstrată) înregistrează înscrierea abia după răspunsul expeditorului și folosește „idempotență”, termen evitat în curs."
+}

@@ -1,0 +1,10 @@
+{
+  "context_file": "context.md",
+  "context_sha256": "d1d5bcc0614d1ec5025abb882e7ee40405dfd1580565a395b63db847ac983ac0",
+  "analyst_task_file": "analist-instructiune.md",
+  "analyst_task_sha256": "62669d47863b9a5fe6cd7285f5aad6d7821515bcce733a974be2a50b4aafe227",
+  "response_file": "haiku45-analist-01-response.md",
+  "response_sha256": "8edb06e6b46cd9dbb79c94ff41348579373659c6db1dc9ba498d1eb51cc3c1b7",
+  "later_change_included": false,
+  "selection_reason": "Analiza 01 selectată: tabelul și scenariile S1–S7 sunt corecte, dar răspunde „NU” la accesibilitatea lui Acceptat dintr-o ciornă nouă, deși propria trasare S1 ajunge în Acceptat; citește „accesibil” ca „într-un singur pas”. Analiza 02 (păstrată) are aceeași lectură, formulată mai prudent („nu este accesibil direct”)."
+}

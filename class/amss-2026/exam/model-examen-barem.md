@@ -59,11 +59,11 @@ Pentru fiecare variantă greșită este notată regula sau contraexemplul care o
 
 # Cazul D — Stări și comportament
 
-**13. B.** Ciornă → trimite → Trimisă → respinge → Ciornă → trimite → Trimisă (documentele sunt încă atașate) → aprobă → Aprobată; renunță nu are tranziție din Aprobată, deci este respins. A ignoră lipsa tranziției. C presupune un eveniment plătește care nu a avut loc. D se oprește după respinge.
+**13. B.** Ciornă → trimite → Trimisă → respinge → Ciornă → trimite → Trimisă (documentele sunt încă atașate) → aprobă → Aprobată; renunță nu are tranziție din Aprobată, deci este refuzat. A ignoră lipsa tranziției. C presupune un eveniment plătește care nu a avut loc. D se oprește după respinge.
 
-**14. D.** Condiția lui trimite cere și documentele; fiind neîndeplinită, evenimentul este respins și starea rămâne Ciornă. A inventează o tranziție. B confundă trimite cu renunță. C ignoră jumătate din condiție.
+**14. D.** Condiția lui trimite cere și documentele; fiind neîndeplinită, evenimentul este refuzat și starea rămâne Ciornă. A inventează o tranziție. B confundă trimite cu renunță. C ignoră jumătate din condiție.
 
-**15. A.** Ciornă → Trimisă → Aprobată → Plătită. B: plătește este respins în Trimisă. C: aprobă este respins în Ciornă; urmează Trimisă, iar plătește este respins. D: după respinge, cererea este în Ciornă, iar aprobă și plătește sunt respinse.
+**15. A.** Ciornă → Trimisă → Aprobată → Plătită. B: plătește este refuzat în Trimisă. C: aprobă este refuzat în Ciornă; urmează Trimisă, iar plătește este refuzat. D: după respinge, cererea este în Ciornă, iar aprobă și plătește sunt refuzate.
 
 **16. C.** Aprobată are o singură tranziție de ieșire, plătește; renunță nu apare pentru această stare. A: există o ieșire, deci nu este blocaj. B: enunțul spune că tabelul conține toate tranzițiile permise; nicio regulă nu cere renunță peste tot. D: stările finale intenționate sunt doar Plătită și Anulată.
 

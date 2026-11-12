@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 29502,
+  "stop_reason": "end_turn",
+  "session_id": "79c60e97-5a39-4c71-94f1-ad104f4c0981",
+  "total_cost_usd": 0.030393999999999997,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5495,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 3879,
+    "output_tokens_details": {
+      "thinking_tokens": 2352
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5495,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 3879,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5495,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5495
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 3879,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5495,
+      "webSearchRequests": 0,
+      "costUSD": 0.030393999999999997,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2352,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5495,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Tabelul interacțiunii pentru `inscrie`\n\n## Pașii procesării\n\n| Pas | Apelant | Apelat | Acțiune | Transmis | Primit | Înregistrat | Rezultat spre site |\n|-----|---------|--------|---------|----------|--------|-------------|-------------------|\n| 1 | Site | Registru | Cerere | `inscrie(c, p, a)` | — | — | — |\n| 2 | Registru | — | Verifică dacă c există | — | — | — | — |\n| **2.1** | **Registru** | **— (neexistă c)** | — | — | — | — | — |\n| 2.1.1 | Registru | — | Verifică: p neînscris la a ∧ a cu loc liber | — | — | — | — |\n| 2.1.1a | Registru | — | Ambele true | Consumă 1 loc | — | — | — |\n| 2.1.1a1 | Registru | Expeditor | Apel confirmare | `trimite(mesaj)` | `trimis`/`esec` | — | — |\n| 2.1.1a1-i | Registru | — | Răspuns `trimis` | — | — | **(c, p, a, `trimisă`)** | `acceptat` |\n| 2.1.1a1-ii | Registru | — | Răspuns `esec` | — | — | **(c, p, a, `netrimisă`)** | `acceptat` |\n| 2.1.1b | Registru | Site | Condiție eșuează | — | — | — | `refuz` |\n| **2.2** | **Registru** | **— (c există)** | **Reîncercare** | — | — | — | — |\n| 2.2.1 | Registru | — | Extrage starea confirmării | — | — | — | — |\n| 2.2.1a | Registru | — | Stare `trimisă` | — | — | — | — |\n| 2.2.1a1 | Registru | Site | Întoarcere fără apel expeditor | — | — | — | `acceptat` |\n| 2.2.1b | Registru | — | Stare `netrimisă` | — | — | — | — |\n| 2.2.1b1 | Registru | Expeditor | Retry: apel confirmare | `trimite(mesaj)` | `trimis`/`esec` | — | — |\n| 2.2.1b1-i | Registru | — | Răspuns `trimis` | — | — | **(c, p, a, `trimisă`)** [actualizare] | — |\n| 2.2.1b1-ii | Registru | — | Răspuns `esec` | — | — | stare neschimbată | — |\n| 2.2.1b1† | Registru | Site | Întoarcere în ambele cazuri | — | — | — | `acceptat` |\n\n---\n\n## Repartizarea responsabilităților\n\n| Actor | Responsabilități |\n|-------|-----------------|\n| **Site** | Generează identificatorul unic c pe fiecare încercare nouă; retransmite cererea cu același c dacă nu primește răspuns |\n| **Registru** | Verifică disponibilitatea (loc liber, p neînscris); consumă resurse atomic; apelează expeditor doar dacă acceptă; distinge reîncercări; garantează idempotență pe reîncercare; actualizează starea confirmării |\n| **Expeditor** | Răspunde cu `trimis` sau `esec`; nu trebuie să garanteze livrare efectivă |\n\n---\n\n## Garantiile registrului și presupunerile despre expeditor\n\n**Garantiile registrului:**\n- O cerere cu c neînregistrat și condiții îndeplinite consumă exact 1 loc și apelează expeditorul o singură dată.\n- O reîncercare cu c deja înregistrat nu consumă alt loc și întoarce același `acceptat`.\n- Dacă confirmarea eșuează, înscrierea persista; reîncercările pot retrimite confirmarea.\n\n**Presupunerile despre expeditor:**\n- Răspunde la fiecare apel cu `trimis` sau `esec`.\n- Răspunsul nu implică succes sau eșec real al livrării.\n- Apelul se completează.\n\n---\n\n## Verificarea scenariilor S1–S6\n\n| Scen. | Cerere | După răspuns | Locuri | Înscrisuri | Stare confirmare |\n|-------|--------|--------------|--------|-----------|-----------------|\n| S1 | c1, P1 | acceptat | 1 | (c1, P1, A) | trimisă |\n| S2 | c1, P1 | acceptat | 1 | (c1, P1, A) | **netrimisă** |\n| S3 | c1, P1 (retry) | acceptat | 1 | (c1, P1, A) | trimisă [actualizată] |\n| S4 | c1, P1 (retry) | acceptat | 1 | (c1, P1, A) | trimisă [neschimbată] |\n| S5 | c9, P1 | **refuz** | 1 | (c1, P1, A) | trimisă |\n| S6a | c2, P2 | acceptat | 0 | (c1, P1), (c2, P2) | trimisă, trimisă |\n| S6b | c3, P3 | **refuz** | 0 | (c1, P1), (c2, P2) | — |",
+  "ttft_ms": 18352,
+  "type": "result",
+  "duration_ms": 29588,
+  "uuid": "391228b8-09da-49ae-bd8a-b0b9e75948dc",
+  "ttft_stream_ms": 703,
+  "time_to_request_ms": 86,
+  "first_content_frame_ms": 703,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-11T16:09:10.697Z"
+}

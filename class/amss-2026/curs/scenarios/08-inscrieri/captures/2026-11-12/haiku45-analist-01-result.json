@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 52139,
+  "stop_reason": "end_turn",
+  "session_id": "a72856b2-2451-4e8a-b591-8ad8e61a19f9",
+  "total_cost_usd": 0.043569000000000004,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5495,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 6514,
+    "output_tokens_details": {
+      "thinking_tokens": 5302
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5495,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 6514,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5495,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5495
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 6514,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5495,
+      "webSearchRequests": 0,
+      "costUSD": 0.043569000000000004,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 5302,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5495,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Tabelul interacțiunii pentru `inscrie`\n\n## Pași în ordine\n\n**1. Primire cererii** — Site apelează `inscrie(c, p, a)` pe Registru, transmițând identificatorul c, participantul p și atelierul a.\n\n**2. Verificare identitate cererii** — Registru căută c în memoria sa. Dacă c este necunoscut → Pasul 3. Dacă c este cunoscut → Pasul 5 (reîncercare).\n\n**3. Verificare eligibilitate** — Se controlează simultan trei condiții: p nu este deja înscris la a, a are cel puțin un loc liber, c nu a fost înregistrat anterior. **Dacă toate sunt adevărate** → Pasul 4. **Altfel** → Pasul 6 (refuz).\n\n**4. Acceptare și solicitare confirmare**\n- Registru consumă un loc: `locuri(a) -= 1`\n- Registru înregistrează: `(c, p, a, stare_confirmare = pendentă)`\n- Registru apelează Expeditor: `trimite(mesaj_pentru_p)`\n- Expeditor răspunde: `trimis` sau `esec`\n- Registru actualiza starea: `trimisă` (dacă `trimis`) sau `netrimisă` (dacă `esec`)\n- Pasul 7\n\n**5. Procesare reîncercare**\n- Registru caută `(c, p', a', stare)` înregistrat anterior\n- Dacă `(p, a) ≠ (p', a')` → Pasul 6 (refuz pentru protecție)\n- Dacă stare = `trimisă` → Pasul 7 **fără a apela Expeditor din nou**\n- Dacă stare = `netrimisă` → Registru reapelează Expeditor, actualiza starea, Pasul 7\n\n**6. Refuz** — Registru nu consumă loc, nu înregistrează cerere, **nu apelează Expeditor**. Pasul 7.\n\n**7. Răspuns Site** — `acceptat` (din Pasul 4 sau 5) sau `refuz` (din Pasul 6).\n\n---\n\n## Repartizare responsabilități\n\n| Actor | Responsabilitate |\n|-------|---|\n| **Site** | Generează c unic pentru fiecare încercare nouă; transmite același c la reîncercări |\n| **Registru** | Memoreaza locuri libere și cereri acceptate cu stări de confirmare; verifică eligibilitate; consumă locuri; apelează Expeditor; garantează atomicitate |\n| **Expeditor** | Răspunde întotdeauna la apel cu `trimis` sau `esec` |\n\n---\n\n## Garanții și presupuneri\n\n**Registrul garantează:**\n- O cerere c acceptată modifică starea **o singură dată** (atomicitate)\n- Dacă `(c, p, a)` este acceptat, p nu poate fi acceptat la a cu alt identificator\n- Reîncercarea nu consumă loc suplimentar\n\n**Registrul presupune despre Expeditor:**\n- `trimis`/`esec` codifică succes transmisiei, nu livrare efectivă\n- Răspunsul nu modelează confirmare de citire, doar acceptare transmisiei\n\n---\n\n## Verificare scenarii\n\n| Scenariu | Caz | Rezultat | Locuri după | Înscrierea | Stare confirmare |\n|---|---|---|---|---|---|\n| **S1** | Nouă, trimis | `acceptat` | 1 | (c1, P1, A) | trimisă |\n| **S2** | Nouă, esec | `acceptat` | 1 | (c1, P1, A) | netrimisă |\n| **S3** | Reînc. c1, netrimisă→trimis | `acceptat` | 1 | (c1, P1, A) | trimisă |\n| **S4** | Reînc. c1, trimisă | `acceptat` | 1 | (c1, P1, A) | trimisă |\n| **S5** | Nouă c9, P1 deja la A | `refuz` | 1 | — | — |\n| **S6.1** | Nouă c2, trimis | `acceptat` | 0 | (c2, P2, A) | trimisă |\n| **S6.2** | Nouă c3, 0 locuri | `refuz` | 0 | — | — |",
+  "ttft_ms": 45040,
+  "type": "result",
+  "duration_ms": 52556,
+  "uuid": "30ce5088-9f67-4993-b8b5-ab9a5f7a285d",
+  "ttft_stream_ms": 1105,
+  "time_to_request_ms": 417,
+  "first_content_frame_ms": 1105,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-11T16:09:10.697Z"
+}

@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 23988,
+  "stop_reason": "end_turn",
+  "session_id": "33708b6b-98ba-410b-a50e-2c8fbe3cf6f1",
+  "total_cost_usd": 0.025203999999999997,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5670,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2771,
+    "output_tokens_details": {
+      "thinking_tokens": 1548
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5670,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2771,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5670,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5670
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2771,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5670,
+      "webSearchRequests": 0,
+      "costUSD": 0.025203999999999997,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1548,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5670,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Analiza Ridicării Echipamentelor\n\n## Tabelul de tranziții al rezervării\n\n| Stare curentă | Eveniment | Condiție | Stare următoare | Efect |\n|---|---|---|---|---|\n| **Rezervată** | `ridica(c, r, s)` | c neînregistrat ∧ s = titular | **Ridicată** | Înregistrează data și c; apelează expeditor |\n| **Rezervată** | `ridica(c, r, s)` | c neînregistrat ∧ s ≠ titular | **Rezervată** | Fără modificări; returnează `refuz` |\n| **Rezervată** | `ridica(c, r, s)` | c înregistrat | **Rezervată** | Reîncercare (handler separat) |\n| **Rezervată** | `anuleaza(r)` | — | **Anulată** | Fără notificare |\n| **Ridicată** | `ridica(c, r, s)` | — | **Ridicată** | Fără modificări; returnează `refuz` |\n| **Ridicată** | `anuleaza(r)` | — | **Ridicată** | Fără modificări; returnează `refuz` |\n| **Anulată** | — | — | — | Fără tranziții |\n\n## Tabelul interacțiunii pentru `ridica` (cazul de acceptare)\n\n| Pas | Apelant | Acțiune | Răspund | Înregistrări |\n|---|---|---|---|---|\n| 1 | Ghișeu | apelează `ridica(c, r, s)` | — | — |\n| 2 | Registru | validează: r = Rezervată, s = titular | — | — |\n| 3 | Registru | tranziție: r → Ridicată | — | data ridicării, c |\n| 4 | Registru | apelează `trimite(mesaj)` | — | — |\n| 5 | Expeditor | răspunde `trimis` sau `esec` | — | — |\n| 6 | Registru | înregistrează rezultat; returnează `ridicat` | `ridicat` | `trimisă` sau `netrimisă` |\n\n**Reîncercare (c înregistrat):**\n- Dacă notificare = `trimisă`: returnează `ridicat`, fără apel la expeditor\n- Dacă notificare = `netrimisă`: apelează expeditor din nou, actualizează rezultat, returnează `ridicat`\n\n## Ce garantează registrul\n\n1. **Idempotență de cerere:** pentru aceeași cerere c, răspunsul și starea sunt invariante indiferent de reîncercări.\n2. **Finalizare:** ridicarea acceptată (tranziția în Ridicată) se înregistrează exact o dată.\n3. **Decuplare:** eșecul notificării nu anulează ridicarea; rezultatul ghișeului rămâne `ridicat`.\n4. **Reîncercări smart:** notificare reîncearcă la eșec anterior, dar nu după succes.\n\n## Ce presupune despre expeditor\n\n- Răspunde la fiecare apel (sincron sau asincron, dar eventual).\n- Nu are memorie de cereri: nu poate distinge reîncercări de apeluri noi.\n- `Esec` nu confirmă că mesajul nu a ajuns, doar că sistemul notificării a refuzat acceptarea.\n- Nu e responsabil pentru livrare până la student.\n\n---\n\n## Calculele scenariilor\n\n**S2:** `ridica(c1, R1, S2)` pe R1 (titular S1)  \n→ Condiție: S2 ≠ S1 eșuează  \n**Rezultat:** `refuz`, R1 rămâne Rezervată, nicio apelare\n\n**S4:** Continuarea S3 (unde `esec` a lăsat notificarea `netrimisă`): `ridica(c1, R1, S1)` cu același c1  \n→ Condiție: c1 înregistrat ∧ notificare = `netrimisă`  \n→ Registru reapelează expeditor; primește `trimis`  \n→ Actualizează notificare la `trimisă`  \n**Rezultat:** `ridicat`, expeditor apelat din nou\n\n**S7:** `anuleaza(R2)` → R2 în Anulată; apoi `ridica(c2, R2, S2)`  \n→ Condiție: R2 ≠ Rezervată eșuează  \n**Rezultat:** `refuz`, R2 rămâne Anulată",
+  "ttft_ms": 15721,
+  "type": "result",
+  "duration_ms": 24588,
+  "uuid": "c8497eb8-481a-4d17-8eb4-a2b4cb9f18b1",
+  "ttft_stream_ms": 1167,
+  "time_to_request_ms": 598,
+  "first_content_frame_ms": 1167,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-11T16:09:10.697Z"
+}

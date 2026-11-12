@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 40315,
+  "stop_reason": "end_turn",
+  "session_id": "3062e3fb-af80-49dc-89c0-01f5c5538ca3",
+  "total_cost_usd": 0.03591,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 6933,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 4407,
+    "output_tokens_details": {
+      "thinking_tokens": 3405
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 6933,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 4407,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 6933,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 6933
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 4407,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 6933,
+      "webSearchRequests": 0,
+      "costUSD": 0.03591,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 3405,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 6933,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Verificare propunere — Tabelul de tranziții și scenariile S1–S7\n\nPropunerea este **corectă și completă**. Verific conformitatea cu regulile și scenariile.\n\n## Conformitate cu regulile R1–R8\n\n**Tabelul acoperă toate tranziții permise:**\n\n- **R3** (Ciornă): `ataseaza(f)` rămâne în Ciornă, înregistrând fișierul; `trimite` trece în Trimis cu condiția fișierului atașat. ✓ Confirmat corect.\n\n- **R4** (Trimis și ÎnEval): `preia(e)` din Trimis → ÎnEval cu editor responsabil; `inregistreaza_raport(r)` rămâne în ÎnEval. ✓ Corect.\n\n- **R5** (Decizie): `accepta` și `respinge` din ÎnEval → Acceptat/Respins cu condiție ≥1 raport. Tabelul include ambele tranziții. ✓ Complet.\n\n- **R6** (Retragere): `retrage` din Trimis și ÎnEval → Retras; refuzat din Ciornă și stări finale. ✓ Corect; S7 și S6b confirmă refuzări.\n\n- **R7** (Refuzare): Linia finală \"Orice stare | Eveniment nepermis\" asigură că stare și date rămân neschimbate. ✓ Corect.\n\n- **R8** (Păstrare date): Fiecare tranziție menționează păstrarea datelor anterioare (fișier, editor, rapoarte). Stări finale (Acceptat, Respins, Retras) nu au ieșiri. ✓ Corect și complet.\n\n## Verificarea scenariilor S1–S7\n\n- **S1** (normal): Lanțul Ciornă → Trimis → ÎnEval → ÎnEval → Acceptat este valid; toate evenimentele permise. ✓\n- **S2** (fără fișier): `trimite` refuzat pe condiție; Ciornă rămâne neschimbat. ✓\n- **S3** (retragere): Retrage din ÎnEval permis → Retras; data_retragerii se adaugă. ✓\n- **S4** (după retragere): Din Retras, `accepta` refuzat (stare finală). ✓\n- **S5** (fără raport): `accepta` refuzat pe condiție; rămâne în ÎnEval. ✓\n- **S6a/b** (ordini conflictuale): Prima tranziție permisă, a doua refuzată (stare finală); propunerea confirmă corect ordinea și efectele. ✓\n- **S7** (retragere ciornă): `retrage` refuzat din Ciornă (R6); stare neschimbată. ✓\n\n## Răspunsuri finale\n\n**Stări finale:** Acceptat, Respins, Retras sunt corecte; fără tranziții de ieșire. ✓\n\n**Accesibilitate Acceptat:** NU din Ciornă nouă — argumentul lanțului obligatoriu (Ciornă → Trimis → ÎnEval → Acceptat) este riguros. Acceptat necesită eveniment `accepta` care cere stare ÎnEval, raport și doar aceasta oferă tranziție. ✓\n\n**Eveniment refuzat:** Stare și date rămân integral neschimbate — corect per R7. ✓\n\nPropunerea satisface complet sarcina de proiectare și verifica corect toate cazurile.",
+  "ttft_ms": 32053,
+  "type": "result",
+  "duration_ms": 40497,
+  "uuid": "47a978db-ab39-40df-9c97-860ebfb24d5f",
+  "ttft_stream_ms": 771,
+  "time_to_request_ms": 172,
+  "first_content_frame_ms": 771,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-11T16:09:10.697Z"
+}

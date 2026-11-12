@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 20045,
+  "stop_reason": "end_turn",
+  "session_id": "3b369dcb-71fb-42e8-a7cb-73829681edc4",
+  "total_cost_usd": 0.025238,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5467,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2859,
+    "output_tokens_details": {
+      "thinking_tokens": 1542
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5467,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2859,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5467,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5467
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2859,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5467,
+      "webSearchRequests": 0,
+      "costUSD": 0.025238,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1542,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5467,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Tabel de tranziții și analiza scenariilor\n\n## Tabel de tranziții al manuscrisului\n\n| Stare curentă | Eveniment | Condiție | Stare următoare | Efect pe date |\n|---|---|---|---|---|\n| **Ciornă** | `ataseaza(f)` | — | Ciornă | fișier ← f |\n| **Ciornă** | `trimite` | fișier ≠ ∅ | Trimis | data_trimiterii ← acum |\n| **Trimis** | `preia(e)` | — | În evaluare | editor ← e |\n| **În evaluare** | `inregistreaza_raport(r)` | — | În evaluare | rapoarte ← rapoarte ∪ {r} |\n| **În evaluare** | `accepta` | rapoarte ≠ ∅ | Acceptat | decizie ← acceptat; data_deciziei ← acum |\n| **În evaluare** | `respinge` | rapoarte ≠ ∅ | Respins | decizie ← respins; data_deciziei ← acum |\n| **Trimis** | `retrage` | — | Retras | data_retragerii ← acum |\n| **În evaluare** | `retrage` | — | Retras | data_retragerii ← acum |\n\n## Evenimente refuzate și păstrarea datelor\n\nUn eveniment fără tranziție permisă în starea curentă sau cu condiție neîndeplinită este **refuzat**: **starea și toate datele înregistrate rămân neschimbate**. Exemple: `trimite` din Ciornă fără fișier; `accepta` din În evaluare fără rapoarte; `retrage` din Ciornă sau din stări finale.\n\nLa orice schimbare de stare, **fișierul, editorul, rapoartele și decizia se păstrează permanent**: nu se șterg niciodată, nici după retragere.\n\n## Verificarea scenariilor S1–S7\n\n| Scenariu | Eveniment | Status | Stare următoare | Date înregistrate |\n|---|---|---|---|---|\n| **S1** | ataseaza(f1) | ✓ permis | Ciornă | f1 |\n| | trimite | ✓ permis | Trimis | data_trimiterii |\n| | preia(E1) | ✓ permis | În evaluare | editor=E1 |\n| | inregistreaza_raport(Rp1) | ✓ permis | În evaluare | rapoarte={Rp1} |\n| | accepta | ✓ permis | Acceptat | decizie=acceptat |\n| **S2** | trimite | ✗ refuzat | Ciornă | — |\n| **S3** | ataseaza(f1) | ✓ permis | Ciornă | f1 |\n| | trimite | ✓ permis | Trimis | data_trimiterii |\n| | preia(E1) | ✓ permis | În evaluare | editor=E1 |\n| | inregistreaza_raport(Rp1) | ✓ permis | În evaluare | rapoarte={Rp1} |\n| | retrage | ✓ permis | Retras | data_retragerii; rapoarte={Rp1} se păstrează |\n| **S4** | accepta | ✗ refuzat | Retras | — (stare finală) |\n| **S5** | ataseaza(f1) | ✓ permis | Ciornă | f1 |\n| | trimite | ✓ permis | Trimis | data_trimiterii |\n| | preia(E1) | ✓ permis | În evaluare | editor=E1 |\n| | accepta | ✗ refuzat | În evaluare | — (fără rapoarte) |\n| **S6a** | retrage | ✓ permis | Retras | data_retragerii |\n| | accepta | ✗ refuzat | Retras | — (stare finală) |\n| **S6b** | accepta | ✓ permis | Acceptat | decizie=acceptat |\n| | retrage | ✗ refuzat | Acceptat | — (stare finală) |\n| **S7** | retrage | ✗ refuzat | Ciornă | — (nu e în Trimis/În evaluare) |\n\n## Stări finale și accesibilitate\n\n**Stări finale intenționate** (conform R8): **Acceptat**, **Respins**, **Retras**. Aceste stări nu au tranziții de ieșire intenționat.\n\n**Acceptat nu este accesibil direct dintr-o Ciornă nouă.** Orice manuscris trebuie să parcurgă lanțul obligatoriu: Ciornă → Trimis → În evaluare → Acceptat (plus condiția rapoarte ≠ ∅).",
+  "ttft_ms": 12188,
+  "type": "result",
+  "duration_ms": 20129,
+  "uuid": "a3526b2a-639f-4fbe-8fc7-e3c4c97b9a25",
+  "ttft_stream_ms": 887,
+  "time_to_request_ms": 83,
+  "first_content_frame_ms": 887,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-11T16:09:10.697Z"
+}

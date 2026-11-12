@@ -1,0 +1,10 @@
+{
+  "context_file": "context.md",
+  "context_sha256": "a212198354454c9df4cedb5ad0f4d33df44d0b22bf98a119ea55465010d46da4",
+  "analyst_task_file": "analist-instructiune.md",
+  "analyst_task_sha256": "cbd08180b51b8117396059975a9afee658d5e03a10a5c82d7fee18899f38ea55",
+  "response_file": "haiku45-analist-01-response.md",
+  "response_sha256": "5ace87d85d6d3bb9403b5887b65fc59fe449cf31f11e5dfcdec63b679c205236",
+  "later_change_included": false,
+  "selection_reason": "Analiza 01 selectată: calculează corect S2, S4 și S7 și descrie corect interacțiunea, dar tabelul de tranziții pune reîncercarea în starea Rezervată (unde c nu poate fi înregistrat) și refuză orice ridica în Ridicată, contrazicând propriul calcul al lui S4 și R5; adaugă presupuneri despre expeditor care nu sunt în enunț („nu are memorie de cereri”, „sincron sau asincron”). Analiza 02 (păstrată) are aceeași așezare greșită a rândului de reîncercare, fără contradicția cu S4."
+}

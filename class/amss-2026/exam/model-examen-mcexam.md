@@ -137,19 +137,19 @@ O cerere de decontare a unei cheltuieli începe în starea **Ciornă**. Tabelul 
 | Trimisă | renunță | — | Anulată |
 | Aprobată | plătește | — | Plătită |
 
-Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplinită, este **respins** și nu schimbă starea. Evenimentele se procesează secvențial. **Plătită** și **Anulată** sunt stări finale intenționate. Suma și documentele nu se schimbă pe parcursul unei secvențe.
+Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplinită, este **refuzat** și nu schimbă starea. Evenimentele se procesează secvențial. **Plătită** și **Anulată** sunt stări finale intenționate. Suma și documentele nu se schimbă pe parcursul unei secvențe.
 
 #### Cererea este în Ciornă, are suma 120 și documentele atașate. Urmează evenimentele: trimite, respinge, trimite, aprobă, renunță. Care sunt starea finală și rezultatul ultimului eveniment?
 - [ ] Anulată; ultimul eveniment reușește.
-- [x] Aprobată; ultimul eveniment este respins.
-- [ ] Plătită; ultimul eveniment este respins.
-- [ ] Ciornă; ultimul eveniment este respins.
+- [x] Aprobată; ultimul eveniment este refuzat.
+- [ ] Plătită; ultimul eveniment este refuzat.
+- [ ] Ciornă; ultimul eveniment este refuzat.
 
 #### Cererea este în Ciornă, are suma 120, dar **nu** are documente atașate. Ce produce evenimentul trimite?
 - [ ] Cererea trece în Trimisă, iar documentele se cer ulterior.
 - [ ] Cererea trece în Anulată.
 - [ ] Cererea trece în Trimisă, pentru că suma este pozitivă.
-- [x] Evenimentul este respins; cererea rămâne în Ciornă.
+- [x] Evenimentul este refuzat; cererea rămâne în Ciornă.
 
 #### Cererea este în Ciornă și îndeplinește condiția lui trimite. Care secvență o aduce în **Plătită**?
 - [x] trimite, aprobă, plătește.
@@ -160,7 +160,7 @@ Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplin
 #### Un contabil observă: „Nu se mai poate renunța la o cerere aprobată.” Ce afirmație este susținută de tabel?
 - [ ] Aprobată este o stare de blocaj, pentru că nu are nicio tranziție de ieșire.
 - [ ] Tabelul este incomplet, pentru că orice stare trebuie să permită evenimentul renunță.
-- [x] Aprobată nu este finală: singura ieșire este plătește, iar renunță este respins acolo.
+- [x] Aprobată nu este finală: singura ieșire este plătește, iar renunță este refuzat acolo.
 - [ ] Aprobată este o stare finală intenționată, ca Plătită și Anulată.
 
 ## Responsabilități, coeziune și cuplare

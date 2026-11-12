@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 24647,
+  "stop_reason": "end_turn",
+  "session_id": "f2299859-9d61-4629-a51e-4b933ee28156",
+  "total_cost_usd": 0.026332,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5669,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2997,
+    "output_tokens_details": {
+      "thinking_tokens": 1727
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5669,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2997,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5669,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5669
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2997,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5669,
+      "webSearchRequests": 0,
+      "costUSD": 0.026332,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1727,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5669,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Modelul de stări și interacțiuni pentru ridicare\n\n## Tabelul tranziții de stări\n\n| Stare curentă | Eveniment | Condiție | Stare următoare | Efect |\n|---|---|---|---|---|\n| **Rezervată** | `ridica(c,r,s)` | s=titular ∧ c neînregistrat | **Ridicată** | Înregistrează c, data ridicării; apelează `trimite(mesaj)` |\n| **Rezervată** | `ridica(c,r,s)` | c deja înregistrat | **Ridicată** | Returează răspunsul anterior; dacă notificare `netrimisă`, reapelează expeditorul |\n| **Rezervată** | `ridica(c,r,s)` | s≠titular ∨ (r nu Rezervată) | **Rezervată** | Refuz; nicio înregistrare |\n| **Rezervată** | `anuleaza(r)` | — | **Anulată** | Fără notificare; fără apel expeditor |\n| **Ridicată** | `ridica(c',r,s)` | c' neînregistrat | **Ridicată** | Refuz; nicio modificare |\n| **Ridicată** | `anuleaza(r)` | — | **Ridicată** | Refuz; nicio modificare |\n| **Anulată** | orice | — | **Anulată** | Refuz; nicio modificare |\n\n## Tabelul interacțiilor pentru ridicare\n\n**Cazul de succes (S1: `ridica(c1, R1, S1)`, răspuns `trimis`):**\n1. Ghișeu apelează Registru: `ridica(c1, R1, S1)`\n2. Registru verifică: S1 titular, c1 neînregistrat ✓\n3. Registru înregistrează c1, data ridicării; R1→Ridicată\n4. Registru apelează Expeditor: `trimite(mesaj la S1)`\n5. Expeditor răspunde: `trimis`\n6. Registru înregistrează la R1: notificare `trimisă`\n7. Registru returnează Ghișeului: `ridicat`\n\n**Cazul eșec notificare (S3: `ridica(c1, R1, S1)`, răspuns `esec`):**\n- Pași 1–4: identici cu S1\n- Pasul 5: Expeditor răspunde: `esec`\n- Pasul 6: Registru înregistrează: notificare `netrimisă`\n- Pasul 7: Registru returnează Ghișeului: `ridicat` (eșecul NU anulează ridicarea!)\n\n**Reîncercare după eșec (S4: `ridica(c1, R1, S1)` din nou, răspuns `trimis`):**\n1. Ghișeu apelează cu același c1\n2. Registru detectează c1 înregistrat\n3. Registru verifică: notificare `netrimisă` → reapelează Expeditor: `trimite(mesaj)`\n4. Expeditor răspunde: `trimis`\n5. Registru actualizează: notificare `trimisă`\n6. Registru returnează: `ridicat`\n\n**S2 — alt student (`ridica(c1, R1, S2)`):**\n- Registru verifică: S2 ≠ titular → refuz imediat, fără expeditor\n\n**S4 versus S2:** S2 este cerere nouă cu c diferit pentru aceeași R, deci e refuzată. S4 reîncercare cu c=c1 pentru care ridicarea e înregistrată.\n\n**S7 — anulare apoi ridicare:**\n1. `anuleaza(R2)`: R2→Anulată (fără expeditor)\n2. `ridica(c2, R2, S2)`: R2 este Anulată → refuz\n\n## Garantii și presupuneri\n\n**Registrul garantează:**\n- Fiecare ridicare acceptată este înregistrată cu c și timestamp\n- Eșecul expeditorului (R5) nu revocă ridicarea acceptată\n- Reîncercarea cu c identic returnează același rezultat `ridicat` fără modificări de stare\n- Dacă notificare anterior `netrimisă`, o reîncercare reapelează expeditorul; dacă `trimisă`, nu-l mai apelează\n\n**Presupuneri despre expeditor:**\n- Răspunde la fiecare apel cu `trimis` sau `esec`\n- Nu presupunem că `esec` înseamnă neajungere; nu presupunem că `trimis` înseamnă citire\n- Este în afara sistemului nostru; comportamentul dincolo de răspuns nu-l modelăm",
+  "ttft_ms": 15732,
+  "type": "result",
+  "duration_ms": 24949,
+  "uuid": "78878475-5c02-442c-8408-014ac24623a2",
+  "ttft_stream_ms": 973,
+  "time_to_request_ms": 301,
+  "first_content_frame_ms": 973,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-11T16:09:10.697Z"
+}

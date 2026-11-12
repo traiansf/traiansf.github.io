@@ -191,17 +191,17 @@ O cerere de decontare a unei cheltuieli începe în starea **Ciornă**. Tabelul 
 | Trimisă | renunță | — | Anulată |
 | Aprobată | plătește | — | Plătită |
 
-Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplinită, este **respins** și nu schimbă starea. Evenimentele se procesează secvențial. **Plătită** și **Anulată** sunt stări finale intenționate. Suma și documentele nu se schimbă pe parcursul unei secvențe.
+Un eveniment fără tranziție în starea curentă, sau cu condiția neîndeplinită, este **refuzat** și nu schimbă starea. Evenimentele se procesează secvențial. **Plătită** și **Anulată** sunt stări finale intenționate. Suma și documentele nu se schimbă pe parcursul unei secvențe.
 
 **13.** Cererea este în Ciornă, are suma 120 și documentele atașate. Urmează evenimentele: trimite, respinge, trimite, aprobă, renunță. Care sunt starea finală și rezultatul ultimului eveniment?
 
 A. Anulată; ultimul eveniment reușește.
 
-B. Aprobată; ultimul eveniment este respins.
+B. Aprobată; ultimul eveniment este refuzat.
 
-C. Plătită; ultimul eveniment este respins.
+C. Plătită; ultimul eveniment este refuzat.
 
-D. Ciornă; ultimul eveniment este respins.
+D. Ciornă; ultimul eveniment este refuzat.
 
 **14.** Cererea este în Ciornă, are suma 120, dar **nu** are documente atașate. Ce produce evenimentul trimite?
 
@@ -211,7 +211,7 @@ B. Cererea trece în Anulată.
 
 C. Cererea trece în Trimisă, pentru că suma este pozitivă.
 
-D. Evenimentul este respins; cererea rămâne în Ciornă.
+D. Evenimentul este refuzat; cererea rămâne în Ciornă.
 
 **15.** Cererea este în Ciornă și îndeplinește condiția lui trimite. Care secvență o aduce în **Plătită**?
 
@@ -229,7 +229,7 @@ A. Aprobată este o stare de blocaj, pentru că nu are nicio tranziție de ieși
 
 B. Tabelul este incomplet, pentru că orice stare trebuie să permită evenimentul renunță.
 
-C. Aprobată nu este finală: singura ieșire este plătește, iar renunță este respins acolo.
+C. Aprobată nu este finală: singura ieșire este plătește, iar renunță este refuzat acolo.
 
 D. Aprobată este o stare finală intenționată, ca Plătită și Anulată.
 
