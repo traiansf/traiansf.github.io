@@ -4,7 +4,7 @@ Exemplu didactic pentru Cursul 7, versiunea 12 noiembrie 2026. Un sistem editori
 
 ## Reguli convenite
 
-- **R1 — context:** identificatorii manuscriselor, ai editorilor și ai rapoartelor sunt cunoscuți; evenimentele se procesează secvențial, fiecare începând după încheierea celui anterior. Fiecare scenariu privește un singur manuscris. Nu discutăm autentificarea, concurența, erorile tehnice, retrimiterea unui manuscris respins sau retras și programarea publicării.
+- **R1 — context:** identificatorii manuscriselor, ai editorilor și ai rapoartelor sunt cunoscuți; apelurile sunt secvențiale: fiecare începe după încheierea celui anterior. Fiecare scenariu privește un singur manuscris. Nu discutăm autentificarea, concurența, erorile tehnice, retrimiterea unui manuscris respins sau retras și programarea publicării.
 - **R2 — stări:** un manuscris este în exact una dintre stările **Ciornă**, **Trimis**, **În evaluare**, **Acceptat**, **Respins**, **Retras**. Un manuscris nou este în Ciornă, fără fișier, fără editor, fără rapoarte și fără decizie.
 - **R3 — pregătire și trimitere:** `ataseaza(f)` este permis numai în Ciornă: înregistrează fișierul f (înlocuind unul anterior) și lasă manuscrisul în Ciornă. `trimite` este permis numai în Ciornă și numai dacă există un fișier atașat: manuscrisul trece în Trimis, iar data trimiterii este înregistrată.
 - **R4 — evaluare:** `preia(e)` este permis numai în Trimis: editorul e devine editorul responsabil, iar manuscrisul trece în În evaluare. `inregistreaza_raport(r)` este permis numai în În evaluare: adaugă raportul r la lista rapoartelor; starea rămâne În evaluare.
@@ -26,6 +26,10 @@ Exemplu didactic pentru Cursul 7, versiunea 12 noiembrie 2026. Un sistem editori
 | S5 — acceptare fără raport | `ataseaza(f1)`, `trimite`, `preia(E1)`, `accepta` |
 | S6 — două ordini | din starea de după `ataseaza(f1)`, `trimite`, `preia(E1)`, `inregistreaza_raport(Rp1)`: (a) `retrage`, apoi `accepta`; (b) `accepta`, apoi `retrage` |
 | S7 — retragerea unei ciorne | `retrage` |
+
+## Vocabular
+
+Starea completă cuprinde etapa ciclului de viață și toate datele păstrate. O stare este **accesibilă din I0** dacă există o secvență de evenimente permise care pornește din I0 și ajunge la ea; nu este necesar un singur pas. R8 păstrează datele la schimbarea etapei; în Ciornă, R3 permite înlocuirea fișierului. Datele calendaristice deja înregistrate se păstrează.
 
 ## Sarcina de proiectare
 

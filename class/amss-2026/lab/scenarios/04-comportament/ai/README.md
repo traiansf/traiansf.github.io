@@ -1,10 +1,10 @@
 # Pregătirea demonstrației AI comune — ghișeul de echipamente
 
-**Prompturi pregătite.** Pe baza lor s-au obținut la 12 noiembrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri; vezi [arhiva capturilor](../captures/2026-11-12/README.md). Fișierele de aici rămân sursa pentru o rulare live sau pentru capturi noi.
+**Prompturi pregătite.** Pe baza lor s-au obținut la 12 noiembrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri; vezi [arhiva capturilor](../captures/2026-11-12/README.md). Fișierele de aici păstrează intrarea istorică, anterioară corectării stării Ridicată; nu le folosim nemodificate la o rulare nouă.
 
 ## Analiză
 
-Folosiți `analist-prompt.md`, care conține instrucțiunea exactă (`analist-instructiune.md`) și [enunțul](../scenario.md). `context.md` și hash-ul lui din `context-metadata.json` identifică versiunea pregătită. Nu adăugați soluția din referință. Cereți studenților predicții pentru S2, S4 și S7 înainte să afișați răspunsul.
+Pentru o rulare nouă, reuniți `analist-instructiune.md` cu [enunțul curent](../scenario.md); `analist-prompt.md` păstrează promptul istoric. `context.md` și hash-ul lui din `context-metadata.json` identifică versiunea pregătită. Nu adăugați soluția din referință. Cereți studenților predicția pentru S4 (reîncercare după eșec) înainte să afișați răspunsul.
 
 ## Revizuire
 
@@ -17,3 +17,5 @@ Salvați promptul efectiv cu propunerea inclusă înainte de rulare, apoi răspu
 ## Fără rulare live
 
 Folosiți [capturile pregătite](../prepared-fixture.md): răspunsuri reale Claude Haiku 4.5, cu fragmente fidele și sursa lor. Regulile rezumate rămân pe ecran, alături de fragmentul analizat. Nu distribuiți încercări separate studenților dacă instrumentul profesorului nu funcționează.
+
+Pentru o analiză nouă, reuniți `analist-instructiune.md` cu [enunțul curent](../scenario.md). Furnizați evaluatorului AI exact aceeași versiune, sarcina și răspunsul integral. Salvați noul prompt și noul hash separat; nu suprascrieți metadatele capturilor existente.

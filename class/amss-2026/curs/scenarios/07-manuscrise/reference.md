@@ -15,17 +15,17 @@ Analiză de pregătire pentru [enunț](brief.md), nu captură AI.
 | Trimis | `retrage` | — | Retras | data retragerii |
 | În evaluare | `retrage` | — | Retras | data retragerii |
 
-Orice altă combinație stare–eveniment, sau o condiție neîndeplinită, produce un eveniment refuzat: starea și datele rămân neschimbate (R7). Datele înregistrate nu se șterg niciodată (R8). Acceptat, Respins și Retras sunt stări finale intenționate: lipsa tranzițiilor de ieșire este o decizie a beneficiarului, nu o omisiune.
+Orice altă combinație stare–eveniment, sau o condiție neîndeplinită, produce un eveniment refuzat: starea și datele rămân neschimbate (R7). La schimbarea etapei, datele deja înregistrate se păstrează (R8). În Ciornă, `ataseaza` poate înlocui fișierul (R3); nu cerem un istoric al versiunilor. Acceptat, Respins și Retras sunt stări finale intenționate: lipsa tranzițiilor de ieșire este o decizie a beneficiarului, nu o omisiune.
 
 ## Legătura cu contractele
 
-Fiecare rând este contractul unui eveniment în starea respectivă: starea curentă și condiția formează condiția de succes; starea următoare și efectul sunt postcondiția cazului de succes; refuzul cu starea și datele neschimbate este postcondiția cazului de refuz. Starea însăși este o dată derivată din istoric: ea spune ce evenimente sunt permise acum. „Există fișier” și „cel puțin un raport” depind de date, nu de stare; de aceea le scriem ca o condiție separată, nu ca o stare suplimentară.
+Fiecare rând descrie un caz de succes al contractului unei operații: starea curentă și condiția formează condiția de succes; starea următoare și efectul sunt postcondiția cazului de succes; refuzul cu starea și datele neschimbate este postcondiția cazului de refuz. Etapa ciclului de viață rezumă istoricul; împreună cu datele păstrate, decide ce evenimente sunt permise. Starea completă include toate aceste valori, ca în cursul 6. „Există fișier” și „cel puțin un raport” depind de date, nu de stare; de aceea le scriem ca o condiție separată, nu ca o stare suplimentară.
 
-Invariantul modelului: un manuscris este în exact o stare; într-o stare finală intenționată datele nu se mai modifică; un manuscris Acceptat sau Respins are cel puțin un raport și un editor; un manuscris în Trimis, În evaluare sau cu decizie are fișier. Aceste proprietăți se verifică într-o singură stare, iar fiecare tranziție le păstrează.
+Invarianții modelului: un manuscris este în exact o etapă; un manuscris Acceptat sau Respins are cel puțin un raport și un editor; un manuscris în Trimis, În evaluare, Acceptat, Respins sau Retras are fișier. Proprietățile sunt adevărate inițial și sunt păstrate de fiecare tranziție. În schimb, „datele nu se modifică după atingerea unei stări finale” compară stări succesive: este o proprietate a comportamentului, nu un invariant verificabil într-o singură stare.
 
 ## Rezultatele scenariilor
 
-Toate pornesc din I0 (Ciornă, fără date).
+S1, S2, S3, S5 și S7 pornesc din I0 (Ciornă, fără date); S4 continuă S3; cele două ramuri ale lui S6 pornesc independent după primele patru evenimente ale lui S1. Datele calendaristice se adaugă la trimitere, decizie și retragere și se păstrează ulterior.
 
 | Scenariu | Rezultat |
 |---|---|
@@ -42,10 +42,10 @@ S6 arată că aceleași evenimente, în altă ordine, produc stări finale difer
 
 ## Contraexemplul didactic
 
-Tabelul propus P, construit pentru verificare, are două abateri față de enunț: `trimite` nu cere fișier, iar rândul `inregistreaza_raport` lipsește, deși `accepta` și `respinge` cer un raport. Sub P: S2 duce manuscrisul fără fișier în Trimis, apoi în În evaluare; din În evaluare, singurul eveniment permis rămâne `retrage`, pentru că niciun eveniment nu poate înregistra un raport. Acceptat nu este accesibil dintr-o ciornă nouă. Nu este un blocaj (există un eveniment permis), ci un obiectiv inaccesibil; Acceptat rămâne, în schimb, o stare finală intenționată. Corecția restabilește condiția lui `trimite` și rândul lipsă; S1 și S2 se recalculează cu tabelul corectat.
+Tabelul propus P, construit pentru verificare, are două abateri față de enunț: `trimite` nu cere fișier, iar rândul `inregistreaza_raport` lipsește, deși `accepta` și `respinge` cer un raport. Sub P: S2 duce manuscrisul fără fișier în Trimis; extinderea cu `preia(E1)` îl duce În evaluare; din În evaluare, singurul eveniment permis rămâne `retrage`, pentru că niciun eveniment nu poate înregistra un raport. Acceptat nu este accesibil dintr-o ciornă nouă. Nu este un blocaj (există un eveniment permis), ci un obiectiv inaccesibil; Acceptat rămâne, în schimb, o stare finală intenționată. Corecția restabilește condiția lui `trimite` și rândul lipsă; S1 și S2 se recalculează cu tabelul corectat.
 
 O trasare verifică o singură secvență de evenimente. Afirmația „Acceptat este accesibil” cere o secvență care ajunge acolo (S1 o dă); afirmația „niciun manuscris fără fișier nu ajunge în evaluare” privește toate secvențele și se sprijină pe condiția lui `trimite` și pe faptul că fișierul nu se șterge, nu pe câteva exemple. Explorarea sistematică a stărilor accesibile urmează în cursul 9.
 
 ## Transfer
 
-Comanda la cafenea (exercițiul final): Plasată → În pregătire → Gata → Ridicată; `anuleaza` permisă numai în Plasată. Din În pregătire, `anuleaza` este refuzată: tranziție interzisă prin regulă, nu lipsă din tabel. Ridicată este finală intenționată. După anulare rămân înregistrate produsele comandate și momentul comenzii. Regulile se citesc din noul enunț, nu se importă de la revistă.
+Comanda la cafenea (exercițiul final): Plasată → În pregătire → Gata → Ridicată; `anuleaza` permisă numai în Plasată. Din În pregătire, `anuleaza` este refuzată: tranziție interzisă prin regulă, nu lipsă din tabel. Ridicată și Anulată sunt finale intenționate; acest lucru este precizat în enunțul de transfer. După anulare rămân înregistrate produsele comandate și momentul comenzii. Regulile se citesc din noul enunț, nu se importă de la revistă.

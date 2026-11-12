@@ -6,7 +6,7 @@ Folosiți [enunțul](scenario.md) la lucrul individual și la discuția în plen
 
 Pentru fiecare rând: stare curentă → eveniment → condiție → stare următoare → efect. Un eveniment nepermis este refuzat, fără modificări. Întrebări de verificare: în ce stare sosește o reîncercare? Ce decide un refuz: starea sau condiția? Ce date rămân după anulare?
 
-**Repere:** `ridica` cu identificator nou numai din Rezervată, numai de titular; reîncercarea (același identificator) primește același `ridicat`; `anuleaza` numai din Rezervată; Ridicată și Anulată sunt finale intenționate.
+**Repere:** `ridica` cu identificator nou numai din Rezervată, numai de titular; reîncercarea (același identificator) primește același `ridicat`; `anuleaza` numai din Rezervată; Anulată este finală intenționată; Ridicată permite reîncercarea și actualizarea notificării, fără o a doua ridicare.
 
 ## Interacțiunea
 
@@ -18,7 +18,7 @@ Fiecare scenariu S1–S7 din enunț repornește din I (R1 și R2 Rezervate), exc
 
 ## Analiza și revizuirea AI
 
-Profesorul conduce o singură analiză și o singură revizuire în plen. Preziceți S2, S4 și S7 înainte de răspuns, apoi verificați o afirmație folosind o regulă și un scenariu. Nu porniți sesiuni AI proprii. Dacă instrumentul nu răspunde, discutăm capturile reale pregătite, cu aceeași metodă.
+Profesorul conduce o singură analiză și o singură revizuire în plen. Preziceți rezultatul lui S4 (reîncercare după eșec) înainte de răspuns, apoi verificați o afirmație folosind o regulă și un scenariu. Nu porniți sesiuni AI proprii. Dacă instrumentul nu răspunde, discutăm capturile reale pregătite, cu aceeași metodă.
 
 ## Exercițiul final
 
