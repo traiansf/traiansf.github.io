@@ -1,6 +1,6 @@
 # Cursul 7 — ghid de predare
 
-[Prezentarea](07-stare.md) are **34 de slide-uri cu copertă** și un parcurs de **100 de minute**. [Enunțul](scenarios/07-manuscrise/brief.md) și [referința](scenarios/07-manuscrise/reference.md) fixează regulile și răspunsurile. Toate datele, regulile relevante și sarcinile folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți.
+[Prezentarea](07-stare.md) are **35 de slide-uri cu copertă** și un parcurs de **100 de minute**. [Enunțul](scenarios/07-manuscrise/brief.md) și [referința](scenarios/07-manuscrise/reference.md) fixează regulile și răspunsurile. Toate datele, regulile relevante și sarcinile folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți.
 
 ## Parcurs
 

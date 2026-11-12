@@ -495,12 +495,16 @@ break-inside: avoid;
 <p>Un manuscris nou începe ca ciornă, fără fișier și fără alte date: crearea este starea inițială, nu un eveniment. Un eveniment nepermis este <strong>refuzat</strong>: nimic nu se schimbă.</p>
 <p><strong>Manuscrisul M este în evaluare,</strong> cu editorul E1 și un raport Rp1. Individual, pentru fiecare dintre cele șapte evenimente: <strong>schimbă starea</strong>, <strong>păstrează starea dar înregistrează ceva</strong>, sau <strong>este refuzat</strong>? Apoi discutăm.</p>
 </div>
-<div id="stare-eveniment-tranziție" class="slide section level1">
-<h1>Stare, eveniment, tranziție</h1>
-<p><strong>Starea</strong> descrie valorile relevante la un moment dat, ca în cursul 6. În ciclul de viață, numim <strong>stări</strong> etapele Ciornă, Trimis, În evaluare etc.; etapa, împreună cu datele păstrate, decide <strong>ce evenimente sunt permise acum</strong>.</p>
-<p>Un <strong>eveniment</strong> este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului. O <strong>tranziție</strong> spune: din starea curentă, la acest eveniment, dacă <strong>condiția</strong> este îndeplinită, trecem în starea următoare, cu un <strong>efect</strong> asupra datelor.</p>
+<div id="stare-și-eveniment" class="slide section level1">
+<h1>Stare și eveniment</h1>
+<p><strong>Starea</strong> descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului numim <strong>stări</strong> etapele Ciornă, Trimis, În evaluare etc.; etapa, împreună cu datele păstrate (fișier, editor, rapoarte), decide <strong>ce evenimente sunt permise acum</strong>.</p>
+<p>Un <strong>eveniment</strong> este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului.</p>
+</div>
+<div id="tranziție-condiție-efect" class="slide section level1">
+<h1>Tranziție, condiție, efect</h1>
+<p>O <strong>tranziție</strong> spune: din starea curentă, la acest eveniment, dacă <strong>condiția</strong> este îndeplinită, trecem în starea următoare, cu un <strong>efect</strong> asupra datelor.</p>
 <p>Un eveniment fără tranziție permisă, sau cu condiția neîndeplinită, este <strong>refuzat</strong>: starea și datele rămân neschimbate.</p>
-<p><strong>Ciclul de viață</strong> descrie stările și tranzițiile, pornind de la starea inițială și precizând stările finale intenționate. Îl scriem ca tabel și îl verificăm pe scenarii.</p>
+<p><strong>Ciclul de viață al manuscrisului</strong> descrie stările și tranzițiile, pornind de la starea inițială și precizând stările finale intenționate. Îl scriem ca tabel și îl verificăm pe scenarii.</p>
 </div>
 <div id="precizăm-ciclul-de-viață" class="slide section level1 transition">
 <h1 class="transition">Precizăm ciclul de viață</h1>

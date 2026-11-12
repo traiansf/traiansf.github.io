@@ -11,7 +11,7 @@ Aceeași cerere, acceptată ieri, este refuzată azi. Ce s-a schimbat?
 ::: notes
 În cursul 6 am precizat ce promite o operație, inclusiv când refuză. Azi urmărim de ce aceeași operație reușește într-un moment și este refuzată în altul: istoricul manuscrisului, rezumat într-o stare, decide ce evenimente sunt permise acum. Nu adăugăm cerințe noi, ci organizăm promisiunile operațiilor de-a lungul vieții unui obiect.
 
-**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, întrebarea deschisă, problema, exercițiul cu cele șapte evenimente și slide-ul despre stări. 34 de slide-uri cu copertă. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, întrebarea deschisă, problema, exercițiul cu cele șapte evenimente și slide-urile despre stări și tranziții. 35 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
 
 ---
@@ -89,15 +89,25 @@ Un manuscris nou începe ca ciornă, fără fișier și fără alte date: creare
 
 ---
 
-# Stare, eveniment, tranziție
+# Stare și eveniment
 
-**Starea** descrie valorile relevante la un moment dat, ca în cursul 6. În ciclul de viață, numim **stări** etapele Ciornă, Trimis, În evaluare etc.; etapa, împreună cu datele păstrate, decide **ce evenimente sunt permise acum**.
+**Starea** descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului numim **stări** etapele Ciornă, Trimis, În evaluare etc.; etapa, împreună cu datele păstrate (fișier, editor, rapoarte), decide **ce evenimente sunt permise acum**.
 
-Un **eveniment** este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului. O **tranziție** spune: din starea curentă, la acest eveniment, dacă **condiția** este îndeplinită, trecem în starea următoare, cu un **efect** asupra datelor.
+Un **eveniment** este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului.
+
+::: notes
+Legătura cu cursul 6: starea este aceeași noțiune, valorile de la un moment dat; noutatea este că o rezumăm printr-o etapă care spune ce este permis acum, fiindcă istoricul manuscrisului contează. Etapa rezumă istoricul; datele rămân alături.
+:::
+
+---
+
+# Tranziție, condiție, efect
+
+O **tranziție** spune: din starea curentă, la acest eveniment, dacă **condiția** este îndeplinită, trecem în starea următoare, cu un **efect** asupra datelor.
 
 Un eveniment fără tranziție permisă, sau cu condiția neîndeplinită, este **refuzat**: starea și datele rămân neschimbate.
 
-**Ciclul de viață** descrie stările și tranzițiile, pornind de la starea inițială și precizând stările finale intenționate. Îl scriem ca tabel și îl verificăm pe scenarii.
+**Ciclul de viață al manuscrisului** descrie stările și tranzițiile, pornind de la starea inițială și precizând stările finale intenționate. Îl scriem ca tabel și îl verificăm pe scenarii.
 
 ::: notes
 Legătura cu cursul 6: tabelul descrie cazurile de succes ale contractelor operațiilor; regula refuzului le completează. Starea curentă și condiția formează condiția de succes; starea următoare și efectul sunt postcondiția cazului de succes; refuzul cu starea și datele neschimbate este postcondiția cazului de refuz. Noutatea: condiția de succes depinde de etapa ciclului de viață și de celelalte date, iar tranzițiile se înlănțuie. Nu presupunem clase, enumerări sau un instrument.
