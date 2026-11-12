@@ -2,6 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 7: Stare și comportament"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
+operation-names: [ataseaza, trimite, preia, inregistreaza_raport, accepta, respinge, retrage]
 state-names: [Ciornă, Trimis, "În evaluare", Acceptat, Respins, Retras]
 ---
 

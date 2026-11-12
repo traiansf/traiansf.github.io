@@ -173,6 +173,7 @@ body {
 .slide figcaption { color: var(--muted); font-size: 0.85em; }
 .slide hr { border: 0; border-top: 1px solid var(--line); margin: 1em 0; }
 .slide .nowrap { white-space: nowrap; }   /* ranges such as 10–12, marked by theme/amss.lua */
+.slide .operatie { color: #8f4a00; font-weight: 600; white-space: nowrap; }   /* operation names, marked by theme/amss.lua */
 .slide .stare { color: var(--teal-strong); font-weight: 600; white-space: nowrap; }   /* lifecycle state names, marked by theme/amss.lua */
 .deck-pause { display: none; }            /* where the source has a pause (". . ."), for deck.js */
 

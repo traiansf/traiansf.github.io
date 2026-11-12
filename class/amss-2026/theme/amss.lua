@@ -625,11 +625,49 @@ local function style_states(blocks, names)
   })
 end
 
+-- Names of operations (front matter `operation-names: [trimite, preia]`)
+-- are not code: where they are written as inline code (`preia(e)`), the
+-- deck sets them in the text font, in one colour, like the state names.
+-- A span with the class `operatie` in HTML, \amssoperation in the PDF.
+local function operation_names(meta)
+  local set = {}
+  if meta['operation-names'] then
+    for _, item in ipairs(meta['operation-names']) do
+      set[stringify(item)] = true
+    end
+  end
+  return set
+end
+
+local function style_operations(blocks, set)
+  return blocks:walk({
+    Code = function(code)
+      local name = code.text:match('^([%w_]+)')
+      if not (name and set[name]) then
+        return nil
+      end
+      local rest = code.text:sub(#name + 1)
+      if rest ~= '' and not rest:match('^%(.*%)$') then
+        return nil
+      end
+      if is_beamer or is_latex then
+        local escaped = code.text:gsub('[#%%&_{}$]', '\\%0')
+        return pandoc.RawInline('latex', '\\amssoperation{' .. escaped .. '}')
+      end
+      return pandoc.Span({ pandoc.Str(code.text) }, pandoc.Attr('', { 'operatie' }))
+    end,
+  })
+end
+
 local function tidy_document(doc)
   local blocks = doc.blocks
   local names = state_names(doc.meta)
   if #names > 0 then
     blocks = style_states(blocks, names)
+  end
+  local operations = operation_names(doc.meta)
+  if next(operations) then
+    blocks = style_operations(blocks, operations)
   end
   if is_doc and full_title then
     local i, first = first_visible(blocks)
