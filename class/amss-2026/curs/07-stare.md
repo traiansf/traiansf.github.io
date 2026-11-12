@@ -200,7 +200,9 @@ Ambele modele descriu aceleași comportamente; diferă prin ce arată. Un tabel 
 
 **Înainte:** M În evaluare; fișier f1, editor E1, rapoarte [Rp1].
 
-**Eveniment:** `retrage`. **După:** M Retras; fișier f1, editor E1, rapoarte [Rp1], data retragerii.
+**Eveniment:** `retrage`.
+
+**După:** M Retras; fișier f1, editor E1, rapoarte [Rp1], data retragerii.
 
 Starea s-a schimbat; datele au rămas, plus una nouă. **De ce contează că Rp1 rămâne?**
 
