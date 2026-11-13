@@ -460,7 +460,7 @@ break-inside: avoid;
 </div>
 <div id="ce-are-voie-să-se-întâmple-acum" class="slide section level1 transition">
 <h1 class="transition">Ce are voie să se întâmple acum?</h1>
-<p>Aceeași cerere, acceptată ieri, este refuzată azi. Ce <span class="nowrap">s-a</span> schimbat?</p>
+<p>Aceeași cerere, permisă ieri, este refuzată azi. Ce <span class="nowrap">s-a</span> schimbat?</p>
 </div>
 <div id="citatul-zilei" class="slide section level1 epigraph">
 <h1 class="epigraph">Citatul zilei</h1>
@@ -471,8 +471,8 @@ break-inside: avoid;
 <p>— <strong>Leslie Lamport</strong></p>
 <p><a href="https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4">Sursa: Computation and State Machines (2008), p. 1</a></p>
 </div>
-<div id="o-cerere-pe-care-n-ați-mai-putut-o-schimba" class="slide section level1">
-<h1>O cerere pe care <span class="nowrap">n-ați</span> mai <span class="nowrap">putut-o</span> schimba</h1>
+<div id="o-cerere-pe-care-nu-ați-mai-putut-o-schimba" class="slide section level1">
+<h1>O cerere pe care nu ați mai <span class="nowrap">putut-o</span> schimba</h1>
 <p><span class="nowrap">Gândiți-vă</span> la o comandă, o cerere de concediu, un bilet, o lucrare trimisă: la un moment dat nu ați mai putut face ceva cu ea (anula, modifica, retrage).</p>
 <p><strong>În ce „stare” era și ce <span class="nowrap">v-ar</span> fi ajutat să știți dinainte? Ați întâlnit o aplicație care vă lăsa să apăsați un buton, dar refuza acțiunea?</strong></p>
 </div>
@@ -485,7 +485,7 @@ break-inside: avoid;
 </div>
 <div id="care-evenimente-schimbă-starea" class="slide section level1">
 <h1>Care evenimente schimbă starea?</h1>
-<p><strong>Reguli</strong> (operațiile sunt evenimentele cerute):</p>
+<p><strong>Reguli</strong> (fiecare eveniment este apelul unei operații):</p>
 <ul>
 <li><span class="operatie">atașează(f)</span>: autorul atașează fișierul f; numai cât timp manuscrisul este ciornă (netrimis);</li>
 <li><span class="operatie">trimite</span>: autorul îl trimite revistei; numai pentru o ciornă, dacă există fișier;</li>
@@ -494,8 +494,8 @@ break-inside: avoid;
 <li><span class="operatie">acceptă</span> și <span class="operatie">respinge</span>: editorul decide; numai în evaluare, cu cel puțin un raport;</li>
 <li><span class="operatie">retrage</span>: autorul îl retrage; numai după trimitere, până la decizie.</li>
 </ul>
-<p>Un manuscris nou începe ca ciornă, fără fișier și fără alte date: crearea este starea inițială, nu un eveniment. Un eveniment nepermis este <strong>refuzat</strong>: nimic nu se schimbă.</p>
-<p><strong>Manuscrisul M este în evaluare,</strong> cu editorul E1 și un raport Rp1. Individual, pentru fiecare dintre cele șapte evenimente: <strong>schimbă starea</strong>, <strong>păstrează starea dar înregistrează ceva</strong>, sau <strong>este refuzat</strong>? Apoi discutăm.</p>
+<p>Un manuscris nou este o ciornă fără date. Un eveniment nepermis este <strong>refuzat</strong>: nimic nu se schimbă.</p>
+<p><strong>M este în evaluare,</strong> cu editorul E1 și raportul Rp1. Individual, apoi discutăm: fiecare dintre cele șapte evenimente <strong>schimbă starea</strong>, <strong>păstrează starea, dar înregistrează ceva</strong> sau <strong>este refuzat</strong>?</p>
 </div>
 <div id="stare-și-eveniment" class="slide section level1">
 <h1>Stare și eveniment</h1>
@@ -510,7 +510,7 @@ break-inside: avoid;
 </div>
 <div id="precizăm-ciclul-de-viață" class="slide section level1 transition">
 <h1 class="transition">Precizăm ciclul de viață</h1>
-<p>Ce evenimente sunt permise în fiecare stare, și cu ce condiție?</p>
+<p>Ce evenimente sunt permise în fiecare stare și cu ce condiție?</p>
 </div>
 <div id="regulile-manuscrisului-context-stări-evenimente" class="slide section level1">
 <h1>Regulile manuscrisului: context, stări, evenimente</h1>
@@ -529,27 +529,27 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td>R1 (context)</td>
-<td>Identificatorii sunt cunoscuți; apelurile sunt secvențiale; un singur manuscris pe scenariu. Fără autentificare, concurență, retrimitere sau programarea publicării.</td>
+<td>Identificatorii sunt cunoscuți; apelurile sunt secvențiale; un singur manuscris pe scenariu. Nu discutăm autentificarea, concurența, retrimiterea sau programarea publicării.</td>
 </tr>
 <tr>
 <td>R2 (stări)</td>
-<td>Exact una dintre <span class="stare">Ciornă</span>, <span class="stare">Trimis</span>, <span class="stare">În evaluare</span>, <span class="stare">Acceptat</span>, <span class="stare">Respins</span>, <span class="stare">Retras</span>. Un manuscris nou este în <span class="stare">Ciornă</span>, fără date.</td>
+<td>Starea este una dintre <span class="stare">Ciornă</span>, <span class="stare">Trimis</span>, <span class="stare">În evaluare</span>, <span class="stare">Acceptat</span>, <span class="stare">Respins</span>, <span class="stare">Retras</span>; un manuscris nou este în <span class="stare">Ciornă</span>, fără date.</td>
 </tr>
 <tr>
 <td>R3 (pregătire și trimitere)</td>
-<td><span class="operatie">atașează(f)</span> numai în <span class="stare">Ciornă</span>: înregistrează f, înlocuind fișierul anterior, dacă există.</td>
+<td><span class="operatie">atașează(f)</span> numai în <span class="stare">Ciornă</span>: f înlocuiește orice fișier anterior.</td>
 </tr>
 <tr>
 <td></td>
-<td><span class="operatie">trimite</span> numai în <span class="stare">Ciornă</span> și numai cu fișier: trece în <span class="stare">Trimis</span>.</td>
+<td><span class="operatie">trimite</span> numai în <span class="stare">Ciornă</span> și numai cu fișier: trece în <span class="stare">Trimis</span>, cu momentul trimiterii.</td>
 </tr>
 <tr>
 <td>R4 (evaluare)</td>
-<td><span class="operatie">preia(e)</span> numai în <span class="stare">Trimis</span>: editorul e, trece <span class="stare">În evaluare</span>.</td>
+<td><span class="operatie">preia(e)</span> numai în <span class="stare">Trimis</span>: e devine editorul; trece <span class="stare">În evaluare</span>.</td>
 </tr>
 <tr>
 <td></td>
-<td><span class="operatie">înregistrează raport(r)</span> numai <span class="stare">În evaluare</span>: adaugă raportul, starea rămâne.</td>
+<td><span class="operatie">înregistrează raport(r)</span> numai <span class="stare">În evaluare</span>: adaugă r; starea rămâne.</td>
 </tr>
 </tbody>
 </table>
@@ -572,19 +572,19 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td>R5 (decizie)</td>
-<td><span class="operatie">acceptă</span>, <span class="operatie">respinge</span> numai <span class="stare">În evaluare</span> și numai cu cel puțin un raport: <span class="stare">Acceptat</span>, respectiv <span class="stare">Respins</span>.</td>
+<td><span class="operatie">acceptă</span>, <span class="operatie">respinge</span> numai <span class="stare">În evaluare</span> și numai cu cel puțin un raport: manuscrisul trece în <span class="stare">Acceptat</span>, respectiv <span class="stare">Respins</span>, cu momentul deciziei.</td>
 </tr>
 <tr>
 <td>R6 (retragere)</td>
-<td><span class="operatie">retrage</span> numai în <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span>: <span class="stare">Retras</span>. Nu din <span class="stare">Ciornă</span>, nu după decizie.</td>
+<td><span class="operatie">retrage</span> numai în <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span>: manuscrisul trece în <span class="stare">Retras</span>, cu momentul retragerii. O ciornă sau un manuscris cu decizie nu se retrage.</td>
 </tr>
 <tr>
 <td>R7 (evenimente refuzate)</td>
-<td>Fără tranziție permisă sau cu condiția neîndeplinită: refuzat, nimic nu se schimbă.</td>
+<td>Un eveniment fără tranziție permisă sau cu condiția neîndeplinită este refuzat: starea și datele rămân neschimbate.</td>
 </tr>
 <tr>
-<td>R8 (datele se păstrează)</td>
-<td>Fișierul, editorul și rapoartele nu se șterg. <span class="stare">Acceptat</span>, <span class="stare">Respins</span>, <span class="stare">Retras</span> sunt stări finale intenționate.</td>
+<td>R8 (date păstrate, stări finale)</td>
+<td>Fișierul, editorul și rapoartele nu se șterg la nicio schimbare de stare. <span class="stare">Acceptat</span>, <span class="stare">Respins</span> și <span class="stare">Retras</span> sunt stări finale intenționate: nu au tranziții de ieșire.</td>
 </tr>
 </tbody>
 </table>
@@ -596,10 +596,10 @@ break-inside: avoid;
 <table>
 <colgroup>
 <col width="14%" />
-<col width="33%" />
-<col width="17%" />
-<col width="15%" />
-<col width="19%" />
+<col width="28%" />
+<col width="16%" />
+<col width="16%" />
+<col width="26%" />
 </colgroup>
 <thead>
 <tr>
@@ -623,7 +623,7 @@ break-inside: avoid;
 <td align="left"><span class="operatie">trimite</span></td>
 <td align="left">există fișier</td>
 <td align="left"><span class="stare">Trimis</span></td>
-<td align="left">data trimiterii</td>
+<td align="left">momentul trimiterii</td>
 </tr>
 <tr>
 <td align="left"><span class="stare">Trimis</span></td>
@@ -644,14 +644,14 @@ break-inside: avoid;
 <td align="left"><span class="operatie">acceptă</span> / <span class="operatie">respinge</span></td>
 <td align="left">cel puțin un raport</td>
 <td align="left"><span class="stare">Acceptat</span> / <span class="stare">Respins</span></td>
-<td align="left">data deciziei</td>
+<td align="left">momentul deciziei</td>
 </tr>
 <tr>
 <td align="left"><span class="stare">Trimis</span>, <span class="stare">În evaluare</span></td>
 <td align="left"><span class="operatie">retrage</span></td>
 <td align="left">—</td>
 <td align="left"><span class="stare">Retras</span></td>
-<td align="left">data retragerii</td>
+<td align="left">momentul retragerii</td>
 </tr>
 </tbody>
 </table>
@@ -663,22 +663,22 @@ break-inside: avoid;
 <p><span class="operatie">trimite</span> cere un fișier; <span class="operatie">acceptă</span> cere un raport. <strong>De ce nu introducem stările „<span class="stare">Ciornă</span> cu fișier” și „<span class="stare">În evaluare</span> cu raport”?</strong></p>
 <p>Am putea: ar fi alt model corect, cu mai multe stări. Alegem <strong>starea pentru distincția convenită cu beneficiarul</strong> și <strong>condiția pentru verificarea datelor</strong>:</p>
 <ul>
-<li><span class="stare">Ciornă</span> cu sau fără fișier este, pentru revistă, aceeași stare: nu a fost trimis;</li>
+<li><span class="stare">Ciornă</span> cu sau fără fișier este, pentru revistă, aceeași stare: manuscrisul nu a fost trimis;</li>
 <li>rapoartele sunt date pe care le păstrăm oricum; condiția le numără.</li>
 </ul>
 <p><strong>Legătura cu cursul 6:</strong> starea curentă și condiția formează împreună condiția de succes a evenimentului; refuzul păstrează starea și datele, ca refuzul din contractul atribuirii.</p>
 </div>
 <div id="ce-se-păstrează-când-se-schimbă-starea" class="slide section level1">
 <h1>Ce se păstrează când se schimbă starea</h1>
-<p><strong>R8 (datele se păstrează):</strong> fișierul, editorul și rapoartele nu se șterg la nicio schimbare de stare.</p>
-<p><strong>Înainte:</strong> M <span class="stare">În evaluare</span>; fișier f1, editor E1, rapoarte [Rp1].</p>
+<p><strong>R8 (date păstrate, stări finale):</strong> fișierul, editorul și rapoartele nu se șterg la nicio schimbare de stare.</p>
+<p><strong>Înainte:</strong> M <span class="stare">În evaluare</span>; fișier f1, momentul trimiterii, editor E1, rapoarte [Rp1].</p>
 <p><strong>Eveniment:</strong> <span class="operatie">retrage</span>.</p>
-<p><strong>După:</strong> M <span class="stare">Retras</span>; fișier f1, editor E1, rapoarte [Rp1], data retragerii.</p>
-<p>Starea <span class="nowrap">s-a</span> schimbat; datele au rămas, iar data retragerii <span class="nowrap">s-a</span> adăugat. <strong>De ce contează că Rp1 rămâne?</strong></p>
+<p><strong>După:</strong> M <span class="stare">Retras</span>; fișier f1, momentul trimiterii, editor E1, rapoarte [Rp1], momentul retragerii.</p>
+<p>Starea <span class="nowrap">s-a</span> schimbat; datele au rămas, iar momentul retragerii <span class="nowrap">s-a</span> adăugat. <strong>De ce contează că Rp1 rămâne?</strong></p>
 </div>
 <div id="este-permis-acceptă-acum" class="slide section level1">
 <h1>Este permis <span class="operatie">acceptă</span> acum?</h1>
-<p><strong>Reguli:</strong> <span class="operatie">acceptă</span> numai <span class="stare">În evaluare</span> și numai cu cel puțin un raport; <span class="stare">Acceptat</span>, <span class="stare">Respins</span> și <span class="stare">Retras</span> sunt finale intenționate; un eveniment nepermis este refuzat, fără modificări.</p>
+<p><strong>Reguli:</strong> <span class="operatie">acceptă</span> este permis numai <span class="stare">În evaluare</span> și numai cu cel puțin un raport; <span class="stare">Acceptat</span>, <span class="stare">Respins</span> și <span class="stare">Retras</span> sunt stări finale intenționate; un eveniment nepermis este refuzat, fără modificări.</p>
 <div class="table-wrap">
 <table>
 <thead>
@@ -693,7 +693,7 @@ break-inside: avoid;
 <tr>
 <td align="left">1</td>
 <td align="left"><span class="stare">În evaluare</span></td>
-<td align="left">editor E1, rapoarte: niciunul</td>
+<td align="left">fișier f1, editor E1, niciun raport</td>
 <td align="left">?</td>
 </tr>
 <tr>
@@ -705,19 +705,19 @@ break-inside: avoid;
 <tr>
 <td align="left">3</td>
 <td align="left"><span class="stare">În evaluare</span></td>
-<td align="left">editor E1, rapoarte [Rp1, Rp2]</td>
+<td align="left">fișier f1, editor E1, rapoarte [Rp1, Rp2]</td>
 <td align="left">?</td>
 </tr>
 <tr>
 <td align="left">4</td>
 <td align="left"><span class="stare">Retras</span></td>
-<td align="left">editor E1, rapoarte [Rp1]</td>
+<td align="left">fișier f1, editor E1, rapoarte [Rp1]</td>
 <td align="left">?</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Individual, apoi discutăm: pentru fiecare refuz, <strong>ce</strong> îl decide: starea sau condiția? În cazul 4, ce rămâne înregistrat după refuz?</p>
+<p>Individual, apoi discutăm: pentru fiecare refuz, <strong>ce</strong> îl decide: starea sau condiția? La rândul 4, ce rămâne înregistrat după refuz?</p>
 </div>
 <div id="urmărim-ciclul-de-viață" class="slide section level1 transition">
 <h1 class="transition">Urmărim ciclul de viață</h1>
@@ -727,7 +727,7 @@ break-inside: avoid;
 <h1>Același tabel, desenat</h1>
 <div class="columns" align="center">
 <div class="column" style="width:58%;">
-<img role="img" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibXktc3ZnIiB3aWR0aD0iMTAwJSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgY2xhc3M9InN0YXRlZGlhZ3JhbSIgc3R5bGU9Im1heC13aWR0aDogOTE0LjY1NnB4OyBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTsiIHZpZXdCb3g9IjQgNCA5MTQuNjU2MjUgMzA2LjMzMzM0MzUwNTg1OTQiIHJvbGU9ImdyYXBoaWNzLWRvY3VtZW50IGRvY3VtZW50IiBhcmlhLXJvbGVkZXNjcmlwdGlvbj0ic3RhdGVEaWFncmFtIiBhcmlhLWRlc2NyaWJlZGJ5PSJjaGFydC1kZXNjLW15LXN2ZyIgYXJpYS1sYWJlbGxlZGJ5PSJjaGFydC10aXRsZS1teS1zdmciPjx0aXRsZSBpZD0iY2hhcnQtdGl0bGUtbXktc3ZnIj5DaWNsdWwgZGUgdmlhyJvEgyBhbCB1bnVpIG1hbnVzY3JpczwvdGl0bGU+PGRlc2MgaWQ9ImNoYXJ0LWRlc2MtbXktc3ZnIj5UcmFuemnIm2lpbGUgbnVtZXJvdGF0ZSBzdW50IGV4cGxpY2F0ZSDDrm4gdGFiZWwuIERpbiBDaW9ybsSDIHNlIHRyZWNlIMOubiBUcmltaXMsIGRpbiBUcmltaXMgw65uIMOObiBldmFsdWFyZSwgZGUgdW5kZSBzZSBhanVuZ2Ugw65uIEFjY2VwdGF0IHNhdSBSZXNwaW5zOyByZXRyYWdlcmVhIGR1Y2UgZGluIFRyaW1pcyBzYXUgw45uIGV2YWx1YXJlIMOubiBSZXRyYXMuIEF0YciZYXJlYSBmaciZaWVydWx1aSDImWkgw65ucmVnaXN0cmFyZWEgdW51aSByYXBvcnQgcMSDc3RyZWF6xIMgc3RhcmVhLjwvZGVzYz48c3R5bGU+I215LXN2Z3tmb250LWZhbWlseTpBcmlhbDtmb250LXNpemU6MzJweDtmaWxsOiMwQTIxNDU7fUBrZXlmcmFtZXMgZWRnZS1hbmltYXRpb24tZnJhbWV7ZnJvbXtzdHJva2UtZGFzaG9mZnNldDowO319QGtleWZyYW1lcyBkYXNoe3Rve3N0cm9rZS1kYXNob2Zmc2V0OjA7fX0jbXktc3ZnIC5lZGdlLWFuaW1hdGlvbi1zbG93e3N0cm9rZS1kYXNoYXJyYXk6OSw1IWltcG9ydGFudDtzdHJva2UtZGFzaG9mZnNldDo5MDA7YW5pbWF0aW9uOmRhc2ggNTBzIGxpbmVhciBpbmZpbml0ZTtzdHJva2UtbGluZWNhcDpyb3VuZDt9I215LXN2ZyAuZWRnZS1hbmltYXRpb24tZmFzdHtzdHJva2UtZGFzaGFycmF5OjksNSFpbXBvcnRhbnQ7c3Ryb2tlLWRhc2hvZmZzZXQ6OTAwO2FuaW1hdGlvbjpkYXNoIDIwcyBsaW5lYXIgaW5maW5pdGU7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fSNteS1zdmcgLmVycm9yLWljb257ZmlsbDpoc2woMTIsIDI2LjMxNTc4OTQ3MzclLCAxMDAlKTt9I215LXN2ZyAuZXJyb3ItdGV4dHtmaWxsOiMwMDAwMDA7c3Ryb2tlOiMwMDAwMDA7fSNteS1zdmcgLmVkZ2UtdGhpY2tuZXNzLW5vcm1hbHtzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy10aGlja3tzdHJva2Utd2lkdGg6My41cHg7fSNteS1zdmcgLmVkZ2UtcGF0dGVybi1zb2xpZHtzdHJva2UtZGFzaGFycmF5OjA7fSNteS1zdmcgLmVkZ2UtdGhpY2tuZXNzLWludmlzaWJsZXtzdHJva2Utd2lkdGg6MDtmaWxsOm5vbmU7fSNteS1zdmcgLmVkZ2UtcGF0dGVybi1kYXNoZWR7c3Ryb2tlLWRhc2hhcnJheTozO30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tZG90dGVke3N0cm9rZS1kYXNoYXJyYXk6Mjt9I215LXN2ZyAubWFya2Vye2ZpbGw6IzA4NzM3MztzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyAubWFya2VyLmNyb3Nze3N0cm9rZTojMDg3MzczO30jbXktc3ZnIHN2Z3tmb250LWZhbWlseTpBcmlhbDtmb250LXNpemU6MzJweDt9I215LXN2ZyBwe21hcmdpbjowO30jbXktc3ZnIGRlZnMgW2lkJD0iLWJhcmJFbmQiXXtmaWxsOiMwODczNzM7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgZy5zdGF0ZUdyb3VwIHRleHR7ZmlsbDojMDg3MzczO3N0cm9rZTpub25lO2ZvbnQtc2l6ZToxMHB4O30jbXktc3ZnIGcuc3RhdGVHcm91cCB0ZXh0e2ZpbGw6IzBBMjE0NTtzdHJva2U6bm9uZTtmb250LXNpemU6MTBweDt9I215LXN2ZyBnLnN0YXRlR3JvdXAgLnN0YXRlLXRpdGxle2ZvbnQtd2VpZ2h0OmJvbGRlcjtmaWxsOiMwQTIxNDU7fSNteS1zdmcgZy5zdGF0ZUdyb3VwIHJlY3R7ZmlsbDojRjNGN0Y4O3N0cm9rZTojMDg3MzczO30jbXktc3ZnIGcuc3RhdGVHcm91cCBsaW5le3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxO30jbXktc3ZnIC50cmFuc2l0aW9ue3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxO2ZpbGw6bm9uZTt9I215LXN2ZyAuc3RhdGVHcm91cCAuY29tcG9zaXR7ZmlsbDojZjRmNGY0O2JvcmRlci1ib3R0b206MXB4O30jbXktc3ZnIC5zdGF0ZUdyb3VwIC5hbHQtY29tcG9zaXR7ZmlsbDojZTBlMGUwO2JvcmRlci1ib3R0b206MXB4O30jbXktc3ZnIC5zdGF0ZS1ub3Rle3N0cm9rZTpoc2woNTIuNjgyOTI2ODI5MywgNjAlLCA3My45MjE1Njg2Mjc1JSk7ZmlsbDojZmZmNWFkO30jbXktc3ZnIC5zdGF0ZS1ub3RlIHRleHR7ZmlsbDojMzMzO3N0cm9rZTpub25lO2ZvbnQtc2l6ZToxMHB4O30jbXktc3ZnIC5zdGF0ZUxhYmVsIC5ib3h7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjA7ZmlsbDojRjNGN0Y4O29wYWNpdHk6MC41O30jbXktc3ZnIC5lZGdlTGFiZWwgLmxhYmVsIHJlY3R7ZmlsbDojRjNGN0Y4O29wYWNpdHk6MC41O30jbXktc3ZnIC5lZGdlTGFiZWx7YmFja2dyb3VuZC1jb2xvcjpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7dGV4dC1hbGlnbjpjZW50ZXI7fSNteS1zdmcgLmVkZ2VMYWJlbCBwe2JhY2tncm91bmQtY29sb3I6aHNsKDcyLCAyNi4zMTU3ODk0NzM3JSwgOTYuMjc0NTA5ODAzOSUpO30jbXktc3ZnIC5lZGdlTGFiZWwgcmVjdHtvcGFjaXR5OjAuNTtiYWNrZ3JvdW5kLWNvbG9yOmhzbCg3MiwgMjYuMzE1Nzg5NDczNyUsIDk2LjI3NDUwOTgwMzklKTtmaWxsOmhzbCg3MiwgMjYuMzE1Nzg5NDczNyUsIDk2LjI3NDUwOTgwMzklKTt9I215LXN2ZyAuZWRnZUxhYmVsIC5sYWJlbCB0ZXh0e2ZpbGw6IzBBMjE0NTt9I215LXN2ZyAubGFiZWwgZGl2IC5lZGdlTGFiZWx7Y29sb3I6IzBBMjE0NTt9I215LXN2ZyAuc3RhdGVMYWJlbCB0ZXh0e2ZpbGw6IzBBMjE0NTtmb250LXNpemU6MTBweDtmb250LXdlaWdodDpib2xkO30jbXktc3ZnIC5ub2RlIGNpcmNsZS5zdGF0ZS1zdGFydHtmaWxsOiMwODczNzM7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgLm5vZGUgLmZvcmstam9pbntmaWxsOiMwODczNzM7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgLm5vZGUgY2lyY2xlLnN0YXRlLWVuZHtmaWxsOiMwODczNzM7c3Ryb2tlOiNmNGY0ZjQ7c3Ryb2tlLXdpZHRoOjEuNTt9I215LXN2ZyAuZW5kLXN0YXRlLWlubmVye2ZpbGw6I2Y0ZjRmNDtzdHJva2Utd2lkdGg6MS41O30jbXktc3ZnIC5ub2RlIHJlY3R7ZmlsbDojRjNGN0Y4O3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgLm5vZGUgcG9seWdvbntmaWxsOiNGM0Y3Rjg7c3Ryb2tlOiMwODczNzM7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyBbaWQkPSItYmFyYkVuZCJde2ZpbGw6IzA4NzM3Mzt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIgcmVjdHtmaWxsOiNGM0Y3Rjg7c3Ryb2tlOiMwODczNzM7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyAuY2x1c3Rlci1sYWJlbCwjbXktc3ZnIC5ub2RlTGFiZWx7Y29sb3I6IzBBMjE0NTt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIgcmVjdC5vdXRlcntyeDo1cHg7cnk6NXB4O30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tc3RhdGUgLmRpdmlkZXJ7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1zdGF0ZSAudGl0bGUtc3RhdGV7cng6NXB4O3J5OjVweDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIuc3RhdGVkaWFncmFtLWNsdXN0ZXIgLmlubmVye2ZpbGw6I2Y0ZjRmNDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIuc3RhdGVkaWFncmFtLWNsdXN0ZXItYWx0IC5pbm5lcntmaWxsOmhzbCgxMiwgMjYuMzE1Nzg5NDczNyUsIDEwMCUpO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tY2x1c3RlciAuaW5uZXJ7cng6MDtyeTowO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tc3RhdGUgcmVjdC5iYXNpY3tyeDo1cHg7cnk6NXB4O30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tc3RhdGUgcmVjdC5kaXZpZGVye3N0cm9rZS1kYXNoYXJyYXk6MTAsMTA7ZmlsbDpoc2woMTIsIDI2LjMxNTc4OTQ3MzclLCAxMDAlKTt9I215LXN2ZyAubm90ZS1lZGdle3N0cm9rZS1kYXNoYXJyYXk6NTt9I215LXN2ZyAuc3RhdGVkaWFncmFtLW5vdGUgcmVjdHtmaWxsOiNmZmY1YWQ7c3Ryb2tlOmhzbCg1Mi42ODI5MjY4MjkzLCA2MCUsIDczLjkyMTU2ODYyNzUlKTtzdHJva2Utd2lkdGg6MXB4O3J4OjA7cnk6MDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLW5vdGUgcmVjdHtmaWxsOiNmZmY1YWQ7c3Ryb2tlOmhzbCg1Mi42ODI5MjY4MjkzLCA2MCUsIDczLjkyMTU2ODYyNzUlKTtzdHJva2Utd2lkdGg6MXB4O3J4OjA7cnk6MDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLW5vdGUgdGV4dHtmaWxsOiMzMzM7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1ub3RlIC5ub2RlTGFiZWx7Y29sb3I6IzMzMzt9I215LXN2ZyAuc3RhdGVkaWFncmFtIC5lZGdlTGFiZWx7Y29sb3I6cmVkO30jbXktc3ZnIFtpZCQ9Ii1kZXBlbmRlbmN5U3RhcnQiXSwjbXktc3ZnIFtpZCQ9Ii1kZXBlbmRlbmN5RW5kIl17ZmlsbDojMDg3MzczO3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW1UaXRsZVRleHR7dGV4dC1hbmNob3I6bWlkZGxlO2ZvbnQtc2l6ZToxOHB4O2ZpbGw6IzBBMjE0NTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5zdGF0ZWRpYWdyYW0tY2x1c3RlciByZWN0e2ZpbGw6I0YzRjdGODtzdHJva2U6dXJsKCNteS1zdmctZ3JhZGllbnQpO3N0cm9rZS13aWR0aDoxO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLnN0YXRlZGlhZ3JhbS1jbHVzdGVyIHJlY3Qub3V0ZXJ7cng6NXB4O3J5OjVweDtmaWx0ZXI6ZHJvcC1zaGFkb3coIDFweCAycHggMnB4IHJnYmEoMTg1LDE4NSwxODUsMSkpO30jbXktc3ZnIC5ub2RlIC5uZW8tbm9kZXtzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHJlY3QsI215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5jbHVzdGVyIHJlY3QsI215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHBvbHlnb257c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtmaWx0ZXI6ZHJvcC1zaGFkb3coIDFweCAycHggMnB4IHJnYmEoMTg1LDE4NSwxODUsMSkpO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLnN3aW1sYW5lLmNsdXN0ZXIgcmVjdHtmaWx0ZXI6bm9uZTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHBhdGh7c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgLm91dGVyLXBhdGh7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIC5uZW8tbGluZSBwYXRoe3N0cm9rZTojMDg3MzczO2ZpbHRlcjpub25lO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgY2lyY2xle3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIGNpcmNsZSAuc3RhdGUtc3RhcnR7ZmlsbDojMDAwMDAwO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLmljb24tc2hhcGUgLmljb257ZmlsbDp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5pY29uLXNoYXBlIC5pY29uLW5lbyBwYXRoe3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyA6cm9vdHstLW1lcm1haWQtZm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO308L3N0eWxlPjxnPjxkZWZzPjxtYXJrZXIgaWQ9Im15LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZCIgcmVmWD0iMTkiIHJlZlk9IjciIG1hcmtlcldpZHRoPSIyMCIgbWFya2VySGVpZ2h0PSIxNCIgbWFya2VyVW5pdHM9InN0cm9rZVdpZHRoIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMTksNyBMMTEsMTQgTDEzLDcgTDExLDAgWiIvPjwvbWFya2VyPjwvZGVmcz48ZGVmcz48bWFya2VyIGlkPSJteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luIiByZWZYPSIxNyIgcmVmWT0iNyIgbWFya2VyV2lkdGg9IjIwIiBtYXJrZXJIZWlnaHQ9IjE0IiBtYXJrZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTSAxOSw3IEwxMSwxNCBMMTMsNyBMMTEsMCBaIiBmaWxsPSIjMDg3MzczIi8+PC9tYXJrZXI+PC9kZWZzPjxnIGNsYXNzPSJyb290Ij48ZyBjbGFzcz0iY2x1c3RlcnMiLz48ZyBjbGFzcz0iZWRnZXMgZWRnZVBhdGhzIj48cGF0aCBkPSJNMjYsMjA4LjI1TDYwLjUsMjA4LjI1IiBpZD0ibXktc3ZnLWVkZ2UwIiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDM0LjUgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2UwIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZNallzSW5raU9qSXdPQzR5Tlgwc2V5SjRJam8yTml3aWVTSTZNakE0TGpJMWZWMD0iIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZC1tYXJnaW4pIi8+PHBhdGggZD0iTTExNS4zMzMzMzMzMzMzMzMzMywxNzYuMjVMMTE1LjMzMzMzMzMzMzMzMzMzLDE2My4zMjEwNjc4MTE4NjU0OFExMTUuMzMzMzMzMzMzMzMzMzMsMTU2LjI1IDEyMi40MDQ0MDExNDUxOTg4LDE1Ni4yNUwxNDUuNTk1NTk4ODU0ODAxMTgsMTU2LjI1UTE1Mi42NjY2NjY2NjY2NjY2NiwxNTYuMjUgMTUyLjY2NjY2NjY2NjY2NjY2LDE2My4zMjEwNjc4MTE4NjU0OEwxNTIuNjY2NjY2NjY2NjY2NjYsMTcwLjc1IiBpZD0ibXktc3ZnLWVkZ2UxIiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDY2LjUwNDk4MTk5NDYyODkgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2UxIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZNVEUxTGpNek16TXpNek16TXpNek16TXpMQ0o1SWpveE56WXVNalY5TEhzaWVDSTZNVEUxTGpNek16TXpNek16TXpNek16TXpMQ0o1SWpveE5UWXVNalY5TEhzaWVDSTZNVFV5TGpZMk5qWTJOalkyTmpZMk5qWTJMQ0o1SWpveE5UWXVNalY5TEhzaWVDSTZNVFV5TGpZMk5qWTJOalkyTmpZMk5qWTJMQ0o1SWpveE56WXVNalY5WFE9PSIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48cGF0aCBkPSJNMjAyLDIwOC4yNUwyOTQuMjk2ODc1LDIwOC4yNSIgaWQ9Im15LXN2Zy1lZGdlMiIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgdHJhbnNpdGlvbiIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCA5Mi4yOTY4NzUgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2UyIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZNakF5TENKNUlqb3lNRGd1TWpWOUxIc2llQ0k2TWprNUxqYzVOamczTlN3aWVTSTZNakE0TGpJMWZWMD0iIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZC1tYXJnaW4pIi8+PHBhdGggZD0iTTQzNS43OTY4NzUsMjAwLjkxNjY2NjY2NjY2NjY2TDQ0OC43MjU4MDcxODgxMzQ1LDIwMC45MTY2NjY2NjY2NjY2NlE0NTUuNzk2ODc1LDIwMC45MTY2NjY2NjY2NjY2NiA0NTUuNzk2ODc1LDE5My44NDU1OTg4NTQ4MDExOEw0NTUuNzk2ODc1LDE1NS4wNzEwNjc4MTE4NjU0OFE0NTUuNzk2ODc1LDE0OCA0NjIuODY3OTQyODExODY1NSwxNDhMNTI4LjA5Mzc1LDE0OCIgaWQ9Im15LXN2Zy1lZGdlMyIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgdHJhbnNpdGlvbiIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCAxMzkuODg1MjUzOTA2MjUgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2UzIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZORE0xTGpjNU5qZzNOU3dpZVNJNk1qQXdMamt4TmpZMk5qWTJOalkyTmpZMmZTeDdJbmdpT2pRMU5TNDNPVFk0TnpVc0lua2lPakl3TUM0NU1UWTJOalkyTmpZMk5qWTJObjBzZXlKNElqbzBOVFV1TnprMk9EYzFMQ0o1SWpveE5EaDlMSHNpZUNJNk5UTXpMalU1TXpjMUxDSjVJam94TkRoOVhRPT0iIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZC1tYXJnaW4pIi8+PHBhdGggZD0iTTU4My44NDM3NSw5Mkw1ODMuODQzNzUsNzkuMDcxMDY3ODExODY1NDhRNTgzLjg0Mzc1LDcyIDU5MC45MTQ4MTc4MTE4NjU1LDcyTDYxNS4wMjI2ODIxODgxMzQ1LDcyUTYyMi4wOTM3NSw3MiA2MjIuMDkzNzUsNzkuMDcxMDY3ODExODY1NDhMNjIyLjA5Mzc1LDg2LjUiIGlkPSJteS1zdmctZWRnZTQiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgNjcuNDIxNzIyNDEyMTA5MzggMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2U0IiBkYXRhLXBvaW50cz0iVzNzaWVDSTZOVGd6TGpnME16YzFMQ0o1SWpvNU1uMHNleUo0SWpvMU9ETXVPRFF6TnpVc0lua2lPamN5ZlN4N0luZ2lPall5TWk0d09UTTNOU3dpZVNJNk56SjlMSHNpZUNJNk5qSXlMakE1TXpjMUxDSjVJam81TW4xZCIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48cGF0aCBkPSJNNjcyLjM0Mzc1LDEyNUw2ODUuMjcyNjgyMTg4MTM0NSwxMjVRNjkyLjM0Mzc1LDEyNSA2OTIuMzQzNzUsMTE3LjkyODkzMjE4ODEzNDUyTDY5Mi4zNDM3NSw1MS4wNzEwNjc4MTE4NjU0NzZRNjkyLjM0Mzc1LDQ0IDY5OS40MTQ4MTc4MTE4NjU1LDQ0TDc2NC42NDA2MjUsNDQiIGlkPSJteS1zdmctZWRnZTUiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgMTY3Ljk2ODU5NzQxMjEwOTM4IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlNSIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TmpjeUxqTTBNemMxTENKNUlqb3hNalY5TEhzaWVDSTZOamt5TGpNME16YzFMQ0o1SWpveE1qVjlMSHNpZUNJNk5qa3lMak0wTXpjMUxDSjVJam8wTkgwc2V5SjRJam8zTnpBdU1UUXdOakkxTENKNUlqbzBOSDFkIiBkYXRhLWxvb2s9Im5lbyIgbWFya2VyLWVuZD0idXJsKCNteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luKSIvPjxwYXRoIGQ9Ik02NzIuMzQzNzUsMTQ4TDc2NC42NDA2MjUsMTQ4IiBpZD0ibXktc3ZnLWVkZ2U2IiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDkyLjI5Njg3NSAwOyBzdHJva2UtZGFzaG9mZnNldDogMDtmaWxsOm5vbmU7OztmaWxsOm5vbmUiIGRhdGEtZWRnZT0idHJ1ZSIgZGF0YS1ldD0iZWRnZSIgZGF0YS1pZD0iZWRnZTYiIGRhdGEtcG9pbnRzPSJXM3NpZUNJNk5qY3lMak0wTXpjMUxDSjVJam94TkRoOUxIc2llQ0k2Tnpjd0xqRTBNRFl5TlN3aWVTSTZNVFE0ZlYwPSIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48cGF0aCBkPSJNNDM1Ljc5Njg3NSwyMTUuNTgzMzMzMzMzMzMzMzFMNDQ4LjcyNTgwNzE4ODEzNDUsMjE1LjU4MzMzMzMzMzMzMzMxUTQ1NS43OTY4NzUsMjE1LjU4MzMzMzMzMzMzMzMxIDQ1NS43OTY4NzUsMjIyLjY1NDQwMTE0NTE5ODhMNDU1Ljc5Njg3NSwyNTcuMzQ1NTk4ODU0ODAxMTVRNDU1Ljc5Njg3NSwyNjQuNDE2NjY2NjY2NjY2NjMgNDYyLjg2Nzk0MjgxMTg2NTUsMjY0LjQxNjY2NjY2NjY2NjYzTDQ4NC42OTUzMTI1LDI2NC40MTY2NjY2NjY2NjY2M0w3MjEuMjQyMTg3NSwyNjQuNDE2NjY2NjY2NjY2NjNMNzY0LjY0MDYyNSwyNjQuNDE2NjY2NjY2NjY2NjMiIGlkPSJteS1zdmctZWRnZTciIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgMzcyLjM0ODgxNTkxNzk2ODc1IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlNyIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TkRNMUxqYzVOamczTlN3aWVTSTZNakUxTGpVNE16TXpNek16TXpNek16TXhmU3g3SW5naU9qUTFOUzQzT1RZNE56VXNJbmtpT2pJeE5TNDFPRE16TXpNek16TXpNek16TVgwc2V5SjRJam8wTlRVdU56azJPRGMxTENKNUlqb3lOalF1TkRFMk5qWTJOalkyTmpZMk5qTjlMSHNpZUNJNk5EZzBMalk1TlRNeE1qVXNJbmtpT2pJMk5DNDBNVFkyTmpZMk5qWTJOalkyTTMwc2V5SjRJam8zTWpFdU1qUXlNVGczTlN3aWVTSTZNalkwTGpReE5qWTJOalkyTmpZMk5qWXpmU3g3SW5naU9qYzNNQzR4TkRBMk1qVXNJbmtpT2pJMk5DNDBNVFkyTmpZMk5qWTJOalkyTTMxZCIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48cGF0aCBkPSJNNjcyLjM0Mzc1LDE3MUw2ODUuMjcyNjgyMTg4MTM0NSwxNzFRNjkyLjM0Mzc1LDE3MSA2OTIuMzQzNzUsMTc4LjA3MTA2NzgxMTg2NTQ4TDY5Mi4zNDM3NSwyNDIuNjc4OTMyMTg4MTM0NTJRNjkyLjM0Mzc1LDI0OS43NSA2OTkuNDE0ODE3ODExODY1NSwyNDkuNzVMNzY0LjY0MDYyNSwyNDkuNzUiIGlkPSJteS1zdmctZWRnZTgiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgMTY1LjcxODU5NzQxMjEwOTM4IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlOCIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TmpjeUxqTTBNemMxTENKNUlqb3hOekY5TEhzaWVDSTZOamt5TGpNME16YzFMQ0o1SWpveE56RjlMSHNpZUNJNk5qa3lMak0wTXpjMUxDSjVJam95TkRrdU56VjlMSHNpZUNJNk56Y3dMakUwTURZeU5Td2llU0k2TWpRNUxqYzFmVjA9IiBkYXRhLWxvb2s9Im5lbyIgbWFya2VyLWVuZD0idXJsKCNteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luKSIvPjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVscyI+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTM0LCAxMjguMjUpIj48ZyBjbGFzcz0ibGFiZWwiIGRhdGEtaWQ9ImVkZ2UxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOC44OTg0Mzc1LCAtMjQpIj48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTcuNzk2ODc1IiBoZWlnaHQ9IjQ4Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBjbGFzcz0ibGFiZWxCa2ciIHN0eWxlPSJkaXNwbGF5OiB0YWJsZS1jZWxsOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDIwMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48c3BhbiBjbGFzcz0iZWRnZUxhYmVsIj48cD4xPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTAuODk4NDM3NSwgMjA3Ljc1KSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTguODk4NDM3NSwgLTI0KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjE3Ljc5Njg3NSIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+MjwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDg0LjY5NTMxMjUsIDE0Ny41KSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTguODk4NDM3NSwgLTI0KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjE3Ljc5Njg3NSIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+MzwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAyLjk2ODc1LCA0NCkiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04Ljg5ODQzNzUsIC0yNCkiPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxNy43OTY4NzUiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPjQ8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcyMS4yNDIxODc1LCA0My41KSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTguODk4NDM3NSwgLTI0KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjE3Ljc5Njg3NSIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+NTwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzIxLjI0MjE4NzUsIDE0Ny41KSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlNiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTguODk4NDM3NSwgLTI0KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjE3Ljc5Njg3NSIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+NjwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAyLjk2ODc1LCAyNzguMzMzMzMzMzMzMzMzMykiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04Ljg5ODQzNzUsIC0yNCkiPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxNy43OTY4NzUiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPjc8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcyMS4yNDIxODc1LCAyMzMuODMzMzMzMzMzMzMzMzEpIj48ZyBjbGFzcz0ibGFiZWwiIGRhdGEtaWQ9ImVkZ2U4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOC44OTg0Mzc1LCAtMjQpIj48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTcuNzk2ODc1IiBoZWlnaHQ9IjQ4Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBjbGFzcz0ibGFiZWxCa2ciIHN0eWxlPSJkaXNwbGF5OiB0YWJsZS1jZWxsOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDIwMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48c3BhbiBjbGFzcz0iZWRnZUxhYmVsIj48cD43PC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48L2c+PGcgY2xhc3M9Im5vZGVzIj48ZyBjbGFzcz0ibm9kZSAgc3RhdGVkaWFncmFtLXN0YXRlIiBpZD0ibXktc3ZnLXN0YXRlLUMtMiIgZGF0YS1sb29rPSJuZW8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzNCwgMjA4LjI1KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgcng9IjUiIHJ5PSI1IiB4PSItNjgiIHk9Ii0zMiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSI2NCIvPjxnIGNsYXNzPSJsYWJlbCIgc3R5bGU9IiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwLCAtMjQpIj48cmVjdC8+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDEyMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IHdpZHRoOiAxMjBweDsiPjxzcGFuIGNsYXNzPSJub2RlTGFiZWwgbWFya2Rvd24tbm9kZS1sYWJlbCI+PHA+Q2lvcm7EgzwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9Im5vZGUgIHN0YXRlZGlhZ3JhbS1zdGF0ZSIgaWQ9Im15LXN2Zy1zdGF0ZS1ULTciIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNjcuNzk2ODc1LCAyMDguMjUpIj48cmVjdCBjbGFzcz0iYmFzaWMgbGFiZWwtY29udGFpbmVyIiBzdHlsZT0iIiByeD0iNSIgcnk9IjUiIHg9Ii02OCIgeT0iLTMyIiB3aWR0aD0iMTM2IiBoZWlnaHQ9IjY0Ii8+PGcgY2xhc3M9ImxhYmVsIiBzdHlsZT0iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjAsIC0yNCkiPjxyZWN0Lz48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQ4Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogdGFibGU7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMTIwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsgd2lkdGg6IDEyMHB4OyI+PHNwYW4gY2xhc3M9Im5vZGVMYWJlbCBtYXJrZG93bi1ub2RlLWxhYmVsIj48cD5UcmltaXM8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlICBzdGF0ZWRpYWdyYW0tc3RhdGUiIGlkPSJteS1zdmctc3RhdGUtRS04IiBkYXRhLWxvb2s9Im5lbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAyLjk2ODc1LCAxNDgpIj48cmVjdCBjbGFzcz0iYmFzaWMgbGFiZWwtY29udGFpbmVyIiBzdHlsZT0iIiByeD0iNSIgcnk9IjUiIHg9Ii02OS4zNzUiIHk9Ii01NiIgd2lkdGg9IjEzOC43NSIgaGVpZ2h0PSIxMTIiLz48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MS4zNzUsIC00OCkiPjxyZWN0Lz48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTIyLjc1IiBoZWlnaHQ9Ijk2Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogdGFibGU7IHdoaXRlLXNwYWNlOiBicmVhay1zcGFjZXM7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMTIwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsgd2lkdGg6IDEyMHB4OyI+PHNwYW4gY2xhc3M9Im5vZGVMYWJlbCBtYXJrZG93bi1ub2RlLWxhYmVsIj48cD7Djm4gZXZhbHVhcmU8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlICBzdGF0ZWRpYWdyYW0tc3RhdGUiIGlkPSJteS1zdmctc3RhdGUtQS01IiBkYXRhLWxvb2s9Im5lbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODQwLjM5ODQzNzUsIDQ0KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgcng9IjUiIHJ5PSI1IiB4PSItNzAuMjU3ODEyNSIgeT0iLTMyIiB3aWR0aD0iMTQwLjUxNTYyNSIgaGVpZ2h0PSI2NCIvPjxnIGNsYXNzPSJsYWJlbCIgc3R5bGU9IiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYyLjI1NzgxMjUsIC0yNCkiPjxyZWN0Lz48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTI0LjUxNTYyNSIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlOyB3aGl0ZS1zcGFjZTogYnJlYWstc3BhY2VzOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDEyMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IHdpZHRoOiAxMjBweDsiPjxzcGFuIGNsYXNzPSJub2RlTGFiZWwgbWFya2Rvd24tbm9kZS1sYWJlbCI+PHA+QWNjZXB0YXQ8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlICBzdGF0ZWRpYWdyYW0tc3RhdGUiIGlkPSJteS1zdmctc3RhdGUtUi02IiBkYXRhLWxvb2s9Im5lbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODM4LjE0MDYyNSwgMTQ4KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgcng9IjUiIHJ5PSI1IiB4PSItNjgiIHk9Ii0zMiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSI2NCIvPjxnIGNsYXNzPSJsYWJlbCIgc3R5bGU9IiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwLCAtMjQpIj48cmVjdC8+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDEyMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IHdpZHRoOiAxMjBweDsiPjxzcGFuIGNsYXNzPSJub2RlTGFiZWwgbWFya2Rvd24tbm9kZS1sYWJlbCI+PHA+UmVzcGluczwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9Im5vZGUgIHN0YXRlZGlhZ3JhbS1zdGF0ZSIgaWQ9Im15LXN2Zy1zdGF0ZS1XLTgiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MzguMTQwNjI1LCAyNTcuMDgzMzMzMzMzMzMzMykiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHJ4PSI1IiByeT0iNSIgeD0iLTY4IiB5PSItMzIiIHdpZHRoPSIxMzYiIGhlaWdodD0iNjQiLz48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MCwgLTI0KSI+PHJlY3QvPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiB0YWJsZTsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAxMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyB3aWR0aDogMTIwcHg7Ij48c3BhbiBjbGFzcz0ibm9kZUxhYmVsIG1hcmtkb3duLW5vZGUtbGFiZWwiPjxwPlJldHJhczwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9Im5vZGUgZGVmYXVsdCIgaWQ9Im15LXN2Zy1zdGF0ZS1yb290X3N0YXJ0LTAiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOSwgMjA4LjI1KSI+PGNpcmNsZSBjbGFzcz0ic3RhdGUtc3RhcnQiIHI9IjciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIvPjwvZz48L2c+PC9nPjwvZz48ZGVmcz48ZmlsdGVyIGlkPSJteS1zdmctZHJvcC1zaGFkb3ciIGhlaWdodD0iMTMwJSIgd2lkdGg9IjEzMCUiPjxmZURyb3BTaGFkb3cgZHg9IjQiIGR5PSI0IiBzdGREZXZpYXRpb249IjAiIGZsb29kLW9wYWNpdHk9IjAuMDYiIGZsb29kLWNvbG9yPSIjMDAwMDAwIi8+PC9maWx0ZXI+PC9kZWZzPjxkZWZzPjxmaWx0ZXIgaWQ9Im15LXN2Zy1kcm9wLXNoYWRvdy1zbWFsbCIgaGVpZ2h0PSIxNTAlIiB3aWR0aD0iMTUwJSI+PGZlRHJvcFNoYWRvdyBkeD0iMiIgZHk9IjIiIHN0ZERldmlhdGlvbj0iMCIgZmxvb2Qtb3BhY2l0eT0iMC4wNiIgZmxvb2QtY29sb3I9IiMwMDAwMDAiLz48L2ZpbHRlcj48L2RlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJteS1zdmctZ3JhZGllbnQiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzA4NzM3MyIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJoc2woNzIsIDAlLCA4Ni4yNzQ1MDk4MDM5JSkiIHN0b3Atb3BhY2l0eT0iMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9zdmc+" style="max-width: 28.6em" />
+<img role="img" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibXktc3ZnIiB3aWR0aD0iMTAwJSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgY2xhc3M9InN0YXRlZGlhZ3JhbSIgc3R5bGU9Im1heC13aWR0aDogOTE0LjY1NnB4OyBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTsiIHZpZXdCb3g9IjQgNCA5MTQuNjU2MjUgMzA2LjMzMzM0MzUwNTg1OTQiIHJvbGU9ImdyYXBoaWNzLWRvY3VtZW50IGRvY3VtZW50IiBhcmlhLXJvbGVkZXNjcmlwdGlvbj0ic3RhdGVEaWFncmFtIiBhcmlhLWRlc2NyaWJlZGJ5PSJjaGFydC1kZXNjLW15LXN2ZyIgYXJpYS1sYWJlbGxlZGJ5PSJjaGFydC10aXRsZS1teS1zdmciPjx0aXRsZSBpZD0iY2hhcnQtdGl0bGUtbXktc3ZnIj5DaWNsdWwgZGUgdmlhyJvEgyBhbCB1bnVpIG1hbnVzY3JpczwvdGl0bGU+PGRlc2MgaWQ9ImNoYXJ0LWRlc2MtbXktc3ZnIj5UcmFuemnIm2lpbGUgbnVtZXJvdGF0ZSBzdW50IGV4cGxpY2F0ZSDDrm4gdGFiZWwuIERpbiBDaW9ybsSDIHNlIHRyZWNlIMOubiBUcmltaXMsIGRpbiBUcmltaXMgw65uIHN0YXJlYSDDjm4gZXZhbHVhcmUsIGRlIHVuZGUgc2UgYWp1bmdlIMOubiBBY2NlcHRhdCBzYXUgUmVzcGluczsgcmV0cmFnZXJlYSBkdWNlIGRpbiBUcmltaXMgc2F1IMOObiBldmFsdWFyZSDDrm4gUmV0cmFzLiBBdGHImWFyZWEgZmnImWllcnVsdWkgyJlpIMOubnJlZ2lzdHJhcmVhIHVudWkgcmFwb3J0IHDEg3N0cmVhesSDIHN0YXJlYS48L2Rlc2M+PHN0eWxlPiNteS1zdmd7Zm9udC1mYW1pbHk6QXJpYWw7Zm9udC1zaXplOjMycHg7ZmlsbDojMEEyMTQ1O31Aa2V5ZnJhbWVzIGVkZ2UtYW5pbWF0aW9uLWZyYW1le2Zyb217c3Ryb2tlLWRhc2hvZmZzZXQ6MDt9fUBrZXlmcmFtZXMgZGFzaHt0b3tzdHJva2UtZGFzaG9mZnNldDowO319I215LXN2ZyAuZWRnZS1hbmltYXRpb24tc2xvd3tzdHJva2UtZGFzaGFycmF5OjksNSFpbXBvcnRhbnQ7c3Ryb2tlLWRhc2hvZmZzZXQ6OTAwO2FuaW1hdGlvbjpkYXNoIDUwcyBsaW5lYXIgaW5maW5pdGU7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fSNteS1zdmcgLmVkZ2UtYW5pbWF0aW9uLWZhc3R7c3Ryb2tlLWRhc2hhcnJheTo5LDUhaW1wb3J0YW50O3N0cm9rZS1kYXNob2Zmc2V0OjkwMDthbmltYXRpb246ZGFzaCAyMHMgbGluZWFyIGluZmluaXRlO3N0cm9rZS1saW5lY2FwOnJvdW5kO30jbXktc3ZnIC5lcnJvci1pY29ue2ZpbGw6aHNsKDEyLCAyNi4zMTU3ODk0NzM3JSwgMTAwJSk7fSNteS1zdmcgLmVycm9yLXRleHR7ZmlsbDojMDAwMDAwO3N0cm9rZTojMDAwMDAwO30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy1ub3JtYWx7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyAuZWRnZS10aGlja25lc3MtdGhpY2t7c3Ryb2tlLXdpZHRoOjMuNXB4O30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tc29saWR7c3Ryb2tlLWRhc2hhcnJheTowO30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy1pbnZpc2libGV7c3Ryb2tlLXdpZHRoOjA7ZmlsbDpub25lO30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tZGFzaGVke3N0cm9rZS1kYXNoYXJyYXk6Mzt9I215LXN2ZyAuZWRnZS1wYXR0ZXJuLWRvdHRlZHtzdHJva2UtZGFzaGFycmF5OjI7fSNteS1zdmcgLm1hcmtlcntmaWxsOiMwODczNzM7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgLm1hcmtlci5jcm9zc3tzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyBzdmd7Zm9udC1mYW1pbHk6QXJpYWw7Zm9udC1zaXplOjMycHg7fSNteS1zdmcgcHttYXJnaW46MDt9I215LXN2ZyBkZWZzIFtpZCQ9Ii1iYXJiRW5kIl17ZmlsbDojMDg3MzczO3N0cm9rZTojMDg3MzczO30jbXktc3ZnIGcuc3RhdGVHcm91cCB0ZXh0e2ZpbGw6IzA4NzM3MztzdHJva2U6bm9uZTtmb250LXNpemU6MTBweDt9I215LXN2ZyBnLnN0YXRlR3JvdXAgdGV4dHtmaWxsOiMwQTIxNDU7c3Ryb2tlOm5vbmU7Zm9udC1zaXplOjEwcHg7fSNteS1zdmcgZy5zdGF0ZUdyb3VwIC5zdGF0ZS10aXRsZXtmb250LXdlaWdodDpib2xkZXI7ZmlsbDojMEEyMTQ1O30jbXktc3ZnIGcuc3RhdGVHcm91cCByZWN0e2ZpbGw6I0YzRjdGODtzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyBnLnN0YXRlR3JvdXAgbGluZXtzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MTt9I215LXN2ZyAudHJhbnNpdGlvbntzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MTtmaWxsOm5vbmU7fSNteS1zdmcgLnN0YXRlR3JvdXAgLmNvbXBvc2l0e2ZpbGw6I2Y0ZjRmNDtib3JkZXItYm90dG9tOjFweDt9I215LXN2ZyAuc3RhdGVHcm91cCAuYWx0LWNvbXBvc2l0e2ZpbGw6I2UwZTBlMDtib3JkZXItYm90dG9tOjFweDt9I215LXN2ZyAuc3RhdGUtbm90ZXtzdHJva2U6aHNsKDUyLjY4MjkyNjgyOTMsIDYwJSwgNzMuOTIxNTY4NjI3NSUpO2ZpbGw6I2ZmZjVhZDt9I215LXN2ZyAuc3RhdGUtbm90ZSB0ZXh0e2ZpbGw6IzMzMztzdHJva2U6bm9uZTtmb250LXNpemU6MTBweDt9I215LXN2ZyAuc3RhdGVMYWJlbCAuYm94e3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowO2ZpbGw6I0YzRjdGODtvcGFjaXR5OjAuNTt9I215LXN2ZyAuZWRnZUxhYmVsIC5sYWJlbCByZWN0e2ZpbGw6I0YzRjdGODtvcGFjaXR5OjAuNTt9I215LXN2ZyAuZWRnZUxhYmVse2JhY2tncm91bmQtY29sb3I6aHNsKDcyLCAyNi4zMTU3ODk0NzM3JSwgOTYuMjc0NTA5ODAzOSUpO3RleHQtYWxpZ246Y2VudGVyO30jbXktc3ZnIC5lZGdlTGFiZWwgcHtiYWNrZ3JvdW5kLWNvbG9yOmhzbCg3MiwgMjYuMzE1Nzg5NDczNyUsIDk2LjI3NDUwOTgwMzklKTt9I215LXN2ZyAuZWRnZUxhYmVsIHJlY3R7b3BhY2l0eTowLjU7YmFja2dyb3VuZC1jb2xvcjpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7ZmlsbDpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7fSNteS1zdmcgLmVkZ2VMYWJlbCAubGFiZWwgdGV4dHtmaWxsOiMwQTIxNDU7fSNteS1zdmcgLmxhYmVsIGRpdiAuZWRnZUxhYmVse2NvbG9yOiMwQTIxNDU7fSNteS1zdmcgLnN0YXRlTGFiZWwgdGV4dHtmaWxsOiMwQTIxNDU7Zm9udC1zaXplOjEwcHg7Zm9udC13ZWlnaHQ6Ym9sZDt9I215LXN2ZyAubm9kZSBjaXJjbGUuc3RhdGUtc3RhcnR7ZmlsbDojMDg3MzczO3N0cm9rZTojMDg3MzczO30jbXktc3ZnIC5ub2RlIC5mb3JrLWpvaW57ZmlsbDojMDg3MzczO3N0cm9rZTojMDg3MzczO30jbXktc3ZnIC5ub2RlIGNpcmNsZS5zdGF0ZS1lbmR7ZmlsbDojMDg3MzczO3N0cm9rZTojZjRmNGY0O3N0cm9rZS13aWR0aDoxLjU7fSNteS1zdmcgLmVuZC1zdGF0ZS1pbm5lcntmaWxsOiNmNGY0ZjQ7c3Ryb2tlLXdpZHRoOjEuNTt9I215LXN2ZyAubm9kZSByZWN0e2ZpbGw6I0YzRjdGODtzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIC5ub2RlIHBvbHlnb257ZmlsbDojRjNGN0Y4O3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgW2lkJD0iLWJhcmJFbmQiXXtmaWxsOiMwODczNzM7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1jbHVzdGVyIHJlY3R7ZmlsbDojRjNGN0Y4O3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgLmNsdXN0ZXItbGFiZWwsI215LXN2ZyAubm9kZUxhYmVse2NvbG9yOiMwQTIxNDU7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1jbHVzdGVyIHJlY3Qub3V0ZXJ7cng6NXB4O3J5OjVweDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLXN0YXRlIC5kaXZpZGVye3N0cm9rZTojMDg3MzczO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tc3RhdGUgLnRpdGxlLXN0YXRle3J4OjVweDtyeTo1cHg7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1jbHVzdGVyLnN0YXRlZGlhZ3JhbS1jbHVzdGVyIC5pbm5lcntmaWxsOiNmNGY0ZjQ7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1jbHVzdGVyLnN0YXRlZGlhZ3JhbS1jbHVzdGVyLWFsdCAuaW5uZXJ7ZmlsbDpoc2woMTIsIDI2LjMxNTc4OTQ3MzclLCAxMDAlKTt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIgLmlubmVye3J4OjA7cnk6MDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLXN0YXRlIHJlY3QuYmFzaWN7cng6NXB4O3J5OjVweDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLXN0YXRlIHJlY3QuZGl2aWRlcntzdHJva2UtZGFzaGFycmF5OjEwLDEwO2ZpbGw6aHNsKDEyLCAyNi4zMTU3ODk0NzM3JSwgMTAwJSk7fSNteS1zdmcgLm5vdGUtZWRnZXtzdHJva2UtZGFzaGFycmF5OjU7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1ub3RlIHJlY3R7ZmlsbDojZmZmNWFkO3N0cm9rZTpoc2woNTIuNjgyOTI2ODI5MywgNjAlLCA3My45MjE1Njg2Mjc1JSk7c3Ryb2tlLXdpZHRoOjFweDtyeDowO3J5OjA7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1ub3RlIHJlY3R7ZmlsbDojZmZmNWFkO3N0cm9rZTpoc2woNTIuNjgyOTI2ODI5MywgNjAlLCA3My45MjE1Njg2Mjc1JSk7c3Ryb2tlLXdpZHRoOjFweDtyeDowO3J5OjA7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1ub3RlIHRleHR7ZmlsbDojMzMzO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tbm90ZSAubm9kZUxhYmVse2NvbG9yOiMzMzM7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbSAuZWRnZUxhYmVse2NvbG9yOnJlZDt9I215LXN2ZyBbaWQkPSItZGVwZW5kZW5jeVN0YXJ0Il0sI215LXN2ZyBbaWQkPSItZGVwZW5kZW5jeUVuZCJde2ZpbGw6IzA4NzM3MztzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MTt9I215LXN2ZyAuc3RhdGVkaWFncmFtVGl0bGVUZXh0e3RleHQtYW5jaG9yOm1pZGRsZTtmb250LXNpemU6MThweDtmaWxsOiMwQTIxNDU7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uc3RhdGVkaWFncmFtLWNsdXN0ZXIgcmVjdHtmaWxsOiNGM0Y3Rjg7c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtzdHJva2Utd2lkdGg6MTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5zdGF0ZWRpYWdyYW0tY2x1c3RlciByZWN0Lm91dGVye3J4OjVweDtyeTo1cHg7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyAubm9kZSAubmVvLW5vZGV7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSByZWN0LCNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uY2x1c3RlciByZWN0LCNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBwb2x5Z29ue3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5zd2ltbGFuZS5jbHVzdGVyIHJlY3R7ZmlsdGVyOm5vbmU7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBwYXRoe3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIC5vdXRlci1wYXRoe2ZpbHRlcjpkcm9wLXNoYWRvdyggMXB4IDJweCAycHggcmdiYSgxODUsMTg1LDE4NSwxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSAubmVvLWxpbmUgcGF0aHtzdHJva2U6IzA4NzM3MztmaWx0ZXI6bm9uZTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIGNpcmNsZXtzdHJva2U6dXJsKCNteS1zdmctZ3JhZGllbnQpO2ZpbHRlcjpkcm9wLXNoYWRvdyggMXB4IDJweCAycHggcmdiYSgxODUsMTg1LDE4NSwxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBjaXJjbGUgLnN0YXRlLXN0YXJ0e2ZpbGw6IzAwMDAwMDt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5pY29uLXNoYXBlIC5pY29ue2ZpbGw6dXJsKCNteS1zdmctZ3JhZGllbnQpO2ZpbHRlcjpkcm9wLXNoYWRvdyggMXB4IDJweCAycHggcmdiYSgxODUsMTg1LDE4NSwxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uaWNvbi1zaGFwZSAuaWNvbi1uZW8gcGF0aHtzdHJva2U6dXJsKCNteS1zdmctZ3JhZGllbnQpO2ZpbHRlcjpkcm9wLXNoYWRvdyggMXB4IDJweCAycHggcmdiYSgxODUsMTg1LDE4NSwxKSk7fSNteS1zdmcgOnJvb3R7LS1tZXJtYWlkLWZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgbXMiLHZlcmRhbmEsYXJpYWwsc2Fucy1zZXJpZjt9PC9zdHlsZT48Zz48ZGVmcz48bWFya2VyIGlkPSJteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQiIHJlZlg9IjE5IiByZWZZPSI3IiBtYXJrZXJXaWR0aD0iMjAiIG1hcmtlckhlaWdodD0iMTQiIG1hcmtlclVuaXRzPSJzdHJva2VXaWR0aCIgb3JpZW50PSJhdXRvIj48cGF0aCBkPSJNIDE5LDcgTDExLDE0IEwxMyw3IEwxMSwwIFoiLz48L21hcmtlcj48L2RlZnM+PGRlZnM+PG1hcmtlciBpZD0ibXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbiIgcmVmWD0iMTciIHJlZlk9IjciIG1hcmtlcldpZHRoPSIyMCIgbWFya2VySGVpZ2h0PSIxNCIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMTksNyBMMTEsMTQgTDEzLDcgTDExLDAgWiIgZmlsbD0iIzA4NzM3MyIvPjwvbWFya2VyPjwvZGVmcz48ZyBjbGFzcz0icm9vdCI+PGcgY2xhc3M9ImNsdXN0ZXJzIi8+PGcgY2xhc3M9ImVkZ2VzIGVkZ2VQYXRocyI+PHBhdGggZD0iTTI2LDIwOC4yNUw2MC41LDIwOC4yNSIgaWQ9Im15LXN2Zy1lZGdlMCIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgdHJhbnNpdGlvbiIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCAzNC41IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlMCIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TWpZc0lua2lPakl3T0M0eU5YMHNleUo0SWpvMk5pd2llU0k2TWpBNExqSTFmVjA9IiBkYXRhLWxvb2s9Im5lbyIgbWFya2VyLWVuZD0idXJsKCNteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luKSIvPjxwYXRoIGQ9Ik0xMTUuMzMzMzMzMzMzMzMzMzMsMTc2LjI1TDExNS4zMzMzMzMzMzMzMzMzMywxNjMuMzIxMDY3ODExODY1NDhRMTE1LjMzMzMzMzMzMzMzMzMzLDE1Ni4yNSAxMjIuNDA0NDAxMTQ1MTk4OCwxNTYuMjVMMTQ1LjU5NTU5ODg1NDgwMTE4LDE1Ni4yNVExNTIuNjY2NjY2NjY2NjY2NjYsMTU2LjI1IDE1Mi42NjY2NjY2NjY2NjY2NiwxNjMuMzIxMDY3ODExODY1NDhMMTUyLjY2NjY2NjY2NjY2NjY2LDE3MC43NSIgaWQ9Im15LXN2Zy1lZGdlMSIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgdHJhbnNpdGlvbiIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCA2Ni41MDQ5ODE5OTQ2Mjg5IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlMSIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TVRFMUxqTXpNek16TXpNek16TXpNek16TENKNUlqb3hOell1TWpWOUxIc2llQ0k2TVRFMUxqTXpNek16TXpNek16TXpNek16TENKNUlqb3hOVFl1TWpWOUxIc2llQ0k2TVRVeUxqWTJOalkyTmpZMk5qWTJOalkyTENKNUlqb3hOVFl1TWpWOUxIc2llQ0k2TVRVeUxqWTJOalkyTmpZMk5qWTJOalkyTENKNUlqb3hOell1TWpWOVhRPT0iIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZC1tYXJnaW4pIi8+PHBhdGggZD0iTTIwMiwyMDguMjVMMjk0LjI5Njg3NSwyMDguMjUiIGlkPSJteS1zdmctZWRnZTIiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgOTIuMjk2ODc1IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlMiIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TWpBeUxDSjVJam95TURndU1qVjlMSHNpZUNJNk1qazVMamM1TmpnM05Td2llU0k2TWpBNExqSTFmVjA9IiBkYXRhLWxvb2s9Im5lbyIgbWFya2VyLWVuZD0idXJsKCNteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luKSIvPjxwYXRoIGQ9Ik00MzUuNzk2ODc1LDIwMC45MTY2NjY2NjY2NjY2Nkw0NDguNzI1ODA3MTg4MTM0NSwyMDAuOTE2NjY2NjY2NjY2NjZRNDU1Ljc5Njg3NSwyMDAuOTE2NjY2NjY2NjY2NjYgNDU1Ljc5Njg3NSwxOTMuODQ1NTk4ODU0ODAxMThMNDU1Ljc5Njg3NSwxNTUuMDcxMDY3ODExODY1NDhRNDU1Ljc5Njg3NSwxNDggNDYyLjg2Nzk0MjgxMTg2NTUsMTQ4TDUyOC4wOTM3NSwxNDgiIGlkPSJteS1zdmctZWRnZTMiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIHRyYW5zaXRpb24iIHN0eWxlPSJzdHJva2UtZGFzaGFycmF5OiAwIDAgMTM5Ljg4NTI1MzkwNjI1IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlMyIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TkRNMUxqYzVOamczTlN3aWVTSTZNakF3TGpreE5qWTJOalkyTmpZMk5qWTJmU3g3SW5naU9qUTFOUzQzT1RZNE56VXNJbmtpT2pJd01DNDVNVFkyTmpZMk5qWTJOalkyTm4wc2V5SjRJam8wTlRVdU56azJPRGMxTENKNUlqb3hORGg5TEhzaWVDSTZOVE16TGpVNU16YzFMQ0o1SWpveE5EaDlYUT09IiBkYXRhLWxvb2s9Im5lbyIgbWFya2VyLWVuZD0idXJsKCNteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luKSIvPjxwYXRoIGQ9Ik01ODMuODQzNzUsOTJMNTgzLjg0Mzc1LDc5LjA3MTA2NzgxMTg2NTQ4UTU4My44NDM3NSw3MiA1OTAuOTE0ODE3ODExODY1NSw3Mkw2MTUuMDIyNjgyMTg4MTM0NSw3MlE2MjIuMDkzNzUsNzIgNjIyLjA5Mzc1LDc5LjA3MTA2NzgxMTg2NTQ4TDYyMi4wOTM3NSw4Ni41IiBpZD0ibXktc3ZnLWVkZ2U0IiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDY3LjQyMTcyMjQxMjEwOTM4IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlNCIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TlRnekxqZzBNemMxTENKNUlqbzVNbjBzZXlKNElqbzFPRE11T0RRek56VXNJbmtpT2pjeWZTeDdJbmdpT2pZeU1pNHdPVE0zTlN3aWVTSTZOeko5TEhzaWVDSTZOakl5TGpBNU16YzFMQ0o1SWpvNU1uMWQiIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZC1tYXJnaW4pIi8+PHBhdGggZD0iTTY3Mi4zNDM3NSwxMjVMNjg1LjI3MjY4MjE4ODEzNDUsMTI1UTY5Mi4zNDM3NSwxMjUgNjkyLjM0Mzc1LDExNy45Mjg5MzIxODgxMzQ1Mkw2OTIuMzQzNzUsNTEuMDcxMDY3ODExODY1NDc2UTY5Mi4zNDM3NSw0NCA2OTkuNDE0ODE3ODExODY1NSw0NEw3NjQuNjQwNjI1LDQ0IiBpZD0ibXktc3ZnLWVkZ2U1IiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDE2Ny45Njg1OTc0MTIxMDkzOCAwOyBzdHJva2UtZGFzaG9mZnNldDogMDtmaWxsOm5vbmU7OztmaWxsOm5vbmUiIGRhdGEtZWRnZT0idHJ1ZSIgZGF0YS1ldD0iZWRnZSIgZGF0YS1pZD0iZWRnZTUiIGRhdGEtcG9pbnRzPSJXM3NpZUNJNk5qY3lMak0wTXpjMUxDSjVJam94TWpWOUxIc2llQ0k2TmpreUxqTTBNemMxTENKNUlqb3hNalY5TEhzaWVDSTZOamt5TGpNME16YzFMQ0o1SWpvME5IMHNleUo0SWpvM056QXVNVFF3TmpJMUxDSjVJam8wTkgxZCIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48cGF0aCBkPSJNNjcyLjM0Mzc1LDE0OEw3NjQuNjQwNjI1LDE0OCIgaWQ9Im15LXN2Zy1lZGdlNiIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgdHJhbnNpdGlvbiIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCA5Mi4yOTY4NzUgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2U2IiBkYXRhLXBvaW50cz0iVzNzaWVDSTZOamN5TGpNME16YzFMQ0o1SWpveE5EaDlMSHNpZUNJNk56Y3dMakUwTURZeU5Td2llU0k2TVRRNGZWMD0iIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZC1tYXJnaW4pIi8+PHBhdGggZD0iTTQzNS43OTY4NzUsMjE1LjU4MzMzMzMzMzMzMzMxTDQ0OC43MjU4MDcxODgxMzQ1LDIxNS41ODMzMzMzMzMzMzMzMVE0NTUuNzk2ODc1LDIxNS41ODMzMzMzMzMzMzMzMSA0NTUuNzk2ODc1LDIyMi42NTQ0MDExNDUxOTg4TDQ1NS43OTY4NzUsMjU3LjM0NTU5ODg1NDgwMTE1UTQ1NS43OTY4NzUsMjY0LjQxNjY2NjY2NjY2NjYzIDQ2Mi44Njc5NDI4MTE4NjU1LDI2NC40MTY2NjY2NjY2NjY2M0w0ODQuNjk1MzEyNSwyNjQuNDE2NjY2NjY2NjY2NjNMNzIxLjI0MjE4NzUsMjY0LjQxNjY2NjY2NjY2NjYzTDc2NC42NDA2MjUsMjY0LjQxNjY2NjY2NjY2NjYzIiBpZD0ibXktc3ZnLWVkZ2U3IiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDM3Mi4zNDg4MTU5MTc5Njg3NSAwOyBzdHJva2UtZGFzaG9mZnNldDogMDtmaWxsOm5vbmU7OztmaWxsOm5vbmUiIGRhdGEtZWRnZT0idHJ1ZSIgZGF0YS1ldD0iZWRnZSIgZGF0YS1pZD0iZWRnZTciIGRhdGEtcG9pbnRzPSJXM3NpZUNJNk5ETTFMamM1TmpnM05Td2llU0k2TWpFMUxqVTRNek16TXpNek16TXpNek14ZlN4N0luZ2lPalExTlM0M09UWTROelVzSW5raU9qSXhOUzQxT0RNek16TXpNek16TXpNek1YMHNleUo0SWpvME5UVXVOemsyT0RjMUxDSjVJam95TmpRdU5ERTJOalkyTmpZMk5qWTJOak45TEhzaWVDSTZORGcwTGpZNU5UTXhNalVzSW5raU9qSTJOQzQwTVRZMk5qWTJOalkyTmpZMk0zMHNleUo0SWpvM01qRXVNalF5TVRnM05Td2llU0k2TWpZMExqUXhOalkyTmpZMk5qWTJOall6ZlN4N0luZ2lPamMzTUM0eE5EQTJNalVzSW5raU9qSTJOQzQwTVRZMk5qWTJOalkyTmpZMk0zMWQiIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZC1tYXJnaW4pIi8+PHBhdGggZD0iTTY3Mi4zNDM3NSwxNzFMNjg1LjI3MjY4MjE4ODEzNDUsMTcxUTY5Mi4zNDM3NSwxNzEgNjkyLjM0Mzc1LDE3OC4wNzEwNjc4MTE4NjU0OEw2OTIuMzQzNzUsMjQyLjY3ODkzMjE4ODEzNDUyUTY5Mi4zNDM3NSwyNDkuNzUgNjk5LjQxNDgxNzgxMTg2NTUsMjQ5Ljc1TDc2NC42NDA2MjUsMjQ5Ljc1IiBpZD0ibXktc3ZnLWVkZ2U4IiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDE2NS43MTg1OTc0MTIxMDkzOCAwOyBzdHJva2UtZGFzaG9mZnNldDogMDtmaWxsOm5vbmU7OztmaWxsOm5vbmUiIGRhdGEtZWRnZT0idHJ1ZSIgZGF0YS1ldD0iZWRnZSIgZGF0YS1pZD0iZWRnZTgiIGRhdGEtcG9pbnRzPSJXM3NpZUNJNk5qY3lMak0wTXpjMUxDSjVJam94TnpGOUxIc2llQ0k2TmpreUxqTTBNemMxTENKNUlqb3hOekY5TEhzaWVDSTZOamt5TGpNME16YzFMQ0o1SWpveU5Ea3VOelY5TEhzaWVDSTZOemN3TGpFME1EWXlOU3dpZVNJNk1qUTVMamMxZlYwPSIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbHMiPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzNCwgMTI4LjI1KSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTguODk4NDM3NSwgLTI0KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjE3Ljc5Njg3NSIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+MTwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjUwLjg5ODQzNzUsIDIwNy43NSkiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04Ljg5ODQzNzUsIC0yNCkiPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxNy43OTY4NzUiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPjI8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4NC42OTUzMTI1LCAxNDcuNSkiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04Ljg5ODQzNzUsIC0yNCkiPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxNy43OTY4NzUiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPjM8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwMi45Njg3NSwgNDQpIj48ZyBjbGFzcz0ibGFiZWwiIGRhdGEtaWQ9ImVkZ2U0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOC44OTg0Mzc1LCAtMjQpIj48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTcuNzk2ODc1IiBoZWlnaHQ9IjQ4Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBjbGFzcz0ibGFiZWxCa2ciIHN0eWxlPSJkaXNwbGF5OiB0YWJsZS1jZWxsOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDIwMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48c3BhbiBjbGFzcz0iZWRnZUxhYmVsIj48cD40PC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MjEuMjQyMTg3NSwgNDMuNSkiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04Ljg5ODQzNzUsIC0yNCkiPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxNy43OTY4NzUiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPjU8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcyMS4yNDIxODc1LCAxNDcuNSkiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04Ljg5ODQzNzUsIC0yNCkiPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxNy43OTY4NzUiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPjY8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwMi45Njg3NSwgMjc4LjMzMzMzMzMzMzMzMzMpIj48ZyBjbGFzcz0ibGFiZWwiIGRhdGEtaWQ9ImVkZ2U3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOC44OTg0Mzc1LCAtMjQpIj48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTcuNzk2ODc1IiBoZWlnaHQ9IjQ4Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBjbGFzcz0ibGFiZWxCa2ciIHN0eWxlPSJkaXNwbGF5OiB0YWJsZS1jZWxsOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDIwMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7Ij48c3BhbiBjbGFzcz0iZWRnZUxhYmVsIj48cD43PC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MjEuMjQyMTg3NSwgMjMzLjgzMzMzMzMzMzMzMzMxKSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTguODk4NDM3NSwgLTI0KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjE3Ljc5Njg3NSIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+NzwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PC9nPjxnIGNsYXNzPSJub2RlcyI+PGcgY2xhc3M9Im5vZGUgIHN0YXRlZGlhZ3JhbS1zdGF0ZSIgaWQ9Im15LXN2Zy1zdGF0ZS1DLTIiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzQsIDIwOC4yNSkiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHJ4PSI1IiByeT0iNSIgeD0iLTY4IiB5PSItMzIiIHdpZHRoPSIxMzYiIGhlaWdodD0iNjQiLz48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MCwgLTI0KSI+PHJlY3QvPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiB0YWJsZTsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAxMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyB3aWR0aDogMTIwcHg7Ij48c3BhbiBjbGFzcz0ibm9kZUxhYmVsIG1hcmtkb3duLW5vZGUtbGFiZWwiPjxwPkNpb3JuxIM8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlICBzdGF0ZWRpYWdyYW0tc3RhdGUiIGlkPSJteS1zdmctc3RhdGUtVC03IiBkYXRhLWxvb2s9Im5lbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzY3Ljc5Njg3NSwgMjA4LjI1KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgcng9IjUiIHJ5PSI1IiB4PSItNjgiIHk9Ii0zMiIgd2lkdGg9IjEzNiIgaGVpZ2h0PSI2NCIvPjxnIGNsYXNzPSJsYWJlbCIgc3R5bGU9IiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwLCAtMjQpIj48cmVjdC8+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSI0OCI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDEyMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IHdpZHRoOiAxMjBweDsiPjxzcGFuIGNsYXNzPSJub2RlTGFiZWwgbWFya2Rvd24tbm9kZS1sYWJlbCI+PHA+VHJpbWlzPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0ibm9kZSAgc3RhdGVkaWFncmFtLXN0YXRlIiBpZD0ibXktc3ZnLXN0YXRlLUUtOCIgZGF0YS1sb29rPSJuZW8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwMi45Njg3NSwgMTQ4KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgcng9IjUiIHJ5PSI1IiB4PSItNjkuMzc1IiB5PSItNTYiIHdpZHRoPSIxMzguNzUiIGhlaWdodD0iMTEyIi8+PGcgY2xhc3M9ImxhYmVsIiBzdHlsZT0iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjEuMzc1LCAtNDgpIj48cmVjdC8+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEyMi43NSIgaGVpZ2h0PSI5NiI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlOyB3aGl0ZS1zcGFjZTogYnJlYWstc3BhY2VzOyBsaW5lLWhlaWdodDogMS41OyBtYXgtd2lkdGg6IDEyMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IHdpZHRoOiAxMjBweDsiPjxzcGFuIGNsYXNzPSJub2RlTGFiZWwgbWFya2Rvd24tbm9kZS1sYWJlbCI+PHA+w45uIGV2YWx1YXJlPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0ibm9kZSAgc3RhdGVkaWFncmFtLXN0YXRlIiBpZD0ibXktc3ZnLXN0YXRlLUEtNSIgZGF0YS1sb29rPSJuZW8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg0MC4zOTg0Mzc1LCA0NCkiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHJ4PSI1IiByeT0iNSIgeD0iLTcwLjI1NzgxMjUiIHk9Ii0zMiIgd2lkdGg9IjE0MC41MTU2MjUiIGhlaWdodD0iNjQiLz48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02Mi4yNTc4MTI1LCAtMjQpIj48cmVjdC8+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEyNC41MTU2MjUiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiB0YWJsZTsgd2hpdGUtc3BhY2U6IGJyZWFrLXNwYWNlczsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAxMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyB3aWR0aDogMTIwcHg7Ij48c3BhbiBjbGFzcz0ibm9kZUxhYmVsIG1hcmtkb3duLW5vZGUtbGFiZWwiPjxwPkFjY2VwdGF0PC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0ibm9kZSAgc3RhdGVkaWFncmFtLXN0YXRlIiBpZD0ibXktc3ZnLXN0YXRlLVItNiIgZGF0YS1sb29rPSJuZW8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgzOC4xNDA2MjUsIDE0OCkiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHJ4PSI1IiByeT0iNSIgeD0iLTY4IiB5PSItMzIiIHdpZHRoPSIxMzYiIGhlaWdodD0iNjQiLz48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MCwgLTI0KSI+PHJlY3QvPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDgiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiB0YWJsZTsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAxMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyB3aWR0aDogMTIwcHg7Ij48c3BhbiBjbGFzcz0ibm9kZUxhYmVsIG1hcmtkb3duLW5vZGUtbGFiZWwiPjxwPlJlc3BpbnM8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlICBzdGF0ZWRpYWdyYW0tc3RhdGUiIGlkPSJteS1zdmctc3RhdGUtVy04IiBkYXRhLWxvb2s9Im5lbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODM4LjE0MDYyNSwgMjU3LjA4MzMzMzMzMzMzMzMpIj48cmVjdCBjbGFzcz0iYmFzaWMgbGFiZWwtY29udGFpbmVyIiBzdHlsZT0iIiByeD0iNSIgcnk9IjUiIHg9Ii02OCIgeT0iLTMyIiB3aWR0aD0iMTM2IiBoZWlnaHQ9IjY0Ii8+PGcgY2xhc3M9ImxhYmVsIiBzdHlsZT0iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjAsIC0yNCkiPjxyZWN0Lz48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQ4Ij48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogdGFibGU7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMTIwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsgd2lkdGg6IDEyMHB4OyI+PHNwYW4gY2xhc3M9Im5vZGVMYWJlbCBtYXJrZG93bi1ub2RlLWxhYmVsIj48cD5SZXRyYXM8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlIGRlZmF1bHQiIGlkPSJteS1zdmctc3RhdGUtcm9vdF9zdGFydC0wIiBkYXRhLWxvb2s9Im5lbyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTksIDIwOC4yNSkiPjxjaXJjbGUgY2xhc3M9InN0YXRlLXN0YXJ0IiByPSI3IiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiLz48L2c+PC9nPjwvZz48L2c+PGRlZnM+PGZpbHRlciBpZD0ibXktc3ZnLWRyb3Atc2hhZG93IiBoZWlnaHQ9IjEzMCUiIHdpZHRoPSIxMzAlIj48ZmVEcm9wU2hhZG93IGR4PSI0IiBkeT0iNCIgc3RkRGV2aWF0aW9uPSIwIiBmbG9vZC1vcGFjaXR5PSIwLjA2IiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIvPjwvZmlsdGVyPjwvZGVmcz48ZGVmcz48ZmlsdGVyIGlkPSJteS1zdmctZHJvcC1zaGFkb3ctc21hbGwiIGhlaWdodD0iMTUwJSIgd2lkdGg9IjE1MCUiPjxmZURyb3BTaGFkb3cgZHg9IjIiIGR5PSIyIiBzdGREZXZpYXRpb249IjAiIGZsb29kLW9wYWNpdHk9IjAuMDYiIGZsb29kLWNvbG9yPSIjMDAwMDAwIi8+PC9maWx0ZXI+PC9kZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0ibXktc3ZnLWdyYWRpZW50IiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwODczNzMiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iaHNsKDcyLCAwJSwgODYuMjc0NTA5ODAzOSUpIiBzdG9wLW9wYWNpdHk9IjEiLz48L2xpbmVhckdyYWRpZW50Pjwvc3ZnPg==" style="max-width: 28.6em" />
 </div><div class="column" style="width:40%;">
 <div class="table-wrap">
 <table>
@@ -771,7 +771,7 @@ break-inside: avoid;
 </div>
 </div>
 </div>
-<p>Evenimentele refuzate nu sunt desenate. Diagrama arată rapid ce lipsește: din <span class="stare">Acceptat</span>, <span class="stare">Respins</span>, <span class="stare">Retras</span> nu pleacă nimic.</p>
+<p>Evenimentele refuzate nu sunt desenate. Diagrama arată <span class="nowrap">dintr-o</span> privire stările fără ieșiri: din <span class="stare">Acceptat</span>, <span class="stare">Respins</span> și <span class="stare">Retras</span> nu pleacă nicio săgeată.</p>
 </div>
 <div id="scenariul-s1-parcurs-normal" class="slide section level1">
 <h1>Scenariul S1 (parcurs normal)</h1>
@@ -803,7 +803,7 @@ break-inside: avoid;
 <td align="left">2</td>
 <td align="left"><span class="operatie">trimite</span></td>
 <td align="left"><span class="stare">Trimis</span></td>
-<td align="left">data trimiterii</td>
+<td align="left">momentul trimiterii</td>
 </tr>
 <tr>
 <td align="left">3</td>
@@ -821,7 +821,7 @@ break-inside: avoid;
 <td align="left">5</td>
 <td align="left"><span class="operatie">acceptă</span></td>
 <td align="left"><span class="stare">Acceptat</span></td>
-<td align="left">data deciziei</td>
+<td align="left">momentul deciziei</td>
 </tr>
 </tbody>
 </table>
@@ -830,15 +830,15 @@ break-inside: avoid;
 </div>
 <div id="retragerea-și-decizia-ulterioară" class="slide section level1">
 <h1>Retragerea și decizia ulterioară</h1>
-<p><strong>Din I0:</strong> M în <span class="stare">Ciornă</span>, fără date. În <span class="stare">Ciornă</span> putem atașa un fișier, apoi trimite manuscrisul; <span class="operatie">trimite</span> înregistrează data. Din <span class="stare">Trimis</span>, <span class="operatie">preia(E1)</span> înregistrează editorul și trece <span class="stare">În evaluare</span>, unde putem adăuga rapoarte.</p>
-<p><strong>Reguli:</strong> <span class="operatie">retrage</span> din <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span> duce în <span class="stare">Retras</span> și înregistrează data; <span class="operatie">acceptă</span> cere <span class="stare">În evaluare</span> și cel puțin un raport. Datele existente se păstrează. Din <span class="stare">Retras</span>, orice eveniment este refuzat, fără modificări.</p>
+<p><strong>Din I0:</strong> M în <span class="stare">Ciornă</span>, fără date. În <span class="stare">Ciornă</span> putem atașa un fișier, apoi trimite manuscrisul; <span class="operatie">trimite</span> înregistrează momentul trimiterii. Din <span class="stare">Trimis</span>, <span class="operatie">preia(E1)</span> înregistrează editorul și trece <span class="stare">În evaluare</span>, unde putem adăuga rapoarte.</p>
+<p><strong>Reguli:</strong> <span class="operatie">retrage</span> din <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span> duce în <span class="stare">Retras</span> și înregistrează momentul retragerii; <span class="operatie">acceptă</span> cere <span class="stare">În evaluare</span> și cel puțin un raport. Datele existente se păstrează. Din <span class="stare">Retras</span>, orice eveniment este refuzat, fără modificări.</p>
 <p><strong>Scenariul S3 (retragere din evaluare):</strong> din I0, <span class="operatie">atașează(f1)</span>, <span class="operatie">trimite</span>, <span class="operatie">preia(E1)</span>, <span class="operatie">înregistrează raport(Rp1)</span>, apoi <span class="operatie">retrage</span>.</p>
 <p><strong>Scenariul S4 (decizie după retragere):</strong> continuarea lui S3: <span class="operatie">acceptă</span>.</p>
 <p>Pe hârtie, apoi discutăm: pentru fiecare pas din S3 și pentru S4, permis sau refuzat, starea și datele de după. <strong>Ce vede editorul la S4 și ce rămâne din munca lui?</strong></p>
 </div>
 <div id="scenariul-s6-două-ordini-două-rezultate" class="slide section level1">
 <h1>Scenariul S6 (două ordini): două rezultate</h1>
-<p><strong>Reguli:</strong> <span class="operatie">acceptă</span> numai <span class="stare">În evaluare</span>, cu cel puțin un raport → <span class="stare">Acceptat</span>; <span class="operatie">retrage</span> numai în <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span> → <span class="stare">Retras</span>; <span class="stare">Acceptat</span> și <span class="stare">Retras</span> sunt finale intenționate; evenimentul nepermis este refuzat.</p>
+<p><strong>Reguli:</strong> <span class="operatie">acceptă</span> este permis numai <span class="stare">În evaluare</span>, cu cel puțin un raport, și duce în <span class="stare">Acceptat</span>; <span class="operatie">retrage</span> este permis numai în <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span> și duce în <span class="stare">Retras</span>; <span class="stare">Acceptat</span> și <span class="stare">Retras</span> sunt stări finale intenționate; evenimentul nepermis este refuzat.</p>
 <p><strong>Punctul de pornire, comun:</strong> M <span class="stare">În evaluare</span>, fișier f1, editor E1, rapoarte [Rp1].</p>
 <div class="table-wrap">
 <table>
@@ -870,7 +870,7 @@ break-inside: avoid;
 </div>
 <div id="stări-finale-intenționate" class="slide section level1">
 <h1>Stări finale intenționate</h1>
-<p><strong>R8 (datele se păstrează):</strong> <span class="stare">Acceptat</span>, <span class="stare">Respins</span> și <span class="stare">Retras</span> nu au tranziții de ieșire, <strong>prin decizia beneficiarului</strong>: retrimiterea și programarea publicării sunt în afara exercițiului.</p>
+<p><strong>R8 (date păstrate, stări finale):</strong> <span class="stare">Acceptat</span>, <span class="stare">Respins</span> și <span class="stare">Retras</span> nu au tranziții de ieșire, <strong>prin decizia beneficiarului</strong>: retrimiterea și programarea publicării sunt în afara exercițiului.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -912,14 +912,13 @@ break-inside: avoid;
 </div>
 <div id="tabelul-propus-p" class="slide section level1">
 <h1>Tabelul propus P</h1>
-<p><strong>Propunere</strong> de tabel de tranziții pentru manuscris, pe care o verificăm față de reguli:</p>
 <div class="table-wrap">
 <table>
 <colgroup>
 <col width="25%" />
 <col width="30%" />
-<col width="24%" />
-<col width="20%" />
+<col width="22%" />
+<col width="22%" />
 </colgroup>
 <thead>
 <tr>
@@ -950,15 +949,9 @@ break-inside: avoid;
 </tr>
 <tr>
 <td align="left"><span class="stare">În evaluare</span></td>
-<td align="left"><span class="operatie">acceptă</span></td>
+<td align="left"><span class="operatie">acceptă</span> / <span class="operatie">respinge</span></td>
 <td align="left">cel puțin un raport</td>
-<td align="left"><span class="stare">Acceptat</span></td>
-</tr>
-<tr>
-<td align="left"><span class="stare">În evaluare</span></td>
-<td align="left"><span class="operatie">respinge</span></td>
-<td align="left">cel puțin un raport</td>
-<td align="left"><span class="stare">Respins</span></td>
+<td align="left"><span class="stare">Acceptat</span> / <span class="stare">Respins</span></td>
 </tr>
 <tr>
 <td align="left"><span class="stare">Trimis</span>, <span class="stare">În evaluare</span></td>
@@ -969,8 +962,8 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p><strong>Altfel: refuzat. Reguli:</strong> trimiterea cere fișier; <span class="stare">În evaluare</span> putem înregistra rapoarte; deciziile cer un raport.</p>
-<p>Pe hârtie, apoi discutăm: <strong>scenariul S2 (trimitere fără fișier)</strong>, din I0 (<span class="stare">Ciornă</span>, fără date): <span class="operatie">trimite</span>, apoi <span class="operatie">preia(E1)</span>. În ce stare ajunge M sub P după fiecare pas? Ce cer regulile?</p>
+<p><strong>Altfel: refuzat. Reguli:</strong> trimiterea cere fișier; deciziile cer un raport, înregistrat În evaluare.</p>
+<p>Pe hârtie, apoi discutăm: din I0 (<span class="stare">Ciornă</span>, fără date), <strong>scenariul S2 (trimitere fără fișier)</strong>, <span class="operatie">trimite</span>, apoi <span class="operatie">preia(E1)</span>. Unde ajunge M sub P după fiecare pas? Ce cer regulile?</p>
 </div>
 <div id="ce-permite-și-ce-nu-permite-p" class="slide section level1">
 <h1>Ce permite și ce nu permite P?</h1>
@@ -978,13 +971,13 @@ break-inside: avoid;
 <p><strong>Regulile enunțului:</strong> trimiterea cere fișier; <span class="stare">În evaluare</span> putem înregistra rapoarte, necesare deciziilor. <strong>I0:</strong> <span class="stare">Ciornă</span>, fără date.</p>
 <p>Pe hârtie, apoi discutăm:</p>
 <ol style="list-style-type: decimal">
-<li>După S2, M este <span class="stare">În evaluare</span>, fără raport. Ce evenimente permite P de aici? Găsiți o secvență care duce M în <span class="stare">Acceptat</span> sub P sau explicați de ce nu există.</li>
+<li>După <span class="operatie">trimite</span> și <span class="operatie">preia(E1)</span>, M este <span class="stare">În evaluare</span>, fără fișier și fără raport. Ce evenimente permite P de aici? Găsiți o secvență care duce M în <span class="stare">Acceptat</span> sub P sau explicați de ce nu există.</li>
 <li>Care rând lipsește și care condiție lipsește?</li>
 </ol>
 </div>
 <div id="interzisă-finală-sau-inaccesibilă" class="slide section level1">
 <h1>Interzisă, finală sau inaccesibilă?</h1>
-<p>Trei cazuri care arată la fel, „nu se mai poate face X”; numai ultimul este o greșeală de model:</p>
+<p>Aceeași observație, „nu se mai poate face X”, are trei cauze; numai ultima este o greșeală de model:</p>
 <div class="table-wrap">
 <table style="width:100%;">
 <colgroup>
@@ -994,7 +987,7 @@ break-inside: avoid;
 </colgroup>
 <thead>
 <tr>
-<th align="left">Cazul</th>
+<th align="left">Cauza</th>
 <th align="left">Exemplu</th>
 <th align="left">Ce înseamnă</th>
 </tr>
@@ -1011,18 +1004,18 @@ break-inside: avoid;
 <td align="left">nicio ieșire, prin decizia beneficiarului</td>
 </tr>
 <tr>
-<td align="left"><strong>Obiectiv inaccesibil</strong></td>
+<td align="left"><strong>Stare inaccesibilă</strong></td>
 <td align="left"><span class="stare">Acceptat</span>, sub P</td>
-<td align="left">nicio secvență permisă din I0 nu ajunge acolo; P este greșit</td>
+<td align="left">nicio secvență permisă din I0 nu ajunge acolo, deși regulile o cer: P este greșit</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Un <strong>blocaj</strong> este cazul extrem: o stare în care niciun eveniment nu mai este permis, fără să fie finală intenționată. Sub P, <span class="stare">În evaluare</span> nu este blocaj (<span class="operatie">retrage</span> rămâne permis), dar obiectivul cerut de reguli este inaccesibil.</p>
+<p>Un <strong>blocaj</strong> este forma extremă: o stare în care niciun eveniment nu mai este permis, fără să fie finală intenționată. Sub P, <span class="stare">În evaluare</span> nu este blocaj (<span class="operatie">retrage</span> rămâne permis), dar starea <span class="stare">Acceptat</span>, cerută de reguli, este inaccesibilă.</p>
 </div>
 <div id="corecția-noastră" class="slide section level1">
 <h1>Corecția noastră</h1>
-<p><strong>R3 (pregătire și trimitere):</strong> <span class="operatie">trimite</span> numai în <span class="stare">Ciornă</span> și numai cu fișier. <strong>R4 (evaluare):</strong> <span class="operatie">înregistrează raport(r)</span> numai <span class="stare">În evaluare</span>, starea rămâne.</p>
+<p><strong>R3 (pregătire și trimitere):</strong> <span class="operatie">trimite</span> este permis numai în <span class="stare">Ciornă</span> și numai cu fișier. <strong>R4 (evaluare):</strong> <span class="operatie">înregistrează raport(r)</span> este permis numai <span class="stare">În evaluare</span> și păstrează starea.</p>
 <div class="table-wrap">
 <table style="width:100%;">
 <colgroup>
@@ -1047,14 +1040,14 @@ break-inside: avoid;
 <td align="left"><span class="operatie">trimite</span></td>
 <td align="left"><strong>există fișier</strong></td>
 <td align="left"><span class="stare">Trimis</span></td>
-<td align="left">data trimiterii</td>
+<td align="left">momentul trimiterii</td>
 </tr>
 <tr>
 <td align="left"><span class="stare">În evaluare</span></td>
 <td align="left"><strong><span class="operatie">înregistrează raport(r)</span></strong></td>
 <td align="left">—</td>
 <td align="left"><span class="stare">În evaluare</span></td>
-<td align="left">r se adaugă</td>
+<td align="left">rapoarte: + r</td>
 </tr>
 </tbody>
 </table>
@@ -1064,7 +1057,7 @@ break-inside: avoid;
 <div id="ce-stabilește-o-trasare" class="slide section level1">
 <h1>Ce stabilește o trasare</h1>
 <p><strong>Scenariul S1 (parcurs normal)</strong> arată că <span class="stare">Acceptat</span> este accesibil: o secvență ajunge acolo.</p>
-<p><strong>„Niciun manuscris fără fișier nu ajunge <span class="stare">În evaluare</span>”</strong> privește <strong>toate</strong> secvențele. O trasare nu o poate stabili; o justificăm din I0: intrarea în <span class="stare">Trimis</span> cere fișier, intrarea <span class="stare">În evaluare</span> se face numai din <span class="stare">Trimis</span>, iar fișierul nu se șterge. Afirmația este un <strong>invariant</strong> (ultimul rând).</p>
+<p><strong>„Orice manuscris în <span class="stare">Trimis</span> sau <span class="stare">În evaluare</span> are fișier”</strong> privește <strong>toate</strong> secvențele. O trasare nu o poate stabili; o justificăm pornind din I0: intrarea în <span class="stare">Trimis</span> cere fișier, intrarea <span class="stare">În evaluare</span> se face numai din <span class="stare">Trimis</span>, iar fișierul nu se șterge. Afirmația este un <strong>invariant</strong> (ultimul rând).</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -1087,8 +1080,8 @@ break-inside: avoid;
 <td align="left">un argument despre toate secvențele</td>
 </tr>
 <tr>
-<td align="left">un invariant, ca în cursul 6: o proprietate adevărată după orice secvență</td>
-<td align="left">este adevărată inițial și păstrată de fiecare tranziție</td>
+<td align="left">un invariant (cursul 6): o proprietate adevărată la orice moment</td>
+<td align="left">adevărată în I0 și păstrată de fiecare tranziție</td>
 </tr>
 </tbody>
 </table>
@@ -1110,47 +1103,12 @@ break-inside: avoid;
 <h1>Ce propune analistul AI?</h1>
 <p><strong>Analistul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:</strong></p>
 <blockquote>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-</colgroup>
-<thead>
-<tr>
-<th>Starea curentă</th>
-<th>Eveniment</th>
-<th>Condiție</th>
-<th>Starea următoare</th>
-<th>Efect asupra datelor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[…]</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="stare">În evaluare</span></td>
-<td><code>accepta</code></td>
-<td>≥1 raport</td>
-<td><span class="stare">Acceptat</span></td>
-<td>Decizie + dată înregistrate; <strong>toate datele anterioare păstrate</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>[…]</p>
 <p><strong>S1</strong> (normal): ataseaza(f1)✓→<span class="stare">Ciornă</span>, trimite✓→<span class="stare">Trimis</span>, preia(E1)✓→ÎnEval, inregistreaza_raport(Rp1)✓→ÎnEval, accepta✓→<span class="stare">Acceptat</span>. ✓ <strong>Permis</strong> complet.</p>
 <p><strong><span class="stare">Acceptat</span> accesibil din <span class="stare">Ciornă</span> nouă?</strong> <strong>NU.</strong> Singura cale către <span class="stare">Acceptat</span> este evenimentul <code>accepta</code> din ÎnEval, care necesită ≥1 raport. […] Lanțul este <strong>unic: <span class="stare">Ciornă</span> → <span class="stare">Trimis</span> → ÎnEval → <span class="stare">Acceptat</span></strong>. <span class="stare">Acceptat</span> nu este direct accesibil din <span class="stare">Ciornă</span>.</p>
 </blockquote>
 <p><strong>Enunțul trimis</strong> cerea „dacă <span class="stare">Acceptat</span> este accesibil <span class="nowrap">dintr-o</span> ciornă nouă”, fără să definească „accesibil”. <strong>Regulă:</strong> <span class="operatie">acceptă</span> numai <span class="stare">În evaluare</span>, cu cel puțin un raport.</p>
-<p><strong>Ce sens dă analistul AI cuvântului „accesibil”? Cu ce sens se potrivește „NU” cu propria trasare S1 (parcurs normal)?</strong></p>
+<p><strong>Ce sens dă analistul AI cuvântului „accesibil”? Cu ce sens sunt compatibile „NU” și propria lui trasare S1 (parcurs normal)?</strong></p>
 </div>
 <div id="promptul-evaluatorului-ai" class="slide section level1">
 <h1>Promptul evaluatorului AI</h1>
@@ -1159,7 +1117,7 @@ break-inside: avoid;
 <blockquote>
 <p>Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret, cu starea de pornire și rezultatul așteptat. Verifică fiecare rând al tabelului de tranziții, condițiile, efectele, evenimentele refuzate, datele păstrate, stările finale intenționate și accesibilitatea lui <span class="stare">Acceptat</span>. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.</p>
 </blockquote>
-<p><strong>Reper:</strong> enunțul nu spune dacă „accesibil” înseamnă <span class="nowrap">„într-un</span> pas” sau <span class="nowrap">„printr-o</span> secvență permisă”. Propunerea ajunge în <span class="stare">Acceptat</span> prin scenariul S1 (parcurs normal), dar răspunde „NU”: folosește primul sens, fără să o spună. <strong>Va semnala evaluatorul AI sensul ales?</strong></p>
+<p><strong>Predicție, înainte de a vedea răspunsul:</strong> propunerea ajunge în <span class="stare">Acceptat</span> prin scenariul S1 (parcurs normal), dar răspunde „NU”, fără să spună în ce sens. Va semnala evaluatorul AI sensul ales?</p>
 </div>
 <div id="revizuirea-confirmă-fiecare-fragment" class="slide section level1">
 <h1>Revizuirea confirmă fiecare fragment</h1>
@@ -1174,7 +1132,7 @@ break-inside: avoid;
 </div>
 <div id="decizia-noastră" class="slide section level1">
 <h1>Decizia noastră</h1>
-<p><strong>Păstrăm</strong> din propunere tabelul de tranziții, scenariile <span class="nowrap">S1–S7,</span> datele păstrate și stările finale intenționate: sunt susținute de reguli, cu precizarea că verificăm rezultatele față de enunțul trimis atunci.</p>
+<p><strong>Păstrăm</strong> din propunere tabelul de tranziții, scenariile <span class="nowrap">S1–S7,</span> datele păstrate și stările finale intenționate: sunt susținute de regulile enunțului trimis.</p>
 <p><strong>Precizăm</strong> un punct: analistul AI a citit „accesibil” ca <span class="nowrap">„într-un</span> pas”, un sens consacrat (de exemplu, în modelele Kripke), cu care „NU” este corect. Noi voiam sensul <span class="nowrap">„printr-o</span> secvență de evenimente permise”: cu el, <strong><span class="stare">Acceptat</span> este accesibil</strong> <span class="nowrap">dintr-o</span> ciornă nouă, prin scenariul S1 (parcurs normal).</p>
 <p><strong>Clarificăm enunțul:</strong> ambiguitatea era a noastră. „Accesibil din I0” înseamnă acum explicit că există o secvență de evenimente permise din I0 până la starea căutată. Capturile păstrează formularea inițială.</p>
 </div>
@@ -1184,12 +1142,12 @@ break-inside: avoid;
 </div>
 <div id="o-comandă-la-cafenea" class="slide section level1">
 <h1>O comandă la cafenea</h1>
-<p><strong>Enunț nou:</strong> o comandă este Plasată, apoi În pregătire, apoi Gata, apoi Ridicată. <code>anulează</code> este permisă <strong>numai</strong> în Plasată și duce în Anulată. Ridicată și Anulată nu mai permit evenimente. Evenimentele nepermise sunt refuzate, fără modificări; produsele comandate și momentul comenzii se păstrează.</p>
-<p><strong>Înainte:</strong> comanda K este În pregătire, cu două produse.</p>
+<p><strong>Enunț nou:</strong> o comandă este <span class="stare">Plasată</span>, apoi <span class="stare">În pregătire</span>, apoi <span class="stare">Gata</span>, apoi <span class="stare">Ridicată</span>. <span class="operatie">anulează</span> este permis <strong>numai</strong> în <span class="stare">Plasată</span> și duce în <span class="stare">Anulată</span>. <span class="stare">Ridicată</span> și <span class="stare">Anulată</span> nu mai permit evenimente. Evenimentele nepermise sunt refuzate, fără modificări; produsele comandate și momentul comenzii se păstrează.</p>
+<p><strong>Înainte:</strong> comanda K este <span class="stare">În pregătire</span>, cu două produse.</p>
 <ol style="list-style-type: decimal">
-<li><code>anulează(K)</code>: permisă sau refuzată? Este o tranziție interzisă sau un rând uitat?</li>
-<li>Este Ridicată o stare finală intenționată? Dar Gata?</li>
-<li><strong>Independent</strong>, o comandă J este Plasată, cu două cafele, la ora 10:15. După <code>anulează(J)</code>, ce rămâne înregistrat?</li>
+<li><span class="operatie">anulează(K)</span>: permis sau refuzat? Este o tranziție interzisă sau un rând uitat?</li>
+<li>Este <span class="stare">Ridicată</span> o stare finală intenționată? Dar <span class="stare">Gata</span>?</li>
+<li>Independent, din altă stare: o comandă J este <span class="stare">Plasată</span>, cu două cafele, la ora 10:15. După <span class="operatie">anulează(J)</span>, ce rămâne înregistrat?</li>
 </ol>
 </div>
 </main>
