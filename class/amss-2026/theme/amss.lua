@@ -703,9 +703,20 @@ local function tidy_document(doc)
   return doc
 end
 
+-- A line break inside a table cell, written `<br>` in the Markdown (a pipe
+-- table row is a single line). HTML keeps the tag. In the PDF it becomes
+-- \newline: pandoc's own LineBreak would set the cell as a \vtop of
+-- \hbox lines, which no longer wrap.
+local function cell_break(raw)
+  if (is_beamer or is_latex) and raw.format == 'html' and raw.text:match('^<br%s*/?>$') then
+    return pandoc.RawInline('latex', '\\newline ')
+  end
+end
+
 return {
   { Meta = split_title },
   {
+    RawInline = cell_break,
     Header = mark_epigraph,
     CodeBlock = focusable_code,
     Table = pdf_table,

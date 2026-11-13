@@ -2,7 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 6: Contracte și invarianți"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
-operation-names: [atribuie, eliberează]
+operation-names: [atribuie, eliberează, împrumută]
 ---
 
 # Ce promite o operație? {.transition}
@@ -629,9 +629,9 @@ Transferăm metoda de formulare, nu regula de refuz a muzeului.
 
 **Înainte:** tehnicianul T1 are trusa K1; T2 nu are trusă; trusa K2 este liberă.
 
-1. Formulați condiția de succes și starea de după `imprumuta(T2,K2)`.
-2. Independent, din aceeași stare: `imprumuta(T1,K2)`. Ce rămâne identic?
-3. Tot din starea inițială: `imprumuta(T1,K1)`. Ce diferă față de muzeu?
+1. Formulați condiția de succes și starea de după `împrumută(T2,K2)`.
+2. Independent, din aceeași stare: `împrumută(T1,K2)`. Ce rămâne identic?
+3. Tot din starea inițială: `împrumută(T1,K1)`. Ce diferă față de muzeu?
 
 ::: notes
 Succes: T1–K1 și T2–K2. Refuz: exact starea inițială, deoarece T1 are K1. Repetarea întoarce `deja_imprumutat`, cu starea păstrată, spre deosebire de refuzul muzeului. Transferăm metoda de citire a contractului, fără să importăm regulile muzeului. Invariantul de unicitate este același și nu stabilește singur aceste rezultate. La laborator distingem cantitatea rezervată, disponibilă și fizică. Feedbackul pentru proiect poate fi cerut oricând.

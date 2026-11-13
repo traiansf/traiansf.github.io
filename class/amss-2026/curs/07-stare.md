@@ -93,12 +93,12 @@ Un manuscris nou este o ciornă fără date. Un eveniment nepermis este **refuza
 
 # Stare și eveniment
 
-În cursul 6, „starea” registrului însemna toate valorile lui la un moment dat. Aici le despărțim: **starea** manuscrisului este una dintre puținele etape cu nume ale ciclului de viață (Ciornă, Trimis, În evaluare etc.), iar **datele** sunt celelalte valori păstrate (fișier, editor, rapoarte). Starea rezumă istoricul; împreună cu datele, decide **ce evenimente sunt permise acum**.
+În cursul 6, „starea” registrului însemna toate valorile lui la un moment dat. Aici le despărțim: **starea** manuscrisului este una dintre etapele cu nume ale ciclului de viață (Ciornă, Trimis, În evaluare etc.), iar **datele** sunt celelalte valori păstrate (fișier, editor, rapoarte). Starea rezumă istoricul; împreună cu datele, decide **ce evenimente sunt permise acum**.
 
 Un **eveniment** este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului.
 
 ::: notes
-Legătura cu cursul 6: ce numeam acolo starea registrului corespunde aici perechii stare și date; precondițiile și postcondițiile le citesc pe amândouă. De aici înainte, „stare” înseamnă numai etapa cu nume: o listă mică, fixată de beneficiar, care rezumă istoricul manuscrisului. Datele rămân alături și nu se reduc la stare.
+Legătura cu cursul 6: ce numeam acolo starea registrului corespunde aici perechii stare și date; precondițiile și postcondițiile le citesc pe amândouă. De aici înainte, „stare” înseamnă numai etapa cu nume: o listă fixată de beneficiar, care rezumă istoricul manuscrisului. Datele rămân alături și nu se reduc la stare.
 :::
 
 ---
@@ -135,10 +135,8 @@ Citim regulile complete, apoi le scriem ca tabel de tranziții: reprezentarea pe
 |--------|------------------------------------------|
 | R1 (context) | Identificatorii sunt cunoscuți; apelurile sunt secvențiale; un singur manuscris pe scenariu. Nu discutăm autentificarea, concurența, retrimiterea sau programarea publicării. |
 | R2 (stări) | Starea este una dintre Ciornă, Trimis, În evaluare, Acceptat, Respins, Retras; un manuscris nou este în Ciornă, fără date. |
-| R3 (pregătire și trimitere) | `atașează(f)` numai în Ciornă: f înlocuiește orice fișier anterior. |
-| | `trimite` numai în Ciornă și numai cu fișier: trece în Trimis, cu momentul trimiterii. |
-| R4 (evaluare) | `preia(e)` numai în Trimis: e devine editorul; trece În evaluare. |
-| | `înregistrează raport(r)` numai În evaluare: adaugă r; starea rămâne. |
+| R3 (pregătire și trimitere) | `atașează(f)` numai în Ciornă: f înlocuiește orice fișier anterior.<br>`trimite` numai în Ciornă și numai cu fișier: trece în Trimis, cu momentul trimiterii. |
+| R4 (evaluare) | `preia(e)` numai în Trimis: e devine editorul responsabil; manuscrisul trece În evaluare.<br>`înregistrează raport(r)` numai În evaluare: adaugă raportul r; starea rămâne. |
 
 ::: notes
 Regulile vin de la beneficiar: cine are voie să facă ce și când. Noi le organizăm; nu adăugăm tranziții pe care enunțul nu le cere. Momentele trimiterii, deciziei și retragerii fac parte din date: se înregistrează la tranziția respectivă și se păstrează.

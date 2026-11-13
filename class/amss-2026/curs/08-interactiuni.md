@@ -215,7 +215,7 @@ Regulile se citesc din enunț, nu se importă de la muzeu. Fără identificator,
 
 **Reguli:** o cerere nouă reușește dacă participantul nu este înscris și există loc. La reîncercare: `acceptat`, fără alt loc; putem retrimite confirmarea `netrimisă`. Eșecul păstrează înscrierea; refuzul nu modifică nimic și nu apelează expeditorul.
 
-**Pornire pentru rândurile 1–3, independente:** 1 loc liber; (c1, P1, A), confirmare `netrimisă`. Rândul 4 continuă rândul 3.
+**Pornire pentru rândurile 1–3, independente:** 1 loc liber; (c1, P1, A), confirmare `netrimisă`.
 
 | | Cererea | Rezultat | Locuri libere | Apel extern? |
 |:-|:----------------------------------|:---------|:-------------|:-------------|
@@ -503,7 +503,7 @@ Ordinea este cea cerută: locul consumat și înscrierea înregistrată (cu conf
 
 > Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret, cu starea de pornire și rezultatul așteptat. Verifică ordinea pașilor, momentul înregistrării înscrierii față de apelul expeditorului, tratarea răspunsului esec, reîncercarea, consumul locurilor, responsabilitățile și presupunerile despre expeditor. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.
 
-**Reper:** site-ul păstrează identificatorul și conținutul la reîncercare. Propunerea adaugă un refuz pentru același identificator cu alt conținut, caz nespecificat în enunț. **Va semnala evaluatorul AI această adăugire?**
+**Predicție, înainte de a vedea răspunsul:** site-ul păstrează identificatorul și conținutul la reîncercare, iar propunerea adaugă un refuz pentru același identificator cu alt conținut, caz nespecificat în enunț. Va semnala evaluatorul AI această adăugire?
 
 ::: notes
 Instrucțiunea cere verificarea ordinii pașilor și a presupunerilor; nu îi semnalăm ce am observat noi și nu îi cerem un număr minim de defecte.

@@ -499,7 +499,7 @@ break-inside: avoid;
 </div>
 <div id="stare-și-eveniment" class="slide section level1">
 <h1>Stare și eveniment</h1>
-<p>În cursul 6, „starea” registrului însemna toate valorile lui la un moment dat. Aici le despărțim: <strong>starea</strong> manuscrisului este una dintre puținele etape cu nume ale ciclului de viață (<span class="stare">Ciornă</span>, <span class="stare">Trimis</span>, <span class="stare">În evaluare</span> etc.), iar <strong>datele</strong> sunt celelalte valori păstrate (fișier, editor, rapoarte). Starea rezumă istoricul; împreună cu datele, decide <strong>ce evenimente sunt permise acum</strong>.</p>
+<p>În cursul 6, „starea” registrului însemna toate valorile lui la un moment dat. Aici le despărțim: <strong>starea</strong> manuscrisului este una dintre etapele cu nume ale ciclului de viață (<span class="stare">Ciornă</span>, <span class="stare">Trimis</span>, <span class="stare">În evaluare</span> etc.), iar <strong>datele</strong> sunt celelalte valori păstrate (fișier, editor, rapoarte). Starea rezumă istoricul; împreună cu datele, decide <strong>ce evenimente sunt permise acum</strong>.</p>
 <p>Un <strong>eveniment</strong> este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului.</p>
 </div>
 <div id="tranziție-condiție-efect" class="slide section level1">
@@ -537,19 +537,11 @@ break-inside: avoid;
 </tr>
 <tr>
 <td>R3 (pregătire și trimitere)</td>
-<td><span class="operatie">atașează(f)</span> numai în <span class="stare">Ciornă</span>: f înlocuiește orice fișier anterior.</td>
-</tr>
-<tr>
-<td></td>
-<td><span class="operatie">trimite</span> numai în <span class="stare">Ciornă</span> și numai cu fișier: trece în <span class="stare">Trimis</span>, cu momentul trimiterii.</td>
+<td><span class="operatie">atașează(f)</span> numai în <span class="stare">Ciornă</span>: f înlocuiește orice fișier anterior.<br><span class="operatie">trimite</span> numai în <span class="stare">Ciornă</span> și numai cu fișier: trece în <span class="stare">Trimis</span>, cu momentul trimiterii.</td>
 </tr>
 <tr>
 <td>R4 (evaluare)</td>
-<td><span class="operatie">preia(e)</span> numai în <span class="stare">Trimis</span>: e devine editorul; trece <span class="stare">În evaluare</span>.</td>
-</tr>
-<tr>
-<td></td>
-<td><span class="operatie">înregistrează raport(r)</span> numai <span class="stare">În evaluare</span>: adaugă r; starea rămâne.</td>
+<td><span class="operatie">preia(e)</span> numai în <span class="stare">Trimis</span>: e devine editorul responsabil; manuscrisul trece <span class="stare">În evaluare</span>.<br><span class="operatie">înregistrează raport(r)</span> numai <span class="stare">În evaluare</span>: adaugă raportul r; starea rămâne.</td>
 </tr>
 </tbody>
 </table>

@@ -6,19 +6,19 @@ Material de pregătire pentru [enunț](scenario.md), construit didactic; nu capt
 
 | Stare curentă | Eveniment | Condiție | Stare următoare | Efect |
 |---|---|---|---|---|
-| Rezervată | `ridică(c, r, s)` | c neînregistrat, s este titularul | Ridicată | data ridicării, c înregistrat, notificare `trimisă`/`netrimisă` |
+| Rezervată | `ridică(c, r, s)` | c neînregistrat, s este titularul | Ridicată | momentul ridicării, c înregistrat, notificare `trimisă`/`netrimisă` |
 | Ridicată | `ridică(c, r, s)` | c înregistrat la r (reîncercare) | Ridicată | notificarea poate trece din `netrimisă` în `trimisă` |
 | Rezervată | `anulează(r)` | — | Anulată | — |
 
 Orice altă combinație, sau o condiție neîndeplinită, este refuzată: `refuz`, fără modificări, fără apelul expeditorului. Anulată este finală intenționată. Ridicată permite reîncercarea, deci nu este finală în sensul cursului 7. Al doilea rând nu schimbă starea; îl scriem ca să fie vizibil că reîncercarea este permisă în Ridicată, spre deosebire de o cerere nouă (c neînregistrat), care este refuzată acolo.
 
-Condiția „s este titularul” depinde de date, nu de stare: o cerere greșită lasă rezervarea Rezervată, cu toate datele. Etapa și datele decid ce evenimente sunt permise. Titularul, echipamentul, data ridicării și identificatorul înregistrat se păstrează; rezultatul notificării poate fi actualizat (R5).
+Condiția „s este titularul” depinde de date, nu de stare: o cerere greșită lasă rezervarea Rezervată, cu toate datele. Etapa și datele decid ce evenimente sunt permise. Titularul, echipamentul, momentul ridicării și identificatorul înregistrat se păstrează; rezultatul notificării poate fi actualizat (R5).
 
 ## Interacțiunea pentru `ridică(c, r, s)`
 
 1. Ghișeu → Registru: `ridică(c, r, s)`.
 2. Registru: dacă c este înregistrat la r, verifică notificarea: la `netrimisă` continuă cu pasul 4; la `trimisă`, cu pasul 7. Altfel verifică: r Rezervată și s titular. Dacă nu: `refuz`, fără modificări și fără apelul expeditorului (sfârșit).
-3. Registru: r devine Ridicată; înregistrează data ridicării și c; notificarea `în așteptare`.
+3. Registru: r devine Ridicată; înregistrează momentul ridicării și c; notificarea `în așteptare`.
 4. Registru → Expeditor: `trimite(mesaj pentru s)`.
 5. Expeditor → Registru: `trimis` sau `esec`.
 6. Registru: notificarea `trimisă`, respectiv `netrimisă`.

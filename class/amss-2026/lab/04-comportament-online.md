@@ -3,6 +3,7 @@ title: "AMSS 2026/2027 — Laboratorul 4: Stări, comportament și interacțiuni
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
 operation-names: [ridică, anulează, trimite]
+state-names: [Rezervată, Ridicată, Anulată]
 ---
 
 # Ce proiectăm azi
@@ -32,7 +33,7 @@ Aplicăm stările și tranzițiile din cursul 7 și interacțiunile peste grani�
 [Sursa: Computation and State Machines (2008), p. 1](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4)
 
 ::: notes
-Reluăm citatul din cursul 7. Rezervarea de azi este o mașină de stări cu trei stări; interacțiunea cu expeditorul adaugă pași, nu stări noi ale rezervării, ci o dată înregistrată: rezultatul notificării.
+Reluăm citatul din cursul 7. Rezervarea de azi este o mașină de stări cu trei stări; interacțiunea cu expeditorul adaugă pași, nu stări noi ale rezervării, ci date în plus: rezultatul notificării.
 
 **Sursă:** manuscris pe site-ul autorului, prima propoziție din Introduction, pagina numerotată 1 (pagina PDF 4); reverificată la 12 noiembrie 2026. Vezi `docs/quotations.md`.
 
@@ -75,11 +76,11 @@ Alt student, aceeași rezervare: refuzat de stare sau de condiție?
 
 # Trei scenarii de prezis
 
-**Starea inițială I:** rezervarea A (titular T1, proiector) și rezervarea B (titular T2, cameră) sunt Rezervate; niciun identificator de cerere înregistrat.
+**Starea inițială I:** A (titular T1) și B (titular T2) sunt în Rezervată; niciun identificator înregistrat.
 
-**R3 (ridicare):** `ridică(c, r, s)` cu c nou este acceptată exact când r este Rezervată și s este titularul: r trece în Ridicată, data și c se înregistrează, rezultat `ridicat`; altfel `refuz`, fără modificări, fără notificare. **R6 (anulare):** `anulează(r)` numai pentru o rezervare Rezervată → Anulată, fără notificare; altfel `refuz`. **R2 (stări):** Anulată este finală intenționată; Ridicată permite reîncercarea, fără o a doua ridicare.
+**R3 (ridicare):** `ridică(c, r, s)` cu c nou este acceptată exact când r este Rezervată și s este titularul: r trece în Ridicată, cu momentul ridicării și c înregistrate; rezultat `ridicat`; altfel `refuz`, fără modificări și fără notificare. **R6 (anulare):** `anulează(r)` numai pentru o rezervare Rezervată → Anulată, fără notificare; altfel `refuz`. **R2 (stări):** Anulată este o stare finală intenționată; din Ridicată este permisă numai reîncercarea.
 
-1. La semnal, predicțiile în chat, din I: scenariul S2 (`ridică(c1, A, T2)`); scenariul S7 (`anulează(B)`, apoi `ridică(c2, B, T2)`); continuarea scenariului S1 (A Ridicată, c1 înregistrat): scenariul S5 (`ridică(c7, A, T1)`). Rezultat, stare, ce se înregistrează.
+1. La semnal, predicțiile în chat, din I: scenariul S2 (`ridică(c1, A, T2)`); scenariul S7 (`anulează(B)`, apoi `ridică(c2, B, T2)`); după scenariul S1 (A Ridicată, c1 înregistrat): scenariul S5 (`ridică(c7, A, T1)`). Rezultat, stare, ce se înregistrează.
 2. În ștafetă, pe rând: pentru fiecare refuz, ce îl decide: **starea** sau **condiția**?
 
 [Enunțul complet: R1–R8 și scenariile S1–S7](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/04-comportament/scenario.md)
@@ -94,7 +95,7 @@ S2: refuz, decis de condiție (T2 nu este titularul); I neschimbată, c1 neînre
 
 # Tabelul de tranziții
 
-**Reguli:** `ridică` cu c nou: numai din Rezervată, numai de titular → Ridicată, cu data și c înregistrate și notificarea `trimisă` sau `netrimisă`. **R5 (reîncercare):** `ridică` cu c deja înregistrat: același `ridicat`, starea neschimbată; dacă notificarea este `netrimisă`, expeditorul este apelat din nou. `anulează` numai din Rezervată → Anulată. Altfel: refuzat, fără modificări; datele nu se șterg.
+**Reguli:** `ridică` cu c nou: numai din Rezervată, numai de titular → Ridicată, cu momentul ridicării și c înregistrate și notificarea `trimisă` sau `netrimisă`. **R5 (reîncercare):** `ridică` cu c deja înregistrat: același `ridicat`, starea neschimbată; dacă notificarea este `netrimisă`, expeditorul este apelat din nou. `anulează` numai din Rezervată → Anulată. Altfel: refuzat, fără modificări; datele nu se șterg.
 
 Un coleg propune tabelul în plen (stare curentă, eveniment, condiție, stare următoare, efect), rând cu rând; un coleg numit verifică, apoi schimbați vorbitorii, cu obiecții în chat:
 
@@ -126,7 +127,7 @@ Scriem interacțiunea pentru cazul normal și pentru eșecul notificării, apoi 
 
 # Interacțiunea pentru `ridică`
 
-**Din I, independent:** A este Rezervată, cu titularul T1; c1 este neînregistrat. **R3 (ridicare):** acceptarea trece A în Ridicată și înregistrează data și c1.
+**Din I, independent:** A este Rezervată, cu titularul T1; c1 este neînregistrat. **R3 (ridicare):** acceptarea trece A în Ridicată și înregistrează momentul ridicării și c1.
 
 **R4 (notificare):** după o ridicare acceptată, registrul cere expeditorului `trimite(mesaj)`, care răspunde `trimis` sau `esec`; registrul înregistrează notificarea `trimisă` sau `netrimisă`; **eșecul nu anulează ridicarea**, ghișeul primește `ridicat`. **R7 (graniță):** presupunem doar că expeditorul răspunde; `esec` nu înseamnă că mesajul nu a ajuns. Refuzul nu apelează expeditorul.
 
@@ -138,7 +139,7 @@ Scriem interacțiunea pentru cazul normal și pentru eșecul notificării, apoi 
 Apoi în ștafetă: un coleg explică S1, un coleg numit S3, apoi: **în ce pas schimbă registrul starea: înainte sau după apelul expeditorului? Ce s-ar întâmpla cu S3 în ordinea inversă?**
 
 ::: notes
-S1: ghișeu → registru; registrul verifică (A Rezervată, T1 titular, c1 nou), trece A în Ridicată, înregistrează data și c1, notificarea în așteptare; registru → expeditor `trimite`; expeditor → registru `trimis`; registrul înregistrează `trimisă`; registru → ghișeu `ridicat`. S3: identic, cu `esec` și `netrimisă`; răspunsul rămâne `ridicat`. Tranziția precede apelul. În ordinea inversă (starea schimbată numai la `trimis`), la `esec` studentul ar pleca cu echipamentul, iar A ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată.
+S1: ghișeu → registru; registrul verifică (A Rezervată, T1 titular, c1 nou), trece A în Ridicată, înregistrează momentul ridicării și c1, notificarea în așteptare; registru → expeditor `trimite`; expeditor → registru `trimis`; registrul înregistrează `trimisă`; registru → ghișeu `ridicat`. S3: identic, cu `esec` și `netrimisă`; răspunsul rămâne `ridicat`. Tranziția precede apelul. În ordinea inversă (starea schimbată numai la `trimis`), la `esec` studentul ar pleca cu echipamentul, iar A ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată.
 
 **Organizare:** 12 min: 5 în chat, 7 în ștafetă. []{.pace dur=12}
 :::
@@ -237,8 +238,8 @@ Observația 1 este corectă, dar superficială: „handler separat” este într
 | Când schimbă registrul starea? | Înaintea apelului expeditorului; o păstrează la eșec. R4 (notificare). |
 | Unde este rândul reîncercării? | În Ridicată; c se înregistrează la acceptare. R3 (ridicare). |
 | Este Ridicată finală? | Nu: R5 (reîncercare) permite un eveniment. Enunțul inițial o numea greșit finală. |
-| Ce primește o cerere nouă în Ridicată? | `refuz`, fără modificări; reîncercarea primește `ridicat`. |
-| Ce presupunem despre expeditor? | Răspunde `trimis` sau `esec`. R7 (graniță). |
+| Ce primește o cerere nouă? | În Ridicată: `refuz`, fără modificări; reîncercarea primește `ridicat`. |
+| Ipoteza despre expeditor? | Răspunde `trimis` sau `esec`. R7 (graniță). |
 
 Un coleg explică o afirmație acceptată; alt coleg o verifică printr-un scenariu.
 
@@ -266,7 +267,7 @@ Revenim la explicațiile în ștafetă după demonstrația AI comună. Nu schimb
 
 # Același conținut, alt identificator
 
-**Starea de pornire I:** A (titular T1) și B (titular T2) Rezervate; niciun identificator înregistrat.
+**Starea de pornire I:** A (titular T1) și B (titular T2) sunt în Rezervată; niciun identificator înregistrat.
 
 **Reguli:** `ridică` cu c nou: numai din Rezervată, de titular → Ridicată, c înregistrat, notificare `trimisă`/`netrimisă`; cu c înregistrat: același `ridicat`, iar notificarea `netrimisă` se reîncearcă; altfel refuz fără modificări; eșecul notificării nu anulează ridicarea.
 
