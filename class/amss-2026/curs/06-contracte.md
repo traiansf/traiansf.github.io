@@ -2,7 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 6: Contracte și invarianți"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
-operation-names: [atribuie, elibereaza]
+operation-names: [atribuie, eliberează]
 ---
 
 # Ce promite o operație? {.transition}
@@ -125,7 +125,7 @@ Contractul trebuie să permită verificarea unei implementări fără a copia pa
 | R1 (context) | Identificatorii vizitatorilor și ai dulapurilor sunt cunoscuți, registrul inițial respectă R2 (unicitate), iar apelurile sunt secvențiale: fiecare începe după încheierea celui anterior. Nu discutăm autentificarea, concurența sau erorile tehnice. |
 | R2 (unicitate) | Un vizitator are cel mult un dulap, iar un dulap are cel mult un vizitator. |
 | R3 (atribuire) | `atribuie(v,d)` reușește exact când v nu are dulap și d este liber; altfel refuză fără modificări. |
-| R4 (eliberare) | `elibereaza(v)` elimină asocierea lui v; dacă lipsește, întoarce `fara_dulap`, fără modificări. |
+| R4 (eliberare) | `eliberează(v)` elimină asocierea lui v; dacă lipsește, întoarce `fara_dulap`, fără modificări. |
 | R5 (efect limitat) | La succes, toate celelalte asocieri se păstrează. |
 
 ::: notes
@@ -315,8 +315,8 @@ Primul: atribuit, toate cele trei asocieri. Celelalte: refuz, exact B. Repetarea
 
 | Înainte | Acțiune | Rezultat și după |
 |---|---|---|
-| V1–D1, V2–D2 | `elibereaza(V1)` | `eliberat`; V2–D2. |
-| V2–D2 | `elibereaza(V1)` | `fara_dulap`; V2–D2. |
+| V1–D1, V2–D2 | `eliberează(V1)` | `eliberat`; V2–D2. |
+| V2–D2 | `eliberează(V1)` | `fara_dulap`; V2–D2. |
 
 Același registru final după repetare nu înseamnă același rezultat întors.
 
@@ -330,7 +330,7 @@ Nu avem nevoie de terminologia operațiilor repetabile pentru a observa diferen�
 
 # Ce lipsește din această promisiune?
 
-**Propunere:** „După `elibereaza(V1)`, V1 nu mai are dulap.”
+**Propunere:** „După `eliberează(V1)`, V1 nu mai are dulap.”
 
 **Înainte:** V1–D1, V2–D2. **După propus:** registru gol.
 

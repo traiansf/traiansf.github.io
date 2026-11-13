@@ -8,7 +8,7 @@ Context: [enunțul efectiv trimis](captures/2026-10-27/context.md).
 
 > Propune o repartizare a responsabilităților pentru modificarea registrului și formulează contractele operațiilor rezerva, ridica și anuleaza: precondiții, condiții de succes, efecte, refuzuri și invarianți. Calculează S2, S3 și S5. Compară pe scurt cu verificări separate în formular și import. Nu scrie cod. Răspunde în română, în maximum 450 de cuvinte.
 
-Fragmente din [analistul AI 01](captures/2026-10-27/haiku45-analist-01-response.md), contractul `rezerva` și scenariul S3; restul răspunsului este omis:
+Fragmente din [analistul AI 01](captures/2026-10-27/haiku45-analist-01-response.md), contractul `rezervă` și scenariul S3; restul răspunsului este omis:
 
 > **Precondiții:** id ≠ 0; id nu apare deja în registru; q > 0; D ≥ q
 >
@@ -16,7 +16,7 @@ Fragmente din [analistul AI 01](captures/2026-10-27/haiku45-analist-01-response.
 >
 > **S3:** `ridica(A)` — A activ ✓ → Marcheaza A ridicată; F=10−4=**6**; R=4−4=**0**; D=6 (nemodificat). […]
 
-Înainte de revizuire: ce parte este susținută de reguli? Ce promite contractul pentru `rezerva(B,7)` dacă D ≥ q este precondiție?
+Înainte de revizuire: ce parte este susținută de reguli? Ce promite contractul pentru `rezervă(B,7)` dacă D ≥ q este precondiție?
 
 ## Sarcina de revizuire
 

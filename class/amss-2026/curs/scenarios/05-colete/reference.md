@@ -8,7 +8,7 @@ Formularul web și aplicația operatorului citesc și interpretează intrarea ș
 
 **Varianta A:** o funcție comună conține R2–R4. Coeziune: regulile contribuie la aceeași decizie, estimarea. Cost: funcția trebuie revizuită dacă evoluează independent acceptarea și prețurile.
 
-**Varianta B:** operația comună coordonează două funcții interne, `accepta` și `pret`. Prima decide acceptarea; a doua primește un colet deja acceptat. Canalele nu apelează direct `pret`. Cost: încă o dependență între funcții, care trebuie explicată și verificată. Pentru domeniul actual, ambele variante pot fi justificate. Nici numărul de fișiere, nici numărul de clase nu măsoară singure coeziunea sau cuplarea.
+**Varianta B:** operația comună coordonează două funcții interne, `acceptă` și `preț`. Prima decide acceptarea; a doua primește un colet deja acceptat. Canalele nu apelează direct `preț`. Cost: încă o dependență între funcții, care trebuie explicată și verificată. Pentru domeniul actual, ambele variante pot fi justificate. Nici numărul de fișiere, nici numărul de clase nu măsoară singure coeziunea sau cuplarea.
 
 **Alternativa cu copiere:** poate produce răspunsuri corecte astăzi, dar fiecare schimbare comună cere găsirea și sincronizarea ambelor implementări. Exemplul cu `masa < 1000` la web și `masa <= 1000` la ghișeu este un defect construit pentru contrast, nu rezultatul unei rulări AI.
 

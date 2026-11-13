@@ -2,7 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 8: Interacțiuni, fluxuri de lucru și granițe"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
-operation-names: [inscrie, trimite, retrimite_confirmarile]
+operation-names: [înscrie, trimite, "retrimite confirmările"]
 ---
 
 # Cine coordonează o operație care iese din sistem? {.transition}
@@ -71,7 +71,7 @@ P1 cere un loc la atelierul A de fotografie nocturnă. Registrul acceptă, dar e
 
 **Reguli:** atelierul A are 2 locuri; o cerere nouă este acceptată dacă participantul nu este înscris și există loc; după acceptare registrul cere expeditorului confirmarea, care răspunde `trimis` sau `esec`; eșecul confirmării nu anulează înscrierea; site-ul reîncearcă aceeași cerere cu același identificator, iar registrul întoarce același `acceptat`, fără alt loc consumat.
 
-**Înainte:** 2 locuri libere, nicio înscriere. Site-ul trimite `inscrie(c1, P1, A)`; expeditorul răspunde `esec`. Site-ul nu afișează nimic utilizatorului și trimite din nou `inscrie(c1, P1, A)`.
+**Înainte:** 2 locuri libere, nicio înscriere. Site-ul trimite `înscrie(c1, P1, A)`; expeditorul răspunde `esec`. Site-ul nu afișează nimic utilizatorului și trimite din nou `înscrie(c1, P1, A)`.
 
 Individual, apoi discutăm: după a doua cerere, **câte locuri sunt libere, câte înscrieri are P1 și ce răspuns primește site-ul?** Ce ar trebui să facă registrul cu confirmarea?
 
@@ -94,7 +94,7 @@ O **interacțiune** este succesiunea apelurilor prin care mai multe componente r
 Pentru înscrieri le precizăm pe rând și le verificăm pe scenarii. Nu modelăm plata, lista de așteptare, concurența sau erorile tehnice din interiorul registrului.
 
 ::: notes
-Legătura cu cursul 5: interfața rămâne semnătura și sensul rezultatelor; noutatea este că pentru o componentă din exterior interfața este tot ce avem, iar restul sunt presupuneri de scris explicit. Legătura cu cursul 6: ce promite registrul când expeditorul eșuează este o postcondiție a operației `inscrie`, nu o speranță. Coordonarea este o responsabilitate ca oricare alta: cineva trebuie să o aibă.
+Legătura cu cursul 5: interfața rămâne semnătura și sensul rezultatelor; noutatea este că pentru o componentă din exterior interfața este tot ce avem, iar restul sunt presupuneri de scris explicit. Legătura cu cursul 6: ce promite registrul când expeditorul eșuează este o postcondiție a operației `înscrie`, nu o speranță. Coordonarea este o responsabilitate ca oricare alta: cineva trebuie să o aibă.
 :::
 
 ---
@@ -116,7 +116,7 @@ Citim regulile complete, apoi desenăm granița, repartizăm responsabilitățil
 | Regulă | Conținut |
 |--------|------------------------------------------|
 | R1 (context) | Atelierul A are 2 locuri; participanții sunt cunoscuți; apelurile sunt secvențiale. Fără plată, listă de așteptare, anulare, concurență sau erori tehnice în registru. |
-| R2 (cerere) | `inscrie(c, p, a)`: identificatorul cererii c este generat de site, unic pentru fiecare cerere nouă; o reîncercare trimite același c. |
+| R2 (cerere) | `înscrie(c, p, a)`: identificatorul cererii c este generat de site, unic pentru fiecare cerere nouă; o reîncercare trimite același c. |
 | R3 (acceptare) | O cerere cu c neînregistrat este acceptată exact când p nu este înscris la a și există loc: registrul consumă locul și înregistrează (c, p, a). Altfel: `refuz`, fără modificări, fără apelul expeditorului. |
 | R4 (confirmare) | După acceptare, registrul cere expeditorului `trimite(mesaj)`, care răspunde `trimis` sau `esec`; registrul înregistrează confirmarea `trimisă` sau `netrimisă`. Eșecul confirmării nu anulează înscrierea; site-ul primește `acceptat`. |
 
@@ -146,7 +146,7 @@ R6 vine de la furnizorul extern: este tot ce știm. R5 spune ce înseamnă „ac
 ::: {.column width="50%"}
 ```mermaid
 flowchart TB
-  S[Site] -->|"inscrie(c, p, a)"| R[Registrul de locuri]
+  S[Site] -->|"înscrie(c, p, a)"| R[Registrul de locuri]
   R -->|"trimite(mesaj)"| E[Expeditor de confirmări]
   subgraph interior [Sistemul nostru]
     R
@@ -198,8 +198,8 @@ Site-ul ar trebui să cunoască rezultatul deciziei și regula R4 și ar trebui 
 
 | Cererea | Ce este | Ce decide rezultatul |
 |:------------------------------------------|:------------|:------------------------------|
-| `inscrie(c1, P1, A)` după `inscrie(c1, P1, A)` | reîncercare | înscrierea deja înregistrată pentru c1 |
-| `inscrie(c9, P1, A)` după `inscrie(c1, P1, A)` | cerere nouă | P1 este deja înscris → `refuz` |
+| `înscrie(c1, P1, A)` după `înscrie(c1, P1, A)` | reîncercare | înscrierea deja înregistrată pentru c1 |
+| `înscrie(c9, P1, A)` după `înscrie(c1, P1, A)` | cerere nouă | P1 este deja înscris → `refuz` |
 
 **Identificatorul cererii** este ceea ce le deosebește, nu conținutul. În cursul 6, repetarea eliberării dădea alt rezultat (`fara_dulap`); aici regula cere **același** rezultat.
 
@@ -219,10 +219,10 @@ Regulile se citesc din enunț, nu se importă de la muzeu. Fără identificator,
 
 | | Cererea | Rezultat | Locuri libere | Apel extern? |
 |:-|:----------------------------------|:---------|:-------------|:-------------|
-| 1 | `inscrie(c1, P1, A)` | ? | ? | ? |
-| 2 | `inscrie(c9, P1, A)` | ? | ? | ? |
-| 3 | `inscrie(c2, P2, A)`, cu `esec` | ? | ? | ? |
-| 4 | după 3: `inscrie(c3, P3, A)` | ? | ? | ? |
+| 1 | `înscrie(c1, P1, A)` | ? | ? | ? |
+| 2 | `înscrie(c9, P1, A)` | ? | ? | ? |
+| 3 | `înscrie(c2, P2, A)`, cu `esec` | ? | ? | ? |
+| 4 | după 3: `înscrie(c3, P3, A)` | ? | ? | ? |
 
 **Individual, apoi discutăm:** completați tabelul. La 1, retrimiterea este obligatorie?
 
@@ -248,11 +248,11 @@ Scriem interacțiunea pas cu pas pentru cazul normal și pentru eșecul confirm�
 
 # Scenariul S1 (înscriere confirmată)
 
-**Din I** (2 locuri libere, nicio înscriere): `inscrie(c1, P1, A)`; expeditorul răspunde `trimis`.
+**Din I** (2 locuri libere, nicio înscriere): `înscrie(c1, P1, A)`; expeditorul răspunde `trimis`.
 
 | Pas | Apel sau răspuns | Ce înregistrează registrul |
 |:----|:--------------------------------------|:----------------------------|
-| 1 | Site → Registru: `inscrie(c1, P1, A)` | — |
+| 1 | Site → Registru: `înscrie(c1, P1, A)` | — |
 | 2 | Registru: c1 nou, P1 neînscris, loc liber → **acceptă** | 1 loc liber; (c1, P1, A); confirmare `în așteptare` |
 | 3 | Registru → Expeditor: `trimite(mesaj)` | — |
 | 4 | Expeditor → Registru: `trimis` | confirmare `trimisă` |
@@ -272,11 +272,11 @@ Decizia și înregistrarea (pasul 2) preced apelul expeditorului (pasul 3). **Ce
 
 **R4 (confirmare):** eșecul confirmării nu anulează înscrierea; site-ul primește `acceptat`.
 
-**Din I** (2 locuri libere, nicio înscriere): `inscrie(c1, P1, A)`; expeditorul răspunde `esec`.
+**Din I** (2 locuri libere, nicio înscriere): `înscrie(c1, P1, A)`; expeditorul răspunde `esec`.
 
 | Pas | Apel sau răspuns | Ce înregistrează registrul |
 |:----|:--------------------------------------|:----------------------------|
-| 1 | Site → Registru: `inscrie(c1, P1, A)` | — |
+| 1 | Site → Registru: `înscrie(c1, P1, A)` | — |
 | 2 | Registru: **acceptă** | 1 loc liber; (c1, P1, A); confirmare `în așteptare` |
 | 3 | Registru → Expeditor: `trimite(mesaj)` | — |
 | 4 | Expeditor → Registru: `esec` | confirmare **`netrimisă`** |
@@ -296,9 +296,9 @@ Faptul că eșecul se vede numai în coloana înregistrărilor este intenționat
 
 **R5 (reîncercare):** identificatorul deja înregistrat aduce același `acceptat`, fără alt loc sau înscriere. La `trimisă`, expeditorul nu este apelat. **Alegerea noastră pentru acest exercițiu:** la `netrimisă`, îl apelăm o dată și înregistrăm rezultatul. R5 permite această alegere, fără să o impună.
 
-**Scenariul S3 (reîncercare după eșec):** continuarea lui S2 (1 loc liber; (c1, P1, A) cu confirmare `netrimisă`): `inscrie(c1, P1, A)`; expeditorul răspunde `trimis`, dacă este apelat.
+**Scenariul S3 (reîncercare după eșec):** continuarea lui S2 (1 loc liber; (c1, P1, A) cu confirmare `netrimisă`): `înscrie(c1, P1, A)`; expeditorul răspunde `trimis`, dacă este apelat.
 
-**Scenariul S4 (reîncercare după succes):** continuarea lui S1 (1 loc liber; (c1, P1, A) cu confirmare `trimisă`): `inscrie(c1, P1, A)`.
+**Scenariul S4 (reîncercare după succes):** continuarea lui S1 (1 loc liber; (c1, P1, A) cu confirmare `trimisă`): `înscrie(c1, P1, A)`.
 
 Pe hârtie, apoi discutăm: scrieți pașii fiecărui scenariu ca în tabelele anterioare. **Câte rânduri au „Registru → Expeditor”? Ce se schimbă în înregistrări?**
 
@@ -370,7 +370,7 @@ Urmărim un flux care greșește la reîncercare, apoi comparăm trei variante d
 
 **Reguli:** o reîncercare (același identificator) nu consumă alt loc și primește același `acceptat`; o cerere nouă a unui participant înscris este refuzată.
 
-**Din I** (2 locuri libere, nicio înscriere), sub G: `inscrie(c1, P1, A)` cu `esec`; apoi reîncercarea `inscrie(c1, P1, A)`; apoi `inscrie(c2, P2, A)`.
+**Din I** (2 locuri libere, nicio înscriere), sub G: `înscrie(c1, P1, A)` cu `esec`; apoi reîncercarea `înscrie(c1, P1, A)`; apoi `înscrie(c2, P2, A)`.
 
 Pe hârtie, apoi discutăm: după fiecare cerere, **locurile libere, înscrierile și răspunsul**. Ce regulă încalcă G și la care pas? Dacă G ar verifica și „participantul nu este înscris”, ce ar răspunde la reîncercare?
 
@@ -428,8 +428,8 @@ Individual, apoi discutăm:
 
 **Alegem B: retrimitere ulterioară**, cu responsabilități explicite:
 
-- `inscrie` apelează expeditorul o dată la acceptare și o dată la reîncercare dacă rezultatul este `netrimisă`;
-- propunem `retrimite_confirmarile()`, apelată de operator, care încearcă o dată fiecare confirmare `netrimisă` și actualizează rezultatul;
+- `înscrie` apelează expeditorul o dată la acceptare și o dată la reîncercare dacă rezultatul este `netrimisă`;
+- propunem `retrimite confirmările()`, apelată de operator, care încearcă o dată fiecare confirmare `netrimisă` și actualizează rezultatul;
 - păstrăm înscrierile și locurile; amânarea cere un operator și poate produce mesaje duplicate.
 
 **C contrazice R4.** A rămâne o alternativă; ar cere precizarea numărului de încercări și noi trasări.

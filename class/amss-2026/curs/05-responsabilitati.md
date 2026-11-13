@@ -2,7 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 5: Responsabilități, coeziune și cuplare"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
-operation-names: [estimeaza, accepta, pret]
+operation-names: [estimează, acceptă, preț]
 ---
 
 # Cine aplică regula? {.transition}
@@ -137,7 +137,7 @@ Concordanța înseamnă acceptare cu aceeași sumă sau refuz în ambele canale.
 
 # O operație pe care o putem explica
 
-`estimeaza(masa, ambalaj)` primește valori și întoarce:
+`estimează(masă, ambalaj)` primește valori și întoarce:
 
 - `acceptat(preț)`; sau
 - `refuz(motiv)`.
@@ -176,7 +176,7 @@ Webul și ghișeul depind de intrările și rezultatele operației. Operația nu
 
 **Reguli:** plicul peste 1000 g este refuzat; fiecare canal poate alege textul prin care explică refuzul.
 
-Propunere: `estimeaza` întoarce un mesaj gata de afișat. În pereche: ce simplifică aceasta? Ce se întâmplă dacă site-ul cere un text scurt, iar ghișeul o explicație detaliată?
+Propunere: `estimează` întoarce un mesaj gata de afișat. În pereche: ce simplifică aceasta? Ce se întâmplă dacă site-ul cere un text scurt, iar ghișeul o explicație detaliată?
 
 **Coeziunea:** cât de bine servesc responsabilitățile unei componente același scop.
 
@@ -194,14 +194,14 @@ Lăsați perechile să răspundă înainte de a numi conceptul. Acceptarea colet
 
 | | Canalul cunoaște… | Consecință |
 |---|---|---|
-| A | numai interfața `estimeaza(masa, ambalaj)` | Nu copiază regulile. |
+| A | numai interfața `estimează(masă, ambalaj)` | Nu copiază regulile. |
 | B | regulile (limite, prag, ordinea verificărilor) | Se schimbă odată cu regulile. |
 | C | un rezultat intermediar al operației, expus pe lângă `acceptat`/`refuz` | Se schimbă când operația este reorganizată, cu aceleași reguli. |
 
 Ce dependență ne ajută și ce dependență ne încurcă? Dependențele dintre componente și detaliile pe care trebuie să le cunoască una despre cealaltă formează **cuplarea**.
 
 ::: notes
-Cereți întâi consecința fiecărei variante, apoi numiți conceptul. B cuplează canalul de reguli, C de implementarea operației: de exemplu, site-ul alege o pictogramă după o categorie „greu” calculată în `estimeaza`; dacă operația este reorganizată și categoria dispare, site-ul trebuie schimbat, deși nicio regulă nu s-a schimbat. Apelul operației este o dependență utilă. Eliminarea tuturor dependențelor nu este obiectivul. O interfață mai mică a operației poate proteja decizii interne, dar trebuie să exprime suficient pentru colaborare.
+Cereți întâi consecința fiecărei variante, apoi numiți conceptul. B cuplează canalul de reguli, C de implementarea operației: de exemplu, site-ul alege o pictogramă după o categorie „greu” calculată în `estimează`; dacă operația este reorganizată și categoria dispare, site-ul trebuie schimbat, deși nicio regulă nu s-a schimbat. Apelul operației este o dependență utilă. Eliminarea tuturor dependențelor nu este obiectivul. O interfață mai mică a operației poate proteja decizii interne, dar trebuie să exprime suficient pentru colaborare.
 
 **Organizare:** 3 min, încheierea etapei la minutul 30. []{.pace dur=3}
 :::
@@ -241,7 +241,7 @@ Defectul este explicit la limita inclusă. Nu este o captură AI sau o eroare ob
 
 # Varianta cu o operație comună
 
-Ambele canale cer `estimeaza(masa, ambalaj)` și afișează rezultatul.
+Ambele canale cer `estimează(masă, ambalaj)` și afișează rezultatul.
 
 **În operație:** masă 1–5000 g; plic până la 1000 g; preț 10 lei până la 1000 g, 18 lei peste; refuz fără preț.
 
@@ -281,11 +281,11 @@ Plicul de 1000 g deosebește propunerile: P1 — webul refuză, ghișeul accept�
 
 | A | B |
 |---|---|
-| `estimeaza` decide acceptarea și suma. | `estimeaza` coordonează `accepta` și `pret`. |
+| `estimează` decide acceptarea și suma. | `estimează` coordonează `acceptă` și `preț`. |
 | Mai puține dependențe de explicat. | Acceptarea și prețul se pot schimba separat. |
-| Regulile sunt grupate într-un loc. | `pret` se folosește numai după acceptare. |
+| Regulile sunt grupate într-un loc. | `preț` se folosește numai după acceptare. |
 
-În ambele variante, canalele apelează doar `estimeaza`.
+În ambele variante, canalele apelează doar `estimează`.
 
 Ce justificare ați cere înainte de a separa fiecare regulă într-o altă componentă?
 
@@ -309,7 +309,7 @@ Apelăm direct operația propusă, cu **scenariile S1–S5** și rezultatele aș
 | S4 | Cutie, 0 g | Refuz, fără preț. |
 | S5 | Cutie, 5000 g, apoi 5001 g | Acceptată, 18 lei; apoi refuz. |
 
-**Reper:** masa 1–5000 g; limita plicului 1000 g; pragul de preț 1000 g. Dacă `estimeaza` ar primi formularul web în loc de masă și ambalaj, ce ar trebui construit ca să verificăm acest tabel și pentru ghișeu?
+**Reper:** masa 1–5000 g; limita plicului 1000 g; pragul de preț 1000 g. Dacă `estimează` ar primi formularul web în loc de masă și ambalaj, ce ar trebui construit ca să verificăm acest tabel și pentru ghișeu?
 
 ::: notes
 Un formular web fals sau o conversie de la ghișeu la formularul web: operația ar depinde de un canal, iar verificarea ei separată ar deveni dificilă. Cu masă și ambalaj, tabelul se verifică direct. Tabelul este o verificare propusă, nu rezultatul unei execuții. Testabilitatea apare ca efect al separării responsabilităților, fără implementare obligatorie.
@@ -374,7 +374,7 @@ Un text de ajutor „maximum 1000 g” trebuie actualizat chiar dacă operația 
 
 # Altă schimbare, altă componentă
 
-**Regulile curente:** plicul este acceptat până la 1500 g inclusiv; pragul de preț rămâne 1000 g; webul și ghișeul apelează `estimeaza`.
+**Regulile curente:** plicul este acceptat până la 1500 g inclusiv; pragul de preț rămâne 1000 g; webul și ghișeul apelează `estimează`.
 
 Trei schimbări distincte; fiecare pornește independent de la regulile curente.
 

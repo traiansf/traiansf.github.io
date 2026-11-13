@@ -490,7 +490,7 @@ break-inside: avoid;
 <p><strong>Starea inițială I:</strong> F=10; A activă(4); identificatorul B nefolosit; R=4, D=6. <strong>F</strong> = fizic, <strong>R</strong> = rezervat activ, <strong>D</strong> = disponibil.</p>
 <p><strong>R2 (rezervare):</strong> rezervăm o cantitate întreagă pozitivă, cel mult egală cu D, cu un identificator nefolosit; R crește, D scade, F rămâne identic. Altfel refuzăm, fără modificări. <strong>R5 (istoric și efect limitat):</strong> formularul și importul folosesc aceleași reguli; celelalte rezervări se păstrează.</p>
 <ol style="list-style-type: decimal">
-<li>Individual: din I, scenariul S1 (<span class="operatie">rezerva(B,6)</span>) și, independent, scenariul S2 (<span class="operatie">rezerva(B,7)</span>) — ce rezultat și ce cantități rămân?</li>
+<li>Individual: din I, scenariul S1 (<span class="operatie">rezervă(B,6)</span>) și, independent, scenariul S2 (<span class="operatie">rezervă(B,7)</span>) — ce rezultat și ce cantități rămân?</li>
 <li>La semnal, predicțiile în chat. Un coleg propune verificări în fiecare canal; un coleg numit, operații ale unui registru comun, cu semnătura și rezultatele lor. Comparați dependențele.</li>
 <li>Continuăm ștafeta cu alt coleg: cine împiedică importul să ocolească regula?</li>
 </ol>
@@ -507,8 +507,8 @@ break-inside: avoid;
 <p><strong>R1 (context):</strong> cantitățile sunt numere întregi, identificatorii sunt nevizi, registrul este valid, iar apelurile sunt secvențiale. <strong>R2 (rezervare):</strong> pentru o cantitate q&gt;0, un identificator nefolosit și q≤D, operația creează o rezervare activă nouă de q bucăți; F nu se modifică. Altfel refuză, fără modificări. <strong>R5 (istoric și efect limitat):</strong> celelalte rezervări se păstrează.</p>
 <p>Un coleg formulează contractul în plen (precondiții, condiție de succes, postcondiții), iar un coleg numit verifică; apoi schimbați vorbitorii, cu obiecții în chat:</p>
 <ul>
-<li>scenariul S2 (<span class="operatie">rezerva(B,7)</span>) și scenariul S7 (<span class="operatie">rezerva(B,0)</span>), fiecare din I;</li>
-<li>succesul din scenariul S1 (<span class="operatie">rezerva(B,6)</span>) și păstrarea lui A;</li>
+<li>scenariul S2 (<span class="operatie">rezervă(B,7)</span>) și scenariul S7 (<span class="operatie">rezervă(B,0)</span>), fiecare din I;</li>
+<li>succesul din scenariul S1 (<span class="operatie">rezervă(B,6)</span>) și păstrarea lui A;</li>
 <li>relația <strong>D = F − R</strong> și lipsa cantităților negative: ajung ele singure?</li>
 </ul>
 </div>
@@ -516,8 +516,8 @@ break-inside: avoid;
 <h1>Ridicarea nu mărește cantitatea disponibilă</h1>
 <p><strong>Starea inițială I:</strong> F=10, A activă(4), R=4, D=6. F fizic, R rezervat activ, D disponibil.</p>
 <p><strong>R3 (ridicare) și R4 (anulare):</strong> numai o rezervare activă de q bucăți poate fi ridicată sau anulată; o marcăm ridicată, respectiv anulată. La ridicare, F și R scad cu q, iar D nu se modifică. La anulare, F rămâne, R scade cu q, iar D crește cu q. <strong>R5 (istoric și efect limitat):</strong> păstrăm identificatorul, cantitatea și celelalte rezervări; la refuz, tot registrul.</p>
-<p>Un coleg explică scenariul S3 (<span class="operatie">ridica(A)</span>), un coleg numit scenariul S4 (<span class="operatie">anuleaza(A)</span>), <strong>independent din I</strong>. Alt coleg continuă ștafeta:</p>
-<p><strong>Scenariul S5:</strong> din I, <span class="operatie">ridica(A)</span>, apoi <span class="operatie">anuleaza(A)</span>. Ce rezultat și ce stare produce fiecare pas? De ce nu putem „reda” cele 4 bucăți?</p>
+<p>Un coleg explică scenariul S3 (<span class="operatie">ridică(A)</span>), un coleg numit scenariul S4 (<span class="operatie">anulează(A)</span>), <strong>independent din I</strong>. Alt coleg continuă ștafeta:</p>
+<p><strong>Scenariul S5:</strong> din I, <span class="operatie">ridică(A)</span>, apoi <span class="operatie">anulează(A)</span>. Ce rezultat și ce stare produce fiecare pas? De ce nu putem „reda” cele 4 bucăți?</p>
 </div>
 <div id="o-analiză-ai-o-revizuire-împreună" class="slide section level1 transition">
 <h1 class="transition">O analiză AI, o revizuire împreună</h1>
@@ -528,9 +528,9 @@ break-inside: avoid;
 <h1>Analiza: ce îi cerem și ce verificăm?</h1>
 <p><strong><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/03-contracte/ai/analist-prompt.md">Instrucțiunea trimisă</a>:</strong> „[…] formulează contractele operațiilor rezerva, ridica și anuleaza: precondiții, condiții de succes, efecte, refuzuri și invarianți. Calculează S2, S3 și S5. […]”</p>
 <p><strong><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/03-contracte/ai/context.md">Reguli</a>:</strong> rezervarea reușește numai cu un identificator nefolosit și 0&lt;q≤D; ridicarea și anularea, numai pentru o rezervare activă; altfel refuz, fără modificări. Ridicarea scade F și R cu q; anularea, doar R.</p>
-<p><strong>Din I</strong> (F=10, A activă(4), R=4, D=F−R=6): scenariul S2 (<span class="operatie">rezerva(B,7)</span>); scenariul S3 (<span class="operatie">ridica(A)</span>); scenariul S5 (<span class="operatie">ridica(A)</span>, apoi <span class="operatie">anuleaza(A)</span>). <strong>Predicție în chat, la semnal:</strong> ce rezultate așteptăm?</p>
+<p><strong>Din I</strong> (F=10, A activă(4), R=4, D=F−R=6): scenariul S2 (<span class="operatie">rezervă(B,7)</span>); scenariul S3 (<span class="operatie">ridică(A)</span>); scenariul S5 (<span class="operatie">ridică(A)</span>, apoi <span class="operatie">anulează(A)</span>). <strong>Predicție în chat, la semnal:</strong> ce rezultate așteptăm?</p>
 <div class="deck-pause"></div>
-<p><strong>Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente din contractul <span class="operatie">rezerva</span>:</strong></p>
+<p><strong>Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente din contractul <span class="operatie">rezervă</span>:</strong></p>
 <blockquote>
 <p><strong>Precondiții:</strong> id ≠ 0; id nu apare deja în registru; q &gt; 0; D ≥ q</p>
 <p><strong>Refuz:</strong> Orice precondițiune încălcată ⇒ stare neschimbată</p>
@@ -594,9 +594,9 @@ break-inside: avoid;
 <p><strong>Starea de pornire (după scenariul S1):</strong> F=10; A activă(4), B activă(6); R=10, D=0. F fizic, R rezervat activ, D disponibil.</p>
 <p><strong>Reguli:</strong> pentru o rezervare activă de q bucăți, anularea scade R cu q, fără modificarea lui F; ridicarea scade F și R cu q; D=F−R. Păstrăm identificatorul, cantitatea și celelalte rezervări; la refuz, întregul registru.</p>
 <ol style="list-style-type: decimal">
-<li>Executăm <span class="operatie">anuleaza(A)</span>, apoi <span class="operatie">ridica(B)</span>. Ce cantități și ce rezervări avem după fiecare pas?</li>
+<li>Executăm <span class="operatie">anulează(A)</span>, apoi <span class="operatie">ridică(B)</span>. Ce cantități și ce rezervări avem după fiecare pas?</li>
 <li>Un voluntar explică în plen; un coleg numit verifică primul păstrarea rezervării neatinse de operație. Ceilalți pot formula obiecții în chat.</li>
-<li>Alt coleg explică o ramură separată, imediat după anularea lui A, ca în scenariul S6 (reutilizarea lui A), dar din această stare: <span class="operatie">rezerva(A,2)</span>. <strong>Identificatorul nu se reutilizează.</strong> Ce se păstrează la refuz?</li>
+<li>Alt coleg explică o ramură separată, imediat după anularea lui A, ca în scenariul S6 (reutilizarea lui A), dar din această stare: <span class="operatie">rezervă(A,2)</span>. <strong>Identificatorul nu se reutilizează.</strong> Ce se păstrează la refuz?</li>
 </ol>
 </div>
 <div id="ce-putem-explica-acum" class="slide section level1">

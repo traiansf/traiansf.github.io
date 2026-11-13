@@ -2,7 +2,7 @@
 title: "AMSS 2026/2027 — Laboratorul 3: Responsabilități, contracte și invarianți — online"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
-operation-names: [rezerva, ridica, anuleaza]
+operation-names: [rezervă, ridică, anulează]
 ---
 
 # Ce proiectăm azi
@@ -79,7 +79,7 @@ Aceeași cerere vine din formular și din import.
 
 **R2 (rezervare):** rezervăm o cantitate întreagă pozitivă, cel mult egală cu D, cu un identificator nefolosit; R crește, D scade, F rămâne identic. Altfel refuzăm, fără modificări. **R5 (istoric și efect limitat):** formularul și importul folosesc aceleași reguli; celelalte rezervări se păstrează.
 
-1. Individual: din I, scenariul S1 (`rezerva(B,6)`) și, independent, scenariul S2 (`rezerva(B,7)`) — ce rezultat și ce cantități rămân?
+1. Individual: din I, scenariul S1 (`rezervă(B,6)`) și, independent, scenariul S2 (`rezervă(B,7)`) — ce rezultat și ce cantități rămân?
 2. La semnal, predicțiile în chat. Un coleg propune verificări în fiecare canal; un coleg numit, operații ale unui registru comun, cu semnătura și rezultatele lor. Comparați dependențele.
 3. Continuăm ștafeta cu alt coleg: cine împiedică importul să ocolească regula?
 
@@ -115,12 +115,12 @@ Precondițiile comune sunt registru valid, identificatori nevizi, cantități î
 
 Un coleg formulează contractul în plen (precondiții, condiție de succes, postcondiții), iar un coleg numit verifică; apoi schimbați vorbitorii, cu obiecții în chat:
 
-- scenariul S2 (`rezerva(B,7)`) și scenariul S7 (`rezerva(B,0)`), fiecare din I;
-- succesul din scenariul S1 (`rezerva(B,6)`) și păstrarea lui A;
+- scenariul S2 (`rezervă(B,7)`) și scenariul S7 (`rezervă(B,0)`), fiecare din I;
+- succesul din scenariul S1 (`rezervă(B,6)`) și păstrarea lui A;
 - relația **D = F − R** și lipsa cantităților negative: ajung ele singure?
 
 ::: notes
-Ambele refuzuri păstrează exact I. Succesul creează B activă(6); F=10, R=10, D=0. Dacă discuția rămâne la invarianți, propuneți după `rezerva(B,6)` registrul greșit A activă(2), B activă(6), F=10, R=8, D=2: respectă invarianții, dar a modificat cantitatea lui A; îl exclude R5 (istoric și efect limitat), nu un invariant. De aceea contractul nu poate spune doar „disponibil nenegativ”. Nu cerem o transcriere obligatorie.
+Ambele refuzuri păstrează exact I. Succesul creează B activă(6); F=10, R=10, D=0. Dacă discuția rămâne la invarianți, propuneți după `rezervă(B,6)` registrul greșit A activă(2), B activă(6), F=10, R=8, D=2: respectă invarianții, dar a modificat cantitatea lui A; îl exclude R5 (istoric și efect limitat), nu un invariant. De aceea contractul nu poate spune doar „disponibil nenegativ”. Nu cerem o transcriere obligatorie.
 
 **Organizare:** 10 min. []{.pace dur=10}
 :::
@@ -133,12 +133,12 @@ Ambele refuzuri păstrează exact I. Succesul creează B activă(6); F=10, R=10,
 
 **R3 (ridicare) și R4 (anulare):** numai o rezervare activă de q bucăți poate fi ridicată sau anulată; o marcăm ridicată, respectiv anulată. La ridicare, F și R scad cu q, iar D nu se modifică. La anulare, F rămâne, R scade cu q, iar D crește cu q. **R5 (istoric și efect limitat):** păstrăm identificatorul, cantitatea și celelalte rezervări; la refuz, tot registrul.
 
-Un coleg explică scenariul S3 (`ridica(A)`), un coleg numit scenariul S4 (`anuleaza(A)`), **independent din I**. Alt coleg continuă ștafeta:
+Un coleg explică scenariul S3 (`ridică(A)`), un coleg numit scenariul S4 (`anulează(A)`), **independent din I**. Alt coleg continuă ștafeta:
 
-**Scenariul S5:** din I, `ridica(A)`, apoi `anuleaza(A)`. Ce rezultat și ce stare produce fiecare pas? De ce nu putem „reda” cele 4 bucăți?
+**Scenariul S5:** din I, `ridică(A)`, apoi `anulează(A)`. Ce rezultat și ce stare produce fiecare pas? De ce nu putem „reda” cele 4 bucăți?
 
 ::: notes
-S3: F=6, R=0, D=6, A ridicată(4). S4: F=10, R=0, D=10, A anulată(4). S5: primul pas ca S3; al doilea refuză și păstrează exact acea stare. Cele patru bucăți au părăsit fizic depozitul; nu există retur în domeniu. Invarianți: 0≤R≤F≤10, D=F−R. Opțional, F plus cantitatea ridicată rămâne 10. Dacă cineva propune după `ridica(A)` starea F=6, R=4, D=2: A nu mai este activă, deci R trebuie să fie 0.
+S3: F=6, R=0, D=6, A ridicată(4). S4: F=10, R=0, D=10, A anulată(4). S5: primul pas ca S3; al doilea refuză și păstrează exact acea stare. Cele patru bucăți au părăsit fizic depozitul; nu există retur în domeniu. Invarianți: 0≤R≤F≤10, D=F−R. Opțional, F plus cantitatea ridicată rămâne 10. Dacă cineva propune după `ridică(A)` starea F=6, R=4, D=2: A nu mai este activă, deci R trebuie să fie 0.
 
 **Organizare:** 15 min, cu discuție. []{.pace dur=15}
 :::
@@ -165,11 +165,11 @@ Profesorul conduce o singură analiză și o singură revizuire într-un context
 
 **[Reguli](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/03-contracte/ai/context.md):** rezervarea reușește numai cu un identificator nefolosit și 0<q≤D; ridicarea și anularea, numai pentru o rezervare activă; altfel refuz, fără modificări. Ridicarea scade F și R cu q; anularea, doar R.
 
-**Din I** (F=10, A activă(4), R=4, D=F−R=6): scenariul S2 (`rezerva(B,7)`); scenariul S3 (`ridica(A)`); scenariul S5 (`ridica(A)`, apoi `anuleaza(A)`). **Predicție în chat, la semnal:** ce rezultate așteptăm?
+**Din I** (F=10, A activă(4), R=4, D=F−R=6): scenariul S2 (`rezervă(B,7)`); scenariul S3 (`ridică(A)`); scenariul S5 (`ridică(A)`, apoi `anulează(A)`). **Predicție în chat, la semnal:** ce rezultate așteptăm?
 
 . . .
 
-**Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente din contractul `rezerva`:**
+**Analistul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente din contractul `rezervă`:**
 
 > **Precondiții:** id ≠ 0; id nu apare deja în registru; q > 0; D ≥ q
 >
@@ -246,9 +246,9 @@ Revenim la explicațiile în ștafetă după demonstrația AI comună. Nu schimb
 
 **Reguli:** pentru o rezervare activă de q bucăți, anularea scade R cu q, fără modificarea lui F; ridicarea scade F și R cu q; D=F−R. Păstrăm identificatorul, cantitatea și celelalte rezervări; la refuz, întregul registru.
 
-1. Executăm `anuleaza(A)`, apoi `ridica(B)`. Ce cantități și ce rezervări avem după fiecare pas?
+1. Executăm `anulează(A)`, apoi `ridică(B)`. Ce cantități și ce rezervări avem după fiecare pas?
 2. Un voluntar explică în plen; un coleg numit verifică primul păstrarea rezervării neatinse de operație. Ceilalți pot formula obiecții în chat.
-3. Alt coleg explică o ramură separată, imediat după anularea lui A, ca în scenariul S6 (reutilizarea lui A), dar din această stare: `rezerva(A,2)`. **Identificatorul nu se reutilizează.** Ce se păstrează la refuz?
+3. Alt coleg explică o ramură separată, imediat după anularea lui A, ca în scenariul S6 (reutilizarea lui A), dar din această stare: `rezervă(A,2)`. **Identificatorul nu se reutilizează.** Ce se păstrează la refuz?
 
 ::: notes
 După anulare: F=10, R=6, D=4, A anulată(4), B activă(6). După ridicarea lui B: F=4, R=0, D=4, A anulată(4), B ridicată(6). Punctul 3 este o ramură separată din starea de după anulare, nu după ambii pași: refuz, exact acea stare. Aici D=4≥2, deci singurul motiv de refuz este identificatorul reutilizat: refuzul vine din R5 (istoric și efect limitat), nu din disponibilitate.

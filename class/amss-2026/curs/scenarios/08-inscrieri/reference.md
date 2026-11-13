@@ -4,7 +4,7 @@ Analiză de pregătire pentru [enunț](brief.md), nu captură AI.
 
 ## Granița și responsabilitățile
 
-În interiorul sistemului nostru: registrul de locuri, cu operația `inscrie` și datele lui (locuri libere, înscrieri cu identificatorul cererii și rezultatul confirmării). În exterior: site-ul, care trimite cereri și afișează rezultatul, participantul și expeditorul de confirmări. Despre expeditor cunoaștem numai interfața `trimite(mesaj)` cu rezultatele `trimis` și `esec` și presupunerea R6: răspunde la fiecare apel. Nu presupunem nimic despre livrare.
+În interiorul sistemului nostru: registrul de locuri, cu operația `înscrie` și datele lui (locuri libere, înscrieri cu identificatorul cererii și rezultatul confirmării). În exterior: site-ul, care trimite cereri și afișează rezultatul, participantul și expeditorul de confirmări. Despre expeditor cunoaștem numai interfața `trimite(mesaj)` cu rezultatele `trimis` și `esec` și presupunerea R6: răspunde la fiecare apel. Nu presupunem nimic despre livrare.
 
 | Componentă | Responsabilitate |
 |---|---|
@@ -14,9 +14,9 @@ Analiză de pregătire pentru [enunț](brief.md), nu captură AI.
 
 Registrul coordonează: site-ul nu apelează expeditorul, iar expeditorul nu cunoaște locurile. Dacă site-ul ar trimite confirmarea, ar trebui să cunoască rezultatul deciziei și regula R4, iar o confirmare ar putea pleca fără înscriere.
 
-## Interacțiunea pentru `inscrie(c, p, a)`
+## Interacțiunea pentru `înscrie(c, p, a)`
 
-1. Site → Registru: `inscrie(c, p, a)`.
+1. Site → Registru: `înscrie(c, p, a)`.
 2. Registru: dacă c este înregistrat, verifică rezultatul confirmării: la `netrimisă` continuă cu pasul 4; la `trimisă`, cu pasul 7. Altfel verifică: p neînscris la a și loc liber. Dacă nu: întoarce `refuz`, fără modificări, fără apelul expeditorului (sfârșit).
 3. Registru: consumă locul; înregistrează înscrierea (c, p, a) cu confirmarea `în așteptare`.
 4. Registru → Expeditor: `trimite(mesaj pentru p)`.
@@ -45,17 +45,17 @@ Ce garantează registrul, în limitele R1: o cerere acceptată consumă exact un
 
 ## Contraexemplul didactic
 
-Fluxul G, construit pentru verificare, nu înregistrează identificatorul cererii și verifică numai locurile libere. Din I: `inscrie(c1, P1, A)` cu `esec` → acceptat, 1 loc; reîncercarea `inscrie(c1, P1, A)` este tratată ca o cerere nouă → a doua înscriere pentru P1, 0 locuri. Apoi `inscrie(c2, P2, A)` primește `refuz`, deși un singur participant este înscris. G încalcă R5 (o reîncercare nu consumă alt loc) și, prin lipsa verificării „p neînscris”, R3. Chiar cu verificarea „p neînscris”, fără identificatorul cererii registrul ar răspunde `refuz` la reîncercare, deși P1 este înscris: site-ul nu ar putea distinge „deja înscris” de „fără loc”.
+Fluxul G, construit pentru verificare, nu înregistrează identificatorul cererii și verifică numai locurile libere. Din I: `înscrie(c1, P1, A)` cu `esec` → acceptat, 1 loc; reîncercarea `înscrie(c1, P1, A)` este tratată ca o cerere nouă → a doua înscriere pentru P1, 0 locuri. Apoi `înscrie(c2, P2, A)` primește `refuz`, deși un singur participant este înscris. G încalcă R5 (o reîncercare nu consumă alt loc) și, prin lipsa verificării „p neînscris”, R3. Chiar cu verificarea „p neînscris”, fără identificatorul cererii registrul ar răspunde `refuz` la reîncercare, deși P1 este înscris: site-ul nu ar putea distinge „deja înscris” de „fără loc”.
 
 ## Variante de recuperare după `esec`
 
 | Variantă | Presupune | Cost |
 |---|---|---|
 | A: reîncercarea imediată a trimiterii, de cel mult două ori, în aceeași operație | merită încercat din nou, fără succes garantat | site-ul așteaptă; mesajul se poate dubla; după ultimul `esec`, confirmarea rămâne `netrimisă` |
-| B: înregistrăm `netrimisă`; o operație separată `retrimite_confirmarile()` reia mai târziu | cineva sau ceva apelează operația | o operație și un apelant în plus; trimiterea poate eșua din nou sau produce un mesaj duplicat |
+| B: înregistrăm `netrimisă`; o operație separată `retrimite confirmările()` reia mai târziu | cineva sau ceva apelează operația | o operație și un apelant în plus; trimiterea poate eșua din nou sau produce un mesaj duplicat |
 | C: anulăm înscrierea la `esec` | `esec` înseamnă „mesajul nu a ajuns” | încalcă R4; confirmare posibilă fără loc |
 
-A și B respectă R4; C contrazice regula beneficiarului, indiferent dacă mesajul a ajuns. Alegem B: un singur apel al expeditorului în `inscrie`, inclusiv la reîncercarea cu rezultat `netrimisă`. Propunem separat `retrimite_confirmarile()`, apelată de operator, care încearcă o dată fiecare confirmare `netrimisă` și actualizează rezultatul, fără să modifice înscrierile sau locurile. Apelurile rămân secvențiale. Nu apare o stare nouă; `netrimisă` exista deja. Din starea de după S2, un apel cu răspuns `trimis` schimbă numai confirmarea; următorul apel nu mai trimite acel mesaj. Fără intervenția operatorului nu promitem retrimiterea. A rămâne alternativă, dar necesită un număr explicit de încercări și recalcularea scenariilor.
+A și B respectă R4; C contrazice regula beneficiarului, indiferent dacă mesajul a ajuns. Alegem B: un singur apel al expeditorului în `înscrie`, inclusiv la reîncercarea cu rezultat `netrimisă`. Propunem separat `retrimite confirmările()`, apelată de operator, care încearcă o dată fiecare confirmare `netrimisă` și actualizează rezultatul, fără să modifice înscrierile sau locurile. Apelurile rămân secvențiale. Nu apare o stare nouă; `netrimisă` exista deja. Din starea de după S2, un apel cu răspuns `trimis` schimbă numai confirmarea; următorul apel nu mai trimite acel mesaj. Fără intervenția operatorului nu promitem retrimiterea. A rămâne alternativă, dar necesită un număr explicit de încercări și recalcularea scenariilor.
 
 ## Idempotență și atomicitate
 

@@ -10,7 +10,7 @@ Precondiții: identificatori cunoscuți, registru valid, apeluri secvențiale (R
 
 Pentru `atribuie(v,d)`, condiția de succes este ca v să nu aibă dulap în A, iar d să fie liber în A. Dacă ea este adevărată, rezultatul este `atribuit`, iar A′ = A ∪ {(v,d)}. Altfel, rezultatul este `refuz`, iar A′ = A. Ecuațiile includ efectul limitat: nicio asociere străină nu se pierde. Un apel pentru un dulap ocupat satisface R1 și primește un refuz convenit; nu este o încălcare de precondiție.
 
-Pentru `elibereaza(v)`, dacă (v,d) aparține lui A, rezultatul este `eliberat`, iar A′ = A fără acea pereche. În absența unei asemenea perechi, rezultatul este `fara_dulap` și A′ = A. R2 face perechea unică. Repetarea are același efect asupra registrului, dar **nu același rezultat întors**.
+Pentru `eliberează(v)`, dacă (v,d) aparține lui A, rezultatul este `eliberat`, iar A′ = A fără acea pereche. În absența unei asemenea perechi, rezultatul este `fara_dulap` și A′ = A. R2 face perechea unică. Repetarea are același efect asupra registrului, dar **nu același rezultat întors**.
 
 ## Contraexemple
 

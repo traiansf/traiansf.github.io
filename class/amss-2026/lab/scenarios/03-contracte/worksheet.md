@@ -24,4 +24,4 @@ Profesorul conduce o singură analiză și o singură revizuire în plen. Prezic
 
 ## Exercițiul final
 
-Pornim cu A activă 4 și B activă 6, F=10, R=10, D=0. Executăm `anuleaza(A)`, apoi `ridica(B)`. Pregătiți explicația pentru ambele stări intermediare și pentru păstrarea rezervării neatinse. Separat, după anularea lui A, încercăm reutilizarea identificatorului A: regula istoricului cere refuz fără modificări.
+Pornim cu A activă 4 și B activă 6, F=10, R=10, D=0. Executăm `anulează(A)`, apoi `ridică(B)`. Pregătiți explicația pentru ambele stări intermediare și pentru păstrarea rezervării neatinse. Separat, după anularea lui A, încercăm reutilizarea identificatorului A: regula istoricului cere refuz fără modificări.

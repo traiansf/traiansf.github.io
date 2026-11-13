@@ -20,15 +20,15 @@ Starea inițială **I**: A (titular T1, proiector) și B (titular T2, cameră) �
 
 | Scenariu | Rezultat |
 |---|---|
-| S1: `ridica(c1, A, T1)`, `trimis` | `ridicat`; A Ridicată, c1 înregistrat, notificare `trimisă`. |
-| S2: `ridica(c1, A, T2)` | `refuz` (condiția titularului); exact I; expeditorul nu este apelat. |
-| S3: `ridica(c1, A, T1)`, `esec` | `ridicat`; A Ridicată, c1 înregistrat, notificare `netrimisă`. |
-| S4 (după S3): `ridica(c1, A, T1)`, `trimis` | `ridicat` (reîncercare); o singură ridicare; expeditorul apelat din nou; notificare `trimisă`. |
-| S5 (după S1): `ridica(c7, A, T1)` | `refuz` (cerere nouă, A nu mai este Rezervată); nimic nu se modifică. |
-| S6 (după S1): `anuleaza(A)` | `refuz`; A rămâne Ridicată. |
-| S7: `anuleaza(B)`, apoi `ridica(c2, B, T2)` | Anulare acceptată, B Anulată; ridicare refuzată (stare finală); fără notificare. |
+| S1: `ridică(c1, A, T1)`, `trimis` | `ridicat`; A Ridicată, c1 înregistrat, notificare `trimisă`. |
+| S2: `ridică(c1, A, T2)` | `refuz` (condiția titularului); exact I; expeditorul nu este apelat. |
+| S3: `ridică(c1, A, T1)`, `esec` | `ridicat`; A Ridicată, c1 înregistrat, notificare `netrimisă`. |
+| S4 (după S3): `ridică(c1, A, T1)`, `trimis` | `ridicat` (reîncercare); o singură ridicare; expeditorul apelat din nou; notificare `trimisă`. |
+| S5 (după S1): `ridică(c7, A, T1)` | `refuz` (cerere nouă, A nu mai este Rezervată); nimic nu se modifică. |
+| S6 (după S1): `anulează(A)` | `refuz`; A rămâne Ridicată. |
+| S7: `anulează(B)`, apoi `ridică(c2, B, T2)` | Anulare acceptată, B Anulată; ridicare refuzată (stare finală); fără notificare. |
 
-Tabelul de tranziții așteptat are trei rânduri: Rezervată + `ridica` cu c nou și s titular → Ridicată; Ridicată + `ridica` cu c înregistrat → Ridicată (reîncercare; notificarea `netrimisă` se reîncearcă); Rezervată + `anuleaza` → Anulată. Orice altă combinație, sau o condiție neîndeplinită, este refuzată fără modificări. Dificultatea principală: reîncercarea este pusă în Rezervată, deși c se înregistrează numai la acceptare, deci sosește în Ridicată; întrebarea colegului care verifică o scoate la iveală. A doua dificultate: cererea nouă cu același conținut (c7) confundată cu reîncercarea (c1); le deosebește numai identificatorul.
+Tabelul de tranziții așteptat are trei rânduri: Rezervată + `ridică` cu c nou și s titular → Ridicată; Ridicată + `ridică` cu c înregistrat → Ridicată (reîncercare; notificarea `netrimisă` se reîncearcă); Rezervată + `anulează` → Anulată. Orice altă combinație, sau o condiție neîndeplinită, este refuzată fără modificări. Dificultatea principală: reîncercarea este pusă în Rezervată, deși c se înregistrează numai la acceptare, deci sosește în Ridicată; întrebarea colegului care verifică o scoate la iveală. A doua dificultate: cererea nouă cu același conținut (c7) confundată cu reîncercarea (c1); le deosebește numai identificatorul.
 
 Anulată este finală intenționată. Ridicată permite reîncercarea, deci nu este finală în sensul cursului 7; faptul că ridicarea fizică s-a încheiat nu încheie tratarea notificării.
 
@@ -38,7 +38,7 @@ Interacțiunea: tranziția și înregistrarea lui c preced apelul expeditorului;
 
 Demonstrația este comună, condusă de profesor; nu cereți studenților să opereze un asistent AI. În celelalte etape, studenții lucrează individual și discută în plen. Nu este necesar să aibă conturi AI.
 
-Slide-urile conțin **capturi reale pregătite** Claude Haiku 4.5, din 12 noiembrie 2026 (Claude Code 2.1.322, fără unelte și fără contextul proiectului). [Fragmentele selectate](scenarios/04-comportament/prepared-fixture.md) și [arhiva](scenarios/04-comportament/captures/2026-11-12/README.md) păstrează promptul exact, contextul, răspunsurile integrale și ambele încercări pentru fiecare rol. Analiza 01 calculează corect S2, S4 și S7 și descrie corect interacțiunea, dar tabelul ei pune reîncercarea în Rezervată și refuză orice `ridica` în Ridicată, contrazicând propriul calcul al lui S4 și R5; adaugă și presupuneri despre expeditor care nu sunt în enunț. Revizuirea 02 observă corect că rândul reîncercării este vag, dar nu confruntă rândul „Ridicată | ridica | refuz” cu S4 și confirmă „idempotența”. Selecția nu descrie performanța tipică a modelului. Enunțul trimis avea și o contradicție proprie: R2 numea Ridicată „finală”, deși R5 permite reîncercări. Enunțul curent corectează R2; capturile și intrările lor rămân intacte. Discutați separat eroarea enunțului și contradicția internă a răspunsului. „Idempotență” privește efectul repetării, nu egalitatea răspunsurilor; R5 cere aici și același răspuns.
+Slide-urile conțin **capturi reale pregătite** Claude Haiku 4.5, din 12 noiembrie 2026 (Claude Code 2.1.322, fără unelte și fără contextul proiectului). [Fragmentele selectate](scenarios/04-comportament/prepared-fixture.md) și [arhiva](scenarios/04-comportament/captures/2026-11-12/README.md) păstrează promptul exact, contextul, răspunsurile integrale și ambele încercări pentru fiecare rol. Analiza 01 calculează corect S2, S4 și S7 și descrie corect interacțiunea, dar tabelul ei pune reîncercarea în Rezervată și refuză orice `ridică` în Ridicată, contrazicând propriul calcul al lui S4 și R5; adaugă și presupuneri despre expeditor care nu sunt în enunț. Revizuirea 02 observă corect că rândul reîncercării este vag, dar nu confruntă rândul „Ridicată | ridica | refuz” cu S4 și confirmă „idempotența”. Selecția nu descrie performanța tipică a modelului. Enunțul trimis avea și o contradicție proprie: R2 numea Ridicată „finală”, deși R5 permite reîncercări. Enunțul curent corectează R2; capturile și intrările lor rămân intacte. Discutați separat eroarea enunțului și contradicția internă a răspunsului. „Idempotență” privește efectul repetării, nu egalitatea răspunsurilor; R5 cere aici și același răspuns.
 
 O rulare live poate înlocui capturile: folosiți [instrucțiunea și contextul](scenarios/04-comportament/ai/README.md) cu instrumentul disponibil al profesorului, fără a impune un model, și nu furnizați referința cu soluții. Discutați atunci rezultatul efectiv, nu omisiunile capturii.
 
@@ -50,7 +50,7 @@ O rulare live poate înlocui capturile: folosiți [instrucțiunea și contextul]
 
 ## Exercițiul final
 
-Din I, `ridica(c1, A, T1)` cu `esec` produce `ridicat`, A Ridicată, notificare `netrimisă`. Cererea `ridica(c8, A, T1)` cu identificator nou este refuzată (A nu mai este Rezervată) și nu apelează expeditorul; notificarea rămâne `netrimisă`. Ramura separată, tot din starea de după primul pas: reîncercarea `ridica(c1, A, T1)` primește `ridicat`, expeditorul este apelat din nou, notificarea devine `trimisă`. Diferența stă numai în identificatorul cererii. Întrebarea de încheiere, pentru discuție: ce ar trebui să facă ghișeul ca să reîncerce cu același identificator?
+Din I, `ridică(c1, A, T1)` cu `esec` produce `ridicat`, A Ridicată, notificare `netrimisă`. Cererea `ridică(c8, A, T1)` cu identificator nou este refuzată (A nu mai este Rezervată) și nu apelează expeditorul; notificarea rămâne `netrimisă`. Ramura separată, tot din starea de după primul pas: reîncercarea `ridică(c1, A, T1)` primește `ridicat`, expeditorul este apelat din nou, notificarea devine `trimisă`. Diferența stă numai în identificatorul cererii. Întrebarea de încheiere, pentru discuție: ce ar trebui să facă ghișeul ca să reîncerce cu același identificator?
 
 ## Varianta online
 

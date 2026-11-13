@@ -6,11 +6,11 @@ Folosiți [enunțul](scenario.md) la lucrul individual și la discuția în plen
 
 Pentru fiecare rând: stare curentă → eveniment → condiție → stare următoare → efect. Un eveniment nepermis este refuzat, fără modificări. Întrebări de verificare: în ce stare sosește o reîncercare? Ce decide un refuz: starea sau condiția? Ce date rămân după anulare?
 
-**Repere:** `ridica` cu identificator nou numai din Rezervată, numai de titular; reîncercarea (același identificator) primește același `ridicat`; `anuleaza` numai din Rezervată; Anulată este finală intenționată; Ridicată permite reîncercarea și actualizarea notificării, fără o a doua ridicare.
+**Repere:** `ridică` cu identificator nou numai din Rezervată, numai de titular; reîncercarea (același identificator) primește același `ridicat`; `anulează` numai din Rezervată; Anulată este finală intenționată; Ridicată permite reîncercarea și actualizarea notificării, fără o a doua ridicare.
 
 ## Interacțiunea
 
-Pentru `ridica`: cine apelează pe cine, ce se întoarce, ce înregistrează registrul la fiecare pas. Marcați pasul în care se schimbă starea și pasul în care este apelat expeditorul; verificați ce rămâne înregistrat când expeditorul răspunde `esec`. Despre expeditor presupunem numai că răspunde `trimis` sau `esec`.
+Pentru `ridică`: cine apelează pe cine, ce se întoarce, ce înregistrează registrul la fiecare pas. Marcați pasul în care se schimbă starea și pasul în care este apelat expeditorul; verificați ce rămâne înregistrat când expeditorul răspunde `esec`. Despre expeditor presupunem numai că răspunde `trimis` sau `esec`.
 
 ## Exemple
 
@@ -22,4 +22,4 @@ Profesorul conduce o singură analiză și o singură revizuire în plen. Prezic
 
 ## Exercițiul final
 
-Din I, `ridica(c1, A, T1)` cu `esec`, apoi `ridica(c8, A, T1)` cu identificator nou. Separat, după primul pas, reîncercarea `ridica(c1, A, T1)` cu `trimis`. Pregătiți explicația pentru fiecare rezultat, pentru notificare și pentru ce deosebește cele două cereri.
+Din I, `ridică(c1, A, T1)` cu `esec`, apoi `ridică(c8, A, T1)` cu identificator nou. Separat, după primul pas, reîncercarea `ridică(c1, A, T1)` cu `trimis`. Pregătiți explicația pentru fiecare rezultat, pentru notificare și pentru ce deosebește cele două cereri.

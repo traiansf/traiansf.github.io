@@ -642,7 +642,9 @@ end
 local function style_operations(blocks, set)
   return blocks:walk({
     Code = function(code)
-      local name = code.text:match('^([%w_]+)')
+      -- Names are ordinary words, with diacritics and spaces
+      -- (`înregistrează raport(r)`); the arguments follow in parentheses.
+      local name = code.text:match('^([^(]+)')
       if not (name and set[name]) then
         return nil
       end
@@ -650,11 +652,12 @@ local function style_operations(blocks, set)
       if rest ~= '' and not rest:match('^%(.*%)$') then
         return nil
       end
+      local text = name:gsub(' ', NBSP) .. rest
       if is_beamer or is_latex then
-        local escaped = code.text:gsub('[#%%&_{}$]', '\\%0')
+        local escaped = text:gsub('[#%%&_{}$]', '\\%0')
         return pandoc.RawInline('latex', '\\amssoperation{' .. escaped .. '}')
       end
-      return pandoc.Span({ pandoc.Str(code.text) }, pandoc.Attr('', { 'operatie' }))
+      return pandoc.Span({ pandoc.Str(text) }, pandoc.Attr('', { 'operatie' }))
     end,
   })
 end

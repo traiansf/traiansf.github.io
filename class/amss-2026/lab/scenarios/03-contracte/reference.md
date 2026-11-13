@@ -18,9 +18,9 @@ Precondiții comune: R1 (context: registru valid, apeluri secvențiale, cantitat
 
 | Operație acceptată | Efect asupra cantităților | Efect asupra registrului |
 |---|---|---|
-| `rezerva(id,q)` | F' = F; R' = R+q; D' = D−q; P' = P | Adaugă numai rezervarea activă nouă. |
-| `ridica(id)` de q | F' = F−q; R' = R−q; D' = D; P' = P+q | Numai rezervarea vizată devine ridicată. |
-| `anuleaza(id)` de q | F' = F; R' = R−q; D' = D+q; P' = P | Numai rezervarea vizată devine anulată. |
+| `rezervă(id,q)` | F' = F; R' = R+q; D' = D−q; P' = P | Adaugă numai rezervarea activă nouă. |
+| `ridică(id)` de q | F' = F−q; R' = R−q; D' = D; P' = P+q | Numai rezervarea vizată devine ridicată. |
+| `anulează(id)` de q | F' = F; R' = R−q; D' = D+q; P' = P | Numai rezervarea vizată devine anulată. |
 
 Spre deosebire de enunțul muzeului, R3–R4 specifică aici și refuzul pentru un identificator necunoscut. Nu importăm precondiția „identificator cunoscut” din curs. Prin istoric înțelegem păstrarea rezervărilor încheiate, cu identificatorul și cantitatea lor; nu cerem un jurnal separat al fiecărui apel.
 

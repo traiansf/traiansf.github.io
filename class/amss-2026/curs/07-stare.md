@@ -2,7 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 7: Stare și comportament"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
-operation-names: [ataseaza, trimite, preia, inregistreaza_raport, accepta, respinge, retrage]
+operation-names: [atașează, trimite, preia, "înregistrează raport", acceptă, respinge, retrage]
 state-names: [Ciornă, Trimis, "În evaluare", Acceptat, Respins, Retras]
 ---
 
@@ -13,7 +13,7 @@ Aceeași cerere, acceptată ieri, este refuzată azi. Ce s-a schimbat?
 ::: notes
 În cursul 6 am precizat ce promite o operație, inclusiv când refuză. Azi urmărim de ce aceeași operație reușește într-un moment și este refuzată în altul: istoricul manuscrisului, rezumat într-o stare, decide ce evenimente sunt permise acum. Nu adăugăm cerințe noi, ci organizăm promisiunile operațiilor de-a lungul vieții unui obiect.
 
-**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, întrebarea deschisă, problema, exercițiul cu cele șapte evenimente și slide-urile despre stări și tranziții. 35 de slide-uri cu copertă. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, întrebarea deschisă, problema, exercițiul cu cele șapte evenimente și slide-urile despre stări și tranziții. 36 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
 
 ---
@@ -52,7 +52,7 @@ Nu căutăm un singur răspuns corect. Pot apărea o comandă care nu se mai anu
 
 # Un manuscris retras poate fi acceptat?
 
-Un sistem editorial ține evidența manuscriselor trimise unei reviste. **Registrul editorial**, componenta responsabilă, păstrează pentru fiecare manuscris **starea** lui și **datele** înregistrate pe parcurs: fișierul, editorul responsabil, rapoartele de evaluare, decizia.
+Un sistem editorial ține evidența manuscriselor trimise unei reviste. **Registrul editorial**, componenta responsabilă, păstrează pentru fiecare manuscris **starea** lui și **datele** înregistrate pe parcurs: fișierul, editorul responsabil, rapoartele de evaluare.
 
 **Regula convenită cu revista (beneficiarul):** autorul poate retrage manuscrisul trimis cât timp nu are decizie; după retragere, nicio decizie nu mai este posibilă.
 
@@ -72,11 +72,11 @@ Registrul refuză acceptarea: manuscrisul este retras, iar regula nu permite dec
 
 **Reguli** (operațiile sunt evenimentele cerute):
 
-- `ataseaza(f)`: autorul atașează fișierul f; numai cât timp manuscrisul este ciornă (netrimis);
+- `atașează(f)`: autorul atașează fișierul f; numai cât timp manuscrisul este ciornă (netrimis);
 - `trimite`: autorul îl trimite revistei; numai pentru o ciornă, dacă există fișier;
 - `preia(e)`: editorul e îl preia; numai pentru un manuscris trimis;
-- `inregistreaza_raport(r)`: se adaugă raportul r; numai în evaluare;
-- `accepta` și `respinge`: editorul decide; numai în evaluare, cu cel puțin un raport;
+- `înregistrează raport(r)`: se adaugă raportul r; numai în evaluare;
+- `acceptă` și `respinge`: editorul decide; numai în evaluare, cu cel puțin un raport;
 - `retrage`: autorul îl retrage; numai după trimitere, până la decizie.
 
 Un manuscris nou începe ca ciornă, fără fișier și fără alte date: crearea este starea inițială, nu un eveniment. Un eveniment nepermis este **refuzat**: nimic nu se schimbă.
@@ -84,7 +84,7 @@ Un manuscris nou începe ca ciornă, fără fișier și fără alte date: creare
 **Manuscrisul M este în evaluare,** cu editorul E1 și un raport Rp1. Individual, pentru fiecare dintre cele șapte evenimente: **schimbă starea**, **păstrează starea dar înregistrează ceva**, sau **este refuzat**? Apoi discutăm.
 
 ::: notes
-`accepta` → Acceptat, `respinge` → Respins, `retrage` → Retras: schimbă starea. `inregistreaza_raport(Rp2)` păstrează În evaluare și adaugă raportul. `ataseaza`, `trimite`, `preia` sunt refuzate: nu sunt permise În evaluare. Observăm că răspunsul vine din starea curentă și din reguli, nu din cine cere. Regulile de pe slide sunt rezumatul celor complete, care urmează.
+`acceptă` → Acceptat, `respinge` → Respins, `retrage` → Retras: schimbă starea. `înregistrează raport(Rp2)` păstrează În evaluare și adaugă raportul. `atașează`, `trimite`, `preia` sunt refuzate: nu sunt permise În evaluare. Observăm că răspunsul vine din starea curentă și din reguli, nu din cine cere. Regulile de pe slide sunt rezumatul celor complete, care urmează.
 
 **Organizare:** 6 min: 3 individual, 3 discuție. []{.pace dur=6}
 :::
@@ -135,8 +135,10 @@ Citim regulile complete, apoi le scriem ca tabel de tranziții: reprezentarea pe
 |--------|------------------------------------------|
 | R1 (context) | Identificatorii sunt cunoscuți; apelurile sunt secvențiale; un singur manuscris pe scenariu. Fără autentificare, concurență, retrimitere sau programarea publicării. |
 | R2 (stări) | Exact una dintre Ciornă, Trimis, În evaluare, Acceptat, Respins, Retras. Un manuscris nou este în Ciornă, fără date. |
-| R3 (pregătire și trimitere) | `ataseaza(f)` numai în Ciornă: înregistrează f, înlocuind fișierul anterior, dacă există. `trimite` numai în Ciornă și numai cu fișier: trece în Trimis. |
-| R4 (evaluare) | `preia(e)` numai în Trimis: editorul e, trece În evaluare. `inregistreaza_raport(r)` numai În evaluare: adaugă raportul, starea rămâne. |
+| R3 (pregătire și trimitere) | `atașează(f)` numai în Ciornă: înregistrează f, înlocuind fișierul anterior, dacă există. |
+| | `trimite` numai în Ciornă și numai cu fișier: trece în Trimis. |
+| R4 (evaluare) | `preia(e)` numai în Trimis: editorul e, trece În evaluare. |
+| | `înregistrează raport(r)` numai În evaluare: adaugă raportul, starea rămâne. |
 
 ::: notes
 Regulile vin de la beneficiar: cine are voie să facă ce și când. Noi le organizăm; nu adăugăm tranziții pe care enunțul nu le cere. Datele de efect (data trimiterii, a retragerii, a deciziei) sunt înregistrate la tranziția respectivă.
@@ -148,13 +150,13 @@ Regulile vin de la beneficiar: cine are voie să facă ce și când. Noi le orga
 
 | Regulă | Conținut |
 |--------|------------------------------------------|
-| R5 (decizie) | `accepta`, `respinge` numai În evaluare și numai cu cel puțin un raport: Acceptat, respectiv Respins. |
+| R5 (decizie) | `acceptă`, `respinge` numai În evaluare și numai cu cel puțin un raport: Acceptat, respectiv Respins. |
 | R6 (retragere) | `retrage` numai în Trimis sau În evaluare: Retras. Nu din Ciornă, nu după decizie. |
 | R7 (evenimente refuzate) | Fără tranziție permisă sau cu condiția neîndeplinită: refuzat, nimic nu se schimbă. |
-| R8 (datele se păstrează) | Fișierul, editorul, rapoartele și decizia nu se șterg. Acceptat, Respins, Retras sunt stări finale intenționate. |
+| R8 (datele se păstrează) | Fișierul, editorul și rapoartele nu se șterg. Acceptat, Respins, Retras sunt stări finale intenționate. |
 
 ::: notes
-R7 și R8 sunt regulile pe care le verificăm la fiecare eveniment refuzat și la fiecare tranziție: nimic nu se modifică la refuz, iar succesul modifică numai datele precizate. În Ciornă, `ataseaza(f)` poate înlocui fișierul; R8 nu impune păstrarea versiunilor anterioare. Stările finale sunt decizia beneficiarului, nu o lipsă a modelului.
+R7 și R8 sunt regulile pe care le verificăm la fiecare eveniment refuzat și la fiecare tranziție: nimic nu se modifică la refuz, iar succesul modifică numai datele precizate. În Ciornă, `atașează(f)` poate înlocui fișierul; R8 nu impune păstrarea versiunilor anterioare. Stările finale sunt decizia beneficiarului, nu o lipsă a modelului.
 :::
 
 ---
@@ -163,29 +165,29 @@ R7 și R8 sunt regulile pe care le verificăm la fiecare eveniment refuzat și l
 
 | Stare curentă | Eveniment | Condiție | Stare următoare | Efect |
 |:------------|:------------------------------|:---------------|:-------------|:-----------------|
-| Ciornă | `ataseaza(f)` | — | Ciornă | fișier: f |
+| Ciornă | `atașează(f)` | — | Ciornă | fișier: f |
 | Ciornă | `trimite` | există fișier | Trimis | data trimiterii |
 | Trimis | `preia(e)` | — | În evaluare | editor: e |
-| În evaluare | `inregistreaza_raport(r)` | — | În evaluare | rapoarte: + r |
-| În evaluare | `accepta` / `respinge` | cel puțin un raport | Acceptat / Respins | decizia și data ei |
+| În evaluare | `înregistrează raport(r)` | — | În evaluare | rapoarte: + r |
+| În evaluare | `acceptă` / `respinge` | cel puțin un raport | Acceptat / Respins | data deciziei |
 | Trimis, În evaluare | `retrage` | — | Retras | data retragerii |
 
 **Altfel: refuzat**, fără modificări. Schimbarea stării păstrează datele existente.
 
 ::: notes
-Tabelul este reprezentarea pe care o verificăm. „—” la condiție înseamnă că nu cerem altceva în afară de starea indicată. Un rând descrie un caz de succes: în starea curentă, dacă condiția este adevărată, evenimentul reușește cu starea următoare și efectul. Dacă niciun rând nu se aplică, evenimentul este refuzat. Rândul `inregistreaza_raport` nu schimbă starea, dar este o tranziție: are efect asupra datelor și trebuie să fie permis undeva, altfel nicio decizie nu ar deveni posibilă. Rândurile lipsă nu sunt uitări: ele spun „refuzat”.
+Tabelul este reprezentarea pe care o verificăm. „—” la condiție înseamnă că nu cerem altceva în afară de starea indicată. Un rând descrie un caz de succes: în starea curentă, dacă condiția este adevărată, evenimentul reușește cu starea următoare și efectul. Dacă niciun rând nu se aplică, evenimentul este refuzat. Rândul `înregistrează raport` nu schimbă starea, dar este o tranziție: are efect asupra datelor și trebuie să fie permis undeva, altfel nicio decizie nu ar deveni posibilă. Rândurile lipsă nu sunt uitări: ele spun „refuzat”.
 :::
 
 ---
 
 # Condiția nu este o stare
 
-`trimite` cere un fișier; `accepta` cere un raport. **De ce nu introducem stările „Ciornă cu fișier” și „În evaluare cu raport”?**
+`trimite` cere un fișier; `acceptă` cere un raport. **De ce nu introducem stările „Ciornă cu fișier” și „În evaluare cu raport”?**
 
 Am putea: ar fi alt model corect, cu mai multe stări. Alegem **starea pentru distincția convenită cu beneficiarul** și **condiția pentru verificarea datelor**:
 
 - Ciornă cu sau fără fișier este, pentru revistă, aceeași stare: nu a fost trimis;
-- numărul rapoartelor este o dată de care avem nevoie oricum; condiția o citește.
+- rapoartele sunt date pe care le păstrăm oricum; condiția le numără.
 
 **Legătura cu cursul 6:** starea curentă și condiția formează împreună condiția de succes a evenimentului; refuzul păstrează starea și datele, ca refuzul din contractul atribuirii.
 
@@ -197,7 +199,7 @@ Ambele modele descriu aceleași comportamente; diferă prin ce arată. Un tabel 
 
 # Ce se păstrează când se schimbă starea
 
-**R8 (datele se păstrează):** fișierul, editorul, rapoartele și decizia nu se șterg la nicio schimbare de stare.
+**R8 (datele se păstrează):** fișierul, editorul și rapoartele nu se șterg la nicio schimbare de stare.
 
 **Înainte:** M În evaluare; fișier f1, editor E1, rapoarte [Rp1].
 
@@ -205,7 +207,7 @@ Ambele modele descriu aceleași comportamente; diferă prin ce arată. Un tabel 
 
 **După:** M Retras; fișier f1, editor E1, rapoarte [Rp1], data retragerii.
 
-Starea s-a schimbat; datele au rămas, plus una nouă. **De ce contează că Rp1 rămâne?**
+Starea s-a schimbat; datele au rămas, iar data retragerii s-a adăugat. **De ce contează că Rp1 rămâne?**
 
 ::: notes
 Raportul face parte din istoricul evaluării: revista poate explica ce s-a întâmplat înainte de retragere. Retrimiterea rămâne în afara enunțului; nu îi presupunem regulile. Starea nu înlocuiește celelalte date: un model care ar șterge rapoartele la retragere ar respecta tranziția din tabel și ar încălca R8. Verificăm, deci, și starea de după, și datele de după, ca la postcondițiile din cursul 6.
@@ -215,11 +217,11 @@ Raportul face parte din istoricul evaluării: revista poate explica ce s-a înt�
 
 ---
 
-# Este permis `accepta` acum?
+# Este permis `acceptă` acum?
 
-**Reguli:** `accepta` numai În evaluare și numai cu cel puțin un raport; Acceptat, Respins și Retras sunt finale intenționate; un eveniment nepermis este refuzat, fără modificări.
+**Reguli:** `acceptă` numai În evaluare și numai cu cel puțin un raport; Acceptat, Respins și Retras sunt finale intenționate; un eveniment nepermis este refuzat, fără modificări.
 
-| | Stare | Date | `accepta` este permis? |
+| | Stare | Date | `acceptă` este permis? |
 |:-|:-----------|:------------------------------|:---------------------|
 | 1 | În evaluare | editor E1, rapoarte: niciunul | ? |
 | 2 | Trimis | fișier f1, fără editor | ? |
@@ -229,7 +231,7 @@ Raportul face parte din istoricul evaluării: revista poate explica ce s-a înt�
 Individual, apoi discutăm: pentru fiecare refuz, **ce** îl decide: starea sau condiția? În cazul 4, ce rămâne înregistrat după refuz?
 
 ::: notes
-1: refuzat de condiție (niciun raport). 2: refuzat de stare (Trimis nu permite decizii; nici nu există editor). 3: permis → Acceptat, decizia și data înregistrate. 4: refuzat de stare (Retras este finală intenționată); rămân E1, Rp1 și data retragerii. Refuzul este rezultatul corect, nu un defect de reparat. În cazul 1 se poate înregistra un raport, apoi cere acceptarea; în cazul 4 nu există niciun parcurs permis spre Acceptat.
+1: refuzat de condiție (niciun raport). 2: refuzat de stare (Trimis nu permite decizii; nici nu există editor). 3: permis → Acceptat, cu data deciziei înregistrată; decizia însăși este starea. 4: refuzat de stare (Retras este finală intenționată); rămân E1, Rp1 și data retragerii. Refuzul este rezultatul corect, nu un defect de reparat. În cazul 1 se poate înregistra un raport, apoi cere acceptarea; în cazul 4 nu există niciun parcurs permis spre Acceptat.
 
 **Organizare:** 7 min: 3 individual, 4 discuție; ajungem la minutul 35. []{.pace dur=7}
 :::
@@ -251,9 +253,9 @@ Verificăm tabelul pe scenarii: un parcurs normal, o retragere, o decizie după 
 # Același tabel, desenat
 
 :::::: {.columns align=center}
-::: {.column width="52%"}
+::: {.column width="58%"}
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"primaryColor":"#F3F7F8","primaryTextColor":"#0A2145","primaryBorderColor":"#087373","lineColor":"#087373","fontFamily":"Arial","fontSize":"20px"}}}%%
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#F3F7F8","primaryTextColor":"#0A2145","primaryBorderColor":"#087373","lineColor":"#087373","fontFamily":"Arial","fontSize":"32px"}}}%%
 stateDiagram-v2
     direction LR
     accTitle: Ciclul de viață al unui manuscris
@@ -275,14 +277,14 @@ stateDiagram-v2
     E --> W: 7
 ```
 :::
-::: {.column width="46%"}
+::: {.column width="40%"}
 | Nr. | Eveniment și condiție |
 |:---:|---|
-| 1 | `ataseaza(f)` |
+| 1 | `atașează(f)` |
 | 2 | `trimite`, dacă există fișier |
 | 3 | `preia(e)` |
-| 4 | `inregistreaza_raport(r)` |
-| 5 | `accepta`, cu cel puțin un raport |
+| 4 | `înregistrează raport(r)` |
+| 5 | `acceptă`, cu cel puțin un raport |
 | 6 | `respinge`, cu cel puțin un raport |
 | 7 | `retrage` |
 :::
@@ -304,11 +306,11 @@ Diagrama este reprezentarea tabelului, nu un model suplimentar; efectele asupra 
 
 | Pas | Eveniment permis | Stare după | Date adăugate |
 |:-----|:----------------------------------|:---------------|:---------------------------|
-| 1 | `ataseaza(f1)` | Ciornă | fișier f1 |
+| 1 | `atașează(f1)` | Ciornă | fișier f1 |
 | 2 | `trimite` | Trimis | data trimiterii |
 | 3 | `preia(E1)` | În evaluare | editor E1 |
-| 4 | `inregistreaza_raport(Rp1)` | În evaluare | raport Rp1 |
-| 5 | `accepta` | Acceptat | decizia și data ei |
+| 4 | `înregistrează raport(Rp1)` | În evaluare | raport Rp1 |
+| 5 | `acceptă` | Acceptat | data deciziei |
 
 **Fișierul precede trimiterea; raportul precede acceptarea.** S1 arată că Acceptat este **accesibil** din I0: există o secvență de evenimente permise care ajunge acolo. Datele adăugate la fiecare pas se păstrează.
 
@@ -324,16 +326,16 @@ La fiecare pas sunt îndeplinite cerințele de stare și condiția; datele din c
 
 **Din I0:** M în Ciornă, fără date. În Ciornă putem atașa un fișier, apoi trimite manuscrisul; `trimite` înregistrează data. Din Trimis, `preia(E1)` înregistrează editorul și trece În evaluare, unde putem adăuga rapoarte.
 
-**Reguli:** `retrage` din Trimis sau În evaluare duce în Retras și înregistrează data; `accepta` cere În evaluare și cel puțin un raport. Datele existente se păstrează. Din Retras, orice eveniment este refuzat, fără modificări.
+**Reguli:** `retrage` din Trimis sau În evaluare duce în Retras și înregistrează data; `acceptă` cere În evaluare și cel puțin un raport. Datele existente se păstrează. Din Retras, orice eveniment este refuzat, fără modificări.
 
-**Scenariul S3 (retragere din evaluare):** din I0, `ataseaza(f1)`, `trimite`, `preia(E1)`, `inregistreaza_raport(Rp1)`, apoi `retrage`.
+**Scenariul S3 (retragere din evaluare):** din I0, `atașează(f1)`, `trimite`, `preia(E1)`, `înregistrează raport(Rp1)`, apoi `retrage`.
 
-**Scenariul S4 (decizie după retragere):** continuarea lui S3: `accepta`.
+**Scenariul S4 (decizie după retragere):** continuarea lui S3: `acceptă`.
 
 Pe hârtie, apoi discutăm: pentru fiecare pas din S3 și pentru S4, permis sau refuzat, starea și datele de după. **Ce vede editorul la S4 și ce rămâne din munca lui?**
 
 ::: notes
-S3: primii patru pași ca în S1; `retrage` permis → Retras; date: f1, E1, [Rp1], data trimiterii, data retragerii; fără decizie. S4: `accepta` refuzat (Retras nu permite decizii); starea și datele rămân exact cele de după S3, inclusiv Rp1. Editorul primește un refuz; enunțul nu precizează textul afișat; raportul lui rămâne înregistrat. Este răspunsul la întrebarea de la început.
+S3: primii patru pași ca în S1; `retrage` permis → Retras; date: f1, E1, [Rp1], data trimiterii, data retragerii; fără decizie. S4: `acceptă` refuzat (Retras nu permite decizii); starea și datele rămân exact cele de după S3, inclusiv Rp1. Editorul primește un refuz; enunțul nu precizează textul afișat; raportul lui rămâne înregistrat. Este răspunsul la întrebarea de la început.
 
 **Organizare:** 8 min: 3 pe hârtie, 5 discuție. []{.pace dur=8}
 :::
@@ -342,19 +344,19 @@ S3: primii patru pași ca în S1; `retrage` permis → Retras; date: f1, E1, [Rp
 
 # Scenariul S6 (două ordini): două rezultate
 
-**Reguli:** `accepta` numai În evaluare, cu cel puțin un raport → Acceptat; `retrage` numai în Trimis sau În evaluare → Retras; Acceptat și Retras sunt finale intenționate; evenimentul nepermis este refuzat.
+**Reguli:** `acceptă` numai În evaluare, cu cel puțin un raport → Acceptat; `retrage` numai în Trimis sau În evaluare → Retras; Acceptat și Retras sunt finale intenționate; evenimentul nepermis este refuzat.
 
 **Punctul de pornire, comun:** M În evaluare, fișier f1, editor E1, rapoarte [Rp1].
 
 | Ordinea | Pasul 1 | Pasul 2 | Stare finală |
 |:------|:----------|:----------|:------------|
-| (a) | `retrage` | `accepta` | ? |
-| (b) | `accepta` | `retrage` | ? |
+| (a) | `retrage` | `acceptă` | ? |
+| (b) | `acceptă` | `retrage` | ? |
 
 Aceleași două evenimente. Câte sunt refuzate în fiecare ordine? Care ordine este „corectă”?
 
 ::: notes
-(a): `retrage` permis → Retras; `accepta` refuzat; final Retras. (b): `accepta` permis → Acceptat; `retrage` refuzat; final Acceptat. În fiecare ordine exact un eveniment este refuzat. Ambele sunt corecte față de reguli; ordinea vine din lume (cine a apăsat primul), iar modelul trebuie să dea un rezultat precis pentru fiecare. Starea finală depinde de ordine tocmai pentru că stările finale nu au ieșiri. Cu apeluri secvențiale, nu există „simultan”; concurența rămâne în afara exercițiului.
+(a): `retrage` permis → Retras; `acceptă` refuzat; final Retras. (b): `acceptă` permis → Acceptat; `retrage` refuzat; final Acceptat. În fiecare ordine exact un eveniment este refuzat. Ambele sunt corecte față de reguli; ordinea vine din lume (cine a apăsat primul), iar modelul trebuie să dea un rezultat precis pentru fiecare. Starea finală depinde de ordine tocmai pentru că stările finale nu au ieșiri. Cu apeluri secvențiale, nu există „simultan”; concurența rămâne în afara exercițiului.
 
 **Organizare:** 6 min: 2 individual, 4 discuție. []{.pace dur=6}
 :::
@@ -368,8 +370,8 @@ Aceleași două evenimente. Câte sunt refuzate în fiecare ordine? Care ordine 
 | Stare | Are ieșire? | De ce |
 |:-------------------|:-------------------------------|:-------------------------------|
 | Acceptat | nu | finală intenționată |
-| Ciornă, fără fișier | da: `ataseaza(f)` | nu este finală, deși `trimite` este refuzat |
-| În evaluare, fără raport | da: `inregistreaza_raport`, `retrage` | nu este finală, deși deciziile sunt refuzate |
+| Ciornă, fără fișier | da: `atașează(f)` | nu este finală, deși `trimite` este refuzat |
+| În evaluare, fără raport | da: `înregistrează raport`, `retrage` | nu este finală, deși deciziile sunt refuzate |
 
 Lipsa unei ieșiri este o decizie de notat, nu o omisiune. **Ce ar însemna să permitem `retrage` din Acceptat?**
 
@@ -388,55 +390,58 @@ Un tabel care arată bine poate ascunde un parcurs imposibil?
 ::: notes
 Verificăm un tabel propus prin trasare: căutăm un parcurs pe care regulile îl interzic, dar tabelul îl permite, și un obiectiv pe care regulile îl cer, dar tabelul nu îl poate atinge. Nu rulăm cod în timpul cursului.
 
-**Organizare:** minutul 60 din 100; interval 60–80 (20 min): tabelul propus 3, exercițiu 8, trei cazuri 4, corecție 3, limite 2. []{.pace at=60}
+**Organizare:** minutul 60 din 100; interval 60–80 (20 min): tabelul propus și S2 6, întrebările 5, trei cazuri 4, corecție 3, limite 2. []{.pace at=60}
 :::
 
 ---
 
-# Tabelul P: exemplu didactic
+# Tabelul propus P
+
+**Propunere** de tabel de tranziții pentru manuscris, pe care o verificăm față de reguli:
 
 | Stare curentă | Eveniment | Condiție | Stare următoare |
 |:------------------|:----------------------|:-----------------|:--------------|
-| Ciornă | `ataseaza(f)` | — | Ciornă |
+| Ciornă | `atașează(f)` | — | Ciornă |
 | Ciornă | `trimite` | — | Trimis |
 | Trimis | `preia(e)` | — | În evaluare |
-| În evaluare | `accepta` | cel puțin un raport | Acceptat |
+| În evaluare | `acceptă` | cel puțin un raport | Acceptat |
 | În evaluare | `respinge` | cel puțin un raport | Respins |
 | Trimis, În evaluare | `retrage` | — | Retras |
 
 **Altfel: refuzat. Reguli:** trimiterea cere fișier; În evaluare putem înregistra rapoarte; deciziile cer un raport.
 
-::: notes
-P are șase rânduri, pare complet și are două abateri față de enunț: `trimite` nu cere fișier, iar rândul `inregistreaza_raport` lipsește, deși deciziile cer un raport. Nu le numim încă; studenții le găsesc prin trasare pe slide-ul următor. P nu este o captură AI.
+Pe hârtie, apoi discutăm: **scenariul S2 (trimitere fără fișier)**, din I0 (Ciornă, fără date): `trimite`, apoi `preia(E1)`. În ce stare ajunge M sub P după fiecare pas? Ce cer regulile?
 
-**Organizare:** 3 min: citim tabelul. []{.pace dur=3}
+::: notes
+P are șase rânduri, pare complet și are două abateri față de enunț: `trimite` nu cere fișier, iar rândul `înregistrează raport` lipsește, deși deciziile cer un raport. Nu le numim încă; studenții le găsesc prin trasare. S2: sub P, `trimite` este permis fără fișier → Trimis, apoi `preia(E1)` → În evaluare: un manuscris fără fișier ajunge în evaluare, contrar lui R3. P este construit pentru verificare; nu este o captură AI.
+
+**Organizare:** 6 min: citim tabelul 2, trasare 2, discuție 2. []{.pace dur=6}
 :::
 
 ---
 
 # Ce permite și ce nu permite P?
 
-**P:** în Ciornă, `ataseaza(f)` păstrează starea și înregistrează f, iar `trimite` trece în Trimis fără condiție. `preia(e)` trece din Trimis În evaluare; de aici, `accepta`/`respinge` cer un raport. `retrage` duce din Trimis sau În evaluare în Retras. Restul este refuzat.
+**P:** în Ciornă, `atașează(f)` păstrează starea și înregistrează f, iar `trimite` trece în Trimis fără condiție. `preia(e)` trece din Trimis În evaluare; de aici, `acceptă`/`respinge` cer un raport. `retrage` duce din Trimis sau În evaluare în Retras. Restul este refuzat.
 
 **Regulile enunțului:** trimiterea cere fișier; În evaluare putem înregistra rapoarte, necesare deciziilor. **I0:** Ciornă, fără date.
 
 Pe hârtie, apoi discutăm:
 
-1. **Scenariul S2 (trimitere fără fișier):** din I0, `trimite`; extindem apoi verificarea cu `preia(E1)`. Ce stare produce P? Ce cer regulile?
-2. Din starea obținută sub P la punctul 1, fără raport, ce evenimente permite P? Găsiți o secvență care duce M în Acceptat sub P sau explicați de ce nu există.
-3. Care rând lipsește și care condiție lipsește?
+1. După S2, M este În evaluare, fără raport. Ce evenimente permite P de aici? Găsiți o secvență care duce M în Acceptat sub P sau explicați de ce nu există.
+2. Care rând lipsește și care condiție lipsește?
 
 ::: notes
-1: sub P, `trimite` este permis fără fișier → Trimis, apoi → În evaluare: un manuscris fără fișier ajunge în evaluare, contrar lui R3. 2: din În evaluare, P permite numai `retrage`; `accepta` și `respinge` cer un raport, dar niciun eveniment din P nu înregistrează unul: Acceptat nu este accesibil dintr-o ciornă nouă. 3: lipsesc condiția „există fișier” la `trimite` și rândul `inregistreaza_raport(r)`. Prima abatere permite prea mult; a doua, prea puțin. Trasarea face consecințele concrete; abaterile se pot observa și comparând tabelul cu regulile.
+1: din În evaluare, P permite numai `retrage`; `acceptă` și `respinge` cer un raport, dar niciun eveniment din P nu înregistrează unul: Acceptat nu este accesibil dintr-o ciornă nouă. 2: lipsesc condiția „există fișier” la `trimite` și rândul `înregistrează raport(r)`. Prima abatere permite prea mult; a doua, prea puțin. Trasarea face consecințele concrete; abaterile se pot observa și comparând tabelul cu regulile.
 
-**Organizare:** 8 min: 3 pe hârtie, 5 discuție. []{.pace dur=8}
+**Organizare:** 5 min: 2 pe hârtie, 3 discuție. []{.pace dur=5}
 :::
 
 ---
 
 # Interzisă, finală sau inaccesibilă?
 
-Trei cazuri cu nume diferite, pentru că se repară diferit:
+Trei cazuri care arată la fel, „nu se mai poate face X”; numai ultimul este o greșeală de model:
 
 | Cazul | Exemplu | Ce înseamnă |
 |:--------------------|:-------------------|:------------------------------------|
@@ -456,12 +461,12 @@ Aceeași observație, „nu se mai poate face X”, are trei cauze: o regulă (c
 
 # Corecția noastră
 
-**R3 (pregătire și trimitere):** `trimite` numai în Ciornă și numai cu fișier. **R4 (evaluare):** `inregistreaza_raport(r)` numai În evaluare, starea rămâne.
+**R3 (pregătire și trimitere):** `trimite` numai în Ciornă și numai cu fișier. **R4 (evaluare):** `înregistrează raport(r)` numai În evaluare, starea rămâne.
 
 | Stare curentă | Eveniment | Condiție | Stare următoare | Efect |
 |:-------------|:--------------------------------|:-----------|:--------------|:--------------|
 | Ciornă | `trimite` | **există fișier** | Trimis | data trimiterii |
-| În evaluare | **`inregistreaza_raport(r)`** | — | În evaluare | r se adaugă |
+| În evaluare | **`înregistrează raport(r)`** | — | În evaluare | r se adaugă |
 
 **Reverificăm:** scenariul S2 (trimitere fără fișier) → `trimite` refuzat, M rămâne în Ciornă; scenariul S1 (parcurs normal) → Acceptat accesibil, prin pasul 4.
 
@@ -477,16 +482,16 @@ Corecția se justifică prin regulă și scenariu, nu prin simetrie. După corec
 
 **Scenariul S1 (parcurs normal)** arată că Acceptat este accesibil: o secvență ajunge acolo.
 
-**„Niciun manuscris fără fișier nu ajunge În evaluare”** privește **toate** secvențele. O trasare nu o poate stabili; o justificăm din I0: intrarea în Trimis cere fișier, intrarea În evaluare se face numai din Trimis, iar fișierul nu se șterge.
+**„Niciun manuscris fără fișier nu ajunge În evaluare”** privește **toate** secvențele. O trasare nu o poate stabili; o justificăm din I0: intrarea în Trimis cere fișier, intrarea În evaluare se face numai din Trimis, iar fișierul nu se șterge. Afirmația este un **invariant** (ultimul rând).
 
 | Afirmație | Ce o susține |
 |:-----------------------------------|:------------------------------------|
 | o stare este accesibilă | o secvență care ajunge acolo |
 | o stare nu este accesibilă | un argument despre toate secvențele |
-| o proprietate este adevărată după orice secvență | este adevărată inițial și păstrată de fiecare tranziție |
+| un invariant, ca în cursul 6: o proprietate adevărată după orice secvență | este adevărată inițial și păstrată de fiecare tranziție |
 
 ::: notes
-Este aceeași distincție ca în cursul 6 între un exemplu și argumentul pentru toate cazurile. Ultimul rând este invariantul ciclului de viață: un manuscris în Trimis, În evaluare sau cu decizie are fișier, pentru că fiecare tranziție îl păstrează. În cursul 9 explorăm sistematic toate combinațiile accesibile de stare și date ale unui model de dimensiuni reduse și discutăm ce rămâne în afara explorării.
+Este aceeași distincție ca în cursul 6 între un exemplu și argumentul pentru toate cazurile. Ultimul rând este invariantul din cursul 6, citit pe ciclul de viață: o stare validă inițial, păstrată de fiecare tranziție, rămâne validă după orice secvență. Aici: un manuscris în Trimis, În evaluare sau cu decizie are fișier, pentru că fiecare tranziție îl păstrează. În cursul 9 explorăm sistematic toate combinațiile accesibile de stare și date ale unui model de dimensiuni reduse și discutăm ce rămâne în afara explorării.
 
 **Organizare:** 2 min; ajungem la minutul 80. []{.pace dur=2}
 :::
@@ -525,18 +530,21 @@ Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral; omisiune
 
 **Analistul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:**
 
+> | Starea curentă | Eveniment | Condiție | Starea următoare | Efect asupra datelor |
+> |---|---|---|---|---|
+> | […] | | | | |
 > | În evaluare | `accepta` | ≥1 raport | Acceptat | Decizie + dată înregistrate; **toate datele anterioare păstrate** |
 >
 > **S1** (normal): ataseaza(f1)✓→Ciornă, trimite✓→Trimis, preia(E1)✓→ÎnEval, inregistreaza_raport(Rp1)✓→ÎnEval, accepta✓→Acceptat. ✓ **Permis** complet.
 >
 > **Acceptat accesibil din Ciornă nouă?** **NU.** Singura cale către Acceptat este evenimentul `accepta` din ÎnEval, care necesită ≥1 raport. […] Lanțul este **unic: Ciornă → Trimis → ÎnEval → Acceptat**. Acceptat nu este direct accesibil din Ciornă.
 
-**Reguli:** o stare este accesibilă dacă există o secvență de evenimente permise care ajunge la ea; `accepta` numai În evaluare, cu cel puțin un raport.
+**Enunțul trimis** cerea „dacă Acceptat este accesibil dintr-o ciornă nouă”, fără să definească „accesibil”. **Regulă:** `acceptă` numai În evaluare, cu cel puțin un raport.
 
-**Răspunsul „NU” este susținut de scenariul S1 (parcurs normal) din aceeași propunere?**
+**Ce sens dă analistul AI cuvântului „accesibil”? Cu ce sens se potrivește „NU” cu propria trasare S1 (parcurs normal)?**
 
 ::: notes
-Tabelul și scenariile S1–S7 din răspunsul integral sunt corecte, inclusiv datele păstrate și stările finale intenționate. Încheierea răspunde însă „NU” la accesibilitatea lui Acceptat, citind „accesibil” ca „într-un singur pas”, deși propria trasare S1 ajunge în Acceptat din I0 și deși lanțul pe care îl descrie este exact o secvență de evenimente permise. În vocabularul nostru, răspunsul corect este „da, prin S1”. Cealaltă analiză păstrată are aceeași lectură, formulată mai prudent („nu este accesibil direct”). Fragmentele sunt fidele; „ÎnEval” este prescurtarea modelului pentru În evaluare.
+Tabelul și scenariile S1–S7 din răspunsul integral sunt corecte, inclusiv datele păstrate și stările finale intenționate. Încheierea răspunde „NU” citind „accesibil” ca „într-un singur pas”: ultima propoziție spune „nu este direct accesibil”. Este un sens consacrat (relația de accesibilitate dintr-un model Kripke leagă stări aflate la un pas), iar enunțul nostru nu l-a exclus. Cu acest sens, „NU” și S1 sunt compatibile; cu sensul nostru, „printr-o secvență de evenimente permise”, răspunsul este „da, prin S1”. Din răspuns lipsește precizarea sensului ales, nu o trasare. Cealaltă analiză păstrată are aceeași lectură („nu este accesibil direct”). Definiția a fost adăugată ulterior în enunț (vezi „Decizia noastră”). Fragmentele sunt fidele; „ÎnEval” este prescurtarea modelului pentru În evaluare.
 
 **Organizare:** 4 min: răspuns individual, apoi discuție. []{.pace dur=4}
 :::
@@ -551,7 +559,7 @@ Tabelul și scenariile S1–S7 din răspunsul integral sunt corecte, inclusiv da
 
 > Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret, cu starea de pornire și rezultatul așteptat. Verifică fiecare rând al tabelului de tranziții, condițiile, efectele, evenimentele refuzate, datele păstrate, stările finale intenționate și accesibilitatea lui Acceptat. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.
 
-**Reper:** „accesibil” înseamnă că există o secvență permisă. În scenariul S1 (parcurs normal), propunerea ajunge din Ciornă în Acceptat, dar concluzia spune „NU, inaccesibil”. **Va observa evaluatorul AI contradicția?**
+**Reper:** enunțul nu spune dacă „accesibil” înseamnă „într-un pas” sau „printr-o secvență permisă”. Propunerea ajunge în Acceptat prin scenariul S1 (parcurs normal), dar răspunde „NU”: folosește primul sens, fără să o spună. **Va semnala evaluatorul AI sensul ales?**
 
 ::: notes
 Instrucțiunea cere verificarea fiecărui rând și confirmarea afirmațiilor corecte; nu îi semnalăm ce am observat noi și nu îi cerem un număr minim de defecte.
@@ -573,12 +581,12 @@ Instrucțiunea cere verificarea fiecărui rând și confirmarea afirmațiilor co
 >
 > **Accesibilitate Acceptat:** NU din Ciornă nouă — argumentul lanțului obligatoriu (Ciornă → Trimis → ÎnEval → Acceptat) este riguros. […] ✓
 
-**Reguli:** o stare este accesibilă dacă există o secvență de evenimente permise care ajunge la ea; scenariul S1 (parcurs normal) este o asemenea secvență.
+**Enunțul trimis** nu definea „accesibil”. Într-un pas, Acceptat nu se atinge din Ciornă; printr-o secvență de evenimente permise, scenariul S1 (parcurs normal) îl atinge.
 
-Evaluatorul AI confirmă S1 și confirmă „NU”. **Cele două confirmări pot fi adevărate împreună? Ce ar fi trebuit să confrunte?**
+Evaluatorul AI confirmă S1 și confirmă „NU”. **Cu ce sens al lui „accesibil” sunt compatibile cele două confirmări? Ce ar fi fost util să semnaleze?**
 
 ::: notes
-Nu pot: dacă S1 este o secvență validă care ajunge în Acceptat, atunci Acceptat este accesibil. Evaluatorul AI verifică fiecare fragment separat și le confirmă pe toate, fără să le confrunte între ele și fără să întrebe ce înseamnă „accesibil” în sarcină. Cealaltă revizuire păstrată confirmă la fel propunerea („nu sunt observații de corectat”). O revizuire care confirmă totul nu este inutilă: rândurile tabelului chiar sunt corecte; dar verdictul despre accesibilitate rămâne al nostru.
+Sunt compatibile numai cu sensul „într-un pas”, pe care evaluatorul AI îl preia de la analist fără să-l numească. Util ar fi fost să semnaleze că termenul nu este definit în enunț și că răspunsul depinde de sens: „NU” într-un pas, „da, prin S1” printr-o secvență. Nu reproșăm sensul ales, ci faptul că rămâne implicit. Cealaltă revizuire păstrată confirmă la fel propunerea („nu sunt observații de corectat”). O revizuire care confirmă totul nu este inutilă: rândurile tabelului chiar sunt corecte; dar verdictul despre accesibilitate rămâne al nostru.
 
 **Organizare:** 4 min: răspunsuri individuale, apoi discuție. []{.pace dur=4}
 :::
@@ -589,12 +597,12 @@ Nu pot: dacă S1 este o secvență validă care ajunge în Acceptat, atunci Acce
 
 **Păstrăm** din propunere tabelul de tranziții, scenariile S1–S7, datele păstrate și stările finale intenționate: sunt susținute de reguli, cu precizarea că verificăm rezultatele față de enunțul trimis atunci.
 
-**Corectăm** un punct: **Acceptat este accesibil** dintr-o ciornă nouă. Justificarea este chiar scenariul S1 (parcurs normal): cinci evenimente permise, din I0 în Acceptat. „Accesibil” înseamnă „printr-o secvență de evenimente permise”, nu „într-un singur pas”.
+**Precizăm** un punct: analistul AI a citit „accesibil” ca „într-un pas”, un sens consacrat (de exemplu, în modelele Kripke), cu care „NU” este corect. Noi voiam sensul „printr-o secvență de evenimente permise”: cu el, **Acceptat este accesibil** dintr-o ciornă nouă, prin scenariul S1 (parcurs normal).
 
-**Clarificăm enunțul:** „accesibil din I0” înseamnă că există o secvență de evenimente permise din I0 până la starea căutată. Capturile păstrează formularea inițială; pentru analize viitoare folosim definiția explicită.
+**Clarificăm enunțul:** ambiguitatea era a noastră. „Accesibil din I0” înseamnă acum explicit că există o secvență de evenimente permise din I0 până la starea căutată. Capturile păstrează formularea inițială.
 
 ::: notes
-Verdictul aparține oamenilor și se sprijină pe regulă și scenariu. Corecția nu schimbă tabelul, ci o afirmație despre el; de aceea cerem ca verificările (S1) și concluziile să fie confruntate. Nu cerem ca orice propunere sau revizuire să fie greșită: aceleași verificări ar fi confirmat o concluzie corectă. Ultima observație este o lecție despre enunț, nu despre model.
+Verdictul aparține oamenilor și se sprijină pe regulă și scenariu. Precizarea nu schimbă tabelul, ci sensul unei afirmații despre el. Lecția privește întâi enunțul: un termen cu mai multe sensuri consacrate trebuie definit; apoi, un răspuns bun își numește sensul ales. Nu cerem ca orice propunere sau revizuire să fie greșită: aceleași verificări ar fi confirmat o concluzie corectă. Ultima observație este o lecție despre enunț, nu despre model.
 
 **Organizare:** 2 min; încheierea etapei la minutul 95. []{.pace dur=2}
 :::
@@ -615,13 +623,13 @@ Transferăm metoda de citire a unui ciclu de viață, nu regulile revistei.
 
 # O comandă la cafenea
 
-**Enunț nou:** o comandă este Plasată, apoi În pregătire, apoi Gata, apoi Ridicată. `anuleaza` este permisă **numai** în Plasată și duce în Anulată. Ridicată și Anulată nu mai permit evenimente. Evenimentele nepermise sunt refuzate, fără modificări; produsele comandate și momentul comenzii se păstrează.
+**Enunț nou:** o comandă este Plasată, apoi În pregătire, apoi Gata, apoi Ridicată. `anulează` este permisă **numai** în Plasată și duce în Anulată. Ridicată și Anulată nu mai permit evenimente. Evenimentele nepermise sunt refuzate, fără modificări; produsele comandate și momentul comenzii se păstrează.
 
 **Înainte:** comanda K este În pregătire, cu două produse.
 
-1. `anuleaza(K)`: permisă sau refuzată? Este o tranziție interzisă sau un rând uitat?
+1. `anulează(K)`: permisă sau refuzată? Este o tranziție interzisă sau un rând uitat?
 2. Este Ridicată o stare finală intenționată? Dar Gata?
-3. **Independent**, o comandă J este Plasată, cu două cafele, la ora 10:15. După `anuleaza(J)`, ce rămâne înregistrat?
+3. **Independent**, o comandă J este Plasată, cu două cafele, la ora 10:15. După `anulează(J)`, ce rămâne înregistrat?
 
 ::: notes
 1: refuzată; interzisă prin regulă, nu uitată, deoarece enunțul spune „numai în Plasată”. 2: Ridicată, da (nu există evenimente după); Gata, nu (urmează ridicarea). 3: Anulată, cu produsele și momentul comenzii păstrate. Regulile se citesc din noul enunț; nu importăm retragerea revistei. La laborator adăugăm interacțiunea cu un serviciu extern și cererile reîncercate, după cursul 8. Feedbackul pentru proiect poate fi cerut oricând.
