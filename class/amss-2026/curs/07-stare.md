@@ -93,12 +93,12 @@ Un manuscris nou începe ca ciornă, fără fișier și fără alte date: creare
 
 # Stare și eveniment
 
-**Starea** descrie valorile relevante la un moment dat. În cursul 6, precondiția unui contract citea starea, iar postcondiția o descria după apel. În ciclul de viață al manuscrisului, **stările** sunt Ciornă, Trimis, În evaluare etc. (numele stărilor sunt scrise mereu astfel); starea, împreună cu datele păstrate (fișier, editor, rapoarte), decide **ce evenimente sunt permise acum**.
+În cursul 6, „starea” registrului însemna toate valorile lui la un moment dat. Aici le despărțim: **starea** manuscrisului este una dintre puținele etape cu nume ale ciclului de viață (Ciornă, Trimis, În evaluare etc.), iar **datele** sunt celelalte valori păstrate (fișier, editor, rapoarte). Starea rezumă istoricul; împreună cu datele, decide **ce evenimente sunt permise acum**.
 
 Un **eveniment** este ceva ce se întâmplă și contează pentru model; aici, fiecare eveniment este apelul unei operații asupra manuscrisului.
 
 ::: notes
-Legătura cu cursul 6: starea este aceeași noțiune, valorile de la un moment dat; noutatea este că o rezumăm printr-o stare care spune ce este permis acum, fiindcă istoricul manuscrisului contează. Starea rezumă istoricul; datele rămân alături.
+Legătura cu cursul 6: ce numeam acolo starea registrului corespunde aici perechii stare și date; precondițiile și postcondițiile le citesc pe amândouă. De aici înainte, „stare” înseamnă numai etapa cu nume: o listă mică, fixată de beneficiar, care rezumă istoricul manuscrisului. Datele rămân alături și nu se reduc la stare.
 :::
 
 ---
@@ -344,7 +344,7 @@ S3: primii patru pași ca în S1; `retrage` permis → Retras; date: f1, E1, [Rp
 
 **Reguli:** `accepta` numai În evaluare, cu cel puțin un raport → Acceptat; `retrage` numai în Trimis sau În evaluare → Retras; Acceptat și Retras sunt finale intenționate; evenimentul nepermis este refuzat.
 
-**Starea de pornire, comună:** M În evaluare, fișier f1, editor E1, rapoarte [Rp1].
+**Punctul de pornire, comun:** M În evaluare, fișier f1, editor E1, rapoarte [Rp1].
 
 | Ordinea | Pasul 1 | Pasul 2 | Stare finală |
 |:------|:----------|:----------|:------------|
@@ -483,10 +483,10 @@ Corecția se justifică prin regulă și scenariu, nu prin simetrie. După corec
 |:-----------------------------------|:------------------------------------|
 | o stare este accesibilă | o secvență care ajunge acolo |
 | o stare nu este accesibilă | un argument despre toate secvențele |
-| o proprietate este adevărată în toate stările accesibile | este adevărată inițial și păstrată de fiecare tranziție |
+| o proprietate este adevărată după orice secvență | este adevărată inițial și păstrată de fiecare tranziție |
 
 ::: notes
-Este aceeași distincție ca în cursul 6 între un exemplu și argumentul pentru toate cazurile. Ultimul rând este invariantul ciclului de viață: un manuscris în Trimis, În evaluare sau cu decizie are fișier, pentru că fiecare tranziție îl păstrează. În cursul 9 explorăm sistematic toate stările accesibile ale unui model de dimensiuni reduse și discutăm ce rămâne în afara explorării.
+Este aceeași distincție ca în cursul 6 între un exemplu și argumentul pentru toate cazurile. Ultimul rând este invariantul ciclului de viață: un manuscris în Trimis, În evaluare sau cu decizie are fișier, pentru că fiecare tranziție îl păstrează. În cursul 9 explorăm sistematic toate combinațiile accesibile de stare și date ale unui model de dimensiuni reduse și discutăm ce rămâne în afara explorării.
 
 **Organizare:** 2 min; ajungem la minutul 80. []{.pace dur=2}
 :::

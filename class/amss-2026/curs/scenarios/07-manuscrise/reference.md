@@ -32,7 +32,7 @@ S1, S2, S3, S5 și S7 pornesc din I0 (Ciornă, fără date); S4 continuă S3; ce
 | S1 | toate permise; Acceptat; fișier f1, editor E1, rapoarte [Rp1], decizie: acceptat. |
 | S2 | `trimite` refuzat (fără fișier); Ciornă, fără date. |
 | S3 | primele patru permise; `retrage` permis; Retras; fișier f1, editor E1, rapoarte [Rp1], data retragerii; fără decizie. |
-| S4 | `accepta` refuzat (Retras nu permite decizii); rămâne exact starea de după S3, inclusiv Rp1. |
+| S4 | `accepta` refuzat (Retras nu permite decizii); rămân exact starea și datele de după S3, inclusiv Rp1. |
 | S5 | `accepta` refuzat (niciun raport); În evaluare, fișier f1, editor E1, fără rapoarte. |
 | S6 (a) | `retrage` permis → Retras; `accepta` refuzat. Final: Retras. |
 | S6 (b) | `accepta` permis → Acceptat; `retrage` refuzat. Final: Acceptat. |
