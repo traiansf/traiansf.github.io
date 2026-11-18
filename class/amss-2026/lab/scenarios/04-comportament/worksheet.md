@@ -12,14 +12,14 @@ Pentru fiecare rând: stare curentă → eveniment → condiție → stare urmă
 
 Pentru `ridică`: cine apelează pe cine, ce se întoarce, ce înregistrează registrul la fiecare pas. Marcați pasul în care se schimbă starea și pasul în care este apelat expeditorul; verificați ce rămâne înregistrat când expeditorul răspunde `esec`. Despre expeditor presupunem numai că răspunde `trimis` sau `esec`.
 
-## Exemple
+## Scenarii
 
-Fiecare scenariu S1–S7 din enunț repornește din I (A și B Rezervate), exceptând continuările marcate. Pentru fiecare, spuneți rezultatul, starea rezervării, ce se înregistrează și dacă expeditorul a fost apelat. La refuz, precizați explicit ce nu se modifică.
+Fiecare scenariu S1–S7 din enunț repornește din I (A și B în Rezervată), exceptând continuările marcate. Pentru fiecare, spuneți rezultatul, starea rezervării, ce se înregistrează și dacă expeditorul a fost apelat. La refuz, precizați explicit ce nu se modifică.
 
 ## Analiza și revizuirea AI
 
-Profesorul conduce o singură analiză și o singură revizuire în plen. Preziceți rezultatul lui S4 (reîncercare după eșec) înainte de răspuns, apoi verificați o afirmație folosind o regulă și un scenariu. Nu porniți sesiuni AI proprii. Dacă instrumentul nu răspunde, discutăm capturile reale pregătite, cu aceeași metodă.
+Profesorul conduce o singură analiză și o singură revizuire în plen. Rezultatul lui S4 (reîncercare după eșec) îl știți din etapa anterioară: preziceți ce rând al tabelului de tranziții trebuie să îl acopere, apoi verificați o afirmație a răspunsului folosind o regulă și un scenariu. Nu porniți sesiuni AI proprii. Dacă instrumentul nu răspunde, discutăm capturile reale pregătite, cu aceeași metodă.
 
 ## Exercițiul final
 
-Din I, `ridică(c1, A, T1)` cu `esec`, apoi `ridică(c8, A, T1)` cu identificator nou. Separat, după primul pas, reîncercarea `ridică(c1, A, T1)` cu `trimis`. Pregătiți explicația pentru fiecare rezultat, pentru notificare și pentru ce deosebește cele două cereri.
+Din I, `ridică(c1, A, T1)` cu `trimis`; răspunsul registrului nu ajunge la ghișeu, care trimite `ridică(c8, A, T1)`, cu identificator nou. Pregătiți explicația pentru fiecare rezultat. Apoi: ce știe operatorul după a doua cerere? Ce cereri mai sunt acceptate pentru rezervarea A? Ce responsabilitate a ghișeului ar fi evitat refuzul și ce ați întreba beneficiarul?

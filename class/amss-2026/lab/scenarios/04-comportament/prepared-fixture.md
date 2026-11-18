@@ -16,7 +16,7 @@ Fragmente din [analistul AI 01](captures/2026-11-12/haiku45-analist-01-response.
 >
 > **S4:** […] Condiție: c1 înregistrat ∧ notificare = `netrimisă` → Registru reapelează expeditor; primește `trimis` […] **Rezultat:** `ridicat`, expeditor apelat din nou
 
-Înainte de revizuire: în ce stare se află rezervarea când sosește reîncercarea din S4? Ce răspuns dă tabelul pentru S4 și ce răspuns dă calculul?
+Înainte de a citi fragmentele: ce rând trebuie să conțină tabelul de tranziții pentru ca S4 să primească `ridicat`? Înainte de revizuire: ce răspuns dă tabelul propus pentru S4 și ce răspuns dă calculul?
 
 ## Sarcina de revizuire
 

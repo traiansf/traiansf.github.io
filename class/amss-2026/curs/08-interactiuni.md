@@ -2,7 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 8: Interacțiuni, fluxuri de lucru și granițe"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
-operation-names: [înscrie, trimite, "retrimite confirmările"]
+operation-names: [înscrie, trimite, "retrimite confirmările", comandă]
 ---
 
 # Cine coordonează o operație care iese din sistem? {.transition}
@@ -10,7 +10,7 @@ operation-names: [înscrie, trimite, "retrimite confirmările"]
 Registrul a acceptat cererea, serviciul extern a raportat un eșec. Ce îi spunem utilizatorului?
 
 ::: notes
-În cursul 7 am urmărit un singur obiect de-a lungul vieții lui. Azi o operație traversează o graniță: o parte a muncii este făcută de un serviciu pe care nu îl controlăm. Întrebarea cursului: cine coordonează, ce promitem când cealaltă parte eșuează și ce se întâmplă când cererea vine a doua oară.
+În cursul 7 am urmărit un singur obiect de-a lungul vieții lui. Azi o operație traversează o graniță: o parte a muncii este făcută de un serviciu pe care nu îl controlăm. Întrebarea cursului: cine coordonează, ce promitem când componenta din exterior eșuează și ce se întâmplă când cererea vine a doua oară.
 
 **Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, întrebarea deschisă, problema, exercițiul de predicție și slide-ul despre graniță. 33 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
@@ -37,9 +37,9 @@ Granițele dintre componente urmează adesea granițele dintre organizații: exp
 
 # O confirmare care nu a venit
 
-Gândiți-vă la o plată, o înscriere, o comandă online: ați apăsat butonul, pagina a rămas pe loc sau a dat eroare, iar confirmarea nu a venit.
+Gândiți-vă la o plată, o înscriere, o comandă online: ați apăsat butonul, pagina s-a blocat sau a afișat o eroare, iar confirmarea nu a venit.
 
-**Ați apăsat din nou? Ce s-a întâmplat: două comenzi, niciuna, sau una cu două confirmări? De unde ați fi știut care este starea reală?**
+**Ați apăsat din nou? Ce s-a întâmplat: două comenzi, niciuna sau una cu două confirmări? De unde ați fi putut afla ce s-a înregistrat de fapt?**
 
 ::: notes
 Nu căutăm un singur răspuns corect. Pot apărea plăți duble, comenzi înregistrate fără confirmare, confirmări pentru comenzi inexistente, pagini care spun „nu apăsați din nou”. Observăm că utilizatorul nu vede decât răspunsul canalului, iar sistemul trebuie să decidă ce înseamnă o cerere repetată. Azi facem explicite aceste decizii.
@@ -67,16 +67,16 @@ P1 cere un loc la atelierul A de fotografie nocturnă. Registrul acceptă, dar e
 
 ---
 
-# Preziceți interacțiunea eșuată
+# Aceeași cerere, a doua oară
 
-**Reguli:** atelierul A are 2 locuri; o cerere nouă este acceptată dacă participantul nu este înscris și există loc; după acceptare registrul cere expeditorului confirmarea, care răspunde `trimis` sau `esec`; eșecul confirmării nu anulează înscrierea; site-ul reîncearcă aceeași cerere cu același identificator, iar registrul întoarce același `acceptat`, fără alt loc consumat.
+**Reguli:** atelierul A are 2 locuri. O cerere de înscriere este acceptată dacă participantul nu este înscris și există loc; în celelalte cazuri este refuzată. După acceptare, registrul cere confirmarea expeditorului, care răspunde `trimis` sau `esec`; eșecul confirmării nu anulează înscrierea.
 
-**Înainte:** 2 locuri libere, nicio înscriere. Site-ul trimite `înscrie(c1, P1, A)`; expeditorul răspunde `esec`. Site-ul nu afișează nimic utilizatorului și trimite din nou `înscrie(c1, P1, A)`.
+**Înainte:** 2 locuri libere, nicio înscriere. Site-ul trimite `înscrie(c1, P1, A)`, unde c1 este identificatorul cererii; registrul acceptă, iar expeditorul răspunde `esec`. Site-ul nu ajunge să afișeze răspunsul și trimite din nou `înscrie(c1, P1, A)`.
 
-Individual, apoi discutăm: după a doua cerere, **câte locuri sunt libere, câte înscrieri are P1 și ce răspuns primește site-ul?** Ce ar trebui să facă registrul cu confirmarea?
+Individual, apoi discutăm: regulile de mai sus nu spun nimic despre o cerere primită a doua oară. **Ce ar răspunde un registru care îi aplică regula de acceptare? Ce ar trebui să răspundă și ce ar trebui să rămână înregistrat?**
 
 ::: notes
-Un loc liber, o singură înscriere, răspunsul `acceptat` de două ori. A doua cerere are același identificator, deci este aceeași cerere, nu una nouă; registrul nu consumă alt loc. Cu confirmarea, registrul poate încerca din nou trimiterea sau o poate lăsa pentru mai târziu; ambele sunt decizii de proiectare pe care le comparăm în a doua parte. Răspunsurile diferite ale studenților arată de ce regula trebuie scrisă.
+Aplicată a doua oară, regula de acceptare dă `refuz`: P1 este deja înscris. Site-ul ar afișa un refuz pentru o înscriere reușită. Răspunsul pe care îl vrem: `acceptat`, un loc liber, o singură înscriere; identificatorul c1 arată că este aceeași cerere, nu una nouă. Unii studenți vor propune refuzul, alții a doua înscriere: răspunsurile diferite arată de ce regula trebuie scrisă (R5, în etapa următoare). Cu confirmarea, registrul poate încerca din nou trimiterea sau o poate lăsa pentru mai târziu; comparăm variantele în etapa a patra.
 
 **Organizare:** 6 min: 3 individual, 3 discuție. []{.pace dur=6}
 :::
@@ -87,7 +87,7 @@ Un loc liber, o singură înscriere, răspunsul `acceptat` de două ori. A doua 
 
 O **interacțiune** este succesiunea apelurilor prin care mai multe componente realizează o operație: cine apelează pe cine, ce trimite, ce primește, ce înregistrează. Ordinea aleasă a pașilor este **fluxul de lucru** al operației.
 
-**Granița** sistemului nostru separă componentele pe care le proiectăm de cele pe care doar le folosim. Despre o componentă din exterior cunoaștem **interfața** ei și ce **presupunem** despre ea; nu îi cunoaștem pașii.
+**Granița** sistemului nostru separă componentele pe care le proiectăm de cele cu care doar comunicăm: unele ne apelează, pe altele le apelăm. Despre o componentă din exterior pe care o apelăm cunoaștem **interfața** ei și ce **presupunem** despre ea; nu îi cunoaștem pașii.
 
 **Coordonarea** este responsabilitatea de a conduce pașii unei operații: de a decide ordinea, de a înregistra rezultatul fiecărui pas și de a răspunde apelantului, inclusiv când un pas eșuează sau când cererea vine a doua oară.
 
@@ -165,7 +165,7 @@ flowchart TB
 Săgeata înseamnă „apelează”; site-ul și expeditorul sunt în afara graniței, iar ce știm despre fiecare diferă.
 
 ::: notes
-Site-ul este în afara graniței în sensul că nu îl proiectăm azi, deși este al centrului; expeditorul este în afara ei și organizațional. Pentru ambele avem numai interfața: ce ne trimit și ce le întoarcem. Presupunerile despre expeditor sunt partea cea mai fragilă a modelului: dacă una cade (de exemplu, nu răspunde niciodată), promisiunile noastre trebuie recitite. Nu desenăm procese, servere sau protocoale.
+Site-ul este în afara graniței în sensul că nu îl proiectăm azi, deși este al centrului; expeditorul este în afara ei și organizațional. Despre expeditor, pe care îl apelăm, avem interfața lui și presupunerea R6; despre site, care ne apelează, avem numai presupunerile din R2: generează un identificator unic pentru fiecare cerere nouă și îl păstrează la reîncercare. Presupunerile despre expeditor sunt partea cea mai fragilă a modelului: dacă una cade (de exemplu, nu răspunde niciodată), promisiunile noastre trebuie recitite. Nu desenăm procese, servere sau protocoale.
 
 **Organizare:** 4 min. []{.pace dur=4}
 :::
@@ -180,7 +180,7 @@ Site-ul este în afara graniței în sensul că nu îl proiectăm azi, deși est
 | **Registru** | decide acceptarea, consumă locul, înregistrează înscrierea și identificatorul, **apelează expeditorul**, înregistrează confirmarea, răspunde site-ului |
 | Expeditor | încearcă trimiterea și răspunde `trimis` sau `esec` |
 
-Registrul **coordonează**: site-ul nu apelează expeditorul; interfața expeditorului nu cere acces la locuri. **R4 (confirmare):** eșecul confirmării nu anulează înscrierea acceptată; de aceea registrul o înregistrează înaintea apelului expeditorului. **Dacă site-ul ar trimite el confirmarea, ce ar trebui să știe și ce ar putea merge prost?**
+Registrul **coordonează**: site-ul nu apelează expeditorul; interfața expeditorului nu cere acces la locuri. **R4 (confirmare):** confirmarea se cere numai după o înscriere acceptată, iar eșecul ei nu anulează înscrierea. **Dacă site-ul ar trimite el confirmarea, ce ar trebui să știe și ce ar putea merge prost?**
 
 ::: notes
 Site-ul ar trebui să cunoască rezultatul deciziei și regula R4 și ar trebui să fie el cel care înregistrează rezultatul confirmării, deși nu deține înscrierile; o confirmare ar putea pleca fără înscriere sau o înscriere ar rămâne fără urma confirmării. Coordonarea stă acolo unde stau datele și regulile pe care pașii le modifică. Ca în cursul 5, dependența utilă este apelul operației; cuplarea de regulile registrului ar fi costul variantei cu site-ul coordonator.
@@ -201,10 +201,10 @@ Site-ul ar trebui să cunoască rezultatul deciziei și regula R4 și ar trebui 
 | `înscrie(c1, P1, A)` după `înscrie(c1, P1, A)` | reîncercare | înscrierea deja înregistrată pentru c1 |
 | `înscrie(c9, P1, A)` după `înscrie(c1, P1, A)` | cerere nouă | P1 este deja înscris → `refuz` |
 
-**Identificatorul cererii** este ceea ce le deosebește, nu conținutul. În cursul 6, repetarea eliberării dădea alt rezultat (`fara_dulap`); aici regula cere **același** rezultat.
+**Identificatorul cererii** le deosebește, nu conținutul. Repetarea aceleiași cereri nu repetă efectul asupra înscrierilor: față de înscrieri, operația este **idempotentă**. În cursul 6, nici repetarea eliberării nu mai modifica registrul, dar întorcea alt rezultat (`fara_dulap`); aici R5 cere și **același** rezultat.
 
 ::: notes
-Regulile se citesc din enunț, nu se importă de la muzeu. Fără identificator, registrul nu ar putea distinge „aceeași cerere, trimisă din nou” de „altă cerere cu același conținut” și ar răspunde `refuz` la reîncercare, deși P1 este înscris: site-ul ar afișa un refuz pentru o înscriere reușită. Idempotența privește efectul repetării, nu egalitatea răspunsurilor. Aici efectul asupra înscrierilor nu se repetă; R5 cere suplimentar același răspuns. Notificarea poate fi retrimisă și rezultatul ei se poate modifica. Vezi RFC 9110, §9.2.2: https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2.
+Regulile se citesc din enunț, nu se importă de la muzeu. Fără identificator, registrul nu ar putea distinge „aceeași cerere, trimisă din nou” de „altă cerere cu același conținut” și ar răspunde `refuz` la reîncercare, deși P1 este înscris: site-ul ar afișa un refuz pentru o înscriere reușită. În cursul 6 am observat diferența fără să o numim; acum îi dăm numele consacrat. Idempotența privește efectul repetării, nu egalitatea răspunsurilor: eliberarea repetată din cursul 6 era idempotentă, deși întorcea alt rezultat. Aici efectul asupra înscrierilor nu se repetă, iar R5 cere suplimentar același răspuns. Confirmarea poate fi retrimisă, iar rezultatul ei înregistrat se poate modifica: de aceea spunem „față de înscrieri”. Vezi RFC 9110, §9.2.2: https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2.
 
 **Organizare:** 2 min. []{.pace dur=2}
 :::
@@ -213,11 +213,11 @@ Regulile se citesc din enunț, nu se importă de la muzeu. Fără identificator,
 
 # Ce răspunde registrul?
 
-**Reguli:** o cerere nouă reușește dacă participantul nu este înscris și există loc. La reîncercare: `acceptat`, fără alt loc; putem retrimite confirmarea `netrimisă`. Eșecul păstrează înscrierea; refuzul nu modifică nimic și nu apelează expeditorul.
+**Reguli:** o cerere nouă este acceptată dacă participantul nu este înscris și există loc. O reîncercare primește `acceptat`, fără alt loc; confirmarea `netrimisă` poate fi retrimisă. Un `esec` nu anulează înscrierea; un refuz nu modifică nimic și nu apelează expeditorul.
 
 **Pornire pentru rândurile 1–3, independente:** 1 loc liber; (c1, P1, A), confirmare `netrimisă`.
 
-| | Cererea | Rezultat | Locuri libere | Apel extern? |
+| | Cererea | Rezultat | Locuri libere | Expeditor? |
 |:-|:----------------------------------|:---------|:-------------|:-------------|
 | 1 | `înscrie(c1, P1, A)` | ? | ? | ? |
 | 2 | `înscrie(c9, P1, A)` | ? | ? | ? |
@@ -227,7 +227,7 @@ Regulile se citesc din enunț, nu se importă de la muzeu. Fără identificator,
 **Individual, apoi discutăm:** completați tabelul. La 1, retrimiterea este obligatorie?
 
 ::: notes
-1: `acceptat`, 1 loc, reîncercare; registrul poate apela din nou expeditorul (R5 permite) și actualizează confirmarea dacă răspunde `trimis`. 2: `refuz`, 1 loc, nu; P1 este deja înscris. 3: `acceptat`, 0 locuri, da; confirmarea lui P2 rămâne `netrimisă`. 4: `refuz`, 0 locuri, nu; nu mai sunt locuri. Expeditorul este apelat numai după o acceptare nouă sau la o reîncercare cu confirmare `netrimisă`.
+Ultima coloană spune dacă expeditorul este apelat. 1: `acceptat`, 1 loc, reîncercare; registrul poate apela din nou expeditorul (R5 permite) și actualizează confirmarea dacă răspunde `trimis`. 2: `refuz`, 1 loc, nu; P1 este deja înscris. 3: `acceptat`, 0 locuri, da; confirmarea lui P2 rămâne `netrimisă`. 4: `refuz`, 0 locuri, nu; nu mai sunt locuri. Expeditorul este apelat numai după o acceptare nouă sau la o reîncercare cu confirmare `netrimisă`.
 
 **Organizare:** 7 min: 3 individual, 4 discuție; ajungem la minutul 35. []{.pace dur=7}
 :::
@@ -261,7 +261,7 @@ Scriem interacțiunea pas cu pas pentru cazul normal și pentru eșecul confirm�
 Decizia și înregistrarea (pasul 2) preced apelul expeditorului (pasul 3). **Ce știe registrul între pașii 3 și 4?**
 
 ::: notes
-Între 3 și 4, registrul știe că înscrierea există și că răspunsul confirmării nu a venit încă; de aceea confirmarea are o valoare proprie, `în așteptare`, nu lipsește. Tabelul interacțiunii este reprezentarea pe care o verificăm: fiecare rând spune cine acționează și ce rămâne înregistrat. Nu desenăm încă o diagramă de secvență; tabelul conține aceleași informații, plus coloana înregistrărilor.
+Între 3 și 4, registrul știe că înscrierea există și că răspunsul confirmării nu a venit încă; de aceea confirmarea are o valoare proprie, `în așteptare`, nu lipsește. În vocabularul cursului 7, înscrierea nu are un ciclu de viață cu etape; `în așteptare`, `trimisă` și `netrimisă` sunt valori ale unei date a înscrierii, rezultatul confirmării. Tabelul interacțiunii este reprezentarea pe care o verificăm: fiecare rând spune cine acționează și ce rămâne înregistrat. Nu desenăm încă o diagramă de secvență; tabelul conține aceleași informații, plus coloana înregistrărilor.
 
 **Organizare:** 5 min, cu întrebarea. []{.pace dur=5}
 :::
@@ -294,16 +294,16 @@ Faptul că eșecul se vede numai în coloana înregistrărilor este intenționat
 
 # Reîncercarea după eșec și după succes
 
-**R5 (reîncercare):** identificatorul deja înregistrat aduce același `acceptat`, fără alt loc sau înscriere. La `trimisă`, expeditorul nu este apelat. **Alegerea noastră pentru acest exercițiu:** la `netrimisă`, îl apelăm o dată și înregistrăm rezultatul. R5 permite această alegere, fără să o impună.
+**R5 (reîncercare):** o cerere cu identificator deja înregistrat primește același `acceptat`, fără alt loc și fără a doua înscriere. La `trimisă`, expeditorul nu este apelat. **Alegerea noastră pentru acest exercițiu:** la `netrimisă`, îl apelăm o dată și înregistrăm rezultatul. R5 permite această alegere, fără să o impună.
 
-**Scenariul S3 (reîncercare după eșec):** continuarea lui S2 (1 loc liber; (c1, P1, A) cu confirmare `netrimisă`): `înscrie(c1, P1, A)`; expeditorul răspunde `trimis`, dacă este apelat.
+**Scenariul S3 (reîncercare după eșec):** continuarea scenariului S2 (confirmare eșuată: 1 loc liber; (c1, P1, A) cu confirmare `netrimisă`): `înscrie(c1, P1, A)`; expeditorul răspunde `trimis`, dacă este apelat.
 
-**Scenariul S4 (reîncercare după succes):** continuarea lui S1 (1 loc liber; (c1, P1, A) cu confirmare `trimisă`): `înscrie(c1, P1, A)`.
+**Scenariul S4 (reîncercare după succes):** continuarea scenariului S1 (înscriere confirmată: 1 loc liber; (c1, P1, A) cu confirmare `trimisă`): `înscrie(c1, P1, A)`.
 
-Pe hârtie, apoi discutăm: scrieți pașii fiecărui scenariu ca în tabelele anterioare. **Câte rânduri au „Registru → Expeditor”? Ce se schimbă în înregistrări?**
+Pe hârtie, apoi discutăm: scrieți pașii fiecărui scenariu ca în tabelele anterioare. Ce pas din S1 lipsește din amândouă? **Dacă în S3 expeditorul ar răspunde din nou `esec`, ce ar primi site-ul și câte mesaje ar fi putut primi P1?**
 
 ::: notes
-S3: Site → Registru; registrul găsește c1 înregistrat, confirmare `netrimisă`; Registru → Expeditor `trimite`; Expeditor → Registru `trimis`; confirmarea devine `trimisă`; Registru → Site `acceptat`. Un rând cu expeditorul; locurile rămân 1; nu apare altă înscriere. S4: Site → Registru; c1 înregistrat, confirmare `trimisă`; Registru → Site `acceptat`. Niciun rând cu expeditorul; nimic nu se schimbă. În ambele, răspunsul este același ca prima dată, cum cere R5.
+S3: Site → Registru; registrul găsește c1 înregistrat, confirmare `netrimisă`; Registru → Expeditor `trimite`; Expeditor → Registru `trimis`; confirmarea devine `trimisă`; Registru → Site `acceptat`. Un rând cu expeditorul; locurile rămân 1; nu apare altă înscriere. S4: Site → Registru; c1 înregistrat, confirmare `trimisă`; Registru → Site `acceptat`. Niciun rând cu expeditorul; nimic nu se schimbă. Din amândouă lipsește pasul 2 al lui S1: decizia de acceptare și înregistrarea înscrierii nu se repetă. În ambele, răspunsul este același ca prima dată, cum cere R5. Cu un al doilea `esec` în S3: site-ul primește tot `acceptat`, confirmarea rămâne `netrimisă`, iar P1 ar fi putut primi niciun mesaj, unul sau două, fiindcă `esec` nu spune dacă mesajul a ajuns (R6). Registrul nu poate afla care dintre cazuri s-a produs.
 
 **Organizare:** 8 min: 3 pe hârtie, 5 discuție. []{.pace dur=8}
 :::
@@ -321,10 +321,10 @@ S3: Site → Registru; registrul găsește c1 înregistrat, confirmare `netrimis
 | `trimis` | `acceptat`; înscriere, confirmare `trimisă` | `acceptat`; înscriere |
 | `esec` | `acceptat`; înscriere, confirmare `netrimisă` | `refuz`; nicio înscriere; mesaj posibil livrat |
 
-Ce încalcă F? Ce ar crede P1 dacă a primit totuși mesajul?
+Ce încalcă F? Ce ar crede P1 dacă a primit totuși mesajul? **Dar un flux care apelează întâi expeditorul și înregistrează apoi înscrierea, oricare ar fi răspunsul: prin ce ar diferi de al nostru?**
 
 ::: notes
-F încalcă R4: un `esec` anulează înscrierea, deși beneficiarul a cerut invers. R6 arată o consecință suplimentară: dacă mesajul a ajuns, P1 are o confirmare fără loc, exact cazul pe care centrul voia să îl evite. Ordinea pașilor nu este un detaliu de implementare: ea decide ce promite operația. Nu discutăm aici căderea registrului între pași (R1 o exclude); argumentul ține și fără ea.
+F încalcă R4: un `esec` anulează înscrierea, deși beneficiarul a cerut invers. R6 arată o consecință suplimentară: dacă mesajul a ajuns, P1 are o confirmare fără loc, exact cazul pe care centrul voia să îl evite. Împotriva lui F, argumentul nu are nevoie de căderea registrului între pași, pe care R1 o exclude. Fluxul din ultima întrebare este altceva: în limitele lui R1 întoarce aceleași rezultate și lasă aceleași înregistrări ca al nostru. Diferă numai dacă operația se întrerupe între cei doi pași: al nostru lasă o înscriere fără confirmare, celălalt un mesaj posibil livrat fără înscriere. Preferința beneficiarului din R4 alege ordinea noastră. Este justificarea ordinii, nu o garanție: reluarea după o cădere rămâne printre limitele de pe slide-ul următor. Ordinea pașilor nu este un detaliu de implementare: ea decide ce rămâne înregistrat când ceva nu merge.
 
 **Organizare:** 5 min: discuție cu toată clasa. []{.pace dur=5}
 :::
@@ -340,7 +340,7 @@ F încalcă R4: un `esec` anulează înscrierea, deși beneficiarul a cerut inve
 | o cerere acceptată consumă exact un loc | că participantul a primit mesajul |
 | o reîncercare primește același rezultat și nu consumă alt loc | că participantul l-a citit |
 | rezultatul confirmării este înregistrat la fiecare înscriere | reluarea după o cădere a registrului |
-| un refuz nu modifică nimic și nu produce mesaje | înscrieri concurente |
+| un refuz nu modifică nimic și nu produce mesaje | comportamentul la cereri concurente |
 
 Garanțiile depind de granița și presupunerile enunțului.
 
@@ -354,7 +354,7 @@ A spune ce nu garantăm este parte din proiectare, nu o scuză: cine citește co
 
 # Comparăm variante de recuperare {.transition}
 
-Expeditorul a răspuns `esec`. Cine reîncearcă trimiterea și când?
+Expeditorul a răspuns `esec`. Cine cere din nou trimiterea și când?
 
 ::: notes
 Urmărim un flux care greșește la reîncercare, apoi comparăm trei variante de recuperare după `esec`, cu presupunerile și costurile lor.
@@ -375,7 +375,7 @@ Urmărim un flux care greșește la reîncercare, apoi comparăm trei variante d
 Pe hârtie, apoi discutăm: după fiecare cerere, **locurile libere, înscrierile și răspunsul**. Ce regulă încalcă G și la care pas? Dacă G ar verifica și „participantul nu este înscris”, ce ar răspunde la reîncercare?
 
 ::: notes
-Sub G: prima cerere → `acceptat`, 1 loc, înscrierea lui P1 (confirmare `netrimisă`); reîncercarea este tratată ca o cerere nouă → `acceptat`, 0 locuri, a doua înscriere a lui P1; P2 → `refuz`, deși un singur participant este înscris. G încalcă R5 la pasul 2 și R3 (P1 era deja înscris). Cu verificarea participantului, G ar răspunde `refuz` la reîncercare: corect pentru locuri, dar site-ul ar afișa un refuz pentru o înscriere reușită, fără să poată deosebi „deja înscris” de „fără loc”. Identificatorul cererii este ceea ce face reîncercarea recunoscută.
+Sub G: prima cerere → `acceptat`, 1 loc, înscrierea lui P1 (confirmare `netrimisă`); reîncercarea este tratată ca o cerere nouă → `acceptat`, 0 locuri, a doua înscriere a lui P1; P2 → `refuz`, deși un singur participant este înscris. G încalcă R5 la a doua cerere; refuzul lui P2 contrazice R3, fiindcă un loc ar fi trebuit să rămână liber, iar fără verificarea „participantul nu este înscris” G ar încălca R3 și la o cerere nouă a lui P1. Cu verificarea participantului, G ar răspunde `refuz` la reîncercare: corect pentru locuri, dar site-ul ar afișa un refuz pentru o înscriere reușită, fără să poată deosebi „deja înscris” de „fără loc”. Identificatorul cererii este ceea ce face reîncercarea recunoscută.
 
 **Organizare:** 8 min: 3 pe hârtie, 5 discuție. []{.pace dur=8}
 :::
@@ -388,14 +388,14 @@ Sub G: prima cerere → `acceptat`, 1 loc, înscrierea lui P1 (confirmare `netri
 
 | Varianta | Ce face registrul | Presupune | Cost |
 |:------|:-------------------------|:------------------|:------------------------|
-| **A** | reîncearcă imediat, de cel mult două ori | eșecul poate fi trecător | site-ul așteaptă; mesajul se poate dubla |
-| **B** | păstrează `netrimisă`; oferă o operație de retrimitere | cineva o apelează | apelant suplimentar; eșec sau mesaj duplicat |
+| **A** | retrimite imediat, de cel mult două ori | eșecul poate fi trecător | site-ul așteaptă; mesajul se poate dubla |
+| **B** | păstrează `netrimisă`; oferă o operație de retrimitere | cineva o apelează | un apelant în plus; alt eșec sau un mesaj duplicat |
 | **C** | anulează înscrierea | `esec` înseamnă „mesajul nu a ajuns” | încalcă R4; confirmare posibilă fără loc |
 
 Retrimiterea nu garantează livrarea; alegerea stabilește **cine** suportă costul eșecului.
 
 ::: notes
-A și B respectă R4 și se pot combina: o reîncercare imediată, apoi B. În B, retrimiterea este o operație separată a registrului; cine o apelează (un program periodic, un operator) este de notat. C este fluxul F de mai devreme, privit ca strategie de recuperare. Costurile nu sunt egale: A mută așteptarea la utilizator, B adaugă o responsabilitate nouă în sistem. Nu există variantă fără presupuneri; întrebarea este care presupuneri sunt scrise.
+A și B respectă R4 și se pot combina: o retrimitere imediată, apoi B. În B, retrimiterea este o operație separată a registrului; cine o apelează (un program periodic, un operator) este de notat. C ajunge la același rezultat ca fluxul F de mai devreme, privit ca variantă de recuperare. Costurile nu sunt egale: A mută așteptarea la utilizator, B adaugă o responsabilitate nouă în sistem. Nu există variantă fără presupuneri; întrebarea este care presupuneri sunt scrise.
 
 **Organizare:** 4 min. []{.pace dur=4}
 :::
@@ -406,16 +406,16 @@ A și B respectă R4 și se pot combina: o reîncercare imediată, apoi B. În B
 
 **R4 (confirmare):** eșecul nu anulează înscrierea. **R6 (graniță):** `esec` nu stabilește dacă mesajul a ajuns. **R5 (reîncercare):** o cerere deja acceptată primește același `acceptat`.
 
-**Variantele:** A, reîncercare imediată a trimiterii; B, confirmare `netrimisă` și retrimitere printr-o operație separată; C, anularea înscrierii.
+**Variantele:** A, retrimitere imediată; B, confirmare `netrimisă` și retrimitere printr-o operație separată; C, anularea înscrierii.
 
 Individual, apoi discutăm:
 
-1. Care variante respectă R4 și R6? Ce presupune fiecare despre expeditor?
+1. În A și în B, cum poate primi participantul două mesaje? Ce rezultat al confirmării rămâne atunci înregistrat?
 2. În B, cine răspunde de retrimitere? Ce se întâmplă dacă nimeni nu apelează operația?
-3. Ce ar trebui să înregistreze registrul ca A și B să poată fi verificate pe scenarii?
+3. Ce ați alege pentru centru și ce l-ați întreba pe beneficiar înainte de a alege?
 
 ::: notes
-1: A și B respectă R4; C nu. A mizează pe un eșec trecător, fără să îl garanteze; B cere un apelant al retrimiterii. Atât A, cât și B pot produce mesaje duplicate. C încalcă R4 indiferent dacă mesajul a ajuns. 2: registrul oferă operația; cine o apelează (un program periodic, un operator) este o decizie de notat, altfel B degenerează în „niciodată”. 3: rezultatul confirmării la fiecare înscriere; pentru A, trasarea arată și câte apeluri s-au făcut. Contorul poate fi local operației; enunțul nu cere un jurnal persistent al încercărilor.
+1: primul apel întoarce `esec`, deși mesajul a ajuns, ceea ce R6 nu exclude; al doilea întoarce `trimis`. Participantul are două mesaje, iar registrul înregistrează `trimisă`, fără să poată observa dublarea. C nu intră în comparație: încalcă R4 indiferent dacă mesajul a ajuns. 2: registrul oferă operația; cine o apelează (un program periodic, un operator) este o decizie de notat, altfel B înseamnă, în fapt, „niciodată”. 3: nu există un singur răspuns. Întrebări utile pentru beneficiar: cât poate aștepta utilizatorul pe site, cine ar apela retrimiterea și când, cât de supărător este un mesaj primit de două ori. A mizează pe un eșec trecător, fără să îl garanteze; pentru verificarea ei pe scenarii, trasarea trebuie să arate și câte apeluri s-au făcut.
 
 **Organizare:** 5 min: 2 individual, 3 discuție. []{.pace dur=5}
 :::
@@ -429,13 +429,13 @@ Individual, apoi discutăm:
 **Alegem B: retrimitere ulterioară**, cu responsabilități explicite:
 
 - `înscrie` apelează expeditorul o dată la acceptare și o dată la reîncercare dacă rezultatul este `netrimisă`;
-- propunem `retrimite confirmările()`, apelată de operator, care încearcă o dată fiecare confirmare `netrimisă` și actualizează rezultatul;
+- propunem `retrimite confirmările()`, apelată de un operator al centrului, care încearcă o dată fiecare confirmare `netrimisă` și actualizează rezultatul;
 - păstrăm înscrierile și locurile; amânarea cere un operator și poate produce mesaje duplicate.
 
 **C contrazice R4.** A rămâne o alternativă; ar cere precizarea numărului de încercări și noi trasări.
 
 ::: notes
-Aceasta este o decizie de proiectare pentru exemplul nostru, nu o regulă deja cerută de beneficiar. Operația separată este o extensie propusă, apelată secvențial cu înscrierile. Nu adăugăm o stare nouă: `netrimisă` exista deja. Scenariile S1–S6 rămân neschimbate; pentru extensie, din starea de după S2, un apel al operatorului cu răspuns `trimis` schimbă numai rezultatul confirmării. Un al doilea apel nu mai trimite acel mesaj. Dacă operatorul nu intervine, nu promitem retrimiterea; niciun număr finit de încercări nu garantează livrarea.
+Aceasta este o decizie de proiectare pentru exemplul nostru, nu o regulă deja cerută de beneficiar. Operația separată este o extensie propusă, apelată secvențial cu înscrierile. Nu adăugăm o valoare nouă a rezultatului confirmării: `netrimisă` exista deja. Scenariile S1–S6 rămân neschimbate; pentru extensie, după S2, un apel al operatorului cu răspuns `trimis` schimbă numai rezultatul confirmării. Un al doilea apel nu mai trimite acel mesaj. Dacă operatorul nu intervine, nu promitem retrimiterea; niciun număr finit de încercări nu garantează livrarea.
 
 **Organizare:** 3 min; ajungem la minutul 80. []{.pace dur=3}
 :::
@@ -458,12 +458,12 @@ Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Cl
 
 > Propune tabelul interacțiunii pentru inscrie: pașii în ordine, cine apelează pe cine, ce se trimite, ce se întoarce și ce înregistrează registrul la fiecare pas, inclusiv cazul în care expeditorul răspunde esec și cazul unei reîncercări. Repartizează responsabilitățile între site, registru și expeditor. Precizează ce garantează registrul și ce presupune despre expeditor. Verifică S1–S6 […]. Nu scrie cod. Răspunde în română, în maximum 450 de cuvinte.
 
-**Context:** regulile R1–R7 de mai devreme, integral: identificatorul cererii, acceptarea, confirmarea care nu anulează înscrierea, reîncercarea, granița, efectul limitat.
+**Context:** regulile R1–R7, în versiunea de atunci a enunțului: identificatorul cererii, acceptarea, confirmarea care nu anulează înscrierea, reîncercarea, granița, efectul limitat.
 
 **Date:** I = 2 locuri libere, nicio înscriere; scenariile S1–S6: înscrierea confirmată, confirmarea eșuată, reîncercarea după eșec și după succes, cererea nouă a unui participant înscris, locurile epuizate.
 
 ::: notes
-Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral; omisiunea marcată din citat este enumerarea datelor de verificat pentru fiecare scenariu. Un evaluator (agent AI de revizuire) a primit apoi și sarcina exactă.
+Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral în versiunea din 12 noiembrie 2026, fără precizările adăugate ulterior la R2 (identificatorul refolosit) și R6 (sensul lui `netrimisă`); omisiunea marcată din citat este enumerarea datelor de verificat pentru fiecare scenariu. Un evaluator (agent AI de revizuire) a primit apoi și sarcina exactă.
 
 **Organizare:** 3 min. []{.pace dur=3}
 :::
@@ -483,12 +483,12 @@ Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral; omisiune
 >
 > **Registrul garantează:** O cerere c acceptată modifică starea **o singură dată** (atomicitate) […]
 
-**Reguli:** înscrierea se înregistrează la acceptare, iar eșecul confirmării nu o anulează — R4 (confirmare); o reîncercare primește același `acceptat` — R5 (reîncercare); enunțul nu spune ce se întâmplă cu un identificator refolosit pentru alt participant sau atelier.
+**R4 (confirmare):** registrul cere confirmarea după acceptare; eșecul ei nu anulează înscrierea. **Enunțul trimis spunea despre identificator numai atât. R2 (cerere):** site-ul generează un c unic pentru fiecare cerere nouă și trimite același c când reîncearcă. **R5 (reîncercare):** o cerere cu c deja înregistrat primește același `acceptat`.
 
-În ce ordine sunt înregistrarea și apelul expeditorului? **Refuzul „pentru protecție” este cerut de enunț?**
+Înregistrarea precede apelul expeditorului? **Ce regulă cere refuzul „pentru protecție”? Ce garanție este numită „atomicitate”?**
 
 ::: notes
-Ordinea este cea cerută: locul consumat și înscrierea înregistrată (cu confirmarea în așteptare, numită „pendentă”) înaintea apelului expeditorului; S1–S6 din răspunsul integral sunt corecte. Refuzul de la pasul 5 este o adăugire: enunțul nu descrie un identificator refolosit cu alt conținut; adăugirea este defensabilă, dar trebuie etichetată ca întrebare pentru beneficiar, nu ca regulă. Termenul „atomicitate” este folosit greșit: atomicitatea cere ca efectele unei operații să se producă integral sau deloc. Evitarea unei înscrieri duplicate la reîncercare privește idempotența efectului asupra înscrierilor. În plus, notificarea se poate modifica la reîncercare; nu întregul registru rămâne neschimbat. Cealaltă analiză păstrată înregistrează înscrierea abia după răspunsul expeditorului.
+Ordinea este cea cerută: locul consumat și înscrierea înregistrată (cu confirmarea în așteptare, numită „pendentă”) înaintea apelului expeditorului; S1–S6 din răspunsul integral sunt corecte. Refuzul de la pasul 5 este o adăugire: nicio regulă nu îl cere, iar după R2 un site corect nu produce cazul; adăugirea poate fi susținută, dar trebuie etichetată ca întrebare pentru beneficiar, nu ca regulă. Termenul „atomicitate” este folosit impropriu: atomicitatea cere ca efectele unei operații să se producă integral sau deloc. Garanția enunțată, că o cerere acceptată nu își repetă efectul la reîncercare, este idempotența față de înscrieri, numită mai devreme. În plus, rezultatul confirmării se poate modifica la reîncercare; nu toate datele registrului rămân neschimbate. Cealaltă analiză păstrată înregistrează înscrierea abia după răspunsul expeditorului.
 
 **Organizare:** 4 min: răspuns individual, apoi discuție. []{.pace dur=4}
 :::
@@ -503,7 +503,7 @@ Ordinea este cea cerută: locul consumat și înscrierea înregistrată (cu conf
 
 > Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret, cu starea de pornire și rezultatul așteptat. Verifică ordinea pașilor, momentul înregistrării înscrierii față de apelul expeditorului, tratarea răspunsului esec, reîncercarea, consumul locurilor, responsabilitățile și presupunerile despre expeditor. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.
 
-**Predicție, înainte de a vedea răspunsul:** site-ul păstrează identificatorul și conținutul la reîncercare, iar propunerea adaugă un refuz pentru același identificator cu alt conținut, caz nespecificat în enunț. Va semnala evaluatorul AI această adăugire?
+**Predicție, înainte de a vedea răspunsul:** site-ul păstrează identificatorul și conținutul la reîncercare, iar propunerea adaugă un refuz pentru același identificator cu alt conținut, caz nespecificat în enunț. Va semnala evaluatorul AI această adăugire? Dar termenul „atomicitate”?
 
 ::: notes
 Instrucțiunea cere verificarea ordinii pașilor și a presupunerilor; nu îi semnalăm ce am observat noi și nu îi cerem un număr minim de defecte.
@@ -525,12 +525,12 @@ Instrucțiunea cere verificarea ordinii pașilor și a presupunerilor; nu îi se
 >
 > Singura abatere de la enunț este protecția în Pasul 5 […], care e **plauzibilă dar non-specificată**.
 
-**Reguli:** înregistrarea precede apelul expeditorului, iar eșecul nu anulează înscrierea — R4 (confirmare); identificatorul cererii este generat de site, unic pentru fiecare cerere nouă — R2 (cerere); enunțul nu descrie refolosirea lui cu alt conținut.
+**R2 (cerere):** site-ul generează un c unic pentru fiecare cerere nouă și trimite același c când reîncearcă; enunțul trimis nu spunea altceva despre c. **Analistul AI** numea „atomicitate” garanția că o cerere acceptată modifică starea o singură dată.
 
-Observația 1 este susținută de enunț? **Ce rămâne de decis, și cine decide?**
+Observația 1 este susținută de enunț? **Este aceasta „singura abatere”? Ce rămâne de decis, și cine decide?**
 
 ::: notes
-Observația este corectă: regulile nu descriu cazul, deci refuzul este o propunere, nu o cerință. Evaluatorul AI nu decide în locul nostru: spune că protecția este plauzibilă și că enunțul ar fi trebuit să o precizeze. Rămân de decis două lucruri, de către oameni: dacă acceptăm adăugirea (și o ducem beneficiarului ca întrebare) și dacă interpretarea „poate” → „va reapela” din R5 este cea dorită, semnalată tot de evaluator. Cealaltă revizuire păstrată confirmă adăugirea ca „validare defensivă rezonabilă”, fără să o deosebească de reguli. O revizuire bună nu este una care găsește multe greșeli, ci una care spune ce este susținut și ce nu.
+Observația este corectă: regulile nu descriu cazul, deci refuzul este o propunere, nu o cerință. Evaluatorul AI nu decide în locul nostru: spune că protecția este plauzibilă și că enunțul ar fi trebuit să o precizeze. Nu este însă singura abatere: revizuirea nu comentează termenul „atomicitate”, pe care îl corectăm noi pe slide-ul următor. Rămân de decis două lucruri, de către oameni: dacă acceptăm adăugirea (și o ducem beneficiarului ca întrebare) și dacă interpretarea „poate” → „va reapela” din R5 este cea dorită, semnalată tot de evaluatorul AI. Cealaltă revizuire păstrată observă și ea că adăugirea nu este cerută de reguli, dar o numește „validare defensivă rezonabilă”, cere doar o clarificare și confirmă „atomicitate și idempotență” laolaltă. O revizuire bună nu este una care găsește multe greșeli, ci una care spune ce este susținut și ce nu.
 
 **Organizare:** 4 min: răspunsuri individuale, apoi discuție. []{.pace dur=4}
 :::
@@ -543,10 +543,10 @@ Observația este corectă: regulile nu descriu cazul, deci refuzul este o propun
 
 **Acceptăm** observația evaluatorului AI: refuzul unui identificator refolosit cu alt conținut nu este în enunț. Îl păstrăm **ca întrebare pentru beneficiar**, nu ca regulă; până la răspuns, site-ul rămâne responsabil să nu refolosească identificatorul.
 
-**Corectăm termenul:** evitarea unei înscrieri duplicate privește **idempotența** efectului asupra înscrierilor. **Atomicitatea** înseamnă că efectele operației se produc integral sau deloc. Notificarea se poate modifica la reîncercare; nu promitem atomicitate între registru și expeditor.
+**Corectăm termenul:** evitarea unei înscrieri duplicate privește **idempotența** efectului asupra înscrierilor. **Atomicitatea** înseamnă că efectele operației se produc integral sau deloc. Rezultatul confirmării se poate modifica la reîncercare; nu promitem atomicitate între registru și expeditor.
 
 ::: notes
-Verdictul aparține oamenilor și se sprijină pe regulă și scenariu. O propunere bună și o revizuire bună nu scurtează decizia: ele o fac verificabilă. Întrebarea pentru beneficiar se notează cu fișierele pe care le-ar atinge, ca în `docs/open-questions.md` pentru curs.
+Verdictul aparține oamenilor și se sprijină pe regulă și scenariu. O propunere bună și o revizuire bună nu scurtează decizia: ele o fac verificabilă. Întrebarea pentru beneficiar se notează împreună cu regulile și scenariile pe care răspunsul le-ar schimba. Între timp am precizat în enunțul curent, la R2, că refolosirea identificatorului cu alt conținut este în afara apelurilor admise; capturile păstrează enunțul trimis.
 
 **Organizare:** 2 min; încheierea etapei la minutul 95. []{.pace dur=2}
 :::
@@ -567,16 +567,16 @@ Transferăm metoda: granița, presupunerile, ce garantăm local; nu regulile cen
 
 # Diplomele și tipografia
 
-**Enunț nou:** secretariatul eliberează diplome și cere unei **tipografii externe** tipărirea fiecăreia, prin `comanda(diploma)`, care întoarce `primit` sau `esec`. O diplomă eliberată rămâne eliberată, indiferent de tipărire. Secretariatul poate retrimite o comandă.
+**Enunț nou:** registrul secretariatului înregistrează diplomele aprobate și cere unei **tipografii externe** tipărirea fiecăreia, prin `comandă(d)`, care întoarce `primit` sau `esec`. O diplomă aprobată rămâne aprobată, indiferent de tipărire. Registrul poate retrimite o comandă.
 
 Scrieți, în câte o propoziție:
 
-1. Ce componente proiectăm și ce componentă este în afara graniței.
-2. Ce presupunem despre tipografie și ce **nu** presupunem când răspunde `esec`.
-3. Ce garantăm local după `esec`? Ajunge un identificator al comenzii ca să evităm două tipăriri sau trebuie un contract suplimentar cu tipografia?
+1. Ce componentă proiectăm și ce componentă este în afara graniței?
+2. Ce presupunem despre tipografie și ce **nu** presupunem când răspunde `esec`?
+3. După un `esec`, registrul retrimite comanda. Ce îi trebuie ca diploma să nu fie tipărită de două ori? La confirmări acceptam un mesaj duplicat; de ce nu și aici?
 
 ::: notes
-1: registrul diplomelor eliberate și comenzile sunt în interior; tipografia, în exterior. 2: presupunem că răspunde `primit` sau `esec`; nu presupunem că `esec` înseamnă că nu tipărește. 3: diploma rămâne eliberată; propunem înregistrarea rezultatului `esec`, fără să deducem că nu s-a tipărit. Același identificator permite recunoașterea retrimiterii, dar nu garantează singur o singură tipărire. Tipografia trebuie să promită prin contract recunoașterea identificatorului și evitarea repetării tipăririi; enunțul nu oferă această garanție. La laborator reunim ciclul de viață din cursul 7 cu interacțiunea de azi. Feedbackul pentru proiect poate fi cerut oricând.
+1: registrul diplomelor aprobate, cu comenzile lui, este în interior; tipografia, în exterior. 2: presupunem că răspunde `primit` sau `esec` la fiecare comandă; nu presupunem că `esec` înseamnă că nu tipărește. 3: diploma rămâne aprobată; înregistrăm rezultatul `esec`, fără să deducem că nu s-a tipărit, și retrimitem comanda cu același identificator. Identificatorul permite recunoașterea retrimiterii, dar nu garantează singur o singură tipărire: tipografia trebuie să promită, în interfața ei, că recunoaște identificatorul și nu repetă tipărirea, iar enunțul nu oferă această garanție. Un mesaj duplicat era un cost acceptat de centru; o diplomă tipărită de două ori nu este, deci aici idempotența trebuie cerută componentei din exterior. La laborator reunim ciclul de viață din cursul 7 cu interacțiunea de azi. Feedbackul pentru proiect poate fi cerut oricând.
 
 **Organizare:** 5 min, încheiere la minutul 100. []{.pace dur=5}
 :::

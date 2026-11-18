@@ -26,7 +26,9 @@ Registrul coordonează: site-ul nu apelează expeditorul, iar expeditorul nu cun
 
 La reîncercare, pasul 3 nu se repetă. Am ales un singur apel al expeditorului pentru o confirmare `netrimisă`; R5 permite această alegere, fără să o impună. `în așteptare` este o valoare intermediară, iar `netrimisă` consemnează răspunsul `esec`, nu nelivrarea.
 
-Înregistrarea precede apelul expeditorului. Ordinea inversă (trimitere, apoi înregistrare numai la `trimis`) încalcă R4 la `esec`: înscrierea nu există, locul nu este consumat, dar este posibil ca mesajul să fi ajuns (R6). Participantul ar avea o confirmare fără loc, exact ce beneficiarul vrea să evite.
+Înregistrarea precede apelul expeditorului. Fluxul F (trimitere, apoi înregistrare numai la `trimis`) încalcă R4 la `esec`: înscrierea nu există, locul nu este consumat, dar este posibil ca mesajul să fi ajuns (R6). Participantul ar avea o confirmare fără loc, exact ce beneficiarul vrea să evite.
+
+Un flux care apelează întâi expeditorul și înregistrează apoi înscrierea, oricare ar fi răspunsul, întoarce în limitele lui R1 aceleași rezultate și lasă aceleași înregistrări ca al nostru. Diferă numai dacă operația se întrerupe între cei doi pași: ordinea noastră lasă o înscriere fără confirmare, cealaltă un mesaj posibil livrat fără înscriere. Preferința beneficiarului din R4 alege ordinea noastră; R1 exclude întreruperea, deci aceasta este justificarea ordinii, nu o garanție.
 
 ## Rezultatele scenariilor
 
@@ -38,7 +40,7 @@ S1 și S2 pornesc din I: 2 locuri libere, nicio înscriere. S3 continuă S2; S4,
 | S2 | `acceptat`; 1 loc liber; (c1, P1, A) cu confirmare `netrimisă`. |
 | S3 | `acceptat` (reîncercare); 1 loc liber; aceeași înscriere; expeditorul apelat din nou → `trimisă`. |
 | S4 | `acceptat` (reîncercare); 1 loc liber; aceeași înscriere; expeditorul nu este apelat. |
-| S5 | `refuz` (P1 deja înscris); exact starea de după S1; expeditorul nu este apelat. |
+| S5 | `refuz` (P1 deja înscris); rămân exact înregistrările de după S1; expeditorul nu este apelat. |
 | S6 | `acceptat` pentru P2; 0 locuri; apoi `refuz` pentru P3; nimic nu se modifică. |
 
 Ce garantează registrul, în limitele R1: o cerere acceptată consumă exact un loc; o reîncercare nu consumă alt loc și primește același rezultat; rezultatul confirmării este înregistrat la fiecare înscriere; un refuz nu modifică nimic și nu produce mesaje. Ce nu garantează: că participantul a primit sau a citit mesajul; ce se întâmplă la o cădere a registrului între pașii 3 și 6; înscrieri concurente.
@@ -51,16 +53,16 @@ Fluxul G, construit pentru verificare, nu înregistrează identificatorul cereri
 
 | Variantă | Presupune | Cost |
 |---|---|---|
-| A: reîncercarea imediată a trimiterii, de cel mult două ori, în aceeași operație | merită încercat din nou, fără succes garantat | site-ul așteaptă; mesajul se poate dubla; după ultimul `esec`, confirmarea rămâne `netrimisă` |
+| A: retrimiterea imediată, de cel mult două ori, în aceeași operație | merită încercat din nou, fără succes garantat | site-ul așteaptă; mesajul se poate dubla; după ultimul `esec`, confirmarea rămâne `netrimisă` |
 | B: înregistrăm `netrimisă`; o operație separată `retrimite confirmările()` reia mai târziu | cineva sau ceva apelează operația | o operație și un apelant în plus; trimiterea poate eșua din nou sau produce un mesaj duplicat |
 | C: anulăm înscrierea la `esec` | `esec` înseamnă „mesajul nu a ajuns” | încalcă R4; confirmare posibilă fără loc |
 
-A și B respectă R4; C contrazice regula beneficiarului, indiferent dacă mesajul a ajuns. Alegem B: un singur apel al expeditorului în `înscrie`, inclusiv la reîncercarea cu rezultat `netrimisă`. Propunem separat `retrimite confirmările()`, apelată de operator, care încearcă o dată fiecare confirmare `netrimisă` și actualizează rezultatul, fără să modifice înscrierile sau locurile. Apelurile rămân secvențiale. Nu apare o stare nouă; `netrimisă` exista deja. Din starea de după S2, un apel cu răspuns `trimis` schimbă numai confirmarea; următorul apel nu mai trimite acel mesaj. Fără intervenția operatorului nu promitem retrimiterea. A rămâne alternativă, dar necesită un număr explicit de încercări și recalcularea scenariilor.
+A și B respectă R4; C contrazice regula beneficiarului, indiferent dacă mesajul a ajuns. Alegem B: un singur apel al expeditorului în `înscrie`, inclusiv la reîncercarea cu rezultat `netrimisă`. Propunem separat `retrimite confirmările()`, apelată de un operator al centrului, care încearcă o dată fiecare confirmare `netrimisă` și actualizează rezultatul, fără să modifice înscrierile sau locurile. Apelurile rămân secvențiale. Nu apare o valoare nouă a rezultatului confirmării; `netrimisă` exista deja. După S2, un apel cu răspuns `trimis` schimbă numai rezultatul confirmării; următorul apel nu mai trimite acel mesaj. Fără intervenția operatorului nu promitem retrimiterea. A rămâne alternativă, dar necesită un număr explicit de încercări și recalcularea scenariilor.
 
 ## Idempotență și atomicitate
 
-Idempotența privește efectul repetării asupra înscrierilor; egalitatea răspunsurilor este o cerință suplimentară din R5. Notificarea se poate modifica la reîncercare. Atomicitatea înseamnă că efectele unei operații se produc integral sau deloc; nu promitem atomicitate între registru și expeditor. Captura AI folosește impropriu acest termen, iar corecția noastră îl deosebește explicit de idempotență. Pentru sensul atomicității, vezi [PostgreSQL, Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html); exemplul nostru nu impune o bază de date. Pentru distincția efect–răspuns, vezi [RFC 9110, §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2).
+Idempotența privește efectul repetării asupra înscrierilor; egalitatea răspunsurilor este o cerință suplimentară din R5. Eliberarea repetată din cursul 6 era idempotentă, deși întorcea alt rezultat (`fara_dulap`). Rezultatul confirmării se poate modifica la reîncercare; de aceea spunem că `înscrie` este idempotentă față de înscrieri. Atomicitatea înseamnă că efectele unei operații se produc integral sau deloc; nu promitem atomicitate între registru și expeditor. Captura AI folosește impropriu acest termen, iar corecția noastră îl deosebește explicit de idempotență. Pentru sensul atomicității, vezi [PostgreSQL, Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html); exemplul nostru nu impune o bază de date. Pentru distincția efect–răspuns, vezi [RFC 9110, §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2).
 
 ## Transfer
 
-Tipărirea diplomelor la un serviciu extern: în interior, registrul diplomelor eliberate; în exterior, tipografia. Presupunem că răspunde `primit` sau `esec` la fiecare comandă; nu presupunem că `esec` înseamnă că nu tipărește. Garantăm local că o diplomă eliberată rămâne înregistrată ca eliberată. Propunem înregistrarea rezultatului `esec` și folosirea aceluiași identificator al comenzii la retrimitere. Identificatorul singur nu împiedică două tipăriri: tipografia trebuie să garanteze prin contract recunoașterea lui și evitarea repetării tipăririi. Această garanție nu este dată în enunț. Regulile se citesc din noul enunț.
+Tipărirea diplomelor la un serviciu extern, prin `comandă(d)`: în interior, registrul diplomelor aprobate; în exterior, tipografia. Presupunem că răspunde `primit` sau `esec` la fiecare comandă; nu presupunem că `esec` înseamnă că nu tipărește. Garantăm local că o diplomă aprobată rămâne înregistrată ca aprobată. Propunem înregistrarea rezultatului `esec` și folosirea aceluiași identificator al comenzii la retrimitere. Identificatorul singur nu împiedică două tipăriri: tipografia trebuie să promită, în interfața ei, că îl recunoaște și nu repetă tipărirea. Această garanție nu este dată în enunț. Spre deosebire de mesajul duplicat, acceptat de centru drept cost, o diplomă tipărită de două ori nu este acceptabilă: idempotența trebuie cerută componentei din exterior. Regulile se citesc din noul enunț.
