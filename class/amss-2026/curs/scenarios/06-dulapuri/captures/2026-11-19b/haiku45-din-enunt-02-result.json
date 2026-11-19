@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 14227,
+  "stop_reason": "end_turn",
+  "session_id": "050f28f9-a065-45c7-adc3-f7c794701855",
+  "total_cost_usd": 0.018762,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4569,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1923,
+    "output_tokens_details": {
+      "thinking_tokens": 1094
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4569,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1923,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4569,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4569
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1923,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4569,
+      "webSearchRequests": 0,
+      "costUSD": 0.018762,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1094,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4569,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Contractul operației `atribuie(v, d)`\n\n## Precondițiile\n- Vizitatorul `v` și dulapul `d` sunt identificatori valizi și cunoscuți\n- Registrul anterior este într-o stare validă: fiecare vizitator are cel mult un dulap, fiecare dulap are cel mult un vizitator\n- Vizitatorul `v` nu are deja un dulap atribuit\n- Dulapul `d` nu are deja un vizitator atribuit\n\n## Condiția de succes\nVizitatorul `v` nu are dulap ȘI dulapul `d` este liber\n\n## Postcondițiile\n\n**Caz 1 — Succes (rezultat: `atribuit`):**\n- Se adaugă asocierea `(v, d)` la registru\n- Vizitatorul `v` are acum dulapul `d`; dulapul `d` are acum vizitatorul `v`\n- Toate celelalte asocieri rămân identice\n- Registrul rămâne valid (invariantul R2)\n\n**Caz 2 — Refuz (rezultat: `refuz`):**\n- Registrul rămâne identic (nicio modificare)\n- Apare când `v` are deja un dulap, SAU `d` este deja ocupat, SAU repetarea aceleiași atribuiri\n\n## Invarianții\n- Fiecare vizitator are cel mult un dulap\n- Fiecare dulap are cel mult un vizitator\n- Se păstrează toate asocierile care nu sunt `(v, d)`\n- Setul de vizitatori și dulapuri nu se modifică\n\n---\n\n# Cinci teste\n\n| Nr. | Registrul dinainte | Apelul | Rezultat așteptat | Registrul după |\n|-----|-------------------|--------|-------------------|----------------|\n| 1 | {V1–D1, V2–D2} | atribuie(V3, D3) | atribuit | {V1–D1, V2–D2, V3–D3} |\n| 2 | {V1–D1, V2–D2} | atribuie(V1, D3) | refuz | {V1–D1, V2–D2} |\n| 3 | {V1–D1, V2–D2} | atribuie(V3, D1) | refuz | {V1–D1, V2–D2} |\n| 4 | {V1–D1, V2–D2, V3–D3} | atribuie(V3, D3) | refuz | {V1–D1, V2–D2, V3–D3} |\n| 5 | {V1–D1, V2–D2} | atribuie(V1, D2) | refuz | {V1–D1, V2–D2} |\n\n**Interpretări:** Test 1 — atribuire cu succes când ambii sunt liberi. Test 2 — refuz: `v` ocupat. Test 3 — refuz: `d` ocupat. Test 4 — refuz: repetare a aceleiași atribuiri. Test 5 — refuz: `v` ocupat și `d` ocupat.",
+  "ttft_ms": 10127,
+  "type": "result",
+  "duration_ms": 14425,
+  "uuid": "fdddb234-a3a7-479a-812a-4acbd24b7c86",
+  "ttft_stream_ms": 996,
+  "time_to_request_ms": 246,
+  "first_content_frame_ms": 996,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

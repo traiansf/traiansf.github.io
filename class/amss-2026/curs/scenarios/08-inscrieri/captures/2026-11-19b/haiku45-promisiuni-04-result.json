@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 29787,
+  "stop_reason": "end_turn",
+  "session_id": "729da742-4d01-44f6-9844-c764e02c82e8",
+  "total_cost_usd": 0.028252999999999997,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5627,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 3398,
+    "output_tokens_details": {
+      "thinking_tokens": 2739
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5627,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 3398,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5627,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5627
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 3398,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5627,
+      "webSearchRequests": 0,
+      "costUSD": 0.028252999999999997,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2739,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5627,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Paragraful pentru site\n\n**Ce vă garantăm la înscriere**\n\nLa centrul nostru, garantez că locul dumneavoastră este rezervat imediat și definitiv odată ce cererea dumneavoastră de înscriiere este acceptată. Chiar dacă confirmarea prin email întârzie sau eșuează din orice motiv, înscrierea voastră rămâne valabilă și locul vostru nu va fi pierdut. Imediat după acceptare, trimitem o confirmare cu detaliile atelierului – vă rugăm să verificați și folderul de spam. Dacă reaplicați accidental cu aceeași cerere, sistemul o recunoaște și vă returnează același răspuns fără a crea o a doua înscrierea. Dacă confirmarea inițială nu ajunge, echipa noastră poate retrimite confirmarea din nou, fără a afecta înscrierea voastră aprobată. În cele din urmă, înscrierea voastră este independentă și nu va fi anulată din cauza altor participanți. Locurile disponibile sunt limitate, deci vă recomandăm să vă înscrieti cât mai repede posibil.\n\n---\n\n## Justificarea tehnică\n\n1. **Locul rezervat definitiv (R3, R4)**: Registrul acceptă cererea doar dacă participantul nu este deja înscris și atelierul are loc liber. La acceptare, consumă imediat un loc. R4 precizează: „Eșecul confirmării nu anulează înscrierea acceptată\". Locul este garantat indiferent de rezultatul mesageriei.\n\n2. **Confirmare imediată (R4)**: După orice acceptare, registrul apelează imediat mesageria și înregistrează răspunsul.\n\n3. **Protecție dublă (R2, R5)**: Site-ul generează identificator unic pentru fiecare cerere nouă. La reîncercare, trimite același identificator. R5 garantează: „registrul întoarce același rezultat acceptat, nu consumă alt loc și nu înregistrează o a doua înscriere.\"\n\n4. **Reîncercarea confirmării (R5)**: Dacă confirmarea precedentă a eșuat, registrul poate apela mesageria din nou și actualiza rezultatul, fără a modifica înscrierea.\n\n5. **Izolare (R7)**: „O cerere nu modifică alte înscrieri și nici locurile lor.\" Fiecare cerere este independentă.",
+  "ttft_ms": 27037,
+  "type": "result",
+  "duration_ms": 29947,
+  "uuid": "f74acbb8-be04-476c-ab83-bba19ae29f19",
+  "ttft_stream_ms": 1054,
+  "time_to_request_ms": 205,
+  "first_content_frame_ms": 1054,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

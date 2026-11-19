@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 32698,
+  "stop_reason": "end_turn",
+  "session_id": "af3a95bd-8fbf-4137-b57a-f58aa4c1ebe6",
+  "total_cost_usd": 0.026914,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5625,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 3131,
+    "output_tokens_details": {
+      "thinking_tokens": 2537
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5625,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 3131,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5625,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5625
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 3131,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5625,
+      "webSearchRequests": 0,
+      "costUSD": 0.026914,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2537,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5625,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Ce vă garantăm la înscriere\n\nLocul dumneavoastră este sigur. Atunci când primim confirmarea „acceptat\", locul la atelier vă este rezervat imediat — nu depinde de alți participanți. Vă trimitem instant un email de confirmare cu detaliile atelierului. Dacă emailul nu ajunge, operatorul centrului poate retrimite confirmarea pe cerere; vă rămâne locul indiferent de livrarea efectivă. Dacă reîncercați aceeași înscrie (tehnologia sesizează tentativa), primim din nou „acceptat\" și nu vi se consumă alte locuri. Niciun loc nu este modificat decât la o cerere nouă de înscrie acceptată. Vă suntem alături și după înscrierea confirmată — emailuri nereceptionate se pot retrimite. Locul vostru este garantat chiar și fără confirmare în inboxul principal.\n\n---\n\n# Justificare tehnică\n\nAceste promisiuni se sprijină pe:\n\n- **Acceptare (R3)**: O cerere este acceptată și locul consumat doar dacă participantul nu este deja înscris la atelier și mai sunt locuri. Nicio altă operație nu modifică disponibilitatea.\n\n- **Confirmare (R4)**: După acceptare, registrul apelează mesageria pentru email. Chiar dacă mesageria raportează „eșec expediție\", înscrierea rămâne acceptată și **nu se anulează**. Răspunsul către participant este mereu „acceptat\".\n\n- **Reîncercare (R5)**: Cereri cu același identificator sunt redetectate ca reîncercări. Registrul răspunde cu același rezultat anterior fără a consuma alte locuri. Confirmări netrimise pot fi retrimise.\n\n- **Efect limitat (R7)**: O cerere modifică doar acea înscrie; alte locuri și înscrisuri rămân intacte.\n\n- **Mesageria (R6)**: Mesageria raportează „trimis\" sau „eșec expediție\", dar aceasta nu garantează livrarea reală. Registrul consemnează starea răspunsului, nu dovada de citire. Retrimiteri sunt posibile pentru stare „netrimisă\".",
+  "ttft_ms": 29566,
+  "type": "result",
+  "duration_ms": 32840,
+  "uuid": "0dbbe0d1-edc1-41b9-aaef-0cc66dd9d575",
+  "ttft_stream_ms": 813,
+  "time_to_request_ms": 188,
+  "first_content_frame_ms": 813,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

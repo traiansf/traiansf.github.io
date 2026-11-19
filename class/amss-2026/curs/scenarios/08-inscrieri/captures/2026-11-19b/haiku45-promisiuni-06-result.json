@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 13240,
+  "stop_reason": "end_turn",
+  "session_id": "b297dc74-c447-4f94-908d-a2289fb3c5f7",
+  "total_cost_usd": 0.01616,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5628,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 979,
+    "output_tokens_details": {
+      "thinking_tokens": 373
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5628,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 979,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5628,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5628
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 979,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5628,
+      "webSearchRequests": 0,
+      "costUSD": 0.01616,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 373,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5628,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Paragraful pentru site\n\n**Ce vă garantăm la înscriere**\n\nÎnscrierea dumneavoastră la atelier este procesată imediat. Dacă atelierul are locuri disponibile și nu sunteți deja înscris, cererea va fi acceptată și un loc va fi rezervat pentru dumneavoastră. După confirmarea înscrierii, veți primi pe email o notificare cu detaliile atelierului. Dacă din orice motiv notificarea nu ajunge, înscrierea rămâne valabilă — prioritatea noastră este ca voi să aveți locul garantat. Dacă reîncercați să trimiteți cererea de înscriere (de exemplu, din cauza unei probleme tehnice), sistemul va recunoaște cererea și vă va oferi același răspuns fără a crea o dublă înscriere. Dacă confirmarea nu a fost primită, o putem retrimite la cerere. Vă garantăm transparență: veți ști imediat dacă ați fost acceptat sau dacă locurile s-au epuizat.\n\n---\n\n## Justificarea tehnică\n\n1. **Imediat și cert:** Sistemul verifică atomic disponibilitatea locului și înscrierea participantului (R3), consumând un loc doar dacă ambele condiții sunt îndeplinite. Răspunsul e dat la fiecare apel.\n\n2. **Confirmare + resilență:** După acceptare, apelul la mesagerie e automat (R4). Orice rezultat (trimis/eșec) e înregistrat; locul rămâne rezervat indiferent de status confirmării (R4 — beneficiarul preferă participant fără confirmare).\n\n3. **Idempotență:** Fiecare cerere are identificator unic (c) generat de site. Reapelul cu același c readucă același răspuns și nu consumă loc suplimentar (R5). Site-ul poate retenta fără risc.\n\n4. **Retransmisie selectivă:** Pentru confirmări `netrimisă`, mesageria se apelează din nou (R5); pentru `trimisă`, nu. Aceasta evită duplicate în orice caz și maximizează șansa livrării.\n\n5. **Izolare:** O cerere nu afectează alte înscrieri (R7), deci evenimentele sunt independente.",
+  "ttft_ms": 6050,
+  "type": "result",
+  "duration_ms": 13476,
+  "uuid": "c2ce6ce9-9183-4c85-abef-a22450ed9e44",
+  "ttft_stream_ms": 1079,
+  "time_to_request_ms": 382,
+  "first_content_frame_ms": 1080,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 16484,
+  "stop_reason": "end_turn",
+  "session_id": "e8ea1c4e-d239-4b55-9e53-a5091a3f706a",
+  "total_cost_usd": 0.020755,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4568,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2322,
+    "output_tokens_details": {
+      "thinking_tokens": 1433
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4568,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2322,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4568,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4568
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2322,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4568,
+      "webSearchRequests": 0,
+      "costUSD": 0.020755,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1433,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4568,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Contractul operației ATRIBUIE(v, d)\n\n## Precondițiile\n- Identificatorul vizitorului v este cunoscut și valid\n- Identificatorul dulapului d este cunoscut și valid\n- Registrul inițial este valid (satisface invarianții)\n\n## Invarianții\n- **Unicitate:** fiecare vizitator are cel mult un dulap; fiecare dulap are cel mult un vizitator\n- **Validitate:** registrul conține doar perechi (vizitator, dulap) valide\n\n## Condiția de succes\nAtribuirea reușește dacă și numai dacă:\n- vizitatorul v nu are dulap în registrul curent, **ȘI**\n- dulapul d este liber (niciun vizitator nu-l ocupă) în registrul curent\n\n## Postcondițiile — Rezultat ATRIBUIT\n- Noua asociere (v, d) este adăugată în registru\n- Toate celelalte asocieri din registrul inițial rămân nemodificate\n- Invarianții rămân satisfăcuți\n\n## Postcondițiile — Rezultat REFUZ\n- Registrul rămâne **identic** cu registrul inițial (nicio modificare)\n- Se returnează refuz dacă: v are deja dulap, **SAU** d este ocupat, **SAU** ambele condiții\n- Inclusiv repetarea aceleiași atribuiri eșuate este refuzată\n- Invarianții rămân satisfăcuți\n\n---\n\n# Cinci teste\n\n**Test 1:** Atribuire cu succes\n- Inițial: B = {V1–D1, V2–D2}\n- Apel: atribuie(V3, D3)\n- Așteptat: \"atribuit\"\n- După: {V1–D1, V2–D2, V3–D3}\n\n**Test 2:** Refuz — vizitator deja cu dulap\n- Inițial: B = {V1–D1, V2–D2}\n- Apel: atribuie(V1, D3)\n- Așteptat: \"refuz\"\n- După: {V1–D1, V2–D2} ✓ neschimbat\n\n**Test 3:** Refuz — dulap ocupat\n- Inițial: B = {V1–D1, V2–D2}\n- Apel: atribuie(V3, D1)\n- Așteptat: \"refuz\"\n- După: {V1–D1, V2–D2} ✓ neschimbat\n\n**Test 4:** Refuz — amândouă condițiile violate\n- Inițial: B = {V1–D1, V2–D2}\n- Apel: atribuie(V1, D2)\n- Așteptat: \"refuz\"\n- După: {V1–D1, V2–D2} ✓ neschimbat\n\n**Test 5:** Refuz — repetare după succes\n- Inițial: B cu V3–D3 adăugat anterior = {V1–D1, V2–D2, V3–D3}\n- Apel: atribuie(V3, D1)\n- Așteptat: \"refuz\" (V3 are deja D3)\n- După: {V1–D1, V2–D2, V3–D3} ✓ neschimbat",
+  "ttft_ms": 11887,
+  "type": "result",
+  "duration_ms": 16682,
+  "uuid": "35ee9327-d2d7-460e-b5ce-ac6736fcff19",
+  "ttft_stream_ms": 1008,
+  "time_to_request_ms": 239,
+  "first_content_frame_ms": 1009,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

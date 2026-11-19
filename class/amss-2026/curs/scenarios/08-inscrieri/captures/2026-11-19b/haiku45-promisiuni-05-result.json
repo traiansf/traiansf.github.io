@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 51681,
+  "stop_reason": "end_turn",
+  "session_id": "1774a7cc-68c3-4363-91ab-28e3b69d508c",
+  "total_cost_usd": 0.04826500000000001,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5628,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 7400,
+    "output_tokens_details": {
+      "thinking_tokens": 6834
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5628,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 7400,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5628,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5628
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 7400,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5628,
+      "webSearchRequests": 0,
+      "costUSD": 0.04826500000000001,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 6834,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5628,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Ce vă garantăm la înscriere\n\nCând trimiteți o cerere de înscriere la un atelier cu locuri disponibile, aceasta este acceptată imediat și înregistrată — sunteți oficial înscris cu loc asigurat. După acceptare, vă trimitem o confirmare prin email. Înscrierea dumneavoastră rămâne valabilă indiferent dacă confirmarea ajunge la inbox: pentru noi, prioritatea este ca voi să aveți locul garantat. Dacă reîncercați cererea (de exemplu, dacă nu ați primit răspunsul din prima dată), veți obține același răspuns și aceleași condiții. Dacă atelierul s-a umplut sau ați mai fost înscris la el, refuzul va fi clar și imediat.\n\n---\n\n## Baza tehnică a promisiunilor\n\n**Acceptarea imediată** se sprijină pe regula R3: o cerere nouă cu identificator neînregistrat este acceptată exact atunci când participantul nu este deja înscris la atelier și acesta are locuri libere. Registrul consumă imediat un loc și înregistrează înscrierea.\n\n**Confirmarea după acceptare** decurge din regula R4, care obligă registrul să ceară mesageriei trimiterea confirmării. Eșecul livrării nu anulează înscrierea — aceasta rămâne valabilă indiferent de răspunsul serviciului, reflectând prioritatea: participant cu loc asigurat fără confirmare este mai valoros decât participant fără loc.\n\n**Reîncercările cu același rezultat** sunt gestionate prin regulile R2 și R5: o cerere cu același identificator este recognoscută ca reîncercare; registrul întoarce același răspuns și nu consumă alt loc. Dacă confirmarea anterioară a fost netrimisă, R5 permite reîncercarea expediției.\n\n**Refuzul clar** decurge din R3: dacă participantul e deja înscris sau locurile s-au epuizat, registrul întoarce refuz imediat, nu consumă resurse și nu contactează serviciul de mesagerie.",
+  "ttft_ms": 49499,
+  "type": "result",
+  "duration_ms": 51845,
+  "uuid": "2e34274f-4e06-4cc3-94aa-6d60dbcc99cc",
+  "ttft_stream_ms": 1077,
+  "time_to_request_ms": 248,
+  "first_content_frame_ms": 1077,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

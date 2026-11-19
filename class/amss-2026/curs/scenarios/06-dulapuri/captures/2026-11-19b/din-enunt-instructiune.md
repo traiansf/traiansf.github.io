@@ -1,0 +1,1 @@
+Scrie contractul operației atribuie din regulile de mai jos: precondițiile, condiția de succes, postcondițiile pentru fiecare rezultat și invarianții. Apoi scrie cinci teste pentru ea, fiecare cu registrul dinainte, apelul, rezultatul așteptat și registrul așteptat după. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.

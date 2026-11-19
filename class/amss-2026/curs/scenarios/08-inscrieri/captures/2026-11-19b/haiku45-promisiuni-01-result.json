@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 17950,
+  "stop_reason": "end_turn",
+  "session_id": "3d78c774-3b85-4058-b7d7-362e14899faf",
+  "total_cost_usd": 0.01874,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5628,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1495,
+    "output_tokens_details": {
+      "thinking_tokens": 723
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5628,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1495,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5628,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5628
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1495,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5628,
+      "webSearchRequests": 0,
+      "costUSD": 0.01874,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 723,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5628,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Paragraful pentru site — „Ce vă garantăm la înscriere\"\n\n**Ce vă garantăm la înscriere**\n\nDupă ce confirmăm primirea cererii dumneavoastră, vă garantăm următoarele:\n\n1. **Locul este vostru imediat.** Dacă sunt locuri disponibile și nu sunteți deja înscris la acest atelier, înscrierea este acceptată și locul vă este rezervat în registru în acel moment — indiferent de ce se întâmplă după.\n\n2. **Veți primi o confirmare.** Sistemul vă va trimite o confirmare a înscrierii. Dacă prima încercare de trimitere eșuează din motive tehnice, o vom reîncerca automat.\n\n3. **Nu veți fi dublu-înscriși dacă reîncercați.** Dacă din orice motiv retrimiteti aceeași cerere (de exemplu, pentru a verifica răspunsul), sistemul vă va recunoaște: nu se va crea o a doua încriere și nu se va consuma un al doilea loc.\n\n4. **Eșecul confirmării nu vă anulează înscrierea.** Prioritatea sistemului este să vă garanteze locul. Chiar dacă confirmarea tehnică întârzie sau nu ajunge, veți rămâne înscris și centrul va ști de prezența voastră.\n\nDacă aveți întrebări despre starea înscrierii, contactați direct centrul.\n\n---\n\n## Justificare tehnică pentru centru\n\nAceste garantii se sprijină pe:\n\n- **Regula R3:** O cerere este acceptată doar dacă identificatorul acesteia nu a fost anterior înregistrat, participantul nu este deja înscris la acel atelier și mai există un loc liber. Acest check atomic previne dublarea și aloca exact un loc.\n\n- **Regula R4:** După acceptare, registrul cere confirmarea mesageriei. Eșecul confirmării (răspunsul `eșec expediție`) nu anulează înscrierea — beneficiarul preferă un participant sigur nedorit să primească confirmare decât pierderea unui loc.\n\n- **Regula R5:** Reîncercările sunt identificate prin identificatorul cererii `c`. Aceeași cerere reîncercată returnează același rezultat și nu consumă resurse suplimentare. Dacă confirmarea inițială este netrimisă, registrul o reîncearcă automat; dacă e deja trimisă, nu apelează din nou mesageria.\n\n- **Decizie de proiectare (R5):** Operatorul centrului poate apela `retrimite confirmările()` pentru a reîncerca manual orice confirmare eșuată, fără a afecta înscrierea.\n\n- **Regula R6:** Livrarea efectivă a mesajelor este responsabilitatea operatorului de mesagerie extern. Registrul doar consemnează răspunsurile acestuia.",
+  "ttft_ms": 9860,
+  "type": "result",
+  "duration_ms": 18124,
+  "uuid": "42d601dd-0dd1-4dbb-9fb4-654c718c445a",
+  "ttft_stream_ms": 1099,
+  "time_to_request_ms": 214,
+  "first_content_frame_ms": 1099,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

@@ -2,12 +2,13 @@
   "source": "../brief.md (regulile R1–R5 și starea de bază B, fără tabelul scenariilor și fără sarcina de proiectare) pentru context-enunt.md; context-cod.md este scris pentru cererea A: unicitatea, contextul R1 pe scurt, pseudocodul greșit de pe slide-ul «Urmăriți operația propusă» și B, fără R3–R5",
   "context_files": {
     "context-cod.md": "73a86e965ecebef4468fc11887ba81b8eb1ed610440a1298d053cc822265be83",
-    "context-enunt.md": "f4b04f70d3ebf45447524e45d0f7fbaf41aa6b01f7e0450e4b3bf5b1e1046a62"
+    "context-enunt.md": "65a6b2570b0ebe67694eb645b910260563ef2ad3d964e175691b7c55ad916770"
   },
-  "brief_sha256_at_preparation": "9c9f06d93b14847494b126540d523f7c0a678324f2065d9fb07fb547cbcf73f8",
+  "brief_sha256_at_preparation": "6499fcebf03f65024ae598f5c2ebf8a7270e48e0c2d56ca84f358fcde1f55410",
   "prompts": {
     "din-cod-prompt.md": "39add36fa9c8fde7d38a40472a5ee1d79fa2cd86526e940743cb1778e4b21d95",
-    "din-enunt-prompt.md": "807a2b03df33e939ff16106fad3c56c2f956cfcc62788b0ecf37556665464d8c"
+    "din-enunt-prompt.md": "c31b8ed4321644e620a623d1c6bc208fab55f06ffe3d57e353797d23c9b05e27"
   },
-  "prepared_on": "2026-11-19"
+  "prepared_on": "2026-11-19",
+  "renamed_on": "2026-11-19: fara_dulap → fără_dulap în enunț și în context-enunt.md; context-cod.md neschimbat"
 }

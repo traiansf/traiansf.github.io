@@ -18,4 +18,4 @@ De la 19 noiembrie 2026, segmentul AI al cursului predă verificarea circulară 
 - `din-enunt-prompt.md` = `din-enunt-instructiune.md` + `context-enunt.md`: cererea B, aceeași instrucțiune, „din regulile de mai jos”, cu regulile R1–R5 și B din enunț, fără tabelul scenariilor (care ar da rezultatele așteptate) și fără pseudocod.
 - `context-circular-metadata.json`: hash-urile contextelor și prompturilor și hash-ul enunțului la data pregătirii.
 
-Fiecare cerere se trimite într-un context nou, cu `capture.py`. Capturile și motivul selecției sunt în [`../captures/2026-11-19/`](../captures/2026-11-19/README.md).
+Fiecare cerere se trimite într-un context nou, cu `capture.py`. Capturile și motivul selecției sunt în [`../captures/2026-11-19/`](../captures/2026-11-19/README.md). Cererea B a fost rulată din nou după redenumirea `fara_dulap` → `fără_dulap` din R4: [`../captures/2026-11-19b/`](../captures/2026-11-19b/README.md).

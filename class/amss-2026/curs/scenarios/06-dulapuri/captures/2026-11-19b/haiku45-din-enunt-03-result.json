@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 15016,
+  "stop_reason": "end_turn",
+  "session_id": "4a653c20-89d2-42b0-acbf-46e54aa1c709",
+  "total_cost_usd": 0.020088,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4572,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2187,
+    "output_tokens_details": {
+      "thinking_tokens": 1334
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4572,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2187,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4572,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4572
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2187,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4572,
+      "webSearchRequests": 0,
+      "costUSD": 0.020088,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1334,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4572,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# CONTRACTUL OPERAȚIEI ATRIBUIE(v, d)\n\n**Precondițiile:**\n- Registrul R este valid și respectă regula de unicitate (R2)\n- Vizitatorul v și dulapul d sunt identificatori cunoscuți și valizi\n- Vizitatorul v nu posedă niciun dulap în R\n- Dulapul d nu este asociat cu niciun vizitator în R\n\n**Condiția de succes:**\nAmbele condiții sunt adevărate simultan: v este liber și d este liber.\n\n**Postcondițiile dacă succeeds (rezultat: atribuit):**\n- Registrul R se extinde cu noua asociere (v, d)\n- Toate asocierile anterioare se păstrează integral\n- Registrul rămâne valid: unicitate menținută\n- Niciun alt vizitator sau dulap nu se modifică\n\n**Postcondițiile dacă fails (rezultat: refuz):**\n- Registrul R rămâne identic cu starea dinainte\n- Nicio modificare (adăugare, ștergere, înlocuire) nu se produce\n- Invarianții se păstrează\n\n**Invarianții:**\n- După orice apel, registrul respectă R2 (unicitate)\n- Niciun vizitator nu pierde dulapul din cauza altei atribuiri\n- Niciun dulap ocupat nu se eliberează\n- Vizitatorul nu poate fi re-atribuit dacă deja posedă dulap\n- Registrul nu crește dacă apelul eșuează\n\n---\n\n# CINCI TESTE\n\n**Test 1 — Atribuire reușită (cazul normal)**\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V3, D3)\n- Rezultat: atribuit\n- După: {V1–D1, V2–D2, V3–D3}\n\n**Test 2 — Refuz: vizitatorul are deja dulap**\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V1, D3)\n- Rezultat: refuz\n- După: {V1–D1, V2–D2}\n\n**Test 3 — Refuz: dulapul este ocupat**\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V3, D2)\n- Rezultat: refuz\n- După: {V1–D1, V2–D2}\n\n**Test 4 — Refuz: ambele ocupate (re-atribuire)**\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V2, D1)\n- Rezultat: refuz\n- După: {V1–D1, V2–D2}\n\n**Test 5 — Atribuire după eliberare (compoziție cu eliberează)**\n- Dinainte: {V1–D1, V2–D2}\n- După eliberează(V1): {V2–D2}\n- Apel: atribuie(V1, D3)\n- Rezultat: atribuit\n- După: {V2–D2, V1–D3}",
+  "ttft_ms": 10710,
+  "type": "result",
+  "duration_ms": 15215,
+  "uuid": "1ccbf60f-2a63-424f-b86c-3f8fb32a67a1",
+  "ttft_stream_ms": 1006,
+  "time_to_request_ms": 245,
+  "first_content_frame_ms": 1006,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

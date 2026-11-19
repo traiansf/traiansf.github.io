@@ -125,7 +125,7 @@ Contractul trebuie să permită verificarea unei implementări fără a copia pa
 | R1 (context) | Identificatorii vizitatorilor și ai dulapurilor sunt cunoscuți, registrul inițial respectă R2 (unicitate), iar apelurile sunt secvențiale: fiecare începe după încheierea celui anterior. Nu discutăm autentificarea, concurența sau erorile tehnice. |
 | R2 (unicitate) | Un vizitator are cel mult un dulap, iar un dulap are cel mult un vizitator. |
 | R3 (atribuire) | `atribuie(v,d)` reușește exact când v nu are dulap și d este liber; altfel refuză fără modificări. |
-| R4 (eliberare) | `eliberează(v)` elimină asocierea lui v; dacă lipsește, întoarce `fara_dulap`, fără modificări. |
+| R4 (eliberare) | `eliberează(v)` elimină asocierea lui v; dacă lipsește, întoarce `fără_dulap`, fără modificări. |
 | R5 (efect limitat) | La succes, toate celelalte asocieri se păstrează. |
 
 ::: notes
@@ -165,7 +165,7 @@ Prin urmare, într-un singur contract, „dulap liber” este **o parte a condi�
 ::: notes
 O operație internă cu precondiții mai puternice poate fi o alegere de proiectare, dar nu înlocuiește contractul public. În afara precondiției, acest contract nu specifică rezultatul. Nu rezultă că intrările necunoscute sunt sigure sau că orice produs ar trebui să le ignore.
 
-Cele două forme spun același lucru dacă nu lasă goluri: într-un singur contract, „altfel: refuz” acoperă automat restul apelurilor; la contracte separate, acoperirea trebuie verificată, iar dacă rezultatul trebuie să fie unic, verificăm și că precondițiile nu se suprapun. Forma pe cazuri este utilă când rezultatele sunt mai multe: `fara_dulap` nu este nici succes, nici refuz, deci împărțirea în succes și eșec ar fi artificială. În curs folosim un singur contract cu condiție de succes.
+Cele două forme spun același lucru dacă nu lasă goluri: într-un singur contract, „altfel: refuz” acoperă automat restul apelurilor; la contracte separate, acoperirea trebuie verificată, iar dacă rezultatul trebuie să fie unic, verificăm și că precondițiile nu se suprapun. Forma pe cazuri este utilă când rezultatele sunt mai multe: `fără_dulap` nu este nici succes, nici refuz, deci împărțirea în succes și eșec ar fi artificială. În curs folosim un singur contract cu condiție de succes.
 :::
 
 ---
@@ -309,14 +309,14 @@ Primul: atribuit, toate cele trei asocieri. Celelalte: refuz, exact B. Repetarea
 
 # Eliberarea și repetarea
 
-**R4 (eliberare):** dacă v are dulap, eliminăm numai asocierea lui și întoarcem `eliberat`; altfel întoarcem `fara_dulap`, fără modificări. **R5 (efect limitat):** celelalte asocieri se păstrează.
+**R4 (eliberare):** dacă v are dulap, eliminăm numai asocierea lui și întoarcem `eliberat`; altfel întoarcem `fără_dulap`, fără modificări. **R5 (efect limitat):** celelalte asocieri se păstrează.
 
 **Scenariul S5 (eliberare repetată), doi pași succesivi:**
 
 | Înainte | Acțiune | Rezultat și după |
 |---|---|---|
 | V1–D1, V2–D2 | `eliberează(V1)` | `eliberat`; V2–D2. |
-| V2–D2 | `eliberează(V1)` | `fara_dulap`; V2–D2. |
+| V2–D2 | `eliberează(V1)` | `fără_dulap`; V2–D2. |
 
 Același registru final după repetare nu înseamnă același rezultat întors.
 
@@ -334,12 +334,12 @@ Nu avem nevoie de terminologia operațiilor repetabile pentru a observa diferen�
 
 **Înainte:** V1–D1, V2–D2. **După propus:** registru gol.
 
-**Regulile complete:** eliminăm numai asocierea lui V1; toate celelalte asocieri se păstrează. Fără asociere inițială: `fara_dulap`, registru identic.
+**Regulile complete:** eliminăm numai asocierea lui V1; toate celelalte asocieri se păstrează. Fără asociere inițială: `fără_dulap`, registru identic.
 
 Propunerea scurtă este satisfăcută? Contractul complet este respectat? Reformulați postcondiția în cuvinte.
 
 ::: notes
-Propunerea scurtă este satisfăcută de registrul gol, dar contractul complet este încălcat prin pierderea V2–D2. „Eliminăm exact perechea lui V1; în rest registrul este identic; întoarcem `eliberat`.” Dacă nu există perechea, nu eliminăm nimic și întoarcem `fara_dulap`.
+Propunerea scurtă este satisfăcută de registrul gol, dar contractul complet este încălcat prin pierderea V2–D2. „Eliminăm exact perechea lui V1; în rest registrul este identic; întoarcem `eliberat`.” Dacă nu există perechea, nu eliminăm nimic și întoarcem `fără_dulap`.
 
 **Organizare:** 6 min pentru lucru și discuție; împreună cu cele 4 min de pe slide-ul anterior încheie etapa la minutul 55. []{.pace dur=6}
 :::
@@ -415,7 +415,7 @@ Operația nu promite mutare. Verificarea fără efecte poate decide refuzul făr
 
 **Eliberare:** eliminăm cel mult o pereche.
 
-**Refuz sau `fara_dulap`:** păstrăm registrul identic.
+**Refuz sau `fără_dulap`:** păstrăm registrul identic.
 
 Pornind dintr-un registru valid, explicați pentru fiecare caz de ce nu poate introduce o a doua asociere pentru același vizitator sau dulap.
 
@@ -505,7 +505,7 @@ Testele trec. Ce au verificat?
 ::: notes
 Revenim la operația greșită din etapa anterioară. Am cerut unui asistent AI contractul și testele ei, o dată pornind de la pseudocod, o dată pornind de la reguli. Un contract și niște teste scrise după cod descriu ce face codul, cu tot cu defect: confirmă implementarea, nu o verifică. Este observația de pe slide-ul „Ce poate și ce nu poate stabili o verificare?”, întâlnită acum la un asistent AI.
 
-**Sursă:** capturi reale obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.328, la 19 noiembrie 2026, fără unelte și fără contextul proiectului, fiecare încercare într-un context nou. Am rulat patru încercări pornind de la pseudocod și două pornind de la reguli și am ales câte una pentru discuție; selecția nu descrie comportamentul tipic al modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
+**Sursă:** capturi reale obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.328, la 19 noiembrie 2026, fără unelte și fără contextul proiectului, fiecare încercare într-un context nou. Am rulat patru încercări pornind de la pseudocod și trei pornind de la reguli și am ales câte una pentru discuție; selecția nu descrie comportamentul tipic al modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
 
 **Organizare:** minutul 80 din 100; interval 80–95 (15 min): cererile 2, contractul scris din cod 3, testele 4, contractul scris din reguli 3, decizie 3. []{.pace at=80}
 :::
@@ -527,7 +527,7 @@ Revenim la operația greșită din etapa anterioară. Am cerut unui asistent AI 
 ::: notes
 Cererea A este o cerere obișnuită: „scrie contractul și testele pentru acest cod”. Contextul ei conține unicitatea, dar nu R3 (atribuire): asistentul AI nu are de unde ști ce trebuia să facă operația, ci doar ce face. „Test” este cuvântul din cerere; în vocabularul nostru, un test de acest fel este un scenariu: starea dinainte, apelul, rezultatul așteptat.
 
-**Sursă:** `din-cod-prompt.md` și `din-enunt-prompt.md`, arhiva din 19 noiembrie 2026; contextul integral este rezumat pe slide.
+**Sursă:** `din-cod-prompt.md` (arhiva `2026-11-19`) și `din-enunt-prompt.md` (arhiva `2026-11-19b`); contextul integral este rezumat pe slide.
 
 **Organizare:** 2 min; predicții prin ridicarea mâinii, fără discuție. []{.pace dur=2}
 :::
@@ -610,17 +610,33 @@ Ambele trec: la `atribuie(V1,D3)` operația mută V1 pe D3, la `atribuie(V1,D2)`
 
 **Asistentul AI, cererea B — Claude Haiku 4.5, 19 noiembrie 2026; fragmente:**
 
-> **Condiția de succes:** Operația reușește dacă și numai dacă: v **nu are dulap** ȘI d **este liber**.
+> **Condiția de succes:** Atribuirea reușește dacă și numai dacă: vizitatorul v nu are dulap în registrul curent, **ȘI** dulapul d este liber (niciun vizitator nu-l ocupă) în registrul curent
+
+:::::: {.columns}
+::: {.column width="49%"}
+> **Test 2:** Refuz — vizitator deja cu dulap
 >
-> | **Test** | **Dinainte** | **Apel** | **Rezultat** | **După** |
-> |---|---|---|---|---|
-> | 2 — Refuz: vizitator ocupat | B | atribuie(V1, D3) | "refuz" | B (neschimbat) |
-> | 4 — Refuz: amândoi ocupați | B | atribuie(V1, D2) | "refuz" | B (neschimbat) |
+> - Inițial: B = {V1–D1, V2–D2}
+> - Apel: atribuie(V1, D3)
+> - Așteptat: "refuz"
+> - După: {V1–D1, V2–D2} ✓ neschimbat
+:::
+::: {.column width="49%"}
+> **Test 4:** Refuz — amândouă condițiile violate
+>
+> - Inițial: B = {V1–D1, V2–D2}
+> - Apel: atribuie(V1, D2)
+> - Așteptat: "refuz"
+> - După: {V1–D1, V2–D2} ✓ neschimbat
+:::
+::::::
 
 **Operația din pseudocod** elimină întâi asocierea lui v, apoi refuză dacă d este ocupat. Ce produce la testele 2 și 4? Ce scenariu separă contractele?
 
 ::: notes
-Testul 2: operația întoarce `atribuit`, cu {V2–D2, V1–D3}; testul 4: întoarce `refuz`, dar cu {V2–D2}. Ambele pică. Scenariul S4 (`atribuie(V1,D2)`, ambele condiții împiedică succesul) separă cele două contracte prin registrul de după, iar scenariul S3 (`atribuie(V1,D3)`, vizitator deja asociat) chiar prin rezultatul întors. Același model, cu aceeași instrucțiune, a scris teste care verifică, pentru că a pornit de la reguli. Cealaltă încercare cu reguli este la fel de corectă.
+Testul 2: operația întoarce `atribuit`, cu {V2–D2, V1–D3}; testul 4: întoarce `refuz`, dar cu {V2–D2}. Ambele pică. Scenariul S4 (`atribuie(V1,D2)`, ambele condiții împiedică succesul) separă cele două contracte prin registrul de după, iar scenariul S3 (`atribuie(V1,D3)`, vizitator deja asociat) chiar prin rezultatul întors. Același model, cu aceeași instrucțiune, a scris teste care verifică, pentru că a pornit de la reguli. Celelalte două încercări cu reguli au aceeași condiție de succes și refuzuri cu registrul identic.
+
+**Sursă:** răspunsul integral `haiku45-din-enunt-01`, arhiva `2026-11-19b`; fragmentele sunt condiția de succes, cu titlul și lista ei redate pe un singur rând, și testele 2 și 4, integral.
 
 **Organizare:** 3 min: răspuns individual, apoi discuție. []{.pace dur=3}
 :::

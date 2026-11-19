@@ -621,7 +621,7 @@ break-inside: avoid;
 </tr>
 <tr>
 <td>R4 (eliberare)</td>
-<td><span class="operatie">eliberează(v)</span> elimină asocierea lui v; dacă lipsește, întoarce <code>fara_dulap</code>, fără modificări.</td>
+<td><span class="operatie">eliberează(v)</span> elimină asocierea lui v; dacă lipsește, întoarce <code>fără_dulap</code>, fără modificări.</td>
 </tr>
 <tr>
 <td>R5 (efect limitat)</td>
@@ -779,7 +779,7 @@ break-inside: avoid;
 </div>
 <div id="eliberarea-și-repetarea" class="slide section level1">
 <h1>Eliberarea și repetarea</h1>
-<p><strong>R4 (eliberare):</strong> dacă v are dulap, eliminăm numai asocierea lui și întoarcem <code>eliberat</code>; altfel întoarcem <code>fara_dulap</code>, fără modificări. <strong>R5 (efect limitat):</strong> celelalte asocieri se păstrează.</p>
+<p><strong>R4 (eliberare):</strong> dacă v are dulap, eliminăm numai asocierea lui și întoarcem <code>eliberat</code>; altfel întoarcem <code>fără_dulap</code>, fără modificări. <strong>R5 (efect limitat):</strong> celelalte asocieri se păstrează.</p>
 <p><strong>Scenariul S5 (eliberare repetată), doi pași succesivi:</strong></p>
 <div class="table-wrap">
 <table>
@@ -799,7 +799,7 @@ break-inside: avoid;
 <tr>
 <td><span class="nowrap">V2–D2</span></td>
 <td><span class="operatie">eliberează(V1)</span></td>
-<td><code>fara_dulap</code>; <span class="nowrap">V2–D2.</span></td>
+<td><code>fără_dulap</code>; <span class="nowrap">V2–D2.</span></td>
 </tr>
 </tbody>
 </table>
@@ -810,7 +810,7 @@ break-inside: avoid;
 <h1>Ce lipsește din această promisiune?</h1>
 <p><strong>Propunere:</strong> „După <span class="operatie">eliberează(V1)</span>, V1 nu mai are dulap.”</p>
 <p><strong>Înainte:</strong> <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2.</span> <strong>După propus:</strong> registru gol.</p>
-<p><strong>Regulile complete:</strong> eliminăm numai asocierea lui V1; toate celelalte asocieri se păstrează. Fără asociere inițială: <code>fara_dulap</code>, registru identic.</p>
+<p><strong>Regulile complete:</strong> eliminăm numai asocierea lui V1; toate celelalte asocieri se păstrează. Fără asociere inițială: <code>fără_dulap</code>, registru identic.</p>
 <p>Propunerea scurtă este satisfăcută? Contractul complet este respectat? Reformulați postcondiția în cuvinte.</p>
 </div>
 <div id="încercăm-să-infirmăm-propunerea" class="slide section level1 transition">
@@ -844,7 +844,7 @@ break-inside: avoid;
 <p><strong>R2 (unicitate):</strong> un vizitator are cel mult un dulap, iar un dulap are cel mult un vizitator.</p>
 <p><strong>Atribuire acceptată:</strong> asociem un vizitator fără dulap cu un dulap liber.</p>
 <p><strong>Eliberare:</strong> eliminăm cel mult o pereche.</p>
-<p><strong>Refuz sau <code>fara_dulap</code>:</strong> păstrăm registrul identic.</p>
+<p><strong>Refuz sau <code>fără_dulap</code>:</strong> păstrăm registrul identic.</p>
 <p>Pornind <span class="nowrap">dintr-un</span> registru valid, explicați pentru fiecare caz de ce nu poate introduce o a doua asociere pentru același vizitator sau dulap.</p>
 </div>
 <div id="ce-poate-și-ce-nu-poate-stabili-o-verificare" class="slide section level1">
@@ -1004,44 +1004,31 @@ break-inside: avoid;
 <h1>Contractul scris din reguli</h1>
 <p><strong>Asistentul AI, cererea B — Claude Haiku 4.5, 19 noiembrie 2026; fragmente:</strong></p>
 <blockquote>
-<p><strong>Condiția de succes:</strong> Operația reușește dacă și numai dacă: v <strong>nu are dulap</strong> ȘI d <strong>este liber</strong>.</p>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>Test</strong></th>
-<th><strong>Dinainte</strong></th>
-<th><strong>Apel</strong></th>
-<th><strong>Rezultat</strong></th>
-<th><strong>După</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2 — Refuz: vizitator ocupat</td>
-<td>B</td>
-<td>atribuie(V1, D3)</td>
-<td>“refuz”</td>
-<td>B (neschimbat)</td>
-</tr>
-<tr>
-<td>4 — Refuz: amândoi ocupați</td>
-<td>B</td>
-<td>atribuie(V1, D2)</td>
-<td>“refuz”</td>
-<td>B (neschimbat)</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><strong>Condiția de succes:</strong> Atribuirea reușește dacă și numai dacă: vizitatorul v nu are dulap în registrul curent, <strong>ȘI</strong> dulapul d este liber (niciun vizitator <span class="nowrap">nu-l</span> ocupă) în registrul curent</p>
 </blockquote>
+<div class="columns">
+<div class="column" style="width:49%;">
+<blockquote>
+<p><strong>Test 2:</strong> Refuz — vizitator deja cu dulap</p>
+<ul>
+<li>Inițial: B = <span class="nowrap">{V1–D1,</span> <span class="nowrap">V2–D2}</span></li>
+<li>Apel: atribuie(V1, D3)</li>
+<li>Așteptat: “refuz”</li>
+<li>După: <span class="nowrap">{V1–D1,</span> <span class="nowrap">V2–D2}</span> ✓ neschimbat</li>
+</ul>
+</blockquote>
+</div><div class="column" style="width:49%;">
+<blockquote>
+<p><strong>Test 4:</strong> Refuz — amândouă condițiile violate</p>
+<ul>
+<li>Inițial: B = <span class="nowrap">{V1–D1,</span> <span class="nowrap">V2–D2}</span></li>
+<li>Apel: atribuie(V1, D2)</li>
+<li>Așteptat: “refuz”</li>
+<li>După: <span class="nowrap">{V1–D1,</span> <span class="nowrap">V2–D2}</span> ✓ neschimbat</li>
+</ul>
+</blockquote>
+</div>
+</div>
 <p><strong>Operația din pseudocod</strong> elimină întâi asocierea lui v, apoi refuză dacă d este ocupat. Ce produce la testele 2 și 4? Ce scenariu separă contractele?</p>
 </div>
 <div id="decizia-noastră-cine-a-verificat-pe-cine" class="slide section level1">

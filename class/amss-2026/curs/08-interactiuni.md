@@ -197,7 +197,7 @@ Site-ul ar trebui să cunoască rezultatul deciziei și regula R4 și ar trebui 
 | 1 | `înscrie(c1, P1, A)` | reîncercare | același `acceptat`; tot 1 loc liber, o înscriere |
 | 2 | `înscrie(c9, P1, A)` | cerere nouă | `refuz`: P1 este deja înscris |
 
-**Identificatorul cererii** le deosebește, nu conținutul. Repetarea cererii nu repetă efectul asupra înscrierilor: față de ele, operația este **idempotentă**. În cursul 6, eliberarea repetată nu modifica registrul, dar întorcea alt rezultat (`fara_dulap`); aici R5 cere **același** rezultat.
+**Identificatorul cererii** le deosebește, nu conținutul. Repetarea cererii nu repetă efectul asupra înscrierilor: față de ele, operația este **idempotentă**. În cursul 6, eliberarea repetată nu modifica registrul, dar întorcea alt rezultat (`fără_dulap`); aici R5 cere **același** rezultat.
 
 ::: notes
 Regulile se citesc din enunț, nu se importă de la muzeu. Fără identificator, registrul nu ar putea distinge „aceeași cerere, trimisă din nou” de „altă cerere cu același conținut” și ar răspunde `refuz` la reîncercare, deși P1 este înscris: site-ul ar afișa un refuz pentru o înscriere reușită. În cursul 6 am observat diferența fără să o numim; acum îi dăm numele consacrat. Idempotența privește efectul repetării, nu egalitatea răspunsurilor: eliberarea repetată din cursul 6 era idempotentă, deși întorcea alt rezultat. Aici efectul asupra înscrierilor nu se repetă, iar R5 cere suplimentar același răspuns. Confirmarea poate fi retrimisă, iar rezultatul ei înregistrat se poate modifica: de aceea spunem „față de înscrieri”. Vezi RFC 9110, §9.2.2: https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2.
@@ -443,11 +443,11 @@ Aceasta este o decizie de proiectare pentru exemplul nostru, nu o regulă deja c
 Un text despre înscriere promite ceva. Cine se angajează să îl respecte?
 
 ::: notes
-La o graniță, un text de proiectare poate promite lucruri pe care componenta noastră nu le controlează: livrarea, rapiditatea, „atomicitatea” unor pași care trec pe la mesagerie. Verificăm fiecare promisiune: cine o oferă (registrul, site-ul, mesageria sau nimeni) și ce regulă sau presupunere a enunțului o susține. Legătura cu slide-ul „Ce garantează registrul și ce nu”: acum citim cu aceeași întrebare un text scris de un asistent AI.
+La o graniță, un text de proiectare poate promite lucruri pe care componenta noastră nu le controlează: livrarea, retrimiterea „automată”, responsabilități atribuite mesageriei. Verificăm fiecare promisiune: cine o oferă (registrul, site-ul, mesageria sau nimeni) și ce regulă sau presupunere a enunțului o susține. Legătura cu slide-ul „Ce garantează registrul și ce nu”: acum citim cu aceeași întrebare un text scris de un asistent AI.
 
-Capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.328, la 19 noiembrie 2026, fiecare rulare într-un context nou, fără unelte și fără contextul proiectului. Trei prompturi cu același enunț: paragraful pentru participanți (patru rulări), nota pentru echipa de operare și garanțiile pentru echipa de dezvoltare (câte opt). Am ales fragmentele pentru discuție; selecția nu descrie comportamentul tipic al modelului. Toate rulările sunt în arhiva capturilor. La curs nu rulăm instrumente. Enunțul trimis folosea denumirile anterioare ale enunțului: „expeditor de confirmări” pentru mesagerie, `esec` pentru `eșec expediție` și 2 locuri în R1; fragmentele citate le păstrează („chiar dacă expeditorul nu livrează”). Dacă un student întreabă, spuneți că este același serviciu.
+Capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.328, la 19 noiembrie 2026, fiecare rulare într-un context nou, fără unelte și fără contextul proiectului, cu enunțul în forma de pe slide-uri. Trei prompturi cu același enunț: paragraful pentru participanți (șase rulări), nota pentru echipa de operare și garanțiile pentru echipa de dezvoltare (câte opt). Am ales fragmentele pentru discuție; selecția nu descrie comportamentul tipic al modelului. Toate rulările sunt în arhiva capturilor. La curs nu rulăm instrumente.
 
-**Organizare:** minutul 80 din 100; interval 80–95 (15 min): sarcina 2, promisiunile 1–2 3, promisiunile 3–4 3, „atomicitate” 2, livrarea 2, comparația 1, decizia 2. []{.pace at=80}
+**Organizare:** minutul 80 din 100; interval 80–95 (15 min): sarcina 2, promisiunile 1–2 3, promisiunile 3–4 3, nota 2, livrarea 2, comparația 1, decizia 2. []{.pace at=80}
 :::
 
 ---
@@ -467,7 +467,7 @@ Capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 
 ::: notes
 Promptul nu cere prudență și nu menționează riscuri: este cererea pe care ar face-o un beneficiar. Același enunț a fost trimis și cu alte două instrucțiuni, o notă de proiectare pentru echipa de operare și garanțiile pentru echipa de dezvoltare („consistența datelor, livrarea confirmărilor și comportamentul la repetarea cererilor”); fragmente din ele apar trei slide-uri mai încolo. Predicții probabile: „veți primi confirmarea”, „imediat”, „automat”.
 
-**Sursă:** `promisiuni-prompt.md` și `context-garantii.md`, arhiva din 19 noiembrie 2026.
+**Sursă:** `promisiuni-prompt.md` și `context-garantii.md`, arhiva `2026-11-19b`.
 
 **Organizare:** 2 min; predicții prin ridicarea mâinii. []{.pace dur=2}
 :::
@@ -476,20 +476,22 @@ Promptul nu cere prudență și nu menționează riscuri: este cererea pe care a
 
 # Paragraful: promisiunile 1 și 2
 
-**Asistentul AI — Claude Haiku 4.5, 19 noiembrie 2026, una dintre patru rulări; fragmente:**
+**Asistentul AI — Claude Haiku 4.5, 19 noiembrie 2026, una dintre șase rulări; fragmente:**
 
-> **1. Locul dumneavoastră este rezervat.** […] Chiar dacă mesajul de confirmare nu ajunge, rămâneți înscris.
+> **1. Locul este vostru imediat.** […] înscrierea este acceptată și locul vă este rezervat în registru în acel moment — indiferent de ce se întâmplă după.
 >
-> **2. Veți primi confirmare imediat.** După acceptare, vă trimitem un mesaj de confirmare. Dacă nu ajunge, îl reîncercăm automat.
+> **2. Veți primi o confirmare.** Sistemul vă va trimite o confirmare a înscrierii. Dacă prima încercare de trimitere eșuează din motive tehnice, o vom reîncerca automat.
 >
-> *Din justificare:* […] La reîncercări, dacă mesajul anterior nu a ajuns, se reîncercă trimiterea (R5).
+> *Din justificare:* […] Dacă confirmarea inițială este netrimisă, registrul o reîncearcă automat; […]
 
-**R4 (confirmare):** după acceptare, registrul cere mesageriei trimiterea; eșecul ei nu anulează înscrierea. **R5 (reîncercare):** la o reîncercare cu confirmarea `netrimisă`, registrul poate cere din nou trimiterea. **R6 (graniță):** presupunem doar că mesageria răspunde `trimis` sau `eșec expediție`; `eșec expediție` nu înseamnă că mesajul nu a ajuns. **Varianta B (retrimitere ulterioară):** în rest, o cere un operator.
+**R4 (confirmare):** după acceptare, registrul cere mesageriei trimiterea; eșecul ei nu anulează înscrierea. **R5 (reîncercare):** la o reîncercare cu confirmarea `netrimisă`, registrul poate cere din nou trimiterea. **R6 (graniță):** presupunem doar că mesageria răspunde `trimis` sau `eșec expediție`. **Varianta B (retrimitere ulterioară):** în rest, o cere un operator.
 
 Individual, apoi discutăm: **cine oferă fiecare promisiune și pe ce regulă se sprijină?**
 
 ::: notes
-Promisiunea 1 este a registrului: R3 consumă locul la acceptare, iar R4 spune că eșecul confirmării nu anulează înscrierea. Promisiunea 2 nu o oferă nimeni. „Veți primi” și „imediat” ar fi promisiuni ale mesageriei, iar R6 nu i le atribuie: știm doar că răspunde. „Dacă nu ajunge, îl reîncercăm automat” presupune că registrul află dacă mesajul a ajuns; nu află, află doar `eșec expediție`. Retrimiterea nu este nici automată: are loc numai dacă site-ul reîncearcă (R5 o permite, nu o impune) sau dacă operatorul apelează `retrimite confirmările()`. Justificarea citează R5, dar R5 vorbește despre `netrimisă`, nu despre un mesaj care „nu a ajuns”: confuzia pe care R6 o exclude explicit. Omisiunile: titlul paragrafului, a doua propoziție a promisiunii 1 („Atunci când cererea este acceptată, locul la atelier este al dumneavoastră.”) și restul justificării.
+Promisiunea 1 este a registrului: R3 consumă locul la acceptare, iar R4 spune că eșecul confirmării nu anulează înscrierea; „indiferent de ce se întâmplă după” este adevărat în limitele enunțului, care nu modelează anularea (R1). Promisiunea 2 nu o oferă nimeni. „Veți primi” ar fi o promisiune a mesageriei, iar R6 nu i-o atribuie: știm doar că răspunde. „O vom reîncerca automat” nu o oferă nici registrul: la `înscrie`, retrimiterea are loc numai dacă site-ul reîncearcă aceeași cerere (R5 o permite, nu o impune); în rest, numai dacă operatorul apelează `retrimite confirmările()`. Justificarea spune același lucru despre R5: „poate” a devenit „automat”. Omisiunile: titlul și introducerea paragrafului, începutul promisiunii 1 (condițiile de acceptare) și restul justificării.
+
+**Sursă:** răspunsul integral `haiku45-promisiuni-01`, arhiva `2026-11-19b`.
 
 **Organizare:** 3 min: 1 individual, 2 discuție. []{.pace dur=3}
 :::
@@ -500,40 +502,40 @@ Promisiunea 1 este a registrului: R3 consumă locul la acceptare, iar R4 spune c
 
 **Aceeași rulare; fragmente:**
 
-> **3. Fără înscrisuri duble.** Dacă din accident reîncearcă aceeași cerere, primiți același răspuns și nu se va crea a doua înscrisă.
+> **3. Nu veți fi dublu-înscriși dacă reîncercați.** Dacă din orice motiv retrimiteti aceeași cerere (de exemplu, pentru a verifica răspunsul), sistemul vă va recunoaște: nu se va crea o a doua încriere și nu se va consuma un al doilea loc.
 >
-> **4. Locurile sunt echitabil repartizate.** Nu vor fi acceptați mai mulți participanți decât locurile disponibile.
+> **4. Eșecul confirmării nu vă anulează înscrierea.** […] Chiar dacă confirmarea tehnică întârzie sau nu ajunge, veți rămâne înscris […]
 
 **R2 (cerere):** site-ul generează identificatorul cererii; când reîncearcă, trimite același identificator, iar o cerere nouă primește altul. **R3 (acceptare):** o cerere nouă este acceptată numai dacă participantul nu este înscris și există loc; altfel `refuz`. **R5 (reîncercare):** o cerere cu identificatorul deja înregistrat primește același `acceptat`, fără alt loc și fără a doua înscriere.
 
-Individual, apoi discutăm: **cine oferă fiecare promisiune?** Participantul apasă din nou butonul, iar site-ul trimite o **cerere nouă**. Ce primește? Mai este adevărată promisiunea 3?
+Individual, apoi discutăm: **cine oferă fiecare promisiune?** Participantul apasă din nou butonul, iar site-ul trimite o **cerere nouă**. Ce primește? Îl „recunoaște” sistemul?
 
 ::: notes
-Promisiunea 4 este a registrului (R3). Promisiunea 3 are două părți cu garanți diferiți. „Nu se va crea a doua înscriere” o oferă registrul pentru orice cerere: o reîncercare nu înregistrează nimic nou (R5), iar o cerere nouă a unui participant înscris este refuzată (R3). „Primiți același răspuns” depinde și de site: registrul recunoaște reîncercarea numai după identificator, iar R2 este o presupunere despre site. Dacă apăsarea butonului produce o cerere nouă, răspunsul este `refuz`, deși participantul este înscris: fără a doua înscriere, dar nu cu același răspuns. Paragraful promite participantului ceva ce depinde de o componentă pe care nu o proiectăm azi.
+Promisiunea 4 este a registrului (R4). Promisiunea 3 are două părți cu garanți diferiți. „Nu se va crea o a doua înscriere și nu se va consuma un al doilea loc” o oferă registrul pentru orice cerere: o reîncercare nu înregistrează nimic nou (R5), iar o cerere nouă a unui participant înscris este refuzată (R3). „Sistemul vă va recunoaște” depinde și de site: registrul recunoaște reîncercarea numai după identificator, iar R2 este o presupunere despre site. Dacă apăsarea butonului produce o cerere nouă, răspunsul este `refuz`, deși participantul este înscris: fără a doua înscriere, dar fără recunoaștere. Paragraful promite participantului ceva ce depinde de o componentă pe care nu o proiectăm azi. Greșelile de tastare sunt ale răspunsului. Omisiunile din promisiunea 4: „Prioritatea sistemului este să vă garanteze locul.” și finalul, „și centrul va ști de prezența voastră”.
 
 **Organizare:** 3 min: 1 individual, 2 discuție. []{.pace dur=3}
 :::
 
 ---
 
-# Alte rulări: ce numesc „atomicitate”?
+# Alte rulări: nota pentru echipa de operare
 
-**Aceleași reguli; nota pentru echipa de operare, rularea 08; fragmente din lista de garanții:**
+**Aceleași reguli; nota pentru echipa de operare, rularea 05; fragmente din lista de garanții:**
 
-> **Atomicitate pe cerere:** o cerere acceptată consumă exact un loc; reîncercările nu generează înscrisuri duble.
+> **Atomicitate pe participant**: fiecare participant are maxim o înscriiere per atelier.
 >
 > […]
 >
-> **Înregistrare:** fiecare acceptare și rezultat al confirmării este consemnat permanent.
+> **Separare responsabilități**: eșecurile de livrare a mesageriei nu compromit înscrierea; livrarea efectivă rămâne responsabilitatea serviciului extern.
 
-**R1 (context):** erorile tehnice din interiorul registrului nu sunt modelate. **R5 (reîncercare):** o cerere cu identificatorul deja înregistrat nu consumă alt loc și nu creează a doua înscriere.
+**R3 (acceptare):** o cerere nouă a unui participant deja înscris este refuzată. **R6 (graniță):** despre mesagerie presupunem doar că răspunde `trimis` sau `eșec expediție`; `eșec expediție` nu înseamnă că mesajul nu a ajuns; livrarea efectivă nu este modelată.
 
-**Cine oferă fiecare garanție? Care se sprijină doar pe o presupunere a enunțului? Ce proprietate descrie, de fapt, „atomicitate pe cerere”?**
+**Cine oferă fiecare garanție? Ce proprietate descrie, de fapt, „atomicitate pe participant”? Cine a promis livrarea?**
 
 ::: notes
-Prima garanție este a registrului (R3, R5), dar numele este greșit: ce descrie este idempotența față de înscrieri, numită mai devreme, nu atomicitatea (efecte integral sau deloc). Alte rulări folosesc „atomicitate” la fel; analistul AI din capturile din 12 noiembrie 2026 o făcea și el. „Consemnat permanent” este adevărat în model numai pentru că R1 exclude erorile tehnice: este o presupunere a enunțului, nu un mecanism proiectat; dacă R1 cade, trebuie construit.
+Prima garanție este a registrului (R3), dar numele este greșit: „cel mult o înscriere pentru fiecare participant și atelier” este un invariant, unicitatea, ca în cursul 6, nu atomicitatea (efectele unei operații, integral sau deloc). Alte rulări folosesc „atomicitate” la fel de liber: „Atomicitate pe operație: fiecare apel mesageriei este independent” (nota 01). A doua garanție are o jumătate a registrului (R4: eșecul nu anulează înscrierea) și una pe care nu o oferă nimeni: „livrarea rămâne responsabilitatea serviciului extern” atribuie mesageriei o promisiune pe care R6 nu o conține. Nu știm că furnizorul își asumă livrarea; dacă vrem asta, i-o cerem în interfață. „Eșecurile de livrare” citește în plus `eșec expediție` ca nelivrare.
 
-**Sursă:** răspunsul integral `haiku45-nota-08`, arhiva din 19 noiembrie 2026; „[…]” marchează punctele omise dintre cele două.
+**Sursă:** răspunsul integral `haiku45-nota-05`, arhiva `2026-11-19b`; „[…]” marchează punctele omise dintre cele două; greșeala de tastare este a răspunsului.
 
 **Organizare:** 2 min. []{.pace dur=2}
 :::
@@ -542,24 +544,24 @@ Prima garanție este a registrului (R3, R5), dar numele este greșit: ce descrie
 
 # Alte rulări: ce spun despre livrare?
 
-**Garanțiile pentru echipa de dezvoltare, două rulări; fragmente** (mesageria se numea aici „expeditor”):
-
-Rularea 02:
-
-> […] înscrierea rămâne valabilă și locul consumat, chiar dacă expeditorul nu livrează.
+**Aceleași reguli; garanțiile pentru echipa de dezvoltare, două rulări; fragmente:**
 
 Rularea 08:
 
-> […] Livrarea efectivă la participant nu este garantată de sistem.
+> Confirmările nelivrate (răspunsul mesageriei este `eșec expediție`) sunt retrimitibile: operatorul poate recupera omisiunile temporare prin `retrimite confirmările()`.
 
-**R4 (confirmare):** eșecul confirmării nu anulează înscrierea. **R6 (graniță):** despre mesagerie presupunem doar că răspunde `trimis` sau `eșec expediție`; `eșec expediție` nu înseamnă că mesajul nu a ajuns.
+Rularea 01:
 
-**Ce presupune fiecare fragment despre mesagerie? Care este susținut de R6?**
+> Nu garantăm că participantul a primit efectiv mesajul; garantăm doar răspunsurile mesageriei și ciclul de reapelare.
+
+**R6 (graniță):** despre mesagerie presupunem doar că răspunde `trimis` sau `eșec expediție`; `eșec expediție` nu înseamnă că mesajul nu a ajuns. **Varianta B:** operatorul apelează `retrimite confirmările()`.
+
+**Ce presupune fiecare fragment despre mesagerie? Ce este garanție și ce este presupunere?**
 
 ::: notes
-Prima jumătate a fragmentului din rularea 02 este garanția registrului (R4); „chiar dacă expeditorul nu livrează” citește însă `eșec expediție` ca nelivrare, exact ce exclude R6. Fragmentul din rularea 08 enunță corect o limită: aceeași sarcină produce, în altă rulare, formularea prudentă. Nu căutăm doar greșeli; fiecare afirmație se verifică la fel.
+Rularea 08: retrimiterea este a registrului (varianta B), dar „confirmările nelivrate” citește `eșec expediție` ca nelivrare, exact ce exclude R6, iar „omisiunile temporare” presupune că eșecul este trecător, presupunerea variantei A. Rularea 01 enunță corect limita: livrarea nu este garantată. Totuși „garantăm răspunsurile mesageriei” transformă presupunerea R6 într-o garanție a noastră: că mesageria răspunde nu depinde de registru. Nu căutăm doar greșeli; fiecare afirmație se verifică la fel.
 
-**Sursă:** răspunsurile integrale `haiku45-garantii-02` și `haiku45-garantii-08`, arhiva din 19 noiembrie 2026; „[…]” marchează începutul omis al punctului.
+**Sursă:** răspunsurile integrale `haiku45-garantii-08` și `haiku45-garantii-01`, arhiva `2026-11-19b`; fragmentele sunt puncte întregi din secțiunea „Livrarea confirmărilor”.
 
 **Organizare:** 2 min. []{.pace dur=2}
 :::
@@ -569,16 +571,16 @@ Prima jumătate a fragmentului din rularea 02 este garanția registrului (R4); �
 # Comparația noastră: cine oferă fiecare garanție
 
 | Afirmația | Cine o oferă | Sprijin în enunț |
-|:--------------------------------|:------------------|:-------------------------------|
-| locul rămâne la eșec; o singură înscriere; locuri limitate | registrul | R3 (acceptare), R4 (confirmare), R5 (reîncercare) |
-| același răspuns la reîncercare | registrul, cu site-ul | R5; R2 (cerere): același identificator |
-| „atomicitate pe cerere” | registrul; este idempotența | R3, R5 |
-| „veți primi confirmare imediat” | nimeni | R6 (graniță): doar un răspuns |
-| „reîncercăm automat” | nimeni | varianta B: un operator |
-| „consemnat permanent” | nimeni; o presupunere | R1 (context): fără erori tehnice |
+|:------------------------------------------|:---------------|:--------------------------|
+| locul rămâne la eșec; o singură înscriere | registrul | R3, R4, R5 |
+| „sistemul vă va recunoaște” | registrul, cu site-ul | R5; R2 (cerere): același identificator |
+| „atomicitate pe participant” | registrul; un invariant | R3 |
+| „veți primi o confirmare”; livrarea, „responsabilitatea serviciului extern” | nimeni | R6 (graniță): doar un răspuns |
+| „o vom reîncerca automat” | nimeni | R5: „poate”; B: un operator |
+| „garantăm răspunsurile mesageriei” | nimeni | R6: o presupunere |
 
 ::: notes
-Tabelul este al nostru, separat de capturi; formularea prudentă din rularea 08 nu are nevoie de garant: este o limită, susținută de R6, iar „chiar dacă expeditorul nu livrează” face aceeași confuzie ca justificarea promisiunii 2. Trei categorii: garanții pe care le oferă registrul; garanții care depind de o componentă din exterior (site-ul, prin R2); afirmații pe care nu le oferă nimeni, fie pentru că privesc mesageria, fie pentru că sunt doar presupuneri ale enunțului.
+Tabelul este al nostru, separat de capturi. Trei categorii: garanții pe care le oferă registrul; garanții care depind de o componentă din exterior (site-ul, prin R2); afirmații pe care nu le oferă nimeni, fie pentru că privesc mesageria, fie pentru că sunt doar presupuneri ale enunțului. Limita din rularea 01 („nu garantăm că participantul a primit mesajul”) nu are nevoie de garant: este susținută de R6.
 
 **Organizare:** 1 min. []{.pace dur=1}
 :::
@@ -591,12 +593,12 @@ Tabelul este al nostru, separat de capturi; formularea prudentă din rularea 08 
 
 **Rescriem promisiunea 2:** „După acceptare cerem trimiterea unei confirmări. Dacă nu o primiți, înscrierea rămâne valabilă.” Nu promitem livrarea, rapiditatea sau o retrimitere automată.
 
-**Corectăm termenii:** ce rularea 08 a notei numește „atomicitate pe cerere” (reîncercările nu creează a doua înscriere) este **idempotența** față de înscrieri. **Atomicitatea** înseamnă că efectele unei operații se produc integral sau deloc; nu o promitem între registru și mesagerie.
+**Corectăm termenii:** ce nota 05 numește „atomicitate pe participant” este un **invariant** (unicitatea înscrierii). **Atomicitatea** înseamnă că efectele unei operații se produc integral sau deloc; nu o promitem între registru și mesagerie.
 
 **Pentru o garanție mai puternică** (de exemplu, livrarea confirmată), o cerem furnizorului mesageriei, în interfața lui; nu o scriem noi în locul lui.
 
 ::: notes
-Nu scriem nici „centrul o poate retrimite”: operația `retrimite confirmările()` încearcă numai confirmările `netrimisă`; dacă mesageria a răspuns `trimis`, iar mesajul nu a ajuns, registrul nu are ce retrimite. Promisiunea despre același răspuns rămâne condiționată de site; o păstrăm în documentația site-ului, nu în textul pentru participanți. Analistul AI din capturile anterioare, din 12 noiembrie 2026, numea și el „atomicitate” garanția că o cerere acceptată modifică starea o singură dată. Regula de lucru, valabilă pentru orice text de proiectare: lângă fiecare garanție scriem cine o oferă și pe ce se sprijină; o garanție fără garant este o speranță. Legătura cu transferul: la tipografie, garanția lipsă trebuie cerută componentei din exterior.
+Nu scriem nici „centrul o poate retrimite”: operația `retrimite confirmările()` încearcă numai confirmările `netrimisă`; dacă mesageria a răspuns `trimis`, iar mesajul nu a ajuns, registrul nu are ce retrimite. Promisiunea despre recunoașterea reîncercării rămâne condiționată de site; o păstrăm în documentația site-ului, nu în textul pentru participanți. Analistul AI din capturile anterioare, din 12 noiembrie 2026, folosea și el „atomicitate” pentru o altă proprietate. Regula de lucru, valabilă pentru orice text de proiectare: lângă fiecare garanție scriem cine o oferă și pe ce se sprijină; o garanție fără garant este o speranță. Legătura cu transferul: la tipografie, garanția lipsă trebuie cerută componentei din exterior.
 
 **Organizare:** 2 min; încheierea etapei la minutul 95. []{.pace dur=2}
 :::

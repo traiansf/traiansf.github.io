@@ -644,7 +644,7 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p><strong>Identificatorul cererii</strong> le deosebește, nu conținutul. Repetarea cererii nu repetă efectul asupra înscrierilor: față de ele, operația este <strong>idempotentă</strong>. În cursul 6, eliberarea repetată nu modifica registrul, dar întorcea alt rezultat (<code>fara_dulap</code>); aici R5 cere <strong>același</strong> rezultat.</p>
+<p><strong>Identificatorul cererii</strong> le deosebește, nu conținutul. Repetarea cererii nu repetă efectul asupra înscrierilor: față de ele, operația este <strong>idempotentă</strong>. În cursul 6, eliberarea repetată nu modifica registrul, dar întorcea alt rezultat (<code>fără_dulap</code>); aici R5 cere <strong>același</strong> rezultat.</p>
 </div>
 <div id="ce-răspunde-registrul" class="slide section level1">
 <h1>Ce răspunde registrul?</h1>
@@ -966,58 +966,58 @@ break-inside: avoid;
 </div>
 <div id="paragraful-promisiunile-1-și-2" class="slide section level1">
 <h1>Paragraful: promisiunile 1 și 2</h1>
-<p><strong>Asistentul AI — Claude Haiku 4.5, 19 noiembrie 2026, una dintre patru rulări; fragmente:</strong></p>
+<p><strong>Asistentul AI — Claude Haiku 4.5, 19 noiembrie 2026, una dintre șase rulări; fragmente:</strong></p>
 <blockquote>
-<p><strong>1. Locul dumneavoastră este rezervat.</strong> […] Chiar dacă mesajul de confirmare nu ajunge, rămâneți înscris.</p>
-<p><strong>2. Veți primi confirmare imediat.</strong> După acceptare, vă trimitem un mesaj de confirmare. Dacă nu ajunge, îl reîncercăm automat.</p>
-<p><em>Din justificare:</em> […] La reîncercări, dacă mesajul anterior nu a ajuns, se reîncercă trimiterea (R5).</p>
+<p><strong>1. Locul este vostru imediat.</strong> […] înscrierea este acceptată și locul vă este rezervat în registru în acel moment — indiferent de ce se întâmplă după.</p>
+<p><strong>2. Veți primi o confirmare.</strong> Sistemul vă va trimite o confirmare a înscrierii. Dacă prima încercare de trimitere eșuează din motive tehnice, o vom reîncerca automat.</p>
+<p><em>Din justificare:</em> […] Dacă confirmarea inițială este netrimisă, registrul o reîncearcă automat; […]</p>
 </blockquote>
-<p><strong>R4 (confirmare):</strong> după acceptare, registrul cere mesageriei trimiterea; eșecul ei nu anulează înscrierea. <strong>R5 (reîncercare):</strong> la o reîncercare cu confirmarea <code>netrimisă</code>, registrul poate cere din nou trimiterea. <strong>R6 (graniță):</strong> presupunem doar că mesageria răspunde <code>trimis</code> sau <code>eșec expediție</code>; <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns. <strong>Varianta B (retrimitere ulterioară):</strong> în rest, o cere un operator.</p>
+<p><strong>R4 (confirmare):</strong> după acceptare, registrul cere mesageriei trimiterea; eșecul ei nu anulează înscrierea. <strong>R5 (reîncercare):</strong> la o reîncercare cu confirmarea <code>netrimisă</code>, registrul poate cere din nou trimiterea. <strong>R6 (graniță):</strong> presupunem doar că mesageria răspunde <code>trimis</code> sau <code>eșec expediție</code>. <strong>Varianta B (retrimitere ulterioară):</strong> în rest, o cere un operator.</p>
 <p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune și pe ce regulă se sprijină?</strong></p>
 </div>
 <div id="paragraful-promisiunile-3-și-4" class="slide section level1">
 <h1>Paragraful: promisiunile 3 și 4</h1>
 <p><strong>Aceeași rulare; fragmente:</strong></p>
 <blockquote>
-<p><strong>3. Fără înscrisuri duble.</strong> Dacă din accident reîncearcă aceeași cerere, primiți același răspuns și nu se va crea a doua înscrisă.</p>
-<p><strong>4. Locurile sunt echitabil repartizate.</strong> Nu vor fi acceptați mai mulți participanți decât locurile disponibile.</p>
+<p><strong>3. Nu veți fi <span class="nowrap">dublu-înscriși</span> dacă reîncercați.</strong> Dacă din orice motiv retrimiteti aceeași cerere (de exemplu, pentru a verifica răspunsul), sistemul vă va recunoaște: nu se va crea o a doua încriere și nu se va consuma un al doilea loc.</p>
+<p><strong>4. Eșecul confirmării nu vă anulează înscrierea.</strong> […] Chiar dacă confirmarea tehnică întârzie sau nu ajunge, veți rămâne înscris […]</p>
 </blockquote>
 <p><strong>R2 (cerere):</strong> <span class="nowrap">site-ul</span> generează identificatorul cererii; când reîncearcă, trimite același identificator, iar o cerere nouă primește altul. <strong>R3 (acceptare):</strong> o cerere nouă este acceptată numai dacă participantul nu este înscris și există loc; altfel <code>refuz</code>. <strong>R5 (reîncercare):</strong> o cerere cu identificatorul deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere.</p>
-<p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune?</strong> Participantul apasă din nou butonul, iar <span class="nowrap">site-ul</span> trimite o <strong>cerere nouă</strong>. Ce primește? Mai este adevărată promisiunea 3?</p>
+<p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune?</strong> Participantul apasă din nou butonul, iar <span class="nowrap">site-ul</span> trimite o <strong>cerere nouă</strong>. Ce primește? Îl „recunoaște” sistemul?</p>
 </div>
-<div id="alte-rulări-ce-numesc-atomicitate" class="slide section level1">
-<h1>Alte rulări: ce numesc „atomicitate”?</h1>
-<p><strong>Aceleași reguli; nota pentru echipa de operare, rularea 08; fragmente din lista de garanții:</strong></p>
+<div id="alte-rulări-nota-pentru-echipa-de-operare" class="slide section level1">
+<h1>Alte rulări: nota pentru echipa de operare</h1>
+<p><strong>Aceleași reguli; nota pentru echipa de operare, rularea 05; fragmente din lista de garanții:</strong></p>
 <blockquote>
-<p><strong>Atomicitate pe cerere:</strong> o cerere acceptată consumă exact un loc; reîncercările nu generează înscrisuri duble.</p>
+<p><strong>Atomicitate pe participant</strong>: fiecare participant are maxim o înscriiere per atelier.</p>
 <p>[…]</p>
-<p><strong>Înregistrare:</strong> fiecare acceptare și rezultat al confirmării este consemnat permanent.</p>
+<p><strong>Separare responsabilități</strong>: eșecurile de livrare a mesageriei nu compromit înscrierea; livrarea efectivă rămâne responsabilitatea serviciului extern.</p>
 </blockquote>
-<p><strong>R1 (context):</strong> erorile tehnice din interiorul registrului nu sunt modelate. <strong>R5 (reîncercare):</strong> o cerere cu identificatorul deja înregistrat nu consumă alt loc și nu creează a doua înscriere.</p>
-<p><strong>Cine oferă fiecare garanție? Care se sprijină doar pe o presupunere a enunțului? Ce proprietate descrie, de fapt, „atomicitate pe cerere”?</strong></p>
+<p><strong>R3 (acceptare):</strong> o cerere nouă a unui participant deja înscris este refuzată. <strong>R6 (graniță):</strong> despre mesagerie presupunem doar că răspunde <code>trimis</code> sau <code>eșec expediție</code>; <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns; livrarea efectivă nu este modelată.</p>
+<p><strong>Cine oferă fiecare garanție? Ce proprietate descrie, de fapt, „atomicitate pe participant”? Cine a promis livrarea?</strong></p>
 </div>
 <div id="alte-rulări-ce-spun-despre-livrare" class="slide section level1">
 <h1>Alte rulări: ce spun despre livrare?</h1>
-<p><strong>Garanțiile pentru echipa de dezvoltare, două rulări; fragmente</strong> (mesageria se numea aici „expeditor”):</p>
-<p>Rularea 02:</p>
-<blockquote>
-<p>[…] înscrierea rămâne valabilă și locul consumat, chiar dacă expeditorul nu livrează.</p>
-</blockquote>
+<p><strong>Aceleași reguli; garanțiile pentru echipa de dezvoltare, două rulări; fragmente:</strong></p>
 <p>Rularea 08:</p>
 <blockquote>
-<p>[…] Livrarea efectivă la participant nu este garantată de sistem.</p>
+<p>Confirmările nelivrate (răspunsul mesageriei este <code>eșec expediție</code>) sunt retrimitibile: operatorul poate recupera omisiunile temporare prin <span class="operatie">retrimite confirmările()</span>.</p>
 </blockquote>
-<p><strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea. <strong>R6 (graniță):</strong> despre mesagerie presupunem doar că răspunde <code>trimis</code> sau <code>eșec expediție</code>; <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns.</p>
-<p><strong>Ce presupune fiecare fragment despre mesagerie? Care este susținut de R6?</strong></p>
+<p>Rularea 01:</p>
+<blockquote>
+<p>Nu garantăm că participantul a primit efectiv mesajul; garantăm doar răspunsurile mesageriei și ciclul de reapelare.</p>
+</blockquote>
+<p><strong>R6 (graniță):</strong> despre mesagerie presupunem doar că răspunde <code>trimis</code> sau <code>eșec expediție</code>; <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns. <strong>Varianta B:</strong> operatorul apelează <span class="operatie">retrimite confirmările()</span>.</p>
+<p><strong>Ce presupune fiecare fragment despre mesagerie? Ce este garanție și ce este presupunere?</strong></p>
 </div>
 <div id="comparația-noastră-cine-oferă-fiecare-garanție" class="slide section level1">
 <h1>Comparația noastră: cine oferă fiecare garanție</h1>
 <div class="table-wrap">
 <table>
 <colgroup>
-<col width="39%" />
-<col width="22%" />
-<col width="38%" />
+<col width="50%" />
+<col width="18%" />
+<col width="31%" />
 </colgroup>
 <thead>
 <tr>
@@ -1028,34 +1028,34 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td align="left">locul rămâne la eșec; o singură înscriere; locuri limitate</td>
+<td align="left">locul rămâne la eșec; o singură înscriere</td>
 <td align="left">registrul</td>
-<td align="left">R3 (acceptare), R4 (confirmare), R5 (reîncercare)</td>
+<td align="left">R3, R4, R5</td>
 </tr>
 <tr>
-<td align="left">același răspuns la reîncercare</td>
+<td align="left">„sistemul vă va recunoaște”</td>
 <td align="left">registrul, cu <span class="nowrap">site-ul</span></td>
 <td align="left">R5; R2 (cerere): același identificator</td>
 </tr>
 <tr>
-<td align="left">„atomicitate pe cerere”</td>
-<td align="left">registrul; este idempotența</td>
-<td align="left">R3, R5</td>
+<td align="left">„atomicitate pe participant”</td>
+<td align="left">registrul; un invariant</td>
+<td align="left">R3</td>
 </tr>
 <tr>
-<td align="left">„veți primi confirmare imediat”</td>
+<td align="left">„veți primi o confirmare”; livrarea, „responsabilitatea serviciului extern”</td>
 <td align="left">nimeni</td>
 <td align="left">R6 (graniță): doar un răspuns</td>
 </tr>
 <tr>
-<td align="left">„reîncercăm automat”</td>
+<td align="left">„o vom reîncerca automat”</td>
 <td align="left">nimeni</td>
-<td align="left">varianta B: un operator</td>
+<td align="left">R5: „poate”; B: un operator</td>
 </tr>
 <tr>
-<td align="left">„consemnat permanent”</td>
-<td align="left">nimeni; o presupunere</td>
-<td align="left">R1 (context): fără erori tehnice</td>
+<td align="left">„garantăm răspunsurile mesageriei”</td>
+<td align="left">nimeni</td>
+<td align="left">R6: o presupunere</td>
 </tr>
 </tbody>
 </table>
@@ -1065,7 +1065,7 @@ break-inside: avoid;
 <h1>Decizia noastră</h1>
 <p><strong>Păstrăm</strong> promisiunile 1 și 4 și partea promisiunii 3 despre a doua înscriere: le oferă registrul.</p>
 <p><strong>Rescriem promisiunea 2:</strong> „După acceptare cerem trimiterea unei confirmări. Dacă nu o primiți, înscrierea rămâne valabilă.” Nu promitem livrarea, rapiditatea sau o retrimitere automată.</p>
-<p><strong>Corectăm termenii:</strong> ce rularea 08 a notei numește „atomicitate pe cerere” (reîncercările nu creează a doua înscriere) este <strong>idempotența</strong> față de înscrieri. <strong>Atomicitatea</strong> înseamnă că efectele unei operații se produc integral sau deloc; nu o promitem între registru și mesagerie.</p>
+<p><strong>Corectăm termenii:</strong> ce nota 05 numește „atomicitate pe participant” este un <strong>invariant</strong> (unicitatea înscrierii). <strong>Atomicitatea</strong> înseamnă că efectele unei operații se produc integral sau deloc; nu o promitem între registru și mesagerie.</p>
 <p><strong>Pentru o garanție mai puternică</strong> (de exemplu, livrarea confirmată), o cerem furnizorului mesageriei, în interfața lui; nu o scriem noi în locul lui.</p>
 </div>
 <div id="transferăm-granița" class="slide section level1 transition">

@@ -1,0 +1,11 @@
+{
+  "source": "../brief.md, versiunea 19 noiembrie 2026 (regulile și scenariile, fără secțiunile «Alegeri de proiectare» și «Sarcina de proiectare») + decizia B de pe slide-ul «Decizia noastră: varianta B»",
+  "context_file": "context-garantii.md",
+  "context_sha256": "a01c503bb9edfcbc158467ed51886dae5555b59e3e5baa26a0ad98dae2a36e11",
+  "prompts": {
+    "garantii-prompt.md": "029ed80b1833e23eddc2e9b784db46746e19a2cd9b8ecca22a6a2536f6894606",
+    "nota-operare-prompt.md": "7e9ea6901b22b7606789d7fa09e9e47153d612f7e57ba0e3f300e7936cd744a1",
+    "promisiuni-prompt.md": "97ebe4148786c5ec1d8a3220e3df2872c358dac7ff72aa5da3219242eaffafbb"
+  },
+  "prepared_on": "2026-11-19"
+}

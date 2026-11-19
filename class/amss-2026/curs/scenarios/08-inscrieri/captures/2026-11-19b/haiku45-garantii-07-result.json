@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 18656,
+  "stop_reason": "end_turn",
+  "session_id": "dd1e6166-9b5c-4cbc-b797-7510f1ef7ec7",
+  "total_cost_usd": 0.019708000000000003,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5622,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1691,
+    "output_tokens_details": {
+      "thinking_tokens": 793
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5622,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1691,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5622,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5622
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1691,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5622,
+      "webSearchRequests": 0,
+      "costUSD": 0.019708000000000003,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 793,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5622,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Interacțiunea și garanțiile sistemului de înscrierii\n\n## Descrierea interacțiunii\n\n**Site** inițiază cereri de înscriere `înscrie(c, p, a)` către **Registru**, fiecare cere având identificator unic `c` generat de site. **Registru** validează cererea: dacă participantul `p` nu este deja înscris la atelierul `a` și mai există loc liber, acceptă înscrierea, consumă un loc și înregistrează tripletul (c, p, a). Imediat după, cere **Mesageriei** să trimită o confirmare. Mesageria răspunde cu `trimis` sau `eșec expediție`. Registru consemnează starea confirmării (`trimisă` sau `netrimisă`), dar acceptă cererea în ambele cazuri — beneficiarul preferă participant înscris fără confirmare decât participant fără loc. Site primește rezultatul `acceptat` sau `refuz`.\n\nCând site reîncearcă o cerere cu același identificator `c` (după o cădere de comunicație), registru returnează același rezultat și nu consumă alt loc. Dacă confirmarea precedentă era `netrimisă`, reîncearcă trimiterea; dacă era `trimisă`, nu apelează mesageria.\n\nOperator centrului poate apela `retrimite_confirmări()`: registrul reîncearcă o dată fiecare confirmare `netrimisă`, actualizează rezultatul și nu modifică înscrierea sau locurile.\n\n## Garanțiile pentru document de proiectare\n\n### 1. Consistența datelor\n- **Atomicitate pe acceptare:** o cerere cu identificator `c` neînregistrat consumă exact un loc și creează exact o înscriere (c, p, a), sau nu face nimic.\n- **Idempotență:** o cerere cu `c` deja înregistrat returnează același rezultat și nu crează duplicate, indiferent de câte reîncercări.\n- **Izolare:** o cerere nu modifică alte înscrierii sau locurile lor; starea confirmării reflectă doar ultimul răspuns al mesageriei.\n\n### 2. Livrarea confirmărilor\n- **Tentativa garantată:** fiecare cerere acceptată declanșează cel puțin o tentativă către mesagerie.\n- **Reîncercare pe eșec:** reîncercările de cerere cu confirmare `netrimisă` generează o nouă tentativă.\n- **Retrimitere manuală:** operator poate retrimite orice confirmare `netrimisă` fără a afecta înscrierea.\n- **Limitare a devolatilizării:** eticheta `netrimisă` și `trimisă` consemnează doar răspunsul mesageriei, nu garanția livrării efective; retrimiterea poate produce mesaje duplicate la participant.\n\n### 3. Comportamentul la repetarea cererilor\n- **Reîncercări identificate:** o cerere este reîncercare doar dacă `c` coincide; refolosirea cu alt (p, a) nu e modelată.\n- **Absența efectelor secundare:** reîncercări nu consumă locuri noi, nu crează înscrierii duplicate și nu afectează rezultatul precedent.\n- **Separarea fluxurilor:** retrimiteri din `retrimite_confirmări()` sunt independente de reîncercările din `înscrie()` și nu interferează cu alte operații.",
+  "ttft_ms": 10380,
+  "type": "result",
+  "duration_ms": 18781,
+  "uuid": "b2526807-d765-40bf-bf4a-88a4896195e7",
+  "ttft_stream_ms": 901,
+  "time_to_request_ms": 150,
+  "first_content_frame_ms": 901,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

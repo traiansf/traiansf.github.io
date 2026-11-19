@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 48766,
+  "stop_reason": "end_turn",
+  "session_id": "2e638f7e-1c62-48f7-a55a-bf909879d4e4",
+  "total_cost_usd": 0.045340000000000005,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5628,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 6815,
+    "output_tokens_details": {
+      "thinking_tokens": 6278
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5628,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 6815,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5628,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5628
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 6815,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5628,
+      "webSearchRequests": 0,
+      "costUSD": 0.045340000000000005,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 6278,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5628,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Ce vă garantăm la înscriere\n\nDacă cererea voastră de înscriere este acceptată, locul la atelier este instant și permanent rezervat în numele dumneavoastră. Veți primi o confirmare prin email. Chiar dacă confirmarea nu ajunge din motive tehnice, rămâneți înscris—locul dumneavoastră este protejat. Sistemul reîncercă activ trimiterea confirmării. Dacă reîncercați aceeași cerere, veți obține același răspuns și nu se va ocupa alt loc. Cererea voastră nu afectează alți participanți.\n\n---\n\n## Justificarea tehnică\n\n**1. Loc instant și permanent** – Regula R3 definește acceptarea: o cerere nouă cu ID neînregistrat se acceptă exact când participantul nu este deja înscris și atelierul are loc disponibil. Locul este imediat consumat și înscrierea este înregistrată permanent.\n\n**2. Confirmare prin email** – Regula R4 obligă registrul să solicite serviciului de mesagerie trimiterea unei confirmări după fiecare acceptare.\n\n**3. Protecție indiferent de starea confirmării** – Regula R4 precizează explicit că eșecul mesageriei nu anulează înscrierea; locul și înscrierea rămân valide indiferent de răspunsul mesageriei.\n\n**4. Reîncercări și retrimiteri** – Regula R5 permite retransmiterea confirmării la reîncercări dacă confirmarea precedentă a eșuat. Decizia deja luată permite operatori să apeleze operația `retrimite confirmări()` pentru retrimiteri manuale.\n\n**5. Idempotență și izolare** – Regula R5 garantează că reîncercări cu același ID returnează același răspuns fără a consuma locuri suplimentare. Regula R7 asigură că o cerere nu modifică alte înscrieri.",
+  "ttft_ms": 46945,
+  "type": "result",
+  "duration_ms": 48940,
+  "uuid": "34672a15-7850-402f-bf12-67bf7dafaede",
+  "ttft_stream_ms": 1186,
+  "time_to_request_ms": 229,
+  "first_content_frame_ms": 1186,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

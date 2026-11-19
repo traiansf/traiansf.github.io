@@ -61,21 +61,23 @@ A și B respectă R4; C contrazice regula beneficiarului, indiferent dacă mesaj
 
 ## Idempotență și atomicitate
 
-Idempotența privește efectul repetării asupra înscrierilor; egalitatea răspunsurilor este o cerință suplimentară din R5. Eliberarea repetată din cursul 6 era idempotentă, deși întorcea alt rezultat (`fara_dulap`). Rezultatul confirmării se poate modifica la reîncercare; de aceea spunem că `înscrie` este idempotentă față de înscrieri. Atomicitatea înseamnă că efectele unei operații se produc integral sau deloc; nu promitem atomicitate între registru și mesagerie. Capturile AI (12 și 19 noiembrie 2026) folosesc impropriu acest termen („atomicitate pe cerere” pentru evitarea înscrierilor duble), iar corecția noastră îl deosebește explicit de idempotență. Pentru sensul atomicității, vezi [PostgreSQL, Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html); exemplul nostru nu impune o bază de date. Pentru distincția efect–răspuns, vezi [RFC 9110, §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2).
+Idempotența privește efectul repetării asupra înscrierilor; egalitatea răspunsurilor este o cerință suplimentară din R5. Eliberarea repetată din cursul 6 era idempotentă, deși întorcea alt rezultat (`fara_dulap`). Rezultatul confirmării se poate modifica la reîncercare; de aceea spunem că `înscrie` este idempotentă față de înscrieri. Atomicitatea înseamnă că efectele unei operații se produc integral sau deloc; nu promitem atomicitate între registru și mesagerie. Capturile AI folosesc impropriu acest termen: „atomicitate pe cerere” pentru evitarea înscrierilor duble (12 noiembrie 2026), „atomicitate pe participant” pentru unicitatea înscrierii, un invariant (19 noiembrie 2026); corecția noastră îl deosebește explicit de idempotență și de invarianți. Pentru sensul atomicității, vezi [PostgreSQL, Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html); exemplul nostru nu impune o bază de date. Pentru distincția efect–răspuns, vezi [RFC 9110, §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2).
 
 ## Cine oferă fiecare garanție
 
-Referința auditului din secțiunea AI (capturi din 19 noiembrie 2026):
+Referința auditului din secțiunea AI (capturi din 19 noiembrie 2026, arhiva `captures/2026-11-19b/`):
 
 | Afirmația | Cine o oferă | Sprijin |
 |---|---|---|
 | locul rămâne la `eșec expediție`; nicio a doua înscriere; nu mai mulți participanți decât locuri | registrul | R3, R4, R5 |
-| același răspuns la reîncercare | registrul, dacă site-ul trimite același identificator | R5, R2; o cerere nouă a unui participant înscris primește `refuz` |
-| „atomicitate pe cerere” (fără înscrieri duble) | registrul, dar proprietatea este idempotența față de înscrieri | R3, R5 |
-| confirmarea primită, „imediat” | nimeni; mesageria promite doar un răspuns | R6 |
+| „sistemul vă va recunoaște” la reîncercare | registrul, dacă site-ul trimite același identificator | R5, R2; o cerere nouă a unui participant înscris primește `refuz` |
+| „atomicitate pe participant” (cel mult o înscriere per atelier) | registrul, dar proprietatea este un invariant (unicitatea) | R3 |
+| „veți primi o confirmare” | nimeni; mesageria promite doar un răspuns | R6 |
+| livrarea, „responsabilitatea serviciului extern” | nimeni; R6 nu o atribuie mesageriei | R6 |
 | retrimitere „automată” sau „periodică” | nimeni; registrul nu află livrarea, retrimiterea o cere site-ul la reîncercare sau un operator | R5, varianta B |
-| „consemnat permanent”, „atomice” (în registru) | nimeni; adevărat numai prin presupunerea R1 | R1 |
-| „livrarea efectivă nu este garantată” | limită corect enunțată | R6 |
+| „garantăm … răspunsurile mesageriei” | nimeni; este presupunerea R6 | R6 |
+| „confirmările nelivrate” pentru `eșec expediție` | confuzie exclusă de R6 | R6 |
+| „nu garantăm că participantul a primit efectiv mesajul” | limită corect enunțată | R6 |
 
 O garanție mai puternică despre livrare se cere furnizorului mesageriei, în interfața lui; registrul nu o poate scrie în locul lui.
 
