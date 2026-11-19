@@ -1,0 +1,13 @@
+{
+  "source": "../brief.md, fără titlul de versiune și fără secțiunea «Sarcina de proiectare» (care cere tabelul de tranziții)",
+  "context_file": "context-diagrama.md",
+  "context_sha256": "f98716ba60a5b17947f53e6e595d2d452d0000d74e0312b7c7082a741bc24895",
+  "brief_sha256_at_preparation": "5ec0533bd8db97431068a6ea5cbdac4dbdb2449ea1c848a86a06eb1ec673bb1b",
+  "prompts": {
+    "diagrama-prompt.md": "5796e2878161eefd6298779439f1be19279fbb802f4828ba175153b37313da2c",
+    "diagrama-v2-prompt.md": "9d901af8bd0e4c3cd8f3e5d0bc363b864f0e5b9c1017a43b5275639022652f8c",
+    "diagrama-v3-prompt.md": "a6798e86dcc055db626684add39b9985ab3abb06b205e2a5abf3f29fd10c3b9e",
+    "diagrama-v4-prompt.md": "71a76b28c8e6e7e06698a5042987d03feb95c47fdc5f2b9a0f71e6b26c95bbfe"
+  },
+  "prepared_on": "2026-11-19"
+}

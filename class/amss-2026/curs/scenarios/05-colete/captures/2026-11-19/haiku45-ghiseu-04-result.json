@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 20642,
+  "stop_reason": "end_turn",
+  "session_id": "8359b64e-384d-455f-ac6d-b10355bbe733",
+  "total_cost_usd": 0.023327,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4534,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2850,
+    "output_tokens_details": {
+      "thinking_tokens": 2441
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4534,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2850,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4534,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4534
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2850,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4534,
+      "webSearchRequests": 0,
+      "costUSD": 0.023327,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2441,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4534,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "```python\ndef estimeaza_pret(masa, ambalaj):\n    try:\n        masa_g = int(masa)\n    except (ValueError, TypeError):\n        return \"Eroare: masa trebuie să fie un număr întreg.\"\n    \n    if masa_g < 1 or masa_g > 5000:\n        return \"Refuz: masa trebuie să fie între 1 și 5000 de grame.\"\n    \n    if ambalaj not in [\"plic\", \"cutie\"]:\n        return \"Refuz: ambalaj neacceptat.\"\n    \n    if ambalaj == \"plic\" and masa_g > 1000:\n        return \"Refuz: plicul acceptă doar colete până la 1000 de grame.\"\n    \n    pret = 10 if masa_g <= 1000 else 18\n    return f\"Prețul estimat: {pret} lei\"\n```\n\n**Explicație:**\n1. Funcția parsează masa ca întreg și validează intervalul R2 (1–5000 g).\n2. Verifică tipul ambalajului și aplică restricția din R3 (plic acceptat doar ≤ 1000 g).\n3. Pentru colete acceptate, calculează prețul conform R4: 10 lei (≤ 1000 g) sau 18 lei (> 1000 g).\n4. Returnează textul operatorului: prețul estimat sau motivul refuzului.\n5. Mesajele sunt în limba română, respectând R5 (aceleași reguli pe ambele canale).",
+  "ttft_ms": 19470,
+  "type": "result",
+  "duration_ms": 21142,
+  "uuid": "46140a76-9ea5-48a0-8fe2-7b5c5e69d696",
+  "ttft_stream_ms": 2092,
+  "time_to_request_ms": 684,
+  "first_content_frame_ms": 2093,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

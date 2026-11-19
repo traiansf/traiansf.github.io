@@ -34,4 +34,4 @@ Fiecare scenariu repornește din I, exceptând continuările explicit marcate:
 
 Cine are dreptul să modifice registrul? Ce trebuie să promită fiecare operație? Ce rămâne identic la refuz? Ce relații trebuie să fie adevărate în orice stare? Cum verificăm aceeași cerere venită din formular și din import?
 
-Puteți schița sau nota idei, fără documente de predat. Etapa AI este o singură analiză și o singură revizuire în plen, conduse de profesor; nu sunt necesare conturi AI pentru studenți.
+Puteți schița sau nota idei, fără documente de predat. În a doua jumătate, fiecare desenează operațiile și contractele ca [diagramă de clase cu operații și restricții](../../diagrame/clase-operatii.md): de mână, în Mermaid sau generată cu un asistent AI și verificată pe lista din specificație. Nu sunt necesare conturi AI.

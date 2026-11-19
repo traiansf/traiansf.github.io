@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 20116,
+  "stop_reason": "end_turn",
+  "session_id": "9f5fa25b-3402-4884-9296-2a3e98c59e9b",
+  "total_cost_usd": 0.021902,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4754,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2477,
+    "output_tokens_details": {
+      "thinking_tokens": 1827
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4754,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2477,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4754,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4754
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2477,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4754,
+      "webSearchRequests": 0,
+      "costUSD": 0.021902,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1827,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4754,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Clasele pentru Arhiva Fotografică\n\nIată structura minimă necesară pentru a satisface cerințele:\n\n```python\nclass Fotografie:\n    def __init__(self, id_fotografie, legenda, id_original):\n        self.id = id_fotografie\n        self.legenda = legenda\n        self.versiuni = []\n        \n        # R3: La catalogare se creează originalul\n        original = Versiune(id_original, None, self, sursa=None)\n        self.versiuni.append(original)\n    \n    # R1: Legenda se poate schimba fără a crea altă fotografie\n    def schimba_legenda(self, noua_legenda):\n        self.legenda = noua_legenda\n\nclass Versiune:\n    def __init__(self, id_versiune, continut, fotografie, sursa=None):\n        self.id = id_versiune\n        self.continut = continut  # R2: Conținutul nu se suprascrie\n        self.fotografie = fotografie\n        self.sursa = sursa  # None pentru original, referință la altă versiune pentru derivate\n    \n    # R4: Editarea creează versiune nouă, nu suprascrie existenta\n    def editeaza(self, continut_nou, id_versiune_noua):\n        if self.fotografie is None:\n            raise ValueError(\"Versiune orfană\")\n        \n        # R4: Sursa trebuie din aceeași fotografie\n        versiune_noua = Versiune(\n            id_versiune_noua,\n            continut_nou,\n            self.fotografie,\n            sursa=self\n        )\n        self.fotografie.versiuni.append(versiune_noua)\n        return versiune_noua\n```\n\n**Validări implicite:**\n\n- **S1:** `f1.schimba_legenda(\"Dimineață\")` ✓ — legenda se schimbă, versiunile rămân neafectate\n- **S2–S3:** `v3 = v1.editeaza(...)` și `v4 = v1.editeaza(...)` ✓ — creează versiuni distincte cu aceeași sursă\n- **S4:** Încercarea să editez V1 pentru F2 eșuează deoarece `v1.fotografie` este F1, iar noul id_versiune aparține F2 — **imposibil prin interfață**\n\nModelul asigură imutabilitatea versiunilor existente și relații între entități conforme regulilor.",
+  "ttft_ms": 15525,
+  "type": "result",
+  "duration_ms": 20263,
+  "uuid": "7649f98a-dba9-4558-b661-5a7993fbd1d3",
+  "ttft_stream_ms": 1001,
+  "time_to_request_ms": 189,
+  "first_content_frame_ms": 1001,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

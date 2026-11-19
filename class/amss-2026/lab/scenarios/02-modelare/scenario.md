@@ -1,6 +1,6 @@
 # Același aparat, vizite distincte — Laboratorul 2
 
-Exemplu didactic: un atelier comunitar de reparații ține evidența aparatelor aduse, a vizitelor, a problemelor raportate și a voluntarilor responsabili. Lucrăm în perechi sau grupuri de trei, după cursurile 3–4. Schițele și notițele sunt suport pentru discuție, fără predare obligatorie.
+Exemplu didactic: un atelier comunitar de reparații ține evidența aparatelor aduse, a vizitelor, a problemelor raportate și a voluntarilor responsabili. Lucrăm în perechi sau grupuri de trei, după cursurile 3–4; apoi fiecare desenează modelul ca [diagramă de clase conceptuală](../../diagrame/clase-conceptuale.md). Schițele, diagramele și notițele sunt suport pentru discuție, fără predare obligatorie.
 
 ## Acordul cu organizatorii
 
@@ -32,7 +32,7 @@ P1 și P3 sunt înregistrări distincte, chiar dacă au același text. Datele su
 
 Pe schița perechii A, perechea B alege o stare și explică prima cum o exprimă modelul; autorii ascultă, apoi clarifică. Repetați pe schița B, cu rolurile inversate. Un desen, un tabel sau câteva propoziții sunt suficiente.
 
-La comparația cu AI, furnizați acordul R1–R6 și datele inițiale, sarcina și răspunsul de verificat într-un context nou. Schimbarea finală de mai jos nu se include încă. Distingeți regulile de alegerile de reprezentare: R3 cere să putem distinge problemele raportate, fără a impune forma identificatorului. Puteți folosi [capturile pregătite](prepared-fixture.md) sau cere colegilor aceeași verificare.
+Dacă folosiți un asistent AI pentru diagramă, dați-i acordul R1–R6, datele și [specificația diagramei](../../diagrame/clase-conceptuale.md); diagrama modelează R4 inițial, fără schimbarea de mai jos. Distingeți regulile de alegerile de reprezentare: R3 cere să putem distinge problemele raportate, fără a impune forma identificatorului. [Capturile pregătite](prepared-fixture.md) arată o astfel de alegere într-un răspuns AI real.
 
 ## Schimbarea finală, după comparația modelelor
 

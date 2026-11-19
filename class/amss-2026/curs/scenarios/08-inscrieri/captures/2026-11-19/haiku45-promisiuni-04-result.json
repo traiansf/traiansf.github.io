@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 32888,
+  "stop_reason": "end_turn",
+  "session_id": "0c28355b-3332-4671-98a4-04c31c532730",
+  "total_cost_usd": 0.027552999999999998,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5582,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 3276,
+    "output_tokens_details": {
+      "thinking_tokens": 2797
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5582,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 3276,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5582,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5582
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 3276,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5582,
+      "webSearchRequests": 0,
+      "costUSD": 0.027552999999999998,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2797,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5582,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Ce vă garantăm la înscriere\n\nDacă sunteți acceptat, locul la atelier este al dvs. — nu riscați să fiți anulat din cauza unor probleme tehnice cu transmiterea confirmării. Vă vom trimite o confirmare; dacă aceasta nu ajunge prima dată, o vom reîncerca automat. Dacă din neatentie ați trimis de mai multe ori aceeași cerere, nu veți fi înscri duplicat — o singură dată. Răspunsul sistemului rămâne același pentru aceeași cerere, indiferent de reîncercări.\n\n---\n\n## Justificare tehnică\n\nFiecare promisiune se sprijină pe reguli ale registrului:\n\n1. **Loc garantat** (R4): Înscrierea este consemnată în registru imediat după acceptare, independent de răspunsul expeditorului de confirmări. Eșecul confirmării nu anulează locul.\n\n2. **Reîncercări automate** (R5): La reîncercare cu identificator deja înregistrat și confirmare `netrimisă`, expeditorul este apelat din nou. Operația `retrimite confirmări()` permite și reinițierea manuală.\n\n3. **Fără dublă înscriere** (R2, R5): Identificatorul cererii (generat de site) este unic. Refolosirea lui semnalează reîncercare, nu cerere nouă. Se returnează același răspuns fără consum de loc suplimentar.\n\n4. **Consistență** (R5): Reîncercarea cu același identificator primește același răspuns; nu se redeclanșează înscrierea, doar confirmarea dacă e necesar.\n\n5. **Izolare** (R7): O cerere nu modifică alte înscri sau locurile acestora.",
+  "ttft_ms": 30203,
+  "type": "result",
+  "duration_ms": 32993,
+  "uuid": "1a69f80c-c31e-4f8e-a66a-9017dee10e64",
+  "ttft_stream_ms": 799,
+  "time_to_request_ms": 124,
+  "first_content_frame_ms": 799,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

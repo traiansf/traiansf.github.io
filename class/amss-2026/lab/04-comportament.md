@@ -10,12 +10,12 @@ state-names: [Rezervată, Ridicată, Anulată]
 
 Pentru proiecțiile și filmele cluburilor studențești, serviciul tehnic al facultății împrumută echipamente pe bază de rezervare; studenții le ridică de la un **ghișeu cu operator**. Registrul rezervărilor acceptă sau refuză ridicarea; numai după acceptare cere unui **expeditor extern** o notificare. **Notificarea eșuează, ghișeul reîncearcă:** ce are voie să se întâmple cu rezervarea?
 
-Lucrăm individual și discutăm în plen, apoi urmărim împreună **o analiză AI și o revizuire**, conduse de profesor.
+Lucrăm individual și discutăm în plen, apoi, în **atelierul de diagrame**, fiecare desenează diagrama de stări a rezervării: de mână, în Mermaid sau generată cu un asistent AI și revizuită.
 
-Exemplu didactic. Schițele sunt facultative; nu predăm documente. Nu sunt necesare conturi AI pentru studenți.
+Exemplu didactic. Schițele sunt facultative; nu predăm documente. Asistentul AI este opțional; nu sunt necesare conturi AI.
 
 ::: notes
-Aplicăm stările și tranzițiile din cursul 7 și interacțiunile peste graniță din cursul 8. Nu cerem o aplicație, explorarea automată a stărilor sau analiza formală din cursul 9. Stările Rezervată, Ridicată și Anulată sunt precizate în enunț.
+Aplicăm stările și tranzițiile din cursul 7 și interacțiunile peste graniță din cursul 8. Nu cerem o aplicație, explorarea automată a stărilor sau analiza formală din cursul 9. Stările Rezervată, Ridicată și Anulată sunt precizate în enunț. Prima jumătate discută problema; a doua jumătate desenează aceeași problemă ca diagramă de stări UML.
 
 **Organizare:** minutul 0 din 100; deschidere 0–10 (10 min): problema 3, citatul 2, recapitularea 5. 17 slide-uri cu copertă. []{.pace at=0 of=100 dur=3}
 :::
@@ -33,7 +33,7 @@ Aplicăm stările și tranzițiile din cursul 7 și interacțiunile peste grani�
 [Sursa: Computation and State Machines (2008), p. 1](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4)
 
 ::: notes
-Reluăm citatul din cursul 7. Rezervarea de azi este o mașină de stări cu trei stări; interacțiunea cu expeditorul nu adaugă stări noi ale rezervării, ci pași și o dată în plus: rezultatul notificării.
+Reluăm citatul din cursul 7. Rezervarea de azi este o mașină de stări cu trei stări, pe care o vom și desena; interacțiunea cu expeditorul nu adaugă stări noi ale rezervării, ci pași și o dată în plus: rezultatul notificării.
 
 **Sursă:** manuscris pe site-ul autorului, prima propoziție din Introduction, pagina numerotată 1 (pagina PDF 4); reverificată la 12 noiembrie 2026. Vezi `docs/quotations.md`.
 
@@ -53,7 +53,7 @@ Reluăm citatul din cursul 7. Rezervarea de azi este o mașină de stări cu tre
 Astăzi: rezervările au stările **Rezervată**, **Ridicată**, **Anulată**; apelurile sunt secvențiale; expeditorul răspunde `trimis` sau `esec`. `netrimisă` consemnează `esec`, fără să stabilească dacă mesajul a ajuns.
 
 ::: notes
-Recapitulăm fără exemplele cursurilor: așa judecăm propunerile de azi. Întrebările de verificare rămân aceleași: ce este permis acum, ce se înregistrează, cine coordonează, ce promitem când componenta din exterior eșuează.
+Recapitulăm fără exemplele cursurilor: așa judecăm propunerile de azi. Întrebările de verificare rămân aceleași: ce este permis acum, ce se înregistrează, cine coordonează, ce promitem când componenta din exterior eșuează. Diagrama de stări din cursul 7 („Același tabel, desenat”) revine în atelier.
 
 **Organizare:** 5 min. []{.pace dur=5}
 :::
@@ -62,14 +62,14 @@ Recapitulăm fără exemplele cursurilor: așa judecăm propunerile de azi. Înt
 
 # Ce are voie să se întâmple cu o rezervare? {.transition}
 
-**10–30 min · Individual, apoi explicații în plen**
+**10–28 min · Individual, apoi explicații în plen**
 
 Alt student, aceeași rezervare: refuzat de stare sau de condiție?
 
 ::: notes
-Începem cu predicții individuale, apoi construim tabelul de tranziții și îl explicăm în plen. Nu folosim AI în această etapă.
+Începem cu predicții individuale, apoi construim tabelul de tranziții și îl explicăm în plen. Tabelul este punctul de plecare al diagramei din atelier.
 
-**Organizare:** minutul 10 din 100; interval 10–30 (20 min): predicții 6, tabel 7, explicații în plen 7. []{.pace at=10}
+**Organizare:** minutul 10 din 100; interval 10–28 (18 min): predicții 6, tabel 12. []{.pace at=10}
 :::
 
 ---
@@ -106,21 +106,21 @@ Individual, completați tabelul (stare curentă, eveniment, condiție, stare urm
 ::: notes
 Rândurile așteptate: Rezervată + `ridică` cu c nou și s titular → Ridicată; Ridicată + `ridică` cu c înregistrat → Ridicată (reîncercare, notificarea poate fi actualizată); Rezervată + `anulează` → Anulată. Reîncercarea sosește în Ridicată, nu în Rezervată: c este înregistrat numai la acceptare. Mulți o pun în Rezervată; întrebarea colegului care verifică o scoate la iveală. Cererea nouă în Ridicată merită discuția: citită față de rândul din Rezervată, o refuză starea; citită față de rândul reîncercării din Ridicată, o refuză condiția (c nu este înregistrat). Ambele lecturi sunt corecte; tabelul trebuie doar să dea `refuz`, fără modificări. Reîncercarea în Ridicată este permisă; de aceea Ridicată nu este o stare finală intenționată în sensul cursului 7. După anulare, titularul și echipamentul rămân (R8). În Ridicată, reîncercarea poate actualiza notificarea: păstrarea stării nu înseamnă păstrarea tuturor datelor.
 
-**Organizare:** 14 min: 7 individual, 7 în plen; ajungem la minutul 30. []{.pace dur=14}
+**Organizare:** 12 min: 6 individual, 6 în plen; ajungem la minutul 28. []{.pace dur=12}
 :::
 
 ---
 
 # Cine coordonează ridicarea? {.transition}
 
-**30–55 min · Interacțiunea pas cu pas, apoi reîncercările**
+**28–50 min · Interacțiunea pas cu pas, apoi reîncercările**
 
 Expeditorul a răspuns `esec`. Ce promite registrul ghișeului?
 
 ::: notes
-Scriem interacțiunea pentru cazul normal și pentru eșecul notificării, apoi reîncercarea și cererea nouă. Granița și presupunerile despre expeditor rămân pe slide.
+Scriem interacțiunea pentru cazul normal și pentru eșecul notificării, apoi reîncercarea și cererea nouă. Granița și presupunerile despre expeditor rămân pe slide. Pașii scriși aici sunt materia extensiei din atelier: diagrama de secvență.
 
-**Organizare:** minutul 30 din 100; interval 30–55 (25 min): interacțiune 12, reîncercări 13. []{.pace at=30}
+**Organizare:** minutul 28 din 100; interval 28–50 (22 min): interacțiune 10, reîncercări 12. []{.pace at=28}
 :::
 
 ---
@@ -141,7 +141,7 @@ Individual, scrieți pașii (cine → cui, ce se trimite sau se întoarce, ce î
 ::: notes
 S1: ghișeu → registru; registrul verifică (A Rezervată, T1 titular, c1 nou), trece A în Ridicată, înregistrează momentul ridicării și c1, notificarea în așteptare; registru → expeditor `trimite`; expeditor → registru `trimis`; registrul înregistrează `trimisă`; registru → ghișeu `ridicat`. S3: identic, cu `esec` și `netrimisă`; răspunsul rămâne `ridicat`. Tranziția precede apelul. În ordinea inversă (starea schimbată numai la `trimis`), la `esec` studentul ar pleca cu echipamentul, iar A ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată.
 
-**Organizare:** 12 min: 5 individual, 7 în plen. []{.pace dur=12}
+**Organizare:** 10 min: 4 individual, 6 în plen. []{.pace dur=10}
 :::
 
 ---
@@ -160,125 +160,123 @@ Individual, scenariile fiind **independente** unul de altul:
 ::: notes
 S4: c1 înregistrat → reîncercare; notificarea `netrimisă` → expeditorul apelat din nou → `trimisă`; răspuns `ridicat`; A rămâne Ridicată, o singură ridicare. S5: c7 nou → cerere nouă; A nu este Rezervată → `refuz`, nimic nu se modifică, expeditorul nu este apelat. Le deosebește numai identificatorul cererii. Garanții: o rezervare este ridicată cel mult o dată; reîncercarea primește același rezultat; rezultatul notificării este înregistrat; refuzul nu produce mesaje. Nu garantăm livrarea sau citirea mesajului.
 
-**Organizare:** 13 min: 5 individual, 8 în plen; ajungem la minutul 55. []{.pace dur=13}
+**Organizare:** 12 min: 4 individual, 8 în plen; ajungem la minutul 50. []{.pace dur=12}
 :::
 
 ---
 
-# O analiză AI, o revizuire împreună {.transition}
+# Atelier: diagrama de stări {.transition}
 
-**55–75 min · Demonstrație condusă de profesor, discuție în plen**
+**50–95 min · Individual: de mână, în Mermaid sau cu un asistent AI; verificare în plen**
 
-Prezicem răspunsul, îl verificăm, apoi decidem ce păstrăm.
+Diagrama se randează fără erori. Este și corectă?
 
 ::: notes
-Profesorul conduce o singură analiză și o singură revizuire într-un context nou. Studenții nu pornesc sesiuni AI proprii. Slide-urile următoare conțin capturi reale Claude Haiku 4.5 din 12 noiembrie 2026, obținute înaintea laboratorului prin Claude Code 2.1.322, fără unelte și fără contextul proiectului; o rulare live le poate înlocui. Am rulat câte două încercări și am ales câte una; selecția nu descrie performanța tipică a modelului. La o rulare live păstrați regulile rezumate vizibile alături de rezultat.
+Desenăm ce am discutat: tabelul de tranziții devine diagramă de stări UML. Fiecare student alege cum lucrează; scopul este o diagramă corectă la sfârșitul atelierului, verificată față de enunț, nu o diagramă frumoasă. Nu predăm, nu încărcăm și nu notăm diagramele.
 
-**Organizare:** minutul 55 din 100; interval 55–75 (20 min): analiza 8, revizuirea 8, decizia 4. []{.pace at=55}
+**Organizare:** minutul 50 din 100; interval 50–95 (45 min): sarcina și lucrul individual 18, autoverificare 2, verificarea în plen 10, corectare sau extensie 7, diagrama de referință 8. []{.pace at=50}
 :::
 
 ---
 
-# Analiza: ce îi cerem și ce verificăm?
+# Diagrama de stări a rezervării
 
-**[Instrucțiunea trimisă](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/04-comportament/ai/analist-prompt.md):** „Propune tabelul de tranziții al rezervării […] și tabelul interacțiunii pentru ridica […]. Calculează S2, S4 și S7. […]”
+**Individual:** desenați diagrama de stări UML a unei rezervări, după enunț. Alegeți: **de mână**, pe hârtie; **în Mermaid** (`stateDiagram-v2`); sau **generată cu un asistent AI** din enunț și specificație, apoi revizuită de voi, punct cu punct.
 
-**Reguli:** c se înregistrează numai la acceptare. O reîncercare cu c înregistrat primește `ridicat` și retrimite notificarea `netrimisă`; o cerere nouă în Ridicată primește `refuz`.
+**Reguli:** R2 (stări): o rezervare este în exact una dintre stările Rezervată, Ridicată, Anulată; Anulată este o stare finală intenționată. R3 (ridicare): `ridică(c, r, s)` cu c neînregistrat este acceptată numai din Rezervată și numai pentru titular: r trece în Ridicată, se înregistrează momentul ridicării și c. R4 (notificare): apoi registrul cere expeditorului `trimite(mesaj)` și înregistrează notificarea `trimisă` sau `netrimisă`. R5 (reîncercare): cu c deja înregistrat, starea nu se schimbă, iar notificarea `netrimisă` se retrimite. R6 (anulare): `anulează(r)` numai din Rezervată, spre Anulată, fără notificare. În celelalte cazuri, evenimentul este refuzat, fără modificări.
 
-**Scenariul S4 (reîncercare după eșec),** calculat mai devreme: A Ridicată, c1 înregistrat, notificare `netrimisă`; `ridică(c1, A, T1)` cu `trimis` → `ridicat`, notificare `trimisă`.
+**Notația:** o tranziție are eticheta `eveniment [condiție] / efect`; evenimentele refuzate nu se desenează.
 
-**Predicție:** ce rând al tabelului de tranziții trebuie să acopere S4? Ce verificați întâi?
-
-. . .
-
-**Analistul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:**
-
-> | **Rezervată** | `ridica(c, r, s)` | c înregistrat | **Rezervată** | Reîncercare (handler separat) |
->
-> | **Ridicată** | `ridica(c, r, s)` | — | **Ridicată** | Fără modificări; returnează `refuz` |
->
-> **S4:** […] **Rezultat:** `ridicat`, expeditor apelat din nou
+[Enunțul](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/04-comportament/scenario.md) · [Specificația diagramei de stări: elemente, Mermaid, listă de verificare](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/diagrame/stari.md)
 
 ::: notes
-Răspunsul calculează corect S2, S4 și S7 și descrie corect interacțiunea (tranziția înaintea apelului expeditorului). Tabelul de tranziții pune însă reîncercarea în Rezervată, unde c nu poate fi înregistrat, și refuză orice `ridică` în Ridicată: după tabel, S4 ar primi `refuz`; după calculul propriu al lui S4, `ridicat`. Tabelul și scenariul se contrazic; R5 dă dreptate scenariului. Și enunțul trimis avea o contradicție: R2 numea Ridicată „finală”, deși R5 permite reîncercări. Am corectat enunțul curent; captura păstrează intrarea originală și nu atribuim modelului eroarea noastră. Răspunsul adaugă și presupuneri despre expeditor care nu sunt în enunț („nu are memorie de cereri”). Cealaltă analiză păstrată are aceeași așezare greșită a rândului de reîncercare, fără contradicția cu S4. Răspunsul integral este în capturile pregătite, legate pe slide-ul următor.
+Prezentați pe scurt specificația: subsetul UML, notația Mermaid, lista de verificare, exemplul cantinei și secțiunea despre asistentul AI. Cine folosește un asistent AI îi dă enunțul și specificația, nu tabelul discutat; apoi verifică fiecare punct al listei față de enunț. Cine lucrează în Mermaid poate folosi mermaid.live sau previzualizarea GitHub. Treceți printre bănci: întrebați „ce regulă susține această săgeată?” și „unde este reîncercarea?”. Notați una-două diagrame cu greșeli instructive (reîncercarea pe Rezervată, o stare pentru notificare, săgeți pentru refuzuri) și rugați autorii să le arate la verificarea în plen.
 
-**Organizare:** 8 min: predicție 2, analiză afișată 2, discuție 4. Predicția nu mai cere rezultatul lui S4, calculat în etapa a doua, ci rândul din tabel care trebuie să îl acopere: Ridicată, `ridică` cu c înregistrat, rămâne Ridicată. O rulare live are cel mult 2 min, incluse; altfel folosim captura. Linkul instrucțiunii păstrează intrarea istorică. La o rulare live, combinați instrucțiunea cu enunțul curent, conform ghidului AI, care explică și corectarea lui R2. []{.pace dur=8}
+**Organizare:** 18 min: explicarea sarcinii 2, lucru individual 16. []{.pace dur=18}
 :::
 
 ---
 
-# Revizuirea: o observație trebuie justificată
+# Lista de verificare
 
-**Evaluatorul (agent AI de revizuire) — Claude Haiku 4.5, captură din 12 noiembrie 2026; context nou; fragmente:**
+1. **Stările** sunt exact cele din R2 (stări): Rezervată, Ridicată, Anulată; nicio stare pentru refuz, notificare sau condiție.
+2. **Starea inițială:** pseudostarea inițială duce în Rezervată, fără eveniment (crearea rezervărilor nu este modelată).
+3. **Tranzițiile permise** de R3 (ridicare), R5 (reîncercare) și R6 (anulare) apar fiecare o dată, inclusiv buclele.
+4. **Condițiile** (c neînregistrat sau înregistrat, s titularul) sunt între paranteze drepte, pe tranziția lor, și se exclud.
+5. **Efectele** numesc numai datele înregistrate (momentul ridicării, c, notificarea) și apelul `trimite(mesaj)`.
+6. **Refuzurile nu se desenează:** nicio săgeată pentru un eveniment refuzat; din Anulată nu pleacă nicio săgeată.
+7. **Scenariile** S1–S7 din enunț se pot urmări pe diagramă și dau starea așteptată.
 
-> **1. Rândul 3 al tabelului de tranziții (c înregistrat în Rezervată)** […] **Problem**: Notația "handler separat" e vagă. […]
->
-> ✓ **Idempotență** (R3 + R5): Același c ➜ același răspuns invariant
->
-> Propunerea e solidă […]
-
-**Reguli:** c se înregistrează numai la o ridicare acceptată, deci o reîncercare sosește în **Ridicată**; R5 (reîncercare) cere același `ridicat`, iar o cerere nouă primește `refuz`.
-
-În plen: observația 1 este susținută de reguli? **Ce nu a verificat evaluatorul AI: ce spune tabelul despre `ridică` în Ridicată?**
-
-[Capturile pregătite: instrucțiunile reale și răspunsurile integrale](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/04-comportament/prepared-fixture.md)
+Individual: verificați-vă diagrama punct cu punct; pentru fiecare punct, găsiți regula din enunț care îl susține.
 
 ::: notes
-Observația 1 este corectă, dar superficială: „handler separat” este într-adevăr vag, însă problema rândului este starea: reîncercarea nu poate sosi în Rezervată. Evaluatorul AI nu confruntă rândul „Ridicată | ridica | refuz” cu calculul lui S4, dar confirmă „idempotența”. Idempotența privește efectul repetării, nu egalitatea răspunsurilor; R5 cere aici și același răspuns. Notificarea poate fi actualizată. Cealaltă revizuire păstrată declară propunerea „corectă și completă”. Dacă o rulare live acoperă corect aceste puncte, o confirmăm și nu inventăm o omisiune.
+Punctele sunt lista generală din specificație, aplicată enunțului. Punctul 7 este cel mai puternic: o diagramă care trece de S4 (reîncercare după eșec) și de S5 (cerere nouă după ridicare) are bucla în Ridicată, cu condiția pe c. Cine a generat diagrama cu un asistent AI verifică la fel: o randare curată nu arată că diagrama este corectă.
 
-**Organizare:** 8 min: predicție 2, revizuire afișată 2, discuție 4. []{.pace dur=8}
+**Organizare:** 2 min, autoverificare individuală; ajungem la minutul 70. []{.pace dur=2}
 :::
 
 ---
 
-# Decizia comună asupra propunerii
+# Verificare în plen: diagrama unui coleg
 
-| Întrebare | Reper pentru decizie |
-|:---------------------------|:---------------------------------------|
-| Când schimbă registrul starea? | Înaintea apelului expeditorului; o păstrează la eșec. R4 (notificare). |
-| Unde este rândul reîncercării? | În Ridicată; c se înregistrează la acceptare. R3 (ridicare). |
-| Este Ridicată finală? | Nu: R5 (reîncercare) permite un eveniment. Enunțul inițial o numea greșit finală. |
-| Ce primește o cerere nouă? | În Ridicată: `refuz`, fără modificări; reîncercarea primește `ridicat`. |
-| Presupunerea despre expeditor? | Răspunde `trimis` sau `esec`. R7 (graniță). |
+Un voluntar își arată diagrama, pe tablă sau ca text Mermaid pe proiector. Un coleg o verifică după listă, punct cu punct; fiecare observație numește punctul și regula din enunț.
 
-Un coleg explică o afirmație acceptată; alt coleg o verifică printr-un scenariu.
+- **Punctul 1:** `trimisă` și `netrimisă` sunt stări sau date? R2 (stări) numește trei stări; rezultatul notificării este o dată a rezervării.
+- **Punctele 3–4:** unde pleacă bucla reîncercării? R3 (ridicare) înregistrează c numai la o ridicare acceptată; R5 (reîncercare) cere același `ridicat`, fără schimbarea stării.
+- **Punctul 6:** există săgeți pentru `anulează` în Ridicată sau pentru `ridică` în Anulată? R6 (anulare) și R2 le refuză.
+- **Punctul 7:** scenariul S4 (reîncercare după eșec): A Ridicată, c1 înregistrat, notificare `netrimisă`; `ridică(c1, A, T1)`. Ce săgeată folosește?
+
+Decidem în plen ce corectăm; o diagramă corectă este la fel de utilă ca una cu greșeli.
 
 ::: notes
-Nu este obligatoriu să găsim o eroare. Cerem decizia umană, nu un vot de încredere în instrument. Precizăm proveniența fragmentului discutat: captură pregătită sau rulare live. Nu colectăm prompturi, conversații sau fișe individuale.
+Bucla reîncercării pleacă din Ridicată: în Rezervată, c nu poate fi încă înregistrat. S4 folosește bucla Ridicată → Ridicată, cu condiția „c înregistrat” și efectul retrimiterii; un student care a pus bucla pe Rezervată nu găsește nicio săgeată pentru S4 și ar refuza o reîncercare permisă. O stare „Notificare netrimisă” face ca R2 să nu mai fie respectată și dublează Ridicată. Dacă primul voluntar are o diagramă corectă, confirmați-o punct cu punct și luați un al doilea voluntar, de preferință unul care a folosit alt mod de lucru (de mână, Mermaid, AI). Cine a folosit un asistent AI spune ce a corectat la revizuire.
 
-**Organizare:** 4 min; încheierea etapei la minutul 75. []{.pace dur=4}
+**Organizare:** 10 min: unul sau doi voluntari, câte 4–5 min; ajungem la minutul 80. []{.pace dur=10}
 :::
 
 ---
 
-# Ce știe ghișeul după un refuz? {.transition}
+# Extensie: diagrama de secvență a lui `ridică`
 
-**75–100 min · Individual, explicații în plen și încheiere**
+Pentru cine are diagrama de stări verificată: desenați diagrama de secvență UML a scenariului S3 (notificare eșuată), urmat de scenariul S4 (reîncercare după eșec). Ceilalți își corectează diagrama de stări.
 
-Răspunsul registrului nu a ajuns la ghișeu. Cu ce identificator trimite ghișeul cererea următoare?
+**Reguli:** participanții sunt ghișeul, registrul rezervărilor (sistemul nostru) și expeditorul (în afara graniței). R3 (ridicare): o ridicare acceptată trece A în Ridicată și înregistrează momentul și c1. R4 (notificare): apoi registrul cere `trimite(mesaj)`; la `esec` înregistrează `netrimisă`, iar ghișeul primește tot `ridicat`. R5 (reîncercare): cu același c1, starea rămâne Ridicată, iar notificarea `netrimisă` se retrimite; la `trimis` devine `trimisă`. R7 (graniță): despre expeditor presupunem doar că răspunde `trimis` sau `esec`.
+
+**Notația:** mesaj sincron și răspuns; note pentru ce înregistrează registrul; granița în jurul registrului.
+
+[Specificația diagramei de secvență: elemente, Mermaid, listă de verificare](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/diagrame/secventa.md)
 
 ::: notes
-Revenim la lucrul individual și la explicațiile în plen după demonstrația AI comună. Până acum am privit granița dinspre expeditor; acum o privim dinspre ghișeu, care este și el în afara registrului. Nu schimbăm regulile și nu adăugăm returnarea echipamentelor; ce lipsește devine întrebare pentru beneficiar.
+Diagrama de referință este în `lab/scenarios/04-comportament/reference.md`; o puteți arăta celor care termină. Punctele de urmărit: schimbarea stării (nota) înaintea apelului `trimite`; răspunsul `ridicat` după `esec`; la reîncercare, nicio notă de schimbare a stării; ghișeul nu apelează niciodată expeditorul.
 
-**Organizare:** minutul 75 din 100; interval 75–100 (25 min): exercițiu 15, încheiere 10. []{.pace at=75}
+**Organizare:** 7 min: corectare sau extensie; ajungem la minutul 87. []{.pace dur=7}
 :::
 
 ---
 
-# Ghișeul nu a primit răspunsul
+# Diagrama de referință
 
-**Starea inițială I:** A (titular T1) și B (titular T2) sunt în Rezervată; niciun identificator înregistrat.
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#F3F7F8","primaryTextColor":"#0A2145","primaryBorderColor":"#087373","lineColor":"#087373","fontFamily":"Arial","fontSize":"22px"},"themeCSS":".edgeLabel div, .edgeLabel p, .edgeLabel span {white-space: nowrap !important; max-width: none !important;}"}}%%
+stateDiagram-v2
+    direction LR
+    accTitle: Diagrama de stări a unei rezervări
+    accDescr: Din pseudostarea inițială se ajunge în Rezervată. Din Rezervată, ridicarea cu un identificator neînregistrat, cerută de titular, duce în Ridicată; anularea duce în Anulată. Ridicată are o buclă pentru reîncercarea cu un identificator înregistrat. Din Anulată nu pleacă nicio săgeată.
+    state "Rezervată" as Rz
+    state "Ridicată" as Rd
+    state "Anulată" as An
+    [*] --> Rz
+    Rz --> Rd: ridică(c, r, s)<br/>[c neînregistrat, s titularul lui r]<br/>/ înregistrează momentul și c,<br/>trimite(mesaj), înregistrează notificarea
+    Rd --> Rd: ridică(c, r, s) [c înregistrat la r]<br/>/ dacă notificarea este netrimisă,<br/>trimite(mesaj) și o actualizează
+    Rz --> An: anulează(r)
+```
 
-**Reguli:** o cerere `ridică` cu c nou este acceptată numai din Rezervată și numai pentru titular: rezervarea trece în Ridicată, iar c se înregistrează. Pentru un c deja înregistrat, registrul întoarce același `ridicat`. În celelalte cazuri întoarce `refuz`, fără modificări. `anulează` este permis numai din Rezervată. Ghișeul trimite un c nou pentru o cerere nouă și același c când reîncearcă.
-
-1. Individual: din I, `ridică(c1, A, T1)`, iar expeditorul răspunde `trimis`. Răspunsul registrului nu ajunge la ghișeu, deci operatorul nu predă încă proiectorul; ghișeul trimite `ridică(c8, A, T1)`, cu un identificator **nou**. Rezultatul și starea după fiecare cerere.
-2. În plen, un voluntar explică, iar un coleg verifică. Apoi: ce știe operatorul după a doua cerere? Ce cereri mai sunt acceptate pentru A?
-3. Ce responsabilitate a ghișeului ar fi evitat refuzul, fără schimbarea regulilor? **Ce ați întreba beneficiarul?**
+Fără săgeți pentru refuzuri: `anulează` în Ridicată, orice eveniment în Anulată, o cerere nouă în Ridicată. `trimisă` și `netrimisă` sunt date, nu stări. Bucla face ca Ridicată să nu fie finală.
 
 ::: notes
-1: prima cerere → `ridicat`; A Ridicată, c1 înregistrat, notificare `trimisă`: studentul primește mesajul despre ridicare înainte să aibă proiectorul. A doua: c8 este cerere nouă, A nu mai este Rezervată → `refuz`; nimic nu se modifică, expeditorul nu este apelat. 2: operatorul vede numai `refuz`, același rezultat pentru alt student, pentru o rezervare anulată și pentru una deja ridicată; nu poate deosebi „ridicată prin cererea mea” de celelalte. Registrul spune Ridicată, deși proiectorul este încă la ghișeu. Pentru A mai este acceptată numai reîncercarea cu c1, care ar primi `ridicat`, fără alt apel al expeditorului; `anulează(A)` este refuzat. Dacă ghișeul nu mai are c1, niciun eveniment permis nu îl mai ajută. 3: refuzul ar fi fost evitat dacă ghișeul și-ar fi îndeplinit responsabilitatea pe care R3 o presupune: păstrează identificatorul până primește răspunsul și reîncearcă cu el. Ghișeul este o componentă din afara graniței, iar presupunerea despre el nu a fost respectată. Garanțiile registrului țin numai cât timp presupunerile despre apelanți sunt respectate. Întrebări pentru beneficiar, fără să le decidem noi: refuzul ar trebui să spună motivul (ca rezultatul `fara_dulap` din cursul 6)? Ar trebui ca ghișeul să poată afla starea unei rezervări? Ce face operatorul când a pierdut identificatorul? Nu adăugăm reguli; notăm întrebările.
+Comparăm diagrama corectată în plen cu referința, punct cu punct. Variante acceptabile: bucla reîncercării împărțită în două, după notificare (`[c înregistrat, notificare netrimisă] / trimite(mesaj)…` și `[c înregistrat, notificare trimisă]`, fără efect); efecte scrise mai pe scurt, dacă numesc aceleași date; eticheta tranziției de anulare fără efect. Nu sunt acceptabile: o săgeată spre starea finală UML din Anulată (obiectul ar ieși din Anulată), bucle pentru refuzuri, stări pentru notificare. Rezultatul `ridicat` sau `refuz` întors ghișeului nu apare pe diagramă: îl spun tabelul și diagrama de secvență. Justificarea fiecărui element este în referința laboratorului.
 
-**Organizare:** 15 min: trasare individuală 4, explicații și verificări în plen 5, discuție 6. []{.pace dur=15}
+**Organizare:** 8 min; ajungem la minutul 95. []{.pace dur=8}
 :::
 
 ---
@@ -289,13 +287,13 @@ Un exemplu din discuția voastră pentru fiecare întrebare:
 
 - Ce evenimente sunt permise într-o stare și ce decide un refuz: starea sau condiția?
 - În ce pas schimbă registrul starea față de apelul expeditorului, și de ce?
-- Ce deosebește o reîncercare de o cerere nouă cu același conținut și ce presupunem despre apelant?
-- Ce au confirmat sau au corectat analiza și revizuirea comună?
+- Ce deosebește o reîncercare de o cerere nouă și unde apare reîncercarea pe diagramă?
+- Ce a prins lista de verificare și nu a semnalat randarea?
 
-**Repere:** tranziția precede apelul expeditorului; eșecul notificării este înregistrat, nu ascuns; reîncercarea sosește în Ridicată și primește același rezultat; presupunem despre expeditor numai că răspunde, iar despre ghișeu, că reîncearcă cu același identificator.
+**Repere:** tranziția precede apelul expeditorului; eșecul notificării este înregistrat, nu ascuns; reîncercarea sosește în Ridicată și primește același rezultat; refuzurile nu au săgeți; o diagramă care se randează trebuie verificată față de enunț.
 
 ::: notes
-Ascultați două sau trei exemple scurte. O explicație bună numește starea de pornire, evenimentul sau pasul, rezultatul și regula. Nu cereți predări, susțineri individuale sau un număr de defecte. Notați numai dificultățile recurente pentru pregătirea următoare.
+Ascultați două sau trei exemple scurte. O explicație bună numește starea de pornire, evenimentul sau pasul, rezultatul și regula. Nu cereți predări, susțineri individuale sau un număr de defecte. Notați numai dificultățile recurente pentru pregătirea următoare. Exercițiul despre ghișeul care nu a primit răspunsul rămâne în sprijinul facultativ, pentru studiu individual.
 
-**Organizare:** 10 min; încheiere la minutul 100. []{.pace dur=10}
+**Organizare:** 5 min; încheiere la minutul 100. []{.pace dur=5}
 :::

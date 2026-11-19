@@ -461,8 +461,8 @@ break-inside: avoid;
 <div id="ce-proiectăm-azi" class="slide section level1">
 <h1>Ce proiectăm azi</h1>
 <p>Pentru proiecțiile și filmele cluburilor studențești, serviciul tehnic al facultății împrumută echipamente pe bază de rezervare; studenții le ridică de la un <strong>ghișeu cu operator</strong>. Registrul rezervărilor acceptă sau refuză ridicarea; numai după acceptare cere unui <strong>expeditor extern</strong> o notificare. <strong>Notificarea eșuează, ghișeul reîncearcă:</strong> ce are voie să se întâmple cu rezervarea?</p>
-<p>Discutăm în plen pe Teams, apoi urmărim împreună <strong>o analiză AI și o revizuire</strong>, conduse de profesor.</p>
-<p>Exemplu didactic. Schițele sunt facultative; nu predăm documente. Nu sunt necesare conturi AI pentru studenți.</p>
+<p>Discutăm în plen pe Teams, apoi, în <strong>atelierul de diagrame</strong>, fiecare desenează diagrama de stări a rezervării: de mână, în Mermaid sau generată cu un asistent AI și revizuită.</p>
+<p>Exemplu didactic. Schițele sunt facultative; nu predăm documente. Asistentul AI este opțional; nu sunt necesare conturi AI.</p>
 </div>
 <div id="citatul-zilei" class="slide section level1 epigraph">
 <h1 class="epigraph">Citatul zilei</h1>
@@ -482,7 +482,7 @@ break-inside: avoid;
 </div>
 <div id="ce-are-voie-să-se-întâmple-cu-o-rezervare" class="slide section level1 transition">
 <h1 class="transition">Ce are voie să se întâmple cu o rezervare?</h1>
-<p><strong><span class="nowrap">10–30</span> min · Predicții în chat, apoi explicații în ștafetă</strong></p>
+<p><strong><span class="nowrap">10–28</span> min · Predicții în chat, apoi explicații în ștafetă</strong></p>
 <p>Alt student, aceeași rezervare: refuzat de stare sau de condiție?</p>
 </div>
 <div id="trei-scenarii-de-prezis" class="slide section level1">
@@ -507,7 +507,7 @@ break-inside: avoid;
 </div>
 <div id="cine-coordonează-ridicarea" class="slide section level1 transition">
 <h1 class="transition">Cine coordonează ridicarea?</h1>
-<p><strong><span class="nowrap">30–55</span> min · Interacțiunea pas cu pas, apoi reîncercările</strong></p>
+<p><strong><span class="nowrap">28–50</span> min · Interacțiunea pas cu pas, apoi reîncercările</strong></p>
 <p>Expeditorul a răspuns <code>esec</code>. Ce promite registrul ghișeului?</p>
 </div>
 <div id="interacțiunea-pentru-ridică" class="slide section level1">
@@ -531,91 +531,53 @@ break-inside: avoid;
 </ul>
 <p>În ștafetă, un coleg explică S4, un coleg numit S5: <strong>Ce deosebește cererile pentru același student și aceeași rezervare? Ce garantează registrul ghișeului în fiecare caz?</strong></p>
 </div>
-<div id="o-analiză-ai-o-revizuire-împreună" class="slide section level1 transition">
-<h1 class="transition">O analiză AI, o revizuire împreună</h1>
-<p><strong><span class="nowrap">55–75</span> min · Demonstrație condusă de profesor, discuție în plen</strong></p>
-<p>Prezicem răspunsul, îl verificăm, apoi decidem ce păstrăm.</p>
+<div id="atelier-diagrama-de-stări" class="slide section level1 transition">
+<h1 class="transition">Atelier: diagrama de stări</h1>
+<p><strong><span class="nowrap">50–95</span> min · Individual: de mână, în Mermaid sau cu un asistent AI; verificare pe ecran partajat</strong></p>
+<p>Diagrama se randează fără erori. Este și corectă?</p>
 </div>
-<div id="analiza-ce-îi-cerem-și-ce-verificăm" class="slide section level1">
-<h1>Analiza: ce îi cerem și ce verificăm?</h1>
-<p><strong><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/04-comportament/ai/analist-prompt.md">Instrucțiunea trimisă</a>:</strong> „Propune tabelul de tranziții al rezervării […] și tabelul interacțiunii pentru ridica […]. Calculează S2, S4 și S7. […]”</p>
-<p><strong>Reguli:</strong> c se înregistrează numai la acceptare. O reîncercare cu c înregistrat primește <code>ridicat</code> și retrimite notificarea <code>netrimisă</code>; o cerere nouă în <span class="stare">Ridicată</span> primește <code>refuz</code>.</p>
-<p><strong>Scenariul S4 (reîncercare după eșec),</strong> calculat mai devreme: A <span class="stare">Ridicată</span>, c1 înregistrat, notificare <code>netrimisă</code>; <span class="operatie">ridică(c1, A, T1)</span> cu <code>trimis</code> → <code>ridicat</code>, notificare <code>trimisă</code>.</p>
-<p><strong>Predicție în chat:</strong> ce rând al tabelului de tranziții trebuie să acopere S4? Ce verificați întâi?</p>
-<div class="deck-pause"></div>
-<p><strong>Analistul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:</strong></p>
-<blockquote>
-<div class="line-block"><strong><span class="stare">Rezervată</span></strong> | <code>ridica(c, r, s)</code> | c înregistrat | <strong><span class="stare">Rezervată</span></strong> | Reîncercare (handler separat) |</div>
-<div class="line-block"><strong><span class="stare">Ridicată</span></strong> | <code>ridica(c, r, s)</code> | — | <strong><span class="stare">Ridicată</span></strong> | Fără modificări; returnează <code>refuz</code> |</div>
-<p><strong>S4:</strong> […] <strong>Rezultat:</strong> <code>ridicat</code>, expeditor apelat din nou</p>
-</blockquote>
+<div id="diagrama-de-stări-a-rezervării" class="slide section level1">
+<h1>Diagrama de stări a rezervării</h1>
+<p><strong>Individual:</strong> desenați diagrama de stări UML a unei rezervări, după enunț. Alegeți: <strong>de mână</strong>, pe hârtie; <strong>în Mermaid</strong> (<code>stateDiagram-v2</code>); sau <strong>generată cu un asistent AI</strong> din enunț și specificație, apoi revizuită de voi, punct cu punct.</p>
+<p><strong>Reguli:</strong> R2 (stări): o rezervare este în exact una dintre stările <span class="stare">Rezervată</span>, <span class="stare">Ridicată</span>, <span class="stare">Anulată</span>; <span class="stare">Anulată</span> este o stare finală intenționată. R3 (ridicare): <span class="operatie">ridică(c, r, s)</span> cu c neînregistrat este acceptată numai din <span class="stare">Rezervată</span> și numai pentru titular: r trece în <span class="stare">Ridicată</span>, se înregistrează momentul ridicării și c. R4 (notificare): apoi registrul cere expeditorului <span class="operatie">trimite(mesaj)</span> și înregistrează notificarea <code>trimisă</code> sau <code>netrimisă</code>. R5 (reîncercare): cu c deja înregistrat, starea nu se schimbă, iar notificarea <code>netrimisă</code> se retrimite. R6 (anulare): <span class="operatie">anulează(r)</span> numai din <span class="stare">Rezervată</span>, spre <span class="stare">Anulată</span>, fără notificare. În celelalte cazuri, evenimentul este refuzat, fără modificări.</p>
+<p><strong>Notația:</strong> o tranziție are eticheta <code>eveniment [condiție] / efect</code>; evenimentele refuzate nu se desenează.</p>
+<p><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/04-comportament/scenario.md">Enunțul</a> · <a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/diagrame/stari.md">Specificația diagramei de stări: elemente, Mermaid, listă de verificare</a></p>
 </div>
-<div id="revizuirea-o-observație-trebuie-justificată" class="slide section level1">
-<h1>Revizuirea: o observație trebuie justificată</h1>
-<p><strong>Evaluatorul (agent AI de revizuire) — Claude Haiku 4.5, captură din 12 noiembrie 2026; context nou; fragmente:</strong></p>
-<blockquote>
-<p><strong>1. Rândul 3 al tabelului de tranziții (c înregistrat în <span class="stare">Rezervată</span>)</strong> […] <strong>Problem</strong>: Notația “handler separat” e vagă. […]</p>
-<p>✓ <strong>Idempotență</strong> (R3 + R5): Același c ➜ același răspuns invariant</p>
-<p>Propunerea e solidă […]</p>
-</blockquote>
-<p><strong>Reguli:</strong> c se înregistrează numai la o ridicare acceptată, deci o reîncercare sosește în <strong><span class="stare">Ridicată</span></strong>; R5 (reîncercare) cere același <code>ridicat</code>, iar o cerere nouă primește <code>refuz</code>.</p>
-<p>În chat, la semnal, apoi pe rând: observația 1 este susținută de reguli? <strong>Ce nu a verificat evaluatorul AI: ce spune tabelul despre <span class="operatie">ridică</span> în <span class="stare">Ridicată</span>?</strong></p>
-<p><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/04-comportament/prepared-fixture.md">Capturile pregătite: instrucțiunile reale și răspunsurile integrale</a></p>
-</div>
-<div id="decizia-comună-asupra-propunerii" class="slide section level1">
-<h1>Decizia comună asupra propunerii</h1>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="41%" />
-<col width="58%" />
-</colgroup>
-<thead>
-<tr>
-<th align="left">Întrebare</th>
-<th align="left">Reper pentru decizie</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Când schimbă registrul starea?</td>
-<td align="left">Înaintea apelului expeditorului; o păstrează la eșec. R4 (notificare).</td>
-</tr>
-<tr>
-<td align="left">Unde este rândul reîncercării?</td>
-<td align="left">În <span class="stare">Ridicată</span>; c se înregistrează la acceptare. R3 (ridicare).</td>
-</tr>
-<tr>
-<td align="left">Este <span class="stare">Ridicată</span> finală?</td>
-<td align="left">Nu: R5 (reîncercare) permite un eveniment. Enunțul inițial o numea greșit finală.</td>
-</tr>
-<tr>
-<td align="left">Ce primește o cerere nouă?</td>
-<td align="left">În <span class="stare">Ridicată</span>: <code>refuz</code>, fără modificări; reîncercarea primește <code>ridicat</code>.</td>
-</tr>
-<tr>
-<td align="left">Presupunerea despre expeditor?</td>
-<td align="left">Răspunde <code>trimis</code> sau <code>esec</code>. R7 (graniță).</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Un coleg explică o afirmație acceptată; alt coleg o verifică <span class="nowrap">printr-un</span> scenariu.</p>
-</div>
-<div id="ce-știe-ghișeul-după-un-refuz" class="slide section level1 transition">
-<h1 class="transition">Ce știe ghișeul după un refuz?</h1>
-<p><strong><span class="nowrap">75–100</span> min · Explicații și verificări în plen, încheiere</strong></p>
-<p>Răspunsul registrului nu a ajuns la ghișeu. Cu ce identificator trimite ghișeul cererea următoare?</p>
-</div>
-<div id="ghișeul-nu-a-primit-răspunsul" class="slide section level1">
-<h1>Ghișeul nu a primit răspunsul</h1>
-<p><strong>Starea inițială I:</strong> A (titular T1) și B (titular T2) sunt în <span class="stare">Rezervată</span>; niciun identificator înregistrat.</p>
-<p><strong>Reguli:</strong> o cerere <span class="operatie">ridică</span> cu c nou este acceptată numai din <span class="stare">Rezervată</span> și numai pentru titular: rezervarea trece în <span class="stare">Ridicată</span>, iar c se înregistrează. Pentru un c deja înregistrat, registrul întoarce același <code>ridicat</code>. În celelalte cazuri întoarce <code>refuz</code>, fără modificări. <span class="operatie">anulează</span> este permis numai din <span class="stare">Rezervată</span>. Ghișeul trimite un c nou pentru o cerere nouă și același c când reîncearcă.</p>
+<div id="lista-de-verificare" class="slide section level1">
+<h1>Lista de verificare</h1>
 <ol style="list-style-type: decimal">
-<li>În chat, la semnal: din I, <span class="operatie">ridică(c1, A, T1)</span>, iar expeditorul răspunde <code>trimis</code>. Răspunsul registrului nu ajunge la ghișeu, deci operatorul nu predă încă proiectorul; ghișeul trimite <span class="operatie">ridică(c8, A, T1)</span>, cu un identificator <strong>nou</strong>. Rezultatul și starea după fiecare cerere.</li>
-<li>Un voluntar explică în plen, iar un coleg numit verifică. Apoi: ce știe operatorul după a doua cerere? Ce cereri mai sunt acceptate pentru A?</li>
-<li>În ștafetă: ce responsabilitate a ghișeului ar fi evitat refuzul, fără schimbarea regulilor? <strong>Ce ați întreba beneficiarul?</strong></li>
+<li><strong>Stările</strong> sunt exact cele din R2 (stări): <span class="stare">Rezervată</span>, <span class="stare">Ridicată</span>, <span class="stare">Anulată</span>; nicio stare pentru refuz, notificare sau condiție.</li>
+<li><strong>Starea inițială:</strong> pseudostarea inițială duce în <span class="stare">Rezervată</span>, fără eveniment (crearea rezervărilor nu este modelată).</li>
+<li><strong>Tranzițiile permise</strong> de R3 (ridicare), R5 (reîncercare) și R6 (anulare) apar fiecare o dată, inclusiv buclele.</li>
+<li><strong>Condițiile</strong> (c neînregistrat sau înregistrat, s titularul) sunt între paranteze drepte, pe tranziția lor, și se exclud.</li>
+<li><strong>Efectele</strong> numesc numai datele înregistrate (momentul ridicării, c, notificarea) și apelul <span class="operatie">trimite(mesaj)</span>.</li>
+<li><strong>Refuzurile nu se desenează:</strong> nicio săgeată pentru un eveniment refuzat; din <span class="stare">Anulată</span> nu pleacă nicio săgeată.</li>
+<li><strong>Scenariile</strong> <span class="nowrap">S1–S7</span> din enunț se pot urmări pe diagramă și dau starea așteptată.</li>
 </ol>
+<p>Individual: <span class="nowrap">verificați-vă</span> diagrama punct cu punct; pentru fiecare punct, găsiți regula din enunț care îl susține. Întrebările, în chat.</p>
+</div>
+<div id="verificare-în-plen-diagrama-unui-coleg" class="slide section level1">
+<h1>Verificare în plen: diagrama unui coleg</h1>
+<p>Un voluntar își partajează ecranul cu diagrama, sau trimite textul Mermaid în chat, iar profesorul îl randează. Un coleg numit o verifică după listă, punct cu punct; fiecare observație numește punctul și regula din enunț.</p>
+<ul>
+<li><strong>Punctul 1:</strong> <code>trimisă</code> și <code>netrimisă</code> sunt stări sau date? R2 (stări) numește trei stări; rezultatul notificării este o dată a rezervării.</li>
+<li><strong>Punctele <span class="nowrap">3–4:</span></strong> unde pleacă bucla reîncercării? R3 (ridicare) înregistrează c numai la o ridicare acceptată; R5 (reîncercare) cere același <code>ridicat</code>, fără schimbarea stării.</li>
+<li><strong>Punctul 6:</strong> există săgeți pentru <span class="operatie">anulează</span> în <span class="stare">Ridicată</span> sau pentru <span class="operatie">ridică</span> în <span class="stare">Anulată</span>? R6 (anulare) și R2 le refuză.</li>
+<li><strong>Punctul 7:</strong> scenariul S4 (reîncercare după eșec): A <span class="stare">Ridicată</span>, c1 înregistrat, notificare <code>netrimisă</code>; <span class="operatie">ridică(c1, A, T1)</span>. Ce săgeată folosește?</li>
+</ul>
+<p>Decidem în plen ce corectăm; o diagramă corectă este la fel de utilă ca una cu greșeli.</p>
+</div>
+<div id="extensie-diagrama-de-secvență-a-lui-ridică" class="slide section level1">
+<h1>Extensie: diagrama de secvență a lui <span class="operatie">ridică</span></h1>
+<p>Pentru cine are diagrama de stări verificată: desenați diagrama de secvență UML a scenariului S3 (notificare eșuată), urmat de scenariul S4 (reîncercare după eșec). Ceilalți își corectează diagrama de stări.</p>
+<p><strong>Reguli:</strong> participanții sunt ghișeul, registrul rezervărilor (sistemul nostru) și expeditorul (în afara graniței). R3 (ridicare): o ridicare acceptată trece A în <span class="stare">Ridicată</span> și înregistrează momentul și c1. R4 (notificare): apoi registrul cere <span class="operatie">trimite(mesaj)</span>; la <code>esec</code> înregistrează <code>netrimisă</code>, iar ghișeul primește tot <code>ridicat</code>. R5 (reîncercare): cu același c1, starea rămâne <span class="stare">Ridicată</span>, iar notificarea <code>netrimisă</code> se retrimite; la <code>trimis</code> devine <code>trimisă</code>. R7 (graniță): despre expeditor presupunem doar că răspunde <code>trimis</code> sau <code>esec</code>.</p>
+<p><strong>Notația:</strong> mesaj sincron și răspuns; note pentru ce înregistrează registrul; granița în jurul registrului.</p>
+<p><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/diagrame/secventa.md">Specificația diagramei de secvență: elemente, Mermaid, listă de verificare</a></p>
+</div>
+<div id="diagrama-de-referință" class="slide section level1">
+<h1>Diagrama de referință</h1>
+<img role="img" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibXktc3ZnIiB3aWR0aD0iMTAwJSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgY2xhc3M9InN0YXRlZGlhZ3JhbSIgc3R5bGU9Im1heC13aWR0aDogOTgyLjk2OXB4OyBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTsiIHZpZXdCb3g9IjQgNCA5ODIuOTY4NzUgMjkxLjUiIHJvbGU9ImdyYXBoaWNzLWRvY3VtZW50IGRvY3VtZW50IiBhcmlhLXJvbGVkZXNjcmlwdGlvbj0ic3RhdGVEaWFncmFtIiBhcmlhLWRlc2NyaWJlZGJ5PSJjaGFydC1kZXNjLW15LXN2ZyIgYXJpYS1sYWJlbGxlZGJ5PSJjaGFydC10aXRsZS1teS1zdmciPjx0aXRsZSBpZD0iY2hhcnQtdGl0bGUtbXktc3ZnIj5EaWFncmFtYSBkZSBzdMSDcmkgYSB1bmVpIHJlemVydsSDcmk8L3RpdGxlPjxkZXNjIGlkPSJjaGFydC1kZXNjLW15LXN2ZyI+RGluIHBzZXVkb3N0YXJlYSBpbmnIm2lhbMSDIHNlIGFqdW5nZSDDrm4gUmV6ZXJ2YXTEgy4gRGluIFJlemVydmF0xIMsIHJpZGljYXJlYSBjdSB1biBpZGVudGlmaWNhdG9yIG5lw65ucmVnaXN0cmF0LCBjZXJ1dMSDIGRlIHRpdHVsYXIsIGR1Y2Ugw65uIFJpZGljYXTEgzsgYW51bGFyZWEgZHVjZSDDrm4gQW51bGF0xIMuIFJpZGljYXTEgyBhcmUgbyBidWNsxIMgcGVudHJ1IHJlw65uY2VyY2FyZWEgY3UgdW4gaWRlbnRpZmljYXRvciDDrm5yZWdpc3RyYXQuIERpbiBBbnVsYXTEgyBudSBwbGVhY8SDIG5pY2lvIHPEg2dlYXTEgy48L2Rlc2M+PHN0eWxlPiNteS1zdmd7Zm9udC1mYW1pbHk6QXJpYWw7Zm9udC1zaXplOjIycHg7ZmlsbDojMEEyMTQ1O31Aa2V5ZnJhbWVzIGVkZ2UtYW5pbWF0aW9uLWZyYW1le2Zyb217c3Ryb2tlLWRhc2hvZmZzZXQ6MDt9fUBrZXlmcmFtZXMgZGFzaHt0b3tzdHJva2UtZGFzaG9mZnNldDowO319I215LXN2ZyAuZWRnZS1hbmltYXRpb24tc2xvd3tzdHJva2UtZGFzaGFycmF5OjksNSFpbXBvcnRhbnQ7c3Ryb2tlLWRhc2hvZmZzZXQ6OTAwO2FuaW1hdGlvbjpkYXNoIDUwcyBsaW5lYXIgaW5maW5pdGU7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fSNteS1zdmcgLmVkZ2UtYW5pbWF0aW9uLWZhc3R7c3Ryb2tlLWRhc2hhcnJheTo5LDUhaW1wb3J0YW50O3N0cm9rZS1kYXNob2Zmc2V0OjkwMDthbmltYXRpb246ZGFzaCAyMHMgbGluZWFyIGluZmluaXRlO3N0cm9rZS1saW5lY2FwOnJvdW5kO30jbXktc3ZnIC5lcnJvci1pY29ue2ZpbGw6aHNsKDEyLCAyNi4zMTU3ODk0NzM3JSwgMTAwJSk7fSNteS1zdmcgLmVycm9yLXRleHR7ZmlsbDojMDAwMDAwO3N0cm9rZTojMDAwMDAwO30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy1ub3JtYWx7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyAuZWRnZS10aGlja25lc3MtdGhpY2t7c3Ryb2tlLXdpZHRoOjMuNXB4O30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tc29saWR7c3Ryb2tlLWRhc2hhcnJheTowO30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy1pbnZpc2libGV7c3Ryb2tlLXdpZHRoOjA7ZmlsbDpub25lO30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tZGFzaGVke3N0cm9rZS1kYXNoYXJyYXk6Mzt9I215LXN2ZyAuZWRnZS1wYXR0ZXJuLWRvdHRlZHtzdHJva2UtZGFzaGFycmF5OjI7fSNteS1zdmcgLm1hcmtlcntmaWxsOiMwODczNzM7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgLm1hcmtlci5jcm9zc3tzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyBzdmd7Zm9udC1mYW1pbHk6QXJpYWw7Zm9udC1zaXplOjIycHg7fSNteS1zdmcgcHttYXJnaW46MDt9I215LXN2ZyBkZWZzIFtpZCQ9Ii1iYXJiRW5kIl17ZmlsbDojMDg3MzczO3N0cm9rZTojMDg3MzczO30jbXktc3ZnIGcuc3RhdGVHcm91cCB0ZXh0e2ZpbGw6IzA4NzM3MztzdHJva2U6bm9uZTtmb250LXNpemU6MTBweDt9I215LXN2ZyBnLnN0YXRlR3JvdXAgdGV4dHtmaWxsOiMwQTIxNDU7c3Ryb2tlOm5vbmU7Zm9udC1zaXplOjEwcHg7fSNteS1zdmcgZy5zdGF0ZUdyb3VwIC5zdGF0ZS10aXRsZXtmb250LXdlaWdodDpib2xkZXI7ZmlsbDojMEEyMTQ1O30jbXktc3ZnIGcuc3RhdGVHcm91cCByZWN0e2ZpbGw6I0YzRjdGODtzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyBnLnN0YXRlR3JvdXAgbGluZXtzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MTt9I215LXN2ZyAudHJhbnNpdGlvbntzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MTtmaWxsOm5vbmU7fSNteS1zdmcgLnN0YXRlR3JvdXAgLmNvbXBvc2l0e2ZpbGw6I2Y0ZjRmNDtib3JkZXItYm90dG9tOjFweDt9I215LXN2ZyAuc3RhdGVHcm91cCAuYWx0LWNvbXBvc2l0e2ZpbGw6I2UwZTBlMDtib3JkZXItYm90dG9tOjFweDt9I215LXN2ZyAuc3RhdGUtbm90ZXtzdHJva2U6aHNsKDUyLjY4MjkyNjgyOTMsIDYwJSwgNzMuOTIxNTY4NjI3NSUpO2ZpbGw6I2ZmZjVhZDt9I215LXN2ZyAuc3RhdGUtbm90ZSB0ZXh0e2ZpbGw6IzMzMztzdHJva2U6bm9uZTtmb250LXNpemU6MTBweDt9I215LXN2ZyAuc3RhdGVMYWJlbCAuYm94e3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowO2ZpbGw6I0YzRjdGODtvcGFjaXR5OjAuNTt9I215LXN2ZyAuZWRnZUxhYmVsIC5sYWJlbCByZWN0e2ZpbGw6I0YzRjdGODtvcGFjaXR5OjAuNTt9I215LXN2ZyAuZWRnZUxhYmVse2JhY2tncm91bmQtY29sb3I6aHNsKDcyLCAyNi4zMTU3ODk0NzM3JSwgOTYuMjc0NTA5ODAzOSUpO3RleHQtYWxpZ246Y2VudGVyO30jbXktc3ZnIC5lZGdlTGFiZWwgcHtiYWNrZ3JvdW5kLWNvbG9yOmhzbCg3MiwgMjYuMzE1Nzg5NDczNyUsIDk2LjI3NDUwOTgwMzklKTt9I215LXN2ZyAuZWRnZUxhYmVsIHJlY3R7b3BhY2l0eTowLjU7YmFja2dyb3VuZC1jb2xvcjpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7ZmlsbDpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7fSNteS1zdmcgLmVkZ2VMYWJlbCAubGFiZWwgdGV4dHtmaWxsOiMwQTIxNDU7fSNteS1zdmcgLmxhYmVsIGRpdiAuZWRnZUxhYmVse2NvbG9yOiMwQTIxNDU7fSNteS1zdmcgLnN0YXRlTGFiZWwgdGV4dHtmaWxsOiMwQTIxNDU7Zm9udC1zaXplOjEwcHg7Zm9udC13ZWlnaHQ6Ym9sZDt9I215LXN2ZyAubm9kZSBjaXJjbGUuc3RhdGUtc3RhcnR7ZmlsbDojMDg3MzczO3N0cm9rZTojMDg3MzczO30jbXktc3ZnIC5ub2RlIC5mb3JrLWpvaW57ZmlsbDojMDg3MzczO3N0cm9rZTojMDg3MzczO30jbXktc3ZnIC5ub2RlIGNpcmNsZS5zdGF0ZS1lbmR7ZmlsbDojMDg3MzczO3N0cm9rZTojZjRmNGY0O3N0cm9rZS13aWR0aDoxLjU7fSNteS1zdmcgLmVuZC1zdGF0ZS1pbm5lcntmaWxsOiNmNGY0ZjQ7c3Ryb2tlLXdpZHRoOjEuNTt9I215LXN2ZyAubm9kZSByZWN0e2ZpbGw6I0YzRjdGODtzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIC5ub2RlIHBvbHlnb257ZmlsbDojRjNGN0Y4O3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgW2lkJD0iLWJhcmJFbmQiXXtmaWxsOiMwODczNzM7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1jbHVzdGVyIHJlY3R7ZmlsbDojRjNGN0Y4O3N0cm9rZTojMDg3MzczO3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgLmNsdXN0ZXItbGFiZWwsI215LXN2ZyAubm9kZUxhYmVse2NvbG9yOiMwQTIxNDU7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1jbHVzdGVyIHJlY3Qub3V0ZXJ7cng6NXB4O3J5OjVweDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLXN0YXRlIC5kaXZpZGVye3N0cm9rZTojMDg3MzczO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tc3RhdGUgLnRpdGxlLXN0YXRle3J4OjVweDtyeTo1cHg7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1jbHVzdGVyLnN0YXRlZGlhZ3JhbS1jbHVzdGVyIC5pbm5lcntmaWxsOiNmNGY0ZjQ7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1jbHVzdGVyLnN0YXRlZGlhZ3JhbS1jbHVzdGVyLWFsdCAuaW5uZXJ7ZmlsbDpoc2woMTIsIDI2LjMxNTc4OTQ3MzclLCAxMDAlKTt9I215LXN2ZyAuc3RhdGVkaWFncmFtLWNsdXN0ZXIgLmlubmVye3J4OjA7cnk6MDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLXN0YXRlIHJlY3QuYmFzaWN7cng6NXB4O3J5OjVweDt9I215LXN2ZyAuc3RhdGVkaWFncmFtLXN0YXRlIHJlY3QuZGl2aWRlcntzdHJva2UtZGFzaGFycmF5OjEwLDEwO2ZpbGw6aHNsKDEyLCAyNi4zMTU3ODk0NzM3JSwgMTAwJSk7fSNteS1zdmcgLm5vdGUtZWRnZXtzdHJva2UtZGFzaGFycmF5OjU7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1ub3RlIHJlY3R7ZmlsbDojZmZmNWFkO3N0cm9rZTpoc2woNTIuNjgyOTI2ODI5MywgNjAlLCA3My45MjE1Njg2Mjc1JSk7c3Ryb2tlLXdpZHRoOjFweDtyeDowO3J5OjA7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1ub3RlIHJlY3R7ZmlsbDojZmZmNWFkO3N0cm9rZTpoc2woNTIuNjgyOTI2ODI5MywgNjAlLCA3My45MjE1Njg2Mjc1JSk7c3Ryb2tlLXdpZHRoOjFweDtyeDowO3J5OjA7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbS1ub3RlIHRleHR7ZmlsbDojMzMzO30jbXktc3ZnIC5zdGF0ZWRpYWdyYW0tbm90ZSAubm9kZUxhYmVse2NvbG9yOiMzMzM7fSNteS1zdmcgLnN0YXRlZGlhZ3JhbSAuZWRnZUxhYmVse2NvbG9yOnJlZDt9I215LXN2ZyBbaWQkPSItZGVwZW5kZW5jeVN0YXJ0Il0sI215LXN2ZyBbaWQkPSItZGVwZW5kZW5jeUVuZCJde2ZpbGw6IzA4NzM3MztzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MTt9I215LXN2ZyAuc3RhdGVkaWFncmFtVGl0bGVUZXh0e3RleHQtYW5jaG9yOm1pZGRsZTtmb250LXNpemU6MThweDtmaWxsOiMwQTIxNDU7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uc3RhdGVkaWFncmFtLWNsdXN0ZXIgcmVjdHtmaWxsOiNGM0Y3Rjg7c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtzdHJva2Utd2lkdGg6MTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5zdGF0ZWRpYWdyYW0tY2x1c3RlciByZWN0Lm91dGVye3J4OjVweDtyeTo1cHg7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyAubm9kZSAubmVvLW5vZGV7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSByZWN0LCNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uY2x1c3RlciByZWN0LCNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBwb2x5Z29ue3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5zd2ltbGFuZS5jbHVzdGVyIHJlY3R7ZmlsdGVyOm5vbmU7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBwYXRoe3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIC5vdXRlci1wYXRoe2ZpbHRlcjpkcm9wLXNoYWRvdyggMXB4IDJweCAycHggcmdiYSgxODUsMTg1LDE4NSwxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSAubmVvLWxpbmUgcGF0aHtzdHJva2U6IzA4NzM3MztmaWx0ZXI6bm9uZTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIGNpcmNsZXtzdHJva2U6dXJsKCNteS1zdmctZ3JhZGllbnQpO2ZpbHRlcjpkcm9wLXNoYWRvdyggMXB4IDJweCAycHggcmdiYSgxODUsMTg1LDE4NSwxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBjaXJjbGUgLnN0YXRlLXN0YXJ0e2ZpbGw6IzAwMDAwMDt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5pY29uLXNoYXBlIC5pY29ue2ZpbGw6dXJsKCNteS1zdmctZ3JhZGllbnQpO2ZpbHRlcjpkcm9wLXNoYWRvdyggMXB4IDJweCAycHggcmdiYSgxODUsMTg1LDE4NSwxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uaWNvbi1zaGFwZSAuaWNvbi1uZW8gcGF0aHtzdHJva2U6dXJsKCNteS1zdmctZ3JhZGllbnQpO2ZpbHRlcjpkcm9wLXNoYWRvdyggMXB4IDJweCAycHggcmdiYSgxODUsMTg1LDE4NSwxKSk7fSNteS1zdmcgLmVkZ2VMYWJlbCBkaXYsI215LXN2ZyAuZWRnZUxhYmVsIHAsI215LXN2ZyAuZWRnZUxhYmVsIHNwYW57d2hpdGUtc3BhY2U6bm93cmFwIWltcG9ydGFudDttYXgtd2lkdGg6bm9uZSFpbXBvcnRhbnQ7fSNteS1zdmcgOnJvb3R7LS1tZXJtYWlkLWZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgbXMiLHZlcmRhbmEsYXJpYWwsc2Fucy1zZXJpZjt9PC9zdHlsZT48Zz48ZGVmcz48bWFya2VyIGlkPSJteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQiIHJlZlg9IjE5IiByZWZZPSI3IiBtYXJrZXJXaWR0aD0iMjAiIG1hcmtlckhlaWdodD0iMTQiIG1hcmtlclVuaXRzPSJzdHJva2VXaWR0aCIgb3JpZW50PSJhdXRvIj48cGF0aCBkPSJNIDE5LDcgTDExLDE0IEwxMyw3IEwxMSwwIFoiLz48L21hcmtlcj48L2RlZnM+PGRlZnM+PG1hcmtlciBpZD0ibXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbiIgcmVmWD0iMTciIHJlZlk9IjciIG1hcmtlcldpZHRoPSIyMCIgbWFya2VySGVpZ2h0PSIxNCIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMTksNyBMMTEsMTQgTDEzLDcgTDExLDAgWiIgZmlsbD0iIzA4NzM3MyIvPjwvbWFya2VyPjwvZGVmcz48ZyBjbGFzcz0icm9vdCI+PGcgY2xhc3M9ImNsdXN0ZXJzIi8+PGcgY2xhc3M9ImVkZ2VzIGVkZ2VQYXRocyI+PHBhdGggZD0iTTI2LDIxMS4yNUw2MC41LDIxMS4yNSIgaWQ9Im15LXN2Zy1lZGdlMCIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgdHJhbnNpdGlvbiIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCAzNC41IDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlMCIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TWpZc0lua2lPakl4TVM0eU5YMHNleUo0SWpvMk5pd2llU0k2TWpFeExqSTFmVjA9IiBkYXRhLWxvb2s9Im5lbyIgbWFya2VyLWVuZD0idXJsKCNteS1zdmdfc3RhdGVEaWFncmFtLWJhcmJFbmQtbWFyZ2luKSIvPjxwYXRoIGQ9Ik0yMDIsMjA2LjQxNjY2NjY2NjY2NjY2TDIxNC45Mjg5MzIxODgxMzQ1MiwyMDYuNDE2NjY2NjY2NjY2NjZRMjIyLDIwNi40MTY2NjY2NjY2NjY2NiAyMjIsMTk5LjM0NTU5ODg1NDgwMTE4TDIyMiwxNjYuNTcxMDY3ODExODY1NDhRMjIyLDE1OS41IDIyOS4wNzEwNjc4MTE4NjU0OCwxNTkuNUw3NDcuMTA5Mzc1LDE1OS41IiBpZD0ibXktc3ZnLWVkZ2UxIiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDU4Ni42OTc3NTM5MDYyNSAwOyBzdHJva2UtZGFzaG9mZnNldDogMDtmaWxsOm5vbmU7OztmaWxsOm5vbmUiIGRhdGEtZWRnZT0idHJ1ZSIgZGF0YS1ldD0iZWRnZSIgZGF0YS1pZD0iZWRnZTEiIGRhdGEtcG9pbnRzPSJXM3NpZUNJNk1qQXlMQ0o1SWpveU1EWXVOREUyTmpZMk5qWTJOalkyTmpaOUxIc2llQ0k2TWpJeUxDSjVJam95TURZdU5ERTJOalkyTmpZMk5qWTJOalo5TEhzaWVDSTZNakl5TENKNUlqb3hOVGt1Tlgwc2V5SjRJam8zTlRJdU5qQTVNemMxTENKNUlqb3hOVGt1TlgxZCIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48cGF0aCBkPSJNODAxLjk0MjcwODMzMzMzMzQsMTM1TDgwMS45NDI3MDgzMzMzMzM0LDEyMi4wNzEwNjc4MTE4NjU0OFE4MDEuOTQyNzA4MzMzMzMzNCwxMTUgODA5LjAxMzc3NjE0NTE5ODgsMTE1TDgzMi4yMDQ5NzM4NTQ4MDEyLDExNVE4MzkuMjc2MDQxNjY2NjY2NiwxMTUgODM5LjI3NjA0MTY2NjY2NjYsMTIyLjA3MTA2NzgxMTg2NTQ4TDgzOS4yNzYwNDE2NjY2NjY2LDEyOS41IiBpZD0ibXktc3ZnLWVkZ2UyIiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCB0cmFuc2l0aW9uIiBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTogMCAwIDY2LjUwNTAzNTQwMDM5MDYyIDA7IHN0cm9rZS1kYXNob2Zmc2V0OiAwO2ZpbGw6bm9uZTs7O2ZpbGw6bm9uZSIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJlZGdlMiIgZGF0YS1wb2ludHM9Ilczc2llQ0k2T0RBeExqazBNamN3T0RNek16TXpNelFzSW5raU9qRXpOWDBzZXlKNElqbzRNREV1T1RReU56QTRNek16TXpNek5Dd2llU0k2TVRFMWZTeDdJbmdpT2pnek9TNHlOell3TkRFMk5qWTJOalkyTENKNUlqb3hNVFY5TEhzaWVDSTZPRE01TGpJM05qQTBNVFkyTmpZMk5qWXNJbmtpT2pFek5YMWQiIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19zdGF0ZURpYWdyYW0tYmFyYkVuZC1tYXJnaW4pIi8+PHBhdGggZD0iTTIwMiwyMTYuMDgzMzMzMzMzMzMzMzFMMjE0LjkyODkzMjE4ODEzNDUyLDIxNi4wODMzMzMzMzMzMzMzMVEyMjIsMjE2LjA4MzMzMzMzMzMzMzMxIDIyMiwyMjMuMTU0NDAxMTQ1MTk4OEwyMjIsMjU1LjkyODkzMjE4ODEzNDUyUTIyMiwyNjMgMjI5LjA3MTA2NzgxMTg2NTQ4LDI2M0w3NDcuMTA5Mzc1LDI2MyIgaWQ9Im15LXN2Zy1lZGdlMyIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgdHJhbnNpdGlvbiIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCA1ODYuNjk3NzUzOTA2MjUgMDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7ZmlsbDpub25lOzs7ZmlsbDpub25lIiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9ImVkZ2UzIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZNakF5TENKNUlqb3lNVFl1TURnek16TXpNek16TXpNek16RjlMSHNpZUNJNk1qSXlMQ0o1SWpveU1UWXVNRGd6TXpNek16TXpNek16TXpGOUxIc2llQ0k2TWpJeUxDSjVJam95TmpOOUxIc2llQ0k2TnpVeUxqWXdPVE0zTlN3aWVTSTZNall6ZlYwPSIgZGF0YS1sb29rPSJuZW8iIG1hcmtlci1lbmQ9InVybCgjbXktc3ZnX3N0YXRlRGlhZ3JhbS1iYXJiRW5kLW1hcmdpbikiLz48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbHMiPjxnIGNsYXNzPSJlZGdlTGFiZWwiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQzMi4xMjUsIDE1OSkiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xOTAuMTI1LCAtNjYpIj48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMzgwLjI1IiBoZWlnaHQ9IjEzMiI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGU7IHdoaXRlLXNwYWNlOiBicmVhay1zcGFjZXM7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsgd2lkdGg6IDIwMHB4OyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+cmlkaWPEgyhjLCByLCBzKTxiciAvPltjIG5lw65ucmVnaXN0cmF0LCBzIHRpdHVsYXJ1bCBsdWkgcl08YnIgLz4vIMOubnJlZ2lzdHJlYXrEgyBtb21lbnR1bCDImWkgYyw8YnIgLz50cmltaXRlKG1lc2FqKSwgw65ucmVnaXN0cmVhesSDIG5vdGlmaWNhcmVhPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MjAuNjA5Mzc1LCA2MS41KSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJlZGdlMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE1OC4zNTkzNzUsIC00OS41KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjMxNi43MTg3NSIgaGVpZ2h0PSI5OSI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGU7IHdoaXRlLXNwYWNlOiBicmVhay1zcGFjZXM7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsgd2lkdGg6IDIwMHB4OyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+cmlkaWPEgyhjLCByLCBzKSBbYyDDrm5yZWdpc3RyYXQgbGEgcl08YnIgLz4vIGRhY8SDIG5vdGlmaWNhcmVhIGVzdGUgbmV0cmltaXPEgyw8YnIgLz50cmltaXRlKG1lc2FqKSDImWkgbyBhY3R1YWxpemVhesSDPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MzIuMTI1LCAyNjIuNSkiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iZWRnZTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01NS42NDA2MjUsIC0xNi41KSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjExMS4yODEyNSIgaGVpZ2h0PSIzMyI+PGRpdiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIgY2xhc3M9ImxhYmVsQmtnIiBzdHlsZT0iZGlzcGxheTogdGFibGUtY2VsbDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAyMDBweDsgdGV4dC1hbGlnbjogY2VudGVyOyI+PHNwYW4gY2xhc3M9ImVkZ2VMYWJlbCI+PHA+YW51bGVhesSDKHIpPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48L2c+PGcgY2xhc3M9Im5vZGVzIj48ZyBjbGFzcz0ibm9kZSAgc3RhdGVkaWFncmFtLXN0YXRlIiBpZD0ibXktc3ZnLXN0YXRlLVJ6LTMiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzQsIDIxMS4yNSkiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHJ4PSI1IiByeT0iNSIgeD0iLTY4IiB5PSItMjQuNSIgd2lkdGg9IjEzNiIgaGVpZ2h0PSI0OSIvPjxnIGNsYXNzPSJsYWJlbCIgc3R5bGU9IiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwLCAtMTYuNSkiPjxyZWN0Lz48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjMzIj48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogdGFibGU7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMTIwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsgd2lkdGg6IDEyMHB4OyI+PHNwYW4gY2xhc3M9Im5vZGVMYWJlbCBtYXJrZG93bi1ub2RlLWxhYmVsIj48cD5SZXplcnZhdMSDPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0ibm9kZSAgc3RhdGVkaWFncmFtLXN0YXRlIiBpZD0ibXktc3ZnLXN0YXRlLVJkLTIiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MjAuNjA5Mzc1LCAxNTkuNSkiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHJ4PSI1IiByeT0iNSIgeD0iLTY4IiB5PSItMjQuNSIgd2lkdGg9IjEzNiIgaGVpZ2h0PSI0OSIvPjxnIGNsYXNzPSJsYWJlbCIgc3R5bGU9IiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwLCAtMTYuNSkiPjxyZWN0Lz48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjMzIj48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogdGFibGU7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMTIwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsgd2lkdGg6IDEyMHB4OyI+PHNwYW4gY2xhc3M9Im5vZGVMYWJlbCBtYXJrZG93bi1ub2RlLWxhYmVsIj48cD5SaWRpY2F0xIM8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlICBzdGF0ZWRpYWdyYW0tc3RhdGUiIGlkPSJteS1zdmctc3RhdGUtQW4tMyIgZGF0YS1sb29rPSJuZW8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgyMC42MDkzNzUsIDI2MykiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHJ4PSI1IiByeT0iNSIgeD0iLTY4IiB5PSItMjQuNSIgd2lkdGg9IjEzNiIgaGVpZ2h0PSI0OSIvPjxnIGNsYXNzPSJsYWJlbCIgc3R5bGU9IiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYwLCAtMTYuNSkiPjxyZWN0Lz48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjMzIj48ZGl2IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzdHlsZT0iZGlzcGxheTogdGFibGU7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMTIwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsgd2lkdGg6IDEyMHB4OyI+PHNwYW4gY2xhc3M9Im5vZGVMYWJlbCBtYXJrZG93bi1ub2RlLWxhYmVsIj48cD5BbnVsYXTEgzwvcD48L3NwYW4+PC9kaXY+PC9mb3JlaWduT2JqZWN0PjwvZz48L2c+PGcgY2xhc3M9Im5vZGUgZGVmYXVsdCIgaWQ9Im15LXN2Zy1zdGF0ZS1yb290X3N0YXJ0LTAiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOSwgMjExLjI1KSI+PGNpcmNsZSBjbGFzcz0ic3RhdGUtc3RhcnQiIHI9IjciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIvPjwvZz48L2c+PC9nPjwvZz48ZGVmcz48ZmlsdGVyIGlkPSJteS1zdmctZHJvcC1zaGFkb3ciIGhlaWdodD0iMTMwJSIgd2lkdGg9IjEzMCUiPjxmZURyb3BTaGFkb3cgZHg9IjQiIGR5PSI0IiBzdGREZXZpYXRpb249IjAiIGZsb29kLW9wYWNpdHk9IjAuMDYiIGZsb29kLWNvbG9yPSIjMDAwMDAwIi8+PC9maWx0ZXI+PC9kZWZzPjxkZWZzPjxmaWx0ZXIgaWQ9Im15LXN2Zy1kcm9wLXNoYWRvdy1zbWFsbCIgaGVpZ2h0PSIxNTAlIiB3aWR0aD0iMTUwJSI+PGZlRHJvcFNoYWRvdyBkeD0iMiIgZHk9IjIiIHN0ZERldmlhdGlvbj0iMCIgZmxvb2Qtb3BhY2l0eT0iMC4wNiIgZmxvb2QtY29sb3I9IiMwMDAwMDAiLz48L2ZpbHRlcj48L2RlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJteS1zdmctZ3JhZGllbnQiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzA4NzM3MyIgc3RvcC1vcGFjaXR5PSIxIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJoc2woNzIsIDAlLCA4Ni4yNzQ1MDk4MDM5JSkiIHN0b3Atb3BhY2l0eT0iMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9zdmc+" style="max-width: 44.7em" />
+<p>Fără săgeți pentru refuzuri: <span class="operatie">anulează</span> în <span class="stare">Ridicată</span>, orice eveniment în <span class="stare">Anulată</span>, o cerere nouă în <span class="stare">Ridicată</span>. <code>trimisă</code> și <code>netrimisă</code> sunt date, nu stări. Bucla face ca <span class="stare">Ridicată</span> să nu fie finală.</p>
 </div>
 <div id="ce-putem-explica-acum" class="slide section level1">
 <h1>Ce putem explica acum?</h1>
@@ -623,10 +585,10 @@ break-inside: avoid;
 <ul>
 <li>Ce evenimente sunt permise <span class="nowrap">într-o</span> stare și ce decide un refuz: starea sau condiția?</li>
 <li>În ce pas schimbă registrul starea față de apelul expeditorului, și de ce?</li>
-<li>Ce deosebește o reîncercare de o cerere nouă cu același conținut și ce presupunem despre apelant?</li>
-<li>Ce au confirmat sau au corectat analiza și revizuirea comună?</li>
+<li>Ce deosebește o reîncercare de o cerere nouă și unde apare reîncercarea pe diagramă?</li>
+<li>Ce a prins lista de verificare și nu a semnalat randarea?</li>
 </ul>
-<p><strong>Repere:</strong> tranziția precede apelul expeditorului; eșecul notificării este înregistrat, nu ascuns; reîncercarea sosește în <span class="stare">Ridicată</span> și primește același rezultat; presupunem despre expeditor numai că răspunde, iar despre ghișeu, că reîncearcă cu același identificator.</p>
+<p><strong>Repere:</strong> tranziția precede apelul expeditorului; eșecul notificării este înregistrat, nu ascuns; reîncercarea sosește în <span class="stare">Ridicată</span> și primește același rezultat; refuzurile nu au săgeți; o diagramă care se randează trebuie verificată față de enunț.</p>
 </div>
 </main>
 <script>// AMSS slide decks: the one-slide-at-a-time view for theme/deck.html.

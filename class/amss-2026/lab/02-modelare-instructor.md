@@ -1,68 +1,88 @@
 # Laboratorul 2 — ghid pentru profesor
 
-**100 de minute, după cursurile 3–4; 16 slide-uri cu copertă.** Exersăm cerințe, identitate, relații și verificarea modelului prin exemple. Lucrăm în perechi sau trio, cu schimbarea colegului care propune și a celui care cere justificări. Schițele sunt suportul discuției; nu există predare obligatorie, încărcare, rubrică de documente sau notă separată pentru această activitate.
+**100 de minute, după cursurile 3–4; 15 slide-uri cu copertă.** Prima jumătate exersează cerințe, identitate, relații și verificarea modelului prin exemple, în perechi sau trio, cu schimbarea colegului care propune și a celui care cere justificări (formatul predat la 21 octombrie 2026, scurtat). A doua jumătate este etapa diagramei (decizia din 19 noiembrie 2026): fiecare student desenează modelul ca **diagramă de clase conceptuală**, de mână, în Mermaid sau generată cu un asistent AI și verificată; la jumătate verificăm în plen diagrama unui voluntar, iar la sfârșit comparăm diagrama convenită cu referința. Nu există predare obligatorie, încărcare, rubrică de documente sau notă separată pentru această activitate.
 
-Materiale: [prezentare](02-modelare.md), [enunț](scenarios/02-modelare/scenario.md), [sprijin facultativ pentru discuție](scenarios/02-modelare/worksheet.md), [capturi pregătite](scenarios/02-modelare/prepared-fixture.md). Enunțul și sprijinul pentru discuție pot fi consultate pe calculator sau tipărite. Hârtia și conversația sunt suficiente; nu rezervăm timp pentru configurări. Dacă un instrument AI nu funcționează, perechile folosesc captura sau cer colegilor aceeași verificare.
+Materiale: [prezentare](02-modelare.md), [enunț](scenarios/02-modelare/scenario.md), [specificația diagramei](diagrame/clase-conceptuale.md), [referință](scenarios/02-modelare/reference.md), [sprijin facultativ pentru discuție](scenarios/02-modelare/worksheet.md). Enunțul și specificația pot fi consultate pe calculator sau tipărite. Pentru prima jumătate, hârtia și conversația sunt suficiente; pentru a doua, hârtia rămâne suficientă, iar Mermaid sau un asistent AI sunt opționale. Nu rezervăm timp pentru configurări.
+
+Etapa AI condusă de profesor (o analiză și o revizuire în plen, cu capturile Claude Haiku 4.5 din 10 octombrie 2026) a fost scoasă din prezentare la 19 noiembrie 2026. [Capturile pregătite](scenarios/02-modelare/prepared-fixture.md) și [arhiva](scenarios/02-modelare/captures/2026-10-10/README.md) rămân neschimbate; sunt utile pentru exemplul identificatorului (cod vizită + ordine) dacă apare la etapa diagramei.
+
+Pe slide-uri și în discuție numim a doua jumătate „etapa diagramei”, nu „atelier”, ca să nu se confunde cu atelierul de reparații.
 
 ## Ritmul întâlnirii
 
-| Minute | Activitate | Intervenția profesorului |
-|---|---|---|
-| 0–4 | Ce modelăm azi și materialele, citatul, recapitularea din cursul 4 (ce urmărim când cerem un model). | Fără exercițiu: fixați problema și ce așteptăm de la un model. |
-| 4–10 | Reflecție inițială, comparație A17/A18 și J1–J3. | Cereți un exemplu de informație pierdută și o întrebare pentru organizatori. |
-| 10–35 | Citirea regulilor, schiță și explicații cu roluri schimbate. | „De ce este responsabilul legat aici?” |
-| 35–55 | Două perechi își explică reciproc modelele. | Colegii care nu au desenat schița aleg o stare și o interpretează primii pe schiță. |
-| 55–80 | Comparație cu AI sau captura pregătită; revizuire. | Cereți să se distingă o alegere de reprezentare de o cerință. |
-| 80–100 | Maximum doi responsabili per vizită; discuție finală. | Ascultați două sau trei explicații, fără prezentări formale. |
+| Minute | Slide-uri | Activitate | Intervenția profesorului |
+|---|---|---|---|
+| 0–10 | 2–4 | Ce modelăm azi și planul celor două jumătăți, citatul, recapitularea din cursul 4. | Fără exercițiu; întrebați clasa ce își amintește din lista cursului 4. |
+| 10–17 | 5–6 | Comparația A17/A18 și J1–J3, în perechi. | Cereți un exemplu de informație pierdută și o întrebare pentru organizatori. |
+| 17–31 | 7 | Regulile și schița în perechi, cu roluri schimbate (J1–J2, apoi J3). | „De ce este responsabilul legat aici?” |
+| 31–42 | 8 | Perechea B citește schița perechii A pe stările A19, P1/P3, J4; apoi invers. | Colegii care nu au desenat schița interpretează primii. |
+| 42–50 | 9 | Schimbarea R4: doi responsabili; două exemple de acceptare. | Cereți cardinalitatea care se schimbă și ce rămâne. |
+| 50–55 | 10–11 | Sarcina diagramei; fiecare deschide specificația și își alege modul de lucru. | Amintiți că un desen fără erori nu este o verificare. |
+| 55–71 | 12 | Lucru individual, cu lista de verificare pe ecran. | Treceți printre bănci; alegeți unul sau doi voluntari. |
+| 71–87 | 13 | Verificarea în plen a diagramei unui voluntar, apoi corecturi individuale. | Un coleg citește diagrama ca propoziții; clasa verifică pe listă. |
+| 87–95 | 14 | Diagrama convenită, comparația cu referința, întrebarea despre schimbarea R4. | Arătați referința după ce clasa a convenit corecturile. |
+| 95–100 | 15 | Încheiere: ce stare sau ce verificare a schimbat o diagramă. | Două sau trei răspunsuri, fără prezentări formale. |
+
+Dacă prima jumătate întârzie, scurtați schimbarea R4 la o singură cerere (adăugarea Ioanei la J2, respinsă), păstrând cardinalitatea; nu tăiați din etapa diagramei sub 40 de minute.
 
 ## Modelul de referință
 
-Analiză a profesorului, nu un răspuns AI. Aparatul este un lucru fizic cu identitate stabilă; vizita este o ocazie distinctă în istoricul lui. Problema raportată aparține vizitei; nu este un diagnostic confirmat și nici o proprietate a aparatului, suprascrisă la fiecare vizită. Responsabilul se asociază vizitei, nu aparatului (R5). În tipologia cerințelor din cursul 3, R1–R5 sunt reguli ale domeniului, iar R6 este limita exercițiului; schimbarea finală modifică o regulă a domeniului și se verifică prin exemple de acceptare.
-
-| Relație | Număr permis |
-|---|---|
-| Aparat → vizite | Zero sau mai multe. |
-| Vizită → aparat | Exact unul. |
-| Vizită → probleme raportate | Una sau mai multe. |
-| Problemă raportată → vizită | Exact una. |
-| Vizită → voluntar responsabil | Zero sau unul, înainte de schimbarea finală. |
-| Voluntar → vizite | Zero sau mai multe. |
+Raționamentul și diagrama sunt în [referință](scenarios/02-modelare/reference.md). Pe scurt: aparatul este un lucru fizic cu identitate stabilă; vizita este o ocazie distinctă în istoricul lui; problema raportată aparține vizitei și nu este un diagnostic; responsabilul se asociază vizitei, nu aparatului (R5). Cardinalități: aparat → vizite `0..*`, vizită → aparat `1` (R2); vizită → probleme `1..*`, problemă → vizită `1` (R3); vizită → responsabil `0..1`, voluntar → vizite `0..*` (R4).
 
 La înregistrarea J2 pentru A17, J1, P1 și asocierea J1–Mara rămân; J2 are P2 și Radu. P1 nu se copiază automat. J3 pentru A18 poate exista fără responsabil. P1 și P3 sunt distincte, deși textele coincid. Nu deducem că A17 și A18 sunt același aparat din modelul comun T2, nici că doi voluntari sunt aceeași persoană din nume.
 
-Sunt acceptabile cuvinte, tabele sau diagrame care exprimă aceste distincții. „Original” și relația de sursă de la cursul 4 nu se transferă aici. Nu cereți clase, scheme SQL, operații cu pre/postcondiții sau teoria responsabilităților din cursul 5. Dacă o pereche termină devreme, poate verifica, pe schița celeilalte, și revenirea: cine răspundea de J1 după înregistrarea lui J2.
+În prima jumătate sunt acceptabile cuvinte, tabele sau schițe libere; notația UML vine abia în a doua. „Original” și relația de sursă de la cursul 4 nu se transferă aici. Nu cereți scheme SQL, operații cu pre/postcondiții sau teoria responsabilităților din cursul 5.
 
-La comparația între perechi, B alege una dintre stările afișate și o explică folosind schița lui A. A ascultă, apoi clarifică. Repetați cu schița lui B și rolurile inversate. Verificați sensul relațiilor, nu convenția grafică. La starea A19, modelul trebuie să admită un aparat înregistrat fără vizite (R2); la starea J4, două probleme distincte pentru aceeași vizită, chiar dacă datele inițiale aveau doar câte una.
+La comparația între perechi, B alege una dintre stările afișate și o explică folosind schița lui A. A ascultă, apoi clarifică. Verificați sensul relațiilor, nu convenția grafică. La starea A19, modelul trebuie să admită un aparat înregistrat fără vizite (R2); la starea J4, două probleme distincte pentru aceeași vizită.
 
-## Comparația cu AI
+## Schimbarea R4
 
-Instrucțiunea analistului AI și un fragment real sunt pe slide-ul 10; arhiva conține contextul complet. Pentru rulări proprii folosiți R1–R6 și datele inițiale; schimbarea la doi responsabili se introduce abia la minutul 80. Analistul AI 01 propune o identitate de forma (cod vizită + ordine). R3 nu o impune: este o alegere de reprezentare posibilă, cu condiții de unicitate și stabilitate, nu o încălcare automată. O ordine de afișare modificabilă nu trebuie confundată cu identitatea.
-
-Evaluatorul (agent AI de revizuire) 02 primește regulile, sarcina exactă și răspunsul integral într-un context nou. Observă corect că formatul nu este specificat și că datele nu spun dacă P1–P3 sunt coduri globale sau locale vizitei, apoi întreabă de ce nu se folosește un cod global. Selectăm această observație pe slide-ul 11. Acceptăm nevoia de a explica alegerea; întrebarea nu face obligatoriu codul global. Un număr local unic și stabil, împreună cu codul vizitei, poate respecta aceleași reguli. Perechile precizează ce aleg și de ce.
-
-Sarcina de revizuire de pe slide este pentru activitatea studenților; instrucțiunea arhivată este în capturile pregătite. Nu cerem un număr de defecte sau transcrierea conversației AI. Arhiva păstrează și prima revizuire, înlocuită după corectarea transmiterii diacriticelor și completarea intrării cu sarcina exactă. Dacă perechile citesc răspunsul integral, observați și că posibilitatea de a avea mai multe probleme la o vizită este cerută de R3, deși evaluatorul AI o discută sub titlul „Alegeri de design neexplicite”. Exemplul J4 o verifică.
-
-## Schimbarea și încheierea
-
-La minutul 80 organizatorii schimbă R4: orice vizită poate avea zero, unul sau doi responsabili. Se schimbă cardinalitatea vizită → voluntari; voluntar → vizite rămâne zero sau mai multe. Perechile formulează două exemple de acceptare succesive, în forma din cursul 3: starea inițială → cine cere ce → rezultatul observabil.
+La minutul 42 organizatorii schimbă R4: orice vizită poate avea zero, unul sau doi responsabili. Se schimbă cardinalitatea vizită → voluntari; voluntar → vizite rămâne zero sau mai multe.
 
 | Starea inițială | Cine cere ce | Rezultatul observabil |
 |---|---|---|
 | J1–Mara; J2–Radu | Un organizator cere adăugarea Marei la J2 | Acceptată: J1–Mara; J2–Mara și Radu. |
 | J1–Mara; J2–Mara și Radu | Un organizator cere adăugarea Ioanei (M3) la J2 | Respinsă: asocierile ambelor vizite se păstrează. |
 
-Precizați și ce rămâne neschimbat: aparatele, vizitele și problemele lor. Respingerea nu elimină un responsabil pentru a face loc altuia. Perechile pun o întrebare despre responsabilitatea comună: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil? Nu cerem cod, migrarea unei baze de date sau proiectarea efectuării reparației.
+Respingerea nu elimină un responsabil pentru a face loc altuia. Întrebări pentru organizatori: răspund amândoi de tot sau fiecare de o parte? Cine poate retrage un responsabil? Diagrama din a doua jumătate modelează R4 inițial; schimbarea revine pe slide-ul referinței: `0..1` devine `0..2`, nimic altceva.
 
-Încheiați cu exemple din două sau trei perechi: o neînțelegere, o stare care a clarificat modelul, o sugestie AI acceptată sau respinsă. Notați pentru pregătirea următoare dificultățile recurente. Nu colectați fișe individuale; eventualele notițe rămân studenților. Dacă ritmul întârzie, reduceți numărul răspunsurilor în plen, păstrând comparația între colegi și conversația finală.
+## Etapa diagramei
+
+**Ce primesc studenții:** enunțul și [specificația](diagrame/clase-conceptuale.md): întrebările la care răspunde diagrama, elementele UML folosite (clasă, atribut, relație, cardinalitate, nume de rol, generalizare, notă), notația Mermaid cu limitele ei, lista de verificare, erorile frecvente, un exemplu rezolvat (un club de drumeții) cu un contraexemplu derivat spre implementare și un prompt sugerat. Specificația folosește vocabularul cursului 4: **relație** pentru linia dintre clase (UML: *association*), **asociere** pentru o instanță, **cardinalitate** (UML: *multiplicity*).
+
+**Cum lucrează:** fiecare alege. De mână, pornind de la schița din prima jumătate; direct în Mermaid; sau cu un asistent AI, căruia îi dă enunțul complet și specificația. Diagrama generată se verifică pe listă, față de enunț; o diagramă desenată fără erori nu spune nimic despre corectitudine. Nu impunem un instrument și nu cerem conturi AI.
+
+**Puncte de control:**
+
+- **Minutul 55:** toți au început; cine nu știe de unde să pornească desenează întâi cele patru clase și relația aparat–vizită.
+- **Minutul 65:** alegeți voluntarii; de preferință o diagramă de mână și una generată, sau două diagrame care diferă la o cardinalitate.
+- **Minutul 71:** verificarea în plen. Un coleg citește diagrama ca propoziții, în ambele sensuri; clasa parcurge lista; autorul confirmă sau corectează. Dacă nu se oferă nimeni, verificați o diagramă scrisă de dumneavoastră cu o greșeală tipică (problema ca atribut al vizitei).
+- **Minutul 87:** clasa convine corecturile; abia apoi arătați referința.
+
+**Ce urmăriți (greșeli ale studenților):**
+
+- problema raportată ca atribut text al vizitei sau al aparatului (pierde P1/P3 și J4);
+- responsabilul legat de aparat (pierde J1–Mara la J2);
+- o singură cardinalitate pe linie, sau citită invers (`1` lângă Vizită pentru „o vizită privește un aparat”);
+- `1..*` între aparat și vizite (exclude A19);
+- `id`, `aparatId`, `createdAt`, tipuri `String`, o clasă `VizitaVoluntar`;
+- clase pentru organizatori, proprietari sau piese (R6);
+- operații (`adaugăProblemă()`), care aparțin Laboratorului 3.
+
+**Ce urmăriți la diagramele generate cu AI:** chei străine și identificatori tehnici, tipuri, compoziție UML în locul cardinalității, clase din R6, un cod al problemei raportate prezentat ca cerință (R3 nu îl impune; vezi capturile din 10 octombrie), citate din enunț care nu spun ce li se atribuie, cardinalități corecte în text, dar inversate în sursa Mermaid. Lăudați și ce este corect, cu regula lui: nu căutăm obligatoriu o greșeală.
+
+**Limitele Mermaid** (detalii în specificație): un singur nume pe relație, fără roluri separate la capete; cardinalitățile sunt scrise mărunt și se pot suprapune; secțiunea operațiilor apare goală; notele se leagă numai de clase. În Mermaid 12, eticheta unui capăt poate fi acoperită de o cutie: în diagrama de referință de pe slide, câteva caractere invizibile (U+2800) după primul `0..*` o mută la vedere.
+
+Încheiați cu exemple din două sau trei răspunsuri: o stare care a arătat o relație greșită, o corectură făcută după verificare, o sugestie AI acceptată sau respinsă. Notați pentru pregătirea următoare dificultățile recurente. Nu colectați diagrame sau fișe; ele rămân studenților.
 
 ## Varianta online
 
-[Prezentarea online](02-modelare-online.md) păstrează slide-urile, stările, capturile și timpii de mai sus, pentru o întâlnire Teams în care toți vorbesc în plen, fără grupuri separate. Se schimbă doar forma conversației:
+[Prezentarea online](02-modelare-online.md) păstrează slide-urile, stările, specificația și timpii de mai sus, pentru o întâlnire Teams în care toți vorbesc în plen, fără grupuri separate. Se schimbă doar forma conversației:
 
 - **Răspuns în chat, trimis la semnal**, în locul primei reflecții în pereche: fiecare scrie, dar trimite abia la semnal, ca răspunsurile să rămână independente. Citiți două răspunsuri diferite și invitați-le autorii să le explice.
-- **Schițe arătate în plen:** fiecare schițează pe hârtie; autorul își ține foaia la cameră, o trimite ca fotografie în chat sau o scrie ca tabel scurt. Ca la laboratorul clasic, schițele nu se colectează.
-- **Ștafeta** în locul schimbării rolurilor: un coleg explică J1–J2 pe schița lui, altul cere regula și un exemplu, apoi explică el J3 pe propria schiță. Dați cuvântul pe nume sau după mâinile ridicate; camera nu este necesară.
-- **Colegul numit** în locul celeilalte perechi: la etapa 35–55, cine își arată schița numește colegul care alege o stare și o citește primul pe schiță; acesta își arată apoi propria schiță. Ceilalți scriu în chat „de acord” sau o obiecție. Dacă nu se oferă nimeni, scrieți în chat un model scurt sub formă de tabel și cereți colegilor să-l încerce pe cele trei stări.
-- **Rolurile AI pe ecrane diferite:** la o rulare live, un voluntar partajează analistul AI, iar alt coleg evaluatorul, într-un context nou. Fără rulare, folosiți capturile de pe slide-uri.
+- **Schițe arătate în plen:** fiecare schițează pe hârtie; autorul își ține foaia la cameră, o trimite ca fotografie în chat sau o scrie ca tabel scurt.
+- **Ștafeta** în locul schimbării rolurilor: un coleg explică J1–J2 pe schița lui, altul cere regula și un exemplu, apoi explică el J3 pe propria schiță.
+- **Colegul numit** în locul celeilalte perechi: cine își arată schița numește colegul care alege o stare și o citește primul; ceilalți scriu în chat „de acord” sau o obiecție. Dacă nu se oferă nimeni, scrieți în chat un model scurt sub formă de tabel.
+- **Etapa diagramei:** linkurile enunțului și specificației se pun în chat. Voluntarul își partajează ecranul sau lipește diagrama în chat ca text Mermaid; oricine o poate vedea desenată în [Mermaid Live](https://mermaid.live). Colegi numiți o verifică punct cu punct; ceilalți scriu „de acord” sau o obiecție. Diagrama convenită se poate scrie ca text Mermaid în chat, corectat de un coleg, înainte de referință.
 
-Prezentarea poate fi partajată de profesor sau preluată de un student, de exemplu pentru moderarea etapei 35–55. Cu sesiunea sincronizată, studenții urmăresc slide-urile la <https://cs.unibuc.ro/~tserbanuta/amss/now>, iar ecranul partajat rămâne liber pentru o schiță, pentru enunț sau pentru asistentul AI al unui coleg. Un student care preia prezentarea o partajează din HTML-ul publicat sau primește controlul prin Teams; nu trimiteți în chat parola profesorului sau linkul de control. În plen discuția durează mai mult: dacă ritmul întârzie, ascultați mai puține schițe, dar păstrați schimbarea finală. Mesajele din chat nu se colectează și nu se notează.
+Prezentarea poate fi partajată de profesor sau preluată de un student. Cu sesiunea sincronizată, studenții urmăresc slide-urile la <https://cs.unibuc.ro/~tserbanuta/amss/now>, iar ecranul partajat rămâne liber pentru diagrama unui coleg. Nu trimiteți în chat parola profesorului sau linkul de control. Nu faceți push pe `main` în timpul întâlnirii. În plen discuția durează mai mult: dacă ritmul întârzie, ascultați mai puține schițe în prima jumătate, dar păstrați verificarea unei diagrame la jumătatea etapei. Mesajele din chat nu se colectează și nu se notează.

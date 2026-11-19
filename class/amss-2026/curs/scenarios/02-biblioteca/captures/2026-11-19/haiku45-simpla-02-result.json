@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 12109,
+  "stop_reason": "end_turn",
+  "session_id": "2c79cf0e-ec0d-416a-bf1a-c480208c6913",
+  "total_cost_usd": 0.013189000000000001,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4100,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 996,
+    "output_tokens_details": {
+      "thinking_tokens": 240
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4100,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 996,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4100,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4100
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 996,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4100,
+      "webSearchRequests": 0,
+      "costUSD": 0.013189000000000001,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 240,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4100,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Proiectare Sistem Gestionare Împrumuturi Bibliotecă\n\n## Entități Principale\n\n**Carte**: Identificată unic, cu titlu, autor, disponibilitate (exemplare disponibile/total). Fiecare exemplar are un status (disponibil, împrumutat, indisponibil).\n\n**Membru**: Înregistrat cu date personale, cont activ/inactiv. Are o limită de cărți împrumutate simultan și o dată de expirare a abonamentului.\n\n**Împrumut**: Legătură între Membru și Carte cu data început, dată scadență (implicit 14-30 zile) și status (activ/returnat).\n\n**Cerere de Împrumut**: Coadă de așteptare când o carte este indisponibilă. Înregistrează Membrul, Cartea și data cererii.\n\n## Reguli de Operații\n\n**Împrumut:**\n- Membru activ cu abonament valabil\n- Cărți disponibile (exemplare > 0)\n- Membru sub limita de cărți împrumutate\n- Nicio dată de scadență anterioară a altor împrumuturi\n- Rezultat: Înregistrare împrumut, exemplare disponibile scad, persoană notificată\n\n**Returnare:**\n- Înregistrare date reale return\n- Calculare eventuale penalități (zile întârziere)\n- Stare = \"returnat\"\n- Exemplare disponibile cresc\n- **Notificare următorului din coadă de așteptare** (dacă există cereri)\n\n**Cerere de Împrumut:**\n- Carte indisponibilă\n- Membru activ cu abonament valabil\n- Se adaugă în coadă FIFO\n- Rezultat: Înregistrare cerere, Membru notificat cînd cartea devine disponibilă\n- Se oferă fereastră temporală (ex: 48 ore) pentru a efectua împrumutul\n\n## Constrângeri și Stări Speciale\n\n**Penalități**: Zile întârziere = penalizări (blocaj temporar, taxă, etc.). Cont poate fi suspendat dacă penalități neachitate.\n\n**Prioritate în Coadă**: Se respectă ordinea FIFO; opțional - membri cu mai puține întârzieri primesc prioritate.\n\n**Reactivare Cerere**: Dacă Membru nu preia cartea în 48h, cererea rămâne în coadă pentru următorul.\n\n## Metrici Monitorizate\n\n- Rata de disponibilitate per carte\n- Datorii și penalități active\n- Lungime cozi de așteptare\n- Timp mediu de așteptare\n\nSistemul asigură o distribuție echitabilă a resurselor și menține calitate serviciilor prin management eficient al cozilor și al responsabilităților membrilor.",
+  "ttft_ms": 3151,
+  "type": "result",
+  "duration_ms": 12235,
+  "uuid": "dd6f9bbc-a8de-4193-82c6-a7d94a72d204",
+  "ttft_stream_ms": 871,
+  "time_to_request_ms": 146,
+  "first_content_frame_ms": 871,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

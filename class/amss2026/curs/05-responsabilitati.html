@@ -23,6 +23,71 @@ margin: 0 0.8em 0.2em -1.6em;
 vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #4a5a60;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #4a5a60; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #b3261e; font-weight: bold; } 
+code span.an { color: #4a5a60; font-style: italic; } 
+code span.at { color: #5b3d9e; } 
+code span.bn { color: #7d4a00; } 
+code span.bu { color: #1b3f8b; } 
+code span.cf { color: #065a5a; font-weight: bold; } 
+code span.ch { color: #8a3b12; } 
+code span.cn { color: #7d4a00; } 
+code span.co { color: #4a5a60; font-style: italic; } 
+code span.cv { color: #4a5a60; font-style: italic; } 
+code span.do { color: #4a5a60; font-style: italic; } 
+code span.dt { color: #5b3d9e; } 
+code span.dv { color: #7d4a00; } 
+code span.er { color: #b3261e; font-weight: bold; } 
+code span.ex { color: #1b3f8b; } 
+code span.fl { color: #7d4a00; } 
+code span.fu { color: #1b3f8b; } 
+code span.im { color: #065a5a; font-weight: bold; } 
+code span.in { color: #4a5a60; font-style: italic; } 
+code span.kw { color: #065a5a; font-weight: bold; } 
+code span.op { } 
+code span.ot { color: #065a5a; } 
+code span.pp { color: #7d4a00; } 
+code span.sc { color: #8a3b12; } 
+code span.ss { color: #8a3b12; } 
+code span.st { color: #8a3b12; } 
+code span.va { color: #5b3d9e; } 
+code span.vs { color: #8a3b12; } 
+code span.wa { color: #4a5a60; font-weight: bold; font-style: italic; } 
 </style>
   <style type="text/css">
 :root {
@@ -822,56 +887,143 @@ break-inside: avoid;
 <p><strong>Decizia protejată:</strong> regulile pot evolua fără copii independente în canale.</p>
 <p><strong>Cost și limite:</strong> trebuie respectate semnificațiile convenite ale intrărilor și rezultatelor; textele explicative pot necesita actualizare. Nu am proiectat transportul sau plata.</p>
 </div>
-<div id="delegăm-și-verificăm-decizia" class="slide section level1 transition">
-<h1 class="transition">Delegăm și verificăm decizia</h1>
-<p>Judecăm o propunere după argumentele ei, nu după termenii pe care îi invocă.</p>
+<div id="fiecare-canal-delegat-separat" class="slide section level1 transition">
+<h1 class="transition">Fiecare canal, delegat separat</h1>
+<p>Două sesiuni AI scriu câte un canal. Cine răspunde de regulă?</p>
 </div>
-<div id="o-sarcină-delimitată-pentru-un-asistent-ai" class="slide section level1">
-<h1>O sarcină delimitată pentru un asistent AI</h1>
+<div id="două-sarcini-aceleași-reguli" class="slide section level1">
+<h1>Două sarcini, aceleași reguli</h1>
+<p><strong>Ambele sesiuni primesc, <span class="nowrap">într-un</span> context nou, aceleași reguli:</strong> <span class="nowrap">R1–R6</span> ale enunțului (intrare, masa acceptată, ambalaj, preț, canale, limitele sarcinii), fără C1 și fără operația comună.</p>
+<p><strong>Sesiunea <span class="nowrap">site-ului,</span> instrucțiunea exactă:</strong></p>
 <blockquote>
-<p>Propune responsabilitățile și dependențele pentru estimarea costului expedierii. Compară o operație comună cu regulile copiate în cele două interfețe. Verifică scenariile <span class="nowrap">S1–S5.</span> Nu scrie cod, nu impune clase sau servicii. Răspunde în română, în maximum 350 de cuvinte.</p>
+<p>Lucrezi la formularul web al firmei. Scrie în JavaScript funcția care primește textul introdus de client pentru masă și ambalajul ales […]</p>
 </blockquote>
-<p><em>În instrucțiunea trimisă, „interfețe” înseamnă canalele, iar „costul expedierii”, prețul.</em></p>
-<p><strong>Enunțul trimis, înainte de C1 (limita plicului):</strong> masă <span class="nowrap">1–5000</span> g; plic ≤1000 g; cutie pe tot intervalul; preț 10 lei până la 1000 g, 18 lei peste; refuz fără preț; web și ghișeu concordante.</p>
-<p><strong>Scenariile <span class="nowrap">S1–S5:</span></strong> plic 1000 g / 1001 g; cutie 1001 g / 0 g / 5000 g și 5001 g. Fără plată sau expediere.</p>
-</div>
-<div id="o-propunere-de-verificat" class="slide section level1">
-<h1>O propunere de verificat</h1>
-<p><strong>Analistul AI — Claude Haiku 4.5, 27 octombrie 2026; fragmente:</strong></p>
+<p><strong>Sesiunea ghișeului, instrucțiunea exactă:</strong></p>
 <blockquote>
-<p><strong>Interfață (web, ghișeu)</strong> — interpretează textul intrării […] Nu validează reguli de domeniu.</p>
-<p><strong>Logica de estimare</strong> — aplică <span class="nowrap">R2–R4</span> […] acceptat+preț sau refuz.</p>
-<p><strong>Definirea regulilor</strong> — stochează limitele, costurile, restricțiile per ambalaj. Accesibilă ambelor interfețe.</p>
-<p><strong>Risc de inconsistență:</strong> dacă R3 se modifică (plic acceptat până la 1500 g), trebuie actualizat în două locuri; greșelile sunt posibile.</p>
+<p>Lucrezi la aplicația operatorului de la ghișeu. Scrie în Python funcția care primește masa și ambalajul introduse de operator […]</p>
 </blockquote>
-<p><strong>Reguli:</strong> plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste. <strong>C1 (limita plicului):</strong> 1500 g.</p>
-<p>Ce păstrăm? Canalele (în răspunsul AI: „interfețe”) „nu validează reguli”: ce le este totuși „accesibil” și pentru ce? Ce precizăm despre „limitele” stocate pentru un plic de <strong>1200 g după C1</strong>?</p>
+<p><strong>Predicție:</strong> vor răspunde la fel cele două funcții?</p>
 </div>
-<div id="promptul-evaluatorului-ai" class="slide section level1">
-<h1>Promptul evaluatorului AI</h1>
-<p><strong>Evaluator (agent AI de revizuire), context nou:</strong> enunțul, sarcina analistului AI, răspunsul integral și C1 (limita plicului), prezentată ca schimbare ulterioară pe care analistul AI nu trebuia să o anticipeze.</p>
-<p><strong>Instrucțiunea exactă, la începutul promptului:</strong></p>
-<blockquote>
-<p>Ești evaluator (agent AI de revizuire). Verifică propunerea de mai jos exclusiv față de contextul, sarcina analistului AI și schimbarea ulterioară C1. Identifică afirmațiile susținute, contradicțiile, omisiunile relevante și alegerile prezentate ca cerințe; verifică și ce trebuie să se schimbe în propunere după C1. Pentru fiecare observație, indică fragmentul, regula și un scenariu cu intrarea și rezultatul așteptat. Nu presupune că trebuie să existe greșeli; dacă o afirmație este corectă, explică de ce. Nu scrie cod. Răspunde în română, în maximum 400 de cuvinte.</p>
-</blockquote>
-<p><strong>Predicție, înainte de a vedea răspunsul:</strong> va deosebi evaluatorul AI consecințele lui C1 de o omisiune a analistului AI?</p>
+<div id="funcția-scrisă-pentru-site" class="slide section level1">
+<h1>Funcția scrisă pentru site</h1>
+<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, sesiunea <span class="nowrap">site-ului,</span> rularea 3, 19 noiembrie 2026:</strong></p>
+<div class="columns">
+<div class="column" style="width:62%;">
+<div class="sourceCode" id="cb1" tabindex="0"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">const</span> masa <span class="op">=</span> <span class="pp">parseInt</span>(masaText<span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="cf">if</span> (<span class="pp">isNaN</span>(masa)) {</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="cf">return</span> <span class="st">&quot;Masa trebuie să fie […]&quot;</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">// […]</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="cf">if</span> (ambalaj <span class="op">===</span> <span class="st">&quot;plic&quot;</span> <span class="op">&amp;&amp;</span> masa <span class="op">&gt;</span> <span class="dv">1000</span>) {</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>  <span class="cf">return</span> <span class="st">&quot;Plicul este acceptat […]&quot;</span><span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>}</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="cf">if</span> (ambalaj <span class="op">!==</span> <span class="st">&quot;plic&quot;</span> <span class="op">&amp;&amp;</span> ambalaj <span class="op">!==</span> <span class="st">&quot;cutie&quot;</span>) {</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>  <span class="cf">return</span> <span class="st">&quot;Tip de ambalaj neacceptat.&quot;</span><span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="kw">const</span> pret <span class="op">=</span> masa <span class="op">&lt;=</span> <span class="dv">1000</span> <span class="op">?</span> <span class="dv">10</span> <span class="op">:</span> <span class="dv">18</span><span class="op">;</span></span></code></pre></div>
+</div><div class="column" style="width:38%;">
+<p><strong>Reper:</strong> <code>parseInt(&quot;1000,5&quot;, 10)</code> întoarce 1000: citește cifrele până la primul caracter care nu este cifră.</p>
+<p>Individual: ce afișează <span class="nowrap">site-ul</span> pentru plic „1000”, plic „1001”, plic „1000,5” și „Plic” de 500 g?</p>
 </div>
-<div id="revizuirea-are-nevoie-de-propria-verificare" class="slide section level1">
-<h1>Revizuirea are nevoie de propria verificare</h1>
-<p><strong>Evaluatorul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:</strong></p>
-<blockquote>
-<p>Propunerea <strong>nu menționa explicit ce se schimbă după C1</strong>. Instrucțiunile de evaluare cer verificarea “ce trebuie să se schimbe în propunere după C1”. […] Propunerea ar trebui să precizeze: „S2 devine acceptare la 18 lei după C1 […]”</p>
-<p>Fraza „regulile și logica estimării trebuie centralizate” e recomandare, nu cerință din enunț.</p>
-<p>Merge dincolo cu sugestii de implementare ([…] centralizare).</p>
-</blockquote>
-<p><strong>Sarcina analistului AI:</strong> compară o operație comună cu regulile copiate; enunțul primit nu conținea C1 (limita plicului). <strong>Scenariul S2:</strong> plic de 1001 g. <strong>După C1:</strong> plic ≤1500 g; 10 lei până la 1000 g inclusiv, 18 lei peste.</p>
-<p>Ce observație este susținută? Ce calificare a propunerii nu este susținută de sarcina analistului AI?</p>
 </div>
-<div id="decizia-noastră" class="slide section level1">
-<h1>Decizia noastră</h1>
-<p>Păstrăm operația comună și verificarea scenariilor <span class="nowrap">S1–S5.</span> Separăm <strong>limita ambalajului</strong> de <strong>pragul de preț</strong>.</p>
-<p><strong>Acceptăm din revizuire:</strong> după C1 (limita plicului), scenariul S2 (plic de 1001 g) → acceptat, 18 lei. <strong>Respingem:</strong> ideea că centralizarea (operația comună) iese din sarcină; sarcina cere explicit comparația.</p>
-<p><strong>După C1:</strong> plic ≤1500 g; preț 10 lei până la 1000 g, 18 lei peste. Verificăm: plic de 1200 g → 18 lei; plic de 1501 g → refuz, în ambele canale.</p>
+</div>
+<div id="funcția-scrisă-pentru-ghișeu" class="slide section level1">
+<h1>Funcția scrisă pentru ghișeu</h1>
+<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, sesiunea ghișeului, rularea 1, 19 noiembrie 2026:</strong></p>
+<div class="columns">
+<div class="column" style="width:62%;">
+<div class="sourceCode" id="cb2" tabindex="0"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>    masa <span class="op">=</span> <span class="bu">int</span>(masa_text)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="cf">except</span> (<span class="pp">ValueError</span>, <span class="pp">TypeError</span>):</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;Masa introdusă nu este validă.&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># […]</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>ambalaj_lower <span class="op">=</span> ambalaj.lower()</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="cf">if</span> ambalaj_lower <span class="op">==</span> <span class="st">&quot;plic&quot;</span>:</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>    <span class="cf">if</span> masa <span class="op">&gt;</span> <span class="dv">1000</span>:</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;Plicul este acceptat […]&quot;</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co"># […]</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="cf">if</span> masa <span class="op">&lt;=</span> <span class="dv">1000</span>:</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;Preț estimat: 10 lei&quot;</span></span></code></pre></div>
+</div><div class="column" style="width:38%;">
+<p><strong>Reper:</strong> <code>int(&quot;1000,5&quot;)</code> ridică <code>ValueError</code>; <code>&quot;Plic&quot;.lower()</code> este <code>&quot;plic&quot;</code>.</p>
+<p>Individual: ce afișează ghișeul pentru plic „1000”, plic „1001”, plic „1000,5” și „Plic” de 500 g? Unde diferă de site?</p>
+</div>
+</div>
+</div>
+<div id="aceleași-reguli-rezultate-diferite" class="slide section level1">
+<h1>Aceleași reguli, rezultate diferite</h1>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Intrare (rulare înainte de curs, cod integral)</th>
+<th>Site, rularea 3</th>
+<th>Ghișeu, rularea 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plic „1000”</td>
+<td>Preț estimat: 10 lei</td>
+<td>Preț estimat: 10 lei</td>
+</tr>
+<tr>
+<td>plic „1001”</td>
+<td>Plicul este acceptat doar până la 1000 grame.</td>
+<td>Plicul este acceptat doar până la 1000 g.</td>
+</tr>
+<tr>
+<td>plic „1000,5”</td>
+<td>Preț estimat: 10 lei</td>
+<td>Masa introdusă nu este validă.</td>
+</tr>
+<tr>
+<td>„Plic”, „500”</td>
+<td>Tip de ambalaj neacceptat.</td>
+<td>Preț estimat: 10 lei</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>R1 (intrare):</strong> dacă masa nu poate fi interpretată ca număr întreg, canalul cere corectarea. <strong>R5 (canale):</strong> aceeași masă și același ambalaj, același rezultat.</p>
+<p>Care rând încalcă R1? Care încalcă R5? De ce nu <span class="nowrap">le-au</span> găsit scenariile <span class="nowrap">S1–S5</span> (mase întregi, ambalaje scrise exact)?</p>
+</div>
+<div id="c1-încă-două-sesiuni" class="slide section level1">
+<h1>C1: încă două sesiuni</h1>
+<p><strong>C1 (limita plicului):</strong> plicul este acceptat până la <strong>1500 g inclusiv</strong>; pragul de preț rămâne 1000 g. Fiecare funcție a primit C1 <span class="nowrap">într-o</span> sesiune nouă.</p>
+<p><strong>Ghișeu, rularea 2, ramura plicului, înainte și după sesiunea C1:</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Înainte:</strong></p>
+<div class="sourceCode" id="cb3" tabindex="0"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="cf">if</span> ambalaj_norm <span class="op">==</span> <span class="st">&quot;plic&quot;</span>:</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    <span class="cf">if</span> masa <span class="op">&gt;</span> <span class="dv">1000</span>:</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;Refuz: plicul […] 1000 g&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    pret <span class="op">=</span> <span class="dv">10</span></span></code></pre></div>
+</div><div class="column" style="width:50%;">
+<p><strong>După C1:</strong></p>
+<div class="sourceCode" id="cb4" tabindex="0"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="cf">if</span> ambalaj_norm <span class="op">==</span> <span class="st">&quot;plic&quot;</span>:</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>    <span class="cf">if</span> masa <span class="op">&gt;</span> <span class="dv">1500</span>:</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;Refuz: plicul […] 1500 g&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>    pret <span class="op">=</span> <span class="dv">10</span> <span class="cf">if</span> masa <span class="op">&lt;=</span> <span class="dv">1000</span> <span class="cf">else</span> <span class="dv">18</span></span></code></pre></div>
+</div>
+</div>
+<p><strong>Site, după C1:</strong> <span class="nowrap">s-a</span> schimbat numai limita plicului; „1000,5” dădea înainte 10 lei.</p>
+<p>De ce <span class="nowrap">s-a</span> schimbat la ghișeu și linia prețului? Câte sesiuni și verificări cere C1? Ce dă <span class="nowrap">site-ul</span> pentru „1000,5” acum?</p>
+</div>
+<div id="cine-răspunde-de-regulă" class="slide section level1">
+<h1>Cine răspunde de regulă?</h1>
+<p><strong>Comparația noastră:</strong> fiecare sesiune a primit aceleași reguli și a scris o altă copie a lor. Copiile trec scenariile <span class="nowrap">S1–S5</span> (valorile-limită ale enunțului), dar se despart la intrări pe care nu <span class="nowrap">le-am</span> scris ca scenarii. Nicio componentă nu răspunde de regulă: concordanța depinde de cine transmite fiecare schimbare fiecărei sesiuni.</p>
+<p><strong>Decizia noastră:</strong></p>
+<ul>
+<li><span class="operatie">estimează(masă, ambalaj)</span> decide acceptarea și prețul <span class="nowrap">(R2–R4:</span> masa acceptată, ambalaj, preț); o delegăm o singură dată, iar C1 (limita plicului) se face tot o dată.</li>
+<li>Fiecare sesiune de canal primește <strong>interfața</strong> operației, nu regulile; canalul interpretează textul (R1, intrare) și afișează.</li>
+<li>Adăugăm „1000,5” la verificările fiecărui canal; despre „Plic” întrebăm firma.</li>
+</ul>
 </div>
 <div id="transferăm-ideea" class="slide section level1 transition">
 <h1 class="transition">Transferăm ideea</h1>

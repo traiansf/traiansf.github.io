@@ -17,7 +17,11 @@ Pentru fiecare fotografie, pornim cu un original și adăugăm fiecare derivată
 
 Referințele între obiecte și înregistrările legate prin identificatori sunt reprezentări posibile ale aceluiași model. O reprezentare nu garantează singură regulile: de exemplu, simpla existență a unui câmp opțional de sursă nu impune unicul original și apartenența comună. Algoritmii de validare, baza de date și responsabilitățile software se discută ulterior, când există o sarcină de implementare.
 
-## Discuția capturilor
+## Discuția capturilor (din 19 noiembrie 2026)
+
+Prezentarea arată aceleași fapte (R1–R5, S1–S4) trimise cu două cereri: „scrie clasele” și „descrie conceptele, relațiile și cardinalitatea fiecărei relații”. Răspunsul la prima cerere (clase 02) conține, pe lângă fapte, decizii de implementare: tipuri diferite pentru identificatori, apartenența și sursa păstrate ca identificatori, `None` pentru original, dicționare, un contor care generează identificatorii, o excepție pentru un identificator repetat și o clasă `Arhiva` care execută operațiile. Niciuna nu este o greșeală față de regulile trimise; problema este că stau amestecate cu regulile și par la fel de obligatorii. Răspunsul la a doua cerere (concepte 03) dă relațiile și cardinalitățile din tabelul nostru; „Original” apare ca al treilea concept, iar noi îl tratăm ca rol al unei versiuni. Sortarea de referință este în [ghidul de predare](../../04-domeniu-demo.md). Proveniența completă și toate rulările sunt în [arhiva capturilor](captures/2026-11-19/README.md).
+
+## Discuția capturilor din 10 octombrie 2026 (nu mai sunt proiectate)
 
 Analistul AI 02 descrie corect identitățile, cardinalitățile și exemplele S1–S4, apoi generalizează nejustificat la „orice orice configurație DAG”. Păstrăm partea susținută de reguli și corectăm generalizarea. Nu pretindem că întregul răspuns este greșit.
 

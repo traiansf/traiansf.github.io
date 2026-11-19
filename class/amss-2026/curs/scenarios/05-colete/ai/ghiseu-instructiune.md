@@ -1,0 +1,1 @@
+Lucrezi la aplicația operatorului de la ghișeu. Scrie în Python funcția care primește masa și ambalajul introduse de operator și întoarce textul afișat operatorului: prețul estimat sau motivul refuzului. Respectă regulile de mai jos. Răspunde cu codul și cel mult cinci rânduri de explicații, în română.

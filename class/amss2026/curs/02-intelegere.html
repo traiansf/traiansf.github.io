@@ -840,7 +840,7 @@ break-inside: avoid;
 </div>
 <div id="delegăm-și-verificăm" class="slide section level1 transition">
 <h1 class="transition">Delegăm și verificăm</h1>
-<p>Ce îi dăm agentului AI și cum îi evaluăm rezultatul?</p>
+<p>Ce hotărăște un agent AI când cererea nu spune?</p>
 </div>
 <div id="ai-poate-accelera-aceste-activități" class="slide section level1">
 <h1>AI poate accelera aceste activități</h1>
@@ -878,80 +878,106 @@ break-inside: avoid;
 </ul>
 <p>„Construiește aplicația bibliotecii” lasă aceste decizii implicite.</p>
 </div>
-<div id="exemplu-pregătit-delegare-și-verificare" class="slide section level1">
-<h1>Exemplu pregătit: delegare și verificare</h1>
-<p>Parcursul exemplului:</p>
-<ol style="list-style-type: decimal">
-<li>Identificăm contextul necesar unui agent AI cu rol de analist: enunțul clarificat al bibliotecii.</li>
-<li>Verificăm conceptele, regulile și responsabilitățile propuse.</li>
-<li>Examinăm pachetul pentru un evaluator (agent AI de revizuire): enunțul, soluția și criteriile de verificare.</li>
-<li>Decidem ce constatări sunt susținute de enunț.</li>
-</ol>
-<p><strong>Sarcina voastră:</strong> explicați o decizie acceptată și puneți la încercare o afirmație.</p>
-<p>Parcurgem pe <span class="nowrap">slide-uri</span> prompturile și <strong>răspunsurile AI reale</strong>, capturate înainte de curs (Codex, <span class="nowrap">gpt-6.1-sol,</span> 7 octombrie 2026). Analizați propunerea și revizuirea pe hârtie, folosind regulile și scenariile afișate.</p>
+<div id="două-prompturi-aceeași-sarcină" class="slide section level1">
+<h1>Două prompturi, aceeași sarcină</h1>
+<p><strong>Promptul A, integral:</strong></p>
+<blockquote>
+<p>Bibliotecara <span class="nowrap">ne-a</span> trimis această cerere:<br />
+„Avem nevoie de un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”<br />
+Propune o proiectare concisă pentru acest sistem, fără cod: conceptele, regulile pe care le respectă operațiile de împrumut, returnare și cerere de împrumut, și rezultatul fiecărei operații. Răspunde în română, în maximum 400 de cuvinte.</p>
+</blockquote>
+<p><strong>Promptul B:</strong> același text, cu regulile <span class="nowrap">R1–R6</span> (identitate, împrumut, returnare, cerere de împrumut, ordinea cererilor și rezervarea, delimitare) înaintea ultimului paragraf.</p>
+<p><strong>Predicție:</strong> ce va hotărî agentul AI în răspunsul la A, deși cererea nu spune nimic despre asta?</p>
 </div>
-<div id="ce-îi-cerem-agentului-ai-cu-rol-de-analist" class="slide section level1">
-<h1>Ce îi cerem agentului AI cu rol de analist</h1>
-<p><strong>Context predat:</strong> solicitarea bibliotecarei, regulile <span class="nowrap">R1–R6</span> și scenariile <span class="nowrap">S1–S6</span> prezentate anterior. <strong>Cele trei operații:</strong> împrumutul (inclusiv ridicarea), returnarea și cererea de împrumut.</p>
+<div id="răspunsul-la-promptul-a-membri-și-împrumuturi" class="slide section level1">
+<h1>Răspunsul la promptul A: membri și împrumuturi</h1>
+<p><strong>Cererea:</strong> „[…] gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”</p>
+<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, promptul A, rularea 2:</strong></p>
 <blockquote>
-<p>Propune o proiectare concisă, fără codul aplicației. Distinge conceptele domeniului și atribuie responsabilitățile celor trei operații.</p>
-<p>Precizează regulile împrumutului și rezervării, ordinea cererilor și rezultatele la succes și respingere. Parcurge <span class="nowrap">S1–S6</span> și indică regulile care susțin deciziile.</p>
-<p>Separă cerințele, alegerile și întrebările deschise. Respectă R6. Încheie cu ce poate fi predat etapei următoare și cu limitele soluției.</p>
+<p><strong>Membru</strong>: Înregistrat cu date personale, cont activ/inactiv. Are o limită de cărți împrumutate simultan și o dată de expirare a abonamentului.</p>
+<p><strong>Împrumut</strong>: Legătură între Membru și Carte cu data început, dată scadență (implicit <span class="nowrap">14-30</span> zile) și status (activ/returnat).</p>
+<p>[…] <strong>Împrumut:</strong> — Membru activ cu abonament valabil — Cărți disponibile (exemplare &gt; 0) — Membru sub limita de cărți împrumutate — […]</p>
 </blockquote>
+<p>Pe hârtie: listați fiecare decizie pe care agentul AI a <span class="nowrap">luat-o</span> în locul bibliotecii.</p>
 </div>
-<div id="proiectarea-ai-păstrează-asocierile-necesare" class="slide section level1">
-<h1>Proiectarea AI păstrează asocierile necesare?</h1>
-<p><strong>Fragment din răspunsul AI — <span class="nowrap">gpt-6.1-sol,</span> analist, rularea 1:</strong></p>
+<div id="răspunsul-la-promptul-a-cereri-și-întârzieri" class="slide section level1">
+<h1>Răspunsul la promptul A: cereri și întârzieri</h1>
+<p><strong>Fragment din același răspuns (promptul A, rularea 2):</strong></p>
 <blockquote>
-<p>Împrumut | Înregistrare distinctă care leagă membrul de exemplar; activă sau închisă. Împrumuturile închise rămân în istoric.</p>
-<p>[…]</p>
-<p>Rezervare | Alocă un exemplar unei cereri și solicitantului ei; rămâne activă până la ridicare.</p>
+<p><strong>Cerere de Împrumut:</strong> — Carte indisponibilă — Membru activ cu abonament valabil — Se adaugă în coadă FIFO — […] — Se oferă fereastră temporală (ex: 48 ore) pentru a efectua împrumutul</p>
+<p><strong>Penalități</strong>: Zile întârziere = penalizări (blocaj temporar, taxă, etc.). Cont poate fi suspendat dacă penalități neachitate.</p>
+<p><strong>Prioritate în Coadă</strong>: Se respectă ordinea FIFO; opțional - membri cu mai puține întârzieri primesc prioritate.</p>
 </blockquote>
-<p><strong>S2:</strong> C1 a fost returnat și rezervat lui M2; C2 este încă împrumutat lui M3.</p>
-<p><strong>R2:</strong> ridicarea este permisă numai solicitantului. <strong>R5:</strong> rezervarea identifică exemplarul alocat cererii.</p>
-<p>Pe hârtie: ce asocieri verificăm pentru a decide dacă M3 poate împrumuta C1?</p>
+<p>Continuați lista. Pentru fiecare decizie: <strong>cine ar trebui <span class="nowrap">s-o</span> ia</strong> — bibliotecara, echipa care proiectează sau nimeni încă?</p>
 </div>
-<div id="ce-predăm-evaluatorului-ai" class="slide section level1">
-<h1>Ce predăm evaluatorului AI</h1>
-<p><strong>Context nou:</strong> solicitarea, <span class="nowrap">R1–R6,</span> <span class="nowrap">S1–S6</span> și proiectarea de examinat, fără conversația analistului. Poate fi același model AI, <span class="nowrap">într-o</span> conversație nouă.</p>
-<blockquote>
-<p>Revizuiește proiectarea față de regulile și scenariile date, fără să o modifici.</p>
-<p>Pentru fiecare constatare, indică afirmația vizată, regula și un scenariu sau o altă justificare verificabilă.</p>
-<p>Distinge defectele de alternativele de proiectare și de întrebările despre extinderi. Nu adăuga cerințe excluse prin R6. Dacă nu găsești defecte, precizează ce ai verificat și limitele revizuirii.</p>
-</blockquote>
-<p>Ce ar lipsi dacă am preda doar proiectarea și instrucțiunea „verifică dacă e corect”?</p>
+<div id="ce-a-hotărât-agentul-ai-în-locul-nostru" class="slide section level1">
+<h1>Ce a hotărât agentul AI în locul nostru</h1>
+<p><strong>Comparația noastră</strong> (promptul A, rularea 2):</p>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="42%" />
+<col width="57%" />
+</colgroup>
+<thead>
+<tr>
+<th>Decizie din răspuns</th>
+<th>Ce spun regulile bibliotecarei</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Împrumut pe <span class="nowrap">14–30</span> de zile</td>
+<td>Nicio regulă nu fixează o durată.</td>
+</tr>
+<tr>
+<td>Limită de cărți pe membru</td>
+<td>R2 (împrumut) nu limitează numărul.</td>
+</tr>
+<tr>
+<td>Abonament care expiră</td>
+<td>R1 (identitate): membrii există deja.</td>
+</tr>
+<tr>
+<td>Penalități, suspendarea contului</td>
+<td>R6 (delimitare) exclude amenzile.</td>
+</tr>
+<tr>
+<td>48 de ore pentru ridicare</td>
+<td>R6: rezervarea rămâne până la ridicare.</td>
+</tr>
+<tr>
+<td>Prioritate fără întârzieri</td>
+<td>R5 (ordinea cererilor): ordinea înregistrării.</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="verificăm-și-revizuirea" class="slide section level1">
-<h1>Verificăm și revizuirea</h1>
-<p><strong>Fragment din răspunsul AI — <span class="nowrap">gpt-6.1-sol,</span> evaluator, rularea 1:</strong></p>
-<blockquote>
-<p>În S6, C2 este alocat lui M2, apoi C1 lui M4. Ridicarea mai devreme de către M4 nu afectează rezervarea lui M2.</p>
-</blockquote>
-<p><strong>R5:</strong> ordinea cererilor decide alocarea; o cerere cu exemplar rezervat nu mai așteaptă alocarea altuia. <strong>R2:</strong> fiecare membru poate ridica propriul exemplar rezervat.</p>
-<p><strong>S6:</strong> C2 a fost rezervat lui M2, apoi C1 lui M4. M4 ajunge primul la bibliotecă și ridică C1.</p>
-<p>Pe hârtie: acceptați constatarea? Indicați regula și starea celor două exemplare după ridicare.</p>
+<p>Toate cele trei rulări cu promptul A au fixat scadență, limită și penalități: <strong>o decizie repetată nu devine regula bibliotecii.</strong></p>
 </div>
-<div id="decizia-noastră-asupra-revizuirii" class="slide section level1">
-<h1>Decizia noastră asupra revizuirii</h1>
-<p><strong>Concluzia evaluatorului AI — <span class="nowrap">gpt-6.1-sol,</span> rularea 1:</strong></p>
+<div id="același-prompt-cu-r1r6" class="slide section level1">
+<h1>Același prompt, cu <span class="nowrap">R1–R6</span></h1>
+<p><strong>Fragmente din răspunsurile AI la promptul B — Claude Haiku 4.5, rularea 2:</strong></p>
 <blockquote>
-<p>Nu am identificat defecte în proiectarea prezentată față de <span class="nowrap">R1–R6</span> și <span class="nowrap">S1–S6.</span></p>
+<p>Sistemul este minimal, fără notificări, amende, expirare sau autentificare—doar stările și tranzițiile esențiale pentru logica de împrumut, returnare și așteptare.<br />
+[…] <strong>Acțiune</strong>: Înregistrare cerere în așteptare cu marcă temporală.</p>
 </blockquote>
-<p><strong>Decizia noastră:</strong> acceptăm proiectarea ca bază pentru etapa următoare. Aici am verificat S2 și S6; parcurgerea <span class="nowrap">S1–S6</span> din răspunsul integral a fost verificată înainte de curs.</p>
-<p><strong>Limita precizată de evaluatorul AI:</strong></p>
+<p><strong>Rularea 1:</strong></p>
 <blockquote>
-<p>Nu verifică o implementare, persistența datelor sau executarea efectivă a schimbărilor împreună.</p>
+<p>1. <strong>Cere împrumut</strong> → Dacă exemplar disponibil: împrumut imediat. Altfel: cerere în așteptare.</p>
 </blockquote>
-<p><strong>Următorul agent AI:</strong> poate elabora planul pentru fluxul cerere → rezervare → împrumut. Rămân de clarificat expirarea, notificările, accesul simultan de la mai multe ghișee și punerea în producție.</p>
+<p><strong>R4 (cerere de împrumut):</strong> cererea se acceptă numai dacă titlul nu are exemplare disponibile; altfel se respinge. <strong>R2 (împrumut):</strong> se împrumută un exemplar anume. <strong>R6 (delimitare):</strong> ordinea procesării stabilește prioritatea; notificările, amenzile și expirarea sunt excluse.</p>
+<p>Pe hârtie: pentru fiecare afirmație, regula care o susține sau „hotărât de agentul AI”.</p>
 </div>
-<div id="înainte-de-predare-ce-păstrează-rezumatul" class="slide section level1">
-<h1>Înainte de predare: ce păstrează rezumatul?</h1>
-<p><strong>Fragment din răspunsul AI — <span class="nowrap">gpt-6.1-sol,</span> analist, rularea 1:</strong></p>
-<blockquote>
-<p>Cererile sunt alocate în ordinea înregistrării, separat pentru fiecare titlu. O cerere cu exemplar rezervat nu mai participă la alocări. Ordinea ridicării poate fi diferită de ordinea alocării (R5).</p>
-</blockquote>
-<p><strong>Surse:</strong> R5 stabilește rezervarea și prioritatea; R2 permite ridicarea numai de către solicitant. R6 lasă expirarea în afara exercițiului.</p>
-<p>Ce <span class="nowrap">s-ar</span> pierde dacă rezumatul ar spune doar „cererile sunt servite în ordine”? Indicați distincția omisă și regula sursă.</p>
+<div id="decizia-noastră-deciziile-ascunse-devin-întrebări" class="slide section level1">
+<h1>Decizia noastră: deciziile ascunse devin întrebări</h1>
+<p><strong>Decizia noastră:</strong></p>
+<ul>
+<li>Din răspunsul la promptul A nu preluăm durata, limita, abonamentul, penalitățile, termenul de 48 de ore sau prioritatea. Fiecare devine o întrebare pentru bibliotecară; aici R2 (împrumut), R5 (ordinea cererilor) și R6 (delimitare) au răspuns deja.</li>
+<li>Din răspunsurile la promptul B păstrăm ce are sursă în <span class="nowrap">R1–R6.</span> Marca temporală rămâne o propunere, acceptată dacă păstrează ordinea procesării. „Împrumut imediat” nu îl preluăm: R4 (cerere de împrumut) respinge cererea, iar o transformare automată în împrumut ar fi o regulă nouă, de convenit cu bibliotecara.</li>
+</ul>
+<p><strong>Ce reținem:</strong> o omisiune din cerere devine o decizie în răspuns. Înainte de a accepta un răspuns AI, listăm ce a hotărât agentul AI în locul nostru și cine ar trebui să hotărască.</p>
+<p><em>Rulări selectate din câte trei pentru fiecare prompt; nu descriu comportamentul tipic al modelului.</em></p>
 </div>
 <div id="revedem-deciziile-și-sintetizăm" class="slide section level1 transition">
 <h1 class="transition">Revedem deciziile și sintetizăm</h1>
@@ -1001,7 +1027,7 @@ break-inside: avoid;
 <ol style="list-style-type: decimal">
 <li>De ce distingem un titlu de un exemplar fizic?</li>
 <li>Ce verificăm înainte să împrumutăm un exemplar?</li>
-<li>Ce justificare ați cere înainte de a accepta o constatare <span class="nowrap">dintr-o</span> revizuire?</li>
+<li>Numiți o decizie pe care un agent AI ar <span class="nowrap">lua-o</span> în locul bibliotecarei, dacă primește numai solicitarea ei. Cine trebuie <span class="nowrap">s-o</span> ia?</li>
 </ol>
 <p><strong>Cursul următor:</strong> formularea problemei și cerințele.</p>
 </div>

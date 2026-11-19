@@ -57,4 +57,4 @@ Sunt suficiente un glosar, un tabel, o schiță sau pseudocod. Nu se cere o apli
 
 ## Exercițiu de încheiere
 
-Fără AI, explicați distincția titlu–exemplar, ce verificăm înainte de împrumutul unui exemplar care poate fi rezervat și ce justificare cereți înainte de a accepta o constatare dintr-o revizuire.
+Fără AI, explicați distincția titlu–exemplar, ce verificăm înainte de împrumutul unui exemplar care poate fi rezervat și o decizie pe care un agent AI ar lua-o în locul bibliotecarei dacă primește numai solicitarea ei; precizați cine trebuie s-o ia.

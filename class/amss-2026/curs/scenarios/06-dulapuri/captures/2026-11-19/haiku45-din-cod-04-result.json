@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 12099,
+  "stop_reason": "end_turn",
+  "session_id": "55d9fa3b-2d7d-49d1-9300-87537000a329",
+  "total_cost_usd": 0.017665,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4288,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1816,
+    "output_tokens_details": {
+      "thinking_tokens": 1077
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4288,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1816,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4288,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4288
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1816,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4288,
+      "webSearchRequests": 0,
+      "costUSD": 0.017665,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1077,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4288,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Contractul operației atribuie\n\n**Precondițiile:**\n- v și d sunt identificatori valizi (vizitator, respectiv dulap)\n- Registrul R este o relație bijectivă: fiecare vizitator are cel mult un dulap, fiecare dulap cel mult un vizitator\n\n**Condiția de succes:**\n- Dulapul d nu este ocupat în R (d nu apare ca imagine în R)\n\n**Postcondițiile pentru rezultat = atribuit:**\n- Dacă v had o asociere (v, d') anterior, aceasta se elimină\n- Asocierea (v, d) se adaugă la R\n- R rămâne bijectivă\n- Orice alt vizitator și dulap neimplicat rămân neafectați\n\n**Postcondițiile pentru rezultat = refuz:**\n- Registrul R rămâne neschimbat\n- Dulapul d era ocupat (condiția de succes nu a fost îndeplinită)\n\n**Invarianți:**\n- R rămâne relație bijectivă după fiecare apel\n- Niciun vizitator nu are mai mult de un dulap\n- Niciun dulap nu are mai mult de un vizitator\n\n---\n\n# Cinci teste\n\n**Test 1:** Atribuire normală\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V3, D3)\n- Așteptat: atribuit\n- După: {V1–D1, V2–D2, V3–D3}\n\n**Test 2:** Reatribuire (schimbare de dulap)\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V1, D3)\n- Așteptat: atribuit\n- După: {V1–D3, V2–D2}\n\n**Test 3:** Refuz (dulapul ocupat)\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V3, D1)\n- Așteptat: refuz\n- După: {V1–D1, V2–D2}\n\n**Test 4:** Reatribuire la același dulap (idempotență parțială)\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V1, D1)\n- Așteptat: atribuit\n- După: {V1–D1, V2–D2}\n\n**Test 5:** Reasignare cu lanț de reatribuiri\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V2, D3)\n- Așteptat: atribuit\n- După: {V1–D1, V2–D3}",
+  "ttft_ms": 8255,
+  "type": "result",
+  "duration_ms": 12163,
+  "uuid": "33f01709-f509-49f6-b4a8-3e687c9d195f",
+  "ttft_stream_ms": 741,
+  "time_to_request_ms": 81,
+  "first_content_frame_ms": 741,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

@@ -1,6 +1,20 @@
-# Pregătirea analizei și revizuirii AI — înscrieri
+# Pregătirea secțiunii AI — înscrieri
 
-**Prompturi pregătite.** Pe baza lor s-au obținut la 12 noiembrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri; vezi [arhiva capturilor](../captures/2026-11-12/README.md). Prompturile, contextul și hash-ul de aici păstrează intrarea istorică; nu includ corecțiile ulterioare ale enunțului.
+## Garanțiile la graniță (de la 19 noiembrie 2026)
+
+Lecția AI a cursului, după decizia din 19 noiembrie 2026: **garanții pe care nu le oferă nimeni**. Studenții auditează afirmațiile unui text generat: pentru fiecare garanție, cine o oferă (registrul, site-ul, expeditorul sau nimeni) și ce regulă a enunțului o susține.
+
+`context-garantii.md` este enunțul curent (`../brief.md`, regulile R1–R7, starea inițială și scenariile, fără „Alegeri de proiectare” și „Sarcina de proiectare”) plus decizia B a cursului; hash-urile sunt în `context-garantii-metadata.json`. Trei instrucțiuni, fiecare urmată de context în fișierul `*-prompt.md` corespunzător:
+
+- `nota-operare-instructiune.md`: notă de proiectare pentru echipa de operare, cu o secțiune „Garanții”;
+- `garantii-instructiune.md`: interacțiunea și garanțiile pentru echipa de dezvoltare (consistența datelor, livrarea confirmărilor, repetarea cererilor);
+- `promisiuni-instructiune.md`: paragraful „Ce vă garantăm la înscriere” pentru participanți, cu justificare tehnică.
+
+Capturile reale (20 de rulări) și motivul selecției sunt în [arhiva din 19 noiembrie 2026](../captures/2026-11-19/README.md). Pentru capturi noi, păstrați aceleași fișiere sau salvați prompturi noi cu hash propriu, într-un dosar datat nou.
+
+## Analiza și revizuirea din 12 noiembrie 2026 (arhivate, nefolosite pe slide-uri)
+
+**Prompturi pregătite.** Pe baza lor s-au obținut la 12 noiembrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri până la 19 noiembrie 2026; vezi [arhiva capturilor](../captures/2026-11-12/README.md). Prompturile, contextul și hash-ul de aici păstrează intrarea istorică; nu includ corecțiile ulterioare ale enunțului.
 
 `analist-prompt.md` reunește instrucțiunea (`analist-instructiune.md`) și enunțul fără soluția de referință. `context.md` este contextul furnizat, cu versiunea identificată prin hash în `context-metadata.json`.
 

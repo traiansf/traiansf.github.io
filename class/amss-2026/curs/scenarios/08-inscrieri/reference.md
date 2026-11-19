@@ -61,7 +61,23 @@ A și B respectă R4; C contrazice regula beneficiarului, indiferent dacă mesaj
 
 ## Idempotență și atomicitate
 
-Idempotența privește efectul repetării asupra înscrierilor; egalitatea răspunsurilor este o cerință suplimentară din R5. Eliberarea repetată din cursul 6 era idempotentă, deși întorcea alt rezultat (`fara_dulap`). Rezultatul confirmării se poate modifica la reîncercare; de aceea spunem că `înscrie` este idempotentă față de înscrieri. Atomicitatea înseamnă că efectele unei operații se produc integral sau deloc; nu promitem atomicitate între registru și expeditor. Captura AI folosește impropriu acest termen, iar corecția noastră îl deosebește explicit de idempotență. Pentru sensul atomicității, vezi [PostgreSQL, Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html); exemplul nostru nu impune o bază de date. Pentru distincția efect–răspuns, vezi [RFC 9110, §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2).
+Idempotența privește efectul repetării asupra înscrierilor; egalitatea răspunsurilor este o cerință suplimentară din R5. Eliberarea repetată din cursul 6 era idempotentă, deși întorcea alt rezultat (`fara_dulap`). Rezultatul confirmării se poate modifica la reîncercare; de aceea spunem că `înscrie` este idempotentă față de înscrieri. Atomicitatea înseamnă că efectele unei operații se produc integral sau deloc; nu promitem atomicitate între registru și expeditor. Capturile AI (12 și 19 noiembrie 2026) folosesc impropriu acest termen („atomicitate pe cerere” pentru evitarea înscrierilor duble), iar corecția noastră îl deosebește explicit de idempotență. Pentru sensul atomicității, vezi [PostgreSQL, Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html); exemplul nostru nu impune o bază de date. Pentru distincția efect–răspuns, vezi [RFC 9110, §9.2.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2).
+
+## Cine oferă fiecare garanție
+
+Referința auditului din secțiunea AI (capturi din 19 noiembrie 2026):
+
+| Afirmația | Cine o oferă | Sprijin |
+|---|---|---|
+| locul rămâne la `esec`; nicio a doua înscriere; nu mai mulți participanți decât locuri | registrul | R3, R4, R5 |
+| același răspuns la reîncercare | registrul, dacă site-ul trimite același identificator | R5, R2; o cerere nouă a unui participant înscris primește `refuz` |
+| „atomicitate pe cerere” (fără înscrieri duble) | registrul, dar proprietatea este idempotența față de înscrieri | R3, R5 |
+| confirmarea primită, „imediat” | nimeni; expeditorul promite doar un răspuns | R6 |
+| retrimitere „automată” sau „periodică” | nimeni; registrul nu află livrarea, retrimiterea o cere site-ul la reîncercare sau un operator | R5, varianta B |
+| „consemnat permanent”, „atomice” (în registru) | nimeni; adevărat numai prin presupunerea R1 | R1 |
+| „livrarea efectivă nu este garantată” | limită corect enunțată | R6 |
+
+O garanție mai puternică despre livrare se cere furnizorului expeditorului, în interfața lui; registrul nu o poate scrie în locul lui.
 
 ## Transfer
 

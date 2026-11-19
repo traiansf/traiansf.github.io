@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 58846,
+  "stop_reason": "end_turn",
+  "session_id": "54dc7a0f-c898-4284-bd7d-915a019619a6",
+  "total_cost_usd": 0.064936,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5391,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 10829,
+    "output_tokens_details": {
+      "thinking_tokens": 10342
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5391,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 10829,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5391,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5391
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 10829,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5391,
+      "webSearchRequests": 0,
+      "costUSD": 0.064936,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 10342,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5391,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "```mermaid\nstateDiagram-v2\n    state \"Ciornă\" as Ciorna\n    state \"Trimis\" as Trimis\n    state \"În evaluare\" as Evaluare\n    state \"Acceptat\" as Acceptat\n    state \"Respins\" as Respins\n    state \"Retras\" as Retras\n    \n    [*] --> Ciorna\n    \n    Ciorna --> Ciorna: atașează(f) / file := f\n    Ciorna --> Trimis: trimite [file exists] / sent_at := now\n    \n    Trimis --> Evaluare: preia(e) / editor := e\n    Trimis --> Retras: retrage / withdrawn_at := now\n    \n    Evaluare --> Evaluare: înreg.raport(r) / reports := reports + r\n    Evaluare --> Acceptat: acceptă [report exists] / decided_at := now\n    Evaluare --> Respins: respinge [report exists] / decided_at := now\n    Evaluare --> Retras: retrage / withdrawn_at := now\n    \n    Acceptat --> [*]\n    Respins --> [*]\n    Retras --> [*]\n```\n\nDiagrama de stări reflectă ciclic de viață complet al manuscrisului: de la **Ciornă** (cu posibilitate de reatașare), prin **Trimis** și **Evaluare** (cu rapoarte acumulate), către stările finale **Acceptat**, **Respins** sau **Retras**. Transițiile refuzate (trimitere fără fișier, decizie fără raport, retragere din Ciornă, operații din stări finale) nu apar în diagramă conform regulilor. Datele înregistrate (fișier, editor, rapoarte, timpi) se păstrează la fiecare tranziție, iar stările finale n-au tranziții de ieșire.",
+  "ttft_ms": 55683,
+  "type": "result",
+  "duration_ms": 58932,
+  "uuid": "17cab3ac-441a-4794-8314-7dbef07d64de",
+  "ttft_stream_ms": 753,
+  "time_to_request_ms": 96,
+  "first_content_frame_ms": 754,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

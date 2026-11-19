@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 13748,
+  "stop_reason": "end_turn",
+  "session_id": "0d77e092-7481-4874-a065-46b6c550a91f",
+  "total_cost_usd": 0.017999,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4570,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1770,
+    "output_tokens_details": {
+      "thinking_tokens": 1162
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4570,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1770,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4570,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4570
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1770,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4570,
+      "webSearchRequests": 0,
+      "costUSD": 0.017999,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1162,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4570,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# CONTRACT OPERAȚIEI ATRIBUIE\n\n## Precondițiile\n- Identificatorii v și d sunt valizi și cunoscuți\n- Registrul curent respectă invariantul de unicitate (R2)\n- Vizitatorul și dulapul sunt entități distincte\n\n## Condiția de succes\nOperația reușește dacă și numai dacă: v **nu are dulap** ȘI d **este liber**.\n\n## Postcondițiile pentru **succes** (returnează \"atribuit\")\n- Registrul conține asocierea nouă (v, d)\n- Toate asocierile anterioare sunt păstrate nemodificate\n- Invariantul de unicitate se menține\n\n## Postcondițiile pentru **eșec** (returnează \"refuz\")\n- Registrul rămâne identic (nicio modificare)\n- Nicio asociere nu se adaugă, nicio asociere nu se șterge\n\n## Invarianții\n- **Unicitate vizitator:** fiecare v are cel mult un d\n- **Unicitate dulap:** fiecare d are cel mult un v\n- **Validitate:** registrul după operație este valid conform R2\n\n---\n\n# CINCI TESTE\n\n| **Test** | **Dinainte** | **Apel** | **Rezultat** | **După** |\n|----------|-------------|---------|--------------|----------|\n| 1 — Succes | B: {V1–D1, V2–D2}; V3 și D3 liberi | atribuie(V3, D3) | \"atribuit\" | {V1–D1, V2–D2, V3–D3} |\n| 2 — Refuz: vizitator ocupat | B | atribuie(V1, D3) | \"refuz\" | B (neschimbat) |\n| 3 — Refuz: dulap ocupat | B | atribuie(V3, D1) | \"refuz\" | B (neschimbat) |\n| 4 — Refuz: amândoi ocupați | B | atribuie(V1, D2) | \"refuz\" | B (neschimbat) |\n| 5 — Succes după eliberare | {V2–D2} (după eliberează(V1)) | atribuie(V1, D1) | \"atribuit\" | {V2–D2, V1–D1} |",
+  "ttft_ms": 10379,
+  "type": "result",
+  "duration_ms": 13872,
+  "uuid": "4d791495-9fd7-490d-8998-ae58c93f5c0e",
+  "ttft_stream_ms": 771,
+  "time_to_request_ms": 138,
+  "first_content_frame_ms": 771,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

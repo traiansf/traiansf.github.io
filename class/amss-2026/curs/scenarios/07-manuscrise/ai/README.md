@@ -13,3 +13,16 @@ Păstrați în `../captures/<data>/` prompturile exacte, versiunea contextului, 
 Observație pentru capturi viitoare: ambele analize și ambele revizuiri din 12 noiembrie 2026 au citit „accesibil” ca „într-un singur pas”. Enunțul curent definește explicit termenul; capturile actuale păstrează enunțul trimis atunci.
 
 Pentru o analiză nouă, reuniți `analist-instructiune.md` cu [enunțul curent](../brief.md). Furnizați evaluatorului AI exact aceeași versiune, sarcina și răspunsul integral. Salvați noul prompt și noul hash separat; nu suprascrieți metadatele capturilor existente.
+
+## Diagrama de stări generată — 19 noiembrie 2026
+
+De la 19 noiembrie 2026, segmentul AI al cursului predă că o diagramă randată nu este o diagramă corectă (vezi `docs/ai-lessons-and-lab-diagrams.md`); prompturile analistului și evaluatorului de mai sus rămân pentru arhiva din 12 noiembrie 2026.
+
+`context-diagrama.md` este enunțul curent fără titlul de versiune și fără sarcina de proiectare (care cere tabelul de tranziții); hash-urile sunt în `context-diagrama-metadata.json`. Fiecare prompt `diagrama*-prompt.md` = instrucțiunea corespunzătoare + `context-diagrama.md`:
+
+- `diagrama-instructiune.md`: diagrama de stări în Mermaid (stateDiagram-v2), cu stări, tranziții, evenimente și condiții;
+- `diagrama-v2-instructiune.md`: în plus, cerința de randare fără erori, cu `state "Nume" as X` pentru nume cu spații sau diacritice (adăugată după ce primele cinci răspunsuri nu s-au randat);
+- `diagrama-v3-instructiune.md`: etichete UML „eveniment [condiție] / efect asupra datelor”;
+- `diagrama-v4-instructiune.md`: o diagramă „compactă”, cu permisiunea unei stări compuse; prompt folosit pe slide-uri.
+
+Capturile și motivul selecției sunt în [`../captures/2026-11-19/`](../captures/2026-11-19/README.md).

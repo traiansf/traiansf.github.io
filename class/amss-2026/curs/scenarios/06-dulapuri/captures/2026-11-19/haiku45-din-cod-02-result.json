@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 22828,
+  "stop_reason": "end_turn",
+  "session_id": "8fbc48f2-15f0-4873-ac24-83fd6fdc4680",
+  "total_cost_usd": 0.023478,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4287,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2979,
+    "output_tokens_details": {
+      "thinking_tokens": 2249
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4287,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2979,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4287,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4287
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2979,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4287,
+      "webSearchRequests": 0,
+      "costUSD": 0.023478,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2249,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4287,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# CONTRACT: Operația `atribuie`\n\n## Precondițiile\n- Identificatorii v și d sunt valizi și cunoscuți\n- Registrul respectă invarianții inițiali\n\n## Condiția de succes\n- Dulapul d este liber la momentul verificării și operația se completează cu atribuit\n\n## Postcondițiile\n\n**Dacă rezultatul este `atribuit`:**\n- Perechea (v, d) este adăugată în registru\n- Orice asociere anterioară a vizitatorului v este eliminată\n- Alte asocieri rămân inmodificate\n- Vizitatorului v i se atribuie exact dulapul d\n\n**Dacă rezultatul este `refuz`:**\n- Dulapul d era ocupat în momentul verificării\n- Orice asociere anterioară a vizitatorului v este eliminată\n- Vizitatorului v nu i se atribuie un dulap\n- Alte asocieri rămân inmodificate\n\n## Invarianții\n- Funcția v → d este parțial injectivă: fiecare vizitator are cel mult un dulap\n- Funcția d → v este parțial injectivă: fiecare dulap are cel mult un vizitator\n- Registrul conține doar perechi cu identificatori valizi\n\n---\n\n# TESTE (pornindu-se din B = {V1–D1, V2–D2})\n\n**Test 1: Atribuire simplă la dulap liber**\n- Dinainte: B\n- Apel: atribuie(V3, D3)\n- Rezultat așteptat: atribuit\n- După: {V1–D1, V2–D2, V3–D3}\n\n**Test 2: Refuz pentru dulap ocupat**\n- Dinainte: B\n- Apel: atribuie(V3, D1)\n- Rezultat așteptat: refuz\n- După: {V1–D1, V2–D2}\n\n**Test 3: Realocare de vizitator la dulap liber**\n- Dinainte: B\n- Apel: atribuie(V1, D3)\n- Rezultat așteptat: atribuit\n- După: {V1–D3, V2–D2}\n\n**Test 4: Refuz la realocare cu dulap ocupat**\n- Dinainte: B\n- Apel: atribuie(V1, D2)\n- Rezultat așteptat: refuz\n- După: {V2–D2}\n\n**Test 5: Schimb indirect de dulapuri**\n- Dinainte: {V1–D2, V2–D1}\n- Apel: atribuie(V1, D3)\n- Rezultat așteptat: atribuit\n- După: {V1–D3, V2–D1}",
+  "ttft_ms": 18862,
+  "type": "result",
+  "duration_ms": 22896,
+  "uuid": "4cacac4b-38a8-4ca2-b5d6-1b1914bfa742",
+  "ttft_stream_ms": 710,
+  "time_to_request_ms": 80,
+  "first_content_frame_ms": 710,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

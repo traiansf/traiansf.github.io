@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 23485,
+  "stop_reason": "end_turn",
+  "session_id": "4d03d2ca-741e-4cef-8df2-3c2b0b2b69bf",
+  "total_cost_usd": 0.029684,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4290,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 4219,
+    "output_tokens_details": {
+      "thinking_tokens": 3537
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4290,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 4219,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4290,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4290
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 4219,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4290,
+      "webSearchRequests": 0,
+      "costUSD": 0.029684,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 3537,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4290,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Contract și Teste pentru Operația atribuie\n\n**CONTRACT**\n\n**Precondițiile:** v și d sunt identificatori valizi; registrul este consistent (funcție parțială bijectivă între vizitatori și dulapuri).\n\n**Condiția de succes:** Returnează `atribuit` și starea registrului reflectă noua asociere.\n\n**Postcondițiile:**\n- **Dacă atribuit:** v–d este adăugată în registru; orice asociere anterioară a lui v este eliminată; dulapul d nu era ocupat anterior.\n- **Dacă refuz:** registrul rămâne neschimbat; dulapul d era ocupat de alt vizitator.\n\n**Invarianții:**\n- Fiecare vizitator are cel mult un dulap.\n- Fiecare dulap are cel mult un vizitator.\n- Relația dintre vizitatori și dulapuri rămâne funcție parțială bijectivă.\n\n---\n\n**TESTE**\n\n**Test 1: Atribuire nouă**\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V3, D3)\n- Rezultat așteptat: atribuit\n- După: {V1–D1, V2–D2, V3–D3}\n\n**Test 2: Refuz pentru dulap ocupat (vizitator nou)**\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V3, D1)\n- Rezultat așteptat: refuz\n- După: {V1–D1, V2–D2}\n\n**Test 3: Schimbare de dulap pentru vizitator existent**\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V1, D3)\n- Rezultat așteptat: atribuit\n- După: {V2–D2, V1–D3}\n\n**Test 4: Refuz pentru dulap ocupat (vizitator cu dulap)**\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V1, D2)\n- Rezultat așteptat: refuz\n- După: {V1–D1, V2–D2}\n\n**Test 5: Refuz pentru dulap ocupat (alt vizitator)**\n- Dinainte: {V1–D1, V2–D2}\n- Apel: atribuie(V3, D2)\n- Rezultat așteptat: refuz\n- După: {V1–D1, V2–D2}",
+  "ttft_ms": 20876,
+  "type": "result",
+  "duration_ms": 23544,
+  "uuid": "f7a87c9d-5872-4b6e-be80-53fae4e5dab9",
+  "ttft_stream_ms": 713,
+  "time_to_request_ms": 71,
+  "first_content_frame_ms": 714,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

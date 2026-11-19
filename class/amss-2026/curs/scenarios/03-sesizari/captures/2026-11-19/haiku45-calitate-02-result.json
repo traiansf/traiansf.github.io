@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 13308,
+  "stop_reason": "end_turn",
+  "session_id": "1ebb5062-963e-464b-bc65-c98df555fe0c",
+  "total_cost_usd": 0.015817,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4954,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1180,
+    "output_tokens_details": {
+      "thinking_tokens": 394
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4954,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1180,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4954,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4954
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1180,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4954,
+      "webSearchRequests": 0,
+      "costUSD": 0.015817,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 394,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4954,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Cerințele de calitate pentru prima versiune\n\n## 1. Funcționalitate — Înregistrare sesizării\n\n**C1.1** Sistemul acceptă o sesizare nouă dacă și numai dacă câmpurile „loc\" și „descriere\" sunt ambele nevide. Orice încercare cu cel puțin un câmp gol este respingă cu indicarea exactă a câmpului lipsă și nu creează nicio înregistrare. Modalitate de măsurare: test manual cu 10 combinații (amândouă pline, amândouă goale, fiecare gol separat, cu spații).\n\n**C1.2** O sesizare acceptată primește un identificator unic și starea inițială „înregistrată\". Sistemul afișează imediat identificatorul și starea pe ecranul utilizatorului. Modalitate: verificare directă a răspunsului pentru minimum 5 sesizări noi.\n\n## 2. Funcționalitate — Schimbarea stării\n\n**C2.1** Administrația poate modifica starea doar pe tranzițiile: „înregistrată\" → „în lucru\" și „în lucru\" → „rezolvată\". Orice altă tentativă de schimbare (inclusiv repetarea stării curente) este respingă cu un mesaj de eroare și starea rămâne neschimbată. Modalitate: test cu 15 scenarii de tranziție valide și 10 invalide, verificare stare finală.\n\n**C2.2** Un student nu poate modifica starea sesizării sale. Orice cerere de modificare dintr-un cont student este respingă. Modalitate: autentificare ca student și tentativă de modificare a unei sesizări proprii; verificare că starea nu se schimbă.\n\n## 3. Acces și vizibilitate\n\n**C3.1** Un student vede doar sesizările pe care le-a creat; nu vede sesizări ale altor studenți. Administrația vede toate sesizările. Modalitate: verificare API/interfață cu 2 conturi student și 1 admin; fiecare student consultează 10 sesizări, se contează cele vizibile și se confiră că aparțin numai acelui student.\n\n## 4. Performanță\n\n**C4.1** Cu 10.000 sesizări existente și 20 de consultări simultane pe propriile sesizări, cel puțin 950 din 1.000 consultări valide afișează starea corectă în cel mult 2 secunde, măsurate de la acțiunea de consultare în browser la afișarea completă a stării. Modalitate: test de încărcare simulat pe rețeaua campusului; cronometrare din click până la randare HTML completă.\n\n## 5. Integritate\n\n**C5.1** O sesizare creare nu modifică autorul, identificatorul sau starea sesizărilor existente. Modalitate: 50 sesizări noi se creează paralel; se verifică că sesizările anterioare rămân neschimbate.",
+  "ttft_ms": 5381,
+  "type": "result",
+  "duration_ms": 13435,
+  "uuid": "dcc0a088-8899-4817-b932-991d6f9e6ecb",
+  "ttft_stream_ms": 979,
+  "time_to_request_ms": 179,
+  "first_content_frame_ms": 979,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

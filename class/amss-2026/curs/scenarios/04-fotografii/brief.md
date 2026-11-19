@@ -23,4 +23,4 @@ Inițial există F1 și F2, ambele cu legenda „Curte”. F1 are doar originalu
 
 Pentru discuție distingem identitatea, atributele, relațiile și restricțiile asupra lor. Un model al domeniului selectează conceptele care explică regulile; nu este automat proiectarea claselor sau a bazei de date.
 
-Fișa curentă explicitează formulări folosite la predare. [Contextul trimis la rulările AI](captures/2026-10-10/context.md) se păstrează în forma de la capturare.
+Fișa curentă explicitează formulări folosite la predare. [Contextul trimis la rulările AI din 10 octombrie 2026](captures/2026-10-10/context.md) și [cel din 19 noiembrie 2026](captures/2026-11-19/context-fapte.md) (R1–R5 și S1–S4) se păstrează în forma de la capturare.

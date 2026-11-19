@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 25331,
+  "stop_reason": "end_turn",
+  "session_id": "5be58c5a-343d-46f7-98d9-f727ba25aa62",
+  "total_cost_usd": 0.029706999999999997,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5334,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 3806,
+    "output_tokens_details": {
+      "thinking_tokens": 3470
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5334,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 3806,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5334,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5334
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 3806,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5334,
+      "webSearchRequests": 0,
+      "costUSD": 0.029706999999999997,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 3470,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5334,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "```mermaid\nstateDiagram-v2\n    [*] --> Ciornă\n    \n    Ciornă --> Ciornă: atașează(f)\n    Ciornă --> Trimis: trimite [fișier]\n    \n    Trimis --> \"În evaluare\": preia(e)\n    Trimis --> Retras: retrage\n    \n    \"În evaluare\" --> \"În evaluare\": înregistrează raport(r)\n    \"În evaluare\" --> Acceptat: acceptă [≥1 raport]\n    \"În evaluare\" --> Respins: respinge [≥1 raport]\n    \"În evaluare\" --> Retras: retrage\n    \n    Acceptat --> [*]\n    Respins --> [*]\n    Retras --> [*]\n```\n\nDiagrama include toate 6 stările și tranzițiile permise conform regulilor. Tranzițiile cu condiții sunt marcate între paranteze pătrate (fișier atașat pentru `trimite`, cel puțin un raport pentru `acceptă`/`respinge`). Stările finale — Acceptat, Respins, Retras — nu au tranziții de ieșire, iar tranzițiile refuzate (de exemplu `retrage` din Ciornă) nu apar în diagramă.",
+  "ttft_ms": 23242,
+  "type": "result",
+  "duration_ms": 25386,
+  "uuid": "6cb43f50-8557-4a79-a045-35c7d36bb52d",
+  "ttft_stream_ms": 704,
+  "time_to_request_ms": 66,
+  "first_content_frame_ms": 704,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

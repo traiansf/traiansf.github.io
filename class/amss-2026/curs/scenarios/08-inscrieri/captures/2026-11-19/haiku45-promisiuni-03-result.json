@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 30800,
+  "stop_reason": "end_turn",
+  "session_id": "765d4fb0-df68-4c86-83d6-c2e2e643795b",
+  "total_cost_usd": 0.026686,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5581,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 3103,
+    "output_tokens_details": {
+      "thinking_tokens": 2576
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5581,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 3103,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5581,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5581
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 3103,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5581,
+      "webSearchRequests": 0,
+      "costUSD": 0.026686,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2576,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5581,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## PARAGRAF PENTRU PARTICIPANȚI\n\n**Ce vă garantăm la înscriere**\n\nLocul dumneavoastră la atelier este garantat din momentul acceptării cererii. Confirmarea pe email este doar pentru informare – locul rămâne rezervat chiar dacă emailul nu ajunge la timp din motive tehnice. Dacă reîncercați aceeași cerere de mai multe ori (de exemplu, din cauza unei probleme de internet), nu veți ocupa mai mult de un loc. Dacă nu primți confirmarea, o putem retrimite la cererea voastră. Locurile sunt alocate în ordinea strict cronologică a cererilor primite.\n\n---\n\n## JUSTIFICARE TEHNICĂ\n\n**1. Garantie din acceptare (R3, R4)** – Registrul acceptă cererea și o consemnează imediat, înainte de orice comunicare externă. Acceptarea este irevocabilă și nu depinde de livrarea confirmării.\n\n**2. Email independent de loc (R4, R6)** – Eșecul expediției de confirmare nu anulează înscrierea. Locul e sigur indiferent dacă participantul primește mesajul. Sistemul prioritizează: participant înscris fără email > participant cu email fără loc.\n\n**3. Fără duplicate (R2, R5)** – Fiecare cerere are identificator unic. La reîncercare cu același identificator, sistemul returnează același răspuns și nu consumă alt loc.\n\n**4. Retransmitere (R5, decizie de proiectare)** – Starea confirmării (trimisă/netrimisă) se înregistrează. Reîncercările permit retransmiterea confirmărilor eșuate; operatorul poate apela `retrimite confirmările()`.\n\n**5. Prioritate cronologică (R1, R7)** – Apelurile site-ului sunt procesate secvențial. Locurile se alocă în ordinea strictă a sosirii cererilor, fără concurență.",
+  "ttft_ms": 27388,
+  "type": "result",
+  "duration_ms": 30887,
+  "uuid": "9e63cac1-728b-4ce1-ae30-f257d4402f8e",
+  "ttft_stream_ms": 755,
+  "time_to_request_ms": 94,
+  "first_content_frame_ms": 755,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

@@ -13,6 +13,30 @@ When a point below is settled, change the materials it names and delete it from 
 
 - **Lab 4: result of an accepted `anulează` (18 November 2026).** R6 in `lab/scenarios/04-comportament/scenario.md` names `refuz` for a refused cancellation but no result for an accepted one (R3 has `ridicat`); the prediction slide asks for „Rezultat” in S6/S7 and the notes say „anularea acceptată”. Decide whether R6 should name a result (for example `anulat`); it would touch the enunț, the reference, both deck variants and the guide. The archived captures used the enunț as sent and stay unchanged.
 
+- **Rework of 19 November 2026: points for the instructor** (`docs/ai-lessons-and-lab-diagrams.md`). Lectures:
+  - Lecture 2 keeps its 6-minute delegation introduction before the new exercise; shorten it?
+  - Lecture 3 slide 10 has a shorter „Reamintim” line (R1 and the excluded notifications only).
+  - Lecture 4's prompts leave out R6 and S5, so that only the requested form differs; its earlier, unchanged slides still ask for pair work.
+  - Lecture 5's AI context rewords R1 so that it does not name the shared operation. Counting the site's „1000,5” → 10 lei as an R1 violation is arguable (`parseInt`).
+  - Lecture 7's captured diagrams are tall and small in the PDF (HTML is readable). Should a theme or direction line be allowed on top of the captured code?
+  - Lecture 7's notes read `Acceptat --> [*]` as UML end notation, not as a transition. The selected prompt asks for a „compactă” diagram, which may have nudged the omission; this is disclosed.
+  - Lecture 7's slide-count convention (guide 37, build 36).
+  - Lecture 8: the capture context includes decision B. The rewritten participant promise 2 deliberately omits „centrul o poate retrimite”.
+- **Labs** (same rework):
+  - UML terms: association = „relație”, link = „asociere”, multiplicity = „cardinalitate”; new terms „nume de rol”, „atribut derivat”.
+  - Lab 3's reference uses the attribute `marcaj` (activă/ridicată/anulată), since „stare” names the whole register there. Should it be `stare` now?
+  - Lab 3's reference diagram notes are small on a projector: move the contracts to a second slide?
+  - Lab 2's reference diagram has invisible U+2800 padding to work around a Mermaid label bug.
+  - Workshop names are not uniform: „Atelier: …” in Labs 3–4, „etapa diagramei” in Lab 2, which avoids the repair „atelier”.
+  - Lab 1 keeps pairs in the workshop (individual drawing, then a check with the partner) and keeps the 90-minute change exercise.
+  - PlantUML is rendered as PNG in Lab 1, because PlantUML's PDF output drops diacritics.
+  - Lab 4:
+    - Final states are drawn without the UML final pseudostate (R8 keeps the data).
+    - The `ridicat`/`refuz` result returned to the desk is left off the diagram.
+    - „Ghișeul nu a primit răspunsul” became worksheet self-study.
+  - The plenary check needs internet on the instructor's computer for mermaid.live; a drawing on the board is the fallback.
+  - The reveal.js build was not checked with PlantUML or with Lab 4's Mermaid `themeCSS` init.
+
 ## Checks nobody has done yet
 
 - **Meyer quotation link.** On 27 October 2026 the author's stable page `https://bertrandmeyer.com/OOSC2/` resolved, but both the earlier PDF URL and the current download returned 404. Courses 6 and Lab 3 preserve the quotation previously verified in indexed primary text (§25.3, p. 873), with that limit explicit in notes and `docs/quotations.md`; recheck the page when the PDF is available.

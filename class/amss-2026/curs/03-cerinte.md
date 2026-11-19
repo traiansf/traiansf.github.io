@@ -148,9 +148,9 @@ Delimitarea trebuie convenită, nu dedusă din lipsa unei funcții în enunț. A
 
 # Ce știm și ce rămâne de convenit?
 
-**Reamintim:** R1 creează sesizarea cu număr unic, afișat studentului; R2 stabilește accesul. În afara primei versiuni: fotografii, notificări, repartizarea echipelor, prioritizarea, termenele.
+**Reamintim:** R1 (înregistrare) dă sesizării un număr unic, afișat studentului; notificările sunt excluse.
 
-**Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 2 fără clarificări, 10 octombrie 2026:**
+**Fragmente din răspunsul AI** (Claude Haiku 4.5, 10 octombrie 2026) la cererea administrației și „Propune o specificație concisă: cerințe funcționale, cerințe de calitate și trei exemple de acceptare. Răspunde în română, în maximum 500 de cuvinte.”
 
 | Afirmația din răspunsul AI | Ce tip de afirmație este acum? |
 |---|---|
@@ -158,12 +158,12 @@ Delimitarea trebuie convenită, nu dedusă din lipsa unei funcții în enunț. A
 | Confirmare imediată via email/mesaj cu ID-ul ticket-ului | ? |
 | 99% timp de funcționare | ? |
 
-Pentru fiecare: **informație convenită** (inclusă sau exclusă), **consecință dedusă**, **întrebare deschisă**, **ipoteză** de verificat sau **propunere** de discutat?
+Pentru fiecare: **informație convenită** (inclusă sau exclusă), **consecință dedusă**, **întrebare deschisă**, **ipoteză** sau **propunere**?
 
 ::: notes
 Unicitatea este informație convenită prin R1; generarea automată a numărului este o consecință dedusă: R1 spune că sistemul creează sesizarea cu număr unic, iar studentul indică doar locul și descrierea. Notificarea prin email/mesaj este exclusă explicit din prima versiune; R1 cere însă ca studentul să vadă numărul pe ecran. Disponibilitatea de 99% este o propunere de cerință de calitate, nediscutată cu administrația; ea ridică întrebări deschise: ce disponibilitate vrea administrația, pe ce perioadă și cum se măsoară.
 
-Modelul AI primise numai cererea inițială și sarcina de a propune o specificație, fără clarificări. Discutăm ce păstrăm după răspunsurile administrației, nu încălcarea unor reguli pe care nu le primise. Nici ipoteza, nici propunerea nu constituie un acord. Promptul integral apare pe slide-ul 24. Formulările și terminologia modelului AI sunt păstrate. Captura provine din a doua dintre cele două rulări inițiale, la 10 octombrie 2026.
+Modelul AI primise numai cererea inițială și sarcina de a propune o specificație, fără clarificări; promptul este pe slide: „Administrația campusului cere:”, cererea, apoi instrucțiunea citată. Discutăm ce păstrăm după răspunsurile administrației, nu încălcarea unor reguli pe care nu le primise. Nici ipoteza, nici propunerea nu constituie un acord. Cei 99% sunt primul exemplu de precizie fără sursă; îl reluăm în etapa despre numere, după Q1. Formulările și terminologia modelului AI sunt păstrate. Captura provine din a doua dintre cele două rulări inițiale, la 10 octombrie 2026; promptul este în `initial-prompt.md`.
 
 **Sursă:** `scenarios/03-sesizari/captures/2026-10-10/haiku45-initial-02-response.md`; două puncte din „Raportare problemă” și celula din rândul „Disponibilitate”, fără modificări de conținut.
 
@@ -420,157 +420,150 @@ Un lot reușit susține o afirmație limitată la condițiile verificării. Nu s
 
 ---
 
-# Verificăm răspunsurile AI față de sursă {.transition}
+# Numere precise: de unde vin? {.transition}
 
-Ce acceptăm, ce corectăm și ce rămâne de decis?
+Ce număr dintr-un răspuns AI are o sursă în enunț?
 
 ::: notes
-Revizuirea confruntă fiecare afirmație cu sursa și cu exemplele. Urmărim trei contexte AI distincte: cererea inițială; analiza cu reguli clarificate; revizuirea acelei analize. Toate răspunsurile provin din rulări reale cu Claude Haiku 4.5.
+Un număr precis pare măsurat sau convenit. Urmărim fiecare număr dintr-un răspuns AI până la o regulă a enunțului; dacă nu găsim una, numărul este o propunere, oricât de exact ar fi. Legătura cu etapele anterioare: Q1 a cerut o discuție cu administrația pentru fiecare valoare, iar „99% timp de funcționare”, clasificat la început, era deja un număr fără sursă.
 
-**Organizare:** minutul 65 din 100; interval 65–90 (25 min): tranziție și trei prompturi, 7 min; trei comparații cu răspunsurile, câte 5 min; 3 min pentru întrebări. []{.pace at=65}
+**Organizare:** minutul 65 din 100; interval 65–90 (25 min): promptul 3, trei fragmente de urmărit câte 4, tabelul nostru 4, decizia 3, întrebări 3. []{.pace at=65}
 :::
 
 ---
 
-# Promptul inițial: fără clarificări
+# Cerem cerințe de calitate verificabile
 
-**Prompt integral, într-un context nou (fără reguli convenite sau conversație anterioară):**
-
-> Administrația campusului cere:
->
-> „Acum primim sesizări despre defecțiuni prin mesaje și telefon. Studenții revin să întrebe dacă s-a făcut ceva. Vrem să poată raporta o problemă și să-i vadă rapid starea.”
->
-> Propune o specificație concisă: cerințe funcționale, cerințe de calitate și trei exemple de acceptare. Răspunde în română, în maximum 500 de cuvinte.
-
-*Claude Haiku 4.5 prin Claude Code, 10 octombrie 2026, două rulări independente. Din a doua provin și fragmentele de mai devreme (ticket unic, email/mesaj, 99%).*
-
-::: notes
-Cererea lasă deschise politicile și criteriile de calitate. Un răspuns util poate propune variante, dar trebuie să distingem propunerile de acordul beneficiarului. Nu cerem modelului AI să greșească și nu îi furnizăm un răspuns de imitat.
-
-**Sursă:** `scenarios/03-sesizari/captures/2026-10-10/initial-prompt.md`, integral. Două rulări independente, model declarat `claude-haiku-4-5`, Claude Code 2.1.294, fără unelte, în directoare temporare goale. Ambele încercări sunt păstrate.
-
-**Organizare:** 2 min; rulările au fost făcute înainte de curs. []{.pace dur=2}
-:::
-
----
-
-# Răspunsul AI completează ce beneficiarul nu a spus
-
-**Cererea** nu precizează praguri de timp, redeschiderea sau închiderea automată. Între timp am convenit Q1 (afișare în cel mult 2 secunde, în condiții stabilite) și R4 (fără redeschidere).
-
-**Fragmente din răspunsul AI la promptul anterior (rularea 2):**
-
-> < 2 secunde pentru încărcarea paginii
-
-*Exemplul de acceptare 3:*
-
-> CÂND: Admin încarcă o poză cu reparația și marchează "Rezolvat"\
-> ATUNCI: Maria vede starea "Rezolvat" și fotografia reparației\
-> ȘI: poate cere reluarea dacă crede că nu e bine\
-> ȘI: după 3 zile fără răspuns, ticket se marchează "Închis"
-
-În perechi: **ce trebuia convenit cu administrația pentru fiecare propunere?**
-
-::: notes
-Primul fragment introduce un prag și alege încărcarea paginii ca operație măsurată. Studenții pot observa că și Q1 are 2 secunde: valoarea coincide, dar propunerea măsoară altă operație, folosește „<” în loc de „cel mult” și nu are condiții sau lot. Al doilea fragment adaugă, după „Rezolvat”, o cerere de reluare (redeschiderea este exclusă), o stare nouă și închiderea automată dacă studentul nu reacționează în 3 zile. Cererea nu justifică aceste alegeri; ele pot fi discutate ca propuneri, nu tratate ca acord deja obținut.
-
-Promptul cerea explicit cerințe de calitate, fără să ceară separarea propunerilor de informațiile convenite: o valoare propusă era previzibilă. Promptul analistului AI cere această separare. Nu afirmăm că modelul AI a încălcat R1–R4 sau Q1: nu le primise. Prima încercare inventează, între altele, o promisiune de verificare în 24 de ore; a doua, selectată aici, are exemple mai scurte. Ambele încercări au introdus detalii neconfirmate; selecția nu măsoară comportamentul tipic al modelului AI.
-
-**Sursă:** `haiku45-initial-02-response.md`, celula din rândul „Timp de răspuns” și cele patru linii din „Exemplul 3: Ticket închis”, în formatul CÂND/ATUNCI/ȘI al răspunsului (Given/When/Then). Fragmente literale; analiza este a profesorului.
-
-**Organizare:** 5 min: 2 în perechi, 3 pentru răspunsuri. []{.pace dur=5}
-:::
-
----
-
-# Promptul analistului AI: reguli convenite
-
-**Context nou:** cererea inițială, R1–R4, Q1 și excluderile discutate. Fără primul răspuns AI sau soluția profesorului.
+**Context nou:** cererea administrației, R1–R4, Q1 și excluderile, în formularea enunțului; fără conversație anterioară sau soluția profesorului.
 
 **Instrucțiunea exactă, la finalul promptului:**
 
-> Organizează cerințele convenite și scrie trei exemple de acceptare. Pentru fiecare indică regula sursă. Separă întrebările deschise de cerințe; nu introduce reguli sau funcții noi. Păstrează condițiile și pragul lui Q1. Răspunde în română, în maximum 450 de cuvinte.
+> Pe baza enunțului, scrie cerințele de calitate pentru prima versiune a sistemului. Fiecare cerință trebuie să fie verificabilă: un prag numeric, condițiile în care se aplică și modul de măsurare. Răspunde în română, în maximum 350 de cuvinte.
 
-*Claude Haiku 4.5, două rulări independente cu aceeași intrare, 10 octombrie 2026.*
+**Singura cerință de calitate din enunț, Q1 (timpul de consultare):** în rețeaua campusului, cu 10.000 de sesizări existente și 20 de consultări simultane, cel puțin 950 dintr-un lot de 1.000 de consultări valide ale propriilor sesizări afișează starea corectă în cel mult 2 secunde, de la acțiunea de consultare în browser.
+
+**Predicție:** ce numere va conține răspunsul, în afara celor din Q1?
 
 ::: notes
-Contextul cu răspunsurile administrației înlocuiește ipotezele cu informații convenite. Un context nou permite să observăm analiza regulilor furnizate fără influența primei propuneri. Nu este o continuare ascunsă a conversației inițiale.
+Instrucțiunea cere un prag numeric pentru fiecare cerință, dar enunțul are un singur prag convenit. Un răspuns poate fie să se limiteze la Q1 și să semnaleze ce lipsește, fie să completeze singur pragurile. Nu cerem modelului AI să greșească; o cerere de cerințe măsurabile este una obișnuită.
 
-**Sursă:** instrucțiune integrală din `analist-instructiune.md`. `analist-prompt.md` include și copia nemodificată a contextului din `context-clarificat.md`: cererea și regulile consolidate, fără soluția de referință. Regulile relevante pentru exercițiul următor sunt repetate pe acel slide.
+**Sursă:** `scenarios/03-sesizari/captures/2026-11-19/calitate-prompt.md`: o propoziție de introducere, enunțul copiat din `brief.md` (cererea, limitele, R1–R4, Q1, excluderile) și instrucțiunea de pe slide, integrală. Claude Code, model cerut `claude-haiku-4-5`, 19 noiembrie 2026, trei rulări în contexte noi, fără unelte.
 
-**Organizare:** 2 min. []{.pace dur=2}
+**Organizare:** 3 min; notați pe tablă două-trei predicții. []{.pace dur=3}
 :::
 
 ---
 
-# Ce pierde rezumatul unei cerințe?
+# Urmăriți fiecare număr până la sursă (1)
 
-**Fragment din răspunsul AI — Claude Haiku 4.5, analist AI, rularea 1, 10 octombrie 2026:**
+**Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 1:**
 
-> Cu 10.000 sesizări și 20 consultări simultane, cel puțin 950/1.000 consultări asupra propriilor sesizări afișează stare corectă în ≤ 2 secunde.
+> **CQ1 — Înregistrare validă** […] Măsurare: 100% dintre sesizările complete sunt create cu identificator; 0% dintre sesizările incomplete sunt acceptate; eroarea se afișează în max 1 secundă.
+>
+> **CQ3 — Acces controlat — administrație** […] Măsurare: […] 100% din tranzițiile valide sunt aplicate în max 1 secundă; 100% din tranzițiile invalide sunt respinse cu mesaj.
 
-**Q1, în contextul primit de analistul AI:** aceleași valori, dar și **rețeaua campusului** și intervalul măsurat, **de la acțiunea de consultare în browser până la afișarea stării**.
+**R1 (înregistrare):** cu locul și descrierea nevide se creează o sesizare cu număr unic; altfel nu se creează. **R4 (schimbarea stării):** numai administrația schimbă „înregistrată” → „în lucru” → „rezolvată”; altă schimbare se respinge. **Q1 (timpul de consultare)** fixează un timp numai pentru consultare.
 
-Pe hârtie: ce s-ar putea măsura diferit dacă transmitem mai departe numai rezumatul? **Rescrieți cerința, păstrând toate condițiile.**
+Pe hârtie, un tabel: **număr din răspuns → regula sursă** sau **nesusținut**.
 
 ::: notes
-Lipsesc rețeaua și punctele de măsurare. Cineva ar putea măsura doar răspunsul serverului, ignorând timpul până la afișarea în browser, sau ar putea evalua în altă rețea. Numerele corecte nu compensează pierderea condițiilor.
+100% și 0% din CQ1 reformulează R1: regula se aplică fiecărei trimiteri, deci „toate” și „niciuna” decurg din ea. La fel 100% din CQ3, din R4. „Max 1 secundă” apare de două ori și nu are sursă: Q1 fixează un timp numai pentru consultare, iar despre afișarea erorii sau aplicarea unei schimbări enunțul nu spune nimic. Un număr nesusținut stă lângă unele susținute, în aceeași propoziție și cu aceeași siguranță.
 
-Corecția profesorului: cu 10.000 de sesizări și 20 de consultări simultane în rețeaua campusului, cel puțin 950 din 1.000 de consultări valide ale propriilor sesizări afișează starea corectă în cel mult 2 secunde de la acțiunea de consultare în browser. Aceasta păstrează rezultatul, punctele de măsurare, încărcarea și pragul. Acceptăm formulări echivalente.
+**Sursă:** `haiku45-calitate-01-response.md`: titlurile CQ1 și CQ3, cu descrierea omisă și linia „Măsurare” alăturată titlului; linia „Măsurare” a lui CQ1 integral, a lui CQ3 fără prima parte („100% dintre sesizările sistemului sunt vizibile;”). În răspuns, CQ2 are și el „max 1 secundă”.
 
-**Sursă:** `haiku45-analist-01-response.md`, prima propoziție din Q1, integrală. Și a doua încercare omite rețeaua și punctele de măsurare; prima a fost selectată pentru formularea compactă. Nu generalizăm din două rulări.
-
-**Organizare:** 5 min: 2 pentru corectare pe hârtie, 3 pentru discuție. []{.pace dur=5}
+**Organizare:** 4 min: 2 individual, 2 pentru răspunsuri. []{.pace dur=4}
 :::
 
 ---
 
-# Promptul evaluatorului AI
+# Urmăriți fiecare număr până la sursă (2)
 
-**Evaluator (agent AI de revizuire), context separat:** cererea, regulile convenite și excluderile, plus răspunsul integral al analistului AI (rularea 1); fără sarcina analistului AI și fără corecția profesorului.
+**Fragment din același răspuns AI (rularea 1):**
 
-**Instrucțiunea exactă, la finalul promptului:**
+> **CQ5 — Performanță de consultare (Q1)** […]\
+> Măsurare: Cu 10.000 sesizări în sistem și 20 consultări simultane, minimum 950 din 1.000 consultări valide afișează starea corectă în maxim 2 secunde; […]\
+> Condiții: 20 utilizatori simultani; fiecare cu 50 sesizări în portofoliu; bază de date cu 10.000 înregistrări; măsurare din acțiunea de consultare la afișare completă.
 
-> Revizuiește specificația față de cererea și regulile convenite, fără să o rescrii. Pentru fiecare constatare, citează afirmația și regula relevantă și explică efectul printr-un exemplu. Distinge erorile și omisiunile de alegerile de proiectare sau extinderi. Precizează și ce este corect și limitele verificării. Răspunde în română, în maximum 450 de cuvinte.
+**Q1 (timpul de consultare):** în rețeaua campusului, cu 10.000 de sesizări existente și 20 de consultări simultane, cel puțin 950 dintr-un lot de 1.000 de consultări valide ale propriilor sesizări afișează starea corectă în cel mult 2 secunde, de la acțiunea de consultare în browser.
 
-*Claude Haiku 4.5, două rulări independente cu aceeași intrare, 10 octombrie 2026.*
-
-**Predicție, înainte de a vedea răspunsul AI:** va semnala evaluatorul AI cele două condiții pe care le-ați restabilit?
+Continuați tabelul. Un număr care apare și în Q1 înseamnă același lucru? Ce condiție din Q1 lipsește?
 
 ::: notes
-Evaluatorul AI primește sursa, nu doar rezumatul de examinat. Cele două rulări de revizuire sunt independente și primesc același răspuns al analistului AI (rularea 1), inclusiv secțiunile care nu apar pe slide-uri. Nu îi semnalăm în prompt omisiunea descoperită de noi și nu îi cerem un număr minim de defecte. Evaluatorul AI nu a primit sarcina analistului AI, care cerea explicit păstrarea condițiilor din Q1; în laborator o furnizăm. Nu știm dacă ar fi schimbat rezultatul.
+10.000, 20 de consultări simultane, 950 din 1.000 și 2 secunde vin din Q1. „20 utilizatori simultani” nu este același lucru cu 20 de consultări simultane: un utilizator poate face mai multe consultări sau niciuna. „50 sesizări în portofoliu” nu are sursă: Q1 nu fixează setul de date. Punctele de măsurare sunt păstrate; lipsește rețeaua campusului.
 
-**Sursă:** instrucțiune integrală din `evaluator-instructiune.md`; intrarea completă în `evaluator-prompt.md`. Claude Haiku 4.5, două contexte noi, 10 octombrie 2026.
+**Sursă:** `haiku45-calitate-01-response.md`: din CQ5, linia „Măsurare” până la omisiunea marcată și linia „Condiții”, integral.
 
-**Organizare:** 2 min pentru prompt; cereți predicțiile prin ridicarea mâinii, fără discuție, și comparați-le cu răspunsul pe slide-ul următor. []{.pace dur=2}
+**Organizare:** 4 min: 2 individual, 2 pentru răspunsuri. []{.pace dur=4}
 :::
 
 ---
 
-# Ce semnalează evaluatorul AI?
+# Urmăriți fiecare număr până la sursă (3)
 
-**Fragment din răspunsul AI — Claude Haiku 4.5, evaluator AI, rularea 1, 10 octombrie 2026:**
+**Fragmente din același răspuns AI (rularea 1):**
 
-> **Q1**: Pragul de performanță este transcris exact, […]
+> **CQ4 — Independență sesizări** […]\
+> Măsurare: După 1.000 de operații pe sesizări diferite, 100% dintre sesizările neafectate păstrează identificatorul și starea anterioară. […]
+>
+> **CQ6 — Corectitudine sub concurență** […]\
+> Măsurare: 0 stări invalide; 100% consistență după operații concurente.\
+> Condiții: 2+ cereri de schimbare de stare în paralel pe aceeași sesizare.
 
-**Comparația noastră: Q1 față de specificația analistului AI**
+**R3 (sesizări repetate):** o sesizare nouă nu modifică autorul, numărul sau starea uneia existente. **Limită convenită:** exemplele de actualizare pornesc din stările indicate și nu analizează concurența actualizărilor.
 
-| Element din Q1 | Păstrat de analistul AI? |
-|---|---|
-| Cel puțin 950/1.000 în cel mult 2 secunde | Da |
-| Rețeaua campusului | Nu |
-| Acțiunea de consultare în browser → afișarea stării | Nu |
-
-**Decizia noastră:** restabilim cele două condiții înainte de a transmite specificația; acordul evaluatorului AI nu înlocuiește comparația cu sursa.
+Continuați tabelul: ce cere enunțul și ce a adăugat agentul AI?
 
 ::: notes
-Nu transformăm observația despre prag într-o afirmație că întregul Q1 ar fi verificat. Numerele sunt transcrise corect, dar evaluatorul AI nu identifică pierderea rețelei și a intervalului măsurat. În „Limitări ale Verificării”, el amintește configurația rețelei și browserul doar ca limite ale verificării, nu ca omisiuni din Q1-ul analistului AI.
+„1.000 de operații” este dimensiunea unei verificări alese de agentul AI; R3 cere rezultatul, nu un număr de operații. 100% reformulează R3: nicio sesizare existentă nu se schimbă. CQ6 este o cerință nouă: enunțul lasă concurența actualizărilor în afara exercițiului, iar „2+ cereri în paralel” nu are sursă. 0 și 100% din CQ6 par riguroase, dar măsoară o cerință pe care nimeni nu a convenit-o.
 
-Revizuirea are și o constatare utilă: „afișează confirmarea” nu spune explicit că se afișează numărul și starea, așa cum cere R1. Nu prezentăm tot răspunsul ca greșit. Cealaltă rulare discută alte omisiuni, dar nu semnalează nici ea cele două condiții din Q1.
+**Sursă:** `haiku45-calitate-01-response.md`: din CQ4, titlul și linia „Măsurare”, cu descrierea și condițiile omise; din CQ6, titlul, cu descrierea omisă, și liniile „Măsurare” și „Condiții”, integral.
 
-**Sursă:** `haiku45-evaluator-01-response.md`, începutul punctului Q1 din „Alinieri Corecte”, cu finalul omis explicit. Tabelul și decizia sunt analiza profesorului. Toate cele șase încercări sunt păstrate, inclusiv cele nefolosite pe slide-uri.
+**Organizare:** 4 min: 2 individual, 2 pentru răspunsuri. []{.pace dur=4}
+:::
 
-**Organizare:** 8 min: 5 pentru compararea predicțiilor cu răspunsul și diferența dintre confirmarea unui prag și verificarea cerinței întregi, 3 pentru întrebări; treceți la exercițiul final la minutul 90. []{.pace dur=8}
+---
+
+# Tabelul de proveniență
+
+**Comparația noastră** (răspunsul AI, rularea 1, față de enunț):
+
+| Număr din răspuns | Sursa în enunț și verdictul nostru |
+|------------------------------------|--------------------------------------------------|
+| 100%, 0% (CQ1, CQ3, CQ4) | R1–R4 privesc fiecare cerere: **susținut**. |
+| Max 1 secundă (CQ1–CQ3) | Q1 (timpul de consultare) nu o cere: **nesusținut**. |
+| 10.000, 20, 950 din 1.000, 2 s (CQ5) | Q1: **susținut**; lipsește rețeaua campusului. |
+| 20 de utilizatori simultani (CQ5) | Q1 spune 20 de consultări: **schimbat**. |
+| 50 de sesizări pe utilizator (CQ5) | Setul de date nu este stabilit: **nesusținut**. |
+| 1.000 de operații (CQ4) | R3 (sesizări repetate) nu cere un număr: **nesusținut**. |
+| 2+ cereri în paralel (CQ6) | Concurența este exclusă: **nesusținut**. |
+
+::: notes
+Tabelul este verificarea noastră, nu o continuare a răspunsului AI. Procentele de 100% și 0% sunt susținute pentru că reformulează reguli: „fiecare” și „niciuna”. Cele trei verdicte cer acțiuni diferite: ce este susținut păstrăm, ce este schimbat corectăm după sursă, ce este nesusținut ducem la administrație sau scoatem. Răspunsul nu marchează nicăieri această diferență: „max 1 secundă” și „2 secunde” au aceeași formă.
+
+**Organizare:** 4 min; comparați cu tabelele studenților. []{.pace dur=4}
+:::
+
+---
+
+# Decizia noastră: precis nu înseamnă convenit
+
+**Decizia noastră:**
+
+- Păstrăm CQ5 cu valorile din Q1 (timpul de consultare), cu 20 de **consultări** simultane, și adăugăm rețeaua campusului.
+- „Max 1 secundă” pentru erori și schimbări de stare devine o întrebare pentru administrație: contează acest timp? Dacă da, cu ce prag și în ce condiții?
+- 50 de sesizări pe utilizator și 1.000 de operații sunt propuneri pentru planul de verificare, nu cerințe.
+- 100% și 0% le putem scrie mai simplu, ca reguli: „fiecare”, „niciuna”.
+
+**Ce reținem:** un număr precis nu este și un număr convenit. Fiecare număr dintr-o cerință are o sursă sau o persoană care trebuie să-l confirme.
+
+*Rulare selectată din trei; în altă rulare, singurul prag de timp a fost cel din Q1.*
+
+::: notes
+CQ6 nu se păstrează: concurența actualizărilor este în afara exercițiului; dacă administrația o vrea, este o cerință nouă, de convenit. Rularea 2 a păstrat Q1 integral, dar a ales numere pentru teste (10 combinații, 15 tranziții valide). Rularea 3 a folosit numai valorile din Q1 și procente de 100% care reformulează regulile. Selecția arată un risc posibil, nu comportamentul tipic al modelului AI.
+
+**Sursă:** arhiva `scenarios/03-sesizari/captures/2026-11-19/README.md` păstrează toate cele trei rulări și motivul selecției.
+
+**Organizare:** 3 min, apoi 3 min pentru întrebări; treceți la exercițiul final la minutul 90. []{.pace dur=6}
 :::
 
 ---

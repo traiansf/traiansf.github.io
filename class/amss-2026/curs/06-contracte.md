@@ -498,115 +498,147 @@ Refuzul este un rezultat promis, deci trebuie produs mereu; un `assert` poate fi
 
 ---
 
-# Verificăm un contract delegat {.transition}
+# Cine a verificat pe cine? {.transition}
 
-O formulare convingătoare spune tot ce avem nevoie?
+Testele trec. Ce au verificat?
 
 ::: notes
-Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.311, la 27 octombrie 2026, fără unelte și fără contextul proiectului. Evaluatorul (agent AI de revizuire) a primit într-un context nou enunțul, sarcina și răspunsul integral. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
+Revenim la operația greșită din etapa anterioară. Am cerut unui asistent AI contractul și testele ei, o dată pornind de la pseudocod, o dată pornind de la reguli. Un contract și niște teste scrise după cod descriu ce face codul, cu tot cu defect: confirmă implementarea, nu o verifică. Este observația de pe slide-ul „Ce poate și ce nu poate stabili o verificare?”, întâlnită acum la un asistent AI.
 
-**Organizare:** minutul 80 din 100; interval 80–95 (15 min): sarcină 3, analiză 4, promptul evaluatorului AI 2, revizuire 4, decizie 2. []{.pace at=80}
+**Sursă:** capturi reale obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.328, la 19 noiembrie 2026, fără unelte și fără contextul proiectului, fiecare încercare într-un context nou. Am rulat patru încercări pornind de la pseudocod și două pornind de la reguli și am ales câte una pentru discuție; selecția nu descrie comportamentul tipic al modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
+
+**Organizare:** minutul 80 din 100; interval 80–95 (15 min): cererile 2, contractul scris din cod 3, testele 4, contractul scris din reguli 3, decizie 3. []{.pace at=80}
 :::
 
 ---
 
 # Ce cerem asistentului AI?
 
-> Propune contractele pentru atribuie și elibereaza: precondiții, condiții de succes, postcondiții pentru fiecare rezultat, invarianți și ce rămâne neschimbat. Verifică S1–S6. Nu scrie cod. Răspunde în română, în maximum 400 de cuvinte.
+**Cererea A, instrucțiunea exactă:**
 
-**Context:** identificatori cunoscuți; apeluri secvențiale; cel mult un dulap pentru fiecare vizitator și invers. Atribuim dacă vizitatorul nu are dulap și dulapul este liber; altfel refuz fără modificări. Eliberăm numai asocierea vizată; dacă lipsește, `fara_dulap`. Restul se păstrează.
+> Scrie contractul operației atribuie de mai jos: precondițiile, condiția de succes, postcondițiile pentru fiecare rezultat și invarianții. Apoi scrie cinci teste pentru ea, fiecare cu registrul dinainte, apelul, rezultatul așteptat și registrul așteptat după. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.
 
-**Date:** B = V1–D1, V2–D2; V3 fără dulap, D3 liber. **Scenariile S1–S6:** succesul, fiecare motiv de refuz, eliberarea repetată și repetarea atribuirii.
+**Context trimis:** un vizitator are cel mult un dulap, iar un dulap cel mult un vizitator; identificatori cunoscuți, apeluri secvențiale; rezultatele `atribuit` și `refuz`; **pseudocodul operației greșite de mai devreme**; B = V1–D1, V2–D2, V3 fără dulap, D3 liber. **Fără regula atribuirii.**
 
-::: notes
-Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral. Un evaluator (agent AI de revizuire) a primit apoi și sarcina exactă, pentru a judeca propunerea față de ce s-a cerut.
+**Cererea B,** într-un context nou: aceeași instrucțiune, cu „din regulile de mai jos”; contextul are regulile R1–R5 și B, fără pseudocod.
 
-**Organizare:** 3 min. []{.pace dur=3}
-:::
-
----
-
-# Ce promite această propunere?
-
-**Analistul AI — Claude Haiku 4.5, 27 octombrie 2026; fragmente din contract și din verificare:**
-
-> **Condiția de succes:** v nu are dulap asociat. d este liber (nu e ocupat).
->
-> **Postcondițiile pentru eșec (`refuz`):** Registrul este identic cu cel inițial […]
->
-> **Invarianți:** Unicitatea: un vizitator ↔ cel mult un dulap; un dulap ↔ cel mult un vizitator. […] Toate asocierile (v', d') cu v' ≠ v și d' ≠ d se păstrează.
->
-> **Verificare S1–S6:** […] S1 și S5.1 reușesc […]; S2–S4, S5.2, S6 se refuză […]
-
-**Reguli:** succes numai dacă v nu are dulap și d este liber; altfel refuz, cu registrul identic; la succes se păstrează celelalte asocieri; eliberarea fără asociere întoarce `fara_dulap`.
-
-Ce rol are fiecare afirmație? Care se verifică într-o singură stare? Ce întoarce al doilea pas din scenariul S5 (eliberare repetată a lui V1)?
+**Predicție:** va semnala răspunsul la cererea A că refuzul pierde asocierea veche?
 
 ::: notes
-Condiția de succes este separată corect de precondiții, iar refuzul păstrează registrul, cum cere R3 (atribuire). Unicitatea este un invariant: se verifică într-o singură stare. „Toate asocierile … se păstrează” compară starea de după cu cea de dinainte: este o postcondiție de efect limitat, R5 (efect limitat), nu un invariant. Regula este corectă și apare și la „Ceea ce rămâne neschimbat”, dar este trecută și printre invarianți; la fel „seturile de vizitatori și dulapuri rămân neschimbate”, omis aici. În încheierea răspunsului, proiectată în ultimul fragment, a doua eliberare din S5 este numărată printre refuzuri, deși întoarce `fara_dulap`. În aceeași încheiere, în partea omisă de pe slide, „precondițiile de succes” înseamnă, în vocabularul nostru, condiția de succes; cuvântul „precondiție” este acolo impropriu, cum am arătat la „dulap liber”.
+Cererea A este o cerere obișnuită: „scrie contractul și testele pentru acest cod”. Contextul ei conține unicitatea, dar nu R3 (atribuire): asistentul AI nu are de unde ști ce trebuia să facă operația, ci doar ce face. „Test” este cuvântul din cerere; în vocabularul nostru, un test de acest fel este un scenariu: starea dinainte, apelul, rezultatul așteptat.
 
-**Organizare:** 4 min: răspuns individual, apoi discuție. []{.pace dur=4}
-:::
-
----
-
-# Promptul evaluatorului AI
-
-**Evaluator (agent AI de revizuire), context nou:** enunțul, sarcina analistului AI și răspunsul integral; fără corecțiile noastre.
-
-**Instrucțiunea exactă, la începutul promptului:**
-
-> Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret. Verifică precondițiile, condițiile de succes, fiecare rezultat, efectul limitat și invarianții. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.
-
-**Predicție, înainte de a vedea răspunsul:** va observa evaluatorul AI că păstrarea celorlalte asocieri este trecută printre invarianți?
-
-::: notes
-Instrucțiunea cere verificarea fiecărei categorii a contractului, inclusiv a invarianților, și confirmarea afirmațiilor corecte. Nu îi semnalăm clasificarea pe care am discutat-o și nu îi cerem un număr minim de defecte. Predicția pregătește întrebarea de pe slide-ul următor: o confirmare corectă local este suficientă?
-
-**Sursă:** instrucțiunea integrală din `evaluator-instructiune.md`; intrarea completă în `evaluator-prompt.md`, arhiva din 27 octombrie 2026.
+**Sursă:** `din-cod-prompt.md` și `din-enunt-prompt.md`, arhiva din 19 noiembrie 2026; contextul integral este rezumat pe slide.
 
 **Organizare:** 2 min; predicții prin ridicarea mâinii, fără discuție. []{.pace dur=2}
 :::
 
 ---
 
-# Revizuirea are nevoie de propria verificare
+# Contractul scris din cod
 
-**Evaluatorul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:**
+:::::: {.columns}
+::: {.column width="56%"}
+**Asistentul AI, cererea A — Claude Haiku 4.5, captură din 19 noiembrie 2026; fragmente:**
 
-> Propunerea este **complet corectă** […]
+> **Condiția de succes:** Dulapul d este liber la momentul verificării și operația se completează cu atribuit
 >
-> Propunerea: "[…] Toate asocierile (v', d') cu v' ≠ v și d' ≠ d se păstrează." […] ✓ Corect și precis.
->
-> **Concluzie:** Propunerea nu conține erori.
+> **Dacă rezultatul este `refuz`:** […] Orice asociere anterioară a vizitatorului v este eliminată […]
+:::
+::: {.column width="42%"}
+**Pseudocodul primit:**
 
-**Reguli:** un invariant trebuie să fie adevărat în orice stare; păstrarea celorlalte asocieri compară două stări, ca R5 (efect limitat). Eliberarea fără asociere întoarce `fara_dulap`.
+```text
+atribuie(v, d):
+    elimină asocierea existentă
+        a lui v, dacă există
+    dacă d este ocupat:
+        întoarce refuz
+    adaugă v–d
+    întoarce atribuit
+```
+:::
+::::::
 
-Evaluatorul AI are dreptate că regula „toate asocierile … se păstrează” este corectă. Este suficient? Ce ar fi trebuit să mai verifice?
+**R3 (atribuire):** reușește numai dacă v nu are dulap și d este liber; altfel `refuz`, cu întregul registru identic.
+
+Descrie contractul pseudocodul? Descrie R3? Ce lipsește din condiția de succes?
 
 ::: notes
-O confirmare corectă local nu certifică întregul contract. Evaluatorul AI confirmă conținutul regulii, dar nu întreabă dacă este un invariant. El scrie chiar că a doua eliberare întoarce `fara_dulap`, dar nu observă că propunerea o numără printre refuzuri: confirmă fiecare fragment, fără să le confrunte. Cealaltă revizuire păstrată confirmă la fel contractul și semnalează numai o formulare neclară a motivelor de refuz.
+Contractul descrie fidel pseudocodul: „la momentul verificării” înseamnă după eliminarea asocierii vechi, iar refuzul elimină asocierea anterioară. Față de R3, condiția de succes nu mai cere „v nu are dulap”, iar refuzul nu mai păstrează registrul. Răspunsul nu semnalează nimic: din cod nu avea de unde ști că eliminarea este un defect. Pseudocodul este afișat aici pe mai multe rânduri, ca să încapă alături; textul trimis are rândurile de pe slide-ul „Urmăriți operația propusă”.
 
-**Organizare:** 4 min: răspunsuri individuale, apoi discuție. []{.pace dur=4}
+**Organizare:** 3 min: răspuns individual, apoi discuție. []{.pace dur=3}
 :::
 
 ---
 
-# Decizia noastră
+# Testele scrise din cod
 
-**Păstrăm** din propunere condiția de succes, refuzul cu registrul identic și unicitatea ca invariant.
+**Asistentul AI, cererea A — aceeași captură; două dintre cele cinci teste, integral:**
 
-**Corectăm** două puncte:
+:::::: {.columns}
+::: {.column width="49%"}
+> **Test 3: Realocare de vizitator la dulap liber**
+>
+> - Dinainte: B
+> - Apel: atribuie(V1, D3)
+> - Rezultat așteptat: atribuit
+> - După: {V1–D3, V2–D2}
+:::
+::: {.column width="49%"}
+> **Test 4: Refuz la realocare cu dulap ocupat**
+>
+> - Dinainte: B
+> - Apel: atribuie(V1, D2)
+> - Rezultat așteptat: refuz
+> - După: {V2–D2}
+:::
+::::::
 
-- păstrarea celorlalte asocieri iese dintre invarianți: este postcondiție, R5 (efect limitat);
-- a doua eliberare din scenariul S5 (eliberare repetată) întoarce `fara_dulap`, nu `refuz`.
+**B:** V1–D1, V2–D2; V3 fără dulap, D3 liber. **R3 (atribuire):** reușește numai dacă v nu are dulap și d este liber; altfel `refuz`, cu întregul registru identic.
 
-**Contraexemplul care justifică prima corecție:** din B, după `atribuie(V3,D3)`, un registru care conține numai V3–D3 respectă unicitatea, dar pierde V1–D1 și V2–D2.
+Individual, apoi discutăm: trec testele pe operația din pseudocod? Ce cere R3 la aceleași apeluri?
 
 ::: notes
-Verdictul aparține oamenilor și se sprijină pe regulă și scenariu. Cerem un contraexemplu pentru fiecare corecție. Nu cerem ca orice propunere sau revizuire să fie greșită; aceleași verificări pot confirma o propunere bună.
+Ambele trec: la `atribuie(V1,D3)` operația mută V1 pe D3, la `atribuie(V1,D2)` refuză după ce a șters V1–D1. Toate cele cinci teste ale răspunsului trec pe operația greșită. După R3, ambele apeluri trebuie refuzate, cu registrul exact B. Testul 4 este chiar contraexemplul trasat la minutul 55, scris ca rezultat așteptat: testul fixează defectul în loc să-l găsească. Dintre celelalte trei teste omise, o atribuire reușită și un refuz pentru un dulap ocupat de alt vizitator respectă și R3; al cincilea mută V1 pornind din alt registru decât B.
 
-**Organizare:** 2 min; încheierea etapei la minutul 95. []{.pace dur=2}
+**Organizare:** 4 min: 2 individual, 2 discuție. []{.pace dur=4}
+:::
+
+---
+
+# Contractul scris din reguli
+
+**Asistentul AI, cererea B — Claude Haiku 4.5, 19 noiembrie 2026; fragmente:**
+
+> **Condiția de succes:** Operația reușește dacă și numai dacă: v **nu are dulap** ȘI d **este liber**.
+>
+> | **Test** | **Dinainte** | **Apel** | **Rezultat** | **După** |
+> |---|---|---|---|---|
+> | 2 — Refuz: vizitator ocupat | B | atribuie(V1, D3) | "refuz" | B (neschimbat) |
+> | 4 — Refuz: amândoi ocupați | B | atribuie(V1, D2) | "refuz" | B (neschimbat) |
+
+**Operația din pseudocod** elimină întâi asocierea lui v, apoi refuză dacă d este ocupat. Ce produce la testele 2 și 4? Ce scenariu separă contractele?
+
+::: notes
+Testul 2: operația întoarce `atribuit`, cu {V2–D2, V1–D3}; testul 4: întoarce `refuz`, dar cu {V2–D2}. Ambele pică. Scenariul S4 (`atribuie(V1,D2)`, ambele condiții împiedică succesul) separă cele două contracte prin registrul de după, iar scenariul S3 (`atribuie(V1,D3)`, vizitator deja asociat) chiar prin rezultatul întors. Același model, cu aceeași instrucțiune, a scris teste care verifică, pentru că a pornit de la reguli. Cealaltă încercare cu reguli este la fel de corectă.
+
+**Organizare:** 3 min: răspuns individual, apoi discuție. []{.pace dur=3}
+:::
+
+---
+
+# Decizia noastră: cine a verificat pe cine?
+
+**Contractul și testele scrise din cod** au descris operația, cu tot cu defect: toate testele trec, iar testul 4 cere chiar pierderea asocierii V1–D1. Au confirmat codul, nu l-au verificat.
+
+**Contractul și testele scrise din reguli** pică exact la scenariile S3 (vizitator deja asociat) și S4 (ambele condiții împiedică succesul): ele verifică.
+
+**Regula noastră:** rezultatul așteptat se scrie din enunț și din contract, nu din implementarea verificată. Când cerem teste unui asistent AI, îi dăm regulile; dacă îi dăm și codul, îi cerem să-l compare cu ele.
+
+::: notes
+Nu reproșăm modelului răspunsul la cererea A: a făcut ce i s-a cerut, iar contractul descrie corect pseudocodul. Problema este circularitatea: dacă implementarea este și sursa așteptărilor, orice defect devine comportament specificat. Aceeași capcană apare fără AI, când scriem testele uitându-ne la cod. Toate cele patru încercări din cod omit „v nu are dulap” din condiția de succes și au un test care cere mutarea lui V1 pe D3. Numai cea selectată scrie și pierderea asocierii la refuz; celelalte trei scriu că refuzul lasă registrul identic, deși codul nu îl lasă, iar una are chiar un test care ar pica pe cod. Toate sunt în arhivă. Selecția nu descrie comportamentul tipic al modelului.
+
+**Organizare:** 3 min; încheierea etapei la minutul 95. []{.pace dur=3}
 :::
 
 ---

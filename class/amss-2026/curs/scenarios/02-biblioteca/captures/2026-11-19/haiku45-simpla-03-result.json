@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 10197,
+  "stop_reason": "end_turn",
+  "session_id": "e6cae399-3390-48fb-ab89-566f87614319",
+  "total_cost_usd": 0.012812,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4099,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 921,
+    "output_tokens_details": {
+      "thinking_tokens": 156
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4099,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 921,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4099,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4099
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 921,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4099,
+      "webSearchRequests": 0,
+      "costUSD": 0.012812,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 156,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4099,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Proiectare Sistem Gestionare Împrumuturi Bibliotecă\n\n## Concepte Principale\n\n**Entități cheie:**\n- **Membre**: Utilizatori care pot împrumuta cărți\n- **Cărți**: Resurse cu stoc disponibil și cereri în așteptare\n- **Împrumuturi**: Înregistrări active cu dată de expirare\n- **Cereri de Aşteptare**: Liste de prioritate pentru cărți indisponibile\n\n## Reguli pentru Operația de Împrumut\n\nMembrul poate împrumuta o carte dacă:\n- Cartea are cel puțin o copie disponibilă\n- Membrul nu depășește limita de cărți active (ex: 5 cărți)\n- Membrul nu are datorii (cărți cu retur depășit)\n\n**Rezultat**: Se creează o înregistrare de împrumut cu:\n- Data împrumutului (azi)\n- Data scadenței (ex: peste 14 zile)\n- Stare: ACTIV\n\n## Reguli pentru Operația de Returnare\n\nMembrul poate returna o carte dacă:\n- Deține o copie a acelei cărți (împrumut activ)\n\n**Rezultate după returnare:**\n- Dacă returnarea este la timp: Starea împrumutului → ÎNCHIS, Stoc cartei se incrementează\n- Dacă returnarea este cu întârziere: Se înregistrează o amendă/penalizare, apoi ÎNCHIS\n- **Automat**: Dacă există cereri în așteptare pentru cartea returnată, se notifică primul membru din coadă\n\n## Reguli pentru Cererea de Împrumut\n\nMembrul poate cere o carte dacă:\n- Cartea nu are copii disponibile\n- Membrul nu figurează deja în coada de așteptare\n\n**Rezultat**: Se creează o înregistrare de cerere cu:\n- Poziție în coadă (automatică, în ordinea depunerii)\n- Stare: ÎN AŞTEPTARE\n- Data cererii\n\n## Stări și Fluxuri\n\n**Pentru o carte:**\n- DISPONIBILĂ (stoc > 0)\n- INDISPONIBILĂ (stoc = 0, liste de așteptare)\n\n**Pentru un împrumut:**\n- ACTIV → ÎNCHIS (după returnare)\n- ACTIV → DEPĂȘIT (dacă trece scadența)\n\n## Reguli Suplimentare\n\n- Un membru poate avea mai multe cereri, dar doar pentru cărți diferite\n- Cererile se onorează în ordinea FIFO\n- Notificări: Membrul este anunțat când cartea solicitată devine disponibilă\n- Statistici: Sistem urmărește cărți populare și membri activi\n\nAceasta asigură un flux echitabil de acces și gestionare eficientă a resurselor bibliotecii.",
+  "ttft_ms": 2196,
+  "type": "result",
+  "duration_ms": 10322,
+  "uuid": "542a0004-7d18-4f32-b6ae-348ad2ecdeb1",
+  "ttft_stream_ms": 981,
+  "time_to_request_ms": 156,
+  "first_content_frame_ms": 981,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

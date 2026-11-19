@@ -1,0 +1,1 @@
+Propune o proiectare concisă pentru acest sistem, fără cod: conceptele, regulile pe care le respectă operațiile de împrumut, returnare și cerere de împrumut, și rezultatul fiecărei operații. Răspunde în română, în maximum 400 de cuvinte.

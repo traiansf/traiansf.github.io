@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 20744,
+  "stop_reason": "end_turn",
+  "session_id": "23c40dc8-30c9-4c10-a2ab-76b841b16725",
+  "total_cost_usd": 0.021456000000000003,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4956,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2307,
+    "output_tokens_details": {
+      "thinking_tokens": 1401
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4956,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2307,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4956,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4956
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2307,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4956,
+      "webSearchRequests": 0,
+      "costUSD": 0.021456000000000003,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1401,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4956,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Cerințe de calitate pentru versiunea 1\n\n**CQ1 — Înregistrare validă**\nLa transmiterea unei sesizări cu locul și descrierea ambele completate, sistemul creează o înregistrare cu identificator unic și o afișează în starea „înregistrată\". La omiterea unuia dintre câmpuri, afișează eroarea specifică și nu creează sesizarea.\nMăsurare: 100% dintre sesizările complete sunt create cu identificator; 0% dintre sesizările incomplete sunt acceptate; eroarea se afișează în max 1 secundă.\nCondiții: rol student autentificat; transmitere conform R1.\n\n**CQ2 — Acces controlat — student**\nStudentul vizualizează numai propriile sesizări. Modificarea stării prin interfață, URL sau API este respinsă imediat fără schimbare.\nMăsurare: 100% dintre sesizările vizibile sunt propriile sesizări; 0% modificări de stare acceptate; răspunsul de respingere apare în max 1 secundă.\nCondiții: rol student; portofoliu mixt cu sesizări proprii și ale altor utilizatori.\n\n**CQ3 — Acces controlat — administrație**\nAdministrația vizualizează toate sesizările. Tranzițiile valide (înregistrată→în lucru, în lucru→rezolvată) sunt acceptate. Orice altă tranziție, inclusiv reafirmarea stării curente, este respinsă cu motiv, fără schimbare.\nMăsurare: 100% dintre sesizările sistemului sunt vizibile; 100% din tranzițiile valide sunt aplicate în max 1 secundă; 100% din tranzițiile invalide sunt respinse cu mesaj.\nCondiții: rol administrație; sesizări în toate stările; teste de tranziție valide și invalide.\n\n**CQ4 — Independență sesizări**\nCrearea sau actualizarea unei sesizări nu afectează alte sesizări, chiar dacă descriu aceeași defecțiune.\nMăsurare: După 1.000 de operații pe sesizări diferite, 100% dintre sesizările neafectate păstrează identificatorul și starea anterioară.\nCondiții: identificatori distincți; operații paralele.\n\n**CQ5 — Performanță de consultare (Q1)**\nConsultarea sesizărilor proprii de student sub încărcare maximă afișează starea corectă și complet.\nMăsurare: Cu 10.000 sesizări în sistem și 20 consultări simultane, minimum 950 din 1.000 consultări valide afișează starea corectă în maxim 2 secunde; 0 erori de acces neautorizat; 100% dintre sesizările returnate sunt ale utilizatorului.\nCondiții: 20 utilizatori simultani; fiecare cu 50 sesizări în portofoliu; bază de date cu 10.000 înregistrări; măsurare din acțiunea de consultare la afișare completă.\n\n**CQ6 — Corectitudine sub concurență**\nActualizări simultane ale stării aceleași sesizări rezultă în stare validă și consistentă.\nMăsurare: 0 stări invalide; 100% consistență după operații concurente.\nCondiții: 2+ cereri de schimbare de stare în paralel pe aceeași sesizare.",
+  "ttft_ms": 15011,
+  "type": "result",
+  "duration_ms": 20854,
+  "uuid": "db43b25e-34f5-4529-a8b7-5591d56df694",
+  "ttft_stream_ms": 886,
+  "time_to_request_ms": 140,
+  "first_content_frame_ms": 886,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 15046,
+  "stop_reason": "end_turn",
+  "session_id": "60764145-18a1-4d06-9bef-ca433790bcbb",
+  "total_cost_usd": 0.016611,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4766,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1414,
+    "output_tokens_details": {
+      "thinking_tokens": 846
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4766,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1414,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4766,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4766
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1414,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4766,
+      "webSearchRequests": 0,
+      "costUSD": 0.016611,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 846,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4766,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Arhiva Fotografică — Concepte și Relații\n\n## Concepte principale\n\nArhiva este structurată în jurul a trei concepte centrale:\n\n**Fotografie** — Entitate cu identificator stabil și legendă modificabilă. Legenda poate fi schimbată fără a crea altă fotografie. Reprezintă subiectul/colecția logică.\n\n**Versiune** — Reprezentare concretă a unei fotografii cu conținut imutabil și identificator propriu. Versiunile sunt numerotate global în ordinea creării. Orice modificare a conținutului creează o nouă versiune, originala păstrîndu-se.\n\n**Original** — Prima versiune asociată unei fotografii, creată la catalogare. Fiecare fotografie are exact un original, care nu are sursă în arhivă.\n\n## Relații și cardinalitate\n\n**1. Fotografie ↔ Versiune: 1:N**\n- O fotografie are cel puțin o versiune\n- O versiune aparține exact unei fotografii\n- Schimbarea legendei nu afectează versiunile existente\n\n**2. Versiune-sursă ↔ Versiune-derivată: 1:N**\n- O versiune poate fi sursă pentru mai multe versiuni derivate (vezi S3: V1 genereaza atît V3 cît și V4)\n- O versiune derivată are exact o sursă\n- Originalul nu are sursă; versiunile derivate au sursă doar din aceeași fotografie (S4 demonstrează că o versiune din F2 nu poate proveni din V1 al lui F1)\n\n**3. Fotografie ↔ Original: 1:1**\n- Fiecare fotografie are exact un original\n- Originalul e unic pentru fiecare fotografie\n\n## Reguli critice\n\nEditarea nu creează ramuri neliniare obligatorii — mai multe versiuni pot avea aceeași sursă. Legenda fotografiei e orthogonală versiunilor: modificarea legendei nu creează versiuni noi și nu afectează relațiile dintre versiuni. Cardinalitatea derivării e controlată de regula R4: derivata trebuie să aparțină aceleiași fotografii ca sursa sa.",
+  "ttft_ms": 9903,
+  "type": "result",
+  "duration_ms": 15207,
+  "uuid": "9eb511c0-3702-417e-b9af-a0d961b8b804",
+  "ttft_stream_ms": 1051,
+  "time_to_request_ms": 214,
+  "first_content_frame_ms": 1052,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

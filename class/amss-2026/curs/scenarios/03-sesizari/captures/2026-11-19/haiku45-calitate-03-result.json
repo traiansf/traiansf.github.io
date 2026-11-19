@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 16065,
+  "stop_reason": "end_turn",
+  "session_id": "edcc2073-759d-40e8-a0b2-6c873e3f6c99",
+  "total_cost_usd": 0.017834000000000003,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4955,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1583,
+    "output_tokens_details": {
+      "thinking_tokens": 599
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4955,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1583,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4955,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4955
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1583,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4955,
+      "webSearchRequests": 0,
+      "costUSD": 0.017834000000000003,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 599,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4955,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Cerințe de calitate — Prima versiune\n\n## Înregistrare sesizări\n\n**CQ1.1 — Validare date obligatorii:** La trimiterea unei sesizări noi, sistemul verifică prezența locului și descrierii. Dacă oricare lipsește, afișează mesajul specific al datei lipsă și nu creează înregistrarea. Pragul: 100% din cazurile cu date incomplete sunt respinse cu indicarea câmpului lipsă. Măsurare: se testează cu perechi loc/descriere în toate combinațiile incomplete și incomplete.\n\n**CQ1.2 — Înregistrare cu date valide:** La trimiterea unei sesizări noi cu loc și descriere nevide, sistemul creează o înregistrare cu identificator unic, autorul (utilizatorul curent), starea inițială „înregistrată\" și timestamp. Pragul: 100% din cazurile cu date complete crează înregistrare și afișează identificatorul generat. Măsurare: se verifică prezența identificatorului în răspuns și în evidențele sistemului.\n\n## Acces și control\n\n**CQ2.1 — Izolarea sesizărilor studentului:** Un student autentificat poate consulta exclusiv sesizările proprii. Pragul: 100% din consultările unui student afișează doar sesizările pe care le-a creat; nu sunt vizibile sesizări ale altor studenți sau ale administrației. Măsurare: se autentifică doi studenți diferiți, fiecare crează sesizări și se verifică că fiecare vede doar ale sale.\n\n**CQ2.2 — Drepturi de administrație:** Personalul administrației autentificat poate consulta toate sesizările. Pragul: 100% din sesizările din sistem sunt vizibile unui administrator. Măsurare: se verifică vizibilitatea completă după conectarea unui cont de administrație.\n\n**CQ2.3 — Protecția modificării:** Studentul nu poate modifica starea sesizărilor proprii. Pragul: 100% din încercările studentului de a schimba starea sunt respinse. Măsurare: se încearcă modificarea stării prin interfață și se verifică absența actualizării.\n\n## Gestionarea stării\n\n**CQ3.1 — Tranzițiile válide:** Administrația poate schimba starea doar în ordinea „înregistrată\" → „în lucru\" → „rezolvată\". Orice altă tranziție, inclusiv repetarea stării curente, este respinsă cu motiv clar. Pragul: 100% din tranzițiile invalide sunt respinse. Măsurare: se testează toate combinațiile de schimbare și se verifică acceptarea tranzițiilor valide și respingerea celorlalte.\n\n**CQ3.2 — Independență sesizări:** Sesizări repetate se păstrează și se actualizează independent. Pragul: modificarea stării unei sesizări nu afectează starea celorlalte cu același loc și descriere. Măsurare: se creează două sesizări identice, se actualizează una și se verifică că cealaltă rămâne neschimbată.\n\n## Performanță\n\n**CQ4.1 — Latență consultare:** Cu 10.000 sesizări în sistem și 20 de consultări simultane, cel puțin 95% din 1.000 de consultări valide ale propriilor sesizări afișează starea corectă în maxim 2 secunde. Pragul: ≥950 consultări răspund în ≤2 secunde cu date corecte. Măsurare: test de sarcină în rețeaua campusului; se lansează 20 de sesiuni simultane care consultă sesizări proprii și se cronometrează răspunsul.",
+  "ttft_ms": 6142,
+  "type": "result",
+  "duration_ms": 16173,
+  "uuid": "cdf615ed-58b5-4c8a-bf86-99aa58b26cda",
+  "ttft_stream_ms": 901,
+  "time_to_request_ms": 134,
+  "first_content_frame_ms": 902,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

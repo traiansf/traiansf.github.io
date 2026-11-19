@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 15424,
+  "stop_reason": "end_turn",
+  "session_id": "56117586-71ac-44fa-85da-6fa47eaa0dda",
+  "total_cost_usd": 0.016797,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4769,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1450,
+    "output_tokens_details": {
+      "thinking_tokens": 895
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4769,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1450,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4769,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4769
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1450,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4769,
+      "webSearchRequests": 0,
+      "costUSD": 0.016797,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 895,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4769,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Arhiva Fotografică — Concepte și Relații\n\n## Entități\n\n**Fotografie** — entitate cu identificator stabil și atribut legendă (modificabil fără a crea o nouă fotografie). \n\n**Versiune** — entitate cu identificator unic și conținut imutabil. Fiecare versiune aparține exact unei fotografii și are o identitate permanentă în arhivă.\n\n## Relații și Cardinalitate\n\n**1. Fotografie ↔ Versiune: 1:N (obligatoriu)**\n- O fotografie conține cel puțin o versiune și poate conține mai multe.\n- Fiecare versiune aparține exact unei fotografii.\n\n**2. Versiune Original: 1:1 (strict pe Fotografie)**\n- Fiecare fotografie are exact un original, creat la catalogare.\n- Originalul nu are o versiune-sursă în arhivă.\n\n**3. Versiune ↔ Versiune (relația „derivă din\"): 0..1 : 0..N**\n- Versiunile non-originale sunt derivate; fiecare are exact o sursă (relație intrinsecă fotografiei).\n- O versiune-sursă poate genera mai multe versiuni derivate distincte.\n- Nu forțează un lanț liniar — două versiuni pot avea aceeași sursă (S3).\n\n## Principii Structurali\n\n- **Atributul legendă** aparține fotografiei, nu versiunilor. Modificarea legendei nu creează versiuni noi.\n- **Derivarea** (editare) rămâne în cadrul aceleiași fotografii — o versiune din F2 nu poate deriva din V1 al F1 (S4 demonstrează restrictie).\n- **Imutabilitate versiunilor existente** — editarea nu suprascrie conținutul, ci generează versiuni noi cu rețele de derivare.\n- **Structura de graf** — relațiile entre versiuni formează un DAG cu un rădăcină (original) și mai mulți descendenți.\n\nModelul suportă comparația editărilor și recuperarea originalului, garantând integritate datelor și tracabilitate.",
+  "ttft_ms": 10209,
+  "type": "result",
+  "duration_ms": 15554,
+  "uuid": "d8a1c504-a2dc-4abf-b058-1157651ad6b8",
+  "ttft_stream_ms": 1091,
+  "time_to_request_ms": 189,
+  "first_content_frame_ms": 1091,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

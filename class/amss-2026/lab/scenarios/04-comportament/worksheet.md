@@ -16,10 +16,10 @@ Pentru `ridică`: cine apelează pe cine, ce se întoarce, ce înregistrează re
 
 Fiecare scenariu S1–S7 din enunț repornește din I (A și B în Rezervată), exceptând continuările marcate. Pentru fiecare, spuneți rezultatul, starea rezervării, ce se înregistrează și dacă expeditorul a fost apelat. La refuz, precizați explicit ce nu se modifică.
 
-## Analiza și revizuirea AI
+## Atelierul de diagrame
 
-Profesorul conduce o singură analiză și o singură revizuire în plen. Rezultatul lui S4 (reîncercare după eșec) îl știți din etapa anterioară: preziceți ce rând al tabelului de tranziții trebuie să îl acopere, apoi verificați o afirmație a răspunsului folosind o regulă și un scenariu. Nu porniți sesiuni AI proprii. Dacă instrumentul nu răspunde, discutăm capturile reale pregătite, cu aceeași metodă.
+Desenați diagrama de stări a unei rezervări după [specificația diagramei de stări](../../diagrame/stari.md): de mână, în Mermaid sau generată cu un asistent AI și revizuită de voi. Verificați-o cu lista de verificare a specificației, punct cu punct, căutând în enunț regula fiecărui punct; o diagramă care se randează fără erori nu este, prin asta, corectă. Întrebări de verificare: unde pleacă bucla reîncercării? Există săgeți pentru evenimente refuzate? `trimisă` și `netrimisă` sunt stări sau date? Cine termină desenează diagrama de secvență a lui `ridică` pentru scenariile S3 (notificare eșuată) și S4 (reîncercare după eșec), după [specificația diagramei de secvență](../../diagrame/secventa.md).
 
-## Exercițiul final
+## Exercițiu suplimentar, pentru studiu individual
 
-Din I, `ridică(c1, A, T1)` cu `trimis`; răspunsul registrului nu ajunge la ghișeu, care trimite `ridică(c8, A, T1)`, cu identificator nou. Pregătiți explicația pentru fiecare rezultat. Apoi: ce știe operatorul după a doua cerere? Ce cereri mai sunt acceptate pentru rezervarea A? Ce responsabilitate a ghișeului ar fi evitat refuzul și ce ați întreba beneficiarul?
+Din I, `ridică(c1, A, T1)` cu `trimis`; răspunsul registrului nu ajunge la ghișeu, care trimite `ridică(c8, A, T1)`, cu identificator nou. Explicați fiecare rezultat cu regula din enunț (R3 — ridicare, R5 — reîncercare). Apoi: ce știe operatorul după a doua cerere? Ce cereri mai sunt acceptate pentru rezervarea A? Ce responsabilitate a ghișeului ar fi evitat refuzul și ce ați întreba beneficiarul?

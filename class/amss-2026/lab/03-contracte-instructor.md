@@ -1,18 +1,25 @@
 # Laboratorul 3 — ghid pentru profesor
 
-**100 de minute, după cursurile 5–6; 16 slide-uri cu copertă.** [Prezentarea](03-contracte.md), [enunțul](scenarios/03-contracte/scenario.md), [referința](scenarios/03-contracte/reference.md) și [sprijinul facultativ](scenarios/03-contracte/worksheet.md) alcătuiesc pachetul. Exercițiile nu cer documente de predat, încărcări, o notă separată sau implementare.
+**100 de minute, după cursurile 5–6; 16 slide-uri cu copertă.** [Prezentarea](03-contracte.md), [enunțul](scenarios/03-contracte/scenario.md), [specificația diagramei](diagrame/clase-operatii.md), [referința](scenarios/03-contracte/reference.md) și [sprijinul facultativ](scenarios/03-contracte/worksheet.md) alcătuiesc pachetul. Prima jumătate formulează responsabilitățile și contractele, individual, apoi în plen; a doua este etapa diagramei (decizia din 19 noiembrie 2026): fiecare student desenează **o diagramă de clase cu operații și restricții**, de mână, în Mermaid sau generată cu un asistent AI și verificată. Exercițiile nu cer documente de predat, încărcări, o notă separată sau implementare.
+
+Etapa AI condusă de profesor (o analiză și o revizuire în plen, cu capturile Claude Haiku 4.5 din 27 octombrie 2026) a fost scoasă din prezentare la 19 noiembrie 2026. Promptul, contextul și capturile rămân neschimbate în [`ai/`](scenarios/03-contracte/ai/README.md), [capturile pregătite](scenarios/03-contracte/prepared-fixture.md) și [arhivă](scenarios/03-contracte/captures/2026-10-27/README.md). Confuzia din analiza 01 (identificatorul nefolosit, q>0 și D≥q trecute la precondiții) este exact greșeala de urmărit la diagramele generate.
 
 ## Parcurs
 
-| Minute | Activitate | Intervenția profesorului |
-|---|---|---|
-| 0–10 | Problema, citatul și recapitularea. | Clarificați fizic, rezervat activ, disponibil. |
-| 10–30 | Predicții și responsabilități, individual, apoi în plen. | „Poate importul ocoli regula?” |
-| 30–55 | Contracte: rezervare 10 min; ridicare și anulare 15 min. | Cereți întregul registru după refuz. |
-| 55–80 | O analiză AI, o revizuire și decizia, în plen. | Conduceți demonstrația; studenții prezic și verifică. |
-| 80–100 | Exercițiul final, individual, apoi în plen, 14 min; încheiere 6 min. | Colegul care verifică privește primul efectul limitat. |
+| Minute | Slide-uri | Activitate | Intervenția profesorului |
+|---|---|---|---|
+| 0–10 | 2–4 | Problema, citatul și recapitularea. | Clarificați fizic, rezervat activ, disponibil. |
+| 10–18 | 5–6 | Scenariile S1 și S2; cine verifică regula: fiecare canal sau registrul comun? | „Poate importul ocoli regula?” |
+| 18–30 | 7–8 | Contractul rezervării: individual, apoi în plen. | Cereți întregul registru după refuz. |
+| 30–42 | 9 | Ridicarea și anularea, scenariile S3–S5. | „De ce nu putem reda cele 4 bucăți?” |
+| 42–50 | 10 | Două operații succesive și ramura cu identificatorul reutilizat. | Colegul care verifică privește primul efectul limitat. |
+| 50–55 | 11–12 | Sarcina diagramei; fiecare deschide specificația și își alege modul de lucru. | Amintiți că un desen fără erori nu este o verificare. |
+| 55–71 | 13 | Lucru individual, cu lista de verificare pe ecran. | Treceți printre bănci; alegeți unul sau doi voluntari. |
+| 71–87 | 14 | Verificarea în plen a diagramei unui voluntar; scenariul S5 calculat numai din note; corecturi. | „Ce spune nota pentru o rezervare deja ridicată?” |
+| 87–95 | 15 | Diagrama convenită și comparația cu referința. | Arătați referința după ce clasa a convenit corecturile. |
+| 95–100 | 16 | Încheiere. | Două sau trei exemple scurte. |
 
-Studenții lucrează tot mai mult individual și nu prea lucrează în pereche nici când li se cere (observație din 6 noiembrie 2026). De aceea, lucrul individual precede explicațiile în plen: un voluntar explică, iar alt coleg verifică, fără prezentări formale. Cine vrea poate compara răspunsul cu un vecin, dar nu cerem asta. Nu cereți teoria diagramelor de stări, a concurenței sau a validării exhaustive, care urmează în alte cursuri.
+Studenții lucrează individual, apoi explică în plen: un voluntar explică, iar alt coleg verifică, fără prezentări formale (observația din 6 noiembrie 2026). Nu cereți teoria diagramelor de stări, a concurenței sau a validării exhaustive. Dacă prima jumătate întârzie, scurtați exercițiul cu două operații succesive la primul punct; nu tăiați din etapa diagramei sub 40 de minute.
 
 ## Răspunsuri și dificultăți de urmărit
 
@@ -27,35 +34,51 @@ Starea inițială **I**: F=10, A activă(4), R=4, D=6. Identificatorul B este ne
 | S5: ridicare A, apoi anulare A | Primul pas ca mai sus; al doilea refuză și păstrează acea stare. |
 | S6 (din I): anulare A, apoi reutilizarea identificatorului A | Prima acceptată; a doua refuzată, istoricul se păstrează. |
 
-F este cantitatea fizică, R suma rezervărilor active, D=F−R. Invarianți: 0≤R≤F≤10; D≥0; identificatori unici și cantități pozitive. Dacă introducem P drept suma cantităților ridicate, F+P=10; nu avem reaprovizionare sau retururi. Un invariant precum D≥0 nu specifică singur efectul corect al ridicării. `ridică(A)` înseamnă ridicarea produselor rezervate prin A, nu ștergerea rezervării. Istoricul păstrează rezervările încheiate, identificatorii și cantitățile lor; nu cerem jurnalizarea fiecărui apel.
+F este cantitatea fizică, R suma rezervărilor active, D=F−R. Invarianți: 0≤R≤F≤10; D≥0; identificatori unici și cantități pozitive. Dacă introducem P drept suma cantităților ridicate, F+P=10. Un invariant precum D≥0 nu specifică singur efectul corect al ridicării. `ridică(A)` înseamnă ridicarea produselor rezervate prin A, nu ștergerea rezervării.
 
-Contractele trebuie să separe precondițiile din R1 (context: apeluri secvențiale, registru valid, identificator nevid, cantitate întreagă) de condiția de succes; postcondițiile descriu fiecare caz, succesul și refuzul. O cantitate zero sau prea mare are refuz explicit. La fel și ridicarea sau anularea cu un identificator necunoscut: aceasta este o diferență explicită față de precondiția identificatorilor cunoscuți din cursul 6. La succes modificăm doar rezervarea vizată și cantitățile indicate; la refuz păstrăm registrul **integral**, inclusiv istoricul. Disponibilul poate fi calculat sau stocat separat, dar în ultima variantă trebuie sincronizat. Nicio reprezentare nu este obligatorie.
+Contractele trebuie să separe precondițiile din R1 (context: apeluri secvențiale, registru valid, identificator nevid, cantitate întreagă) de condiția de succes; postcondițiile descriu fiecare caz, succesul și refuzul. O cantitate zero sau prea mare are refuz explicit; la fel ridicarea sau anularea cu un identificator necunoscut (diferență față de precondiția identificatorilor cunoscuți din cursul 6). La succes modificăm doar rezervarea vizată și cantitățile indicate; la refuz păstrăm registrul **integral**, inclusiv istoricul.
 
-## O singură analiză și o singură revizuire AI
+**Exercițiul cu două operații:** din A activă(4), B activă(6), F=10, R=10, D=0, anularea lui A produce F=10, R=6, D=4; ridicarea ulterioară a lui B produce F=4, R=0, D=4. În ramura separată pornită imediat după anularea lui A, reutilizarea identificatorului A se refuză (D=4 ar ajunge, deci refuzul vine numai din istoric) și păstrează exact acea stare.
 
-Feedbackul din 27 octombrie cere o demonstrație comună, condusă de profesor; nu cereți studenților să opereze un asistent AI. În celelalte etape, studenții lucrează individual și discută în plen. Nu este necesar să aibă conturi AI.
+## Etapa diagramei
 
-Slide-urile conțin **capturi reale pregătite** Claude Haiku 4.5, din 27 octombrie 2026 (Claude Code 2.1.311, fără unelte și fără contextul proiectului). [Fragmentele selectate](scenarios/03-contracte/prepared-fixture.md) și [arhiva](scenarios/03-contracte/captures/2026-10-27/README.md) păstrează promptul exact, contextul, răspunsurile integrale și ambele încercări pentru fiecare rol. Analiza 01 calculează corect S2, S3 și S5, dar trece identificatorul nefolosit, q>0 și disponibilitatea printre precondiții, apoi le folosește ca motive de refuz. Revizuirea 02 semnalează corect lipsa efectului limitat, cerut de R5 (istoric și efect limitat), dar acceptă precondițiile. Selecția nu descrie performanța tipică a modelului.
+**Ce primesc studenții:** enunțul și [specificația](diagrame/clase-operatii.md), care pornește de la [diagrama conceptuală](diagrame/clase-conceptuale.md) a Laboratorului 2 și adaugă: operații cu parametri și rezultate, puse la componenta care are responsabilitatea lor; dependențe „apelează” de la canale; atribute derivate (`/D`); note care încep cu `pre:`, `succes:`, `post:`, `refuz:`, `inv:`. Are listă de verificare, erori frecvente, un exemplu rezolvat (abonamente la o sală de escaladă) și un prompt sugerat.
 
-O rulare live poate înlocui capturile: folosiți [instrucțiunea și contextul](scenarios/03-contracte/ai/README.md) cu instrumentul disponibil al profesorului, fără a impune un model, și nu furnizați referința cu soluții. Discutați atunci rezultatul efectiv, nu omisiunile capturii.
+**Cum lucrează:** fiecare alege. De mână, pornind de la contractele din prima jumătate; direct în Mermaid; sau cu un asistent AI, căruia îi dă enunțul complet și specificația. Nu impunem un instrument și nu cerem conturi AI.
 
-1. **Analiză, 10 min:** cereți fiecărui student predicțiile pentru scenariile S2, S3 și S5 (rezultatul și cantitățile de după); profesorul trimite o singură sarcină cu enunțul integral. Afișați răspunsul și comparați responsabilitatea registrului și calculul ridicării. Limitați așteptarea la două minute incluse în etapă; dacă instrumentul nu răspunde, folosiți captura pregătită. Nu treceți la configurări de conturi în timpul laboratorului.
-2. **Revizuire, 10 min:** într-un context nou, transmiteți evaluatorului (agent AI de revizuire) același enunț, sarcina exactă și propunerea integrală. Cereți afirmații susținute, omisiuni și contradicții, cu fragment, regulă și scenariu; fără număr obligatoriu de defecte. Studenții prezic ce ar trebui să observe evaluatorul AI despre precondiții înainte de a vedea revizuirea. Dacă analiza a fost live și revizuirea nu răspunde, o puteți revizui între colegi în plen, etichetând corect parcursul.
-3. **Decizie, 5 min:** o afirmație acceptată ori corectată, justificată prin regulă și scenariu. Un răspuns corect este suficient pentru o discuție utilă. Nu impuneți rescrierea printr-un nou prompt și nu adăugați alte rulări de analiză în paralel.
+**Puncte de control:**
 
-**Regulile rămân vizibile:** la afișarea rezultatului live, folosiți două ferestre alăturate, una cu slide-ul de repere și una cu răspunsul. Nu înlocuiți tot ecranul cu o conversație care nu mai arată regulile. La capturile noi, puneți fragmentele și rezumatul regulilor pe același slide, cu proveniență și omisiuni marcate. Păstrați promptul, contextul, răspunsul integral, data, instrumentul, modelul declarat și setările cunoscute; nu cereți studenților transcrieri.
+- **Minutul 55:** toți au început; cine nu știe de unde să pornească desenează Registru și Rezervare, apoi cele trei operații.
+- **Minutul 65:** alegeți voluntarii; de preferință o diagramă de mână și una generată.
+- **Minutul 71:** verificarea în plen, pe listă. Un coleg calculează scenariul S5 numai din notele diagramei: o notă incompletă nu dă rezultatul celui de-al doilea pas. Dacă nu se oferă nimeni, verificați o diagramă scrisă de dumneavoastră cu „pre: q ≤ D”.
+- **Minutul 87:** clasa convine corecturile; abia apoi arătați referința.
 
-## Exercițiul final
+**Ce urmăriți (greșeli ale studenților):**
 
-Pornim cu A activă(4), B activă(6), F=10, R=10, D=0. Anularea lui A produce F=10, R=6, D=4; B rămâne activă(6). Ridicarea ulterioară a lui B produce F=4, R=0, D=4; A rămâne anulată(4). În ramura separată pornită imediat după anularea lui A, reutilizarea identificatorului A se refuză (D=4 ar ajunge, deci refuzul vine numai din istoric) și păstrează exact acea stare. Nu confundați ramura cu continuarea după ridicarea lui B.
+- „pre: q ≤ D”, „pre: id nefolosit” sau „pre: rezervarea este activă”: refuzul promis rămâne nespecificat;
+- refuz fără „registrul neschimbat”;
+- „inv: celelalte rezervări nu se modifică”: este postcondiție;
+- „inv: D > 0”: încălcat după S1;
+- `ridică()` la Rezervare, care nu poate modifica F; operații dublate la Registru și Rezervare;
+- verificări copiate în Formular și Import; `setF()` publice;
+- postcondiții vagi („registrul se actualizează”, „stare validă”);
+- R și D stocate fără invariant care să le lege de F și de rezervări.
+
+**Ce urmăriți la diagramele generate cu AI:** aceeași confuzie precondiție/condiție de succes ca în captura din 27 octombrie; tipuri `boolean`/`void` sau excepții în loc de `refuz`; clase `Service`/`Repository`/`Controller`; invarianți care includ efectul limitat; citate din enunț care nu spun ce li se atribuie. Lăudați și ce este corect, cu regula lui.
+
+**Referința** este justificată punct cu punct în [referință](scenarios/03-contracte/reference.md). Atributul `marcaj` (activă, ridicată, anulată) urmează verbul enunțului; evită „stare”, care în acest laborator numește valorile întregului registru. Variante acceptabile: R și D păstrate ca atribute obișnuite, cu invarianți; câte o notă pentru fiecare operație; `stare` în loc de `marcaj`, dacă nu se confundă cu starea registrului.
+
+**Limitele Mermaid** (detalii în specificație): notele se leagă de clase, nu de operații, deci fiecare notă începe cu numele operației; nu există secțiuni pentru precondiții sau postcondiții; rezultatele cu spații se rup pe rânduri (scrieți `acceptat|refuz`). Pe proiector, notele diagramei de referință sunt mici: studenții o pot deschide mărită în prezentarea HTML sau în referință.
+
+Nu impuneți rescrierea printr-un nou prompt; corecturile se fac direct pe diagramă. Nu colectați diagrame sau fișe. Notați numai dificultățile recurente pentru pregătirea următoare.
 
 ## Varianta online
 
-[Prezentarea online](03-contracte-online.md) păstrează cele 16 slide-uri, regulile, scenariile, capturile pregătite și toate duratele. Întâlnirea Teams se desfășoară numai în plen, fără grupuri separate:
+[Prezentarea online](03-contracte-online.md) păstrează cele 16 slide-uri, regulile, scenariile, specificația și toate duratele. Întâlnirea Teams se desfășoară numai în plen, fără grupuri separate:
 
 - Predicțiile individuale se scriu în chat și se trimit la semnal.
-- Explicațiile se dau în ștafetă: un coleg propune, un coleg numit verifică regula și continuă cu următoarea operație.
-- La exercițiul final, un voluntar explică, alt coleg verifică primul ce rămâne neschimbat. Notițele nu se colectează; camera și partajarea ecranului de către studenți sunt facultative.
-- **Aceeași demonstrație AI este condusă de profesor**, care partajează analiza și revizuirea, păstrând regulile vizibile. Nu distribuim rolurile de operare AI între studenți și nu pornim analize proprii în paralel.
+- Explicațiile se dau în ștafetă: un coleg propune, un coleg numit verifică regula și continuă cu următoarea operație; obiecțiile se scriu în chat.
+- **Etapa diagramei:** linkurile enunțului și specificației se pun în chat. Voluntarul își partajează ecranul sau lipește diagrama în chat ca text Mermaid; oricine o poate vedea desenată în [Mermaid Live](https://mermaid.live). Colegi numiți o verifică punct cu punct și calculează S5 din note; ceilalți scriu „de acord” sau o obiecție. Diagrama convenită se poate scrie ca text Mermaid în chat, corectat de un coleg, înainte de referință.
+- Notițele și diagramele nu se colectează; camera și partajarea ecranului de către studenți sunt facultative.
 
-Profesorul sau un student poate prezenta slide-urile; profesorul conduce în continuare etapa AI. Nu faceți push pe `main` în timpul întâlnirii sincronizate: deploy-ul repornește serviciul. Dacă discuția online cere mai mult timp, ascultați mai puține explicații, păstrând comparația finală și toate scenariile.
+Profesorul sau un student poate prezenta slide-urile. Nu faceți push pe `main` în timpul întâlnirii sincronizate: deploy-ul repornește serviciul. Dacă discuția online cere mai mult timp, ascultați mai puține explicații în prima jumătate, păstrând verificarea unei diagrame la jumătatea etapei.

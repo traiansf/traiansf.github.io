@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 25039,
+  "stop_reason": "end_turn",
+  "session_id": "9f7e9a9a-5a9f-481e-86e4-eb3217251f17",
+  "total_cost_usd": 0.030539999999999998,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5333,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 3973,
+    "output_tokens_details": {
+      "thinking_tokens": 3592
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5333,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 3973,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5333,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5333
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 3973,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5333,
+      "webSearchRequests": 0,
+      "costUSD": 0.030539999999999998,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 3592,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5333,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "```mermaid\nstateDiagram-v2\n    [*] --> \"Ciornă\"\n    \n    \"Ciornă\" --> \"Ciornă\": atașează(f)\n    \"Ciornă\" --> \"Trimis\": trimite [are fișier]\n    \n    \"Trimis\" --> \"În evaluare\": preia(e)\n    \"Trimis\" --> \"Retras\": retrage\n    \n    \"În evaluare\" --> \"În evaluare\": înregistrează raport(r)\n    \"În evaluare\" --> \"Acceptat\": acceptă [are raport]\n    \"În evaluare\" --> \"Respins\": respinge [are raport]\n    \"În evaluare\" --> \"Retras\": retrage\n    \n    \"Acceptat\" --> [*]\n    \"Respins\" --> [*]\n    \"Retras\" --> [*]\n```\n\nManuscrisul pornește din **Ciornă** (inițial) și poate fi trimis în **Trimis** doar dacă are fișier atașat; operațiile refuzate rămân în aceeași stare. Din **Trimis**, un editor o preia și trece în **În evaluare**, unde se pot adăuga rapoarte; acceptarea sau respingerea necesită cel puțin un raport. **Retras** este accesibil din **Trimis** sau **În evaluare**, iar **Acceptat**, **Respins** și **Retras** sunt stări finale fără ieșiri ulterioare.",
+  "ttft_ms": 23012,
+  "type": "result",
+  "duration_ms": 25161,
+  "uuid": "479efc55-3f88-4c18-ba8c-773f2bb97199",
+  "ttft_stream_ms": 801,
+  "time_to_request_ms": 142,
+  "first_content_frame_ms": 802,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

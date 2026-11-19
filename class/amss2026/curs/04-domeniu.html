@@ -23,6 +23,71 @@ margin: 0 0.8em 0.2em -1.6em;
 vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #4a5a60;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #4a5a60; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #b3261e; font-weight: bold; } 
+code span.an { color: #4a5a60; font-style: italic; } 
+code span.at { color: #5b3d9e; } 
+code span.bn { color: #7d4a00; } 
+code span.bu { color: #1b3f8b; } 
+code span.cf { color: #065a5a; font-weight: bold; } 
+code span.ch { color: #8a3b12; } 
+code span.cn { color: #7d4a00; } 
+code span.co { color: #4a5a60; font-style: italic; } 
+code span.cv { color: #4a5a60; font-style: italic; } 
+code span.do { color: #4a5a60; font-style: italic; } 
+code span.dt { color: #5b3d9e; } 
+code span.dv { color: #7d4a00; } 
+code span.er { color: #b3261e; font-weight: bold; } 
+code span.ex { color: #1b3f8b; } 
+code span.fl { color: #7d4a00; } 
+code span.fu { color: #1b3f8b; } 
+code span.im { color: #065a5a; font-weight: bold; } 
+code span.in { color: #4a5a60; font-style: italic; } 
+code span.kw { color: #065a5a; font-weight: bold; } 
+code span.op { } 
+code span.ot { color: #065a5a; } 
+code span.pp { color: #7d4a00; } 
+code span.sc { color: #8a3b12; } 
+code span.ss { color: #8a3b12; } 
+code span.st { color: #8a3b12; } 
+code span.va { color: #5b3d9e; } 
+code span.vs { color: #8a3b12; } 
+code span.wa { color: #4a5a60; font-weight: bold; font-style: italic; } 
 </style>
   <style type="text/css">
 :root {
@@ -718,68 +783,129 @@ break-inside: avoid;
 </ul>
 <p>Oricare variantă trebuie să păstreze <strong>sursa unică</strong>, <strong>apartenența</strong> și <strong>originalul unic</strong>.</p>
 </div>
-<div id="verificăm-un-model-propus-de-ai" class="slide section level1 transition">
-<h1 class="transition">Verificăm un model propus de AI</h1>
-<p>Ce păstrăm, ce corectăm și pe ce regulă ne bazăm?</p>
+<div id="ce-cerem-aceea-primim" class="slide section level1 transition">
+<h1 class="transition">Ce cerem, aceea primim</h1>
+<p>Aceleași fapte, cerute în două forme: primim același model?</p>
 </div>
-<div id="promptul-analistului-ai" class="slide section level1">
-<h1>Promptul analistului AI</h1>
-<p><strong>Instrucțiunea exactă:</strong></p>
+<div id="aceleași-fapte-două-cereri" class="slide section level1">
+<h1>Aceleași fapte, două cereri</h1>
+<p><strong>Context identic în ambele prompturi:</strong> regulile <span class="nowrap">R1–R5</span> și scenariile <span class="nowrap">S1–S4</span> (legenda, două editări ale lui V1, sursa din altă fotografie).</p>
+<p><strong>Cererea A, exactă:</strong></p>
 <blockquote>
-<p>Propune un model de domeniu pentru regulile de mai jos: concepte, identități, relații și restricții. Explică prin <span class="nowrap">S1–S4</span> cum susține modelul regulile. Separă alegerile de reprezentare de cerințe. Nu scrie cod și nu impune o notație. Răspunde în română, în maximum 450 de cuvinte.</p>
+<p>Scrie clasele pentru arhiva fotografică descrisă mai jos. Răspunde în română, în maximum 300 de cuvinte.</p>
 </blockquote>
-<p><strong>Context, în același prompt:</strong> <span class="nowrap">R1–R6</span> și scenariile <span class="nowrap">S1–S5</span> (S1 legenda, S2 prima editare, S3 a doua editare a lui V1, S4 sursa din altă fotografie, S5 importul repetat, neconvenit).</p>
-</div>
-<div id="un-răspuns-susținut-de-reguli" class="slide section level1">
-<h1>Un răspuns susținut de reguli</h1>
-<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, analist AI, rularea 2, 10 octombrie 2026:</strong></p>
+<p><strong>Cererea B, exactă:</strong></p>
 <blockquote>
-<p>Un atribut modificabil, <strong>Legenda</strong>, aparține numai Fotografiei, nu versiunilor. Legenda se poate schimba fără să afecteze versiunile sau identitatea fotografiei.</p>
+<p>Descrie conceptele arhivei fotografice de mai jos, relațiile dintre ele și cardinalitatea fiecărei relații. Răspunde în română, în maximum 300 de cuvinte.</p>
 </blockquote>
-<p><strong>R1:</strong> fotografia are identificator stabil și legendă modificabilă. <strong>R5:</strong> schimbarea legendei nu modifică versiunile.</p>
-<p><strong>S1:</strong> F1 are originalul V1, F2 are originalul V2; ambele au legenda „Curte”. Schimbăm doar legenda lui F1 în „Dimineață”.</p>
-<p>În pereche: ce propoziție din fragment este susținută de R1 și ce propoziție de R5? Ce regulă am încălca dacă schimbarea legendei ar modifica V1?</p>
+<p><strong>Predicție, individual:</strong> ce va conține răspunsul A și nu va conține B?</p>
 </div>
-<div id="sunt-compatibile-cele-două-fragmente" class="slide section level1">
-<h1>Sunt compatibile cele două fragmente?</h1>
-<p><strong>Același răspuns AI — analist AI, rularea 2, fragmente:</strong></p>
+<div id="răspunsul-la-cererea-a-versiunea" class="slide section level1">
+<h1>Răspunsul la cererea A: versiunea</h1>
+<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, cererea A (clase), rularea 2, 19 noiembrie 2026:</strong></p>
+<div class="sourceCode" id="cb1" tabindex="0"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># […]</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="kw">class</span> Versiune:</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, id_versiune: <span class="bu">int</span>, fotografie_id: <span class="bu">str</span>, continut: <span class="bu">str</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>                 sursa_id: <span class="bu">int</span> <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>        <span class="va">self</span>.id_versiune <span class="op">=</span> id_versiune</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>        <span class="va">self</span>.fotografie_id <span class="op">=</span> fotografie_id</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>        <span class="va">self</span>.continut <span class="op">=</span> continut</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>        <span class="va">self</span>.sursa_id <span class="op">=</span> sursa_id  <span class="co"># None pentru original</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>    <span class="co"># […]</span></span></code></pre></div>
+<p><strong>R2 (versiune):</strong> fiecare versiune are un identificator propriu și aparține exact unei fotografii. <strong>R4 (editare):</strong> fiecare derivată are exact o sursă.</p>
+<p>Individual: notați fiecare element care <strong>nu apare</strong> în faptele din context.</p>
+</div>
+<div id="răspunsul-la-cererea-a-o-clasă-în-plus" class="slide section level1">
+<h1>Răspunsul la cererea A: o clasă în plus</h1>
+<p><strong>Același răspuns AI — rularea 2, fragment:</strong></p>
+<div class="sourceCode" id="cb2" tabindex="0"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">class</span> Arhiva:</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>        <span class="va">self</span>.fotografii <span class="op">=</span> {}  <span class="co"># id_foto -&gt; Fotografie</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>        <span class="va">self</span>.versiuni <span class="op">=</span> {}    <span class="co"># id_versiune -&gt; Versiune</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>        <span class="va">self</span>.contor_versiuni <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>    </span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>    <span class="kw">def</span> cataloga_fotografie(<span class="va">self</span>, id_foto: <span class="bu">str</span>, legenda: <span class="bu">str</span>, continut: <span class="bu">str</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;R1, R2, R3: Creează o fotografie cu originalul său&quot;&quot;&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>        <span class="cf">if</span> id_foto <span class="kw">in</span> <span class="va">self</span>.fotografii:</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">&quot;Fotografia există&quot;</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>        <span class="co"># […]</span></span></code></pre></div>
+<p><strong>Faptele:</strong> versiunile sunt numerotate în ordinea creării, în toată arhiva. Ce <strong>decide</strong> această clasă, deși faptele nu o cer?</p>
+</div>
+<div id="răspunsul-la-cererea-b-concepte-și-cardinalități" class="slide section level1">
+<h1>Răspunsul la cererea B: concepte și cardinalități</h1>
+<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, cererea B (concepte), rularea 3, 19 noiembrie 2026:</strong></p>
 <blockquote>
-<p>Fiecare Versiune are zero sau o Sursă (relație recursivă).</p>
-<p>[…] Doi copaci independenți (V3 și V4 din V1) nu sunt definiți; modelul permite orice orice configurație DAG cu original ca sursă indirectă.</p>
+<p>[…] <strong>1. Fotografie ↔︎ Versiune: 1:N</strong> - O fotografie are cel puțin o versiune - O versiune aparține exact unei fotografii</p>
+<p>[…] <strong>2. <span class="nowrap">Versiune-sursă</span> ↔︎ Versiune-derivată: 1:N</strong> - O versiune poate fi sursă pentru mai multe versiuni derivate (vezi S3: V1 genereaza atît V3 cît și V4) - O versiune derivată are exact o sursă</p>
 </blockquote>
-<p>„Relație recursivă”: relație de la o versiune la altă versiune. Un <strong>DAG</strong> este un graf orientat fără cicluri: urmând sensul săgeților, nu poți reveni la nodul de plecare.</p>
-<p><strong>Date:</strong> V1 este originalul; V3 și V4 au sursa V1; toate aparțin lui F1. <strong>R4:</strong> fiecare derivată are exact o sursă.</p>
-<p>În pereche: adăugați V6 în F1 cu sursele V3 și V4. Desenați săgeți „are sursa”. Graful are cicluri? Respectă R4? Care fragment trebuie corectat?</p>
+<p><strong>R2 (versiune):</strong> fiecare versiune aparține exact unei fotografii. <strong>R4 (editare):</strong> fiecare derivată are exact o sursă, din aceeași fotografie.</p>
+<p>Verificați cardinalitățile pe scenariul S3 (a doua editare a lui V1: V3 și V4, ambele cu sursa V1). Ce rămâne aici din lista de la cererea A?</p>
 </div>
-<div id="promptul-evaluatorului-ai" class="slide section level1">
-<h1>Promptul evaluatorului AI</h1>
-<p><strong>Instrucțiunea exactă pentru evaluator (agent AI de revizuire):</strong></p>
-<blockquote>
-<p>Ești evaluator (agent AI de revizuire). Verifică propunerea de mai jos exclusiv față de contextul și sarcina furnizate. Identifică afirmațiile susținute, contradicțiile, omisiunile relevante și alegerile prezentate ca cerințe. Pentru fiecare observație, indică fragmentul și regula sau scenariul relevant. Nu presupune că trebuie să existe greșeli; dacă o afirmație este corectă, explică de ce. Nu scrie cod. Răspunde în română, în maximum 400 de cuvinte.</p>
-</blockquote>
-<p><strong>Context nou:</strong> aceleași reguli și scenarii, sarcina analistului AI și răspunsul său integral (rularea 2).</p>
-<p><strong>Predicție, înainte de a vedea răspunsul AI:</strong> va observa evaluatorul AI contradicția dintre „zero sau o Sursă” și „orice DAG”?</p>
+<div id="domeniu-sau-implementare" class="slide section level1">
+<h1>Domeniu sau implementare?</h1>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>R1 (fotografie):</strong> fotografia are un identificator stabil și o legendă modificabilă.</p>
+<p><strong>R2 (versiune):</strong> fiecare versiune aparține exact unei fotografii.</p>
+<p><strong>R3 (original):</strong> fiecare fotografie are exact un original, fără sursă.</p>
+<p><strong>R4 (editare):</strong> fiecare derivată are exact o sursă, din aceeași fotografie.</p>
+</div><div class="column" style="width:52%;">
+<p><strong>Elemente din răspunsul A (clase):</strong></p>
+<ol style="list-style-type: decimal">
+<li><code>id_foto: str</code>, <code>id_versiune: int</code></li>
+<li><code>contor_versiuni</code>, care numerotează versiunile</li>
+<li><code>fotografie_id</code>, <code>sursa_id</code>, păstrate în versiune</li>
+<li><code>sursa_id = None</code> pentru original</li>
+<li><code>raise ValueError(&quot;Fotografia există&quot;)</code></li>
+<li>clasa <code>Arhiva</code></li>
+</ol>
 </div>
-<div id="ce-observă-revizuirea" class="slide section level1">
-<h1>Ce observă revizuirea?</h1>
-<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, evaluator AI, rularea 3, 10 octombrie 2026:</strong></p>
-<blockquote>
-<p>[…] un <strong>DAG</strong> (graph aciclic orientat) permite noduri cu mai mulți părinți și configurații arbitrare.</p>
-</blockquote>
-<p>În captură, „părinți” înseamnă surse.</p>
-<p><strong>Reper:</strong> V3 și V4, fiecare cu sursa V1 (S3), respectă R4; V6 cu sursele V3 și V4 ar încălca R4 (exact o sursă).</p>
-<p><strong>Predicția <span class="nowrap">s-a</span> confirmat?</strong> Revizuirea observă că un DAG admite mai multe surse. Numește ea regula încălcată sau contraexemplul? Ce adăugăm noi revizuirii înainte de decizie?</p>
 </div>
-<div id="decizia-noastră-asupra-modelului" class="slide section level1">
-<h1>Decizia noastră asupra modelului</h1>
-<p><strong>Corecția noastră:</strong></p>
-<ul>
-<li>Păstrăm identitățile și separarea fotografiei de versiuni.</li>
-<li>Păstrăm mai multe derivate directe din aceeași sursă.</li>
-<li>Pentru <strong>fiecare fotografie</strong>, versiunile formează <strong>un arbore cu rădăcina în original</strong>: fiecare derivată are exact o sursă.</li>
-</ul>
-<p><strong><span class="nowrap">R3–R5:</span></strong> originalul este unic și nu are sursă; o derivată indică o versiune existentă anterior, din aceeași fotografie. Asocierile existente se păstrează.</p>
-<p><strong>În pereche:</strong> de ce ajungem mereu la original, fără cicluri, dacă urmărim sursele din orice versiune?</p>
+<p>Individual: marcați fiecare element <strong>D</strong> (concept sau regulă a domeniului), <strong>I</strong> (decizie de implementare) sau <strong>I pentru D</strong> (implementează o regulă a domeniului).</p>
+</div>
+<div id="sortarea-noastră" class="slide section level1">
+<h1>Sortarea noastră</h1>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Element</th>
+<th>Ce este</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. tipurile identificatorilor</td>
+<td><strong>I</strong>: faptele cer identitate stabilă, nu un tip.</td>
+</tr>
+<tr>
+<td>2. contorul</td>
+<td><strong>I</strong>: alege cum se generează identificatorii.</td>
+</tr>
+<tr>
+<td>3. <code>fotografie_id</code>, <code>sursa_id</code></td>
+<td><strong>I pentru D</strong>: reprezintă apartenența și sursa.</td>
+</tr>
+<tr>
+<td>4. <code>None</code> pentru original</td>
+<td><strong>I pentru D</strong>: „originalul nu are sursă”.</td>
+</tr>
+<tr>
+<td>5. excepția</td>
+<td><strong>I</strong>: răspunde la o întrebare pe care regulile nu o pun.</td>
+</tr>
+<tr>
+<td>6. clasa <code>Arhiva</code></td>
+<td><strong>I</strong>: o componentă care execută operațiile.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Decizia noastră:</strong> cerem întâi conceptele, relațiile și cardinalitățile; clasele vin după, cu fiecare decizie de implementare numită și justificată.</p>
 </div>
 <div id="două-reprezentări-aceleași-verificări" class="slide section level1">
 <h1>Două reprezentări, aceleași verificări</h1>
@@ -822,8 +948,9 @@ break-inside: avoid;
 <ul>
 <li><strong>sensuri:</strong> fotografie, versiune, original, derivată, sursă;</li>
 <li><strong>reguli:</strong> identitate, apartenență și numărul permis de asocieri;</li>
-<li><strong>exemple și contraexemple:</strong> schimbarea legendei, editarea, două ramuri; V5 din altă fotografie, V6 cu două surse;</li>
+<li><strong>exemple și contraexemple:</strong> schimbarea legendei, editarea, două ramuri; V5 din altă fotografie;</li>
 <li><strong>limite:</strong> ce excludem explicit (R6);</li>
+<li><strong>decizii de implementare numite separat:</strong> tipuri, identificatori generați, clase care execută operațiile;</li>
 <li><strong>întrebări deschise:</strong> politica importului repetat (S5).</li>
 </ul>
 <p>O diagramă ajută când putem explica fiecare relație <span class="nowrap">printr-o</span> regulă sau un exemplu.</p>

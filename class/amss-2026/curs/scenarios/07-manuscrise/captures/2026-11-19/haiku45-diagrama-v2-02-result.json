@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 39070,
+  "stop_reason": "end_turn",
+  "session_id": "291aa862-4271-449a-9086-446242feb894",
+  "total_cost_usd": 0.040174,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5375,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 5883,
+    "output_tokens_details": {
+      "thinking_tokens": 5515
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5375,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 5883,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5375,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5375
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 5883,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5375,
+      "webSearchRequests": 0,
+      "costUSD": 0.040174,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 5515,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5375,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "```mermaid\nstateDiagram-v2\n    state \"Ciornă\" as Ciorna\n    state \"În evaluare\" as InEvaluare\n    \n    [*] --> Ciorna\n    \n    Ciorna --> Ciorna: atașează(f)\n    Ciorna --> Trimis: trimite [fișier anexat]\n    \n    Trimis --> InEvaluare: preia(e)\n    Trimis --> Retras: retrage\n    \n    InEvaluare --> InEvaluare: înregistrează raport(r)\n    InEvaluare --> Acceptat: acceptă [≥1 raport]\n    InEvaluare --> Respins: respinge [≥1 raport]\n    InEvaluare --> Retras: retrage\n    \n    Acceptat --> [*]\n    Respins --> [*]\n    Retras --> [*]\n```\n\nDiagrama include toate șase stări și tranzițiile permise între ele. Condițiile dintre paranteze drepte specifică când tranzițiile sunt valide: `trimite` necesită fișier anexat, iar `acceptă`/`respinge` necesită cel puțin un raport înregistrat. Stările Acceptat, Respins și Retras sunt finale intenționate (R8), fără tranziții de ieșire; evenimentele refuzate rămân în starea curentă conform R7.",
+  "ttft_ms": 36858,
+  "type": "result",
+  "duration_ms": 39130,
+  "uuid": "ef35456c-2544-40e3-b26e-46ab136477b8",
+  "ttft_stream_ms": 675,
+  "time_to_request_ms": 69,
+  "first_content_frame_ms": 675,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

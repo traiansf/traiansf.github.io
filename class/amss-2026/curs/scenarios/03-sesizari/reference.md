@@ -24,7 +24,25 @@ R1 și R2 stabilesc deja crearea unei sesizări la fiecare raportare validă și
 
 Nu inferăm o schemă de baze de date sau un număr de clase din aceste reguli. S41 și S42 sunt identificatori ilustrativi.
 
-## Analiza capturilor AI reale
+## Precizia inventată: capturile din 19 noiembrie 2026
+
+Arhiva [din 19 noiembrie 2026](captures/2026-11-19/README.md) păstrează trei rulări Claude Haiku 4.5 cu același prompt: enunțul (R1–R4, Q1, excluderile) și cererea unor cerințe de calitate verificabile. Prezentarea folosește rularea 1. Tabelul de proveniență al profesorului:
+
+| Număr din răspuns (rularea 1) | Sursa în enunț | Verdict |
+|---|---|---|
+| 100% / 0% (CQ1, CQ3, CQ4) | R1–R4: regula se aplică fiecărei cereri | Susținut; se poate scrie „fiecare” / „niciuna”. |
+| Max 1 secundă (CQ1, CQ2, CQ3) | Niciuna; Q1 fixează timpul numai pentru consultare | Nesusținut; întrebare pentru administrație. |
+| 10.000; 20 de consultări simultane; 950 din 1.000; 2 secunde (CQ5) | Q1 | Susținut; lipsește rețeaua campusului. |
+| 20 de utilizatori simultani (CQ5) | Q1 spune 20 de consultări simultane | Schimbat față de sursă; se corectează. |
+| 50 de sesizări pe utilizator (CQ5) | Niciuna; Q1 lasă setul de date nestabilit | Nesusținut; propunere pentru planul de verificare. |
+| 1.000 de operații (CQ4) | Niciuna; R3 cere rezultatul | Nesusținut; propunere pentru planul de verificare. |
+| 2+ cereri în paralel, 0 stări invalide (CQ6) | Niciuna; enunțul nu analizează concurența actualizărilor | Nesusținut; cerință nouă, nu se păstrează. |
+
+Rularea 2 păstrează Q1 integral, dar alege dimensiuni de test (10 combinații, 15 tranziții valide și 10 invalide). Rularea 3 nu adaugă alt prag de timp. Nu generalizăm din trei rulări.
+
+## Analiza capturilor AI din 10 octombrie 2026
+
+Din 19 noiembrie 2026, prezentarea folosește din această arhivă numai cele trei afirmații ale răspunsului inițial 2 de pe slide-ul „Ce știm și ce rămâne de convenit?”. Analiza de mai jos rămâne pentru arhivă.
 
 Arhiva [din 10 octombrie 2026](captures/2026-10-10/README.md) păstrează șase rulări independente cu Claude Haiku 4.5. Raționamentele de mai jos sunt ale profesorului, distincte de răspunsurile capturate.
 

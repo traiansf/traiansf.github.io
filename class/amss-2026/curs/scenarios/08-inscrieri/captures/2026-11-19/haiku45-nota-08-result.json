@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 13314,
+  "stop_reason": "end_turn",
+  "session_id": "1eab4583-b15a-4b30-a41a-38acc7cbfc60",
+  "total_cost_usd": 0.016562,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5599,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1071,
+    "output_tokens_details": {
+      "thinking_tokens": 297
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5599,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1071,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5599,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5599
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1071,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5599,
+      "webSearchRequests": 0,
+      "costUSD": 0.016562,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 297,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5599,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Notă de Proiectare — Registrul de Locuri\n\n## Flux de Funcționare\n\nRegistrul de locuri acceptă cereri de înscriere de la site-ul centrului cultural. Fiecare cerere conține identificatorul cererii (unic pentru fiecare participare), participantul și atelierul dorit.\n\n**Acceptarea unei înscrierii:** o cerere cu identificator neînregistrat anterior este acceptată dacă participantul nu este deja înscris la acel atelier și locurile nu sunt epuizate. Dacă sunt îndeplinite aceste condiții, registrul consumă un loc și consemnează înscrierea.\n\n**Confirmarea participantului:** imediat după acceptare, registrul apelează expeditorul de confirmări pentru a trimite participantului un mesaj de confirmare. Expeditorul răspunde cu „trimis\" sau „esec\". Registrul înregistrează această valoare în starea înscrierii.\n\n## Expeditorul de Confirmări și Gestionarea Eșecului\n\nExpeditorul de confirmări este un serviciu extern, operat de o altă firmă. Registrul nu controlează implementarea acestuia — doar presupune că răspunde la fiecare apel.\n\n**Răspunsul esec:** când expeditorul răspunde „esec\", înscrierea rămâne valabilă și consumul de loc nu este anulat. Site-ul primește răspunsul „acceptat\" în ambele cazuri (confirmare trimisă sau eșuată). Sistemul prioritizează prezența locului pentru participant asupra confirmării: un participant înscris fără confirmare este preferabil unui participant fără loc.\n\n## Reîncercare și Idempotență\n\nCând site-ul retrimite o cerere cu același identificator (după o întrerupere de conexiune, de exemplu), registrul o recunoaște și întoarce rezultatul anterior fără a modifica starea.\n\n**Dacă confirmarea inițială eșuase:** registrul poate apela din nou expeditorul și actualiza rezultatul. **Dacă confirmarea eșuase și se retrimite:** retrimiterea poate genera mesaje duplicate la participant, dar aceasta este o trădare acceptată pentru a garanta probabilitatea confirmării.\n\n**Dacă confirmarea eșuase și nu se retrimite:** registrul oferă operatorului o funcție separată pentru a reîncerca manual confirmările nereușite.\n\n## Garanții\n\nSistemul garantează:\n\n- **Atomicitate pe cerere:** o cerere acceptată consumă exact un loc; reîncercările nu generează înscrisuri duble.\n- **Idempotență:** aceeași cerere întoarce întotdeauna același rezultat.\n- **Izolare:** o cerere nu afectează alte înscrierii.\n- **Înregistrare:** fiecare acceptare și rezultat al confirmării este consemnat permanent.\n- **Separare:** eșecul confirmării nu anulează înscrierea; beneficiarul știe diferența.",
+  "ttft_ms": 4329,
+  "type": "result",
+  "duration_ms": 13433,
+  "uuid": "5a21c548-d3c2-416f-89e9-df55e9b7fc21",
+  "ttft_stream_ms": 917,
+  "time_to_request_ms": 155,
+  "first_content_frame_ms": 917,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

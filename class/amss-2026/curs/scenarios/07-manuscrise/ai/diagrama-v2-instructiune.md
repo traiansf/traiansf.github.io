@@ -1,0 +1,1 @@
+Scrie diagrama de stări a manuscrisului în Mermaid (stateDiagram-v2), din regulile de mai jos: toate stările, tranzițiile, evenimentele și condițiile. Diagrama trebuie să se randeze fără erori: pentru numele cu spații sau diacritice, declară starea cu `state "Nume" as X`. Răspunde cu blocul de cod Mermaid, urmat de cel mult trei propoziții de explicație.

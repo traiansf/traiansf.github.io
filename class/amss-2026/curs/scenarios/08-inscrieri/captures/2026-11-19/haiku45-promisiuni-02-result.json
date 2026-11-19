@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 13296,
+  "stop_reason": "end_turn",
+  "session_id": "244d9904-16c6-46ce-9d52-6bd2ca4611bb",
+  "total_cost_usd": 0.016724,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5580,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1111,
+    "output_tokens_details": {
+      "thinking_tokens": 523
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5580,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1111,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5580,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5580
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1111,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5580,
+      "webSearchRequests": 0,
+      "costUSD": 0.016724,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 523,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5580,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Paragraful pentru site\n\n**Ce vă garantăm la înscriere**\n\nÎnscrierea dumneavoastră este acceptată imediat dacă atelierul are locuri disponibile și nu sunteți deja înscris la el. Locul este rezervat sub un identificator unic al cererii — dacă reîncercați aceeași înscrisoare, veți obține același răspuns fără a pierde locul. După acceptare, o confirmare este trimisă imediat serviciului de poștă. Chiar dacă confirmarea nu ajunge din cauze externe, înscrierea rămâne valabilă și locul vostru este asigurat. Dacă confirmarea se pierde, o puteți solicita din nou la operatorul centrului — nu va fi nevoie să vă înscrieti din nou.\n\n---\n\n## Justificarea tehnică pentru centru\n\n**1. Garantia locului (R3):** Acceptarea depinde de starea registrului la momentul cererii — locul disponibil și participant neînscris. Sistemul consumă un loc exact la acceptare, ceea ce asigură că nu sunt depășite plafoanele.\n\n**2. Confirmarea automată (R4):** Registrul apelează expeditorul imediat după fiecare acceptare. Rezultatul — `trimisă` sau `netrimisă` — este înregistrat fără a anula înscrierea. Aceasta separă locul garantat de livrarea mesajului.\n\n**3. Idempotență la reîncercare (R5):** Identificatorul unic al cererii permite registrului să recunoască reîncercările. Aceeași cerere — același identificator — produce același răspuns, fără consum adițional de locuri. Sistemul nu apelează din nou expeditorul dacă confirmarea anterioară a fost `trimisă`, evitând mesaje duplicate. Dacă a fost `netrimisă`, reîncercarea declanșează din nou apelul expeditorului.\n\n**4. Retrimitere controlată:** Operația `retrimite confirmările()` permite unui operator al centrului să reîncerce confirmări eșuate, fără a modifica înscrierea. Aceasta asigură redresarea după eșecuri temporare de comunicație cu expeditorul.",
+  "ttft_ms": 7116,
+  "type": "result",
+  "duration_ms": 13405,
+  "uuid": "dad6b3b3-1218-40a9-b0f6-0f1a1abe67a9",
+  "ttft_stream_ms": 767,
+  "time_to_request_ms": 127,
+  "first_content_frame_ms": 767,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

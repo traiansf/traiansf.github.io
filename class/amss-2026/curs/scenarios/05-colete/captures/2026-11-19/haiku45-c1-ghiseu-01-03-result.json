@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 10884,
+  "stop_reason": "end_turn",
+  "session_id": "c5964ac8-2760-4d7c-9712-b9c4c3dda792",
+  "total_cost_usd": 0.017484,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4830,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1563,
+    "output_tokens_details": {
+      "thinking_tokens": 1175
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4830,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1563,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4830,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4830
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1563,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4830,
+      "webSearchRequests": 0,
+      "costUSD": 0.017484,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1175,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4830,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "```python\ndef estimeaza_pret(masa_text, ambalaj):\n    # Interpretare masă\n    try:\n        masa = int(masa_text)\n    except (ValueError, TypeError):\n        return \"Masa introdusă nu este validă.\"\n    \n    # R2: Interval masă\n    if masa < 1 or masa > 5000:\n        return \"Masa nu respectă intervalul 1–5000 g.\"\n    \n    # R3: Verificare ambalaj și restricții\n    ambalaj_lower = ambalaj.lower()\n    if ambalaj_lower == \"plic\":\n        if masa > 1500:\n            return \"Plicul este acceptat doar până la 1500 g.\"\n    elif ambalaj_lower == \"cutie\":\n        pass\n    else:\n        return f\"Ambalaj nerecunoscut: '{ambalaj}'.\"\n    \n    # R4: Calculare preț\n    if masa <= 1000:\n        return \"Preț estimat: 10 lei\"\n    else:\n        return \"Preț estimat: 18 lei\"\n```\n\nAm actualizat R3: limita plicului a fost schimbată de la 1000 g la 1500 g inclusiv.\nVerificarea `if masa > 1500` și mesajul corespunzător au fost ajustate.\nRegula R4 de calcul al prețului rămâne neschimbată (10 lei până la 1000 g, 18 lei peste).",
+  "ttft_ms": 9147,
+  "type": "result",
+  "duration_ms": 10957,
+  "uuid": "8e8f0125-95aa-49db-a85e-8351bfa3b455",
+  "ttft_stream_ms": 670,
+  "time_to_request_ms": 88,
+  "first_content_frame_ms": 671,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

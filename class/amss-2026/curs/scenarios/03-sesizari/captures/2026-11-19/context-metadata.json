@@ -1,0 +1,15 @@
+{
+  "source": "../brief.md",
+  "source_sha256_at_capture": "4c78e3bbcb6eb10f911998c625beae07c3563d1a8425a398a1cf16a5e2d270b0",
+  "copied_sections": [
+    "Cererea inițială",
+    "Limite și reguli convenite"
+  ],
+  "context_file": "context.md",
+  "context_sha256": "09fe5682cf4c06be0bb9f0ae59dbfce0b5676bb402d2b53a73611e64ed635f5b",
+  "prompts": {
+    "calitate-prompt.md": "829bfc0017d6904c26c2229b08c3c52428ffef1ca0c79cd55e24ad0aa4ec2bd7",
+    "calitate-instructiune.md": "3d761d0980bd25f85d6f45dac30276ccdd32fe25a44578eddc2a7e3eb75eceaf"
+  },
+  "sha256_encoding": "UTF-8, LF line endings"
+}

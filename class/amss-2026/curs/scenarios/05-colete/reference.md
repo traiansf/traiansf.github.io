@@ -18,6 +18,10 @@ S1: `1000 ≤ 1000`, plic permis, preț 10. S2: depășește limita plicului, re
 
 La C1, un plic de 1200 g este acceptat la **18 lei**, nu la 10: limita ambalajului și pragul de preț aveau inițial aceeași valoare, dar sensuri diferite. Separăm aceste decizii, chiar dacă rămân în aceeași funcție. Schimbarea culorii unui buton afectează numai canalul; schimbarea pragului de preț afectează calculul și exemplele aferente. Un al treilea canal folosește aceeași operație fără să copieze regulile.
 
+## Capturile din 19 noiembrie 2026
+
+Delegarea separată a canalelor a produs copii reale ale regulilor, nu construite de noi: șase funcții pentru site și șase pentru ghișeu, din aceleași reguli, toate corecte pe S1–S5. Ele se despart la intrări pe care niciun scenariu nu le fixează: site-ul 3 citește „1000,5” ca 1000 (încalcă R1 și, față de ghișeu, R5); ghișeul 1 acceptă „Plic” cu majusculă, site-ul 3 îl refuză (R5; majuscula este o întrebare pentru firmă). Ghișeul 2 scria `pret = 10` în ramura plicului, corect doar cât limita plicului și pragul de preț coincid; la C1, sesiunea nouă a corectat-o. Concluzia rămâne cea de mai sus: o operație comună păstrează limita, pragul și prețul într-un singur loc; interpretarea textului (R1) rămâne în fiecare canal și se verifică acolo, inclusiv cu „1000,5”. Proveniența, execuția codului și toate rulările sunt în [arhiva capturilor](captures/2026-11-19/README.md).
+
 ## Criterii de revizuire
 
 Pentru fiecare observație: fragmentul propunerii → regula rezumată → scenariul care o verifică → decizia noastră. O propunere corectă se confirmă prin S1–S5 și apoi se pune la încercare prin C1. Nu cerem defecte obligatorii și nu deducem performanța generală a unui model dintr-o captură.

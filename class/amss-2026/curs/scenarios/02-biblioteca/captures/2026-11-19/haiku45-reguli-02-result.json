@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 15088,
+  "stop_reason": "end_turn",
+  "session_id": "693e342f-a75f-45f1-bcab-5154a3604b85",
+  "total_cost_usd": 0.017351000000000002,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4936,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1494,
+    "output_tokens_details": {
+      "thinking_tokens": 532
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4936,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1494,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4936,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4936
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1494,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4936,
+      "webSearchRequests": 0,
+      "costUSD": 0.017351000000000002,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 532,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4936,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Proiectare Sistem Gestionare Împrumturi Bibliotecă\n\n## Entități și Stări\n\n**Entități principale:**\n- **Titlu**: Resursă catalog cu identificator unic.\n- **Exemplar**: Copie fizică a unui titlu; are trei stări mutually exclusive:\n  - *Disponibil*: fără împrumut activ și fără rezervare activă.\n  - *Împrumutat*: legat activ de un membru printr-un împrumut.\n  - *Rezervat*: alocat unei cereri neîncheiate (în așteptare de ridicare).\n- **Membru**: Utilizator al sistemului.\n- **Împrumut activ**: Legătura membru-exemplar; doar unu pe exemplar.\n- **Cerere neîncheiată**: Solicitare de titlu de către membru; poate fi în stare *Așteptare* (fără exemplar) sau *Îndeplinit* (cu exemplar rezervat).\n\n## Operații și Reguli\n\n**1. Împrumut (R2)**\n- **Condiție**: Exemplar disponibil SAU rezervat aceluiași membru.\n- **Acțiune**: Creare împrumut activ.\n- **Rezultat**: Succes sau respingere (împrumut/rezervat altcuiva).\n\n**2. Returnare (R3)**\n- **Condiție**: Exemplar cu împrumut activ.\n- **Acțiune**: Închidere împrumut; alocarea exemplarului primei cereri în așteptare (devino rezervat) sau devenire disponibil.\n- **Rezultat**: Succes și tranziție de stare; respingere (fără împrumut).\n\n**3. Cerere de Împrumut (R4)**\n- **Condiție**: \n  - Fără exemplare disponibile ale titlului.\n  - Membru fără cerere neîncheiată pentru acel titlu.\n- **Acțiune**: Înregistrare cerere în așteptare cu marcă temporală.\n- **Rezultat**: Succes (cere în așteptare) sau respingere (exemplare disponibile/duplicat).\n\n## Fluxuri și Rezultate\n\n**Flux normal:**\n1. Membru solicită titlu → Cerere în așteptare (dacă reguli valide).\n2. Exemplar returnat → Prima cerere în așteptare devine *Îndeplinit* (exemplar rezervat); celelalte rămân în așteptare.\n3. Membru cu cerere îndeplinit ridică exemplar → Creare împrumut; cerere închisă.\n\n**Rezultate operații:**\n- **Succes**: Starea sistemului se modifică conform regulilor; cereri/exemplare tranziționate.\n- **Respingere**: Stare nemodificată; motiv implicit (indisponibilitate, duplicat, fără împrumut).\n\n## Concepte-Cheie\n\n- **Prioritate FIFO**: Cererile în așteptare pentru un titlu se servesc în ordinea înregistrării.\n- **Atomicitate**: Returnare + alocație = o operație; nu se execută parțial.\n- **Separare emplu-cerere**: Exemplar specific pentru împrumut; cerere abstract (titlu fără alegere).\n- **Și/sau logic**: Exemplar *este* disponibil *sau* rezervat acelui membru → împrumut OK.\n\nSistemul este minimal, fără notificări, amende, expirare sau autentificare—doar stările și tranzițiile esențiale pentru logica de împrumut, returnare și așteptare.",
+  "ttft_ms": 6338,
+  "type": "result",
+  "duration_ms": 15240,
+  "uuid": "d9bacedd-de7b-4788-9410-df36fd1ca449",
+  "ttft_stream_ms": 934,
+  "time_to_request_ms": 182,
+  "first_content_frame_ms": 934,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

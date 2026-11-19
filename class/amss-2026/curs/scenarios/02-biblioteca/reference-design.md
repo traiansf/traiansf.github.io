@@ -56,6 +56,12 @@ Acestea sunt parcurgeri ale proiectării. Nu pretindeți că sunt teste executat
 
 **Extindere de discutat:** „Ce facem dacă M2 nu mai vine?” Expirarea/anularea și notificările sunt excluse prin R6; constituie decizii necesare unui sistem mai amplu, nu defecte față de enunțul acestui exercițiu.
 
+## Ce hotărăște agentul AI în locul nostru: capturile din 19 noiembrie 2026
+
+Arhiva [din 19 noiembrie 2026](captures/2026-11-19/README.md) compară aceeași instrucțiune cu și fără R1–R6. Fără reguli, toate cele trei rulări au fixat o scadență, o limită de împrumuturi, penalități și notificări; rularea 2 adaugă abonamente care expiră, o fereastră de 48 de ore pentru ridicare și o prioritate opțională pentru membrii fără întârzieri. Niciuna nu are sursă în solicitare: sunt întrebări pentru bibliotecară, iar R2, R5 și R6 le răspund pentru acest exercițiu (fără limită de împrumuturi, ordinea înregistrării, amenzile și expirarea excluse, rezervarea până la ridicare).
+
+Cu R1–R6, rulările respectă operațiile convenite. Rămân de verificat: „marcă temporală” sau „timestamp” pentru ordine (acceptabilă numai dacă păstrează ordinea procesării din R6) și, în rularea 1, „Dacă exemplar disponibil: împrumut imediat” (o regulă nouă: R4 respinge cererea pentru un titlu cu exemplar disponibil). Rularea 2 numește „Îndeplinit” cererea cu exemplar rezervat, deși R2 o declară îndeplinită abia la ridicare; nu este folosit pe slide-uri.
+
 ## Predarea către etapa următoare
 
 Agentul AI următor poate propune un plan pentru cele trei operații și fluxul cerere–rezervare–împrumut. Primește regulile, conceptele, contractele, scenariile, deciziile de revizuire și limitele. Nu presupune rezolvate expirarea, anularea, notificările, concurența, autentificarea sau punerea în producție.

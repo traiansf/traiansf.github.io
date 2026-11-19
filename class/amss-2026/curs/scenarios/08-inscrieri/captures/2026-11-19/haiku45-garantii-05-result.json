@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 18697,
+  "stop_reason": "end_turn",
+  "session_id": "1d4f749b-3125-46c6-88e7-ca63278ba002",
+  "total_cost_usd": 0.020973000000000002,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5577,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1962,
+    "output_tokens_details": {
+      "thinking_tokens": 1135
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5577,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1962,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5577,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5577
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1962,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5577,
+      "webSearchRequests": 0,
+      "costUSD": 0.020973000000000002,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1135,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5577,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Interacțiunile și garanțiile operaționale\n\n## Interacțiunile principale\n\n**Fluxul de înscriiere:**\nSite trimite `înscrie(c, p, a)` cu identificator unic per cerere. Registrul verifică dacă participantul p nu este deja înscris la atelierul a și dacă mai sunt locuri libere. Dacă validă, înscrierea este acceptată: consumă un loc, înregistrează tripletul (c, p, a), apelează Expeditorul cu `trimite(mesaj)`, așteptă răspunsul (`trimis` sau `esec`), marchează înscrierea cu starea confirmării și returnează site-ului `acceptat`. În caz contrar, returnează `refuz` și nu apelează Expeditorul.\n\n**Fluxul de reîncercare:**\nCând site retrimite `înscrie(c, p, a)` cu același identificator c (de exemplu, din cauza timeout-ului), Registrul recunoaște cererea ca reîncercare. Dacă confirmarea anterioară este marcată `trimisă`, returnează imediat `acceptat` fără apel la Expeditor. Dacă este `netrimisă`, apelează din nou Expeditorul, actualizează starea confirmării, și returnează `acceptat`. Niciun loc suplimentar nu se consumă.\n\n**Retrimiterea batch:**\nOperatorul apelează `retrimite confirmări()`. Registrul iterează confirmările marcate `netrimisă`, apelează Expeditorul o dată pentru fiecare și actualizează staturile, fără a modifica alte date.\n\n## Garanțiile operaționale\n\n**Consistența datelor:**\n- Fiecare loc se consumă maxim o dată per participant la atelier\n- Reîncercări nu creează înscriteri duplicate: același identificator c produce o singură înregistrare în Registru\n- Starea locurilor rămâne coherentă (total participant-atelier ≤ capacitate)\n- Confirmările sunt independente de consuma locurilor\n\n**Livrarea confirmărilor:**\n- După acceptarea unei înscrierii, Expeditorul este apelat necondiționat\n- Reîncercări cu stare `netrimisă` declanșează reapelul Expeditorului\n- Operația `retrimite confirmări()` permite o a doua încercare pentru toate confirmările netrimise\n- Eșecul Expeditorului (răspunsul `esec`) nu anulează înscrierea; prioritatea sistemului este locul garantat > confirmare garantată\n\n**Comportament la repetări (idempotență):**\n- Acelaș identificator c returnează acelaș răspuns `acceptat` și nu consumă locuri suplimentare\n- Reîncercări nu modifică alte date ale sistemu (doar starea confirmării din acea înscriiere)\n- Expeditorul este apelat o dată la acceptare, și opțional la reîncercări cu netrimisă; duplicarea de mesaje spre participant este acceptabilă și tolerantă\n- Nicio cerere nu afectează alte înscriieri sau disponibilitatea locurilor acestora",
+  "ttft_ms": 12475,
+  "type": "result",
+  "duration_ms": 18841,
+  "uuid": "64322840-3b9d-4c83-aebf-99da2ed1c95c",
+  "ttft_stream_ms": 825,
+  "time_to_request_ms": 157,
+  "first_content_frame_ms": 825,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 6601,
+  "stop_reason": "end_turn",
+  "session_id": "09d29c28-f06d-4c7a-ae77-bc9f216e5624",
+  "total_cost_usd": 0.014167,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4799,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 912,
+    "output_tokens_details": {
+      "thinking_tokens": 562
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4799,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 912,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4799,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4799
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 912,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4799,
+      "webSearchRequests": 0,
+      "costUSD": 0.014167,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 562,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4799,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "```javascript\nfunction estimarePret(masaText, ambalaj) {\n  const masa = parseInt(masaText, 10);\n  \n  if (isNaN(masa)) {\n    return \"Masa trebuie să fie un număr întreg. Vă rugăm corectați.\";\n  }\n  \n  if (masa < 1 || masa > 5000) {\n    return \"Masa trebuie să fie între 1 și 5000 grame.\";\n  }\n  \n  if (ambalaj === \"plic\" && masa > 1500) {\n    return \"Plicul este acceptat doar până la 1500 grame.\";\n  }\n  \n  if (ambalaj !== \"plic\" && ambalaj !== \"cutie\") {\n    return \"Tip de ambalaj neacceptat.\";\n  }\n  \n  const pret = masa <= 1000 ? 10 : 18;\n  return `Preț estimat: ${pret} lei`;\n}\n```\n\nAm actualizat pragul de acceptare pentru plic de la 1000 g la 1500 g (linia 11). Regula de preț rămâne neschimbată: 10 lei pentru colete ≤1000 g, 18 lei pentru cele >1000 g. Celelalte validări și canale sunt neafectate.",
+  "ttft_ms": 5603,
+  "type": "result",
+  "duration_ms": 6972,
+  "uuid": "27cb7432-d29e-41c2-94f7-539d49f9a122",
+  "ttft_stream_ms": 1526,
+  "time_to_request_ms": 432,
+  "first_content_frame_ms": 1527,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

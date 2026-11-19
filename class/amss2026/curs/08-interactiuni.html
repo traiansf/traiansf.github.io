@@ -956,54 +956,123 @@ break-inside: avoid;
 </ul>
 <p><strong>C contrazice R4.</strong> A rămâne o alternativă; ar cere precizarea numărului de încercări și noi trasări.</p>
 </div>
-<div id="verificăm-un-flux-delegat" class="slide section level1 transition">
-<h1 class="transition">Verificăm un flux delegat</h1>
-<p>Un tabel al interacțiunii propus de altcineva spune cine coordonează?</p>
+<div id="cine-oferă-garanția" class="slide section level1 transition">
+<h1 class="transition">Cine oferă garanția?</h1>
+<p>Un text despre înscriere promite ceva. Cine se angajează să îl respecte?</p>
 </div>
 <div id="ce-cerem-asistentului-ai" class="slide section level1">
 <h1>Ce cerem asistentului AI?</h1>
+<p><strong>Instrucțiunea exactă</strong>, urmată de enunț:</p>
 <blockquote>
-<p>Propune tabelul interacțiunii pentru inscrie: pașii în ordine, cine apelează pe cine, ce se trimite, ce se întoarce și ce înregistrează registrul la fiecare pas, inclusiv cazul în care expeditorul răspunde esec și cazul unei reîncercări. Repartizează responsabilitățile între site, registru și expeditor. Precizează ce garantează registrul și ce presupune despre expeditor. Verifică <span class="nowrap">S1–S6</span> […]. Nu scrie cod. Răspunde în română, în maximum 450 de cuvinte.</p>
+<p>Centrul cultural vrea să publice pe site un paragraf „Ce vă garantăm la înscriere”, pentru participanți, și ne cere, ca proiectanți ai registrului, textul lui. Scrie paragraful, apoi, separat, o scurtă justificare tehnică pentru centru: pe ce se sprijină fiecare promisiune din paragraf. Nu scrie cod. Răspunde în română, în maximum 300 de cuvinte.</p>
 </blockquote>
-<p><strong>Context:</strong> regulile <span class="nowrap">R1–R7,</span> în versiunea de atunci a enunțului: identificatorul cererii, acceptarea, confirmarea care nu anulează înscrierea, reîncercarea, granița, efectul limitat.</p>
-<p><strong>Date:</strong> I = 2 locuri libere, nicio înscriere; scenariile <span class="nowrap">S1–S6:</span> înscrierea confirmată, confirmarea eșuată, reîncercarea după eșec și după succes, cererea nouă a unui participant înscris, locurile epuizate.</p>
+<p><strong>Context:</strong> enunțul curent, <span class="nowrap">R1–R7</span> și scenariile <span class="nowrap">S1–S6,</span> plus varianta B aleasă mai devreme: <span class="operatie">înscrie</span> apelează expeditorul o dată la acceptare și o dată la o reîncercare cu confirmarea <code>netrimisă</code>; un operator al centrului apelează <span class="operatie">retrimite confirmările()</span>.</p>
+<p><strong>Cum citim răspunsul:</strong> pentru fiecare promisiune, cine o oferă — <strong>registrul</strong>, <strong><span class="nowrap">site-ul</span></strong>, <strong>expeditorul</strong> sau <strong>nimeni</strong>? Ce regulă a enunțului o susține?</p>
+<p><strong>Predicție:</strong> ce ar putea promite paragraful fără ca registrul să controleze?</p>
 </div>
-<div id="ce-propune-analistul-ai" class="slide section level1">
-<h1>Ce propune analistul AI?</h1>
-<p><strong>Analistul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:</strong></p>
+<div id="paragraful-promisiunile-1-și-2" class="slide section level1">
+<h1>Paragraful: promisiunile 1 și 2</h1>
+<p><strong>Asistentul AI — Claude Haiku 4.5, 19 noiembrie 2026, una dintre patru rulări; fragmente:</strong></p>
 <blockquote>
-<p><strong>4. Acceptare și solicitare confirmare</strong> - Registru consumă un loc […] - Registru înregistrează: <code>(c, p, a, stare_confirmare = pendentă)</code> - Registru apelează Expeditor: <span class="operatie">trimite(mesaj_pentru_p)</span> […]</p>
-<p><strong>5. Procesare reîncercare</strong> […] Dacă <code>(p, a) ≠ (p&#39;, a&#39;)</code> → Pasul 6 (refuz pentru protecție) […]</p>
-<p><strong>Registrul garantează:</strong> O cerere c acceptată modifică starea <strong>o singură dată</strong> (atomicitate) […]</p>
+<p><strong>1. Locul dumneavoastră este rezervat.</strong> […] Chiar dacă mesajul de confirmare nu ajunge, rămâneți înscris.</p>
+<p><strong>2. Veți primi confirmare imediat.</strong> După acceptare, vă trimitem un mesaj de confirmare. Dacă nu ajunge, îl reîncercăm automat.</p>
+<p><em>Din justificare:</em> […] La reîncercări, dacă mesajul anterior nu a ajuns, se reîncercă trimiterea (R5).</p>
 </blockquote>
-<p><strong>R4 (confirmare):</strong> registrul cere confirmarea după acceptare; eșecul ei nu anulează înscrierea. <strong>Enunțul trimis spunea despre identificator numai atât. R2 (cerere):</strong> <span class="nowrap">site-ul</span> generează un c unic pentru fiecare cerere nouă și trimite același c când reîncearcă. <strong>R5 (reîncercare):</strong> o cerere cu c deja înregistrat primește același <code>acceptat</code>.</p>
-<p>Înregistrarea precede apelul expeditorului? <strong>Ce regulă cere refuzul „pentru protecție”? Ce garanție este numită „atomicitate”?</strong></p>
+<p><strong>R4 (confirmare):</strong> după acceptare, registrul cere expeditorului trimiterea; eșecul ei nu anulează înscrierea. <strong>R5 (reîncercare):</strong> la o reîncercare cu confirmarea <code>netrimisă</code>, registrul poate cere din nou trimiterea. <strong>R6 (graniță):</strong> presupunem doar că expeditorul răspunde <code>trimis</code> sau <code>esec</code>; <code>esec</code> nu înseamnă că mesajul nu a ajuns. <strong>Varianta B (retrimitere ulterioară):</strong> în rest, o cere un operator.</p>
+<p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune și pe ce regulă se sprijină?</strong></p>
 </div>
-<div id="promptul-evaluatorului-ai" class="slide section level1">
-<h1>Promptul evaluatorului AI</h1>
-<p><strong>Evaluator (agent AI de revizuire), context nou:</strong> enunțul, sarcina analistului AI și răspunsul integral; fără observațiile noastre.</p>
-<p><strong>Instrucțiunea exactă, la începutul promptului:</strong></p>
+<div id="paragraful-promisiunile-3-și-4" class="slide section level1">
+<h1>Paragraful: promisiunile 3 și 4</h1>
+<p><strong>Aceeași rulare; fragmente:</strong></p>
 <blockquote>
-<p>Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret, cu starea de pornire și rezultatul așteptat. Verifică ordinea pașilor, momentul înregistrării înscrierii față de apelul expeditorului, tratarea răspunsului esec, reîncercarea, consumul locurilor, responsabilitățile și presupunerile despre expeditor. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.</p>
+<p><strong>3. Fără înscrisuri duble.</strong> Dacă din accident reîncearcă aceeași cerere, primiți același răspuns și nu se va crea a doua înscrisă.</p>
+<p><strong>4. Locurile sunt echitabil repartizate.</strong> Nu vor fi acceptați mai mulți participanți decât locurile disponibile.</p>
 </blockquote>
-<p><strong>Predicție, înainte de a vedea răspunsul:</strong> <span class="nowrap">site-ul</span> păstrează identificatorul și conținutul la reîncercare, iar propunerea adaugă un refuz pentru același identificator cu alt conținut, caz nespecificat în enunț. Va semnala evaluatorul AI această adăugire? Dar termenul „atomicitate”?</p>
+<p><strong>R2 (cerere):</strong> <span class="nowrap">site-ul</span> generează identificatorul cererii; când reîncearcă, trimite același identificator, iar o cerere nouă primește altul. <strong>R3 (acceptare):</strong> o cerere nouă este acceptată numai dacă participantul nu este înscris și există loc; altfel <code>refuz</code>. <strong>R5 (reîncercare):</strong> o cerere cu identificatorul deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere.</p>
+<p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune?</strong> Participantul apasă din nou butonul, iar <span class="nowrap">site-ul</span> trimite o <strong>cerere nouă</strong>. Ce primește? Mai este adevărată promisiunea 3?</p>
 </div>
-<div id="o-revizuire-care-lasă-decizia-oamenilor" class="slide section level1">
-<h1>O revizuire care lasă decizia oamenilor</h1>
-<p><strong>Evaluatorul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:</strong></p>
+<div id="alte-rulări-ce-numesc-atomicitate" class="slide section level1">
+<h1>Alte rulări: ce numesc „atomicitate”?</h1>
+<p><strong>Aceleași reguli; nota pentru echipa de operare, rularea 08; fragmente din lista de garanții:</strong></p>
 <blockquote>
-<p>Pasul 4 respectă R4: <em>după</em> o acceptare (înregistrare), registrul apelează expeditorul; eșecul confirmării nu anulează înscrierea. ✓</p>
-<h3 id="protecție-ne-modelată-în-pasul-5-fără-această-clarificare-protecția-e-rezonabilă-dar-depășeşte-specificația.">1. Protecție <span class="nowrap">ne-modelată</span> în Pasul 5 […] Fără această clarificare, protecția e rezonabilă dar <strong>depășeşte specificația</strong>.</h3>
-<p>Singura abatere de la enunț este protecția în Pasul 5 […], care e <strong>plauzibilă dar non-specificată</strong>.</p>
+<p><strong>Atomicitate pe cerere:</strong> o cerere acceptată consumă exact un loc; reîncercările nu generează înscrisuri duble.</p>
+<p>[…]</p>
+<p><strong>Înregistrare:</strong> fiecare acceptare și rezultat al confirmării este consemnat permanent.</p>
 </blockquote>
-<p><strong>R2 (cerere):</strong> <span class="nowrap">site-ul</span> generează un c unic pentru fiecare cerere nouă și trimite același c când reîncearcă; enunțul trimis nu spunea altceva despre c. <strong>Analistul AI</strong> numea „atomicitate” garanția că o cerere acceptată modifică starea o singură dată.</p>
-<p>Observația 1 este susținută de enunț? <strong>Este aceasta „singura abatere”? Ce rămâne de decis, și cine decide?</strong></p>
+<p><strong>R1 (context):</strong> erorile tehnice din interiorul registrului nu sunt modelate. <strong>R5 (reîncercare):</strong> o cerere cu identificatorul deja înregistrat nu consumă alt loc și nu creează a doua înscriere.</p>
+<p><strong>Cine oferă fiecare garanție? Care se sprijină doar pe o presupunere a enunțului? Ce proprietate descrie, de fapt, „atomicitate pe cerere”?</strong></p>
+</div>
+<div id="alte-rulări-ce-spun-despre-livrare" class="slide section level1">
+<h1>Alte rulări: ce spun despre livrare?</h1>
+<p><strong>Aceleași reguli; garanțiile pentru echipa de dezvoltare, două rulări; fragmente:</strong></p>
+<p>Rularea 02:</p>
+<blockquote>
+<p>[…] înscrierea rămâne valabilă și locul consumat, chiar dacă expeditorul nu livrează.</p>
+</blockquote>
+<p>Rularea 08:</p>
+<blockquote>
+<p>[…] Livrarea efectivă la participant nu este garantată de sistem.</p>
+</blockquote>
+<p><strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea. <strong>R6 (graniță):</strong> despre expeditor presupunem doar că răspunde <code>trimis</code> sau <code>esec</code>; <code>esec</code> nu înseamnă că mesajul nu a ajuns.</p>
+<p><strong>Ce presupune fiecare fragment despre expeditor? Care este susținut de R6?</strong></p>
+</div>
+<div id="comparația-noastră-cine-oferă-fiecare-garanție" class="slide section level1">
+<h1>Comparația noastră: cine oferă fiecare garanție</h1>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="39%" />
+<col width="22%" />
+<col width="38%" />
+</colgroup>
+<thead>
+<tr>
+<th align="left">Afirmația</th>
+<th align="left">Cine o oferă</th>
+<th align="left">Sprijin în enunț</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">locul rămâne la <code>esec</code>; fără a doua înscriere; locuri limitate</td>
+<td align="left">registrul</td>
+<td align="left">R3 (acceptare), R4 (confirmare), R5 (reîncercare)</td>
+</tr>
+<tr>
+<td align="left">același răspuns la reîncercare</td>
+<td align="left">registrul, cu <span class="nowrap">site-ul</span></td>
+<td align="left">R5; R2 (cerere): același identificator</td>
+</tr>
+<tr>
+<td align="left">„atomicitate pe cerere”</td>
+<td align="left">registrul; este idempotența</td>
+<td align="left">R3, R5</td>
+</tr>
+<tr>
+<td align="left">„veți primi confirmare imediat”</td>
+<td align="left">nimeni</td>
+<td align="left">R6 (graniță): doar <code>trimis</code> sau <code>esec</code></td>
+</tr>
+<tr>
+<td align="left">„reîncercăm automat”</td>
+<td align="left">nimeni</td>
+<td align="left">varianta B: un operator</td>
+</tr>
+<tr>
+<td align="left">„consemnat permanent”</td>
+<td align="left">nimeni; o presupunere</td>
+<td align="left">R1 (context): fără erori tehnice</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="decizia-noastră" class="slide section level1">
 <h1>Decizia noastră</h1>
-<p><strong>Păstrăm</strong> din propunere ordinea pașilor (înregistrare, apoi apelul expeditorului), reîncercarea fără alt loc, refuzul fără apel și verificarea <span class="nowrap">S1–S6:</span> toate sunt susținute de reguli.</p>
-<p><strong>Acceptăm</strong> observația evaluatorului AI: refuzul unui identificator refolosit cu alt conținut nu este în enunț. Îl păstrăm <strong>ca întrebare pentru beneficiar</strong>, nu ca regulă; până la răspuns, <span class="nowrap">site-ul</span> rămâne responsabil să nu refolosească identificatorul.</p>
-<p><strong>Corectăm termenul:</strong> evitarea unei înscrieri duplicate privește <strong>idempotența</strong> efectului asupra înscrierilor. <strong>Atomicitatea</strong> înseamnă că efectele operației se produc integral sau deloc. Rezultatul confirmării se poate modifica la reîncercare; nu promitem atomicitate între registru și expeditor.</p>
+<p><strong>Păstrăm</strong> promisiunile 1 și 4 și partea promisiunii 3 despre a doua înscriere: le oferă registrul.</p>
+<p><strong>Rescriem promisiunea 2:</strong> „După acceptare cerem trimiterea unei confirmări. Dacă nu o primiți, înscrierea rămâne valabilă.” Nu promitem livrarea, rapiditatea sau o retrimitere automată.</p>
+<p><strong>Corectăm termenii:</strong> ce rularea 08 a notei numește „atomicitate pe cerere” (reîncercările nu creează a doua înscriere) este <strong>idempotența</strong> față de înscrieri. <strong>Atomicitatea</strong> înseamnă că efectele unei operații se produc integral sau deloc; nu o promitem între registru și expeditor.</p>
+<p><strong>Pentru o garanție mai puternică</strong> (de exemplu, livrarea confirmată), o cerem furnizorului expeditorului, în interfața lui; nu o scriem noi în locul lui.</p>
 </div>
 <div id="transferăm-granița" class="slide section level1 transition">
 <h1 class="transition">Transferăm granița</h1>

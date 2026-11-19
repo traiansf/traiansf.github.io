@@ -1,36 +1,50 @@
 # Exemplu pregătit pentru Cursul 2 — Înțelegem înainte de a delega
 
-Ghid pentru profesor; nu se distribuie studenților. Exemplul ocupă aproximativ 19 minute (minutele 66–85) din etapa de 25 de minute dedicată delegării și revizuirii; primele 6 minute ale etapei introduc delegarea și predarea sarcinii. Totul este inclus în `02-intelegere.md`: profesorul afișează slide-urile, fără rulări live, calculator personal sau autentificare în instrumente AI. Studenții folosesc coli albe, fără dispozitive sau fișe. Demonstrațiile live pot fi folosite la laborator.
+Ghid pentru profesor; nu se distribuie studenților. Etapa „Delegăm și verificăm” ocupă minutele 60–85: 6 minute de introducere despre delegare și predarea sarcinii, apoi 19 minute pentru exemplul pregătit. Totul este inclus în `02-intelegere.md`: profesorul afișează slide-urile, fără rulări live, calculator personal sau autentificare în instrumente AI. Studenții folosesc coli albe, fără dispozitive sau fișe. Demonstrațiile live pot fi folosite la laborator.
+
+## Lecția AI a cursului
+
+Decizia din 19 noiembrie 2026 (`../docs/ai-lessons-and-lab-diagrams.md`) dă fiecărui curs altă lecție despre folosirea AI, în alt format. Lecția Cursului 2: **agentul AI completează golurile pe care nu le-ați observat.** O cerere incompletă primește un răspuns la fel de sigur ca una completă; deciziile pe care beneficiarul nu le-a luat (durate, limite, amenzi, termene, prioritate) apar în răspuns ca fapte și rămân invizibile dacă nu le căutăm. Formatul: două prompturi alăturate, solicitarea simplă și solicitarea cu R1–R6; studenții listează „ce a hotărât agentul AI în locul nostru?”. Nu folosim aici perechea analist–evaluator.
+
+Segmentul precedent (proiectare și revizuire `gpt-6.1-sol`, capturi din 7 octombrie 2026) a fost înlocuit; capturile lui rămân arhivate în `scenarios/02-biblioteca/captures/2026-10-07/`.
 
 ## Capturile folosite
 
-Prezentarea folosește [două răspunsuri AI reale](scenarios/02-biblioteca/captures/2026-10-07/README.md), generate la 7 octombrie 2026 prin Codex CLI 0.160.1, model declarat `gpt-6.1-sol`: o proiectare și o revizuire într-un context separat. Prompturile exacte, contextul integral, răspunsurile și metadatele sunt păstrate lângă această înregistrare. Prima rulare a fiecărui rol a fost suficientă pentru obiectivul ales; nu au existat încercări suplimentare.
+[Arhiva din 19 noiembrie 2026](scenarios/02-biblioteca/captures/2026-11-19/README.md): șase rulări reale prin Claude Code 2.1.328, model `claude-haiku-4-5`, câte trei pentru fiecare prompt, fiecare într-un context nou, fără unelte. Prompturile sunt în `scenarios/02-biblioteca/ai/` și, identice, lângă răspunsuri. Selecția: promptul A, rularea 2; promptul B, rulările 2 și 1. Toate încercările sunt păstrate, cu motivul selecției; selecția nu descrie comportamentul tipic al modelului.
 
-Generați direct capturi reale când pregătiți exemple noi. Nu este necesară inventarea prealabilă a unor exemple didactice. Dacă un răspuns nu ilustrează bine obiectivul, repetați rularea și selectați unul potrivit; păstrați toate încercările, modificările promptului și motivul selecției. Selecția nu constituie o măsurare a performanței tipice a modelului. Nu corectați tacit răspunsurile: fragmentele sunt fidele, omisiunile marcate, explicațiile profesorului separate.
+Etapa următoare („Revedem deciziile și sintetizăm”) folosește în continuare capturile din 9 octombrie 2026 (titlu = exemplar). Este tot o decizie luată în locul nostru, de data aceasta greșită; notele leagă cele două etape.
 
-Contextul analistului este `scenarios/02-biblioteca/brief.md` și promptul de pe slide. Evaluatorul AI primește într-un context nou același enunț, proiectarea integrală și promptul de revizuire. Nu trimiteți soluția profesorului din `reference-design.md` în aceste contexte. Rolurile pot folosi același model.
+## Parcurs (minutele 60–85)
 
-## 1. Contextul și sarcina (6 minute)
+| Minute | Slide | Ce se întâmplă |
+|---|---|---|
+| 60–66 | „Delegăm și verificăm”, „AI poate accelera aceste activități”, „Proiectăm înainte de a implementa”, „Ce conține o predare utilă a sarcinii?” | Introducerea delegării; ultima frază („lasă aceste decizii implicite”) pregătește exemplul. |
+| 66–69 | „Două prompturi, aceeași sarcină” | Promptul A integral, promptul B descris. Predicții pe tablă. |
+| 69–72 | „Răspunsul la promptul A: membri și împrumuturi” | Individual: lista deciziilor luate în locul bibliotecii. |
+| 72–76 | „Răspunsul la promptul A: cereri și întârzieri” | Continuarea listei; pentru fiecare decizie, cine ar trebui s-o ia. Lista clasei. |
+| 76–79 | „Ce a hotărât agentul AI în locul nostru” | Comparația noastră cu R1–R6. |
+| 79–83 | „Același prompt, cu R1–R6” | Individual, apoi răspunsuri: ce are sursă în R1–R6 și ce este tot hotărât de agentul AI. |
+| 83–85 | „Decizia noastră: deciziile ascunse devin întrebări” | Decizia și ce reținem. |
 
-Arătați „Exemplu pregătit: delegare și verificare”, apoi „Ce îi cerem agentului AI cu rol de analist”. Precizați proveniența reală. Enunțul, regulile și scenariile delimitează o sarcină de proiectare, fără codul aplicației. Cele trei operații din prompt sunt împrumutul (inclusiv ridicarea), returnarea și cererea de împrumut. Studenții discută promptul; nu îl trimit unui serviciu AI.
+## Răspunsuri așteptate
 
-## 2. Verificarea propunerii (2 minute)
+**Predicții (66–69).** Orice listă cu durate, limite, amenzi, notificări sau ordinea cererilor este bună; scrieți 3–4 pe tablă și reveniți la ele.
 
-Lăsați pe ecran „Proiectarea AI păstrează asocierile necesare?”. Fragmentul capturat, scenariul S2, regulile și întrebarea sunt vizibile împreună. Studenții notează asocierile necesare pentru decizia asupra lui M3: C1 → rezervare → cerere → M2. M3 nu poate împrumuta C1; împrumutul său pentru C2 nu îi dă acest drept.
+**Răspunsul la promptul A (69–76).** Decizii de găsit în fragmente: cont activ/inactiv; abonament care expiră; limită de cărți împrumutate simultan; scadență „implicit 14-30 zile”; fereastră de 48 de ore pentru ridicare; penalități, blocaj, taxă, suspendarea contului; ordinea FIFO; prioritate opțională pentru membrii cu mai puține întârzieri. Toate sunt reguli ale bibliotecii: le hotărăște bibliotecara; echipa le poate propune. Ordinea FIFO este o alegere plauzibilă, dar tot o alegere: solicitarea nu spune cum se servesc cererile. Acceptați și alte observații întemeiate, de exemplu „exemplare > 0”: agentul AI a hotărât că o carte are mai multe exemplare, ceea ce solicitarea nu spune (R1 o confirmă ulterior).
 
-Proiectarea păstrează informația necesară. Nu impunem găsirea unui defect într-un fragment corect.
+**Comparația noastră (76–79).** Fiecare decizie față de R1–R6: nicio durată; R2 nu limitează împrumuturile; R1 nu menționează abonamente; R6 exclude amenzile și prelungirile; R6 păstrează rezervarea până la ridicare; R5 cere numai ordinea înregistrării. Toate cele trei rulări cu promptul A au fixat o scadență, o limită și penalități și au trimis notificări: repetarea nu face din ele regulile bibliotecii. Subliniați că am comparat cu R1–R6 pentru că le cunoaștem acum; la momentul solicitării, fiecare rând era o întrebare pentru bibliotecară.
 
-## 3. Revizuire și decizie (9 minute)
+**Promptul B (79–83).** Prima propoziție a rulării 2 („fără notificări, amende, expirare sau autentificare”) este susținută de R6. „Marcă temporală” este o alegere de reprezentare: R6 cere ordinea procesării; o marcă temporală o păstrează numai dacă două cereri nu primesc aceeași valoare. „Împrumut imediat” (rularea 1) este o regulă nouă: R4 respinge cererea pentru un titlu cu exemplar disponibil, iar împrumutul (R2) privește un exemplar ales. Lista s-a scurtat mult, dar nu a dispărut.
 
-Pe „Ce predăm evaluatorului AI”, discutați ce ar lipsi dintr-o cerere generică „verifică dacă e corect”. Contextul separat face explicită predarea, dar nu garantează corectitudinea revizuirii.
+**Decizia (83–85).** Deciziile din răspunsul la A devin întrebări pentru bibliotecară; aici R2, R5 și R6 au răspuns deja. Din B păstrăm ce are sursă; marca temporală rămâne propunere; „împrumut imediat” nu îl preluăm. Lista „ce a hotărât în locul nostru?” este o verificare pe care o facem fără alt agent AI.
 
-„Verificăm și revizuirea” conține afirmația reală despre S6. Studenții o verifică prin R2 și R5: M4 ridică C1, iar C2 rămâne rezervat lui M2. Ordinea alocării nu impune ordinea ridicării. Concluzia evaluatorului AI este susținută de scenariu.
+Exercițiul final are o întrebare legată de această lecție („Numiți o decizie pe care un agent AI ar lua-o în locul bibliotecarei, dacă primește numai solicitarea ei. Cine trebuie s-o ia?”).
 
-Arătați apoi „Decizia noastră asupra revizuirii”: acceptăm proiectarea ca bază pentru etapa următoare, în limitele R6. La curs am verificat S2 și S6; parcurgerea S1–S6 din răspunsul integral a fost verificată la pregătire. „Nu am identificat defecte” nu înseamnă că există deja o implementare verificată. Evaluatorul AI precizează această limită în răspunsul capturat.
+## Dacă discuția ocupă mai mult timp
 
-## 4. Sinteza (2 minute)
-
-„Înainte de predare: ce păstrează rezumatul?” citează paragraful real despre ordinea cererilor. Formula prea scurtă „cererile sunt servite în ordine” ar pierde distincția dintre alocare și ridicare. Cereți regula și scenariul care justifică distincția.
+- Comprimați introducerea (minutele 60–66) la „AI poate accelera” și „Ce conține o predare utilă”; păstrați cele două slide-uri cu răspunsul la promptul A și lista clasei.
+- La comparația noastră, citiți doar rândurile pe care clasa nu le-a găsit.
+- Treceți la „Revedem deciziile și sintetizăm” la minutul 85.
 
 ## Verificare înainte de curs
 

@@ -1,0 +1,1 @@
+Pe baza enunțului, scrie cerințele de calitate pentru prima versiune a sistemului. Fiecare cerință trebuie să fie verificabilă: un prag numeric, condițiile în care se aplică și modul de măsurare. Răspunde în română, în maximum 350 de cuvinte.

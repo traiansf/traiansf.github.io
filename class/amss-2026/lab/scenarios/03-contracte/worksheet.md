@@ -18,9 +18,9 @@ F este stocul fizic; R este suma rezervărilor active; D=F−R este disponibilul
 
 Fiecare scenariu S1–S7 din enunț repornește din I (F=10, A activă 4, R=4, D=6), exceptând continuările marcate. Pentru fiecare, spuneți rezultatul și întregul registru de după. La refuz, precizați explicit ce nu se modifică.
 
-## Analiza și revizuirea AI
+## Diagrama
 
-Profesorul conduce o singură analiză și o singură revizuire în plen. Preziceți o consecință înainte de răspuns, apoi verificați o afirmație folosind o regulă și un scenariu. Nu porniți sesiuni AI proprii. Dacă instrumentul nu răspunde, discutăm capturile reale pregătite, cu aceeași metodă.
+Scrieți contractele ca note pe o [diagramă de clase cu operații](../../diagrame/clase-operatii.md). Verificați-o pe lista din specificație și calculați scenariile numai din note. Dacă o generați cu un asistent AI, verificați mai întâi ce a trecut la precondiții. [Capturile pregătite](prepared-fixture.md) arată o analiză AI reală care confundă precondițiile cu condiția de succes.
 
 ## Exercițiul final
 

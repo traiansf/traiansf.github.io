@@ -934,59 +934,121 @@ break-inside: avoid;
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>De ce refuzul este <code>if</code>, nu <code>assert</code>? Ce spune un <code>assert</code> trecut despre alte apeluri?</p>
 </div>
-<div id="verificăm-un-contract-delegat" class="slide section level1 transition">
-<h1 class="transition">Verificăm un contract delegat</h1>
-<p>O formulare convingătoare spune tot ce avem nevoie?</p>
+<div id="cine-a-verificat-pe-cine" class="slide section level1 transition">
+<h1 class="transition">Cine a verificat pe cine?</h1>
+<p>Testele trec. Ce au verificat?</p>
 </div>
 <div id="ce-cerem-asistentului-ai" class="slide section level1">
 <h1>Ce cerem asistentului AI?</h1>
+<p><strong>Cererea A, instrucțiunea exactă:</strong></p>
 <blockquote>
-<p>Propune contractele pentru atribuie și elibereaza: precondiții, condiții de succes, postcondiții pentru fiecare rezultat, invarianți și ce rămâne neschimbat. Verifică <span class="nowrap">S1–S6.</span> Nu scrie cod. Răspunde în română, în maximum 400 de cuvinte.</p>
+<p>Scrie contractul operației atribuie de mai jos: precondițiile, condiția de succes, postcondițiile pentru fiecare rezultat și invarianții. Apoi scrie cinci teste pentru ea, fiecare cu registrul dinainte, apelul, rezultatul așteptat și registrul așteptat după. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.</p>
 </blockquote>
-<p><strong>Context:</strong> identificatori cunoscuți; apeluri secvențiale; cel mult un dulap pentru fiecare vizitator și invers. Atribuim dacă vizitatorul nu are dulap și dulapul este liber; altfel refuz fără modificări. Eliberăm numai asocierea vizată; dacă lipsește, <code>fara_dulap</code>. Restul se păstrează.</p>
-<p><strong>Date:</strong> B = <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2;</span> V3 fără dulap, D3 liber. <strong>Scenariile <span class="nowrap">S1–S6:</span></strong> succesul, fiecare motiv de refuz, eliberarea repetată și repetarea atribuirii.</p>
+<p><strong>Context trimis:</strong> un vizitator are cel mult un dulap, iar un dulap cel mult un vizitator; identificatori cunoscuți, apeluri secvențiale; rezultatele <code>atribuit</code> și <code>refuz</code>; <strong>pseudocodul operației greșite de mai devreme</strong>; B = <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2,</span> V3 fără dulap, D3 liber. <strong>Fără regula atribuirii.</strong></p>
+<p><strong>Cererea B,</strong> <span class="nowrap">într-un</span> context nou: aceeași instrucțiune, cu „din regulile de mai jos”; contextul are regulile <span class="nowrap">R1–R5</span> și B, fără pseudocod.</p>
+<p><strong>Predicție:</strong> va semnala răspunsul la cererea A că refuzul pierde asocierea veche?</p>
 </div>
-<div id="ce-promite-această-propunere" class="slide section level1">
-<h1>Ce promite această propunere?</h1>
-<p><strong>Analistul AI — Claude Haiku 4.5, 27 octombrie 2026; fragmente din contract și din verificare:</strong></p>
+<div id="contractul-scris-din-cod" class="slide section level1">
+<h1>Contractul scris din cod</h1>
+<div class="columns">
+<div class="column" style="width:56%;">
+<p><strong>Asistentul AI, cererea A — Claude Haiku 4.5, captură din 19 noiembrie 2026; fragmente:</strong></p>
 <blockquote>
-<p><strong>Condiția de succes:</strong> v nu are dulap asociat. d este liber (nu e ocupat).</p>
-<p><strong>Postcondițiile pentru eșec (<code>refuz</code>):</strong> Registrul este identic cu cel inițial […]</p>
-<p><strong>Invarianți:</strong> Unicitatea: un vizitator ↔︎ cel mult un dulap; un dulap ↔︎ cel mult un vizitator. […] Toate asocierile (v’, d’) cu v’ ≠ v și d’ ≠ d se păstrează.</p>
-<p><strong>Verificare <span class="nowrap">S1–S6:</span></strong> […] S1 și S5.1 reușesc […]; <span class="nowrap">S2–S4,</span> S5.2, S6 se refuză […]</p>
+<p><strong>Condiția de succes:</strong> Dulapul d este liber la momentul verificării și operația se completează cu atribuit</p>
+<p><strong>Dacă rezultatul este <code>refuz</code>:</strong> […] Orice asociere anterioară a vizitatorului v este eliminată […]</p>
 </blockquote>
-<p><strong>Reguli:</strong> succes numai dacă v nu are dulap și d este liber; altfel refuz, cu registrul identic; la succes se păstrează celelalte asocieri; eliberarea fără asociere întoarce <code>fara_dulap</code>.</p>
-<p>Ce rol are fiecare afirmație? Care se verifică <span class="nowrap">într-o</span> singură stare? Ce întoarce al doilea pas din scenariul S5 (eliberare repetată a lui V1)?</p>
+</div><div class="column" style="width:42%;">
+<p><strong>Pseudocodul primit:</strong></p>
+<pre class="text" tabindex="0"><code>atribuie(v, d):
+    elimină asocierea existentă
+        a lui v, dacă există
+    dacă d este ocupat:
+        întoarce refuz
+    adaugă v–d
+    întoarce atribuit</code></pre>
 </div>
-<div id="promptul-evaluatorului-ai" class="slide section level1">
-<h1>Promptul evaluatorului AI</h1>
-<p><strong>Evaluator (agent AI de revizuire), context nou:</strong> enunțul, sarcina analistului AI și răspunsul integral; fără corecțiile noastre.</p>
-<p><strong>Instrucțiunea exactă, la începutul promptului:</strong></p>
+</div>
+<p><strong>R3 (atribuire):</strong> reușește numai dacă v nu are dulap și d este liber; altfel <code>refuz</code>, cu întregul registru identic.</p>
+<p>Descrie contractul pseudocodul? Descrie R3? Ce lipsește din condiția de succes?</p>
+</div>
+<div id="testele-scrise-din-cod" class="slide section level1">
+<h1>Testele scrise din cod</h1>
+<p><strong>Asistentul AI, cererea A — aceeași captură; două dintre cele cinci teste, integral:</strong></p>
+<div class="columns">
+<div class="column" style="width:49%;">
 <blockquote>
-<p>Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret. Verifică precondițiile, condițiile de succes, fiecare rezultat, efectul limitat și invarianții. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.</p>
-</blockquote>
-<p><strong>Predicție, înainte de a vedea răspunsul:</strong> va observa evaluatorul AI că păstrarea celorlalte asocieri este trecută printre invarianți?</p>
-</div>
-<div id="revizuirea-are-nevoie-de-propria-verificare" class="slide section level1">
-<h1>Revizuirea are nevoie de propria verificare</h1>
-<p><strong>Evaluatorul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:</strong></p>
-<blockquote>
-<p>Propunerea este <strong>complet corectă</strong> […]</p>
-<p>Propunerea: “[…] Toate asocierile (v’, d’) cu v’ ≠ v și d’ ≠ d se păstrează.” […] ✓ Corect și precis.</p>
-<p><strong>Concluzie:</strong> Propunerea nu conține erori.</p>
-</blockquote>
-<p><strong>Reguli:</strong> un invariant trebuie să fie adevărat în orice stare; păstrarea celorlalte asocieri compară două stări, ca R5 (efect limitat). Eliberarea fără asociere întoarce <code>fara_dulap</code>.</p>
-<p>Evaluatorul AI are dreptate că regula „toate asocierile … se păstrează” este corectă. Este suficient? Ce ar fi trebuit să mai verifice?</p>
-</div>
-<div id="decizia-noastră" class="slide section level1">
-<h1>Decizia noastră</h1>
-<p><strong>Păstrăm</strong> din propunere condiția de succes, refuzul cu registrul identic și unicitatea ca invariant.</p>
-<p><strong>Corectăm</strong> două puncte:</p>
+<p><strong>Test 3: Realocare de vizitator la dulap liber</strong></p>
 <ul>
-<li>păstrarea celorlalte asocieri iese dintre invarianți: este postcondiție, R5 (efect limitat);</li>
-<li>a doua eliberare din scenariul S5 (eliberare repetată) întoarce <code>fara_dulap</code>, nu <code>refuz</code>.</li>
+<li>Dinainte: B</li>
+<li>Apel: atribuie(V1, D3)</li>
+<li>Rezultat așteptat: atribuit</li>
+<li>După: <span class="nowrap">{V1–D3,</span> <span class="nowrap">V2–D2}</span></li>
 </ul>
-<p><strong>Contraexemplul care justifică prima corecție:</strong> din B, după <span class="operatie">atribuie(V3,D3)</span>, un registru care conține numai <span class="nowrap">V3–D3</span> respectă unicitatea, dar pierde <span class="nowrap">V1–D1</span> și <span class="nowrap">V2–D2.</span></p>
+</blockquote>
+</div><div class="column" style="width:49%;">
+<blockquote>
+<p><strong>Test 4: Refuz la realocare cu dulap ocupat</strong></p>
+<ul>
+<li>Dinainte: B</li>
+<li>Apel: atribuie(V1, D2)</li>
+<li>Rezultat așteptat: refuz</li>
+<li>După: <span class="nowrap">{V2–D2}</span></li>
+</ul>
+</blockquote>
+</div>
+</div>
+<p><strong>B:</strong> <span class="nowrap">V1–D1,</span> <span class="nowrap">V2–D2;</span> V3 fără dulap, D3 liber. <strong>R3 (atribuire):</strong> reușește numai dacă v nu are dulap și d este liber; altfel <code>refuz</code>, cu întregul registru identic.</p>
+<p>Individual, apoi discutăm: trec testele pe operația din pseudocod? Ce cere R3 la aceleași apeluri?</p>
+</div>
+<div id="contractul-scris-din-reguli" class="slide section level1">
+<h1>Contractul scris din reguli</h1>
+<p><strong>Asistentul AI, cererea B — Claude Haiku 4.5, 19 noiembrie 2026; fragmente:</strong></p>
+<blockquote>
+<p><strong>Condiția de succes:</strong> Operația reușește dacă și numai dacă: v <strong>nu are dulap</strong> ȘI d <strong>este liber</strong>.</p>
+<div class="table-wrap">
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>Test</strong></th>
+<th><strong>Dinainte</strong></th>
+<th><strong>Apel</strong></th>
+<th><strong>Rezultat</strong></th>
+<th><strong>După</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 — Refuz: vizitator ocupat</td>
+<td>B</td>
+<td>atribuie(V1, D3)</td>
+<td>“refuz”</td>
+<td>B (neschimbat)</td>
+</tr>
+<tr>
+<td>4 — Refuz: amândoi ocupați</td>
+<td>B</td>
+<td>atribuie(V1, D2)</td>
+<td>“refuz”</td>
+<td>B (neschimbat)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</blockquote>
+<p><strong>Operația din pseudocod</strong> elimină întâi asocierea lui v, apoi refuză dacă d este ocupat. Ce produce la testele 2 și 4? Ce scenariu separă contractele?</p>
+</div>
+<div id="decizia-noastră-cine-a-verificat-pe-cine" class="slide section level1">
+<h1>Decizia noastră: cine a verificat pe cine?</h1>
+<p><strong>Contractul și testele scrise din cod</strong> au descris operația, cu tot cu defect: toate testele trec, iar testul 4 cere chiar pierderea asocierii <span class="nowrap">V1–D1.</span> Au confirmat codul, nu <span class="nowrap">l-au</span> verificat.</p>
+<p><strong>Contractul și testele scrise din reguli</strong> pică exact la scenariile S3 (vizitator deja asociat) și S4 (ambele condiții împiedică succesul): ele verifică.</p>
+<p><strong>Regula noastră:</strong> rezultatul așteptat se scrie din enunț și din contract, nu din implementarea verificată. Când cerem teste unui asistent AI, îi dăm regulile; dacă îi dăm și codul, îi cerem <span class="nowrap">să-l</span> compare cu ele.</p>
 </div>
 <div id="transferăm-promisiunea" class="slide section level1 transition">
 <h1 class="transition">Transferăm promisiunea</h1>

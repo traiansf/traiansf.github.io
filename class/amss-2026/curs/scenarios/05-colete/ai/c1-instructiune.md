@@ -1,0 +1,1 @@
+Mai jos sunt regulile convenite cu firma și funcția care le aplică într-unul dintre canale. Firma cere o schimbare: un plic este acceptat acum până la 1500 g inclusiv. Celelalte reguli rămân neschimbate. Actualizează funcția și răspunde cu codul complet și cel mult trei rânduri de explicații, în română.

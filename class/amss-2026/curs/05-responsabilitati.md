@@ -12,7 +12,7 @@ Am distins conceptele și regulile unui domeniu. Cine le aplică și ce trebuie 
 ::: notes
 Legătura cu modelarea domeniului din cursul 4: după ce distingem conceptele și regulile, atribuim comportamentele unor componente ale soluției. O componentă poate fi o funcție, un modul sau o aplicație întreagă; nu presupunem clase. Astăzi alegem cine decide, de ce informații are nevoie și ce se schimbă când se schimbă o regulă.
 
-**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, exercițiul inițial și slide-ul despre responsabilități. 32 de slide-uri cu copertă. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, problema, exercițiul inițial și slide-ul despre responsabilități. 33 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
 
 ---
@@ -414,116 +414,200 @@ Transmiterea trebuie să păstreze legătura cu enunțul și cu versiunea lui: d
 
 ---
 
-# Delegăm și verificăm decizia {.transition}
+# Fiecare canal, delegat separat {.transition}
 
-Judecăm o propunere după argumentele ei, nu după termenii pe care îi invocă.
+Două sesiuni AI scriu câte un canal. Cine răspunde de regulă?
 
 ::: notes
-Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.311, la 27 octombrie 2026, fără unelte și fără contextul proiectului. Analistul AI a primit enunțul fără C1; evaluatorul (agent AI de revizuire) a primit, într-un context nou, enunțul, sarcina, răspunsul integral și C1 ca schimbare ulterioară. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
+O echipă poate delega fiecare canal unei sesiuni separate a unui asistent AI. Fiecare sesiune primește regulile și scrie propria copie a deciziei de acceptare și a prețului: exact varianta cu reguli copiate din partea a doua a cursului, de data aceasta produsă real, nu construită de noi. Analizăm capturi obținute înainte de curs; la curs nu rulăm instrumente.
 
-**Organizare:** minutul 75 din 100; interval 75–95 (20 min): predare 4, propunere 5, promptul evaluatorului AI 2, revizuire 5, decizie 4. []{.pace at=75}
+**Organizare:** minutul 75 din 100; interval 75–95 (20 min): tranziție 1, cele două sarcini 3, funcția site-ului 3, funcția ghișeului 3, rezultatele 3, C1 4, decizie 3. []{.pace at=75 dur=1}
 :::
 
 ---
 
-# O sarcină delimitată pentru un asistent AI
+# Două sarcini, aceleași reguli
 
-> Propune responsabilitățile și dependențele pentru estimarea costului expedierii. Compară o operație comună cu regulile copiate în cele două interfețe. Verifică scenariile S1–S5. Nu scrie cod, nu impune clase sau servicii. Răspunde în română, în maximum 350 de cuvinte.
+**Ambele sesiuni primesc, într-un context nou, aceleași reguli:** R1–R6 ale enunțului (intrare, masa acceptată, ambalaj, preț, canale, limitele sarcinii), fără C1 și fără operația comună.
 
-*În instrucțiunea trimisă, „interfețe” înseamnă canalele, iar „costul expedierii”, prețul.*
+**Sesiunea site-ului, instrucțiunea exactă:**
 
-**Enunțul trimis, înainte de C1 (limita plicului):** masă 1–5000 g; plic ≤1000 g; cutie pe tot intervalul; preț 10 lei până la 1000 g, 18 lei peste; refuz fără preț; web și ghișeu concordante.
+> Lucrezi la formularul web al firmei. Scrie în JavaScript funcția care primește textul introdus de client pentru masă și ambalajul ales […]
 
-**Scenariile S1–S5:** plic 1000 g / 1001 g; cutie 1001 g / 0 g / 5000 g și 5001 g. Fără plată sau expediere.
+**Sesiunea ghișeului, instrucțiunea exactă:**
+
+> Lucrezi la aplicația operatorului de la ghișeu. Scrie în Python funcția care primește masa și ambalajul introduse de operator […]
+
+**Predicție:** vor răspunde la fel cele două funcții?
 
 ::: notes
-Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral fără C1. Ea spune „interfețe” pentru canale, ca enunțul trimis atunci; răspunsul preia cuvântul. În vocabularul nostru, interfața este semnătura operației, cu sensul intrărilor și al rezultatelor. Predăm o versiune explicită, fără a amesteca C1 cu enunțul inițial: C1 apare numai la revizuire, ca schimbare ulterioară. Criteriile de verificare: responsabilitățile canalelor și ale operației, rezultatele S1–S5 și sensul fiecărei limite.
+Fiecare sesiune a primit un context nou și nu a văzut cealaltă funcție. Regulile trimise sunt R1–R6 ale enunțului (limita plicului 1000 g, prag de preț 1000 g), cu R1 formulată fără „operația”, ca să nu sugereze o componentă comună. Instrucțiunile continuă cu rezultatul cerut („și întoarce mesajul afișat: prețul estimat sau motivul refuzului”, respectiv „și întoarce textul afișat operatorului: prețul estimat sau motivul refuzului”) și identic: „Respectă regulile de mai jos. Răspunde cu codul și cel mult cinci rânduri de explicații, în română.” Predicția obișnuită este „da, au aceleași reguli”.
 
-**Organizare:** 4 min, cu identificarea criteriilor de verificare. []{.pace dur=4}
+**Sursă:** `scenarios/05-colete/captures/2026-11-19/`: `site-prompt.md`, `ghiseu-prompt.md`, contextul `context-reguli.md`. Claude Haiku 4.5, prin Claude Code 2.1.328, 19 noiembrie 2026, fără unelte; șase rulări pentru fiecare canal.
+
+**Organizare:** 3 min, cu predicțiile prin ridicarea mâinii. []{.pace dur=3}
 :::
 
 ---
 
-# O propunere de verificat
+# Funcția scrisă pentru site
 
-**Analistul AI — Claude Haiku 4.5, 27 octombrie 2026; fragmente:**
+**Fragment din răspunsul AI — Claude Haiku 4.5, sesiunea site-ului, rularea 3, 19 noiembrie 2026:**
 
-> **Interfață (web, ghișeu)** — interpretează textul intrării […] Nu validează reguli de domeniu.
->
-> **Logica de estimare** — aplică R2–R4 […] acceptat+preț sau refuz.
->
-> **Definirea regulilor** — stochează limitele, costurile, restricțiile per ambalaj. Accesibilă ambelor interfețe.
->
-> **Risc de inconsistență:** dacă R3 se modifică (plic acceptat până la 1500 g), trebuie actualizat în două locuri; greșelile sunt posibile.
+::::: {.columns}
+:::: {.column width="62%"}
+```javascript
+const masa = parseInt(masaText, 10);
+if (isNaN(masa)) {
+  return "Masa trebuie să fie […]";
+}
+// […]
+if (ambalaj === "plic" && masa > 1000) {
+  return "Plicul este acceptat […]";
+}
+if (ambalaj !== "plic" && ambalaj !== "cutie") {
+  return "Tip de ambalaj neacceptat.";
+}
+const pret = masa <= 1000 ? 10 : 18;
+```
+::::
+:::: {.column width="38%"}
+**Reper:** `parseInt("1000,5", 10)` întoarce 1000: citește cifrele până la primul caracter care nu este cifră.
 
-**Reguli:** plic ≤1000 g; preț 10 lei până la 1000 g, 18 lei peste. **C1 (limita plicului):** 1500 g.
-
-Ce păstrăm? Canalele (în răspunsul AI: „interfețe”) „nu validează reguli”: ce le este totuși „accesibil” și pentru ce? Ce precizăm despre „limitele” stocate pentru un plic de **1200 g după C1**?
+Individual: ce afișează site-ul pentru plic „1000”, plic „1001”, plic „1000,5” și „Plic” de 500 g?
+::::
+:::::
 
 ::: notes
-Răspunsul verifică S1–S5 corect. Păstrăm operația comună, independența față de afișare și verificarea S1–S5. Propunerea precizează că interfețele, adică în vocabularul nostru canalele, nu validează regulile domeniului, deci accesul lor la reguli nu poate însemna o decizie independentă de acceptare; rămâne neexplicat scopul lui, de exemplu afișarea limitei către utilizator. Nu prezentăm lipsa drept eroare: cerem precizarea scopului, care păstrează o singură componentă care decide. Fragmentul nu stabilește cum sunt reprezentate limitele; nu putem deduce că folosește o singură constantă. Pentru C1 precizăm două decizii distincte: acceptarea plicului și calculul prețului; plicul de 1200 g este acceptat și costă 18 lei. Modelul a ales singur 1500 g ca exemplu de schimbare; enunțul trimis nu conține această valoare. „DRY”, din restul răspunsului, numește un principiu fără să arate ce câștigăm aici; nu îl adoptăm ca argument.
+Plic „1000”: 10 lei. Plic „1001”: refuz pentru plic. Plic „1000,5”: masa devine 1000, deci 10 lei, fără cererea de corectare. „Plic” cu majusculă nu este egal cu `"plic"`: refuz pentru ambalaj neacceptat. Regulile R2–R4 sunt scrise aici încă o dată: limita plicului, intervalul și pragul de preț.
 
-**Organizare:** 5 min: predicție individuală, comparație în pereche și răspunsuri. []{.pace dur=5}
+**Sursă:** `haiku45-site-03-response.md`, literal; omise: semnătura funcției, finalul textelor de refuz („un număr întreg. Vă rugăm corectați.”, „doar până la 1000 grame.”), verificarea intervalului 1–5000 g, linia finală care întoarce prețul și explicațiile.
+
+**Organizare:** 3 min: individual, apoi răspunsuri. []{.pace dur=3}
 :::
 
 ---
 
-# Promptul evaluatorului AI
+# Funcția scrisă pentru ghișeu
 
-**Evaluator (agent AI de revizuire), context nou:** enunțul, sarcina analistului AI, răspunsul integral și C1 (limita plicului), prezentată ca schimbare ulterioară pe care analistul AI nu trebuia să o anticipeze.
+**Fragment din răspunsul AI — Claude Haiku 4.5, sesiunea ghișeului, rularea 1, 19 noiembrie 2026:**
 
-**Instrucțiunea exactă, la începutul promptului:**
+::::: {.columns}
+:::: {.column width="62%"}
+```python
+try:
+    masa = int(masa_text)
+except (ValueError, TypeError):
+    return "Masa introdusă nu este validă."
+# […]
+ambalaj_lower = ambalaj.lower()
+if ambalaj_lower == "plic":
+    if masa > 1000:
+        return "Plicul este acceptat […]"
+# […]
+if masa <= 1000:
+    return "Preț estimat: 10 lei"
+```
+::::
+:::: {.column width="38%"}
+**Reper:** `int("1000,5")` ridică `ValueError`; `"Plic".lower()` este `"plic"`.
 
-> Ești evaluator (agent AI de revizuire). Verifică propunerea de mai jos exclusiv față de contextul, sarcina analistului AI și schimbarea ulterioară C1. Identifică afirmațiile susținute, contradicțiile, omisiunile relevante și alegerile prezentate ca cerințe; verifică și ce trebuie să se schimbe în propunere după C1. Pentru fiecare observație, indică fragmentul, regula și un scenariu cu intrarea și rezultatul așteptat. Nu presupune că trebuie să existe greșeli; dacă o afirmație este corectă, explică de ce. Nu scrie cod. Răspunde în română, în maximum 400 de cuvinte.
-
-**Predicție, înainte de a vedea răspunsul:** va deosebi evaluatorul AI consecințele lui C1 de o omisiune a analistului AI?
+Individual: ce afișează ghișeul pentru plic „1000”, plic „1001”, plic „1000,5” și „Plic” de 500 g? Unde diferă de site?
+::::
+:::::
 
 ::: notes
-Instrucțiunea cere două lucruri diferite: verificarea propunerii față de sarcina primită de analistul AI și consecințele schimbării ulterioare. Enunțul transmis spune explicit că C1 nu trebuia anticipată. Predicția pregătește lectura critică a revizuirii: o consecință corectă poate fi formulată ca reproș nejustificat.
+Plic „1000”: 10 lei; „1001”: refuz; până aici, la fel ca site-ul. Plic „1000,5”: „Masa introdusă nu este validă.”, deci ghișeul cere corectarea, iar site-ul dă 10 lei. „Plic” de 500 g: devine „plic”, deci 10 lei, iar site-ul refuză. Cele două diferențe merg în sensuri opuse.
 
-**Sursă:** instrucțiunea integrală din `evaluator-instructiune.md`; intrarea completă în `evaluator-prompt.md`, arhiva din 27 octombrie 2026.
+**Sursă:** `haiku45-ghiseu-01-response.md`, literal; omise: finalul textului de refuz („doar până la 1000 g.”), semnătura funcției și comentariile, verificarea intervalului 1–5000 g, ramura cutiei și a ambalajului nerecunoscut, ramura de 18 lei și explicațiile.
 
-**Organizare:** 2 min; predicții prin ridicarea mâinii, fără discuție. []{.pace dur=2}
+**Organizare:** 3 min. []{.pace dur=3}
 :::
 
 ---
 
-# Revizuirea are nevoie de propria verificare
+# Aceleași reguli, rezultate diferite
 
-**Evaluatorul AI — Claude Haiku 4.5, captură din 27 octombrie 2026; fragmente:**
+| Intrare (rulare înainte de curs, cod integral) | Site, rularea 3 | Ghișeu, rularea 1 |
+|---|---|---|
+| plic „1000” | Preț estimat: 10 lei | Preț estimat: 10 lei |
+| plic „1001” | Plicul este acceptat doar până la 1000 grame. | Plicul este acceptat doar până la 1000 g. |
+| plic „1000,5” | Preț estimat: 10 lei | Masa introdusă nu este validă. |
+| „Plic”, „500” | Tip de ambalaj neacceptat. | Preț estimat: 10 lei |
 
-> Propunerea **nu menționa explicit ce se schimbă după C1**. Instrucțiunile de evaluare cer verificarea "ce trebuie să se schimbe în propunere după C1". […] Propunerea ar trebui să precizeze: „S2 devine acceptare la 18 lei după C1 […]”
->
-> Fraza „regulile și logica estimării trebuie centralizate" e recomandare, nu cerință din enunț.
->
-> Merge dincolo cu sugestii de implementare ([…] centralizare).
+**R1 (intrare):** dacă masa nu poate fi interpretată ca număr întreg, canalul cere corectarea. **R5 (canale):** aceeași masă și același ambalaj, același rezultat.
 
-**Sarcina analistului AI:** compară o operație comună cu regulile copiate; enunțul primit nu conținea C1 (limita plicului). **Scenariul S2:** plic de 1001 g. **După C1:** plic ≤1500 g; 10 lei până la 1000 g inclusiv, 18 lei peste.
-
-Ce observație este susținută? Ce calificare a propunerii nu este susținută de sarcina analistului AI?
+Care rând încalcă R1? Care încalcă R5? De ce nu le-au găsit scenariile S1–S5 (mase întregi, ambalaje scrise exact)?
 
 ::: notes
-Consecința pentru S2 este corectă și răspunde instrucțiunii noastre: după C1, plicul de 1001 g costă 18 lei. Calificarea propunerii drept „omisiune” este însă nedreaptă: analistul AI nu a primit C1, iar enunțul trimis evaluatorului AI spunea că schimbarea C1 nu trebuia anticipată. Restul revizuirii notează corect că enunțul cere rezultate egale, nu aceeași implementare; afirmația că centralizarea este o recomandare în afara sarcinii ignoră însă sarcina, care cere chiar comparația dintre operația comună și regulile copiate. Revizuirea aplică distinct limita plicului și pragul de preț în S2 (plic ≤1500 g, 18 lei peste 1000 g), dar nu cere propunerii responsabilități separate pentru ele; noi le precizăm în decizie, fără să deducem reprezentarea internă a limitelor. Cealaltă revizuire păstrată are alte erori, de exemplu un posibil refuz pentru ambalaj la cutia de 0 g.
+„1000,5” nu este un număr întreg: site-ul încalcă R1 și, cu ghișeul, R5. „Plic” încalcă R5; enunțul nu spune dacă majuscula contează, deci aceasta este o întrebare pentru firmă, nu o greșeală a unui singur canal. S1–S5 conțin numai mase întregi și ambalaje scrise exact; ambele funcții le trec, deci concordanța pe S1–S5 nu arată că regulile sunt aceleași. Rezultatele vin dintr-o rulare a codului făcută înainte de curs, nu din răspunsurile AI.
 
-Omisiunile din citate scot două mențiuni ale lui DRY (*Don't Repeat Yourself*), principiul invocat de analistul AI în fraza „duplicarea încalcă principiul DRY”, care nu apare pe slide-uri. Dacă un student întreabă: același lucru l-am argumentat prin costul unei schimbări, nu printr-un nume de principiu.
+Selecție: dintre cele șase funcții ale site-ului, numai rularea 3 acceptă „1000,5”; rularea 6 acceptă „1000.0”, celelalte cer corectarea. Trei funcții din douăsprezece transformă „Plic” în „plic” (site 1, ghișeu 1 și 2). Ghișeul 2 și 3 primesc masa ca număr și nu interpretează deloc textul. Am ales perechea care arată divergența; nu descrie frecvența ei.
 
-**Organizare:** 5 min, cu răspunsuri. []{.pace dur=5}
+**Sursă:** `scenarii-executie.md`, generat de `ruleaza-scenarii.py` (Node.js 24.19.0, Python 3.10.11), cu codul din răspunsuri nemodificat; tabelul complet are toate cele 23 de funcții capturate, inclusiv cele de după C1, și intrările lui S1–S5.
+
+**Organizare:** 3 min. []{.pace dur=3}
 :::
 
 ---
 
-# Decizia noastră
+# C1: încă două sesiuni
 
-Păstrăm operația comună și verificarea scenariilor S1–S5. Separăm **limita ambalajului** de **pragul de preț**.
+**C1 (limita plicului):** plicul este acceptat până la **1500 g inclusiv**; pragul de preț rămâne 1000 g. Fiecare funcție a primit C1 într-o sesiune nouă.
 
-**Acceptăm din revizuire:** după C1 (limita plicului), scenariul S2 (plic de 1001 g) → acceptat, 18 lei. **Respingem:** ideea că centralizarea (operația comună) iese din sarcină; sarcina cere explicit comparația.
+**Ghișeu, rularea 2, ramura plicului, înainte și după sesiunea C1:**
 
-**După C1:** plic ≤1500 g; preț 10 lei până la 1000 g, 18 lei peste. Verificăm: plic de 1200 g → 18 lei; plic de 1501 g → refuz, în ambele canale.
+:::::: {.columns}
+::: {.column width="50%"}
+**Înainte:**
+
+```python
+if ambalaj_norm == "plic":
+    if masa > 1000:
+        return "Refuz: plicul […] 1000 g"
+    pret = 10
+```
+:::
+::: {.column width="50%"}
+**După C1:**
+
+```python
+if ambalaj_norm == "plic":
+    if masa > 1500:
+        return "Refuz: plicul […] 1500 g"
+    pret = 10 if masa <= 1000 else 18
+```
+:::
+::::::
+
+**Site, după C1:** s-a schimbat numai limita plicului; „1000,5” dădea înainte 10 lei.
+
+De ce s-a schimbat la ghișeu și linia prețului? Câte sesiuni și verificări cere C1? Ce dă site-ul pentru „1000,5” acum?
 
 ::: notes
-Verdictul aparține oamenilor și se sprijină pe regulă și scenariu. O revizuire poate conține o consecință corectă și o critică nejustificată; le judecăm separat. Nu cerem ca orice propunere sau revizuire să fie greșită; aceleași verificări pot confirma o propunere bună.
+În ghișeul 2, `pret = 10` era corect numai pentru că limita plicului și pragul de preț aveau aceeași valoare; după C1, un plic de 1200 g ar fi costat 10 lei. Sesiunea C1 a văzut asta și a rescris prețul. Toate cele 11 sesiuni C1 (4 pentru site 3, 3 pentru ghișeul 1, 4 pentru ghișeul 2) au schimbat corect limita și au păstrat pragul: răspunsurile sunt bune. Totuși, schimbarea a trebuit cerută, făcută și verificată o dată pentru fiecare canal; dacă una dintre sesiuni lipsește, canalele nu mai sunt concordante. După C1, site-ul acceptă încă „1000,5” la 10 lei: C1 nu a cerut altceva.
 
-**Organizare:** 4 min; încheierea etapei la minutul 95. []{.pace dur=4}
+**Sursă:** `haiku45-ghiseu-02-response.md` și `haiku45-c1-ghiseu-02-01-response.md`, ramura `if ambalaj_norm == "plic":`, literal, cu indentarea funcției eliminată și textul refuzului prescurtat („acceptat doar până la”, omis); prompturile `c1-*-prompt.md`.
+
+**Organizare:** 4 min. []{.pace dur=4}
+:::
+
+---
+
+# Cine răspunde de regulă?
+
+**Comparația noastră:** fiecare sesiune a primit aceleași reguli și a scris o altă copie a lor. Copiile trec scenariile S1–S5 (valorile-limită ale enunțului), dar se despart la intrări pe care nu le-am scris ca scenarii. Nicio componentă nu răspunde de regulă: concordanța depinde de cine transmite fiecare schimbare fiecărei sesiuni.
+
+**Decizia noastră:**
+
+- `estimează(masă, ambalaj)` decide acceptarea și prețul (R2–R4: masa acceptată, ambalaj, preț); o delegăm o singură dată, iar C1 (limita plicului) se face tot o dată.
+- Fiecare sesiune de canal primește **interfața** operației, nu regulile; canalul interpretează textul (R1, intrare) și afișează.
+- Adăugăm „1000,5” la verificările fiecărui canal; despre „Plic” întrebăm firma.
+
+::: notes
+Operația comună nu rezolvă singură interpretarea textului: R1 o lasă canalelor, deci „1000,5” rămâne o verificare a fiecărui canal. Câștigul este că limita, pragul și prețul există într-un singur loc, iar C1 se face o dată. Lecția despre AI: când delegăm separat părți care trebuie să aplice aceeași regulă, delegăm întâi regula, ca o componentă cu responsabilitate proprie, apoi canalele care o folosesc.
+
+**Organizare:** 3 min; încheierea etapei la minutul 95. []{.pace dur=3}
 :::
 
 ---

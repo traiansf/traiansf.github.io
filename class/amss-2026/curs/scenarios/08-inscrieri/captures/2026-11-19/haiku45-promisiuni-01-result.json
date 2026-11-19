@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 62298,
+  "stop_reason": "end_turn",
+  "session_id": "5a98d926-d559-48f4-b43c-96602f153e42",
+  "total_cost_usd": 0.054637000000000005,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5579,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 8694,
+    "output_tokens_details": {
+      "thinking_tokens": 8214
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5579,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 8694,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5579,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5579
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 8694,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5579,
+      "webSearchRequests": 0,
+      "costUSD": 0.054637000000000005,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 8214,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5579,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Ce vă garantăm la înscriere\n\n1. **Locul dumneavoastră este rezervat.** Atunci când cererea este acceptată, locul la atelier este al dumneavoastră. Chiar dacă mesajul de confirmare nu ajunge, rămâneți înscris.\n\n2. **Veți primi confirmare imediat.** După acceptare, vă trimitem un mesaj de confirmare. Dacă nu ajunge, îl reîncercăm automat.\n\n3. **Fără înscrisuri duble.** Dacă din accident reîncearcă aceeași cerere, primiți același răspuns și nu se va crea a doua înscrisă.\n\n4. **Locurile sunt echitabil repartizate.** Nu vor fi acceptați mai mulți participanți decât locurile disponibile.\n\n---\n\n## Justificare tehnică pentru centru\n\n- **Locul sigur:** Acceptarea unei cereri consumă locul și înregistrează înscrierea imediat (R3). Gestionarea confirmării are loc separat — dacă nu ajunge, nu afectează înscrierea acceptată (R4).\n\n- **Confirmare și retrimite:** După fiecare acceptare, se trimite automat un mesaj (R4). La reîncercări, dacă mesajul anterior nu a ajuns, se reîncercă trimiterea (R5).\n\n- **Fără duplicate:** Fiecare cerere din site are un identificator unic (R2). Reîncercări cu același identificator primesc același răspuns și nu creează nouă înscrisă (R5).\n\n- **Repartiție corectă:** Registrul refuză cereri care ar depăși locurile disponibile (R3) și asigură că fiecare participant este înscris o singură dată la fiecare atelier (R3, R7).",
+  "ttft_ms": 60403,
+  "type": "result",
+  "duration_ms": 62379,
+  "uuid": "7365138e-0b87-42f7-a6a9-2e46f1cad4d5",
+  "ttft_stream_ms": 764,
+  "time_to_request_ms": 90,
+  "first_content_frame_ms": 764,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

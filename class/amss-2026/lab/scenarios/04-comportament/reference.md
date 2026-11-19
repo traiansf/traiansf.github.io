@@ -26,6 +26,65 @@ Condiția „s este titularul” depinde de date, nu de stare: o cerere greșit�
 
 Tranziția (pasul 3) precede apelul expeditorului. Dacă registrul ar schimba starea numai după `trimis`, la `esec` studentul ar pleca cu echipamentul, iar rezervarea ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată. Registrul coordonează; ghișeul nu apelează expeditorul.
 
+## Diagrama de stări de referință
+
+Pentru atelierul de diagrame; specificația este [`lab/diagrame/stari.md`](../../diagrame/stari.md). Este tabelul de tranziții de mai sus, desenat; aceeași diagramă apare pe slide-ul „Diagrama de referință”.
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    state "Rezervată" as Rz
+    state "Ridicată" as Rd
+    state "Anulată" as An
+    [*] --> Rz
+    Rz --> Rd: ridică(c, r, s)<br/>[c neînregistrat, s titularul lui r]<br/>/ înregistrează momentul și c,<br/>trimite(mesaj), înregistrează notificarea
+    Rd --> Rd: ridică(c, r, s) [c înregistrat la r]<br/>/ dacă notificarea este netrimisă,<br/>trimite(mesaj) și o actualizează
+    Rz --> An: anulează(r)
+```
+
+Justificarea, după lista de verificare a specificației:
+
+1. **Stări:** exact cele trei din R2. Rezultatul notificării (`trimisă`, `netrimisă`) este o dată a rezervării (vocabularul enunțului), nu o stare; titularul verificat este o condiție, nu o stare.
+2. **Starea inițială:** `[*] --> Rezervată`, fără eveniment: starea inițială I pornește din Rezervată, iar crearea rezervărilor nu este modelată (R1).
+3. **Tranziții permise:** ridicarea cu c nou (R3), reîncercarea (R5) și anularea (R6); niciuna alta. Reîncercarea este o buclă pe Ridicată, pentru că c se înregistrează numai la o ridicare acceptată (R3): în Rezervată, niciun c al rezervării nu este încă înregistrat.
+4. **Condiții:** „c neînregistrat, s titularul lui r” (R3) și „c înregistrat la r” (R5); se exclud, deci pentru `ridică` cel mult o tranziție este posibilă. `anulează` nu are condiție în afara stării (R6). Refolosirea lui c cu alt conținut este în afara apelurilor admise (R3), deci condiția reîncercării nu trebuie să compare și s.
+5. **Efecte:** momentul ridicării și c (R3), apelul `trimite(mesaj)` și rezultatul notificării (R4); la reîncercare, retrimiterea numai pentru `netrimisă` (R5). Anularea nu are efect (R6: fără notificare; R8: datele nu se șterg). Rezultatul `ridicat` întors ghișeului nu este un efect asupra rezervării și nu apare pe diagramă.
+6. **Refuzuri:** nicio săgeată pentru `anulează` în Ridicată (scenariul S6), pentru `ridică` în Anulată (S7), pentru o cerere nouă în Ridicată (S5) sau pentru alt student (S2). Din Anulată nu pleacă nicio săgeată (R2: stare finală intenționată). Nu desenăm `Anulată --> [*]`: în UML, aceasta ar scoate obiectul din Anulată, deși datele rămân (R8).
+7. **Scenarii:** S1 și S3 folosesc săgeata Rezervată → Ridicată; S4 folosește bucla (c1 înregistrat, notificare `netrimisă`, retrimitere); S2 nu găsește săgeată (condiția titularului); S5 nu găsește săgeată (c7 nu este înregistrat, iar A nu este Rezervată); S6 și S7 nu găsesc săgeată din Ridicată, respectiv din Anulată.
+
+**Variante acceptabile:** bucla reîncercării împărțită în două tranziții, `[c înregistrat la r, notificare netrimisă] / trimite(mesaj), actualizează notificarea` și `[c înregistrat la r, notificare trimisă]`, fără efect (condițiile se exclud); efecte formulate mai scurt, dacă numesc aceleași date și același apel; tranzițiile numerotate și explicate într-un tabel alăturat, ca în cursul 7. **Neacceptabile:** stări pentru notificare sau pentru refuz, bucle pentru evenimente refuzate, bucla reîncercării pe Rezervată, săgeata spre starea finală UML, efecte noi (ștergerea datelor, notificare la anulare).
+
+## Diagrama de secvență de referință (extensie)
+
+Specificația este [`lab/diagrame/secventa.md`](../../diagrame/secventa.md). Scenariul S3 (notificare eșuată), urmat de scenariul S4 (reîncercare după eșec); un singur scenariu, deci fără fragmente: valorile sunt cunoscute.
+
+```mermaid
+sequenceDiagram
+    participant G as Ghișeu
+    box Sistemul nostru
+    participant R as Registrul rezervărilor
+    end
+    participant E as Expeditor
+    Note over G,E: Scenariul S3, din I: A Rezervată, titular T1, c1 neînregistrat
+    G->>R: ridică(c1, A, T1)
+    Note over R: c1 neînregistrat, A Rezervată, T1 titular<br/>A trece în Ridicată, înregistrează momentul și c1
+    R->>E: trimite(mesaj)
+    E-->>R: esec
+    Note over R: notificare netrimisă
+    R-->>G: ridicat
+    Note over G,E: Scenariul S4: reîncercare cu același c1
+    G->>R: ridică(c1, A, T1)
+    Note over R: c1 înregistrat: reîncercare<br/>A rămâne Ridicată, notificarea este netrimisă
+    R->>E: trimite(mesaj)
+    E-->>R: trimis
+    Note over R: notificare trimisă
+    R-->>G: ridicat
+```
+
+Justificarea, după lista de verificare a specificației: (1) trei participanți; numai registrul este în interiorul graniței (R7; ghișeul îl apelează, dar nu îl proiectăm). (2) Ghișeul apelează numai registrul, iar numai registrul apelează expeditorul (R4); ghișeul nu apelează niciodată expeditorul. (3) Ambele apeluri sunt sincrone (R1: apeluri secvențiale; registrul folosește răspunsul expeditorului) și au răspunsuri din enunț. (4) Tranziția și înregistrarea lui c1 preced apelul expeditorului (R3, R4); la reîncercare nu există o a doua tranziție (R5). (5) Fără fragmente: valorile scenariilor decid ramurile. (6) Nimic despre livrare: `esec` este consemnat ca `netrimisă` (R7). (7) Rezultatele sunt cele din tabelul de mai jos: `ridicat` de două ori, A Ridicată, o singură ridicare, notificarea `trimisă` la sfârșit.
+
+O variantă pentru toate cazurile lui `ridică` folosește `alt [c înregistrat la r]` / `[c neînregistrat, r Rezervată, s titular]` / `[altfel]` (cu `refuz` și fără apelul expeditorului), iar în prima ramură `opt [notificarea este netrimisă]` în jurul retrimiterii. Greșeli de urmărit: nota schimbării stării pusă după `trimis`; un `refuz` la reîncercare; o a doua notă „A trece în Ridicată” la S4; expeditorul pus în interiorul graniței.
+
 ## Rezultatele scenariilor
 
 S1, S2, S3 și S7 pornesc din I: A (T1, proiector) și B (T2, cameră) în Rezervată. S4 continuă S3; S5 și S6 continuă independent S1. Rezervarea neindicată de apel rămâne identică.
@@ -50,7 +109,9 @@ Ce garantează registrul, în limitele R1: o rezervare este ridicată cel mult o
 - Tratarea lui S2 ca eveniment care schimbă ceva: cererea refuzată nu se înregistrează.
 - Cererea nouă pentru o rezervare Ridicată (S5): citită față de rândul din Rezervată, o refuză starea; citită față de rândul reîncercării din Ridicată, o refuză condiția (c nu este înregistrat). Ambele lecturi sunt corecte.
 
-## Exercițiul final (trasări manuale)
+## Exercițiu suplimentar: ghișeul nu a primit răspunsul (trasări manuale)
+
+Nu mai este pe slide-uri din 19 noiembrie 2026 (atelierul de diagrame a luat timpul lui); rămâne în [sprijinul facultativ](worksheet.md), pentru studiu individual, și poate fi discutat dacă rămâne timp.
 
 Din I, ghișeul trimite `ridică(c1, A, T1)`, iar expeditorul răspunde `trimis`. Răspunsul registrului nu ajunge la ghișeu, deci operatorul nu predă încă proiectorul; ghișeul trimite `ridică(c8, A, T1)`, cu un identificator nou. Rezultate: `ridicat` (A Ridicată, c1 înregistrat, notificare `trimisă`: studentul primește mesajul despre ridicare înainte să aibă proiectorul), apoi `refuz` (c8 este cerere nouă, iar A nu mai este Rezervată); nimic nu se modifică, expeditorul nu este apelat.
 

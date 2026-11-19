@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 20103,
+  "stop_reason": "end_turn",
+  "session_id": "05244650-3342-4e02-a748-72a965957e12",
+  "total_cost_usd": 0.020206000000000002,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4936,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2065,
+    "output_tokens_details": {
+      "thinking_tokens": 1185
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4936,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2065,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4936,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4936
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2065,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4936,
+      "webSearchRequests": 0,
+      "costUSD": 0.020206000000000002,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1185,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4936,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Proiectare sistem gestionare împrumuturi cărți\n\n## Concepte principale\n\n**Entități:**\n- **Membru, Titlu, Exemplar** – entități cu identificatori distincți\n- **Împrumut** – relație activă între exemplar și membru (cu dată de start; dată de end numai dacă închis)\n- **Cerere de împrumut** – înregistrare cu timestamp, stare (în_așteptare/îndeplinită) și posibil exemplar rezervat\n- **Coadă de așteptare** – ordonează cererile nefulfillate ale fiecărui titlu\n\n**Stări exemplar:**\n- **Disponibil** – fără împrumut activ și fără rezervare activă\n- **Împrumutat** – are împrumut activ\n- **Rezervat** – are cerere de împrumut care asteaptă exemplarul\n\n---\n\n## Operații și reguli\n\n### 1. Împrumut exemplar\n**Precondițiu:** Exemplar disponibil SAU rezervat acelui membru  \n**Proces:**\n- Creează Împrumut activ (leagă exemplar de membru)\n- Schimbă starea exemplarului la **Împrumutat**\n- Dacă era rezervat, încheie cererea cu statut **îndeplinită**\n\n**Rezultat:** Succes / Respinge dacă exemplar ocupat de alt membru\n\n---\n\n### 2. Returnare exemplar\n**Precondițiu:** Exemplar cu Împrumut activ  \n**Proces:**\n- Închide Împrumutul (setează dată de end), păstrează în istoric\n- Caută prima Cerere **în_așteptare** pentru titlul exemplarului\n  - **Dacă există:** Alocă exemplarul cererii, rezervă exemplarul, schimbă starea la **Rezervat**\n  - **Dacă nu există:** Exemplar devine **Disponibil**\n\n**Rezultat:** Succes / Respinge dacă nu există Împrumut activ\n\n---\n\n### 3. Cerere de împrumut\n**Precondițiu:** \n- Nu există exemplare disponibile pentru titlu\n- Membrul nu are cerere neîncheiată (în_așteptare sau cu exemplar rezervat) pentru titlu\n\n**Proces:**\n- Creează Cerere cu stare **în_așteptare**\n- Înregistrează timestamp (stabilește prioritate în coadă)\n\n**Rezultat:** Succes / Respinge dacă există exemplar disponibil sau cerere duplicată neîncheiată\n\n---\n\n### 4. Ridicare exemplar (implicit din împrumut)\nSe declanșează când membru cu cerere în_așteptare ridică exemplarul rezervat (operație din R2).\n\n---\n\n## Reguli transversale\n\n- **O singură rezervare/exemplar, o singură rezervare/cerere**\n- **Cererile se servesc FIFO** – ordinea timestamp stabilește prioritatea\n- **Închidere cererelor** – doar la ridicare exemplarului (fulfill din așteptare) sau la anulare (exclus din regulament)\n- **Istoric** – Împrumuturile închise se păstrează cu date complete\n\nSistemul asigură eficiență (ridicare directă a cererilor) și corectitudine (coadă ordonată, stări consistente).",
+  "ttft_ms": 12812,
+  "type": "result",
+  "duration_ms": 20234,
+  "uuid": "0337fcec-ad81-486e-9eb6-1e983e30a679",
+  "ttft_stream_ms": 919,
+  "time_to_request_ms": 161,
+  "first_content_frame_ms": 919,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

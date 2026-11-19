@@ -289,146 +289,183 @@ Nu evaluăm modelul după numărul de clase sau de tabele. Un atribut pentru rol
 
 ---
 
-# Verificăm un model propus de AI {.transition}
+# Ce cerem, aceea primim {.transition}
 
-Ce păstrăm, ce corectăm și pe ce regulă ne bazăm?
+Aceleași fapte, cerute în două forme: primim același model?
 
 ::: notes
-Un răspuns poate fi util și totuși să conțină o generalizare nejustificată. Folosim răspunsuri reale pregătite înainte de curs, cu toate încercările păstrate; analiza umană precedă verdictul asupra revizuirii.
+Forma cererii decide ce fel de răspuns primim. Cine cere „clasele” primește și decizii de implementare pe care faptele nu le conțin: tipuri pentru identificatori, dicționare, contoare, excepții, o clasă care coordonează operațiile. Cine cere concepte, relații și cardinalități primește un model al domeniului. Folosim răspunsuri reale pregătite înainte de curs; toate încercările sunt păstrate.
 
-**Organizare:** minutul 60 din 100; interval 60–90 (30 min): tranziție și două prompturi 6, două comparații ale analizei 10, revizuire și corecție 8, reprezentare și sinteză 6. Fără rulări live. []{.pace at=60 dur=1}
+**Organizare:** minutul 60 din 100; interval 60–90 (30 min): tranziție și cele două cereri 4, răspunsul cu clase 6, răspunsul cu concepte 4, sortarea 7, sortarea noastră 3, reprezentări 3, sinteză 3. Fără rulări live. []{.pace at=60 dur=1}
 :::
 
 ---
 
-# Promptul analistului AI
+# Aceleași fapte, două cereri
 
-**Instrucțiunea exactă:**
+**Context identic în ambele prompturi:** regulile R1–R5 și scenariile S1–S4 (legenda, două editări ale lui V1, sursa din altă fotografie).
 
-> Propune un model de domeniu pentru regulile de mai jos: concepte, identități, relații și restricții. Explică prin S1–S4 cum susține modelul regulile. Separă alegerile de reprezentare de cerințe. Nu scrie cod și nu impune o notație. Răspunde în română, în maximum 450 de cuvinte.
+**Cererea A, exactă:**
 
-**Context, în același prompt:** R1–R6 și scenariile S1–S5 (S1 legenda, S2 prima editare, S3 a doua editare a lui V1, S4 sursa din altă fotografie, S5 importul repetat, neconvenit).
+> Scrie clasele pentru arhiva fotografică descrisă mai jos. Răspunde în română, în maximum 300 de cuvinte.
+
+**Cererea B, exactă:**
+
+> Descrie conceptele arhivei fotografice de mai jos, relațiile dintre ele și cardinalitatea fiecărei relații. Răspunde în română, în maximum 300 de cuvinte.
+
+**Predicție, individual:** ce va conține răspunsul A și nu va conține B?
 
 ::: notes
-Contextul conține regulile și scenariile discutate până acum, fără soluția profesorului. Nu cerem un anumit defect. Două rulări Claude Haiku 4.5 au primit același prompt; analizăm rularea 2.
+Singura diferență dintre prompturi este prima propoziție. Contextul nu conține R6 (limitele exercițiului): ultima ei propoziție spune „Nu cerem clase”, iar noi voiam să variem numai forma cererii. Așteptăm predicții ca „cod”, „metode”, „tipuri”, „identificatori generați”; le comparăm pe slide-urile următoare.
 
-**Sursă:** instrucțiunea integrală din `scenarios/04-fotografii/captures/2026-10-10/analist-instructiune.md`; contextul integral în `context.md`, promptul complet și ambele răspunsuri în același director.
+**Sursă:** `scenarios/04-fotografii/captures/2026-11-19/`: `clase-prompt.md`, `concepte-prompt.md`, contextul `context-fapte.md`. Claude Haiku 4.5, prin Claude Code 2.1.328, 19 noiembrie 2026, câte un context nou pentru fiecare rulare, fără unelte; trei rulări pentru fiecare cerere.
 
-**Organizare:** 2 min. []{.pace dur=2}
+**Organizare:** 3 min, cu predicțiile notate pe hârtie. []{.pace dur=3}
 :::
 
 ---
 
-# Un răspuns susținut de reguli
+# Răspunsul la cererea A: versiunea
 
-**Fragment din răspunsul AI — Claude Haiku 4.5, analist AI, rularea 2, 10 octombrie 2026:**
+**Fragment din răspunsul AI — Claude Haiku 4.5, cererea A (clase), rularea 2, 19 noiembrie 2026:**
 
-> Un atribut modificabil, **Legenda**, aparține numai Fotografiei, nu versiunilor. Legenda se poate schimba fără să afecteze versiunile sau identitatea fotografiei.
+```python
+# […]
+class Versiune:
+    def __init__(self, id_versiune: int, fotografie_id: str, continut: str, 
+                 sursa_id: int = None):
+        self.id_versiune = id_versiune
+        self.fotografie_id = fotografie_id
+        self.continut = continut
+        self.sursa_id = sursa_id  # None pentru original
+    # […]
+```
 
-**R1:** fotografia are identificator stabil și legendă modificabilă. **R5:** schimbarea legendei nu modifică versiunile.
+**R2 (versiune):** fiecare versiune are un identificator propriu și aparține exact unei fotografii. **R4 (editare):** fiecare derivată are exact o sursă.
 
-**S1:** F1 are originalul V1, F2 are originalul V2; ambele au legenda „Curte”. Schimbăm doar legenda lui F1 în „Dimineață”.
-
-În pereche: ce propoziție din fragment este susținută de R1 și ce propoziție de R5? Ce regulă am încălca dacă schimbarea legendei ar modifica V1?
+Individual: notați fiecare element care **nu apare** în faptele din context.
 
 ::: notes
-Fragmentul este corect: confirmăm o parte bună, nu căutăm obligatoriu o eroare în fiecare fragment. Prima propoziție se sprijină pe R1 (legenda este atributul modificabil al fotografiei); a doua, pe R5 (schimbarea legendei nu modifică versiunile) și pe identificatorul stabil din R1. În S1 se păstrează identitățile F1, F2, V1, V2, conținutul și apartenența versiunilor, precum și legenda lui F2. Modificarea lui V1 la schimbarea legendei ar încălca R5. Nu confundăm regula de domeniu cu o alegere ulterioară despre stocarea acelei informații.
+Fotografia și versiunea, legenda, conținutul, apartenența și sursa vin din fapte. Nu vin din fapte: tipurile `str` și `int`, diferite pentru cele două feluri de identificatori; apartenența și sursa păstrate ca identificatori (`fotografie_id`, `sursa_id`); `None` ca semn al originalului. Unele dintre ele reprezintă reguli ale domeniului; reluăm distincția la sortare.
 
-**Sursă:** `haiku45-analist-02-response.md`, „Concepte și identități”, ultimul paragraf, integral; restul răspunsului este omis.
+Clasa `Fotografie`, omisă de pe slide, are și un dicționar de versiuni indexat după identificator și un câmp `original_id` inițial `None`.
 
-**Organizare:** 5 min, cu discuție. []{.pace dur=5}
+**Sursă:** `haiku45-clase-02-response.md`, clasa `Versiune` fără metoda `este_original`, literal; clasa `Fotografie` dinaintea ei este omisă.
+
+**Organizare:** 3 min. []{.pace dur=3}
 :::
 
 ---
 
-# Sunt compatibile cele două fragmente?
+# Răspunsul la cererea A: o clasă în plus
 
-**Același răspuns AI — analist AI, rularea 2, fragmente:**
+**Același răspuns AI — rularea 2, fragment:**
 
-> Fiecare Versiune are zero sau o Sursă (relație recursivă).
+```python
+class Arhiva:
+    def __init__(self):
+        self.fotografii = {}  # id_foto -> Fotografie
+        self.versiuni = {}    # id_versiune -> Versiune
+        self.contor_versiuni = 0
+    
+    def cataloga_fotografie(self, id_foto: str, legenda: str, continut: str):
+        """R1, R2, R3: Creează o fotografie cu originalul său"""
+        if id_foto in self.fotografii:
+            raise ValueError("Fotografia există")
+        # […]
+```
+
+**Faptele:** versiunile sunt numerotate în ordinea creării, în toată arhiva. Ce **decide** această clasă, deși faptele nu o cer?
+
+::: notes
+Clasa `Arhiva` este o componentă care coordonează operațiile, nu un concept nou al domeniului: întrebarea „cine execută catalogarea” aparține cursului 5. Contorul decide cum se generează identificatorii; faptele spun numai că versiunile sunt numerotate în ordinea creării (iar enunțul complet, prin R6, spune că identificatorii sunt deja disponibili). `raise ValueError` decide ce se întâmplă la un identificator repetat, o întrebare pe care regulile nu o pun. Nu sunt greșeli: sunt decizii luate în locul nostru, pentru că am cerut clase. Același efect a apărut în toate cele trei rulări ale cererii A: cod Python cu tipuri sau referințe, metode și validări; rulările 2 și 3 au și clasa `Arhiva` cu contor.
+
+**Sursă:** `haiku45-clase-02-response.md`, începutul clasei `Arhiva`, literal; restul metodei și metodele `editeaza_versiune`, `schimba_legenda` sunt omise.
+
+**Organizare:** 3 min. []{.pace dur=3}
+:::
+
+---
+
+# Răspunsul la cererea B: concepte și cardinalități
+
+**Fragment din răspunsul AI — Claude Haiku 4.5, cererea B (concepte), rularea 3, 19 noiembrie 2026:**
+
+> […] **1. Fotografie ↔ Versiune: 1:N**
+> - O fotografie are cel puțin o versiune
+> - O versiune aparține exact unei fotografii
 >
-> […] Doi copaci independenți (V3 și V4 din V1) nu sunt definiți; modelul permite orice orice configurație DAG cu original ca sursă indirectă.
+> […] **2. Versiune-sursă ↔ Versiune-derivată: 1:N**
+> - O versiune poate fi sursă pentru mai multe versiuni derivate (vezi S3: V1 genereaza atît V3 cît și V4)
+> - O versiune derivată are exact o sursă
 
-„Relație recursivă”: relație de la o versiune la altă versiune. Un **DAG** este un graf orientat fără cicluri: urmând sensul săgeților, nu poți reveni la nodul de plecare.
+**R2 (versiune):** fiecare versiune aparține exact unei fotografii. **R4 (editare):** fiecare derivată are exact o sursă, din aceeași fotografie.
 
-**Date:** V1 este originalul; V3 și V4 au sursa V1; toate aparțin lui F1. **R4:** fiecare derivată are exact o sursă.
-
-În pereche: adăugați V6 în F1 cu sursele V3 și V4. Desenați săgeți „are sursa”. Graful are cicluri? Respectă R4? Care fragment trebuie corectat?
+Verificați cardinalitățile pe scenariul S3 (a doua editare a lui V1: V3 și V4, ambele cu sursa V1). Ce rămâne aici din lista de la cererea A?
 
 ::: notes
-„Zero sau o Sursă” este compatibil cu R3–R4, dacă distingem originalul de derivate, dar „orice configurație DAG” admite și o versiune cu două surse. Graful cu V6 nu are cicluri, dar încalcă R4: corectăm generalizarea. Răspunsul descrie corect cazul celor două ramuri în alt paragraf; defectul este generalizarea, nu întregul model. Nu cerem teorie a grafurilor: V6 → V3 și V6 → V4 înseamnă două surse; V3 → V1 și V4 → V1 completează contraexemplul. Orientarea săgeților este cea a relației „are sursa”, spre versiunea anterioară.
+Cardinalitățile sunt cele din tabelul nostru: o fotografie, cel puțin o versiune; o versiune, exact o fotografie; o derivată, exact o sursă; o sursă, zero sau mai multe derivate (răspunsul scrie „1:N”, dar adaugă în text că originalul nu are sursă). Restricția „din aceeași fotografie” apare în răspunsul integral, la relația 2, ca în R4. În acest răspuns nu există tipuri, contoare, dicționare sau excepții: lista de la cererea A nu are corespondent aici. Răspunsul integral prezintă și „Original” ca al treilea concept („Prima versiune asociată unei fotografii, creată la catalogare”); pentru noi este rolul unei versiuni. Tot acolo, conceptele sunt numite „entități”; în vocabularul nostru spunem „concepte”.
 
-Repetiția „orice orice” este în original; nu discutăm formularea lingvistică.
+**Sursă:** `haiku45-concepte-03-response.md`: relația 1 fără ultimul punct și relația 2 fără ultimul punct (omise), literal; diacriticele lipsă („genereaza”, „atît”, „cît”) sunt în original.
 
-**Sursă:** `haiku45-analist-02-response.md`: prima propoziție din „Relația de derivare (sursă)” și ultima propoziție din „Rezultat structural” (prima, despre „pădure de versiuni”, este omisă), literale.
-
-**Organizare:** 5 min: întâi verdict și regulă în pereche, apoi comparație. []{.pace dur=5}
+**Organizare:** 4 min. []{.pace dur=4}
 :::
 
 ---
 
-# Promptul evaluatorului AI
+# Domeniu sau implementare?
 
-**Instrucțiunea exactă pentru evaluator (agent AI de revizuire):**
+::::: {.columns}
+:::: {.column width="48%"}
+**R1 (fotografie):** fotografia are un identificator stabil și o legendă modificabilă.
 
-> Ești evaluator (agent AI de revizuire). Verifică propunerea de mai jos exclusiv față de contextul și sarcina furnizate. Identifică afirmațiile susținute, contradicțiile, omisiunile relevante și alegerile prezentate ca cerințe. Pentru fiecare observație, indică fragmentul și regula sau scenariul relevant. Nu presupune că trebuie să existe greșeli; dacă o afirmație este corectă, explică de ce. Nu scrie cod. Răspunde în română, în maximum 400 de cuvinte.
+**R2 (versiune):** fiecare versiune aparține exact unei fotografii.
 
-**Context nou:** aceleași reguli și scenarii, sarcina analistului AI și răspunsul său integral (rularea 2).
+**R3 (original):** fiecare fotografie are exact un original, fără sursă.
 
-**Predicție, înainte de a vedea răspunsul AI:** va observa evaluatorul AI contradicția dintre „zero sau o Sursă” și „orice DAG”?
+**R4 (editare):** fiecare derivată are exact o sursă, din aceeași fotografie.
+::::
+:::: {.column width="52%"}
+**Elemente din răspunsul A (clase):**
+
+1. `id_foto: str`, `id_versiune: int`
+2. `contor_versiuni`, care numerotează versiunile
+3. `fotografie_id`, `sursa_id`, păstrate în versiune
+4. `sursa_id = None` pentru original
+5. `raise ValueError("Fotografia există")`
+6. clasa `Arhiva`
+::::
+:::::
+
+Individual: marcați fiecare element **D** (concept sau regulă a domeniului), **I** (decizie de implementare) sau **I pentru D** (implementează o regulă a domeniului).
 
 ::: notes
-Revizuirea nu primește comentariile profesorului sau conversația analistului AI. Un context nou nu garantează independența erorilor sau corectitudinea verdictului.
+Sortarea este exercițiul central al etapei. Lăsați întâi câteva răspunsuri pentru elementele 3 și 4, unde de obicei apar dezacorduri: apartenența și sursa sunt relații ale domeniului, iar identificatorii păstrați în versiune sunt o reprezentare a lor.
 
-**Sursă:** instrucțiunea integrală din `evaluator-v2-instructiune.md`; intrarea completă în `evaluator-v2-prompt.md`. Pe slide-ul următor apare rularea 3. Primele două revizuiri, cu diacriticele instrucțiunii deteriorate la transmitere, sunt păstrate în arhivă și nu apar pe slide-uri.
+Răspunsul B intră în discuție prin comparație: apartenența și sursa unică sunt **D** (R2, R4); „Original”, prezentat acolo ca al treilea concept, este **D** ca rol al unei versiuni.
 
-**Organizare:** 3 min, cu predicția scrisă pe hârtie înainte de slide-ul următor. []{.pace dur=3}
+**Organizare:** 7 min: 3 individual, 4 discuție cu toată clasa. []{.pace dur=7}
 :::
 
 ---
 
-# Ce observă revizuirea?
+# Sortarea noastră
 
-**Fragment din răspunsul AI — Claude Haiku 4.5, evaluator AI, rularea 3, 10 octombrie 2026:**
+| Element | Ce este |
+|---|---|
+| 1. tipurile identificatorilor | **I**: faptele cer identitate stabilă, nu un tip. |
+| 2. contorul | **I**: alege cum se generează identificatorii. |
+| 3. `fotografie_id`, `sursa_id` | **I pentru D**: reprezintă apartenența și sursa. |
+| 4. `None` pentru original | **I pentru D**: „originalul nu are sursă”. |
+| 5. excepția | **I**: răspunde la o întrebare pe care regulile nu o pun. |
+| 6. clasa `Arhiva` | **I**: o componentă care execută operațiile. |
 
-> […] un **DAG** (graph aciclic orientat) permite noduri cu mai mulți părinți și configurații arbitrare.
-
-În captură, „părinți” înseamnă surse.
-
-**Reper:** V3 și V4, fiecare cu sursa V1 (S3), respectă R4; V6 cu sursele V3 și V4 ar încălca R4 (exact o sursă).
-
-**Predicția s-a confirmat?** Revizuirea observă că un DAG admite mai multe surse. Numește ea regula încălcată sau contraexemplul? Ce adăugăm noi revizuirii înainte de decizie?
-
-::: notes
-Observația este corectă: un graf fără cicluri poate admite mai multe surse pentru aceeași derivată. Răspunsul la întrebarea de predicție este „parțial”: revizuirea observă că un DAG admite mai mulți părinți, citează R4 pentru ramificare și propune un arbore în răspunsul integral, dar tratează problema ca una de prezentare (pădure vs. DAG), validează separat derivarea recursivă și nu leagă explicit mai mulți părinți de limita „exact o sursă”; nu dă niciun contraexemplu. Noi adăugăm regula încălcată și contraexemplul V6, construit deja pe slide-ul 22, înainte de decizia de pe slide-ul următor. „Părinți” este termenul folosit în captură pentru surse; pe schițele noastre săgețile „are sursa” merg de la derivată la sursă.
-
-Cererile revizuirii despre mecanismele de implementare și prevenirea ștergerii depășesc sarcina de modelare și limitele R6; nu le adoptăm automat. În textul integral, revizuirea discută și „doi copaci independenți”, deși analistul AI nu afirmă explicit asta. Acest pasaj nu este proiectat: nu avem nevoie de el pentru a verifica limita de o sursă.
-
-În răspunsul integral, revizuirea citează și inexact: din citatul ei din analistul AI lipsesc repetiția „orice” și finalul propoziției. Citatele unei revizuiri se verifică și ele în sursă.
-
-**Sursă:** `haiku45-evaluator-03-response.md`, observația 1, paragraful „Problemă”: finalul celei de-a doua propoziții, de la „un DAG”, literal; restul este omis. „graph” este în original.
-
-**Organizare:** 4 min, inclusiv răspunsuri. []{.pace dur=4}
-:::
-
----
-
-# Decizia noastră asupra modelului
-
-**Corecția noastră:**
-
-- Păstrăm identitățile și separarea fotografiei de versiuni.
-- Păstrăm mai multe derivate directe din aceeași sursă.
-- Pentru **fiecare fotografie**, versiunile formează **un arbore cu rădăcina în original**: fiecare derivată are exact o sursă.
-
-**R3–R5:** originalul este unic și nu are sursă; o derivată indică o versiune existentă anterior, din aceeași fotografie. Asocierile existente se păstrează.
-
-**În pereche:** de ce ajungem mereu la original, fără cicluri, dacă urmărim sursele din orice versiune?
+**Decizia noastră:** cerem întâi conceptele, relațiile și cardinalitățile; clasele vin după, cu fiecare decizie de implementare numită și justificată.
 
 ::: notes
-Aceasta este corecția umană a generalizării „orice DAG”, nu o a treia captură AI. Justificarea: fiecare versiune nouă se adaugă printr-o singură asociere spre o versiune care exista deja, fără a schimba sursele versiunilor anterioare. Urmărind sursele, trecem mereu la o versiune mai veche și ne oprim la originalul fotografiei, singura ei versiune fără sursă. Vorbim despre relațiile de sursă, nu despre săgețile de apartenență. Întreaga arhivă poate avea mai mulți arbori, câte unul pentru fiecare fotografie. Nu introducem acum operația de combinare a două versiuni.
+Cererea A nu a produs un model greșit, ci un model în care deciziile de implementare stau amestecate cu regulile și par la fel de obligatorii. Cine citește doar clasele nu poate spune ce cere arhivista și ce a ales asistentul AI. În răspunsul B nu apare niciun element **I**: cererea B a păstrat distincțiile cursului: identitate, apartenență, sursă, cardinalități. Rezultatul ține de selecția a câte trei rulări pentru fiecare cerere, nu de o măsurare a modelului.
 
-**Organizare:** 4 min, cu o justificare oferită de studenți. []{.pace dur=4}
+**Organizare:** 3 min. []{.pace dur=3}
 :::
 
 ---
@@ -450,7 +487,7 @@ Aceasta este corecția umană a generalizării „orice DAG”, nu o a treia cap
 Vrem să adăugăm V7 la F2, cu sursa V3. R4 respinge această adăugare. **Cum se vede încălcarea în fiecare reprezentare:** ce comparăm în tabel și ce comparăm între referințe?
 
 ::: notes
-V3 aparține lui F1, deci nu poate fi sursa unei versiuni a lui F2 (R4). În tabel, comparăm coloana Fotografie a rândului V7 (F2) cu cea a rândului sursei V3 (F1). Între referințe, comparăm fotografia la care se referă V7 cu fotografia la care se referă sursa ei V3. Ambele reprezentări permit verificarea; niciuna nu o face singură. Pentru o verificare mai amplă: o versiune fără sursă se acceptă doar la catalogare, ca unic original al unei fotografii noi; o derivată are o singură sursă existentă, din aceeași fotografie. Noua versiune primește identitate distinctă și nu înlocuiește conținutul alteia. Tabelul este reprezentarea unui exemplu, nu o schemă de bază de date prescrisă. Variantele sunt construite de profesor din modelul corectat.
+V3 aparține lui F1, deci nu poate fi sursa unei versiuni a lui F2 (R4). În tabel, comparăm coloana Fotografie a rândului V7 (F2) cu cea a rândului sursei V3 (F1). Între referințe, comparăm fotografia la care se referă V7 cu fotografia la care se referă sursa ei V3. Ambele reprezentări permit verificarea; niciuna nu o face singură. Pentru o verificare mai amplă: o versiune fără sursă se acceptă doar la catalogare, ca unic original al unei fotografii noi; o derivată are o singură sursă existentă, din aceeași fotografie. Noua versiune primește identitate distinctă și nu înlocuiește conținutul alteia. Tabelul este reprezentarea unui exemplu, nu o schemă de bază de date prescrisă. Variantele sunt construite de profesor din cardinalitățile discutate, nu sunt capturi AI. Răspunsul la cererea A a ales a doua variantă (`fotografie_id`, `sursa_id`) fără să i-o cerem.
 
 **Organizare:** 3 min. []{.pace dur=3}
 :::
@@ -463,8 +500,9 @@ Un model pe care îl putem discuta cu altă persoană conține:
 
 - **sensuri:** fotografie, versiune, original, derivată, sursă;
 - **reguli:** identitate, apartenență și numărul permis de asocieri;
-- **exemple și contraexemple:** schimbarea legendei, editarea, două ramuri; V5 din altă fotografie, V6 cu două surse;
+- **exemple și contraexemple:** schimbarea legendei, editarea, două ramuri; V5 din altă fotografie;
 - **limite:** ce excludem explicit (R6);
+- **decizii de implementare numite separat:** tipuri, identificatori generați, clase care execută operațiile;
 - **întrebări deschise:** politica importului repetat (S5).
 
 O diagramă ajută când putem explica fiecare relație printr-o regulă sau un exemplu.
@@ -518,7 +556,7 @@ Se schimbă doar titlul; P7, P8, Rp1 și Rp2 se păstrează. Titlul nu identific
 La laborator aplicăm aceste întrebări unui atelier comunitar de reparații, prin schițe, comparații și discuții.
 
 ::: notes
-Modelul este util dacă distincțiile lui explică stările cerute. Capturile AI au oferit atât afirmații corecte, cât și o generalizare de corectat; verdictul a venit din reguli și exemple.
+Modelul este util dacă distincțiile lui explică stările cerute. Capturile AI au arătat că forma cererii decide nivelul răspunsului: cerând clase, am primit și decizii de implementare amestecate cu regulile; sortarea a venit din reguli, nu din răspuns.
 
 **Organizare:** ultimele 3 min; încheiere la minutul 100. []{.pace dur=3}
 :::

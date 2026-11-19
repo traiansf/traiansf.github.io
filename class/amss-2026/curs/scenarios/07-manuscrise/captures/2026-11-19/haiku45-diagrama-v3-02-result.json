@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 48245,
+  "stop_reason": "end_turn",
+  "session_id": "40d2291d-543c-41d5-8c90-875178cc01d5",
+  "total_cost_usd": 0.049763999999999996,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5390,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 7795,
+    "output_tokens_details": {
+      "thinking_tokens": 7326
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5390,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 7795,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5390,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5390
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 7795,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5390,
+      "webSearchRequests": 0,
+      "costUSD": 0.049763999999999996,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 7326,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5390,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "```mermaid\nstateDiagram-v2\n    state \"Ciornă\" as Draft\n    state \"Trimis\" as Submitted\n    state \"În evaluare\" as UnderReview\n    state \"Acceptat\" as Accepted\n    state \"Respins\" as Rejected\n    state \"Retras\" as Withdrawn\n    \n    [*] --> Draft\n    \n    Draft --> Draft: atașează(f) / file := f\n    Draft --> Submitted: trimite [file != null] / time_submit := now\n    Submitted --> UnderReview: preia(e) / editor := e\n    Submitted --> Withdrawn: retrage / time_withdraw := now\n    UnderReview --> UnderReview: înregistrează raport(r) / reports.add(r)\n    UnderReview --> Accepted: acceptă [reports.size > 0] / time_decision := now\n    UnderReview --> Rejected: respinge [reports.size > 0] / time_decision := now\n    UnderReview --> Withdrawn: retrage / time_withdraw := now\n    Accepted --> [*]\n    Rejected --> [*]\n    Withdrawn --> [*]\n```\n\nDiagrama modelează ciclul de viață al unui manuscris prin șase stări: **Ciornă** (inițială) unde se atașează fișiere, **Trimis** după validare, **În evaluare** cu înregistrare de rapoarte, și trei stări finale (**Acceptat**, **Respins**, **Retras**). Tranzițiile impun condiții (fișier prezent pentru trimitere, rapoarte înregistrate pentru decizie) și înregistrează momente și date; absence unei tranziții reprezentează refuzul unui eveniment în acea stare. Ciclul reflectă regulile R3–R6, iar stările finale nu au ieșiri conform R8.",
+  "ttft_ms": 45259,
+  "type": "result",
+  "duration_ms": 48326,
+  "uuid": "0cff16a1-7860-4773-ad88-9cf048d09dab",
+  "ttft_stream_ms": 736,
+  "time_to_request_ms": 98,
+  "first_content_frame_ms": 736,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

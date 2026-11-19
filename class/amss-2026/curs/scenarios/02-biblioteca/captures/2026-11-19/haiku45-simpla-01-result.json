@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 12325,
+  "stop_reason": "end_turn",
+  "session_id": "d8323abe-56b9-427e-a80a-a0bcc8857b9d",
+  "total_cost_usd": 0.014169000000000001,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4100,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1192,
+    "output_tokens_details": {
+      "thinking_tokens": 389
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4100,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1192,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4100,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4100
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1192,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4100,
+      "webSearchRequests": 0,
+      "costUSD": 0.014169000000000001,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 389,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4100,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Sistem de Gestionare a Împrumuturilor de Cărți\n\n## Concepte Principale\n\n**Entități core:**\n- **Carte**: articolul din bibliotecă cu status (Disponibilă/Împrumutată)\n- **Membru**: persoană înregistrată în sistem\n- **Împrumut**: relație activă între membru și carte cu dată de expirare\n- **Cerere de Împrumut**: coadă de așteptare pentru cărți împrumutate\n\n## Reguli Operaționale\n\n### Operația de Împrumut\n**Condiții de succes:**\n- Cartea trebuie să fie disponibilă (nu are împrumut activ)\n- Membrul nu are amenzii neplătite\n- Membrul nu a depășit limita de cărți simultan\n\n**Rezultat:** \n- Status carte se schimbă în „Împrumutată\"\n- Se creează înregistrare de împrumut cu dată de scadență (ex. 14 zile)\n- Se notifică membrul\n- Alte cereri de împrumut pentru acea carte rămân în coadă\n\n**Eșec:** Mesaj clar indicând motivul (carte ocupată, limite depășite, etc.)\n\n### Operația de Returnare\n**Condiții:**\n- Carte trebuie să aibă împrumut activ\n- Se verifică dacă a fost depășit termenul\n\n**Rezultat:**\n- Împrumutul se inchide\n- Status carte se schimbă în „Disponibilă\"\n- Dacă există cereri în așteptare, prima se notifică și devine automaticamente următorul împrumut (statusul cărții rămâne „Împrumutată\")\n- Se calculează penalizări dacă e întârziere\n- Se notifică toți cei pe coadă despre schimbarea pozițiilor\n\n**Eșec:** Carte nu are împrumut activ\n\n### Operația de Cerere de Împrumut (Rezervare)\n**Condiții:**\n- Cartea trebuie să fie împrumutată (nu se fac cereri pentru cărți disponibile)\n- Membrul nu se află deja pe coadă pentru acea carte\n\n**Rezultat:**\n- Membrul se adaugă în coadă de așteptare\n- Pozitia în coadă: ultimul în linie\n- Se notifică membrul cu poziția estimată\n- Se notifică membrul actual al împrumutului (cartea are o cerere în așteptare)\n\n**Eșec:** Carte este disponibilă (trebuie să facă împrumut direct)\n\n## Reguli Generale\n- Un membru poate derula **maxim N cărți** simultan\n- Durata standard de împrumut: 14 zile\n- Penalizări pentru întârziere\n- Céreri se anulează manual sau se onorează automat\n\n---\n\nAceasta asigură flux clar: disponibilitate → împrumut → cereri în coadă → returnare → notificare următorului.",
+  "ttft_ms": 4325,
+  "type": "result",
+  "duration_ms": 12448,
+  "uuid": "c2d246e2-5ae4-470d-a53d-e6ca0c183901",
+  "ttft_stream_ms": 844,
+  "time_to_request_ms": 155,
+  "first_content_frame_ms": 845,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

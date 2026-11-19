@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 15976,
+  "stop_reason": "end_turn",
+  "session_id": "73c77c4f-b32a-488e-9b8c-6f170fd0e9cd",
+  "total_cost_usd": 0.017431000000000002,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4936,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1510,
+    "output_tokens_details": {
+      "thinking_tokens": 631
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4936,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1510,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4936,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4936
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1510,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4936,
+      "webSearchRequests": 0,
+      "costUSD": 0.017431000000000002,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 631,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4936,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Proiectare sistem de gestionare a împrumuturilor în bibliotecă\n\n## Concepte și entități\n\n**Stări ale unui exemplar:**\n- Disponibil: fără împrumut activ și fără rezervare\n- Împrumutat: legat de un membru printr-un împrumut activ\n- Rezervat: alocat unui membru printr-o cerere de împrumut în așteptare\n\n**Entități principale:**\n- Exemplar (legat de titlu)\n- Membru\n- Împrumut (leagă exemplar-membru; are date de început; închis la returnare)\n- Cerere de împrumut (leagă membru-titlu; are număr de ordine; stare: așteptare/îndeplinită)\n- Rezervare (leagă exemplar-cerere de împrumut; activă până la ridicare)\n\n---\n\n## Operații și reguli\n\n### 1. **Împrumut**\n**Precondițiu:** Exemplarul cunoscut este disponibil SAU rezervat tocmai membrului care solicită.\n\n**Regulă:**\n- Dacă exemplarul este disponibil: se crează împrumut activ (exemplar trece în stare împrumutat).\n- Dacă exemplarul este rezervat membrului: se ridică cererea (cererea se încheie, rezervarea se anulează, exemplarul trece în stare împrumutat).\n- Alte cazuri: operație respinsă, stare inchisă.\n\n**Rezultat:** Exemplar împrumutat sau cerere îndeplinită.\n\n---\n\n### 2. **Returnare**\n**Precondițiu:** Exemplarul are împrumut activ.\n\n**Regulă:**\n1. Închide împrumutul activ (salvează în istoric).\n2. Căuta prima cerere în așteptare pentru titlul exemplarului (ordinea înregistrării).\n3. Dacă există: aloca exemplarul cererii (crează rezervare, cererea rămâne așteptând ridicare).\n4. Dacă nu există: exemplarul devine disponibil.\n\n**Rezultat:** Exemplar disponibil sau o cerere devine cu exemplar rezervat.\n\n---\n\n### 3. **Cerere de împrumut**\n**Precondițiu:** \n- Titlul și membrul sunt cunoscuți.\n- Niciunul din exemplarele titlului nu este disponibil.\n- Membrul nu are cerere neîncheiat ă pentru acest titlu.\n\n**Regulă:**\n- Se înregistrează cererea cu stare \"așteptare\" și număr de ordine curent.\n\n**Rezultat:** Cerere creată în așteptare.\n\n**Respingere (fără modificare stare):**\n- Titlul are exemplare disponibile.\n- Membrul are deja cerere neîncheiat ă pentru titlu.\n- Duplicat.\n\n---\n\n## Fluxul complet\n\n1. **Cere împrumut** → Dacă exemplar disponibil: împrumut imediat. Altfel: cerere în așteptare.\n2. **Returnare** → Exemplarul este rezervat primei cereri sau devine disponibil.\n3. **Ridicare exemplar rezervat** → Cererea se îndeplinește, exemplarul se împrumută.\n\nPrioritatea cererilor se stabilește strict prin ordinea înregistrării.",
+  "ttft_ms": 7838,
+  "type": "result",
+  "duration_ms": 16079,
+  "uuid": "4e664772-562f-45c8-b599-2685304e573a",
+  "ttft_stream_ms": 834,
+  "time_to_request_ms": 131,
+  "first_content_frame_ms": 834,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

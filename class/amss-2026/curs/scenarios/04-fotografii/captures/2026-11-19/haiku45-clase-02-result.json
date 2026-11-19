@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 13933,
+  "stop_reason": "end_turn",
+  "session_id": "c8d72d58-21e2-400c-8d31-68934307b305",
+  "total_cost_usd": 0.02018,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4753,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2133,
+    "output_tokens_details": {
+      "thinking_tokens": 1202
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4753,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2133,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4753,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4753
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2133,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4753,
+      "webSearchRequests": 0,
+      "costUSD": 0.02018,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1202,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4753,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Clase pentru Arhiva Fotografică\n\n```python\nclass Fotografie:\n    def __init__(self, id_foto: str, legenda: str):\n        self.id_foto = id_foto\n        self.legenda = legenda\n        self.versiuni = {}  # id_versiune -> Versiune\n        self.original_id = None\n    \n    def schimba_legenda(self, noua_legenda: str):\n        self.legenda = noua_legenda\n\nclass Versiune:\n    def __init__(self, id_versiune: int, fotografie_id: str, continut: str, \n                 sursa_id: int = None):\n        self.id_versiune = id_versiune\n        self.fotografie_id = fotografie_id\n        self.continut = continut\n        self.sursa_id = sursa_id  # None pentru original\n    \n    def este_original(self) -> bool:\n        return self.sursa_id is None\n\nclass Arhiva:\n    def __init__(self):\n        self.fotografii = {}  # id_foto -> Fotografie\n        self.versiuni = {}    # id_versiune -> Versiune\n        self.contor_versiuni = 0\n    \n    def cataloga_fotografie(self, id_foto: str, legenda: str, continut: str):\n        \"\"\"R1, R2, R3: Creează o fotografie cu originalul său\"\"\"\n        if id_foto in self.fotografii:\n            raise ValueError(\"Fotografia există\")\n        \n        foto = Fotografie(id_foto, legenda)\n        self.contor_versiuni += 1\n        versiune_originala = Versiune(self.contor_versiuni, id_foto, continut)\n        \n        foto.versiuni[self.contor_versiuni] = versiune_originala\n        foto.original_id = self.contor_versiuni\n        self.fotografii[id_foto] = foto\n        self.versiuni[self.contor_versiuni] = versiune_originala\n    \n    def editeaza_versiune(self, id_versiune: int, continut_nou: str) -> int:\n        \"\"\"R4, R5: Creează versiune nouă cu sursa din versiunea editată\"\"\"\n        if id_versiune not in self.versiuni:\n            raise ValueError(\"Versiunea nu există\")\n        \n        versiune_sursa = self.versiuni[id_versiune]\n        foto_id = versiune_sursa.fotografie_id\n        \n        self.contor_versiuni += 1\n        noua_versiune = Versiune(self.contor_versiuni, foto_id, continut_nou, \n                                 id_versiune)\n        \n        self.fotografii[foto_id].versiuni[self.contor_versiuni] = noua_versiune\n        self.versiuni[self.contor_versiuni] = noua_versiune\n        \n        return self.contor_versiuni\n    \n    def schimba_legenda(self, id_foto: str, noua_legenda: str):\n        \"\"\"R5: Legendă modificabilă independent de versiuni\"\"\"\n        if id_foto not in self.fotografii:\n            raise ValueError(\"Fotografia nu există\")\n        self.fotografii[id_foto].schimba_legenda(noua_legenda)\n```\n\n**Structură:** `Fotografie` ține legendă și referințele versiunilor; `Versiune` păstrează conținut, fotografia-părinte și versiunea-sursă (None pentru originale); `Arhiva` gestionează identificatori globali și validări (R4 interzice surse din alte fotografii prin controlul `fotografie_id`).",
+  "ttft_ms": 9730,
+  "type": "result",
+  "duration_ms": 14071,
+  "uuid": "56a199fd-6dcb-42e6-8f38-8fc16d1a4213",
+  "ttft_stream_ms": 1001,
+  "time_to_request_ms": 182,
+  "first_content_frame_ms": 1001,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 13287,
+  "stop_reason": "end_turn",
+  "session_id": "f5d52721-d7a8-4e1e-9cb7-0af502b9a249",
+  "total_cost_usd": 0.016844,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5575,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1137,
+    "output_tokens_details": {
+      "thinking_tokens": 196
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5575,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1137,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5575,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5575
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1137,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5575,
+      "webSearchRequests": 0,
+      "costUSD": 0.016844,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 196,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5575,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Interacțiunea și Garanții de Proiectare\n\n## Fluxul de Interacțiune\n\n**Site** inițiază o cerere de înscrierii `înscrie(c, p, a)` către **Registru**, cu identificator unic `c` pentru fiecare cerere nouă. **Registru** validează cererea (participant neînscris, loc liber, `c` neînregistrat), consumă un loc și înregistrează înscrierea. Dacă acceptă, **Registru** apelează **Expeditor** (serviciu extern) cu `trimite(mesaj)`, așteptând răspunsul `trimis` sau `esec`. După răspunsul expeditorului, **Registru** întoarce site-ului rezultatul `acceptat` și stocheaza starea confirmării. **Operator** poate apela `retrimite confirmări()` pentru a reîncerca confirmările nertimise; **Registru** apelează din nou **Expeditorul** pentru fiecare confirmare cu status `netrimisă`.\n\n## Garanții de Consistență a Datelor\n\n1. **Atomicitate pe înscrierea acceptată:** o cerere cu `c` neînregistrat în stare validă (loc liber, participant neînscris) produce exact o înregistrare (c, p, a). Nu poate rezulta o înscrierie parțială, indiferent de răspunsul expeditorului.\n\n2. **Idempotență la reîncercare:** o reîncercare cu `c` înregistrat întoare același rezultat `acceptat` și nu consumă alt loc. Nu se creează înscrierii duplicate.\n\n3. **Independență:** o cerere nu modifică alte înscrieri, locurile sau confirmările. Validarea unei cereri nu depinde de starea celorlalte participanți.\n\n4. **Izolare stării confirmării:** eșecul expeditorului nu anulează înscrierea. Starea confirmării (trimisă/netrimisă) este decuplată de acceptarea cererii; o retrimitere nu afectează înscrierea.\n\n## Garanții de Livrare a Confirmărilor\n\n5. **Apelul inițial:** o cerere acceptată cu `c` neînregistrat declanșează exact un apel la expeditor.\n\n6. **Reîncercare selectivă:** o reîncercare cu `c` înregistrat și status `netrimisă` declanșează o retrimitere; status `trimisă` nu declanșează apel.\n\n7. **Retrimitere manuală:** operația `retrimite confirmări()` apelează expeditorul o dată pentru fiecare confirmare netrimisă, independentă de alte operații.\n\n## Comportament la Reîncercare\n\n8. **Idempotența răspunsului:** reîncercările cu același `c` primesc răspunsul `acceptat`, indiferent de starea expeditorului. Diferențele în răspunsul expeditorului nu afectează rezultatul site-ului.\n\n9. **Retrimiteri potențial duplicate:** o confirmare netrimisă poate fi apelată din reîncercarea unei cereri și din `retrimite confirmări()`. Expeditorul poate primi apeluri succesive cu același mesaj; duplicarea mesajelor este permisă și responsabilitatea operatorului este de a semnala că s-a povetorit retrimiterea manuală.\n\n10. **Fără stare globală în așteptare:** apelurile rămân secvențiale; nu modelăm starea `în așteptare` a confirmării la nivel de garanție formală.",
+  "ttft_ms": 3319,
+  "type": "result",
+  "duration_ms": 13476,
+  "uuid": "40b5b116-cf15-496e-9dbd-8d540977a55d",
+  "ttft_stream_ms": 949,
+  "time_to_request_ms": 336,
+  "first_content_frame_ms": 949,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.853Z"
+}

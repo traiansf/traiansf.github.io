@@ -1,6 +1,6 @@
 # Cursul 8 — ghid de predare
 
-[Prezentarea](08-interactiuni.md) are **33 de slide-uri cu copertă** și un parcurs de **100 de minute**. [Enunțul](scenarios/08-inscrieri/brief.md) și [referința](scenarios/08-inscrieri/reference.md) fixează regulile și răspunsurile. Toate datele, regulile relevante și sarcinile folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți.
+[Prezentarea](08-interactiuni.md) are **35 de slide-uri cu copertă** și un parcurs de **100 de minute**. [Enunțul](scenarios/08-inscrieri/brief.md) și [referința](scenarios/08-inscrieri/reference.md) fixează regulile și răspunsurile. Toate datele, regulile relevante și sarcinile folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți.
 
 ## Parcurs
 
@@ -10,10 +10,10 @@
 | 15–35 | Regulile înscrierii; granița și interfața expeditorului; cine coordonează; reîncercare față de cerere nouă; „ce răspunde registrul?”. |
 | 35–60 | Interacțiunea S1 și S2 pas cu pas; exercițiul S3–S4; două ordini ale pașilor (fluxul F); ce garantează registrul și ce nu. |
 | 60–80 | Fluxul G, care înregistrează de două ori; trei variante de recuperare după `esec`; exercițiul de comparație; decizia noastră. |
-| 80–95 | Sarcină AI pregătită, tabel al interacțiunii de revizuit, promptul evaluatorului (agent AI de revizuire), revizuire și, pe slide separat, decizia noastră. |
+| 80–95 | Garanții pe care nu le oferă nimeni: promptul pentru paragraful „Ce vă garantăm la înscriere”, auditul promisiunilor 1–2 și 3–4, fragmente din alte rulări („atomicitate pe cerere”, „consemnat permanent”, livrarea), comparația noastră și, pe slide separat, decizia noastră. |
 | 95–100 | Transfer la diplome și tipografie. |
 
-Duratele exercițiilor includ discuția. În etapa 15–35, acordați 4 minute regulilor (două slide-uri), 4 graniței, 3 coordonării, 2 reîncercării și 7 exercițiului. În etapa 35–60: 5 lui S1, 4 lui S2, 8 exercițiului S3–S4, 5 celor două ordini, 3 garanțiilor. În etapa 60–80: 8 fluxului G, 4 variantelor, 5 exercițiului, 3 deciziei. Tranzițiile sunt incluse în intervale.
+Duratele exercițiilor includ discuția. În etapa 15–35, acordați 4 minute regulilor (două slide-uri), 4 graniței, 3 coordonării, 2 reîncercării și 7 exercițiului. În etapa 35–60: 5 lui S1, 4 lui S2, 8 exercițiului S3–S4, 5 celor două ordini, 3 garanțiilor. În etapa 60–80: 8 fluxului G, 4 variantelor, 5 exercițiului, 3 deciziei. În etapa 80–95: 2 sarcinii, 3 și 3 celor două slide-uri cu promisiuni, 2 și 2 celor cu alte rulări, 1 comparației, 2 deciziei. Tranzițiile sunt incluse în intervale.
 
 ## Distincțiile importante
 
@@ -29,11 +29,13 @@ Slide-ul „Ce garantează registrul și ce nu” enumeră explicit limitele: li
 
 ## Pregătirea AI și proveniența
 
-Prezentarea folosește **capturi reale** Claude Haiku 4.5, obținute la 12 noiembrie 2026 prin Claude Code 2.1.322, fără unelte și fără contextul proiectului; [arhiva](scenarios/08-inscrieri/captures/2026-11-12/README.md) păstrează promptul exact, contextul, răspunsurile integrale, metadatele și ambele încercări pentru fiecare rol. [Prompturile pregătite](scenarios/08-inscrieri/ai/README.md) rămân sursa pentru capturi noi.
+Lecția AI a cursului (decizia din 19 noiembrie 2026): **garanții pe care nu le oferă nimeni**. La o graniță, un text generat promite lucruri despre componente pe care nu le controlăm: livrarea, rapiditatea, retrimiterea „automată”, „atomicitatea”. Formatul este un audit al afirmațiilor: pentru fiecare garanție, studenții spun cine o oferă (registrul, site-ul, expeditorul sau nimeni) și ce regulă a enunțului o susține. Nu este perechea analist–evaluator din cursurile anterioare.
 
-Am ales analiza 01: pașii au ordinea cerută de R4 (locul consumat și înscrierea înregistrată înaintea apelului expeditorului), scenariile S1–S6 sunt corecte, dar adaugă un refuz neconvenit în enunț pentru o reîncercare cu alt participant sau atelier („pentru protecție”) și folosește greșit „atomicitate” pentru evitarea înscrierilor duplicate. Analiza 02 înregistrează înscrierea abia după răspunsul expeditorului și folosește „idempotență”. Evaluatorul AI a primit într-un context nou enunțul, sarcina și răspunsul integral. Am ales revizuirea 02, care confirmă ordinea pașilor și semnalează adăugirea ca „plauzibilă dar non-specificată”, lăsând decizia oamenilor; revizuirea 01 observă și ea că adăugirea nu este cerută de reguli, o numește „validare defensivă rezonabilă” și cere doar o clarificare. Selecția nu descrie performanța tipică a modelului.
+Prezentarea folosește **capturi reale** Claude Haiku 4.5, obținute la 19 noiembrie 2026 prin Claude Code 2.1.328, fiecare într-un context nou, fără unelte și fără contextul proiectului: trei prompturi cu același enunț și decizia B (paragraful pentru participanți, patru rulări; nota pentru echipa de operare și garanțiile pentru echipa de dezvoltare, câte opt). [Arhiva](scenarios/08-inscrieri/captures/2026-11-19/README.md) păstrează prompturile exacte, contextul, răspunsurile integrale, metadatele, toate încercările și motivul selecției; [prompturile pregătite](scenarios/08-inscrieri/ai/README.md) rămân sursa pentru capturi noi.
 
-Discuția arată o propunere bună și o revizuire bună: nu căutăm un eșec. Decizia noastră păstrează ordinea pașilor și verificările, acceptă observația evaluatorului AI (adăugirea devine întrebare pentru beneficiar) și corectează termenul „atomicitate”: efecte integral sau deloc. Evitarea înscrierilor duplicate privește idempotența, iar rezultatul confirmării poate fi actualizat la reîncercare. Evaluatorul AI ales nu comentează termenul; slide-ul revizuirii întreabă dacă adăugirea este într-adevăr „singura abatere”. Fluxurile F și G rămân exemple didactice construite.
+Am ales paragraful `promisiuni-01`: patru promisiuni cu garanți diferiți. Locul păstrat la `esec` și locurile limitate sunt ale registrului (R3, R4); „fără înscrieri duble” este al registrului (R3, R5), dar „același răspuns” depinde și de site, care trebuie să trimită același identificator (R2): dacă apăsarea butonului produce o cerere nouă, răspunsul este `refuz`. „Veți primi confirmare imediat … îl reîncercăm automat” nu o oferă nimeni: expeditorul promite doar un răspuns (R6), registrul nu află livrarea, iar retrimiterea are loc la reîncercarea site-ului sau prin operator (varianta B). Fragmentele din celelalte rulări: „atomicitate pe cerere” pentru ce este idempotența față de înscrieri și „consemnat permanent”, adevărat doar prin presupunerea R1 (`nota-08`); `esec` citit ca nelivrare (`garantii-02`); și formularea prudentă „Livrarea efectivă … nu este garantată de sistem” (`garantii-08`), ca auditul să nu devină „găsește greșeala”. Selecția nu descrie comportamentul tipic al modelului.
+
+Decizia noastră păstrează promisiunile oferite de registru, rescrie promisiunea despre confirmare fără livrare, rapiditate sau retrimitere automată, corectează „atomicitate” (efecte integral sau deloc) față de idempotență și trimite o garanție mai puternică despre livrare la furnizorul expeditorului, în interfața lui; legătura cu transferul la tipografie. Capturile din 12 noiembrie 2026 (analistul AI care folosea „atomicitate”, evaluatorul AI) rămân arhivate în `scenarios/08-inscrieri/captures/2026-11-12/` și nu mai apar pe slide-uri. Fluxurile F și G rămân exemple didactice construite.
 
 ## Încheiere și calibrare
 
@@ -41,6 +43,6 @@ Transferul la diplome cere trei propoziții: interiorul și exteriorul, presupun
 
 ## Feedback aplicat
 
-Fiecare exercițiu și fiecare fragment AI reia pe același slide regulile necesare, în propoziții întregi; la prima apariție dintr-un slide, identificatorii poartă cuvintele-cheie din enunț: R1 (context), R2 (cerere), R3 (acceptare), R4 (confirmare), R5 (reîncercare), R6 (graniță), R7 (efect limitat). Exercițiile au lucru individual și discuție cu toată clasa, fără lucru în pereche; deschiderea are întrebarea deschisă după citat; decizia asupra revizuirii AI are slide propriu.
+Fiecare exercițiu și fiecare fragment AI reia pe același slide regulile necesare, în propoziții întregi; la prima apariție dintr-un slide, identificatorii poartă cuvintele-cheie din enunț: R1 (context), R2 (cerere), R3 (acceptare), R4 (confirmare), R5 (reîncercare), R6 (graniță), R7 (efect limitat). Exercițiile au lucru individual și discuție cu toată clasa, fără lucru în pereche; deschiderea are întrebarea deschisă după citat; comparația și decizia asupra textelor AI au slide-uri proprii, separate de capturi.
 
 Vocabular: **graniță** pentru limita sistemului nostru (nu „limită”, rezervată valorilor acceptate); **reîncercare** pentru aceeași cerere trimisă din nou, cu același identificator; **cerere nouă** pentru o cerere cu identificator nou, oricare ar fi conținutul; **expeditor** pentru serviciul extern; **coordonare** pentru responsabilitatea de a conduce pașii unei operații.

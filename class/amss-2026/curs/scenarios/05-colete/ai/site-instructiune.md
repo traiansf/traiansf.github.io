@@ -1,0 +1,1 @@
+Lucrezi la formularul web al firmei. Scrie în JavaScript funcția care primește textul introdus de client pentru masă și ambalajul ales și întoarce mesajul afișat: prețul estimat sau motivul refuzului. Respectă regulile de mai jos. Răspunde cu codul și cel mult cinci rânduri de explicații, în română.

@@ -1,0 +1,99 @@
+{
+  "run": "haiku45-nota-04",
+  "tool": "2.1.328 (Claude Code)",
+  "model_requested": "claude-haiku-4-5",
+  "started_utc": "2026-11-19T14:11:53.464515+00:00",
+  "working_directory": "C:\\Users\\traia\\AppData\\Local\\Temp\\amss-capture-haiku45-nota-04-ewo3a0wc",
+  "argv": [
+    "C:\\Users\\traia\\.local\\bin\\claude.EXE",
+    "-p",
+    "--model",
+    "claude-haiku-4-5",
+    "--safe-mode",
+    "--setting-sources",
+    "",
+    "--tools",
+    "",
+    "--strict-mcp-config",
+    "--disable-slash-commands",
+    "--no-chrome",
+    "--no-session-persistence",
+    "--output-format",
+    "json"
+  ],
+  "prompt_file": "nota-operare-prompt.md",
+  "prompt_sha256": "b3834d96649487c178e267144a146ea2fba922f51e3877b841cf4c02009794a9",
+  "fresh_context": true,
+  "tools": [],
+  "user_project_settings": false,
+  "system_prompt": "Implicit Claude Code; safe-mode, fără unelte sau contextul proiectului.",
+  "temperature": "not reported",
+  "effort": "not explicitly set",
+  "finished_utc": "2026-11-19T14:12:10.608016+00:00",
+  "exit_code": 0,
+  "session_id": "0db776c7-fd6b-4190-83aa-b47a746f5379",
+  "is_error": false,
+  "subtype": "success",
+  "duration_ms": 15417,
+  "duration_api_ms": 14874,
+  "num_turns": 1,
+  "total_cost_usd": 0.017381,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5601,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1234,
+    "output_tokens_details": {
+      "thinking_tokens": 413
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5601,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1234,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5601,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5601
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1234,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5601,
+      "webSearchRequests": 0,
+      "costUSD": 0.017381,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 413,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5601,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "model_reported": [
+    "claude-haiku-4-5"
+  ],
+  "response_sha256": "6f935e33be97f065fb4fa0fb316f5d5d5f7b26fb66fd64e2c7736aa47b149ad1",
+  "status": "success"
+}

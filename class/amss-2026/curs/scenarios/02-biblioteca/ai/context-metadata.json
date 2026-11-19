@@ -1,0 +1,14 @@
+{
+  "source": "../brief.md",
+  "source_sha256_at_capture": "6f2be78d7627f871dde8dfd44875639e64c0f26e492090000eb7435af0491cae",
+  "copied_sections": [
+    "Mai întâi: cererea bibliotecarei (citatul cererii)",
+    "Reguli clarificate pentru acest exercițiu (R1–R6, integral; numai în cerere-cu-reguli-prompt.md)"
+  ],
+  "prompts": {
+    "cerere-simpla-prompt.md": "cd0ecb95bd6e1d028d8035daae5203af93533742ed62949696d8051e8809e4e6",
+    "cerere-cu-reguli-prompt.md": "2f34600f47b48578477dd57abaf11d9eccc1f1a78016773683706982f63ac13c",
+    "instructiune.md": "fac48bc8bedda75ea4716d94f64f62b841a9543964b2aaeecd46f051235ce3e4"
+  },
+  "sha256_encoding": "UTF-8, LF line endings"
+}

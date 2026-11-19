@@ -13,7 +13,7 @@ Aceeași cerere, permisă ieri, este refuzată azi. Ce s-a schimbat?
 ::: notes
 În cursul 6 am precizat ce promite o operație, inclusiv când refuză. Azi urmărim de ce aceeași operație reușește într-un moment și este refuzată în altul: istoricul manuscrisului, rezumat în stare și date, decide ce evenimente sunt permise acum. Nu adăugăm cerințe noi, ci organizăm promisiunile operațiilor de-a lungul vieții unui obiect.
 
-**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, întrebarea deschisă, problema, exercițiul cu cele șapte evenimente și slide-urile despre stări și tranziții. 36 de slide-uri cu copertă. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–15 (15 min), inclusiv coperta, citatul, întrebarea deschisă, problema, exercițiul cu cele șapte evenimente și slide-urile despre stări și tranziții. 37 de slide-uri cu copertă. []{.pace at=0 of=100}
 :::
 
 ---
@@ -493,108 +493,167 @@ Este aceeași distincție ca în cursul 6 între un exemplu și argumentul pentr
 
 ---
 
-# Verificăm un ciclu de viață delegat {.transition}
+# O diagramă generată {.transition}
 
-Un tabel propus de altcineva spune tot ce avem nevoie?
+Se desenează fără erori. Este și corectă?
 
 ::: notes
-Analizăm capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.322, la 12 noiembrie 2026, fără unelte și fără contextul proiectului. Evaluatorul (agent AI de revizuire) a primit într-un context nou enunțul, sarcina și răspunsul integral. Am rulat câte două încercări și am ales câte una pentru discuție; selecția nu descrie performanța tipică a modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
+Am cerut unui asistent AI diagrama de stări a manuscrisului, în Mermaid, pornind de la regulile R1–R8. Lecția: o diagramă care se randează curat și arată completă poate să nu spună același lucru ca tabelul de tranziții; randarea verifică sintaxa, nu acordul cu regulile. Singura verificare este comparația rând cu rând, apoi trasarea din I0, ca în etapa anterioară.
 
-**Organizare:** minutul 80 din 100; interval 80–95 (15 min): sarcină 3, analiză 4, promptul evaluatorului AI 2, revizuire 4, decizie 2. []{.pace at=80}
+**Sursă:** capturi reale obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.328, la 19 noiembrie 2026, fără unelte și fără contextul proiectului, fiecare încercare într-un context nou. Am rulat 18 încercări, cu patru formulări ale cererii, și am ales una cu o abatere și una corectă, la aceeași cerere; selecția nu descrie comportamentul tipic al modelului. Toate încercările sunt în arhiva capturilor. La curs nu rulăm instrumente.
+
+**Organizare:** minutul 80 din 100; interval 80–95 (15 min): cererea 2, diagrama 1, comparația rând cu rând 6, consecința 3, cealaltă încercare 1, decizie 2. []{.pace at=80}
 :::
 
 ---
 
 # Ce cerem asistentului AI?
 
-> Propune tabelul de tranziții al manuscrisului: stare curentă, eveniment, condiție, stare următoare și efect asupra datelor. Precizează ce se întâmplă cu un eveniment refuzat și ce date se păstrează la schimbarea stării. Verifică S1–S7 […]. Spune care stări sunt finale intenționate și dacă Acceptat este accesibil dintr-o ciornă nouă. Nu scrie cod. Răspunde în română, în maximum 450 de cuvinte.
+**Instrucțiunea exactă:**
 
-**Context:** regulile R1–R8 de mai devreme, integral: evenimentele permise în fiecare stare, condițiile lui `trimite` (fișier) și ale deciziilor (un raport), retragerea din Trimis sau În evaluare, refuzul fără modificări, datele păstrate.
+> Scrie o diagramă de stări UML compactă a manuscrisului în Mermaid (stateDiagram-v2), din regulile de mai jos; poți grupa stările într-o stare compusă dacă diagrama devine mai clară. Arată evenimentele și condițiile. Diagrama trebuie să se randeze fără erori: pentru numele cu spații sau diacritice, declară starea cu `state "Nume" as X`. Răspunde cu blocul de cod Mermaid, urmat de cel mult trei propoziții de explicație.
 
-**Date:** I0 = Ciornă fără date; scenariile S1–S7: parcursul normal, trimiterea fără fișier, retragerea din evaluare, decizia după retragere, acceptarea fără raport, cele două ordini, retragerea unei ciorne.
+**Context trimis:** enunțul, integral: regulile R1–R8 de mai devreme, I0 (Ciornă, fără date), scenariile S1–S7 și definiția lui „accesibil din I0”. Fără tabelul de tranziții și fără diagrama noastră.
+
+**Predicție:** ce trebuie să conțină diagrama ca să spună același lucru ca tabelul de tranziții?
 
 ::: notes
-Instrucțiunea este cea trimisă efectiv, urmată de enunțul integral; omisiunea marcată din citat este enumerarea cerințelor pentru fiecare scenariu. Un evaluator (agent AI de revizuire) a primit apoi și sarcina exactă, pentru a judeca propunerea față de ce s-a cerut.
+Răspuns așteptat: o săgeată pentru fiecare rând al tabelului (opt, cu `retrage` din două stări), cu condițiile lui `trimite` și ale deciziilor; buclele `atașează(f)` și `înregistrează raport(r)`; nicio săgeată care nu corespunde unui rând. „Compactă” și starea compusă sunt cererile noastre; asistentul AI nu a folosit o stare compusă. Cerința de randare a fost adăugată după ce primele cinci încercări, cu nume de stări între ghilimele, nu s-au randat deloc.
 
-**Organizare:** 3 min. []{.pace dur=3}
+**Sursă:** `diagrama-v4-prompt.md`, arhiva din 19 noiembrie 2026; contextul integral este enunțul curent, fără sarcina de proiectare.
+
+**Organizare:** 2 min; câteva răspunsuri, fără discuție. []{.pace dur=2}
 :::
 
 ---
 
-# Ce propune analistul AI?
+# Diagrama generată
 
-**Analistul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:**
+```mermaid
+stateDiagram-v2
+    [*] --> Draft
+    
+    state "Ciornă" as Draft
+    state "Trimis" as Submitted
+    state "În evaluare" as UnderReview
+    state "Acceptat" as Accepted
+    state "Respins" as Rejected
+    state "Retras" as Withdrawn
+    
+    Draft --> Submitted: trimite [fișier]
+    Submitted --> UnderReview: preia(e)
+    Submitted --> Withdrawn: retrage
+    UnderReview --> UnderReview: înregistrează raport
+    UnderReview --> Accepted: acceptă [≥1 raport]
+    UnderReview --> Rejected: respinge [≥1 raport]
+    UnderReview --> Withdrawn: retrage
+    
+    Accepted --> [*]
+    Rejected --> [*]
+    Withdrawn --> [*]
+```
 
-> […]
->
-> **S1** (normal): ataseaza(f1)✓→Ciornă, trimite✓→Trimis, preia(E1)✓→ÎnEval, inregistreaza_raport(Rp1)✓→ÎnEval, accepta✓→Acceptat. ✓ **Permis** complet.
->
-> **Acceptat accesibil din Ciornă nouă?** **NU.** Singura cale către Acceptat este evenimentul `accepta` din ÎnEval, care necesită ≥1 raport. […] Lanțul este **unic: Ciornă → Trimis → ÎnEval → Acceptat**. Acceptat nu este direct accesibil din Ciornă.
-
-**Enunțul trimis** cerea „dacă Acceptat este accesibil dintr-o ciornă nouă”, fără să definească „accesibil”. **Regulă:** `acceptă` numai În evaluare, cu cel puțin un raport.
-
-**Ce sens dă analistul AI cuvântului „accesibil”? Cu ce sens sunt compatibile „NU” și propria lui trasare S1 (parcurs normal)?**
+*Claude Haiku 4.5, 19 noiembrie 2026: codul Mermaid generat, randat exact cum a fost scris.* Se randează fără erori. **Arată completă?**
 
 ::: notes
-Tabelul de tranziții (omis pe slide) și scenariile S1–S7 din răspunsul integral sunt corecte, inclusiv datele păstrate și stările finale intenționate. Încheierea răspunde „NU” citind „accesibil” ca „într-un singur pas”: ultima propoziție spune „nu este direct accesibil”. Este un sens consacrat (relația de accesibilitate dintr-un model Kripke leagă stări aflate la un pas), iar enunțul nostru nu l-a exclus. Cu acest sens, „NU” și S1 sunt compatibile; cu sensul nostru, „printr-o secvență de evenimente permise”, răspunsul este „da, prin S1”. Din răspuns lipsește precizarea sensului ales, nu o trasare. Cealaltă analiză păstrată are aceeași lectură („nu este accesibil direct”). Definiția a fost adăugată ulterior în enunț (vezi „Decizia noastră”). Fragmentele sunt fidele; „ÎnEval” este prescurtarea modelului pentru În evaluare.
+Prima impresie: toate cele șase stări, condițiile pe săgeți, stările finale marcate. Nu răspundem încă; slide-ul următor pune alături codul și tabelul. Diagrama este redată cu tema implicită Mermaid, fără setările noastre de culoare și font; codul integral, lizibil, este pe slide-ul următor.
 
-**Organizare:** 4 min: răspuns individual, apoi discuție. []{.pace dur=4}
+**Organizare:** 1 min: câteva impresii, fără discuție. []{.pace dur=1}
 :::
 
 ---
 
-# Promptul evaluatorului AI
+# Diagrama generată, rând cu rând
 
-**Evaluator (agent AI de revizuire), context nou:** enunțul, sarcina analistului AI și răspunsul integral; fără observațiile noastre.
+**Ce rând nu are săgeată în cod? Ce săgeată nu are rând?** Individual, apoi discutăm.
 
-**Instrucțiunea exactă, la începutul promptului:**
+```text
+Draft --> Submitted: trimite [fișier]
+Submitted --> UnderReview: preia(e)
+Submitted --> Withdrawn: retrage
+UnderReview --> UnderReview: înregistrează raport
+UnderReview --> Accepted: acceptă [≥1 raport]
+UnderReview --> Rejected: respinge [≥1 raport]
+UnderReview --> Withdrawn: retrage
+```
 
-> Ești evaluator (agent AI de revizuire). Verifică propunerea exclusiv față de enunț și sarcină. Pentru fiecare observație indică fragmentul, regula și un scenariu concret, cu starea de pornire și rezultatul așteptat. Verifică fiecare rând al tabelului de tranziții, condițiile, efectele, evenimentele refuzate, datele păstrate, stările finale intenționate și accesibilitatea lui Acceptat. Confirmă și afirmațiile corecte; nu presupune că trebuie să existe greșeli. Nu scrie cod. Răspunde în română, în maximum 350 de cuvinte.
+*Codul generat, fragment; omise:* `[*] --> Draft`, săgețile `--> [*]` din Accepted, Rejected, Withdrawn și declarațiile numelor: Draft, Submitted, UnderReview… = Ciornă, Trimis, În evaluare…
 
-**Predicție, înainte de a vedea răspunsul:** propunerea ajunge în Acceptat prin scenariul S1 (parcurs normal), dar răspunde „NU”, fără să spună în ce sens. Va semnala evaluatorul AI sensul ales?
+**Tabelul nostru, pe rânduri:** (1) Ciornă → Ciornă: `atașează(f)`; (2) Ciornă → Trimis: `trimite` [există fișier]; (3) Trimis → În evaluare: `preia(e)`; (4) În evaluare → În evaluare: `înregistrează raport(r)`; (5–6) În evaluare → Acceptat, Respins: `acceptă`, `respinge` [cel puțin un raport]; (7) Trimis, În evaluare → Retras: `retrage`.
 
 ::: notes
-Instrucțiunea cere verificarea fiecărui rând și confirmarea afirmațiilor corecte; nu îi semnalăm ce am observat noi și nu îi cerem un număr minim de defecte.
+Lipsește bucla `atașează(f)` pe Ciornă: rândul 1 nu are săgeată. Toate celelalte rânduri au săgeata lor, cu condițiile corecte. Săgețile spre cercul final (din Acceptat, Respins, Retras) nu au eveniment: sunt notația UML pentru sfârșitul mașinii de stări, nu evenimente ale manuscrisului, deci nu corespund unui rând. Diagrama noastră din etapa a treia nu le are; dacă un student le socotește tranziții în plus, discutăm: R8 spune că stările finale nu au tranziții de ieșire, iar aceste săgeți nu sunt declanșate de niciun eveniment. Comparația pe cod este mai sigură decât pe desen: fiecare linie cu `-->` este o săgeată.
 
-**Sursă:** instrucțiunea integrală din `evaluator-instructiune.md`; intrarea completă în `evaluator-prompt.md`, arhiva din 12 noiembrie 2026.
-
-**Organizare:** 2 min; predicții prin ridicarea mâinii, fără discuție. []{.pace dur=2}
+**Organizare:** 6 min: 3 individual, 3 discuție. []{.pace dur=6}
 :::
 
 ---
 
-# Revizuirea confirmă fiecare fragment
+# Ce urmează din rândul lipsă?
 
-**Evaluatorul AI — Claude Haiku 4.5, captură din 12 noiembrie 2026; fragmente:**
+**Explicația generată, fragment:**
 
-> Propunerea este **corectă și completă**. […]
->
-> **S1** (normal): Lanțul Ciornă → Trimis → ÎnEval → ÎnEval → Acceptat este valid; toate evenimentele permise. ✓
->
-> **Accesibilitate Acceptat:** NU din Ciornă nouă — argumentul lanțului obligatoriu (Ciornă → Trimis → ÎnEval → Acceptat) este riguros. […] ✓
+> Diagrama prezintă ciclul de viață al manuscrisului cu șase stări și tranzițiile permise de reguli […]
 
-**Enunțul trimis** nu definea „accesibil”. Într-un pas, Acceptat nu se atinge din Ciornă; printr-o secvență de evenimente permise, scenariul S1 (parcurs normal) îl atinge.
+**Diagrama generată:** din Ciornă pleacă o singură săgeată, `trimite [fișier]`, spre Trimis; nicio săgeată nu atașează un fișier.
 
-Evaluatorul AI confirmă S1 și confirmă „NU”. **Cu ce sens al lui „accesibil” sunt compatibile cele două confirmări? Ce ar fi fost util să semnaleze?**
+**R3 (pregătire și trimitere):** `atașează(f)` este permis numai în Ciornă și înregistrează fișierul; `trimite` cere un fișier atașat. **I0:** Ciornă, fără date.
+
+Pe hârtie: sub diagrama generată, din I0, ce evenimente sunt permise? Care stări sunt accesibile? Ce v-ar fi avertizat: randarea, explicația sau comparația?
 
 ::: notes
-Sunt compatibile numai cu sensul „într-un pas”, pe care evaluatorul AI îl preia de la analist fără să-l numească. Util ar fi fost să semnaleze că termenul nu este definit în enunț și că răspunsul depinde de sens: „NU” într-un pas, „da, prin S1” printr-o secvență. Nu reproșăm sensul ales, ci faptul că rămâne implicit. Cealaltă revizuire păstrată confirmă la fel propunerea („nu sunt observații de corectat”). O revizuire care confirmă totul nu este inutilă: rândurile tabelului chiar sunt corecte; dar verdictul despre accesibilitate rămâne al nostru.
+Din I0 singura săgeată din Ciornă este `trimite [fișier]`, iar condiția nu poate fi îndeplinită: nicio săgeată nu atașează un fișier. Toate evenimentele sunt refuzate în Ciornă; Trimis, În evaluare, Acceptat, Respins și Retras sunt stări inaccesibile, deși regulile le cer. Din I0 nu mai este permis niciun eveniment, deși Ciornă nu este finală intenționată: un blocaj. Diagrama arată complet: toate cele șase stări sunt desenate și legate. Randarea nu dă niciun avertisment, iar explicația afirmă că diagrama conține tranzițiile permise de reguli. Numai comparația cu tabelul și trasarea din I0 arată abaterea. Este aceeași verificare ca la tabelul P: acolo lipsea `înregistrează raport`, aici `atașează`.
 
-**Organizare:** 4 min: răspunsuri individuale, apoi discuție. []{.pace dur=4}
+**Organizare:** 3 min: 1 pe hârtie, 2 discuție. []{.pace dur=3}
+:::
+
+---
+
+# Aceeași cerere, altă încercare
+
+```mermaid
+stateDiagram-v2
+    state "Ciornă" as Draft
+    state "Trimis" as Submitted
+    state "În evaluare" as UnderReview
+    state "Acceptat" as Accepted
+    state "Respins" as Rejected
+    state "Retras" as Withdrawn
+    
+    [*] --> Draft
+    
+    Draft --> Draft: atașează(f)
+    Draft --> Submitted: trimite [fișier]
+    
+    Submitted --> UnderReview: preia(e)
+    Submitted --> Withdrawn: retrage
+    
+    UnderReview --> UnderReview: înregistrează raport(r)
+    UnderReview --> Accepted: acceptă [raport ✓]
+    UnderReview --> Rejected: respinge [raport ✓]
+    UnderReview --> Withdrawn: retrage
+```
+
+*Claude Haiku 4.5, 19 noiembrie 2026, aceeași cerere, alt context nou; randat exact cum a fost scris.* **Comparația noastră:** față de încercarea selectată, aceasta are bucla `atașează(f)` pe Ciornă și nu are săgeți spre cercul final; corespunde tabelului rând cu rând. **Ce ați fi observat fără comparație?**
+
+::: notes
+Diferența dintre cele două încercări este o singură buclă, ușor de trecut cu vederea. La prima privire se observă mai degrabă săgețile spre cercul final, care nu schimbă comportamentul; bucla lipsă, care îl schimbă, se găsește numai căutând fiecare rând. Ambele diagrame sunt redate exact cum au fost generate.
+
+**Organizare:** 1 min: câteva răspunsuri. []{.pace dur=1}
 :::
 
 ---
 
 # Decizia noastră
 
-**Păstrăm** din propunere tabelul de tranziții, scenariile S1–S7, datele păstrate și stările finale intenționate: sunt susținute de regulile enunțului trimis.
+**Randarea fără erori** arată că sintaxa Mermaid este corectă, nu că diagrama spune ce spun regulile.
 
-**Precizăm** un punct: analistul AI a citit „accesibil” ca „într-un pas”, un sens consacrat (de exemplu, în modelele Kripke), cu care „NU” este corect. Noi voiam sensul „printr-o secvență de evenimente permise”: cu el, **Acceptat este accesibil** dintr-o ciornă nouă, prin scenariul S1 (parcurs normal).
+**Corectăm** încercarea selectată adăugând bucla `atașează(f)` pe Ciornă, cum cere R3 (pregătire și trimitere), și reverificăm: scenariul S2 (trimitere fără fișier) rămâne refuzat, iar scenariul S1 (parcurs normal) ajunge în Acceptat.
 
-**Clarificăm enunțul:** ambiguitatea era a noastră. „Accesibil din I0” înseamnă acum explicit că există o secvență de evenimente permise din I0 până la starea căutată. Capturile păstrează formularea inițială.
+**Regula noastră:** comparăm fiecare rând al tabelului cu o săgeată, fiecare săgeată cu un rând, apoi accesibilitatea din I0. Tabelul rămâne referința, pentru că arată și efectele asupra datelor.
 
 ::: notes
-Verdictul aparține oamenilor și se sprijină pe regulă și scenariu. Precizarea nu schimbă tabelul, ci sensul unei afirmații despre el. Lecția privește întâi enunțul: un termen cu mai multe sensuri consacrate trebuie definit; apoi, un răspuns bun își numește sensul ales. Nu cerem ca orice propunere sau revizuire să fie greșită: aceleași verificări ar fi confirmat o concluzie corectă. Ultima observație este o lecție despre enunț, nu despre model.
+Dintre cele 18 încercări, 16 conțin toate rândurile tabelului, fără tranziții în plus (săgețile spre cercul final nu sunt evenimente); numai două, la cererea „compactă”, omit bucla `atașează(f)`, iar una dintre ele afișează și „\n” în etichete. Primele cinci încercări nu s-au randat deloc: aveau stări corecte, dar nume între ghilimele, pe care Mermaid nu le acceptă. Deci nici randarea eșuată nu spune că diagrama este greșită, nici cea reușită că este corectă. Selecția nu descrie comportamentul tipic al modelului. Corecția se justifică prin regulă și scenariu, nu prin aspectul diagramei.
 
 **Organizare:** 2 min; încheierea etapei la minutul 95. []{.pace dur=2}
 :::

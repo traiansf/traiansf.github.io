@@ -465,12 +465,12 @@ C2 se rezervă lui M2, C1 lui M4; împrumuturile apar abia la ridicare. M4 poate
 
 # Delegăm și verificăm {.transition}
 
-Ce îi dăm agentului AI și cum îi evaluăm rezultatul?
+Ce hotărăște un agent AI când cererea nu spune?
 
 ::: notes
-Delegăm o sarcină delimitată și evaluăm rezultatul față de reguli și scenarii. Verificăm inclusiv concluziile evaluatorului (agent AI de revizuire).
+Un agent AI răspunde unei cereri incomplete cu aceeași siguranță ca unei cereri complete. Ce nu a hotărât beneficiarul apare în răspuns ca un fapt; vedem aceste decizii numai dacă le căutăm. Comparăm același prompt fără și cu R1–R6.
 
-**Organizare:** minutul 60 din 100; interval 60–85 (25 min): introducere 6, exemplu pregătit și revizuire 17, sinteză 2, inclusiv discuțiile. []{.pace at=60}
+**Organizare:** minutul 60 din 100; interval 60–85 (25 min): introducere 6, cele două prompturi 3, răspunsul fără reguli 7, comparația noastră 3, răspunsurile cu reguli 4, decizia 2, inclusiv discuțiile. []{.pace at=60}
 :::
 
 ---
@@ -528,157 +528,147 @@ La predarea sarcinii (**handoff**), dați următorului agent AI:
 
 ::: notes
 Predarea păstrează contextul necesar și criteriile de verificare, fără a deveni un transcript. Aici cerem o descriere concisă a proiectării; pentru implementare ar trebui adăugate detaliile tehnice relevante.
+
+„Implicite” nu înseamnă „nehotărâte”: cine primește sarcina le hotărăște oricum, fără să ne spună. Slide-urile următoare arată asta pe un exemplu real.
 :::
 
 ---
 
-# Exemplu pregătit: delegare și verificare
+# Două prompturi, aceeași sarcină
 
-Parcursul exemplului:
+**Promptul A, integral:**
 
-1. Identificăm contextul necesar unui agent AI cu rol de analist: enunțul clarificat al bibliotecii.
-2. Verificăm conceptele, regulile și responsabilitățile propuse.
-3. Examinăm pachetul pentru un evaluator (agent AI de revizuire): enunțul, soluția și criteriile de verificare.
-4. Decidem ce constatări sunt susținute de enunț.
+> Bibliotecara ne-a trimis această cerere:\
+> „Avem nevoie de un sistem informatic pentru gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”\
+> Propune o proiectare concisă pentru acest sistem, fără cod: conceptele, regulile pe care le respectă operațiile de împrumut, returnare și cerere de împrumut, și rezultatul fiecărei operații. Răspunde în română, în maximum 400 de cuvinte.
 
-**Sarcina voastră:** explicați o decizie acceptată și puneți la încercare o afirmație.
+**Promptul B:** același text, cu regulile R1–R6 (identitate, împrumut, returnare, cerere de împrumut, ordinea cererilor și rezervarea, delimitare) înaintea ultimului paragraf.
 
-Parcurgem pe slide-uri prompturile și **răspunsurile AI reale**, capturate înainte de curs (Codex, gpt-6.1-sol, 7 octombrie 2026). Analizați propunerea și revizuirea pe hârtie, folosind regulile și scenariile afișate.
+**Predicție:** ce va hotărî agentul AI în răspunsul la A, deși cererea nu spune nimic despre asta?
 
 ::: notes
-Verificarea poate confirma o afirmație, nu doar găsi defecte. Judecăm rezultatul prin reguli și scenarii; nu inventăm erori într-o soluție corectă.
+Singura diferență dintre prompturi sunt regulile, introduse prin „La întrebările noastre, bibliotecara a precizat regulile de mai jos.” și copiate din enunț; formularea lor este echivalentă cu slide-urile R1–R6. Paragrafele promptului A sunt redate pe rânduri succesive. Instrucțiunea nu cere nicio regulă anume; cere doar „regulile pe care le respectă operațiile”. Notați pe tablă 3–4 predicții, ca să le comparați cu răspunsul.
 
-**Organizare:** ghid: `02-intelegere-demo.md`; toate materialele sunt pe slide-uri. Capturile integrale și prompturile sunt în `scenarios/02-biblioteca/captures/2026-10-07/`. []{.pace at=66}
+**Sursă:** `scenarios/02-biblioteca/captures/2026-11-19/`: `cerere-simpla-prompt.md` (A, integral pe slide) și `cerere-cu-reguli-prompt.md` (B, cu R1–R6 copiate din `brief.md`). Claude Code, model cerut `claude-haiku-4-5`, 19 noiembrie 2026; trei rulări pentru fiecare prompt, fiecare într-un context nou, fără unelte.
+
+**Organizare:** 3 min, cu predicțiile. []{.pace at=66 dur=3}
 :::
 
 ---
 
-# Ce îi cerem agentului AI cu rol de analist
+# Răspunsul la promptul A: membri și împrumuturi
 
-**Context predat:** solicitarea bibliotecarei, regulile R1–R6 și scenariile S1–S6 prezentate anterior. **Cele trei operații:** împrumutul (inclusiv ridicarea), returnarea și cererea de împrumut.
+**Cererea:** „[…] gestionarea împrumuturilor și returnărilor de cărți. Membrii ar trebui să poată și depune o cerere de împrumut pentru o carte atunci când aceasta este împrumutată.”
 
-> Propune o proiectare concisă, fără codul aplicației. Distinge conceptele domeniului și atribuie responsabilitățile celor trei operații.
+**Fragment din răspunsul AI — Claude Haiku 4.5, promptul A, rularea 2:**
+
+> **Membru**: Înregistrat cu date personale, cont activ/inactiv. Are o limită de cărți împrumutate simultan și o dată de expirare a abonamentului.
 >
-> Precizează regulile împrumutului și rezervării, ordinea cererilor și rezultatele la succes și respingere. Parcurge S1–S6 și indică regulile care susțin deciziile.
+> **Împrumut**: Legătură între Membru și Carte cu data început, dată scadență (implicit 14-30 zile) și status (activ/returnat).
 >
-> Separă cerințele, alegerile și întrebările deschise. Respectă R6. Încheie cu ce poate fi predat etapei următoare și cu limitele soluției.
+> […] **Împrumut:** — Membru activ cu abonament valabil — Cărți disponibile (exemplare > 0) — Membru sub limita de cărți împrumutate — […]
+
+Pe hârtie: listați fiecare decizie pe care agentul AI a luat-o în locul bibliotecii.
 
 ::: notes
-Contextul predat trebuie să susțină rezultatul cerut: enunțul integral, regulile, limitele și scenariile justifică o sarcină delimitată. Răspunsul AI numără la fel cele trei operații: ridicarea este un caz al împrumutului.
+Decizii de găsit: conturi active/inactive, o limită de împrumuturi simultane, un abonament care expiră, o durată a împrumutului (14–30 de zile) cu scadență. Niciuna nu apare în cerere. Răspunsul nu le marchează ca ipoteze sau propuneri: sunt scrise ca reguli ale sistemului.
 
-**Sursă:** `proiectant-01-prompt.md`, secțiunea „Sarcina”, integral; același fișier conține copia enunțului primit.
+**Sursă:** `haiku45-simpla-02-response.md`: definițiile „Membru” și „Împrumut” din „Entități Principale”, integral; din „Reguli de Operații”, primele trei puncte ale operației de împrumut, redate pe un rând, cu omisiuni marcate.
 
-**Organizare:** prompt pentru pregătirea rulării; studenții îl discută, nu trebuie să-l trimită.
+**Organizare:** 3 min individual; continuați lista pe slide-ul următor. []{.pace dur=3}
 :::
 
 ---
 
-# Proiectarea AI păstrează asocierile necesare?
+# Răspunsul la promptul A: cereri și întârzieri
 
-**Fragment din răspunsul AI — gpt-6.1-sol, analist, rularea 1:**
+**Fragment din același răspuns (promptul A, rularea 2):**
 
-> Împrumut | Înregistrare distinctă care leagă membrul de exemplar; activă sau închisă. Împrumuturile închise rămân în istoric.
+> **Cerere de Împrumut:** — Carte indisponibilă — Membru activ cu abonament valabil — Se adaugă în coadă FIFO — […] — Se oferă fereastră temporală (ex: 48 ore) pentru a efectua împrumutul
 >
-> […]
+> **Penalități**: Zile întârziere = penalizări (blocaj temporar, taxă, etc.). Cont poate fi suspendat dacă penalități neachitate.
 >
-> Rezervare | Alocă un exemplar unei cereri și solicitantului ei; rămâne activă până la ridicare.
+> **Prioritate în Coadă**: Se respectă ordinea FIFO; opțional - membri cu mai puține întârzieri primesc prioritate.
 
-**S2:** C1 a fost returnat și rezervat lui M2; C2 este încă împrumutat lui M3.
-
-**R2:** ridicarea este permisă numai solicitantului. **R5:** rezervarea identifică exemplarul alocat cererii.
-
-Pe hârtie: ce asocieri verificăm pentru a decide dacă M3 poate împrumuta C1?
+Continuați lista. Pentru fiecare decizie: **cine ar trebui s-o ia** — bibliotecara, echipa care proiectează sau nimeni încă?
 
 ::: notes
-Urmărim C1 → rezervare → cerere → M2; M3 nu este solicitantul. Respingem împrumutul fără schimbări. Împrumutul lui M3 privește C2, deci nu îi dă drept asupra lui C1. Proiectarea AI păstrează distincțiile necesare.
+Decizii noi: fereastra de 48 de ore pentru ridicare, penalitățile și suspendarea contului, o prioritate opțională pentru membrii fără întârzieri. Ordinea FIFO este o alegere plauzibilă, dar tot o alegere: cererea nu spune cum se servesc cererile. Duratele, limitele și sancțiunile sunt reguli ale bibliotecii, deci le hotărăște bibliotecara; echipa poate doar să le propună.
 
-**Sursă:** captură din 7 octombrie 2026, `proiectant-01-response.md`; două rânduri din tabel, cu omisiune marcată. Tabelul este redat ca citat.
+**Sursă:** `haiku45-simpla-02-response.md`: din „Reguli de Operații”, punctele cererii de împrumut, redate pe un rând, cu omisiune marcată; din „Constrângeri și Stări Speciale”, punctele „Penalități” și „Prioritate în Coadă”, integral.
 
-**Organizare:** 2 min pe acest slide. []{.pace dur=2}
+**Organizare:** 4 min: 1 individual, 3 pentru lista clasei. []{.pace dur=4}
 :::
 
 ---
 
-# Ce predăm evaluatorului AI
+# Ce a hotărât agentul AI în locul nostru
 
-**Context nou:** solicitarea, R1–R6, S1–S6 și proiectarea de examinat, fără conversația analistului. Poate fi același model AI, într-o conversație nouă.
+**Comparația noastră** (promptul A, rularea 2):
 
-> Revizuiește proiectarea față de regulile și scenariile date, fără să o modifici.
->
-> Pentru fiecare constatare, indică afirmația vizată, regula și un scenariu sau o altă justificare verificabilă.
->
-> Distinge defectele de alternativele de proiectare și de întrebările despre extinderi. Nu adăuga cerințe excluse prin R6. Dacă nu găsești defecte, precizează ce ai verificat și limitele revizuirii.
+| Decizie din răspuns | Ce spun regulile bibliotecarei |
+|-----------------------------|----------------------------------------|
+| Împrumut pe 14–30 de zile | Nicio regulă nu fixează o durată. |
+| Limită de cărți pe membru | R2 (împrumut) nu limitează numărul. |
+| Abonament care expiră | R1 (identitate): membrii există deja. |
+| Penalități, suspendarea contului | R6 (delimitare) exclude amenzile. |
+| 48 de ore pentru ridicare | R6: rezervarea rămâne până la ridicare. |
+| Prioritate fără întârzieri | R5 (ordinea cererilor): ordinea înregistrării. |
 
-Ce ar lipsi dacă am preda doar proiectarea și instrucțiunea „verifică dacă e corect”?
+Toate cele trei rulări cu promptul A au fixat scadență, limită și penalități: **o decizie repetată nu devine regula bibliotecii.**
 
 ::: notes
-Contextul separat face explicit ce primește evaluatorul AI, dar nu garantează o revizuire imparțială sau corectă.
+Cererea nu era greșită; era incompletă. Agentul AI nu a semnalat golurile: le-a umplut cu ce este obișnuit într-o bibliotecă. Unele alegeri pot fi bune pentru o bibliotecă reală, dar nu le-a hotărât beneficiarul. Comparăm cu R1–R6 pentru că le cunoaștem acum; în momentul cererii, fiecare rând era o întrebare pentru bibliotecară.
 
-**Organizare:** păstrați promptul pe ecran în timpul răspunsurilor.
+R6 exclude și prelungirile; contul activ/inactiv din același răspuns este tot o decizie a agentului AI. Celelalte două rulări cu promptul A: „Durata standard de împrumut: 14 zile”, „maxim N cărți”, „Penalizări pentru întârziere” (rularea 1); „ex: 5 cărți”, „ex: peste 14 zile”, „amendă/penalizare” (rularea 3). Toate trei trimit notificări, pe care R6 le exclude.
+
+**Organizare:** 3 min; comparați cu lista clasei. []{.pace dur=3}
 :::
 
 ---
 
-# Verificăm și revizuirea
+# Același prompt, cu R1–R6
 
-**Fragment din răspunsul AI — gpt-6.1-sol, evaluator, rularea 1:**
+**Fragmente din răspunsurile AI la promptul B — Claude Haiku 4.5, rularea 2:**
 
-> În S6, C2 este alocat lui M2, apoi C1 lui M4. Ridicarea mai devreme de către M4 nu afectează rezervarea lui M2.
+> Sistemul este minimal, fără notificări, amende, expirare sau autentificare—doar stările și tranzițiile esențiale pentru logica de împrumut, returnare și așteptare.\
+> […] **Acțiune**: Înregistrare cerere în așteptare cu marcă temporală.
 
-**R5:** ordinea cererilor decide alocarea; o cerere cu exemplar rezervat nu mai așteaptă alocarea altuia. **R2:** fiecare membru poate ridica propriul exemplar rezervat.
+**Rularea 1:**
 
-**S6:** C2 a fost rezervat lui M2, apoi C1 lui M4. M4 ajunge primul la bibliotecă și ridică C1.
+> 1\. **Cere împrumut** → Dacă exemplar disponibil: împrumut imediat. Altfel: cerere în așteptare.
 
-Pe hârtie: acceptați constatarea? Indicați regula și starea celor două exemplare după ridicare.
+**R4 (cerere de împrumut):** cererea se acceptă numai dacă titlul nu are exemplare disponibile; altfel se respinge. **R2 (împrumut):** se împrumută un exemplar anume. **R6 (delimitare):** ordinea procesării stabilește prioritatea; notificările, amenzile și expirarea sunt excluse.
+
+Pe hârtie: pentru fiecare afirmație, regula care o susține sau „hotărât de agentul AI”.
 
 ::: notes
-Acceptăm: ordinea alocării nu impune ordinea ridicării. C1 devine împrumutat lui M4; C2 rămâne rezervat lui M2. Confirmăm concluzia prin reguli, nu prin autoritatea evaluatorului AI.
+Prima propoziție este susținută de R6. „Marcă temporală” este o alegere de reprezentare a ordinii: R6 cere ordinea procesării, nu o oră; o marcă temporală o păstrează numai dacă două cereri nu pot primi aceeași valoare. „Împrumut imediat” este o regulă nouă: R4 respinge cererea pentru un titlu cu exemplar disponibil, iar împrumutul (R2) cere un exemplar ales. Lista deciziilor ascunse s-a scurtat mult, dar nu a dispărut.
 
-**Sursă:** `evaluator-01-response.md`, justificarea din rândul despre ordinea alocării (R5), captură din 7 octombrie 2026.
+**Sursă:** `haiku45-reguli-02-response.md`: ultimul paragraf, integral, și acțiunea operației „Cerere de Împrumut (R4)”; `haiku45-reguli-01-response.md`: primul pas din „Fluxul complet”, integral.
 
-**Organizare:** păstrați slide-ul pe ecran cât lucrează studenții.
+**Organizare:** 4 min: 2 individual, 2 pentru răspunsuri. []{.pace dur=4}
 :::
 
 ---
 
-# Decizia noastră asupra revizuirii
+# Decizia noastră: deciziile ascunse devin întrebări
 
-**Concluzia evaluatorului AI — gpt-6.1-sol, rularea 1:**
+**Decizia noastră:**
 
-> Nu am identificat defecte în proiectarea prezentată față de R1–R6 și S1–S6.
+- Din răspunsul la promptul A nu preluăm durata, limita, abonamentul, penalitățile, termenul de 48 de ore sau prioritatea. Fiecare devine o întrebare pentru bibliotecară; aici R2 (împrumut), R5 (ordinea cererilor) și R6 (delimitare) au răspuns deja.
+- Din răspunsurile la promptul B păstrăm ce are sursă în R1–R6. Marca temporală rămâne o propunere, acceptată dacă păstrează ordinea procesării. „Împrumut imediat” nu îl preluăm: R4 (cerere de împrumut) respinge cererea, iar o transformare automată în împrumut ar fi o regulă nouă, de convenit cu bibliotecara.
 
-**Decizia noastră:** acceptăm proiectarea ca bază pentru etapa următoare. Aici am verificat S2 și S6; parcurgerea S1–S6 din răspunsul integral a fost verificată înainte de curs.
+**Ce reținem:** o omisiune din cerere devine o decizie în răspuns. Înainte de a accepta un răspuns AI, listăm ce a hotărât agentul AI în locul nostru și cine ar trebui să hotărască.
 
-**Limita precizată de evaluatorul AI:**
-
-> Nu verifică o implementare, persistența datelor sau executarea efectivă a schimbărilor împreună.
-
-**Următorul agent AI:** poate elabora planul pentru fluxul cerere → rezervare → împrumut. Rămân de clarificat expirarea, notificările, accesul simultan de la mai multe ghișee și punerea în producție.
+*Rulări selectate din câte trei pentru fiecare prompt; nu descriu comportamentul tipic al modelului.*
 
 ::: notes
-„Nu am identificat defecte” este o concluzie limitată de obiectul verificării. Nu am rulat o aplicație. Putem accepta o proiectare fără să pretindem că implementarea viitoare este deja validată. „Executarea efectivă a schimbărilor împreună” înseamnă aplicarea ca un tot a tuturor schimbărilor unei operații, de exemplu închiderea împrumutului și rezervarea la returnare.
+Regulile nu garantează un răspuns fără adaosuri, dar reduc lista de verificat și ne dau o sursă pentru fiecare afirmație. Lista „ce a hotărât în locul nostru?” este o verificare pe care o putem face fără alt agent AI. Etapa următoare arată costul unei astfel de decizii când este greșită.
 
-**Sursă:** două fragmente distincte din `evaluator-01-response.md`: prima propoziție din primul paragraf și a doua din ultimul, capturate la 7 octombrie 2026.
-:::
+**Sursă:** arhiva `scenarios/02-biblioteca/captures/2026-11-19/README.md` păstrează toate cele șase rulări și motivul selecției.
 
----
-
-# Înainte de predare: ce păstrează rezumatul?
-
-**Fragment din răspunsul AI — gpt-6.1-sol, analist, rularea 1:**
-
-> Cererile sunt alocate în ordinea înregistrării, separat pentru fiecare titlu. O cerere cu exemplar rezervat nu mai participă la alocări. Ordinea ridicării poate fi diferită de ordinea alocării (R5).
-
-**Surse:** R5 stabilește rezervarea și prioritatea; R2 permite ridicarea numai de către solicitant. R6 lasă expirarea în afara exercițiului.
-
-Ce s-ar pierde dacă rezumatul ar spune doar „cererile sunt servite în ordine”? Indicați distincția omisă și regula sursă.
-
-::: notes
-Formula scurtă poate confunda alocarea cu ridicarea. Verificăm sinteza prin R2 și R5; în S6, M4 poate ridica înaintea lui M2. Fluența nu înlocuiește regulile detaliate.
-
-**Sursă:** `proiectant-01-response.md`, paragraf integral, capturat la 7 octombrie 2026.
-
-**Organizare:** lăsați fragmentul și regulile pe ecran. []{.pace at=83}
+**Organizare:** 2 min. []{.pace dur=2}
 :::
 
 ---
@@ -708,7 +698,7 @@ Titlul și exemplarul devin un singur lucru, fără ca alegerea să fie marcată
 *Rulare selectată din patru: celelalte trei au separat titlul de exemplar din primul răspuns.*
 
 ::: notes
-Costul erorii se explică prin deciziile care depind de ea, nu printr-un multiplicator numeric arbitrar. Promptul cerea „un model de date”, de aceea răspunsul seamănă cu o schemă de tabele; problema este însă conceptuală. La mesajul 3, cu două exemplare, același agent AI scrie „Corectură majoră: Exemplare vs. Cărți”: starea trece pe exemplar, împrumutul trimite la exemplar, nu la carte, iar returnarea alocă exemplarul. De aceea clarificăm înaintea implementării de amploare.
+Este încă o decizie luată în locul nostru, ca în etapa anterioară; aici vedem ce costă când este greșită. Costul erorii se explică prin deciziile care depind de ea, nu printr-un multiplicator numeric arbitrar. Promptul cerea „un model de date”, de aceea răspunsul seamănă cu o schemă de tabele; problema este însă conceptuală. La mesajul 3, cu două exemplare, același agent AI scrie „Corectură majoră: Exemplare vs. Cărți”: starea trece pe exemplar, împrumutul trimite la exemplar, nu la carte, iar returnarea alocă exemplarul. De aceea clarificăm înaintea implementării de amploare.
 
 Celelalte trei rulări (încă una Claude Haiku 4.5 și două `gpt-6-luna`, reasoning effort `low`) au separat titlul de exemplar din primul răspuns: am selectat o greșeală posibilă, nu performanța tipică.
 
@@ -778,12 +768,12 @@ Fără AI, scrieți trei răspunsuri scurte:
 
 1. De ce distingem un titlu de un exemplar fizic?
 2. Ce verificăm înainte să împrumutăm un exemplar?
-3. Ce justificare ați cere înainte de a accepta o constatare dintr-o revizuire?
+3. Numiți o decizie pe care un agent AI ar lua-o în locul bibliotecarei, dacă primește numai solicitarea ei. Cine trebuie s-o ia?
 
 **Cursul următor:** formularea problemei și cerințele.
 
 ::: notes
-Răspunsuri așteptate: exemplarele au identitate și stare independente; cererile privesc titluri. Împrumutul cere lipsa unui împrumut activ și a unei rezervări pentru altcineva; ridicarea încheie rezervarea și îndeplinește cererea. Decizia se justifică prin cerință și scenariu, nu prin acordul unui agent AI.
+Răspunsuri așteptate: exemplarele au identitate și stare independente; cererile privesc titluri. Împrumutul cere lipsa unui împrumut activ și a unei rezervări pentru altcineva; ridicarea încheie rezervarea și îndeplinește cererea. Pentru a treia: durata împrumutului, o limită pe membru, amenzile, termenul de ridicare, ordinea cererilor sau distincția titlu–exemplar; le hotărăște bibliotecara, iar echipa le poate doar propune. Decizia se justifică prin cerință și scenariu, nu prin acordul unui agent AI.
 
 **Organizare:** acceptați și alte justificări valide; folosiți răspunsurile pentru cursul următor, fără notă separată. []{.pace dur=5}
 :::

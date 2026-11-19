@@ -603,8 +603,8 @@ break-inside: avoid;
 </div>
 <div id="ce-știm-și-ce-rămâne-de-convenit" class="slide section level1">
 <h1>Ce știm și ce rămâne de convenit?</h1>
-<p><strong>Reamintim:</strong> R1 creează sesizarea cu număr unic, afișat studentului; R2 stabilește accesul. În afara primei versiuni: fotografii, notificări, repartizarea echipelor, prioritizarea, termenele.</p>
-<p><strong>Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 2 fără clarificări, 10 octombrie 2026:</strong></p>
+<p><strong>Reamintim:</strong> R1 (înregistrare) dă sesizării un număr unic, afișat studentului; notificările sunt excluse.</p>
+<p><strong>Fragmente din răspunsul AI</strong> (Claude Haiku 4.5, 10 octombrie 2026) la cererea administrației și „Propune o specificație concisă: cerințe funcționale, cerințe de calitate și trei exemple de acceptare. Răspunde în română, în maximum 500 de cuvinte.”</p>
 <div class="table-wrap">
 <table>
 <thead>
@@ -629,7 +629,7 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p>Pentru fiecare: <strong>informație convenită</strong> (inclusă sau exclusă), <strong>consecință dedusă</strong>, <strong>întrebare deschisă</strong>, <strong>ipoteză</strong> de verificat sau <strong>propunere</strong> de discutat?</p>
+<p>Pentru fiecare: <strong>informație convenită</strong> (inclusă sau exclusă), <strong>consecință dedusă</strong>, <strong>întrebare deschisă</strong>, <strong>ipoteză</strong> sau <strong>propunere</strong>?</p>
 </div>
 <div id="sesizări-repetate-păstrăm-sau-schimbăm-regulile" class="slide section level1">
 <h1>Sesizări repetate: păstrăm sau schimbăm regulile?</h1>
@@ -826,96 +826,113 @@ break-inside: avoid;
 <p>Dacă am ști doar media unui lot, de exemplu 1,2 secunde, am putea decide?</p>
 <p><em>Date didactice, nu rezultate ale unei execuții.</em></p>
 </div>
-<div id="verificăm-răspunsurile-ai-față-de-sursă" class="slide section level1 transition">
-<h1 class="transition">Verificăm răspunsurile AI față de sursă</h1>
-<p>Ce acceptăm, ce corectăm și ce rămâne de decis?</p>
+<div id="numere-precise-de-unde-vin" class="slide section level1 transition">
+<h1 class="transition">Numere precise: de unde vin?</h1>
+<p>Ce număr <span class="nowrap">dintr-un</span> răspuns AI are o sursă în enunț?</p>
 </div>
-<div id="promptul-inițial-fără-clarificări" class="slide section level1">
-<h1>Promptul inițial: fără clarificări</h1>
-<p><strong>Prompt integral, <span class="nowrap">într-un</span> context nou (fără reguli convenite sau conversație anterioară):</strong></p>
-<blockquote>
-<p>Administrația campusului cere:</p>
-<p>„Acum primim sesizări despre defecțiuni prin mesaje și telefon. Studenții revin să întrebe dacă <span class="nowrap">s-a</span> făcut ceva. Vrem să poată raporta o problemă și <span class="nowrap">să-i</span> vadă rapid starea.”</p>
-<p>Propune o specificație concisă: cerințe funcționale, cerințe de calitate și trei exemple de acceptare. Răspunde în română, în maximum 500 de cuvinte.</p>
-</blockquote>
-<p><em>Claude Haiku 4.5 prin Claude Code, 10 octombrie 2026, două rulări independente. Din a doua provin și fragmentele de mai devreme (ticket unic, email/mesaj, 99%).</em></p>
-</div>
-<div id="răspunsul-ai-completează-ce-beneficiarul-nu-a-spus" class="slide section level1">
-<h1>Răspunsul AI completează ce beneficiarul nu a spus</h1>
-<p><strong>Cererea</strong> nu precizează praguri de timp, redeschiderea sau închiderea automată. Între timp am convenit Q1 (afișare în cel mult 2 secunde, în condiții stabilite) și R4 (fără redeschidere).</p>
-<p><strong>Fragmente din răspunsul AI la promptul anterior (rularea 2):</strong></p>
-<blockquote>
-<p>&lt; 2 secunde pentru încărcarea paginii</p>
-</blockquote>
-<p><em>Exemplul de acceptare 3:</em></p>
-<blockquote>
-<p>CÂND: Admin încarcă o poză cu reparația și marchează “Rezolvat”<br />
-ATUNCI: Maria vede starea “Rezolvat” și fotografia reparației<br />
-ȘI: poate cere reluarea dacă crede că nu e bine<br />
-ȘI: după 3 zile fără răspuns, ticket se marchează “Închis”</p>
-</blockquote>
-<p>În perechi: <strong>ce trebuia convenit cu administrația pentru fiecare propunere?</strong></p>
-</div>
-<div id="promptul-analistului-ai-reguli-convenite" class="slide section level1">
-<h1>Promptul analistului AI: reguli convenite</h1>
-<p><strong>Context nou:</strong> cererea inițială, <span class="nowrap">R1–R4,</span> Q1 și excluderile discutate. Fără primul răspuns AI sau soluția profesorului.</p>
+<div id="cerem-cerințe-de-calitate-verificabile" class="slide section level1">
+<h1>Cerem cerințe de calitate verificabile</h1>
+<p><strong>Context nou:</strong> cererea administrației, <span class="nowrap">R1–R4,</span> Q1 și excluderile, în formularea enunțului; fără conversație anterioară sau soluția profesorului.</p>
 <p><strong>Instrucțiunea exactă, la finalul promptului:</strong></p>
 <blockquote>
-<p>Organizează cerințele convenite și scrie trei exemple de acceptare. Pentru fiecare indică regula sursă. Separă întrebările deschise de cerințe; nu introduce reguli sau funcții noi. Păstrează condițiile și pragul lui Q1. Răspunde în română, în maximum 450 de cuvinte.</p>
+<p>Pe baza enunțului, scrie cerințele de calitate pentru prima versiune a sistemului. Fiecare cerință trebuie să fie verificabilă: un prag numeric, condițiile în care se aplică și modul de măsurare. Răspunde în română, în maximum 350 de cuvinte.</p>
 </blockquote>
-<p><em>Claude Haiku 4.5, două rulări independente cu aceeași intrare, 10 octombrie 2026.</em></p>
+<p><strong>Singura cerință de calitate din enunț, Q1 (timpul de consultare):</strong> în rețeaua campusului, cu 10.000 de sesizări existente și 20 de consultări simultane, cel puțin 950 <span class="nowrap">dintr-un</span> lot de 1.000 de consultări valide ale propriilor sesizări afișează starea corectă în cel mult 2 secunde, de la acțiunea de consultare în browser.</p>
+<p><strong>Predicție:</strong> ce numere va conține răspunsul, în afara celor din Q1?</p>
 </div>
-<div id="ce-pierde-rezumatul-unei-cerințe" class="slide section level1">
-<h1>Ce pierde rezumatul unei cerințe?</h1>
-<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, analist AI, rularea 1, 10 octombrie 2026:</strong></p>
+<div id="urmăriți-fiecare-număr-până-la-sursă-1" class="slide section level1">
+<h1>Urmăriți fiecare număr până la sursă (1)</h1>
+<p><strong>Fragmente din răspunsul AI — Claude Haiku 4.5, rularea 1:</strong></p>
 <blockquote>
-<p>Cu 10.000 sesizări și 20 consultări simultane, cel puțin 950/1.000 consultări asupra propriilor sesizări afișează stare corectă în ≤ 2 secunde.</p>
+<p><strong>CQ1 — Înregistrare validă</strong> […] Măsurare: 100% dintre sesizările complete sunt create cu identificator; 0% dintre sesizările incomplete sunt acceptate; eroarea se afișează în max 1 secundă.</p>
+<p><strong>CQ3 — Acces controlat — administrație</strong> […] Măsurare: […] 100% din tranzițiile valide sunt aplicate în max 1 secundă; 100% din tranzițiile invalide sunt respinse cu mesaj.</p>
 </blockquote>
-<p><strong>Q1, în contextul primit de analistul AI:</strong> aceleași valori, dar și <strong>rețeaua campusului</strong> și intervalul măsurat, <strong>de la acțiunea de consultare în browser până la afișarea stării</strong>.</p>
-<p>Pe hârtie: ce <span class="nowrap">s-ar</span> putea măsura diferit dacă transmitem mai departe numai rezumatul? <strong>Rescrieți cerința, păstrând toate condițiile.</strong></p>
+<p><strong>R1 (înregistrare):</strong> cu locul și descrierea nevide se creează o sesizare cu număr unic; altfel nu se creează. <strong>R4 (schimbarea stării):</strong> numai administrația schimbă „înregistrată” → „în lucru” → „rezolvată”; altă schimbare se respinge. <strong>Q1 (timpul de consultare)</strong> fixează un timp numai pentru consultare.</p>
+<p>Pe hârtie, un tabel: <strong>număr din răspuns → regula sursă</strong> sau <strong>nesusținut</strong>.</p>
 </div>
-<div id="promptul-evaluatorului-ai" class="slide section level1">
-<h1>Promptul evaluatorului AI</h1>
-<p><strong>Evaluator (agent AI de revizuire), context separat:</strong> cererea, regulile convenite și excluderile, plus răspunsul integral al analistului AI (rularea 1); fără sarcina analistului AI și fără corecția profesorului.</p>
-<p><strong>Instrucțiunea exactă, la finalul promptului:</strong></p>
+<div id="urmăriți-fiecare-număr-până-la-sursă-2" class="slide section level1">
+<h1>Urmăriți fiecare număr până la sursă (2)</h1>
+<p><strong>Fragment din același răspuns AI (rularea 1):</strong></p>
 <blockquote>
-<p>Revizuiește specificația față de cererea și regulile convenite, fără să o rescrii. Pentru fiecare constatare, citează afirmația și regula relevantă și explică efectul <span class="nowrap">printr-un</span> exemplu. Distinge erorile și omisiunile de alegerile de proiectare sau extinderi. Precizează și ce este corect și limitele verificării. Răspunde în română, în maximum 450 de cuvinte.</p>
+<p><strong>CQ5 — Performanță de consultare (Q1)</strong> […]<br />
+Măsurare: Cu 10.000 sesizări în sistem și 20 consultări simultane, minimum 950 din 1.000 consultări valide afișează starea corectă în maxim 2 secunde; […]<br />
+Condiții: 20 utilizatori simultani; fiecare cu 50 sesizări în portofoliu; bază de date cu 10.000 înregistrări; măsurare din acțiunea de consultare la afișare completă.</p>
 </blockquote>
-<p><em>Claude Haiku 4.5, două rulări independente cu aceeași intrare, 10 octombrie 2026.</em></p>
-<p><strong>Predicție, înainte de a vedea răspunsul AI:</strong> va semnala evaluatorul AI cele două condiții pe care <span class="nowrap">le-ați</span> restabilit?</p>
+<p><strong>Q1 (timpul de consultare):</strong> în rețeaua campusului, cu 10.000 de sesizări existente și 20 de consultări simultane, cel puțin 950 <span class="nowrap">dintr-un</span> lot de 1.000 de consultări valide ale propriilor sesizări afișează starea corectă în cel mult 2 secunde, de la acțiunea de consultare în browser.</p>
+<p>Continuați tabelul. Un număr care apare și în Q1 înseamnă același lucru? Ce condiție din Q1 lipsește?</p>
 </div>
-<div id="ce-semnalează-evaluatorul-ai" class="slide section level1">
-<h1>Ce semnalează evaluatorul AI?</h1>
-<p><strong>Fragment din răspunsul AI — Claude Haiku 4.5, evaluator AI, rularea 1, 10 octombrie 2026:</strong></p>
+<div id="urmăriți-fiecare-număr-până-la-sursă-3" class="slide section level1">
+<h1>Urmăriți fiecare număr până la sursă (3)</h1>
+<p><strong>Fragmente din același răspuns AI (rularea 1):</strong></p>
 <blockquote>
-<p><strong>Q1</strong>: Pragul de performanță este transcris exact, […]</p>
+<p><strong>CQ4 — Independență sesizări</strong> […]<br />
+Măsurare: După 1.000 de operații pe sesizări diferite, 100% dintre sesizările neafectate păstrează identificatorul și starea anterioară. […]</p>
+<p><strong>CQ6 — Corectitudine sub concurență</strong> […]<br />
+Măsurare: 0 stări invalide; 100% consistență după operații concurente.<br />
+Condiții: 2+ cereri de schimbare de stare în paralel pe aceeași sesizare.</p>
 </blockquote>
-<p><strong>Comparația noastră: Q1 față de specificația analistului AI</strong></p>
+<p><strong>R3 (sesizări repetate):</strong> o sesizare nouă nu modifică autorul, numărul sau starea uneia existente. <strong>Limită convenită:</strong> exemplele de actualizare pornesc din stările indicate și nu analizează concurența actualizărilor.</p>
+<p>Continuați tabelul: ce cere enunțul și ce a adăugat agentul AI?</p>
+</div>
+<div id="tabelul-de-proveniență" class="slide section level1">
+<h1>Tabelul de proveniență</h1>
+<p><strong>Comparația noastră</strong> (răspunsul AI, rularea 1, față de enunț):</p>
 <div class="table-wrap">
 <table>
+<colgroup>
+<col width="41%" />
+<col width="58%" />
+</colgroup>
 <thead>
 <tr>
-<th>Element din Q1</th>
-<th>Păstrat de analistul AI?</th>
+<th>Număr din răspuns</th>
+<th>Sursa în enunț și verdictul nostru</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Cel puțin 950/1.000 în cel mult 2 secunde</td>
-<td>Da</td>
+<td>100%, 0% (CQ1, CQ3, CQ4)</td>
+<td><span class="nowrap">R1–R4</span> privesc fiecare cerere: <strong>susținut</strong>.</td>
 </tr>
 <tr>
-<td>Rețeaua campusului</td>
-<td>Nu</td>
+<td>Max 1 secundă <span class="nowrap">(CQ1–CQ3)</span></td>
+<td>Q1 (timpul de consultare) nu o cere: <strong>nesusținut</strong>.</td>
 </tr>
 <tr>
-<td>Acțiunea de consultare în browser → afișarea stării</td>
-<td>Nu</td>
+<td>10.000, 20, 950 din 1.000, 2 s (CQ5)</td>
+<td>Q1: <strong>susținut</strong>; lipsește rețeaua campusului.</td>
+</tr>
+<tr>
+<td>20 de utilizatori simultani (CQ5)</td>
+<td>Q1 spune 20 de consultări: <strong>schimbat</strong>.</td>
+</tr>
+<tr>
+<td>50 de sesizări pe utilizator (CQ5)</td>
+<td>Setul de date nu este stabilit: <strong>nesusținut</strong>.</td>
+</tr>
+<tr>
+<td>1.000 de operații (CQ4)</td>
+<td>R3 (sesizări repetate) nu cere un număr: <strong>nesusținut</strong>.</td>
+</tr>
+<tr>
+<td>2+ cereri în paralel (CQ6)</td>
+<td>Concurența este exclusă: <strong>nesusținut</strong>.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Decizia noastră:</strong> restabilim cele două condiții înainte de a transmite specificația; acordul evaluatorului AI nu înlocuiește comparația cu sursa.</p>
+</div>
+<div id="decizia-noastră-precis-nu-înseamnă-convenit" class="slide section level1">
+<h1>Decizia noastră: precis nu înseamnă convenit</h1>
+<p><strong>Decizia noastră:</strong></p>
+<ul>
+<li>Păstrăm CQ5 cu valorile din Q1 (timpul de consultare), cu 20 de <strong>consultări</strong> simultane, și adăugăm rețeaua campusului.</li>
+<li>„Max 1 secundă” pentru erori și schimbări de stare devine o întrebare pentru administrație: contează acest timp? Dacă da, cu ce prag și în ce condiții?</li>
+<li>50 de sesizări pe utilizator și 1.000 de operații sunt propuneri pentru planul de verificare, nu cerințe.</li>
+<li>100% și 0% le putem scrie mai simplu, ca reguli: „fiecare”, „niciuna”.</li>
+</ul>
+<p><strong>Ce reținem:</strong> un număr precis nu este și un număr convenit. Fiecare număr <span class="nowrap">dintr-o</span> cerință are o sursă sau o persoană care trebuie <span class="nowrap">să-l</span> confirme.</p>
+<p><em>Rulare selectată din trei; în altă rulare, singurul prag de timp a fost cel din Q1.</em></p>
 </div>
 <div id="aplicăm-pe-o-altă-problemă" class="slide section level1 transition">
 <h1 class="transition">Aplicăm pe o altă problemă</h1>
