@@ -10,7 +10,7 @@ Din 19 noiembrie 2026 laboratorul are formatul cu atelier de diagrame (decizia d
 |---|---|---|
 | 0–10 | Problema, citatul și recapitularea. | Clarificați: starea spune ce este permis acum; reîncercarea are același identificator. |
 | 10–28 | Predicții S2, S7, S6, 6 min; tabelul de tranziții, individual, apoi în plen, 12 min. | „În ce stare sosește reîncercarea?” |
-| 28–50 | Interacțiunea S1 și S3, 10 min; reîncercările S4 și S5, 12 min. | Cereți pasul în care se schimbă starea față de apelul expeditorului. |
+| 28–50 | Interacțiunea S1 și S3, 10 min; reîncercările S4 și S5, 12 min. | Cereți pasul în care se schimbă starea față de apelul mesageriei. |
 | 50–70 | Atelier: sarcina, 2 min; diagrama de stări, individual, 16 min; autoverificare cu lista, 2 min. | Treceți printre bănci; „ce regulă susține această săgeată?” Alegeți voluntarii. |
 | 70–80 | Verificarea în plen a unei diagrame sau a două. | Un voluntar arată, un coleg verifică punct cu punct; fiecare observație numește punctul și regula. |
 | 80–87 | Corectare; extensia (diagrama de secvență) pentru cine a terminat. | Răspundeți la întrebări individuale. |
@@ -28,9 +28,9 @@ Starea inițială **I**: A (titular T1, proiector) și B (titular T2, cameră) �
 | Scenariu | Rezultat |
 |---|---|
 | S1: `ridică(c1, A, T1)`, `trimis` | `ridicat`; A Ridicată, c1 înregistrat, notificare `trimisă`. |
-| S2: `ridică(c1, A, T2)` | `refuz` (condiția titularului); exact I; expeditorul nu este apelat. |
-| S3: `ridică(c1, A, T1)`, `esec` | `ridicat`; A Ridicată, c1 înregistrat, notificare `netrimisă`. |
-| S4 (după S3): `ridică(c1, A, T1)`, `trimis` | `ridicat` (reîncercare); o singură ridicare; expeditorul apelat din nou; notificare `trimisă`. |
+| S2: `ridică(c1, A, T2)` | `refuz` (condiția titularului); exact I; mesageria nu este apelată. |
+| S3: `ridică(c1, A, T1)`, `eșec expediție` | `ridicat`; A Ridicată, c1 înregistrat, notificare `netrimisă`. |
+| S4 (după S3): `ridică(c1, A, T1)`, `trimis` | `ridicat` (reîncercare); o singură ridicare; mesageria apelată din nou; notificare `trimisă`. |
 | S5 (după S1): `ridică(c7, A, T1)` | `refuz` (cerere nouă, A nu mai este Rezervată); nimic nu se modifică. |
 | S6 (după S1): `anulează(A)` | `refuz`; A rămâne Ridicată. |
 | S7: `anulează(B)`, apoi `ridică(c2, B, T2)` | Anulare acceptată, B Anulată; ridicare refuzată (stare finală); fără notificare. |
@@ -39,7 +39,7 @@ Tabelul de tranziții așteptat are trei rânduri: Rezervată + `ridică` cu c n
 
 Anulată este finală intenționată. Ridicată permite reîncercarea, deci nu este finală în sensul cursului 7; faptul că ridicarea fizică s-a încheiat nu încheie tratarea notificării.
 
-Interacțiunea: tranziția și înregistrarea lui c preced apelul expeditorului; la `esec`, notificarea `netrimisă` este înregistrată, iar răspunsul rămâne `ridicat` (R4). Dacă cineva propune schimbarea stării numai la `trimis`, cereți S3 în acea ordine: studentul pleacă cu echipamentul, iar A rămâne Rezervată, deci registrul ar putea accepta încă o ridicare pentru aceeași rezervare. Despre expeditor presupunem numai că răspunde `trimis` sau `esec` (R7); nu presupunem că `esec` înseamnă nelivrare.
+Interacțiunea: tranziția și înregistrarea lui c preced apelul mesageriei; la `eșec expediție`, notificarea `netrimisă` este înregistrată, iar răspunsul rămâne `ridicat` (R4). Dacă cineva propune schimbarea stării numai la `trimis`, cereți S3 în acea ordine: studentul pleacă cu echipamentul, iar A rămâne Rezervată, deci registrul ar putea accepta încă o ridicare pentru aceeași rezervare. Despre mesagerie presupunem numai că răspunde `trimis` sau `eșec expediție` (R7); nu presupunem că `eșec expediție` înseamnă nelivrare.
 
 ## Atelierul de diagrame
 
@@ -63,13 +63,13 @@ Interacțiunea: tranziția și înregistrarea lui c preced apelul expeditorului;
 
 **Diagrama de referință (87–95):** comparați diagrama corectată în plen cu referința. Variante acceptabile: bucla reîncercării împărțită în două după notificare, efecte formulate mai scurt, tranziții numerotate cu tabel alăturat (ca în cursul 7). Neacceptabile: stări pentru notificare sau refuz, bucle pentru refuzuri, bucla pe Rezervată, starea finală UML după Anulată, efecte noi. Rezultatul `ridicat`/`refuz` întors ghișeului nu apare pe diagrama de stări.
 
-**Extensia (80–87):** diagrama de secvență a scenariului S3 urmat de S4: ghișeu, registru (în interiorul graniței), expeditor. De urmărit: nota tranziției înaintea apelului `trimite`; `ridicat` după `esec`; la reîncercare, nicio a doua tranziție; ghișeul nu apelează expeditorul. Referința este în `reference.md`; o puteți arăta celor care termină.
+**Extensia (80–87):** diagrama de secvență a scenariului S3 urmat de S4: ghișeu, registru (în interiorul graniței), mesagerie. De urmărit: nota tranziției înaintea apelului `trimite`; `ridicat` după `eșec expediție`; la reîncercare, nicio a doua tranziție; ghișeul nu apelează mesageria. Referința este în `reference.md`; o puteți arăta celor care termină.
 
 Nu se predau, nu se încarcă și nu se notează diagrame.
 
 ## Exercițiu suplimentar (scos de pe slide-uri)
 
-Exercițiul „Ghișeul nu a primit răspunsul” nu mai încape în 100 de minute; rămâne în [sprijinul facultativ](scenarios/04-comportament/worksheet.md), pentru studiu individual, cu răspunsurile în [referință](scenarios/04-comportament/reference.md). Pe scurt: din I, `ridică(c1, A, T1)` cu `trimis` produce `ridicat`; răspunsul nu ajunge la ghișeu, care trimite `ridică(c8, A, T1)`, cu identificator nou: `refuz`, fără apelul expeditorului. Operatorul vede numai `refuz`; pentru A mai este acceptată numai reîncercarea cu c1. Ghișeul, componentă din afara graniței, nu și-a îndeplinit responsabilitatea presupusă de R3: păstrează identificatorul până primește răspunsul. Dacă rămâne timp la încheiere, puteți pune întrebarea în plen.
+Exercițiul „Ghișeul nu a primit răspunsul” nu mai încape în 100 de minute; rămâne în [sprijinul facultativ](scenarios/04-comportament/worksheet.md), pentru studiu individual, cu răspunsurile în [referință](scenarios/04-comportament/reference.md). Pe scurt: din I, `ridică(c1, A, T1)` cu `trimis` produce `ridicat`; răspunsul nu ajunge la ghișeu, care trimite `ridică(c8, A, T1)`, cu identificator nou: `refuz`, fără apelul mesageriei. Operatorul vede numai `refuz`; pentru A mai este acceptată numai reîncercarea cu c1. Ghișeul, componentă din afara graniței, nu și-a îndeplinit responsabilitatea presupusă de R3: păstrează identificatorul până primește răspunsul. Dacă rămâne timp la încheiere, puteți pune întrebarea în plen.
 
 ## Materiale AI arhivate
 

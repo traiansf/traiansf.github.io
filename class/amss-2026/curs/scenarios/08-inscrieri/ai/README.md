@@ -25,3 +25,5 @@ După obținerea unui răspuns real, transmiteți într-un context nou instrucț
 Păstrați în `../captures/<data>/` prompturile exacte, versiunea contextului, răspunsurile integrale și metadatele efective, inclusiv toate încercările. Alegeți fragmente numai după verificare și consemnați motivul selecției. La curs se proiectează materiale pregătite; nu se rulează instrumente live.
 
 Pentru o analiză nouă, reuniți `analist-instructiune.md` cu [enunțul curent](../brief.md). Furnizați evaluatorului AI exact aceeași versiune, sarcina și răspunsul integral. Salvați noul prompt și noul hash separat; nu suprascrieți metadatele capturilor existente.
+
+**Denumiri (19 noiembrie 2026, după capturi):** enunțul curent numește serviciul extern „mesageria” (serviciul de mesagerie), rezultatul lui de eșec `eșec expediție` și lasă numărul de locuri ca parametru în R1. Prompturile din acest dosar și capturile din 12 și 19 noiembrie 2026 folosesc denumirile anterioare („expeditor de confirmări”, `esec`, „2 locuri”) și rămân neschimbate; o rulare nouă pornește de la [enunțul curent](../brief.md).

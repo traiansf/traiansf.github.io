@@ -10,21 +10,21 @@ Material de pregătire pentru [enunț](scenario.md), construit didactic; nu capt
 | Ridicată | `ridică(c, r, s)` | c înregistrat la r (reîncercare) | Ridicată | notificarea poate trece din `netrimisă` în `trimisă` |
 | Rezervată | `anulează(r)` | — | Anulată | — |
 
-Orice altă combinație, sau o condiție neîndeplinită, este refuzată: `refuz`, fără modificări, fără apelul expeditorului. Anulată este finală intenționată. Ridicată permite reîncercarea, deci nu este finală în sensul cursului 7. Al doilea rând nu schimbă starea; îl scriem ca să fie vizibil că reîncercarea este permisă în Ridicată, spre deosebire de o cerere nouă (c neînregistrat), care este refuzată acolo.
+Orice altă combinație, sau o condiție neîndeplinită, este refuzată: `refuz`, fără modificări, fără apelul mesageriei. Anulată este finală intenționată. Ridicată permite reîncercarea, deci nu este finală în sensul cursului 7. Al doilea rând nu schimbă starea; îl scriem ca să fie vizibil că reîncercarea este permisă în Ridicată, spre deosebire de o cerere nouă (c neînregistrat), care este refuzată acolo.
 
 Condiția „s este titularul” depinde de date, nu de stare: o cerere greșită lasă rezervarea Rezervată, cu toate datele. Starea și datele decid ce evenimente sunt permise. Titularul, echipamentul, momentul ridicării și identificatorul înregistrat se păstrează; rezultatul notificării poate fi actualizat (R5).
 
 ## Interacțiunea pentru `ridică(c, r, s)`
 
 1. Ghișeu → Registru: `ridică(c, r, s)`.
-2. Registru: dacă c este înregistrat la r, verifică notificarea: la `netrimisă` continuă cu pasul 4; la `trimisă`, cu pasul 7. Altfel verifică: r Rezervată și s titular. Dacă nu: `refuz`, fără modificări și fără apelul expeditorului (sfârșit).
+2. Registru: dacă c este înregistrat la r, verifică notificarea: la `netrimisă` continuă cu pasul 4; la `trimisă`, cu pasul 7. Altfel verifică: r Rezervată și s titular. Dacă nu: `refuz`, fără modificări și fără apelul mesageriei (sfârșit).
 3. Registru: r devine Ridicată; înregistrează momentul ridicării și c; notificarea `în așteptare`.
-4. Registru → Expeditor: `trimite(mesaj pentru s)`.
-5. Expeditor → Registru: `trimis` sau `esec`.
+4. Registru → Mesagerie: `trimite(mesaj pentru s)`.
+5. Mesagerie → Registru: `trimis` sau `eșec expediție`.
 6. Registru: notificarea `trimisă`, respectiv `netrimisă`.
-7. Registru → Ghișeu: `ridicat` (sfârșit). La reîncercare nu se repetă pasul 3. Valoarea `în așteptare` din pasul 3 este intermediară; apelurile secvențiale și răspunsul garantat al expeditorului exclud o nouă cerere în acel moment.
+7. Registru → Ghișeu: `ridicat` (sfârșit). La reîncercare nu se repetă pasul 3. Valoarea `în așteptare` din pasul 3 este intermediară; apelurile secvențiale și răspunsul garantat al mesageriei exclud o nouă cerere în acel moment.
 
-Tranziția (pasul 3) precede apelul expeditorului. Dacă registrul ar schimba starea numai după `trimis`, la `esec` studentul ar pleca cu echipamentul, iar rezervarea ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată. Registrul coordonează; ghișeul nu apelează expeditorul.
+Tranziția (pasul 3) precede apelul mesageriei. Dacă registrul ar schimba starea numai după `trimis`, la `eșec expediție` studentul ar pleca cu echipamentul, iar rezervarea ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată. Registrul coordonează; ghișeul nu apelează mesageria.
 
 ## Diagrama de stări de referință
 
@@ -64,12 +64,12 @@ sequenceDiagram
     box Sistemul nostru
     participant R as Registrul rezervărilor
     end
-    participant E as Expeditor
+    participant E as Mesagerie
     Note over G,E: Scenariul S3, din I: A Rezervată, titular T1, c1 neînregistrat
     G->>R: ridică(c1, A, T1)
     Note over R: c1 neînregistrat, A Rezervată, T1 titular<br/>A trece în Ridicată, înregistrează momentul și c1
     R->>E: trimite(mesaj)
-    E-->>R: esec
+    E-->>R: eșec expediție
     Note over R: notificare netrimisă
     R-->>G: ridicat
     Note over G,E: Scenariul S4: reîncercare cu același c1
@@ -81,9 +81,9 @@ sequenceDiagram
     R-->>G: ridicat
 ```
 
-Justificarea, după lista de verificare a specificației: (1) trei participanți; numai registrul este în interiorul graniței (R7; ghișeul îl apelează, dar nu îl proiectăm). (2) Ghișeul apelează numai registrul, iar numai registrul apelează expeditorul (R4); ghișeul nu apelează niciodată expeditorul. (3) Ambele apeluri sunt sincrone (R1: apeluri secvențiale; registrul folosește răspunsul expeditorului) și au răspunsuri din enunț. (4) Tranziția și înregistrarea lui c1 preced apelul expeditorului (R3, R4); la reîncercare nu există o a doua tranziție (R5). (5) Fără fragmente: valorile scenariilor decid ramurile. (6) Nimic despre livrare: `esec` este consemnat ca `netrimisă` (R7). (7) Rezultatele sunt cele din tabelul de mai jos: `ridicat` de două ori, A Ridicată, o singură ridicare, notificarea `trimisă` la sfârșit.
+Justificarea, după lista de verificare a specificației: (1) trei participanți; numai registrul este în interiorul graniței (R7; ghișeul îl apelează, dar nu îl proiectăm). (2) Ghișeul apelează numai registrul, iar numai registrul apelează mesageria (R4); ghișeul nu apelează niciodată mesageria. (3) Ambele apeluri sunt sincrone (R1: apeluri secvențiale; registrul folosește răspunsul mesageriei) și au răspunsuri din enunț. (4) Tranziția și înregistrarea lui c1 preced apelul mesageriei (R3, R4); la reîncercare nu există o a doua tranziție (R5). (5) Fără fragmente: valorile scenariilor decid ramurile. (6) Nimic despre livrare: `eșec expediție` este consemnat ca `netrimisă` (R7). (7) Rezultatele sunt cele din tabelul de mai jos: `ridicat` de două ori, A Ridicată, o singură ridicare, notificarea `trimisă` la sfârșit.
 
-O variantă pentru toate cazurile lui `ridică` folosește `alt [c înregistrat la r]` / `[c neînregistrat, r Rezervată, s titular]` / `[altfel]` (cu `refuz` și fără apelul expeditorului), iar în prima ramură `opt [notificarea este netrimisă]` în jurul retrimiterii. Greșeli de urmărit: nota schimbării stării pusă după `trimis`; un `refuz` la reîncercare; o a doua notă „A trece în Ridicată” la S4; expeditorul pus în interiorul graniței.
+O variantă pentru toate cazurile lui `ridică` folosește `alt [c înregistrat la r]` / `[c neînregistrat, r Rezervată, s titular]` / `[altfel]` (cu `refuz` și fără apelul mesageriei), iar în prima ramură `opt [notificarea este netrimisă]` în jurul retrimiterii. Greșeli de urmărit: nota schimbării stării pusă după `trimis`; un `refuz` la reîncercare; o a doua notă „A trece în Ridicată” la S4; mesageria pus în interiorul graniței.
 
 ## Rezultatele scenariilor
 
@@ -92,9 +92,9 @@ S1, S2, S3 și S7 pornesc din I: A (T1, proiector) și B (T2, cameră) în Rezer
 | Scenariu | Rezultat |
 |---|---|
 | S1 | `ridicat`; A Ridicată, c1 înregistrat, notificare `trimisă`; B neschimbată. |
-| S2 | `refuz` (T2 nu este titularul lui A); exact I; expeditorul nu este apelat; c1 nu se înregistrează. |
+| S2 | `refuz` (T2 nu este titularul lui A); exact I; mesageria nu este apelată; c1 nu se înregistrează. |
 | S3 | `ridicat`; A Ridicată, c1 înregistrat, notificare `netrimisă`. |
-| S4 | `ridicat` (reîncercare); A rămâne Ridicată, o singură ridicare; expeditorul apelat din nou → `trimisă`. |
+| S4 | `ridicat` (reîncercare); A rămâne Ridicată, o singură ridicare; mesageria apelată din nou → `trimisă`. |
 | S5 | `refuz` (c7 este cerere nouă, iar A nu mai este Rezervată); exact starea și datele de după S1. |
 | S6 | `refuz` (anularea cere Rezervată); A rămâne Ridicată. |
 | S7 | `anulează(B)` acceptată: B Anulată; `ridică(c2, B, T2)` refuzată: B rămâne Anulată; fără notificare. |
@@ -104,7 +104,7 @@ Ce garantează registrul, în limitele R1: o rezervare este ridicată cel mult o
 ## Dificultăți de urmărit
 
 - Confundarea cererii noi (c7, refuzată) cu reîncercarea (c1, acceptată din nou): identificatorul cererii este ceea ce le deosebește, nu conținutul.
-- Propunerea de a anula ridicarea la `esec`: încalcă R4 și presupune că `esec` înseamnă „mesajul nu a ajuns”, contrar lui R7.
+- Propunerea de a anula ridicarea la `eșec expediție`: încalcă R4 și presupune că `eșec expediție` înseamnă „mesajul nu a ajuns”, contrar lui R7.
 - Scrierea condiției „s este titularul” ca stare separată: este o verificare de date în starea Rezervată.
 - Tratarea lui S2 ca eveniment care schimbă ceva: cererea refuzată nu se înregistrează.
 - Cererea nouă pentru o rezervare Ridicată (S5): citită față de rândul din Rezervată, o refuză starea; citită față de rândul reîncercării din Ridicată, o refuză condiția (c nu este înregistrat). Ambele lecturi sunt corecte.
@@ -113,8 +113,8 @@ Ce garantează registrul, în limitele R1: o rezervare este ridicată cel mult o
 
 Nu mai este pe slide-uri din 19 noiembrie 2026 (atelierul de diagrame a luat timpul lui); rămâne în [sprijinul facultativ](worksheet.md), pentru studiu individual, și poate fi discutat dacă rămâne timp.
 
-Din I, ghișeul trimite `ridică(c1, A, T1)`, iar expeditorul răspunde `trimis`. Răspunsul registrului nu ajunge la ghișeu, deci operatorul nu predă încă proiectorul; ghișeul trimite `ridică(c8, A, T1)`, cu un identificator nou. Rezultate: `ridicat` (A Ridicată, c1 înregistrat, notificare `trimisă`: studentul primește mesajul despre ridicare înainte să aibă proiectorul), apoi `refuz` (c8 este cerere nouă, iar A nu mai este Rezervată); nimic nu se modifică, expeditorul nu este apelat.
+Din I, ghișeul trimite `ridică(c1, A, T1)`, iar mesageria răspunde `trimis`. Răspunsul registrului nu ajunge la ghișeu, deci operatorul nu predă încă proiectorul; ghișeul trimite `ridică(c8, A, T1)`, cu un identificator nou. Rezultate: `ridicat` (A Ridicată, c1 înregistrat, notificare `trimisă`: studentul primește mesajul despre ridicare înainte să aibă proiectorul), apoi `refuz` (c8 este cerere nouă, iar A nu mai este Rezervată); nimic nu se modifică, mesageria nu este apelată.
 
-Ce știe operatorul: numai `refuz`, același rezultat pe care l-ar fi primit pentru alt student, pentru o rezervare anulată sau pentru una ridicată de altă cerere. Nu poate deosebi „ridicată prin cererea mea” de celelalte. Registrul consemnează A ca Ridicată, deși echipamentul este încă la ghișeu. Pentru A mai este acceptată numai reîncercarea cu c1 (care ar primi `ridicat`, fără alt apel al expeditorului); `anulează(A)` este refuzat (R6). Dacă ghișeul nu mai are c1, niciun eveniment permis nu îl ajută.
+Ce știe operatorul: numai `refuz`, același rezultat pe care l-ar fi primit pentru alt student, pentru o rezervare anulată sau pentru una ridicată de altă cerere. Nu poate deosebi „ridicată prin cererea mea” de celelalte. Registrul consemnează A ca Ridicată, deși echipamentul este încă la ghișeu. Pentru A mai este acceptată numai reîncercarea cu c1 (care ar primi `ridicat`, fără alt apel al mesageriei); `anulează(A)` este refuzat (R6). Dacă ghișeul nu mai are c1, niciun eveniment permis nu îl ajută.
 
-Refuzul ar fi fost evitat dacă ghișeul și-ar fi îndeplinit responsabilitatea pe care R3 o presupune: păstrează identificatorul până primește răspunsul și reîncearcă cu același c. Ghișeul este, ca expeditorul, în afara graniței: despre el avem numai o presupunere, iar garanțiile registrului („o reîncercare primește același rezultat”) țin cât timp presupunerea este respectată. Întrebări pentru beneficiar, pe care nu le decidem noi: refuzul ar trebui să își spună motivul (cum făcea rezultatul `fara_dulap` în cursul 6)? Ar trebui ca ghișeul să poată afla starea și datele unei rezervări? Ce face operatorul care a pierdut identificatorul? Nu adăugăm reguli; notăm întrebările.
+Refuzul ar fi fost evitat dacă ghișeul și-ar fi îndeplinit responsabilitatea pe care R3 o presupune: păstrează identificatorul până primește răspunsul și reîncearcă cu același c. Ghișeul este, ca mesageria, în afara graniței: despre el avem numai o presupunere, iar garanțiile registrului („o reîncercare primește același rezultat”) țin cât timp presupunerea este respectată. Întrebări pentru beneficiar, pe care nu le decidem noi: refuzul ar trebui să își spună motivul (cum făcea rezultatul `fara_dulap` în cursul 6)? Ar trebui ca ghișeul să poată afla starea și datele unei rezervări? Ce face operatorul care a pierdut identificatorul? Nu adăugăm reguli; notăm întrebările.

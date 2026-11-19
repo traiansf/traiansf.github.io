@@ -683,7 +683,7 @@ Transferăm metoda de citire a unui ciclu de viață, nu regulile revistei.
 3. Independent, din altă stare: o comandă J este Plasată, cu două cafele, la ora 10:15. După `anulează(J)`, ce rămâne înregistrat?
 
 ::: notes
-1: refuzat; tranziție interzisă prin regulă, nu rând uitat, deoarece enunțul spune „numai în Plasată”. 2: Ridicată, da (nu există evenimente după); Gata, nu (urmează ridicarea). 3: Anulată, cu produsele și momentul comenzii păstrate. Regulile se citesc din noul enunț; nu importăm retragerea revistei. La laborator, după cursul 8, ciclul de viață se combină cu un expeditor extern și cu reîncercările. Feedbackul pentru proiect poate fi cerut oricând.
+1: refuzat; tranziție interzisă prin regulă, nu rând uitat, deoarece enunțul spune „numai în Plasată”. 2: Ridicată, da (nu există evenimente după); Gata, nu (urmează ridicarea). 3: Anulată, cu produsele și momentul comenzii păstrate. Regulile se citesc din noul enunț; nu importăm retragerea revistei. La laborator, după cursul 8, ciclul de viață se combină cu un serviciu extern de mesagerie și cu reîncercările. Feedbackul pentru proiect poate fi cerut oricând.
 
 **Organizare:** 5 min, încheiere la minutul 100. []{.pace dur=5}
 :::

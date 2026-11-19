@@ -8,7 +8,7 @@ state-names: [Rezervată, Ridicată, Anulată]
 
 # Ce proiectăm azi
 
-Pentru proiecțiile și filmele cluburilor studențești, serviciul tehnic al facultății împrumută echipamente pe bază de rezervare; studenții le ridică de la un **ghișeu cu operator**. Registrul rezervărilor acceptă sau refuză ridicarea; numai după acceptare cere unui **expeditor extern** o notificare. **Notificarea eșuează, ghișeul reîncearcă:** ce are voie să se întâmple cu rezervarea?
+Pentru proiecțiile și filmele cluburilor studențești, serviciul tehnic al facultății împrumută echipamente pe bază de rezervare; studenții le ridică de la un **ghișeu cu operator**. Registrul rezervărilor acceptă sau refuză ridicarea; numai după acceptare cere unui **serviciu extern de mesagerie** o notificare. **Notificarea eșuează, ghișeul reîncearcă:** ce are voie să se întâmple cu rezervarea?
 
 Discutăm în plen pe Teams, apoi, în **atelierul de diagrame**, fiecare desenează diagrama de stări a rezervării: de mână, în Mermaid sau generată cu un asistent AI și revizuită.
 
@@ -33,7 +33,7 @@ Aplicăm stările și tranzițiile din cursul 7 și interacțiunile peste grani�
 [Sursa: Computation and State Machines (2008), p. 1](https://lamport.azurewebsites.net/pubs/state-machine.pdf#page=4)
 
 ::: notes
-Reluăm citatul din cursul 7. Rezervarea de azi este o mașină de stări cu trei stări, pe care o vom și desena; interacțiunea cu expeditorul nu adaugă stări noi ale rezervării, ci pași și o dată în plus: rezultatul notificării.
+Reluăm citatul din cursul 7. Rezervarea de azi este o mașină de stări cu trei stări, pe care o vom și desena; interacțiunea cu mesageria nu adaugă stări noi ale rezervării, ci pași și o dată în plus: rezultatul notificării.
 
 **Sursă:** manuscris pe site-ul autorului, prima propoziție din Introduction, pagina numerotată 1 (pagina PDF 4); reverificată la 12 noiembrie 2026. Vezi `docs/quotations.md`.
 
@@ -50,7 +50,7 @@ Reluăm citatul din cursul 7. Rezervarea de azi este o mașină de stări cu tre
 
 **Reîncercare:** aceeași cerere, trimisă din nou cu același identificator, primește același rezultat, iar efectul ei nu se repetă; o cerere nouă cu același conținut este judecată după reguli.
 
-Astăzi: rezervările au stările **Rezervată**, **Ridicată**, **Anulată**; apelurile sunt secvențiale; expeditorul răspunde `trimis` sau `esec`. `netrimisă` consemnează `esec`, fără să stabilească dacă mesajul a ajuns.
+Astăzi: rezervările au stările **Rezervată**, **Ridicată**, **Anulată**; apelurile sunt secvențiale; mesageria răspunde `trimis` sau `eșec expediție`. `netrimisă` consemnează `eșec expediție`, fără să stabilească dacă mesajul a ajuns.
 
 ::: notes
 Recapitulăm fără exemplele cursurilor: așa judecăm propunerile de azi. Întrebările de verificare rămân aceleași: ce este permis acum, ce se înregistrează, cine coordonează, ce promitem când componenta din exterior eșuează. Diagrama de stări din cursul 7 („Același tabel, desenat”) revine în atelier.
@@ -115,10 +115,10 @@ Rândurile așteptate: Rezervată + `ridică` cu c nou și s titular → Ridicat
 
 **28–50 min · Interacțiunea pas cu pas, apoi reîncercările**
 
-Expeditorul a răspuns `esec`. Ce promite registrul ghișeului?
+Mesageria a răspuns `eșec expediție`. Ce promite registrul ghișeului?
 
 ::: notes
-Scriem interacțiunea pentru cazul normal și pentru eșecul notificării, apoi reîncercarea și cererea nouă. Granița și presupunerile despre expeditor rămân pe slide. Pașii scriși aici sunt materia extensiei din atelier: diagrama de secvență.
+Scriem interacțiunea pentru cazul normal și pentru eșecul notificării, apoi reîncercarea și cererea nouă. Granița și presupunerile despre mesagerie rămân pe slide. Pașii scriși aici sunt materia extensiei din atelier: diagrama de secvență.
 
 **Organizare:** minutul 28 din 100; interval 28–50 (22 min): interacțiune 10, reîncercări 12. []{.pace at=28}
 :::
@@ -129,17 +129,17 @@ Scriem interacțiunea pentru cazul normal și pentru eșecul notificării, apoi 
 
 **Din I, independent:** A este Rezervată, cu titularul T1; c1 este neînregistrat. **R3 (ridicare):** acceptarea trece A în Ridicată și înregistrează momentul ridicării și c1.
 
-**R4 (notificare):** după o ridicare acceptată, registrul cere expeditorului `trimite(mesaj)`, care răspunde `trimis` sau `esec`; registrul înregistrează notificarea `trimisă` sau `netrimisă`; **eșecul nu anulează ridicarea**, ghișeul primește `ridicat`. **R7 (graniță):** presupunem doar că expeditorul răspunde; `esec` nu înseamnă că mesajul nu a ajuns. Refuzul nu apelează expeditorul.
+**R4 (notificare):** după o ridicare acceptată, registrul cere mesageriei `trimite(mesaj)`, care răspunde `trimis` sau `eșec expediție`; registrul înregistrează notificarea `trimisă` sau `netrimisă`; **eșecul nu anulează ridicarea**, ghișeul primește `ridicat`. **R7 (graniță):** presupunem doar că mesageria răspunde; `eșec expediție` nu înseamnă că mesajul nu a ajuns. Refuzul nu apelează mesageria.
 
 În chat, la semnal, scrieți pașii (cine → cui, ce se trimite sau se întoarce, ce înregistrează registrul) pentru:
 
-- scenariul S1 (ridicare confirmată): `ridică(c1, A, T1)`, expeditorul răspunde `trimis`;
-- scenariul S3 (notificare eșuată): `ridică(c1, A, T1)`, expeditorul răspunde `esec`.
+- scenariul S1 (ridicare confirmată): `ridică(c1, A, T1)`, răspuns `trimis`;
+- scenariul S3 (notificare eșuată): `ridică(c1, A, T1)`, răspuns `eșec expediție`.
 
-Apoi în ștafetă: un coleg explică S1, un coleg numit S3, apoi: **în ce pas schimbă registrul starea: înainte sau după apelul expeditorului? Ce s-ar întâmpla cu S3 în ordinea inversă?**
+Apoi în ștafetă: un coleg explică S1, un coleg numit S3, apoi: **în ce pas schimbă registrul starea: înainte sau după apelul mesageriei? Ce s-ar întâmpla cu S3 în ordinea inversă?**
 
 ::: notes
-S1: ghișeu → registru; registrul verifică (A Rezervată, T1 titular, c1 nou), trece A în Ridicată, înregistrează momentul ridicării și c1, notificarea în așteptare; registru → expeditor `trimite`; expeditor → registru `trimis`; registrul înregistrează `trimisă`; registru → ghișeu `ridicat`. S3: identic, cu `esec` și `netrimisă`; răspunsul rămâne `ridicat`. Tranziția precede apelul. În ordinea inversă (starea schimbată numai la `trimis`), la `esec` studentul ar pleca cu echipamentul, iar A ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată.
+S1: ghișeu → registru; registrul verifică (A Rezervată, T1 titular, c1 nou), trece A în Ridicată, înregistrează momentul ridicării și c1, notificarea în așteptare; registru → mesagerie `trimite`; mesagerie → registru `trimis`; registrul înregistrează `trimisă`; registru → ghișeu `ridicat`. S3: identic, cu `eșec expediție` și `netrimisă`; răspunsul rămâne `ridicat`. Tranziția precede apelul. În ordinea inversă (starea schimbată numai la `trimis`), la `eșec expediție` studentul ar pleca cu echipamentul, iar A ar rămâne Rezervată: registrul ar putea accepta încă o ridicare pentru aceeași rezervare, iar R4 ar fi încălcată.
 
 **Organizare:** 10 min: 4 în chat, 6 în ștafetă. []{.pace dur=10}
 :::
@@ -148,17 +148,17 @@ S1: ghișeu → registru; registrul verifică (A Rezervată, T1 titular, c1 nou)
 
 # Reîncercare sau cerere nouă?
 
-**R5 (reîncercare):** o cerere cu c deja înregistrat primește același `ridicat`, fără a doua ridicare; dacă notificarea este `netrimisă`, expeditorul este apelat din nou și rezultatul se actualizează; dacă este `trimisă`, nu. **R3 (ridicare):** o cerere cu c nou pentru o rezervare care nu mai este Rezervată: `refuz`, fără modificări, fără notificare.
+**R5 (reîncercare):** o cerere cu c deja înregistrat primește același `ridicat`, fără a doua ridicare; dacă notificarea este `netrimisă`, mesageria este apelată din nou și rezultatul se actualizează; dacă este `trimisă`, nu. **R3 (ridicare):** o cerere cu c nou pentru o rezervare care nu mai este Rezervată: `refuz`, fără modificări, fără notificare.
 
 În chat, la semnal, scenariile fiind **independente** unul de altul:
 
-- scenariul S4 (reîncercare după eșec): continuarea lui S3 (notificare eșuată: A Ridicată, c1 înregistrat, notificare `netrimisă`): `ridică(c1, A, T1)`, expeditorul răspunde `trimis`;
+- scenariul S4 (reîncercare după eșec): continuarea lui S3 (notificare eșuată: A Ridicată, c1 înregistrat, notificare `netrimisă`): `ridică(c1, A, T1)`, mesageria răspunde `trimis`;
 - scenariul S5 (cerere nouă după ridicare): continuarea lui S1 (ridicare confirmată: A Ridicată, c1 înregistrat, notificare `trimisă`): `ridică(c7, A, T1)`.
 
 În ștafetă, un coleg explică S4, un coleg numit S5: **Ce deosebește cererile pentru același student și aceeași rezervare? Ce garantează registrul ghișeului în fiecare caz?**
 
 ::: notes
-S4: c1 înregistrat → reîncercare; notificarea `netrimisă` → expeditorul apelat din nou → `trimisă`; răspuns `ridicat`; A rămâne Ridicată, o singură ridicare. S5: c7 nou → cerere nouă; A nu este Rezervată → `refuz`, nimic nu se modifică, expeditorul nu este apelat. Le deosebește numai identificatorul cererii. Garanții: o rezervare este ridicată cel mult o dată; reîncercarea primește același rezultat; rezultatul notificării este înregistrat; refuzul nu produce mesaje. Nu garantăm livrarea sau citirea mesajului.
+S4: c1 înregistrat → reîncercare; notificarea `netrimisă` → mesageria apelată din nou → `trimisă`; răspuns `ridicat`; A rămâne Ridicată, o singură ridicare. S5: c7 nou → cerere nouă; A nu este Rezervată → `refuz`, nimic nu se modifică, mesageria nu este apelată. Le deosebește numai identificatorul cererii. Garanții: o rezervare este ridicată cel mult o dată; reîncercarea primește același rezultat; rezultatul notificării este înregistrat; refuzul nu produce mesaje. Nu garantăm livrarea sau citirea mesajului.
 
 **Organizare:** 12 min: 4 în chat, 8 în ștafetă; ajungem la minutul 50. []{.pace dur=12}
 :::
@@ -183,7 +183,7 @@ Desenăm ce am discutat: tabelul de tranziții devine diagramă de stări UML. F
 
 **Individual:** desenați diagrama de stări UML a unei rezervări, după enunț. Alegeți: **de mână**, pe hârtie; **în Mermaid** (`stateDiagram-v2`); sau **generată cu un asistent AI** din enunț și specificație, apoi revizuită de voi, punct cu punct.
 
-**Reguli:** R2 (stări): o rezervare este în exact una dintre stările Rezervată, Ridicată, Anulată; Anulată este o stare finală intenționată. R3 (ridicare): `ridică(c, r, s)` cu c neînregistrat este acceptată numai din Rezervată și numai pentru titular: r trece în Ridicată, se înregistrează momentul ridicării și c. R4 (notificare): apoi registrul cere expeditorului `trimite(mesaj)` și înregistrează notificarea `trimisă` sau `netrimisă`. R5 (reîncercare): cu c deja înregistrat, starea nu se schimbă, iar notificarea `netrimisă` se retrimite. R6 (anulare): `anulează(r)` numai din Rezervată, spre Anulată, fără notificare. În celelalte cazuri, evenimentul este refuzat, fără modificări.
+**Reguli:** R2 (stări): o rezervare este în exact una dintre stările Rezervată, Ridicată, Anulată; Anulată este o stare finală intenționată. R3 (ridicare): `ridică(c, r, s)` cu c neînregistrat este acceptată numai din Rezervată și numai pentru titular: r trece în Ridicată, se înregistrează momentul ridicării și c. R4 (notificare): apoi registrul cere mesageriei `trimite(mesaj)` și înregistrează notificarea `trimisă` sau `netrimisă`. R5 (reîncercare): cu c deja înregistrat, starea nu se schimbă, iar notificarea `netrimisă` se retrimite. R6 (anulare): `anulează(r)` numai din Rezervată, spre Anulată, fără notificare. În celelalte cazuri, evenimentul este refuzat, fără modificări.
 
 **Notația:** o tranziție are eticheta `eveniment [condiție] / efect`; evenimentele refuzate nu se desenează.
 
@@ -240,14 +240,14 @@ Bucla reîncercării pleacă din Ridicată: în Rezervată, c nu poate fi încă
 
 Pentru cine are diagrama de stări verificată: desenați diagrama de secvență UML a scenariului S3 (notificare eșuată), urmat de scenariul S4 (reîncercare după eșec). Ceilalți își corectează diagrama de stări.
 
-**Reguli:** participanții sunt ghișeul, registrul rezervărilor (sistemul nostru) și expeditorul (în afara graniței). R3 (ridicare): o ridicare acceptată trece A în Ridicată și înregistrează momentul și c1. R4 (notificare): apoi registrul cere `trimite(mesaj)`; la `esec` înregistrează `netrimisă`, iar ghișeul primește tot `ridicat`. R5 (reîncercare): cu același c1, starea rămâne Ridicată, iar notificarea `netrimisă` se retrimite; la `trimis` devine `trimisă`. R7 (graniță): despre expeditor presupunem doar că răspunde `trimis` sau `esec`.
+**Reguli:** participanții sunt ghișeul, registrul rezervărilor (sistemul nostru) și mesageria (în afara graniței). R3 (ridicare): o ridicare acceptată trece A în Ridicată și înregistrează momentul și c1. R4 (notificare): apoi registrul cere `trimite(mesaj)`; la `eșec expediție` înregistrează `netrimisă`, iar ghișeul primește tot `ridicat`. R5 (reîncercare): cu același c1, starea rămâne Ridicată, iar notificarea `netrimisă` se retrimite; la `trimis` devine `trimisă`. R7 (graniță): despre mesagerie presupunem doar că răspunde `trimis` sau `eșec expediție`.
 
 **Notația:** mesaj sincron și răspuns; note pentru ce înregistrează registrul; granița în jurul registrului.
 
 [Specificația diagramei de secvență: elemente, Mermaid, listă de verificare](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/diagrame/secventa.md)
 
 ::: notes
-Diagrama de referință este în `lab/scenarios/04-comportament/reference.md`; o puteți partaja celor care termină. Întrebările vin în chat. Punctele de urmărit: schimbarea stării (nota) înaintea apelului `trimite`; răspunsul `ridicat` după `esec`; la reîncercare, nicio notă de schimbare a stării; ghișeul nu apelează niciodată expeditorul.
+Diagrama de referință este în `lab/scenarios/04-comportament/reference.md`; o puteți partaja celor care termină. Întrebările vin în chat. Punctele de urmărit: schimbarea stării (nota) înaintea apelului `trimite`; răspunsul `ridicat` după `eșec expediție`; la reîncercare, nicio notă de schimbare a stării; ghișeul nu apelează niciodată mesageria.
 
 **Organizare:** 7 min: corectare sau extensie; ajungem la minutul 87. []{.pace dur=7}
 :::
@@ -286,11 +286,11 @@ Comparăm diagrama corectată în plen cu referința, punct cu punct; colegii tr
 Un exemplu din discuția voastră pentru fiecare întrebare:
 
 - Ce evenimente sunt permise într-o stare și ce decide un refuz: starea sau condiția?
-- În ce pas schimbă registrul starea față de apelul expeditorului, și de ce?
+- În ce pas schimbă registrul starea față de apelul mesageriei, și de ce?
 - Ce deosebește o reîncercare de o cerere nouă și unde apare reîncercarea pe diagramă?
 - Ce a prins lista de verificare și nu a semnalat randarea?
 
-**Repere:** tranziția precede apelul expeditorului; eșecul notificării este înregistrat, nu ascuns; reîncercarea sosește în Ridicată și primește același rezultat; refuzurile nu au săgeți; o diagramă care se randează trebuie verificată față de enunț.
+**Repere:** tranziția precede apelul mesageriei; eșecul notificării este înregistrat, nu ascuns; reîncercarea sosește în Ridicată și primește același rezultat; refuzurile nu au săgeți; o diagramă care se randează trebuie verificată față de enunț.
 
 ::: notes
 Cereți două sau trei exemple scurte, în ștafetă, cu un coleg numit primul. O explicație bună numește starea de pornire, evenimentul sau pasul, rezultatul și regula. Nu cereți predări, susțineri individuale sau un număr de defecte. Notați numai dificultățile recurente pentru pregătirea următoare. Exercițiul despre ghișeul care nu a primit răspunsul rămâne în sprijinul facultativ, pentru studiu individual.

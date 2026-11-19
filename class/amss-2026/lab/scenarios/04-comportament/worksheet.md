@@ -10,11 +10,11 @@ Pentru fiecare rând: stare curentă → eveniment → condiție → stare urmă
 
 ## Interacțiunea
 
-Pentru `ridică`: cine apelează pe cine, ce se întoarce, ce înregistrează registrul la fiecare pas. Marcați pasul în care se schimbă starea și pasul în care este apelat expeditorul; verificați ce rămâne înregistrat când expeditorul răspunde `esec`. Despre expeditor presupunem numai că răspunde `trimis` sau `esec`.
+Pentru `ridică`: cine apelează pe cine, ce se întoarce, ce înregistrează registrul la fiecare pas. Marcați pasul în care se schimbă starea și pasul în care este apelată mesageria; verificați ce rămâne înregistrat când mesageria răspunde `eșec expediție`. Despre mesagerie presupunem numai că răspunde `trimis` sau `eșec expediție`.
 
 ## Scenarii
 
-Fiecare scenariu S1–S7 din enunț repornește din I (A și B în Rezervată), exceptând continuările marcate. Pentru fiecare, spuneți rezultatul, starea rezervării, ce se înregistrează și dacă expeditorul a fost apelat. La refuz, precizați explicit ce nu se modifică.
+Fiecare scenariu S1–S7 din enunț repornește din I (A și B în Rezervată), exceptând continuările marcate. Pentru fiecare, spuneți rezultatul, starea rezervării, ce se înregistrează și dacă mesageria a fost apelată. La refuz, precizați explicit ce nu se modifică.
 
 ## Atelierul de diagrame
 

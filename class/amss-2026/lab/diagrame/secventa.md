@@ -21,7 +21,7 @@ Puteți desena diagrama de mână, o puteți scrie în Mermaid sau o puteți gen
 | **Participant** (linie de viață) | dreptunghi cu numele, cu o linie verticală punctată sub el | O componentă care trimite sau primește mesaje. Un om (un operator) poate fi desenat ca **actor** (omuleț). |
 | **Graniță** | un chenar cu nume în jurul participanților din sistemul nostru | Ce proiectăm, față de ce cunoaștem doar prin interfață și presupuneri. UML o desenează de obicei separat; în Mermaid o arătăm cu `box`. |
 | **Mesaj sincron** | săgeată plină, cu vârf plin | Un apel: apelantul așteaptă răspunsul înainte să continue. Eticheta este operația, cu parametrii: `trimite(mesaj)`. |
-| **Răspuns** | săgeată întreruptă, înapoi la apelant | Rezultatul apelului sincron, de exemplu `trimis`, `esec`, `refuz`. |
+| **Răspuns** | săgeată întreruptă, înapoi la apelant | Rezultatul apelului sincron, de exemplu `trimis`, `eșec expediție`, `refuz`. |
 | **Mesaj asincron** | săgeată plină, cu vârf deschis | Apelantul trimite mesajul și continuă, fără să aștepte un răspuns. |
 | **Notă** | dreptunghi cu colțul îndoit, peste o linie de viață | Ce verifică sau înregistrează o componentă în acel pas (o schimbare de stare, o dată nouă), sau o presupunere. |
 | **Fragmentul `alt`** | chenar etichetat `alt`, împărțit în ramuri, fiecare cu o condiție `[...]` | Exact una dintre ramuri are loc: prima a cărei condiție este adevărată. Ultima ramură poate fi `[altfel]`. |

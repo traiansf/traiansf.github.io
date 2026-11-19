@@ -19,3 +19,5 @@ Salvați promptul efectiv cu propunerea inclusă înainte de rulare, apoi răspu
 Folosiți [capturile pregătite](../prepared-fixture.md): răspunsuri reale Claude Haiku 4.5, cu fragmente fidele și sursa lor. Regulile rezumate rămân pe ecran, alături de fragmentul analizat. Nu distribuiți încercări separate studenților dacă instrumentul profesorului nu funcționează.
 
 Pentru o analiză nouă, reuniți `analist-instructiune.md` cu [enunțul curent](../scenario.md). Furnizați evaluatorului AI exact aceeași versiune, sarcina și răspunsul integral. Salvați noul prompt și noul hash separat; nu suprascrieți metadatele capturilor existente.
+
+**Denumiri (19 noiembrie 2026):** enunțul curent numește serviciul extern „mesageria” și rezultatul de eșec `eșec expediție`; prompturile și capturile arhivate păstrează „expeditor” și `esec`.
