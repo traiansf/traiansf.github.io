@@ -653,7 +653,7 @@ Diferența dintre cele două încercări este o singură buclă, ușor de trecut
 **Regula noastră:** comparăm fiecare rând al tabelului cu o săgeată, fiecare săgeată cu un rând, apoi accesibilitatea din I0. Tabelul rămâne referința, pentru că arată și efectele asupra datelor.
 
 ::: notes
-Dintre cele 18 încercări, 16 conțin toate rândurile tabelului, fără tranziții în plus (săgețile spre cercul final nu sunt evenimente); numai două, la cererea „compactă”, omit bucla `atașează(f)`, iar una dintre ele afișează și „\n” în etichete. Primele cinci încercări nu s-au randat deloc: aveau stări corecte, dar nume între ghilimele, pe care Mermaid nu le acceptă. Deci nici randarea eșuată nu spune că diagrama este greșită, nici cea reușită că este corectă. Selecția nu descrie comportamentul tipic al modelului. Corecția se justifică prin regulă și scenariu, nu prin aspectul diagramei.
+Dintre cele 18 încercări, 16 conțin toate rândurile tabelului, fără tranziții în plus (săgețile spre cercul final nu sunt evenimente); numai două, la cererea „compactă”, omit bucla `atașează(f)`, iar una dintre ele afișează și `\n` în etichete. Primele cinci încercări nu s-au randat deloc: aveau stări corecte, dar nume între ghilimele, pe care Mermaid nu le acceptă. Deci nici randarea eșuată nu spune că diagrama este greșită, nici cea reușită că este corectă. Selecția nu descrie comportamentul tipic al modelului. Corecția se justifică prin regulă și scenariu, nu prin aspectul diagramei.
 
 **Organizare:** 2 min; încheierea etapei la minutul 95. []{.pace dur=2}
 :::
