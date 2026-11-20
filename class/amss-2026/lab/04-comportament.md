@@ -8,14 +8,14 @@ state-names: [Rezervată, Ridicată, Anulată]
 
 # Ce proiectăm azi
 
-Pentru proiecțiile și filmele cluburilor studențești, serviciul tehnic al facultății împrumută echipamente pe bază de rezervare; studenții le ridică de la un **ghișeu cu operator**. Registrul rezervărilor acceptă sau refuză ridicarea; numai după acceptare cere unui **serviciu extern de mesagerie** o notificare. **Notificarea eșuează, ghișeul reîncearcă:** ce are voie să se întâmple cu rezervarea?
+Pentru proiecțiile și filmele cluburilor studențești, serviciul tehnic al facultății împrumută echipamente pe bază de rezervare; studenții le ridică de la un **ghișeu cu operator**. Registrul rezervărilor acceptă sau refuză ridicarea; numai după acceptare cere unui **serviciu extern de mesagerie** să anunțe **coordonatorul clubului**, care răspunde de echipament și nu este la ghișeu. **Notificarea eșuează, ghișeul reîncearcă:** ce are voie să se întâmple cu rezervarea?
 
 Lucrăm individual și discutăm în plen, apoi, în **atelierul de diagrame**, fiecare desenează diagrama de stări a rezervării: de mână, în Mermaid sau generată cu un asistent AI și revizuită.
 
 Exemplu didactic. Schițele sunt facultative; nu predăm documente. Asistentul AI este opțional; nu sunt necesare conturi AI.
 
 ::: notes
-Aplicăm stările și tranzițiile din cursul 7 și interacțiunile peste graniță din cursul 8. Nu cerem o aplicație, explorarea automată a stărilor sau analiza formală din cursul 9. Stările Rezervată, Ridicată și Anulată sunt precizate în enunț. Prima jumătate discută problema; a doua jumătate desenează aceeași problemă ca diagramă de stări UML.
+Notificarea merge la coordonatorul clubului, nu la student: studentul știe că a ridicat echipamentul, fiindcă îl primește la ghișeu (sau este refuzat pe loc); coordonatorul răspunde de echipament și nu este de față. Aplicăm stările și tranzițiile din cursul 7 și interacțiunile peste graniță din cursul 8. Nu cerem o aplicație, explorarea automată a stărilor sau analiza formală din cursul 9. Stările Rezervată, Ridicată și Anulată sunt precizate în enunț. Prima jumătate discută problema; a doua jumătate desenează aceeași problemă ca diagramă de stări UML.
 
 **Organizare:** minutul 0 din 100; deschidere 0–10 (10 min): problema 3, citatul 2, recapitularea 5. 17 slide-uri cu copertă. []{.pace at=0 of=100 dur=3}
 :::
@@ -80,7 +80,7 @@ Alt student, aceeași rezervare: refuzat de stare sau de condiție?
 
 **R3 (ridicare):** `ridică(c, r, s)` cu c nou este acceptată exact când r este Rezervată și s este titularul: r trece în Ridicată, cu momentul ridicării și c înregistrate; rezultat `ridicat`; altfel `refuz`, fără modificări și fără notificare. **R6 (anulare):** `anulează(r)` este permis numai pentru o rezervare Rezervată, care trece în Anulată, fără notificare; în celelalte cazuri: `refuz`. **R2 (stări):** Anulată este o stare finală intenționată: nu permite evenimente.
 
-1. Individual, din I: scenariul S2 (alt student), `ridică(c1, A, T2)`; scenariul S7 (anulare, apoi ridicare), `anulează(B)`, apoi `ridică(c2, B, T2)`; după scenariul S1 (ridicare confirmată; A Ridicată), scenariul S6 (anulare după ridicare), `anulează(A)`. Rezultat, stare, ce se înregistrează.
+1. Individual, din I: scenariul S2 (alt student), `ridică(c1, A, T2)`; scenariul S7 (anulare, apoi ridicare), `anulează(B)`, apoi `ridică(c2, B, T2)`; după scenariul S1 (ridicare notificată; A Ridicată), scenariul S6 (anulare după ridicare), `anulează(A)`. Rezultat, stare, ce se înregistrează.
 2. În plen: pentru fiecare refuz, ce îl decide: **starea** sau **condiția**?
 
 [Enunțul complet: R1–R8 și scenariile S1–S7](https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/scenarios/04-comportament/scenario.md)
@@ -133,7 +133,7 @@ Scriem interacțiunea pentru cazul normal și pentru eșecul notificării, apoi 
 
 Individual, scrieți pașii (cine → cui, ce se trimite sau se întoarce, ce înregistrează registrul) pentru:
 
-- scenariul S1 (ridicare confirmată): `ridică(c1, A, T1)`, mesageria răspunde `trimis`;
+- scenariul S1 (ridicare notificată): `ridică(c1, A, T1)`, mesageria răspunde `trimis`;
 - scenariul S3 (notificare eșuată): `ridică(c1, A, T1)`, mesageria răspunde `eșec expediție`.
 
 În plen, un coleg explică S1, alt coleg S3, apoi: **în ce pas schimbă registrul starea: înainte sau după apelul mesageriei? Ce s-ar întâmpla cu S3 în ordinea inversă?**
@@ -153,7 +153,7 @@ S1: ghișeu → registru; registrul verifică (A Rezervată, T1 titular, c1 nou)
 Individual, scenariile fiind **independente** unul de altul:
 
 - scenariul S4 (reîncercare după eșec): continuarea lui S3 (notificare eșuată: A Ridicată, c1 înregistrat, notificare `netrimisă`): `ridică(c1, A, T1)`, mesageria răspunde `trimis`;
-- scenariul S5 (cerere nouă după ridicare): continuarea lui S1 (ridicare confirmată: A Ridicată, c1 înregistrat, notificare `trimisă`): `ridică(c7, A, T1)`.
+- scenariul S5 (cerere nouă după ridicare): continuarea lui S1 (ridicare notificată: A Ridicată, c1 înregistrat, notificare `trimisă`): `ridică(c7, A, T1)`.
 
 În plen, un coleg explică S4, alt coleg S5: **Ce deosebește cererile pentru același student și aceeași rezervare? Ce garantează registrul ghișeului în fiecare caz?**
 
