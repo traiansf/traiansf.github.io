@@ -1,5 +1,7 @@
 # Capturi AI — garanțiile la graniță (Cursul 8), 19 noiembrie 2026, a doua serie
 
+**Arhivată la 20 noiembrie 2026.** Enunțul s-a schimbat (răspunsul de eșec `eșec`, R5 fără „poate cere din nou trimiterea”, R6: `trimis` nu înseamnă livrare); slide-urile folosesc acum seria [`../2026-11-20/`](../2026-11-20/README.md). Această serie rămâne neschimbată.
+
 A doua serie din aceeași zi, cu enunțul în forma de pe slide-uri: serviciul extern se numește **mesageria** (nu „expeditor de confirmări”), răspunsul ei de eșec este `eșec expediție` (nu `esec`), iar numărul de locuri este un parametru în R1, cu locurile libere date în starea inițială. Prima serie, cu denumirile anterioare, rămâne neschimbată în `../2026-11-19/`. Lecția și formatul sunt aceleași: **garanții pe care nu le oferă nimeni**, printr-un audit al afirmațiilor (cine oferă fiecare garanție: registrul, site-ul, mesageria sau nimeni).
 
 Instrument: Claude Code 2.1.328, `claude -p --model claude-haiku-4-5 --safe-mode`, fără unelte, fără contextul proiectului, fără sesiuni salvate (vezi `argv` în metadate); `capture.py` este copia neschimbată a celui din `../2026-11-19/`. Fiecare încercare pornește un context nou. Temperatura nu este raportată; efortul nu a fost setat explicit. Metadatele păstrează ora UTC, hash-urile intrărilor și ieșirilor, costul și modelul raportat (`claude-haiku-4-5` la toate).

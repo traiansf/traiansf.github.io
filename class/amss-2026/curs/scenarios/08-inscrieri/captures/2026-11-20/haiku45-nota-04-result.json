@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 15518,
+  "stop_reason": "end_turn",
+  "session_id": "ad1374bd-3074-4961-8013-7622af3e8dfa",
+  "total_cost_usd": 0.017753,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5642,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1292,
+    "output_tokens_details": {
+      "thinking_tokens": 423
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5642,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1292,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5642,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5642
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1292,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5642,
+      "webSearchRequests": 0,
+      "costUSD": 0.017753,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 423,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5642,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Notă de proiectare — Registrul de locuri al centrului cultural\n\n## Scopul sistemului\n\nRegistrul de locuri acceptă cereri de înscriere la ateliere, verifică disponibilitatea și coordonează trimiterea confirmărilor prin intermediul serviciului extern de mesagerie. Sistemul este proiectat pentru fiabilitate: o conexiune eșuată cu mesageria nu compromite înscrierea, iar site-ul poate reîncerca o cerere fără teama de duplicare.\n\n## Fluxul unei înscrierii\n\nCând site-ul trimite o cerere `înscrie(c, participant, atelier)`, registrul execută trei operații atomice:\n\n1. **Validare și acceptare:** verifică dacă participantul nu este deja înscris la atelier și dacă mai sunt locuri disponibile. Dacă ambele condiții sunt îndeplinite, consumă un loc și înregistrează înscrierea cu identificatorul cererii `c`. Dacă validarea eșuează, returnează imediat `refuz` și nu apelează mesageria.\n\n2. **Trimitere confirmare:** pentru orice înscriere acceptată, registrul apelează mesageria cu `trimite(mesaj)`. Mesageria răspunde cu `trimis` sau `eșec`.\n\n3. **Înregistrare rezultat:** registrul consemnează rezultatul confirmării (`trimisă` sau `netrimisă`) la fișa înscrierii. Ambele răspunsuri al site-ului sunt **`acceptat`** — eșecul confirmării nu anulează înscrierea.\n\n## Comportamentul în caz de eșec și reîncercare\n\n**Eșecul mesageriei:** dacă mesageria răspunde `eșec`, participantul rămâne înscris, dar confirmarea rămâne în starea `netrimisă`. Operatorul centrului poate rula `retrimite confirmările()` pentru a reîncerca confirmări neonorate.\n\n**Reîncercările site-ului:** dacă site-ul nu primește răspunsul și retrimite aceeași cerere (cu același `c`), registrul recunoaște `c` ca deja înregistrat. Returnează `acceptat` fără să consume alt loc. Dacă confirmarea precedentă era `trimisă`, nu apelează din nou mesageria (evitând mesaje duplicate). Dacă era `netrimisă`, apelează mesageria o dată.\n\n## Garanții\n\nSistemul garantează:\n\n- **Atomicitate pe apel:** fiecare cerere produce exact o actiune: acceptare, refuz sau reîncercare recunoscută.\n- **Absența duplicării:** identificatorul cererii `c` asigură că aceeași cerere de participant nu generează două înscrierii.\n- **Izolație:** o cerere nu modifică alte înscrierii sau locurile lor.\n- **Coerență**: numărul de locuri consumate = numărul de înscrierii acceptate. Niciodată nu acceptăm mai multe cereri decât locurile disponibile.\n- **Rezilijență:** eșecul mesageriei nu pierde înscrierea; operatorul poate retrimite confirmări neonorate.\n- **Ordonare:** apelurile sunt secvențiale; rezultatele sunt deterministe, dependent doar de cerere și răspunsul mesageriei.",
+  "ttft_ms": 7176,
+  "type": "result",
+  "duration_ms": 16208,
+  "uuid": "6a003f44-9a1a-452f-b22f-74482c4144ac",
+  "ttft_stream_ms": 1994,
+  "time_to_request_ms": 686,
+  "first_content_frame_ms": 1995,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

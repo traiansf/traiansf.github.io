@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 18642,
+  "stop_reason": "end_turn",
+  "session_id": "accfd3c7-336f-4511-a81f-cd95851f4de6",
+  "total_cost_usd": 0.020697,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5624,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1888,
+    "output_tokens_details": {
+      "thinking_tokens": 1336
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5624,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1888,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5624,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5624
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1888,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5624,
+      "webSearchRequests": 0,
+      "costUSD": 0.020697,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 1336,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5624,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Paragraful pentru site\n\n**Ce vă garantăm la înscriere**\n\nLocul vostru la atelier este rezervat doar dacă cererea voastră este acceptată. Dacă vă înscrieti și locul e ocupat sau sunteți deja înscris, nu se consumă un loc suplimentar — primiti doar confirmarea refuzului. Dacă confirmarea nu ajunge din cauza unei probleme tehnice, locul rămâne al vostru și nu este anulat: vă retrimittem mesajul. Dacă retrimiteti aceeași cerere (același formular cu aceleași date), nu veți crea o a doua înscriere — primiti din nou răspunsul la cererea originală. Echipa noastră poate retrimite oricând confirmarile care nu au ajuns.\n\n---\n\n## Justificare tehnică\n\n1. **Loc rezervat doar la acceptare** (R3): Registrul acceptă o cerere doar dacă nu mai figurează deja în sistem, participantul nu este deja înscris la acel atelier și mai este cel puțin un loc liber. În caz contrar, nu consumă locuri.\n\n2. **Protecție împotriva eșecului de confirmare** (R4): O înscrierie rămâne valabilă chiar dacă trimiterea mesajului eșuează. Rezultatul către participant este „acceptat\" în ambele cazuri; locul nu este eliberat.\n\n3. **Reîncercări fără duplicate** (R5): Dacă același identificator de cerere este trimis din nou, registrul întoarce același răspuns și nu consumă noi locuri — nu creează a doua înscriere.\n\n4. **Retrimitere de confirmare**: Operatorul centrului poate folosi operația „retrimite confirmarile()\" care apelează din nou mesageria pentru confirmarile netrimise, fără a modifica înscrierile.\n\n5. **Locuri consumate o singură dată** (R7): Eșecurile și refuzurile nu afectează locurile; nici o altă cerere nu modifică locurile unei inscrieri deja acceptate.",
+  "ttft_ms": 15996,
+  "type": "result",
+  "duration_ms": 18774,
+  "uuid": "a5cd113f-9be6-48f9-ab06-c5564a0179c9",
+  "ttft_stream_ms": 1214,
+  "time_to_request_ms": 148,
+  "first_content_frame_ms": 1214,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

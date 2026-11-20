@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 42175,
+  "stop_reason": "end_turn",
+  "session_id": "d3ca5fbd-ef2b-4799-b99e-0d4b2e9ef261",
+  "total_cost_usd": 0.035324999999999995,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5623,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 4814,
+    "output_tokens_details": {
+      "thinking_tokens": 4155
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5623,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 4814,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5623,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5623
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 4814,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5623,
+      "webSearchRequests": 0,
+      "costUSD": 0.035324999999999995,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 4155,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5623,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Ce vă garantăm la înscriere\n\nLa centrul nostru, garantăm că:\n\n1. **Înscrierea se acceptă imediat** – dacă locul este liber și nu sunteți deja înscris la acest atelier, cererea voastră se acceptă pe loc.\n\n2. **Veți primi o confirmare** – după acceptare, vă trimitem imediat un mesaj de confirmare pe email, cu detaliile atelierului.\n\n3. **Nu vă veți înscrie de două ori din greșeală** – dacă sistemul nu vi s-a afișat răspunsul și reîncercați, nu veți consuma un loc suplimentar; veți primi din nou răspunsul „acceptat\".\n\n4. **Rămâneți înscris chiar dacă confirmarea nu ajunge** – vă garantez că numele vostru este în registrul nostru. Dacă mesajul de confirmare eșuează, echipa noastră va încerca din nou trimiterea, fără să afecteze înscrierea voastră.\n\n---\n\n## Justificare tehnică\n\n**1. Acceptare imediată (Regula R3):** Registrul primește cererea și o verifică instantaneu: dacă identificatorul cererii nu este deja înregistrat, participantul nu este deja înscris la atelier și mai există minimum un loc liber, cererea se acceptă și se consumă imediat un loc.\n\n**2. Confirmare pe email (Regula R4):** După acceptare, registrul apelează serviciul de email extern. Acesta răspunde cu „trimis\" sau „eșec\", iar răspunsul se consemnează în registru.\n\n**3. Fără înscrierea dublă (Regula R5):** Fiecare cerere are un identificator unic generat de site. Dacă site-ul retrimite aceeași cerere (același ID, participant, atelier) din cauza unei reîncercări, registrul o recunoaște și întoarce același răspuns „acceptat\", fără a consuma alt loc.\n\n**4. Înscrierea prevaleaza – confirmarea nu (Regula R4, decizie de proiectare):** Eșecul serviciului de email nu anulează înscrierea acceptată. Site-ul primește răspunsul „acceptat\" indiferent dacă confirmarea ajunge. Pentru confirmările nereușite, echipa poate apela funcția de retransmisie, care încearcă din nou trimiterea mesajelor fără a modifica înscrisurile existente.",
+  "ttft_ms": 39890,
+  "type": "result",
+  "duration_ms": 42988,
+  "uuid": "a2161270-a94c-45e7-9c14-5413082cc413",
+  "ttft_stream_ms": 1679,
+  "time_to_request_ms": 810,
+  "first_content_frame_ms": 1680,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

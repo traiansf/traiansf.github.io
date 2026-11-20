@@ -29,7 +29,7 @@ Starea inițială **I**: A (titular T1, proiector) și B (titular T2, cameră) �
 |---|---|
 | S1: `ridică(c1, A, T1)`, `trimis` | `ridicat`; A Ridicată, c1 înregistrat, notificare `trimisă`. |
 | S2: `ridică(c1, A, T2)` | `refuz` (condiția titularului); exact I; mesageria nu este apelată. |
-| S3: `ridică(c1, A, T1)`, `eșec expediție` | `ridicat`; A Ridicată, c1 înregistrat, notificare `netrimisă`. |
+| S3: `ridică(c1, A, T1)`, `eșec` | `ridicat`; A Ridicată, c1 înregistrat, notificare `netrimisă`. |
 | S4 (după S3): `ridică(c1, A, T1)`, `trimis` | `ridicat` (reîncercare); o singură ridicare; mesageria apelată din nou; notificare `trimisă`. |
 | S5 (după S1): `ridică(c7, A, T1)` | `refuz` (cerere nouă, A nu mai este Rezervată); nimic nu se modifică. |
 | S6 (după S1): `anulează(A)` | `refuz`; A rămâne Ridicată. |
@@ -39,7 +39,7 @@ Tabelul de tranziții așteptat are trei rânduri: Rezervată + `ridică` cu c n
 
 Anulată este finală intenționată. Ridicată permite reîncercarea, deci nu este finală în sensul cursului 7; faptul că ridicarea fizică s-a încheiat nu încheie tratarea notificării.
 
-Interacțiunea: tranziția și înregistrarea lui c preced apelul mesageriei; la `eșec expediție`, notificarea `netrimisă` este înregistrată, iar răspunsul rămâne `ridicat` (R4). Dacă cineva propune schimbarea stării numai la `trimis`, cereți S3 în acea ordine: studentul pleacă cu echipamentul, iar A rămâne Rezervată, deci registrul ar putea accepta încă o ridicare pentru aceeași rezervare. Despre mesagerie presupunem numai că răspunde `trimis` sau `eșec expediție` (R7); nu presupunem că `eșec expediție` înseamnă nelivrare.
+Interacțiunea: tranziția și înregistrarea lui c preced apelul mesageriei; la `eșec`, notificarea `netrimisă` este înregistrată, iar răspunsul rămâne `ridicat` (R4). Dacă cineva propune schimbarea stării numai la `trimis`, cereți S3 în acea ordine: studentul pleacă cu echipamentul, iar A rămâne Rezervată, deci registrul ar putea accepta încă o ridicare pentru aceeași rezervare. Despre mesagerie presupunem numai că răspunde `trimis` sau `eșec` (R7); nu presupunem că `eșec` înseamnă nelivrare.
 
 ## Atelierul de diagrame
 
@@ -63,7 +63,7 @@ Interacțiunea: tranziția și înregistrarea lui c preced apelul mesageriei; la
 
 **Diagrama de referință (87–95):** comparați diagrama corectată în plen cu referința. Variante acceptabile: bucla reîncercării împărțită în două după notificare, efecte formulate mai scurt, tranziții numerotate cu tabel alăturat (ca în cursul 7). Neacceptabile: stări pentru notificare sau refuz, bucle pentru refuzuri, bucla pe Rezervată, starea finală UML după Anulată, efecte noi. Rezultatul `ridicat`/`refuz` întors ghișeului nu apare pe diagrama de stări.
 
-**Extensia (80–87):** diagrama de secvență a scenariului S3 urmat de S4: ghișeu, registru (în interiorul graniței), mesagerie. De urmărit: nota tranziției înaintea apelului `trimite`; `ridicat` după `eșec expediție`; la reîncercare, nicio a doua tranziție; ghișeul nu apelează mesageria. Referința este în `reference.md`; o puteți arăta celor care termină.
+**Extensia (80–87):** diagrama de secvență a scenariului S3 urmat de S4: ghișeu, registru (în interiorul graniței), mesagerie. De urmărit: nota tranziției înaintea apelului `trimite`; `ridicat` după `eșec`; la reîncercare, nicio a doua tranziție; ghișeul nu apelează mesageria. Referința este în `reference.md`; o puteți arăta celor care termină.
 
 Nu se predau, nu se încarcă și nu se notează diagrame.
 

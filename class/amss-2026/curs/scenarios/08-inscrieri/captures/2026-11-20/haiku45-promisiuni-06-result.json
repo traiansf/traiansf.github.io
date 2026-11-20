@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 58177,
+  "stop_reason": "end_turn",
+  "session_id": "76f19a2d-1d44-4747-b91e-6a1045d30a12",
+  "total_cost_usd": 0.05172,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5623,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 8093,
+    "output_tokens_details": {
+      "thinking_tokens": 7497
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5623,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 8093,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5623,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5623
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 8093,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5623,
+      "webSearchRequests": 0,
+      "costUSD": 0.05172,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 7497,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5623,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Ce vă garantăm la înscriere\n\nDupă trimiterea cererii de înscriere, veți afla instant dacă ați fost acceptat. Acceptarea depinde de două condiții: să mai fie locuri libere și să nu fiți deja înscris la acel atelier.\n\nImediat după acceptare, veți primi un mesaj de confirmare prin e-mail. **Chiar dacă mesajul se pierde din cauze tehnice, locul vă rămâne asigurat:** preferăm ca voi să fiți înscriși fără confirmare decât să pierdeți locul din cauza unei defecțiuni a serviciului de mesagerie.\n\nDacă site-ul reîncearcă aceeași cerere de mai multe ori (din cauza unor probleme de conectare), noi o identificăm și o tratăm ca o singură cerere: nu veți fi înscriși de mai multe ori.\n\nDacă nu primiți confirmarea după puțin timp, echipa centrului poate retrimite confirmarea din panoul de control.\n\nPentru ajutor, contactați centrul la [email/telefon].\n\n---\n\n## Justificare tehnică\n\nPromisiunile din paragraf se sprijină pe aceste mecanisme:\n\n**Răspuns instant** — Registrul verifică imediat (R3): sunt locuri libere? Participantul nu este deja înscris? Decide acceptare sau refuz în timp real.\n\n**Confirmare după acceptare** — Conform R4, după fiecare acceptare, registrul cere mesageriei să trimită notificarea și înregistrează permanent rezultatul (trimisă/netrimisă).\n\n**Loc garantat indiferent de confirmare** — R4 prevede că eșecul confirmării NU anulează înscrierea. Locul e consumat la acceptare, înainte de a trimite mesajul.\n\n**Protecție la reîncercări** — Fiecare cerere primește un ID unic de la site (R5). Dacă site-ul retrimite cu același ID, registrul o identifică și întoarce același răspuns, fără a crea o nouă înscrisoare.\n\n**Retransmisie** — Registrul oferă o operație de retransmisie pentru confirmarile marcate „netrimisă\", limitând apeluri inútile la mesagerie.",
+  "ttft_ms": 55535,
+  "type": "result",
+  "duration_ms": 58321,
+  "uuid": "9e514d9d-742a-44f8-be57-f3ed4782b664",
+  "ttft_stream_ms": 1571,
+  "time_to_request_ms": 162,
+  "first_content_frame_ms": 1571,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

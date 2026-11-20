@@ -2,7 +2,7 @@
 
 ## Garanțiile la graniță (de la 19 noiembrie 2026)
 
-Lecția AI a cursului, după decizia din 19 noiembrie 2026: **garanții pe care nu le oferă nimeni**. Studenții auditează afirmațiile unui text generat: pentru fiecare garanție, cine o oferă (registrul, site-ul, expeditorul sau nimeni) și ce regulă a enunțului o susține.
+Lecția AI a cursului, după decizia din 19 noiembrie 2026: **garanții pe care nu le oferă nimeni**. Studenții auditează afirmațiile unui text generat: pentru fiecare garanție, cine o oferă (registrul, site-ul, mesageria sau nimeni) și ce regulă a enunțului o susține.
 
 `context-garantii.md` este enunțul curent (`../brief.md`, regulile R1–R7, starea inițială și scenariile, fără „Alegeri de proiectare” și „Sarcina de proiectare”) plus decizia B a cursului; hash-urile sunt în `context-garantii-metadata.json`. Trei instrucțiuni, fiecare urmată de context în fișierul `*-prompt.md` corespunzător:
 
@@ -10,7 +10,7 @@ Lecția AI a cursului, după decizia din 19 noiembrie 2026: **garanții pe care 
 - `garantii-instructiune.md`: interacțiunea și garanțiile pentru echipa de dezvoltare (consistența datelor, livrarea confirmărilor, repetarea cererilor);
 - `promisiuni-instructiune.md`: paragraful „Ce vă garantăm la înscriere” pentru participanți, cu justificare tehnică.
 
-Capturile reale (20 de rulări) și motivul selecției sunt în [arhiva din 19 noiembrie 2026](../captures/2026-11-19/README.md). Pentru capturi noi, păstrați aceleași fișiere sau salvați prompturi noi cu hash propriu, într-un dosar datat nou.
+Capturile folosite pe slide-uri (22 de rulări) și motivul selecției sunt în [seria din 20 noiembrie 2026](../captures/2026-11-20/README.md); seriile din 19 noiembrie 2026 ([prima](../captures/2026-11-19/README.md), [a doua](../captures/2026-11-19b/README.md)) au fost obținute cu enunțul anterior și rămân arhivate. Pentru capturi noi, păstrați aceleași fișiere sau salvați prompturi noi cu hash propriu, într-un dosar datat nou.
 
 ## Analiza și revizuirea din 12 noiembrie 2026 (arhivate, nefolosite pe slide-uri)
 
@@ -26,4 +26,4 @@ Păstrați în `../captures/<data>/` prompturile exacte, versiunea contextului, 
 
 Pentru o analiză nouă, reuniți `analist-instructiune.md` cu [enunțul curent](../brief.md). Furnizați evaluatorului AI exact aceeași versiune, sarcina și răspunsul integral. Salvați noul prompt și noul hash separat; nu suprascrieți metadatele capturilor existente.
 
-**Denumiri (19 noiembrie 2026):** enunțul curent numește serviciul extern „mesageria” (serviciul de mesagerie), rezultatul lui de eșec `eșec expediție` și lasă numărul de locuri ca parametru în R1. Prompturile `nota-operare`, `garantii` și `promisiuni` din acest dosar și capturile din `../captures/2026-11-19b/` folosesc aceste denumiri; capturile din 12 noiembrie și prima serie din 19 noiembrie păstrează denumirile anterioare („expeditor de confirmări”, `esec`, „2 locuri”).
+**Denumiri (20 noiembrie 2026):** enunțul curent numește serviciul extern „mesageria” (serviciul de mesagerie), rezultatul lui de eșec `eșec` și lasă numărul de locuri ca parametru în R1; R5 nu mai spune că registrul „poate” retrimite, iar R6 spune că `trimis` nu înseamnă livrare. Prompturile `nota-operare`, `garantii` și `promisiuni` din acest dosar și capturile din `../captures/2026-11-20/` folosesc această versiune; seria `../captures/2026-11-19b/` folosea `eșec expediție` și R5 cu „poate”; capturile din 12 noiembrie și prima serie din 19 noiembrie păstrează denumirile anterioare („expeditor de confirmări”, `esec`, „2 locuri”).

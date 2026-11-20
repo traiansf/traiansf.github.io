@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 41751,
+  "stop_reason": "end_turn",
+  "session_id": "40713cc3-51d5-49f9-9d2f-17ea52ad56cc",
+  "total_cost_usd": 0.0406,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5643,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 5861,
+    "output_tokens_details": {
+      "thinking_tokens": 5121
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5643,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 5861,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5643,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5643
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 5861,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5643,
+      "webSearchRequests": 0,
+      "costUSD": 0.0406,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 5121,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5643,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "# Notă de Proiectare — Registrul de Locuri\n\n**Scop:** Registrul de locuri acceptă cereri de înscriere la ateliere cu locuri limitate și coordonează trimiterea de confirmări prin serviciul de mesagerie extern.\n\n## Fluxul de Înscriere\n\nLa primirea cererii `înscrie(c, p, a)`, unde `c` este identificatorul unic al cererii, `p` este participantul și `a` atelierul:\n\n1. Registrul verifică dacă identificatorul `c` este nou. Dacă da, controlează dacă participantul `p` nu este deja înscris la atelierul `a` și dacă există locuri disponibile.\n2. Dacă ambele condiții sunt îndeplinite, înscrierea este acceptată: se consumă un loc și se înregistrează tripletul `(c, p, a)`.\n3. Registrul apelează mesageria cu un mesaj de confirmare și așteptă răspunsul (`trimis` sau `eșec`), care este memorat în evidența înscrierii.\n4. În ambele cazuri, răspunsul transmis site-ului este `acceptat`.\n\n## Eșec și Reîncercare\n\n**Eșec al mesageriei:** Dacă mesageria răspunde `eșec`, înscrierea rămâne valabilă (participantul rămâne înscris) și locul consumat nu se recuperează. Statusul confirmării devine `netrimisă`. Preferința sistemului este că un participant înscris fără confirmare este mai valoros decât riscul dublării.\n\n**Reîncercare cu același identificator:** Când site-ul retrimite cererea cu aceeași valoare `c`, registrul returnează din nou `acceptat` fără a consuma alt loc. Dacă confirmarea anterioară era `trimisă`, mesageria nu este apelată din nou. Dacă era `netrimisă`, registrul apelează mesageria o dată pentru retransmisie și actualizează statusul.\n\n**Cerere nouă a unui participant deja înscris:** Orice identificator nou este refuzat dacă participantul este deja înscris la acel atelier.\n\n## Garanții\n\n1. **Consistență:** Fiecare participant este înscris cel mult o dată la fiecare atelier.\n2. **Capacitate:** Numărul de locuri consumate nu depășește niciodată capacitatea atelierului.\n3. **Idempotență:** Reîncercările returnează același rezultat și nu modifică starea sistemului.\n4. **Izolare:** Fiecare cerere afectează numai propria inscriere; alte înscrisuri rămân neafectate.\n5. **Robustență:** Eșecul confirmării nu anulează înscrierea acceptată.",
+  "ttft_ms": 38239,
+  "type": "result",
+  "duration_ms": 42078,
+  "uuid": "2b099cd8-cded-488e-bb62-a616e1308667",
+  "ttft_stream_ms": 1574,
+  "time_to_request_ms": 261,
+  "first_content_frame_ms": 1574,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

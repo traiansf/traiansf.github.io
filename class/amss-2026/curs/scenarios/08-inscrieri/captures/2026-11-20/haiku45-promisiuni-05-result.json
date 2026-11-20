@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 15260,
+  "stop_reason": "end_turn",
+  "session_id": "4e348fb6-815d-4f6c-8259-cc8ab92d4527",
+  "total_cost_usd": 0.017365000000000002,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5623,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1222,
+    "output_tokens_details": {
+      "thinking_tokens": 581
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5623,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1222,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5623,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5623
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1222,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5623,
+      "webSearchRequests": 0,
+      "costUSD": 0.017365000000000002,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 581,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5623,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Ce vă garantăm la înscriere\n\nDumneavoastră îi comunicați site-ului o cerere de însciere. Registrul nostru garantează:\n\n1. **Spot sigur.** Dacă atelierul are locuri libere și nu sunteți deja înscris, cererea voastră este acceptată. Locul este rezervat imediat. Acceptarea nu depinde de confirmare și nu este anulată dacă confirmarea eșuează.\n\n2. **Notificare.** După acceptare, trimitere o notificare la adresa indicată. Dacă trimiterea eșuează din cauze tehnice, înscriere rămâne valabilă; centrul poate retrimite notificări neinclinate manual.\n\n3. **Coerență.** Dacă nici o schimbare de dată în cerere (participant, atelier) și reîncercați cu același identificator, răspunsul e același și nu se consumă alt loc. Nu vă dublați involuntar.\n\n4. **Fără cozi de așteptare sau anulări.** Modelul acceptă doar înscrieri și nu gestionează liste de așteptare sau anulări (acestea sunt în afara sistemului).\n\n---\n\n## Justificare tehnică\n\n**Spot sigur (R3):** Acceptarea cere trei condiții: ID neînregistrat, participant neînscris la atelier, loc liber. Locul se consumă la acceptare.\n\n**Notificare (R4):** După acceptare, registrul apelează mesageria. Rezultatul (trimis/eșec) se înregistrează, dar nu anulează înscrierea.\n\n**Coerență și fără dublări (R2, R5):** Site-ul generează ID unic per cerere. Reîncercările cu același ID returnează răspunsul deja calculat, fără a consuma alt loc. Dacă confirmarea precedentă s-a trimis, nu se apelează din nou mesageria.\n\n**Retransmitere (decizie de proiectare):** Operația `retrimite confirmările()` permite operatorului să retrimită notificări neinclinate, actualizând doar statusul confirmării, nu înscrierea.\n\n**Garantă limitată la graniță (R6):** Eticheta „trimisă\" înseamnă răspunsul mesageriei, nu livrarea efectivă. Responsabilul mesageriei este operator extern; noi garantez doar trimiterea apelului.",
+  "ttft_ms": 9161,
+  "type": "result",
+  "duration_ms": 16341,
+  "uuid": "e15a6a68-7429-4971-a0f4-7b8726088958",
+  "ttft_stream_ms": 1933,
+  "time_to_request_ms": 1076,
+  "first_content_frame_ms": 1933,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

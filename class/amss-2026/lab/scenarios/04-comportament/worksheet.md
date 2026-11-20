@@ -10,7 +10,7 @@ Pentru fiecare rând: stare curentă → eveniment → condiție → stare urmă
 
 ## Interacțiunea
 
-Pentru `ridică`: cine apelează pe cine, ce se întoarce, ce înregistrează registrul la fiecare pas. Marcați pasul în care se schimbă starea și pasul în care este apelată mesageria; verificați ce rămâne înregistrat când mesageria răspunde `eșec expediție`. Despre mesagerie presupunem numai că răspunde `trimis` sau `eșec expediție`.
+Pentru `ridică`: cine apelează pe cine, ce se întoarce, ce înregistrează registrul la fiecare pas. Marcați pasul în care se schimbă starea și pasul în care este apelată mesageria; verificați ce rămâne înregistrat când mesageria răspunde `eșec`. Despre mesagerie presupunem numai că răspunde `trimis` sau `eșec`.
 
 ## Scenarii
 

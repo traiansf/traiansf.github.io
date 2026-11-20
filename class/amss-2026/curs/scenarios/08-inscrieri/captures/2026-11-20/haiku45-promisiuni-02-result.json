@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 15437,
+  "stop_reason": "end_turn",
+  "session_id": "93440828-5e2c-423a-9552-f588906d138e",
+  "total_cost_usd": 0.017462,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5624,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1241,
+    "output_tokens_details": {
+      "thinking_tokens": 634
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5624,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 1241,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5624,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5624
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 1241,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5624,
+      "webSearchRequests": 0,
+      "costUSD": 0.017462,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 634,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5624,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Ce vă garantăm la înscriere\n\nAtunci când primești răspunsul **„acceptat\"** la cererea de înscriere, locul tău la atelier este **garantat**, indiferent de alte circumstanțe. După acceptare, registrul nostru solicită imediat sistemului de mesagerie să îți trimită o confirmație la adresa ta de email. Înțelegem că nu putem garanta că acel mesaj ajunge întotdeauna (factori externi pot întâmpia), dar pledez ca pledez să îl trimit. Dacă confirmația nu sosește, operatorii centrului pot reîncerca trimiterea la cerere. Dacă trebuie să reîncarci din greșeală cererea de înscriere, sistemul recunoaște încercarea anterioară și nu te va plasa pe o altă poziție în coada — locul tău rămâne cel rezervat prima dată. Înscrierea tă la atelier și locul tău sunt protejate de la momentul acceptării.\n\n---\n\n## Justificare tehnică\n\nGarantiile se sprijină pe structura deciziilor de proiectare:\n\n1. **Locul garantat la acceptare (R3 + R4):** Registrul înregistrează înscrierea și consumă locul *înainte* de a apela mesageria. Chiar dacă confirmarea eșuează, înscrierea rămâne valabilă și răspunsul site-ului este „acceptat\".\n\n2. **Reîncercări fără risc (R5):** Dacă participantul reîncarcă aceeași cerere (cu același ID generat de site), registrul recunoaște cererea și returnează același răspuns fără a crea o nouă înscriere. Niciun loc suplimentar nu este consumat.\n\n3. **Încercare de confirmare (R4 + decizia de proiectare):** După acceptare, registrul apelează mesageria; dacă răspunsul este „eșec\", poate reîncerca prin operația `retrimite confirmări()`, actualizând starea fără a modifica înscrierea.\n\n4. **Izolare față de exterior (R6):** Mesageria este în afara sistemului; nu presupunem livrare efectivă, doar răspunsul mesageriei (trimis/eșec).",
+  "ttft_ms": 9882,
+  "type": "result",
+  "duration_ms": 16431,
+  "uuid": "58b00227-870e-4e17-85a7-d4560f00e1cf",
+  "ttft_stream_ms": 1747,
+  "time_to_request_ms": 991,
+  "first_content_frame_ms": 1747,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

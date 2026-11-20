@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 22475,
+  "stop_reason": "end_turn",
+  "session_id": "6a540a7e-30ba-441b-9db0-fc95d27710c9",
+  "total_cost_usd": 0.02407,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 5623,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2563,
+    "output_tokens_details": {
+      "thinking_tokens": 2036
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5623,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 2563,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 5623,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5623
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 2563,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 5623,
+      "webSearchRequests": 0,
+      "costUSD": 0.02407,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 2036,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 5623,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "## Paragraf pentru site\n\n**Ce vă garantăm la înscriere**\n\nDacă ești acceptat la atelier, locul tău este imediat rezervat și rămâne al tău, chiar dacă confirmarea prin e-mail eșuează. Înscrierea se procesează instant și vei afla imediat dacă ai fost acceptat sau dacă atelierul este plin. Chiar dacă reîncerci din greșeală aceeași cerere, vei fi înscris o singură dată și nu se vor consuma locuri suplimentare. După acceptare, îți trimitem o confirmare prin e-mail. Dacă e-mailul nu ajunge, locul tău rămâne rezervat. Dacă conexiunea se întrerupe și nu ai văzut răspunsul, poți reîncerca cu aceeași cerere fără a risca o a doua înscriiere.\n\n---\n\n## Justificare tehnică pentru centru\n\n1. **(Locul sigur)** Registrul acceptă și consumă un loc *înainte* de a apela mesageria. Eșecul confirmării nu anulează niciodată înscrierea (R4).\n\n2. **(Rezultat instant)** Acceptarea se decide imediat la primire: participant neînscris + loc disponibil = acceptat (R3).\n\n3. **(Fără dublu-înscriiere)** Fiecare cerere are ID unic. Reîncercarea cu același ID returnează același răspuns și nu consumă alt loc (R5).\n\n4. **(E-mail după acceptare)** Pentru fiecare acceptare, registrul apelează mesageria. Rezultatul se înregistrează dar nu afectează înscrierea (R4).\n\n5. **(Reîncercări sigure)** Site-ul reîncercă cu același ID de cerere. Registrul recunoaște ID-ul și nu consumă alt loc. Mesageria se apelează din nou doar dacă confirmarea anterioară era eșuată (R2, R5).",
+  "ttft_ms": 19918,
+  "type": "result",
+  "duration_ms": 22628,
+  "uuid": "cb7fcf6f-9493-4877-be46-c7158334f32b",
+  "ttft_stream_ms": 1154,
+  "time_to_request_ms": 212,
+  "first_content_frame_ms": 1154,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

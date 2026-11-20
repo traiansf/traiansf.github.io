@@ -460,7 +460,7 @@ break-inside: avoid;
 </div>
 <div id="cine-coordonează-o-operație-care-iese-din-sistem" class="slide section level1 transition">
 <h1 class="transition">Cine coordonează o operație care iese din sistem?</h1>
-<p>Registrul a acceptat cererea, serviciul extern a raportat un eșec. Ce îi spunem utilizatorului?</p>
+<p>Sistemul nostru a acceptat o cerere, dar un serviciu extern a raportat un eșec. Ce îi spunem utilizatorului?</p>
 </div>
 <div id="citatul-zilei" class="slide section level1 epigraph">
 <h1 class="epigraph">Citatul zilei</h1>
@@ -480,18 +480,18 @@ break-inside: avoid;
 <h1>Înscriere acceptată, confirmare eșuată</h1>
 <p>Un centru cultural organizează ateliere cu locuri limitate. <strong>Registrul de locuri</strong>, componenta pe care o proiectăm, primește cererile de înscriere de la site și înregistrează înscrierile acceptate. După fiecare înscriere acceptată, registrul cere unui serviciu extern de mesagerie, operat de altă firmă (pe scurt, <strong>mesageria</strong>), să trimită participantului o confirmare.</p>
 <p><strong>Regula convenită cu centrul (beneficiarul):</strong> eșecul confirmării nu anulează o înscriere acceptată; centrul preferă un participant înscris fără confirmare unui participant cu confirmare fără loc.</p>
-<p>P1 cere un loc la atelierul A de fotografie nocturnă. Registrul acceptă, dar mesageria răspunde <code>eșec expediție</code>. <strong>Ce îi spunem <span class="nowrap">site-ului?</span> Ce rămâne înregistrat?</strong></p>
+<p>P1 cere un loc la atelierul A de fotografie nocturnă. Registrul acceptă, dar mesageria răspunde <code>eșec</code>. <strong>Ce îi spunem <span class="nowrap">site-ului?</span> Ce rămâne înregistrat?</strong></p>
 <p><em>Exemplu didactic; registrul nu trimite el însuși mesaje. Lucrăm pe hârtie; toate datele necesare sunt pe <span class="nowrap">slide-uri.</span></em></p>
 </div>
 <div id="aceeași-cerere-a-doua-oară" class="slide section level1">
 <h1>Aceeași cerere, a doua oară</h1>
-<p><strong>Reguli:</strong> atelierul A are un număr fix de locuri. O cerere de înscriere este acceptată dacă participantul nu este înscris și există loc; în celelalte cazuri este refuzată. După acceptare, registrul cere confirmarea mesageriei, care răspunde <code>trimis</code> sau <code>eșec expediție</code>; eșecul confirmării nu anulează înscrierea.</p>
-<p><strong>Înainte:</strong> 2 locuri libere, nicio înscriere. <span class="nowrap">Site-ul</span> trimite <span class="operatie">înscrie(c1, P1, A)</span>, unde c1 este identificatorul cererii; registrul acceptă, iar mesageria răspunde <code>eșec expediție</code>. <span class="nowrap">Site-ul</span> nu ajunge să afișeze răspunsul și trimite din nou <span class="operatie">înscrie(c1, P1, A)</span>.</p>
+<p><strong>Reguli:</strong> atelierul A are un număr fix de locuri. O cerere de înscriere este acceptată dacă participantul nu este înscris și există loc; în celelalte cazuri este refuzată. După acceptare, registrul cere confirmarea mesageriei, care răspunde <code>trimis</code> sau <code>eșec</code>; eșecul confirmării nu anulează înscrierea.</p>
+<p><strong>Înainte:</strong> 2 locuri libere, nicio înscriere. <span class="nowrap">Site-ul</span> trimite <span class="operatie">înscrie(c1, P1, A)</span>, unde c1 este identificatorul cererii; registrul acceptă, iar mesageria răspunde <code>eșec</code>. <span class="nowrap">Site-ul</span> nu ajunge să afișeze răspunsul și trimite din nou <span class="operatie">înscrie(c1, P1, A)</span>.</p>
 <p>Individual, apoi discutăm: regulile de mai sus nu spun nimic despre o cerere primită a doua oară. <strong>Ce ar răspunde un registru care îi aplică regula de acceptare? Ce ar trebui să răspundă și ce ar trebui să rămână înregistrat?</strong></p>
 </div>
 <div id="interacțiune-graniță-coordonare" class="slide section level1">
 <h1>Interacțiune, graniță, coordonare</h1>
-<p>O <strong>interacțiune</strong> este succesiunea apelurilor prin care mai multe componente realizează o operație: cine apelează pe cine, ce trimite, ce primește, ce înregistrează. Ordinea aleasă a pașilor este <strong>fluxul de lucru</strong> al operației.</p>
+<p>O <strong>interacțiune</strong> este schimbul de apeluri și răspunsuri prin care mai multe componente realizează o operație: cine apelează pe cine, ce trimite, ce primește. <strong>Fluxul de lucru</strong> al operației organizează toți pașii ei, apeluri și pași interni (decizii, înregistrări): ce pas trebuie <span class="nowrap">să-l</span> preceadă pe altul și ce pași sunt independenți.</p>
 <p><strong>Granița</strong> sistemului nostru separă componentele pe care le proiectăm de cele cu care doar comunicăm: unele ne apelează, pe altele le apelăm. Despre o componentă din exterior pe care o apelăm cunoaștem <strong>interfața</strong> ei și ce <strong>presupunem</strong> despre ea; nu îi cunoaștem pașii.</p>
 <p><strong>Coordonarea</strong> este responsabilitatea de a conduce pașii unei operații: de a decide ordinea, de a înregistra rezultatul fiecărui pas și de a răspunde apelantului, inclusiv când un pas eșuează sau când cererea vine a doua oară.</p>
 <p>Pentru înscrieri le precizăm pe rând și le verificăm pe scenarii. Nu modelăm plata, lista de așteptare, concurența sau erorile tehnice din interiorul registrului.</p>
@@ -529,7 +529,7 @@ break-inside: avoid;
 </tr>
 <tr>
 <td>R4 (confirmare)</td>
-<td>După acceptare, registrul cere mesageriei <span class="operatie">trimite(mesaj)</span>, care răspunde <code>trimis</code> sau <code>eșec expediție</code>; registrul înregistrează confirmarea <code>trimisă</code> sau <code>netrimisă</code>. Eșecul confirmării nu anulează înscrierea; <span class="nowrap">site-ul</span> primește <code>acceptat</code>.</td>
+<td>După acceptare, registrul cere mesageriei <span class="operatie">trimite(mesaj)</span>, care răspunde <code>trimis</code> sau <code>eșec</code>; registrul înregistrează confirmarea <code>trimisă</code> sau <code>netrimisă</code>, după ultimul răspuns al mesageriei. Eșecul confirmării nu anulează înscrierea; <span class="nowrap">site-ul</span> primește <code>acceptat</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -552,11 +552,11 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td>R5 (reîncercare)</td>
-<td>O cerere cu c deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere. Dacă confirmarea este <code>netrimisă</code>, registrul poate cere din nou trimiterea; dacă este <code>trimisă</code>, nu apelează mesageria.</td>
+<td>O cerere cu c deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere. Dacă confirmarea este <code>trimisă</code>, registrul nu apelează mesageria.</td>
 </tr>
 <tr>
 <td>R6 (graniță)</td>
-<td>Despre mesagerie presupunem doar că răspunde la fiecare apel cu <code>trimis</code> sau <code>eșec expediție</code>. <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns; <code>trimis</code> nu înseamnă că a fost citit. <code>netrimisă</code> consemnează <code>eșec expediție</code>, nu nelivrarea.</td>
+<td>Despre mesagerie presupunem doar că răspunde la fiecare apel cu <code>trimis</code> sau <code>eșec</code>. <code>eșec</code> nu înseamnă că mesajul nu a ajuns; <code>trimis</code> nu înseamnă că mesajul a ajuns, nici că a fost citit. <code>netrimisă</code> consemnează <code>eșec</code>, nu nelivrarea.</td>
 </tr>
 <tr>
 <td>R7 (efect limitat)</td>
@@ -565,15 +565,16 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
+<p>În afara regulilor: la o reîncercare cu confirmarea <code>netrimisă</code>, regulile nu cer și nu interzic o nouă trimitere; o alegem mai târziu.</p>
 </div>
 <div id="granița-și-interfața-mesageriei" class="slide section level1">
 <h1>Granița și interfața mesageriei</h1>
 <img role="img" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibXktc3ZnIiB3aWR0aD0iMTAwJSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgY2xhc3M9ImZsb3djaGFydCIgc3R5bGU9Im1heC13aWR0aDogMTA2MC42NnB4OyBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTsiIHZpZXdCb3g9IjQgNCAxMDYwLjY1NjI1IDIxNyIgcm9sZT0iZ3JhcGhpY3MtZG9jdW1lbnQgZG9jdW1lbnQiIGFyaWEtcm9sZWRlc2NyaXB0aW9uPSJmbG93Y2hhcnQtdjIiIGFyaWEtZGVzY3JpYmVkYnk9ImNoYXJ0LWRlc2MtbXktc3ZnIiBhcmlhLWxhYmVsbGVkYnk9ImNoYXJ0LXRpdGxlLW15LXN2ZyI+PHRpdGxlIGlkPSJjaGFydC10aXRsZS1teS1zdmciPkdyYW5pyJthIHJlZ2lzdHJ1bHVpIGRlIGxvY3VyaTwvdGl0bGU+PGRlc2MgaWQ9ImNoYXJ0LWRlc2MtbXktc3ZnIj5TaXRlLXVsIGFwZWxlYXrEgyByZWdpc3RydWwgY3Ugw65uc2NyaWU7IHJlZ2lzdHJ1bCwgc2luZ3VydWwgZGluIGludGVyaW9ydWwgZ3JhbmnIm2VpLCBhcGVsZWF6xIMgbWVzYWdlcmlhIGN1IHRyaW1pdGUuPC9kZXNjPjxzdHlsZT4jbXktc3Zne2ZvbnQtZmFtaWx5OkFyaWFsO2ZvbnQtc2l6ZToyOHB4O2ZpbGw6IzBBMjE0NTt9QGtleWZyYW1lcyBlZGdlLWFuaW1hdGlvbi1mcmFtZXtmcm9te3N0cm9rZS1kYXNob2Zmc2V0OjA7fX1Aa2V5ZnJhbWVzIGRhc2h7dG97c3Ryb2tlLWRhc2hvZmZzZXQ6MDt9fSNteS1zdmcgLmVkZ2UtYW5pbWF0aW9uLXNsb3d7c3Ryb2tlLWRhc2hhcnJheTo5LDUhaW1wb3J0YW50O3N0cm9rZS1kYXNob2Zmc2V0OjkwMDthbmltYXRpb246ZGFzaCA1MHMgbGluZWFyIGluZmluaXRlO3N0cm9rZS1saW5lY2FwOnJvdW5kO30jbXktc3ZnIC5lZGdlLWFuaW1hdGlvbi1mYXN0e3N0cm9rZS1kYXNoYXJyYXk6OSw1IWltcG9ydGFudDtzdHJva2UtZGFzaG9mZnNldDo5MDA7YW5pbWF0aW9uOmRhc2ggMjBzIGxpbmVhciBpbmZpbml0ZTtzdHJva2UtbGluZWNhcDpyb3VuZDt9I215LXN2ZyAuZXJyb3ItaWNvbntmaWxsOmhzbCgxMiwgMjYuMzE1Nzg5NDczNyUsIDEwMCUpO30jbXktc3ZnIC5lcnJvci10ZXh0e2ZpbGw6IzAwMDAwMDtzdHJva2U6IzAwMDAwMDt9I215LXN2ZyAuZWRnZS10aGlja25lc3Mtbm9ybWFse3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgLmVkZ2UtdGhpY2tuZXNzLXRoaWNre3N0cm9rZS13aWR0aDozLjVweDt9I215LXN2ZyAuZWRnZS1wYXR0ZXJuLXNvbGlke3N0cm9rZS1kYXNoYXJyYXk6MDt9I215LXN2ZyAuZWRnZS10aGlja25lc3MtaW52aXNpYmxle3N0cm9rZS13aWR0aDowO2ZpbGw6bm9uZTt9I215LXN2ZyAuZWRnZS1wYXR0ZXJuLWRhc2hlZHtzdHJva2UtZGFzaGFycmF5OjM7fSNteS1zdmcgLmVkZ2UtcGF0dGVybi1kb3R0ZWR7c3Ryb2tlLWRhc2hhcnJheToyO30jbXktc3ZnIC5tYXJrZXJ7ZmlsbDojMDg3MzczO3N0cm9rZTojMDg3MzczO30jbXktc3ZnIC5tYXJrZXIuY3Jvc3N7c3Ryb2tlOiMwODczNzM7fSNteS1zdmcgc3Zne2ZvbnQtZmFtaWx5OkFyaWFsO2ZvbnQtc2l6ZToyOHB4O30jbXktc3ZnIHB7bWFyZ2luOjA7fSNteS1zdmcgLmxhYmVse2ZvbnQtZmFtaWx5OkFyaWFsO2NvbG9yOiMwQTIxNDU7fSNteS1zdmcgLmNsdXN0ZXItbGFiZWwgdGV4dHtmaWxsOiMwMDAwMDA7fSNteS1zdmcgLmNsdXN0ZXItbGFiZWwgc3Bhbntjb2xvcjojMDAwMDAwO30jbXktc3ZnIC5jbHVzdGVyLWxhYmVsIHNwYW4gcHtiYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50O30jbXktc3ZnIC5sYWJlbCB0ZXh0LCNteS1zdmcgc3BhbntmaWxsOiMwQTIxNDU7Y29sb3I6IzBBMjE0NTt9I215LXN2ZyAubm9kZSByZWN0LCNteS1zdmcgLm5vZGUgY2lyY2xlLCNteS1zdmcgLm5vZGUgZWxsaXBzZSwjbXktc3ZnIC5ub2RlIHBvbHlnb24sI215LXN2ZyAubm9kZSBwYXRoe2ZpbGw6I0YzRjdGODtzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIC5yb3VnaC1ub2RlIC5sYWJlbCB0ZXh0LCNteS1zdmcgLm5vZGUgLmxhYmVsIHRleHQsI215LXN2ZyAuaW1hZ2Utc2hhcGUgLmxhYmVsLCNteS1zdmcgLmljb24tc2hhcGUgLmxhYmVse3RleHQtYW5jaG9yOm1pZGRsZTt9I215LXN2ZyAubm9kZSAua2F0ZXggcGF0aHtmaWxsOiMwMDA7c3Ryb2tlOiMwMDA7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyAucm91Z2gtbm9kZSAubGFiZWwsI215LXN2ZyAubm9kZSAubGFiZWwsI215LXN2ZyAuaW1hZ2Utc2hhcGUgLmxhYmVsLCNteS1zdmcgLmljb24tc2hhcGUgLmxhYmVse3RleHQtYWxpZ246Y2VudGVyO30jbXktc3ZnIC5ub2RlLmNsaWNrYWJsZXtjdXJzb3I6cG9pbnRlcjt9I215LXN2ZyAucm9vdCAuYW5jaG9yIHBhdGh7ZmlsbDojMDg3MzczIWltcG9ydGFudDtzdHJva2Utd2lkdGg6MDtzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyAuYXJyb3doZWFkUGF0aHtmaWxsOiMwYjBiMGI7fSNteS1zdmcgLmVkZ2VQYXRocyAucGF0aHtzdHJva2U6IzA4NzM3MztzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIC5mbG93Y2hhcnQtbGlua3tzdHJva2U6IzA4NzM3MztmaWxsOm5vbmU7fSNteS1zdmcgLmVkZ2VMYWJlbHtiYWNrZ3JvdW5kLWNvbG9yOmhzbCg3MiwgMjYuMzE1Nzg5NDczNyUsIDk2LjI3NDUwOTgwMzklKTt0ZXh0LWFsaWduOmNlbnRlcjt9I215LXN2ZyAuZWRnZUxhYmVsIHB7YmFja2dyb3VuZC1jb2xvcjpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7fSNteS1zdmcgLmVkZ2VMYWJlbCByZWN0e29wYWNpdHk6MC41O2JhY2tncm91bmQtY29sb3I6aHNsKDcyLCAyNi4zMTU3ODk0NzM3JSwgOTYuMjc0NTA5ODAzOSUpO2ZpbGw6aHNsKDcyLCAyNi4zMTU3ODk0NzM3JSwgOTYuMjc0NTA5ODAzOSUpO30jbXktc3ZnIC5sYWJlbEJrZ3tiYWNrZ3JvdW5kLWNvbG9yOnJnYmEoMjQ3LCAyNDgsIDI0Mi45OTk5OTk5OTk5LCAwLjUpO30jbXktc3ZnIC5jbHVzdGVyIHJlY3R7ZmlsbDojRkZGRkZGO3N0cm9rZTojMEEyMTQ1O3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgLmNsdXN0ZXIgdGV4dHtmaWxsOiMwMDAwMDA7fSNteS1zdmcgLmNsdXN0ZXIgc3Bhbntjb2xvcjojMDAwMDAwO30jbXktc3ZnIC5ub2RlIC5jb2xsYXBzZWQtaW5kaWNhdG9ye2ZpbGw6IzBBMjE0NTtzdHJva2U6bm9uZTtvcGFjaXR5OjAuNjt9I215LXN2ZyAubm9kZSAuY29sbGFwc2VkLXNlcGFyYXRvcntzdHJva2U6IzBBMjE0NTtzdHJva2Utd2lkdGg6MC43NXB4O30jbXktc3ZnIGRpdi5tZXJtYWlkVG9vbHRpcHtwb3NpdGlvbjphYnNvbHV0ZTt0ZXh0LWFsaWduOmNlbnRlcjttYXgtd2lkdGg6MjAwcHg7cGFkZGluZzoycHg7Zm9udC1mYW1pbHk6QXJpYWw7Zm9udC1zaXplOjEycHg7YmFja2dyb3VuZDpoc2woMTIsIDI2LjMxNTc4OTQ3MzclLCAxMDAlKTtib3JkZXI6MXB4IHNvbGlkIGhzbCgxMiwgMCUsIDkwJSk7Ym9yZGVyLXJhZGl1czoycHg7cG9pbnRlci1ldmVudHM6bm9uZTt6LWluZGV4OjEwMDt9I215LXN2ZyAuZmxvd2NoYXJ0VGl0bGVUZXh0e3RleHQtYW5jaG9yOm1pZGRsZTtmb250LXNpemU6MThweDtmaWxsOiMwQTIxNDU7fSNteS1zdmcgcmVjdC50ZXh0e2ZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MDt9I215LXN2ZyAuaWNvbi1zaGFwZSwjbXktc3ZnIC5pbWFnZS1zaGFwZXtiYWNrZ3JvdW5kLWNvbG9yOmhzbCg3MiwgMjYuMzE1Nzg5NDczNyUsIDk2LjI3NDUwOTgwMzklKTt0ZXh0LWFsaWduOmNlbnRlcjt9I215LXN2ZyAuaWNvbi1zaGFwZSBwLCNteS1zdmcgLmltYWdlLXNoYXBlIHB7YmFja2dyb3VuZC1jb2xvcjpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7cGFkZGluZzoycHg7fSNteS1zdmcgLmljb24tc2hhcGUgLmxhYmVsIHJlY3QsI215LXN2ZyAuaW1hZ2Utc2hhcGUgLmxhYmVsIHJlY3R7b3BhY2l0eTowLjU7YmFja2dyb3VuZC1jb2xvcjpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7ZmlsbDpoc2woNzIsIDI2LjMxNTc4OTQ3MzclLCA5Ni4yNzQ1MDk4MDM5JSk7fSNteS1zdmcgLmxhYmVsLWljb257ZGlzcGxheTppbmxpbmUtYmxvY2s7aGVpZ2h0OjFlbTtvdmVyZmxvdzp2aXNpYmxlO3ZlcnRpY2FsLWFsaWduOi0wLjEyNWVtO30jbXktc3ZnIC5ub2RlIC5sYWJlbC1pY29uIHBhdGh7ZmlsbDpjdXJyZW50Q29sb3I7c3Ryb2tlOnJldmVydDtzdHJva2Utd2lkdGg6cmV2ZXJ0O30jbXktc3ZnIC5ub2RlIC5uZW8tbm9kZXtzdHJva2U6IzA4NzM3Mzt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHJlY3QsI215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5jbHVzdGVyIHJlY3QsI215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHBvbHlnb257c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtmaWx0ZXI6ZHJvcC1zaGFkb3coIDFweCAycHggMnB4IHJnYmEoMTg1LDE4NSwxODUsMSkpO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLnN3aW1sYW5lLmNsdXN0ZXIgcmVjdHtmaWx0ZXI6bm9uZTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHBhdGh7c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgLm91dGVyLXBhdGh7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIC5uZW8tbGluZSBwYXRoe3N0cm9rZTojMDg3MzczO2ZpbHRlcjpub25lO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgY2lyY2xle3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIGNpcmNsZSAuc3RhdGUtc3RhcnR7ZmlsbDojMDAwMDAwO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLmljb24tc2hhcGUgLmljb257ZmlsbDp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5pY29uLXNoYXBlIC5pY29uLW5lbyBwYXRoe3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyA6cm9vdHstLW1lcm1haWQtZm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO308L3N0eWxlPjxnPjxtYXJrZXIgaWQ9Im15LXN2Z19mbG93Y2hhcnQtdjItcG9pbnRFbmQiIGNsYXNzPSJtYXJrZXIgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9IjUiIHJlZlk9IjUiIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjgiIG1hcmtlckhlaWdodD0iOCIgb3JpZW50PSJhdXRvIj48cGF0aCBkPSJNIDAgMCBMIDEwIDUgTCAwIDEwIHoiIGNsYXNzPSJhcnJvd01hcmtlclBhdGgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDE7IHN0cm9rZS1kYXNoYXJyYXk6IDEsIDA7Ii8+PC9tYXJrZXI+PG1hcmtlciBpZD0ibXktc3ZnX2Zsb3djaGFydC12Mi1wb2ludFN0YXJ0IiBjbGFzcz0ibWFya2VyIGZsb3djaGFydC12MiIgdmlld0JveD0iMCAwIDEwIDEwIiByZWZYPSI0LjUiIHJlZlk9IjUiIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjgiIG1hcmtlckhlaWdodD0iOCIgb3JpZW50PSJhdXRvIj48cGF0aCBkPSJNIDAgNSBMIDEwIDEwIEwgMTAgMCB6IiBjbGFzcz0iYXJyb3dNYXJrZXJQYXRoIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxOyBzdHJva2UtZGFzaGFycmF5OiAxLCAwOyIvPjwvbWFya2VyPjxtYXJrZXIgaWQ9Im15LXN2Z19mbG93Y2hhcnQtdjItcG9pbnRFbmQtbWFyZ2luIiBjbGFzcz0ibWFya2VyIGZsb3djaGFydC12MiIgdmlld0JveD0iMCAwIDExLjUgMTQiIHJlZlg9IjExLjUiIHJlZlk9IjciIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjEwLjUiIG1hcmtlckhlaWdodD0iMTQiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTSAwIDAgTCAxMS41IDcgTCAwIDE0IHoiIGNsYXNzPSJhcnJvd01hcmtlclBhdGgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDA7IHN0cm9rZS1kYXNoYXJyYXk6IDEsIDA7Ii8+PC9tYXJrZXI+PG1hcmtlciBpZD0ibXktc3ZnX2Zsb3djaGFydC12Mi1wb2ludFN0YXJ0LW1hcmdpbiIgY2xhc3M9Im1hcmtlciBmbG93Y2hhcnQtdjIiIHZpZXdCb3g9IjAgMCAxMS41IDE0IiByZWZYPSIxIiByZWZZPSI3IiBtYXJrZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hcmtlcldpZHRoPSIxMS41IiBtYXJrZXJIZWlnaHQ9IjE0IiBvcmllbnQ9ImF1dG8iPjxwb2x5Z29uIHBvaW50cz0iMCw3IDExLjUsMTQgMTEuNSwwIiBjbGFzcz0iYXJyb3dNYXJrZXJQYXRoIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwOyBzdHJva2UtZGFzaGFycmF5OiAxLCAwOyIvPjwvbWFya2VyPjxtYXJrZXIgaWQ9Im15LXN2Z19mbG93Y2hhcnQtdjItY2lyY2xlRW5kIiBjbGFzcz0ibWFya2VyIGZsb3djaGFydC12MiIgdmlld0JveD0iMCAwIDEwIDEwIiByZWZYPSIxMSIgcmVmWT0iNSIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBtYXJrZXJXaWR0aD0iMTEiIG1hcmtlckhlaWdodD0iMTEiIG9yaWVudD0iYXV0byI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjUiIGNsYXNzPSJhcnJvd01hcmtlclBhdGgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDE7IHN0cm9rZS1kYXNoYXJyYXk6IDEsIDA7Ii8+PC9tYXJrZXI+PG1hcmtlciBpZD0ibXktc3ZnX2Zsb3djaGFydC12Mi1jaXJjbGVTdGFydCIgY2xhc3M9Im1hcmtlciBmbG93Y2hhcnQtdjIiIHZpZXdCb3g9IjAgMCAxMCAxMCIgcmVmWD0iLTEiIHJlZlk9IjUiIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjExIiBtYXJrZXJIZWlnaHQ9IjExIiBvcmllbnQ9ImF1dG8iPjxjaXJjbGUgY3g9IjUiIGN5PSI1IiByPSI1IiBjbGFzcz0iYXJyb3dNYXJrZXJQYXRoIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAxOyBzdHJva2UtZGFzaGFycmF5OiAxLCAwOyIvPjwvbWFya2VyPjxtYXJrZXIgaWQ9Im15LXN2Z19mbG93Y2hhcnQtdjItY2lyY2xlRW5kLW1hcmdpbiIgY2xhc3M9Im1hcmtlciBmbG93Y2hhcnQtdjIiIHZpZXdCb3g9IjAgMCAxMCAxMCIgcmVmWT0iNSIgcmVmWD0iMTIuMjUiIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjE0IiBtYXJrZXJIZWlnaHQ9IjE0IiBvcmllbnQ9ImF1dG8iPjxjaXJjbGUgY3g9IjUiIGN5PSI1IiByPSI1IiBjbGFzcz0iYXJyb3dNYXJrZXJQYXRoIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwOyBzdHJva2UtZGFzaGFycmF5OiAxLCAwOyIvPjwvbWFya2VyPjxtYXJrZXIgaWQ9Im15LXN2Z19mbG93Y2hhcnQtdjItY2lyY2xlU3RhcnQtbWFyZ2luIiBjbGFzcz0ibWFya2VyIGZsb3djaGFydC12MiIgdmlld0JveD0iMCAwIDEwIDEwIiByZWZYPSItMiIgcmVmWT0iNSIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBtYXJrZXJXaWR0aD0iMTQiIG1hcmtlckhlaWdodD0iMTQiIG9yaWVudD0iYXV0byI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjUiIGNsYXNzPSJhcnJvd01hcmtlclBhdGgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDA7IHN0cm9rZS1kYXNoYXJyYXk6IDEsIDA7Ii8+PC9tYXJrZXI+PG1hcmtlciBpZD0ibXktc3ZnX2Zsb3djaGFydC12Mi1jcm9zc0VuZCIgY2xhc3M9Im1hcmtlciBjcm9zcyBmbG93Y2hhcnQtdjIiIHZpZXdCb3g9IjAgMCAxMSAxMSIgcmVmWD0iMTIiIHJlZlk9IjUuMiIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBtYXJrZXJXaWR0aD0iMTEiIG1hcmtlckhlaWdodD0iMTEiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTSAxLDEgbCA5LDkgTSAxMCwxIGwgLTksOSIgY2xhc3M9ImFycm93TWFya2VyUGF0aCIgc3R5bGU9InN0cm9rZS13aWR0aDogMjsgc3Ryb2tlLWRhc2hhcnJheTogMSwgMDsiLz48L21hcmtlcj48bWFya2VyIGlkPSJteS1zdmdfZmxvd2NoYXJ0LXYyLWNyb3NzU3RhcnQiIGNsYXNzPSJtYXJrZXIgY3Jvc3MgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTEgMTEiIHJlZlg9Ii0xIiByZWZZPSI1LjIiIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjExIiBtYXJrZXJIZWlnaHQ9IjExIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMSwxIGwgOSw5IE0gMTAsMSBsIC05LDkiIGNsYXNzPSJhcnJvd01hcmtlclBhdGgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDI7IHN0cm9rZS1kYXNoYXJyYXk6IDEsIDA7Ii8+PC9tYXJrZXI+PG1hcmtlciBpZD0ibXktc3ZnX2Zsb3djaGFydC12Mi1jcm9zc0VuZC1tYXJnaW4iIGNsYXNzPSJtYXJrZXIgY3Jvc3MgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTUgMTUiIHJlZlg9IjE3LjciIHJlZlk9IjcuNSIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBtYXJrZXJXaWR0aD0iMTIiIG1hcmtlckhlaWdodD0iMTIiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTSAxLDEgTCAxNCwxNCBNIDEsMTQgTCAxNCwxIiBjbGFzcz0iYXJyb3dNYXJrZXJQYXRoIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAyLjU7Ii8+PC9tYXJrZXI+PG1hcmtlciBpZD0ibXktc3ZnX2Zsb3djaGFydC12Mi1jcm9zc1N0YXJ0LW1hcmdpbiIgY2xhc3M9Im1hcmtlciBjcm9zcyBmbG93Y2hhcnQtdjIiIHZpZXdCb3g9IjAgMCAxNSAxNSIgcmVmWD0iLTMuNSIgcmVmWT0iNy41IiBtYXJrZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hcmtlcldpZHRoPSIxMiIgbWFya2VySGVpZ2h0PSIxMiIgb3JpZW50PSJhdXRvIj48cGF0aCBkPSJNIDEsMSBMIDE0LDE0IE0gMSwxNCBMIDE0LDEiIGNsYXNzPSJhcnJvd01hcmtlclBhdGgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDIuNTsgc3Ryb2tlLWRhc2hhcnJheTogMSwgMDsiLz48L21hcmtlcj48ZyBjbGFzcz0icm9vdCI+PGcgY2xhc3M9ImNsdXN0ZXJzIj48ZyBjbGFzcz0iY2x1c3RlciIgaWQ9Im15LXN2Zy1pbnRlcmlvciIgZGF0YS1sb29rPSJuZW8iPjxyZWN0IHN0eWxlPSIiIHg9IjQzMS4zOTA2MjUiIHk9IjEyIiB3aWR0aD0iMjAwLjk2ODc1IiBoZWlnaHQ9IjIwMSIvPjxnIGNsYXNzPSJjbHVzdGVyLWxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MzUuMzkwNjI1LCAxMikiPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxOTIuOTY4NzUiIGhlaWdodD0iNDIiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiB0YWJsZS1jZWxsOyB3aGl0ZS1zcGFjZTogbm93cmFwOyBsaW5lLWhlaWdodDogMS41OyI+PHNwYW4gY2xhc3M9Im5vZGVMYWJlbCI+PHA+U2lzdGVtdWwgbm9zdHJ1PC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48L2c+PGcgY2xhc3M9ImVkZ2VzIGVkZ2VQYXRocyI+PHBhdGggZD0iTTE2NCwxMzVMNDIxLjM5MDYyNSwxMzVMNDUxLjM5MDYyNSwxMzUiIGlkPSJteS1zdmctTF9TX1JfMCIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCBmbG93Y2hhcnQtbGluayIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCAyODMuMzkwNjI1IDQ7IHN0cm9rZS1kYXNob2Zmc2V0OiAwOzsiIGRhdGEtZWRnZT0idHJ1ZSIgZGF0YS1ldD0iZWRnZSIgZGF0YS1pZD0iTF9TX1JfMCIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TVRZMExDSjVJam94TXpWOUxIc2llQ0k2TkRJeExqTTVNRFl5TlN3aWVTSTZNVE0xZlN4N0luZ2lPalExTlM0ek9UQTJNalVzSW5raU9qRXpOWDFkIiBkYXRhLWxvb2s9Im5lbyIgbWFya2VyLWVuZD0idXJsKCNteS1zdmdfZmxvd2NoYXJ0LXYyLXBvaW50RW5kLW1hcmdpbikiLz48cGF0aCBkPSJNNjA3LjM5MDYyNSwxMzVMNjQ0LjM1OTM3NSwxMzVMODg5LjkyMTg3NSwxMzUiIGlkPSJteS1zdmctTF9SX0VfMCIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCBmbG93Y2hhcnQtbGluayIgc3R5bGU9InN0cm9rZS1kYXNoYXJyYXk6IDAgMCAyNzguNTMxMjUgNDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7OyIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJMX1JfRV8wIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZOakEzTGpNNU1EWXlOU3dpZVNJNk1UTTFmU3g3SW5naU9qWTBOQzR6TlRrek56VXNJbmtpT2pFek5YMHNleUo0SWpvNE9UTXVPVEl4T0RjMUxDSjVJam94TXpWOVhRPT0iIGRhdGEtbG9vaz0ibmVvIiBtYXJrZXItZW5kPSJ1cmwoI215LXN2Z19mbG93Y2hhcnQtdjItcG9pbnRFbmQtbWFyZ2luKSIvPjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVscyI+PGcgY2xhc3M9ImVkZ2VMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjkyLjY5NTMxMjUsIDEzNC41KSI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJMX1NfUl8wIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtODguNjk1MzEyNSwgLTIxKSI+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjE3Ny4zOTA2MjUiIGhlaWdodD0iNDIiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPsOubnNjcmllKGMsIHAsIGEpPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3NjkuMTQwNjI1LCAxMzQuNSkiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iTF9SX0VfMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTg0Ljc4MTI1LCAtMjEpIj48Zm9yZWlnbk9iamVjdCB3aWR0aD0iMTY5LjU2MjUiIGhlaWdodD0iNDIiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIGNsYXNzPSJsYWJlbEJrZyIgc3R5bGU9ImRpc3BsYXk6IHRhYmxlLWNlbGw7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGxpbmUtaGVpZ2h0OiAxLjU7IG1heC13aWR0aDogMjAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsiPjxzcGFuIGNsYXNzPSJlZGdlTGFiZWwiPjxwPnRyaW1pdGUobWVzYWopPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48L2c+PGcgY2xhc3M9Im5vZGVzIj48ZyBjbGFzcz0ibm9kZSBkZWZhdWx0IiBpZD0ibXktc3ZnLWZsb3djaGFydC1TLTAiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4OCwgMTM1KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgeD0iLTc2IiB5PSItMzMiIHdpZHRoPSIxNTIiIGhlaWdodD0iNjYiLz48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MCwgLTIxKSI+PHJlY3QvPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDIiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiB0YWJsZTsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAxMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyB3aWR0aDogMTIwcHg7Ij48c3BhbiBjbGFzcz0ibm9kZUxhYmVsIj48cD5TaXRlPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0ibm9kZSBkZWZhdWx0IiBpZD0ibXktc3ZnLWZsb3djaGFydC1SLTEiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzEuMzkwNjI1LCAxMzUpIj48cmVjdCBjbGFzcz0iYmFzaWMgbGFiZWwtY29udGFpbmVyIiBzdHlsZT0iIiB4PSItNzYiIHk9Ii01NCIgd2lkdGg9IjE1MiIgaGVpZ2h0PSIxMDgiLz48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MCwgLTQyKSI+PHJlY3QvPjxmb3JlaWduT2JqZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iODQiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiB0YWJsZTsgd2hpdGUtc3BhY2U6IGJyZWFrLXNwYWNlczsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAxMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyB3aWR0aDogMTIwcHg7Ij48c3BhbiBjbGFzcz0ibm9kZUxhYmVsIj48cD5SZWdpc3RydWwgZGUgbG9jdXJpPC9wPjwvc3Bhbj48L2Rpdj48L2ZvcmVpZ25PYmplY3Q+PC9nPjwvZz48ZyBjbGFzcz0ibm9kZSBkZWZhdWx0IiBpZD0ibXktc3ZnLWZsb3djaGFydC1FLTMiIGRhdGEtbG9vaz0ibmVvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NzUuMjg5MDYyNSwgMTM1KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgeD0iLTgxLjM2NzE4NzUiIHk9Ii0zMyIgd2lkdGg9IjE2Mi43MzQzNzUiIGhlaWdodD0iNjYiLz48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02NS4zNjcxODc1LCAtMjEpIj48cmVjdC8+PGZvcmVpZ25PYmplY3Qgd2lkdGg9IjEzMC43MzQzNzUiIGhlaWdodD0iNDIiPjxkaXYgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiIHN0eWxlPSJkaXNwbGF5OiB0YWJsZTsgd2hpdGUtc3BhY2U6IGJyZWFrLXNwYWNlczsgbGluZS1oZWlnaHQ6IDEuNTsgbWF4LXdpZHRoOiAxMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyB3aWR0aDogMTIwcHg7Ij48c3BhbiBjbGFzcz0ibm9kZUxhYmVsIj48cD5NZXNhZ2VyaWU8L3A+PC9zcGFuPjwvZGl2PjwvZm9yZWlnbk9iamVjdD48L2c+PC9nPjwvZz48L2c+PC9nPjxkZWZzPjxmaWx0ZXIgaWQ9Im15LXN2Zy1kcm9wLXNoYWRvdyIgaGVpZ2h0PSIxMzAlIiB3aWR0aD0iMTMwJSI+PGZlRHJvcFNoYWRvdyBkeD0iNCIgZHk9IjQiIHN0ZERldmlhdGlvbj0iMCIgZmxvb2Qtb3BhY2l0eT0iMC4wNiIgZmxvb2QtY29sb3I9IiMwMDAwMDAiLz48L2ZpbHRlcj48L2RlZnM+PGRlZnM+PGZpbHRlciBpZD0ibXktc3ZnLWRyb3Atc2hhZG93LXNtYWxsIiBoZWlnaHQ9IjE1MCUiIHdpZHRoPSIxNTAlIj48ZmVEcm9wU2hhZG93IGR4PSIyIiBkeT0iMiIgc3RkRGV2aWF0aW9uPSIwIiBmbG9vZC1vcGFjaXR5PSIwLjA2IiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIvPjwvZmlsdGVyPjwvZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9Im15LXN2Zy1ncmFkaWVudCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDg3MzczIiBzdG9wLW9wYWNpdHk9IjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9ImhzbCg3MiwgMCUsIDg2LjI3NDUwOTgwMzklKSIgc3RvcC1vcGFjaXR5PSIxIi8+PC9saW5lYXJHcmFkaWVudD48L3N2Zz4=" style="max-width: 37.9em" />
 <p>Săgeata înseamnă „apelează”. <strong>Diagrama arată numai cine pe cine apelează; ce știm despre mesagerie scriem lângă ea:</strong></p>
 <ul>
-<li><strong>Interfața:</strong> <span class="operatie">trimite(mesaj)</span> întoarce <code>trimis</code> sau <code>eșec expediție</code>.</li>
+<li><strong>Interfața:</strong> <span class="operatie">trimite(mesaj)</span> întoarce <code>trimis</code> sau <code>eșec</code>.</li>
 <li><strong>R6 (graniță), ce presupunem:</strong> răspunde la fiecare apel.</li>
-<li><strong>Ce nu presupunem:</strong> că <code>eșec expediție</code> înseamnă „mesajul nu a ajuns”; că <code>trimis</code> înseamnă „a fost citit”; cât durează.</li>
+<li><strong>Ce nu presupunem:</strong> că <code>eșec</code> înseamnă „mesajul nu a ajuns”; că <code>trimis</code> înseamnă „mesajul a ajuns” sau „a fost citit”; cât durează.</li>
 </ul>
 </div>
 <div id="cine-coordonează" class="slide section level1">
@@ -601,7 +602,7 @@ break-inside: avoid;
 </tr>
 <tr>
 <td align="left">Mesagerie</td>
-<td align="left">încearcă trimiterea și răspunde <code>trimis</code> sau <code>eșec expediție</code></td>
+<td align="left">încearcă trimiterea și răspunde <code>trimis</code> sau <code>eșec</code></td>
 </tr>
 </tbody>
 </table>
@@ -648,7 +649,7 @@ break-inside: avoid;
 </div>
 <div id="ce-răspunde-registrul" class="slide section level1">
 <h1>Ce răspunde registrul?</h1>
-<p><strong>Reguli:</strong> cerere nouă: acceptată dacă participantul nu este înscris și există loc. Reîncercare: <code>acceptat</code>, fără alt loc; confirmarea <code>netrimisă</code> poate fi retrimisă. <code>eșec expediție</code> nu anulează înscrierea; refuzul nu modifică nimic și nu apelează mesageria.</p>
+<p><strong>Reguli:</strong> cerere nouă: acceptată dacă participantul nu este înscris și există loc. Reîncercare: <code>acceptat</code>, fără alt loc; cu confirmarea <code>trimisă</code>, mesageria nu este apelată. <code>eșec</code> nu anulează înscrierea; refuzul nu modifică nimic și nu apelează mesageria.</p>
 <p><strong>Pornire (rândurile <span class="nowrap">1–3,</span> independente):</strong> 1 loc liber; (c1, P1, A), confirmare <code>netrimisă</code>.</p>
 <div class="table-wrap">
 <table>
@@ -678,7 +679,7 @@ break-inside: avoid;
 </tr>
 <tr>
 <td align="left">3</td>
-<td align="left"><span class="operatie">înscrie(c2, P2, A)</span>, cu <code>eșec expediție</code></td>
+<td align="left"><span class="operatie">înscrie(c2, P2, A)</span>, cu <code>eșec</code></td>
 <td align="left">?</td>
 <td align="left">?</td>
 <td align="left">?</td>
@@ -745,12 +746,12 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p>Decizia și înregistrarea (pasul 2) preced apelul mesageriei (pasul 3). <strong>Ce știe registrul între pașii 3 și 4?</strong></p>
+<p>Decizia și înregistrarea (pasul 2) preced apelul mesageriei (pasul 3). Pasul 5 nu depinde de răspunsul mesageriei (R4), deci poate avea loc în paralel cu pașii <span class="nowrap">3–4.</span> <strong>Ce știe registrul între pașii 3 și 4?</strong></p>
 </div>
 <div id="scenariul-s2-confirmare-eșuată" class="slide section level1">
 <h1>Scenariul S2 (confirmare eșuată)</h1>
 <p><strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea; <span class="nowrap">site-ul</span> primește <code>acceptat</code>.</p>
-<p><strong>Din I</strong> (2 locuri libere, nicio înscriere): <span class="operatie">înscrie(c1, P1, A)</span>; răspuns <code>eșec expediție</code>.</p>
+<p><strong>Din I</strong> (2 locuri libere, nicio înscriere): <span class="operatie">înscrie(c1, P1, A)</span>; răspuns <code>eșec</code>.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -783,7 +784,7 @@ break-inside: avoid;
 </tr>
 <tr>
 <td align="left">4</td>
-<td align="left">Mesagerie → Registru: <code>eșec expediție</code></td>
+<td align="left">Mesagerie → Registru: <code>eșec</code></td>
 <td align="left">confirmare <strong><code>netrimisă</code></strong></td>
 </tr>
 <tr>
@@ -798,27 +799,27 @@ break-inside: avoid;
 </div>
 <div id="reîncercarea-după-eșec-și-după-succes" class="slide section level1">
 <h1>Reîncercarea după eșec și după succes</h1>
-<p><strong>R5 (reîncercare):</strong> o cerere cu identificator deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere. La <code>trimisă</code>, mesageria nu este apelată. <strong>Alegerea noastră pentru acest exercițiu:</strong> la <code>netrimisă</code>, o apelăm o dată și înregistrăm rezultatul. R5 permite această alegere, fără să o impună.</p>
+<p><strong>R5 (reîncercare):</strong> o cerere cu identificator deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere. La <code>trimisă</code>, mesageria nu este apelată. <strong>Alegerea noastră pentru acest exercițiu:</strong> la <code>netrimisă</code>, o apelăm o dată și înregistrăm rezultatul. Regulile nu cer și nu interzic această alegere.</p>
 <p><strong>Scenariul S3 (reîncercare după eșec):</strong> continuarea scenariului S2 (confirmare eșuată: 1 loc liber; (c1, P1, A) cu confirmare <code>netrimisă</code>): <span class="operatie">înscrie(c1, P1, A)</span>; mesageria răspunde <code>trimis</code>, dacă este apelată.</p>
 <p><strong>Scenariul S4 (reîncercare după succes):</strong> continuarea scenariului S1 (înscriere confirmată: 1 loc liber; (c1, P1, A) cu confirmare <code>trimisă</code>): <span class="operatie">înscrie(c1, P1, A)</span>.</p>
-<p>Pe hârtie, apoi discutăm: scrieți pașii fiecărui scenariu ca în tabelele anterioare. Ce pas din S1 lipsește din amândouă? <strong>Dacă în S3 mesageria ar răspunde din nou <code>eșec expediție</code>, ce ar primi <span class="nowrap">site-ul</span> și câte mesaje ar fi putut primi P1?</strong></p>
+<p>Pe hârtie, apoi discutăm: scrieți pașii fiecărui scenariu ca în tabelele anterioare. Ce pas din S1 lipsește din amândouă? <strong>Dacă în S3 mesageria ar răspunde din nou <code>eșec</code>, ce ar primi <span class="nowrap">site-ul</span> și câte mesaje ar fi putut primi P1?</strong></p>
 </div>
 <div id="două-ordini-ale-pașilor" class="slide section level1">
 <h1>Două ordini ale pașilor</h1>
-<p><strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea. <strong>R6 (graniță):</strong> <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns.</p>
-<p><strong>Pornire:</strong> c1 nou, P1 neînscris, un loc liber. <strong>Fluxul F (exemplu didactic):</strong> apelează întâi mesageria; înregistrează numai la <code>trimis</code>, iar la <code>eșec expediție</code> întoarce <code>refuz</code>.</p>
+<p><strong>R4 (confirmare):</strong> eșecul nu anulează înscrierea. <strong>R6 (graniță):</strong> <code>eșec</code> nu înseamnă nelivrare.</p>
+<p><strong>Pornire:</strong> c1 nou, P1 neînscris, un loc liber. <strong>Fluxul nostru:</strong> înregistrează, apoi apelează mesageria. <strong>Fluxul F (exemplu didactic):</strong> apelează întâi mesageria; înregistrează numai la <code>trimis</code>; la <code>eșec</code>, <code>refuz</code>.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
-<col width="14%" />
-<col width="42%" />
-<col width="42%" />
+<col width="19%" />
+<col width="40%" />
+<col width="40%" />
 </colgroup>
 <thead>
 <tr>
-<th align="left">Mesagerie</th>
-<th align="left">Înregistrăm, apoi trimitem</th>
-<th align="left">Fluxul F</th>
+<th align="left">Mesageria răspunde</th>
+<th align="left">Fluxul nostru: <span class="nowrap">site-ul</span> primește; rămâne înregistrat</th>
+<th align="left">Fluxul F: <span class="nowrap">site-ul</span> primește; rămâne înregistrat</th>
 </tr>
 </thead>
 <tbody>
@@ -828,14 +829,14 @@ break-inside: avoid;
 <td align="left"><code>acceptat</code>; înscriere</td>
 </tr>
 <tr>
-<td align="left"><code>eșec expediție</code></td>
+<td align="left"><code>eșec</code></td>
 <td align="left"><code>acceptat</code>; înscriere, confirmare <code>netrimisă</code></td>
 <td align="left"><code>refuz</code>; nicio înscriere; mesaj posibil livrat</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Ce încalcă F? Ce ar crede P1 dacă a primit totuși mesajul? <strong>Dar un flux care apelează întâi mesageria și înregistrează apoi înscrierea, oricare ar fi răspunsul: prin ce ar diferi de al nostru?</strong></p>
+<p>Ce încalcă F? Ce crede P1 dacă a primit totuși mesajul? <strong>Un flux care apelează întâi mesageria și înregistrează apoi oricum: prin ce diferă de al nostru?</strong></p>
 </div>
 <div id="ce-garantează-registrul-și-ce-nu" class="slide section level1">
 <h1>Ce garantează registrul și ce nu</h1>
@@ -876,18 +877,19 @@ break-inside: avoid;
 </div>
 <div id="comparăm-variante-de-recuperare" class="slide section level1 transition">
 <h1 class="transition">Comparăm variante de recuperare</h1>
-<p>Mesageria a răspuns <code>eșec expediție</code>. Cine cere din nou trimiterea și când?</p>
+<p>Mesageria a răspuns <code>eșec</code>. Cine cere din nou trimiterea și când?</p>
 </div>
 <div id="un-flux-care-înregistrează-de-două-ori" class="slide section level1">
 <h1>Un flux care înregistrează de două ori</h1>
 <p><strong>Fluxul G (exemplu didactic, construit pentru verificare):</strong> registrul <strong>nu înregistrează identificatorul cererii</strong> și verifică numai dacă există loc liber; înregistrează, apoi apelează mesageria.</p>
 <p><strong>Reguli:</strong> o reîncercare (același identificator) nu consumă alt loc și primește același <code>acceptat</code>; o cerere nouă a unui participant înscris este refuzată.</p>
-<p><strong>Din I</strong> (2 locuri libere, nicio înscriere), sub G: <span class="operatie">înscrie(c1, P1, A)</span> cu <code>eșec expediție</code>; apoi reîncercarea <span class="operatie">înscrie(c1, P1, A)</span>; apoi <span class="operatie">înscrie(c2, P2, A)</span>.</p>
-<p>Pe hârtie, apoi discutăm: după fiecare cerere, <strong>locurile libere, înscrierile și răspunsul</strong>. Ce regulă încalcă G și la care pas? Dacă G ar verifica și „participantul nu este înscris”, ce ar răspunde la reîncercare?</p>
+<p><strong>Din I</strong> (2 locuri libere, nicio înscriere), sub G: <span class="operatie">înscrie(c1, P1, A)</span> cu <code>eșec</code>; apoi reîncercarea <span class="operatie">înscrie(c1, P1, A)</span>; apoi <span class="operatie">înscrie(c2, P2, A)</span>.</p>
+<p>Pe hârtie, apoi discutăm: după fiecare cerere, <strong>locurile libere, înscrierile și răspunsul</strong>. Ce regulă încalcă G și la care pas?</p>
+<p><strong>Fluxul G′:</strong> tot fără identificator, dar un participant deja înscris primește <code>acceptat</code>, fără alt loc. Prin ce diferă de regulile noastre la reîncercare? Dar la o cerere nouă a lui P1?</p>
 </div>
-<div id="trei-variante-după-eșec-expediție" class="slide section level1">
-<h1>Trei variante după <code>eșec expediție</code></h1>
-<p><strong>R4 (confirmare):</strong> eșecul nu anulează înscrierea. <strong>R6 (graniță):</strong> <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns.</p>
+<div id="trei-variante-după-eșec" class="slide section level1">
+<h1>Trei variante după <code>eșec</code></h1>
+<p><strong>R4 (confirmare):</strong> eșecul nu anulează înscrierea. <strong>R6 (graniță):</strong> <code>eșec</code> nu înseamnă că mesajul nu a ajuns.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -920,7 +922,7 @@ break-inside: avoid;
 <tr>
 <td align="left"><strong>C</strong></td>
 <td align="left">anulează înscrierea</td>
-<td align="left"><code>eșec expediție</code> înseamnă „mesajul nu a ajuns”</td>
+<td align="left"><code>eșec</code> înseamnă „mesajul nu a ajuns”</td>
 <td align="left">încalcă R4; confirmare posibilă fără loc</td>
 </tr>
 </tbody>
@@ -930,7 +932,7 @@ break-inside: avoid;
 </div>
 <div id="care-variantă-și-cu-ce-justificare" class="slide section level1">
 <h1>Care variantă și cu ce justificare?</h1>
-<p><strong>R4 (confirmare):</strong> eșecul nu anulează înscrierea. <strong>R6 (graniță):</strong> <code>eșec expediție</code> nu stabilește dacă mesajul a ajuns. <strong>R5 (reîncercare):</strong> o cerere deja acceptată primește același <code>acceptat</code>.</p>
+<p><strong>R4 (confirmare):</strong> eșecul nu anulează înscrierea. <strong>R6 (graniță):</strong> <code>eșec</code> nu stabilește dacă mesajul a ajuns. <strong>R5 (reîncercare):</strong> o cerere deja acceptată primește același <code>acceptat</code>.</p>
 <p><strong>Variantele:</strong> A, retrimitere imediată; B, confirmare <code>netrimisă</code> și retrimitere <span class="nowrap">printr-o</span> operație separată; C, anularea înscrierii.</p>
 <p>Individual, apoi discutăm:</p>
 <ol style="list-style-type: decimal">
@@ -941,7 +943,7 @@ break-inside: avoid;
 </div>
 <div id="decizia-noastră-varianta-b" class="slide section level1">
 <h1>Decizia noastră: varianta B</h1>
-<p><strong>R4 (confirmare):</strong> înscrierea rămâne acceptată la <code>eșec expediție</code>. <strong>R5 (reîncercare):</strong> putem retrimite o confirmare <code>netrimisă</code>. <strong>R6 (graniță):</strong> nu cunoaștem livrarea efectivă.</p>
+<p><strong>R4 (confirmare):</strong> înscrierea rămâne acceptată la <code>eșec</code>. <strong>R5 (reîncercare):</strong> interzice apelul mesageriei numai la <code>trimisă</code>. <strong>R6 (graniță):</strong> nu cunoaștem livrarea efectivă.</p>
 <p><strong>Alegem B: retrimitere ulterioară</strong>, cu responsabilități explicite:</p>
 <ul>
 <li><span class="operatie">înscrie</span> apelează mesageria o dată la acceptare și o dată la reîncercare dacă rezultatul este <code>netrimisă</code>;</li>
@@ -966,58 +968,57 @@ break-inside: avoid;
 </div>
 <div id="paragraful-promisiunile-1-și-2" class="slide section level1">
 <h1>Paragraful: promisiunile 1 și 2</h1>
-<p><strong>Asistentul AI — Claude Haiku 4.5, 19 noiembrie 2026, una dintre șase rulări; fragmente:</strong></p>
-<blockquote>
-<p><strong>1. Locul este vostru imediat.</strong> […] înscrierea este acceptată și locul vă este rezervat în registru în acel moment — indiferent de ce se întâmplă după.</p>
-<p><strong>2. Veți primi o confirmare.</strong> Sistemul vă va trimite o confirmare a înscrierii. Dacă prima încercare de trimitere eșuează din motive tehnice, o vom reîncerca automat.</p>
-<p><em>Din justificare:</em> […] Dacă confirmarea inițială este netrimisă, registrul o reîncearcă automat; […]</p>
-</blockquote>
-<p><strong>R4 (confirmare):</strong> după acceptare, registrul cere mesageriei trimiterea; eșecul ei nu anulează înscrierea. <strong>R5 (reîncercare):</strong> la o reîncercare cu confirmarea <code>netrimisă</code>, registrul poate cere din nou trimiterea. <strong>R6 (graniță):</strong> presupunem doar că mesageria răspunde <code>trimis</code> sau <code>eșec expediție</code>. <strong>Varianta B (retrimitere ulterioară):</strong> în rest, o cere un operator.</p>
+<p><strong>Asistentul AI — Claude Haiku 4.5, 20 noiembrie 2026, una dintre șase rulări; fragmente:</strong></p>
+<ol class="incremental" style="list-style-type: decimal">
+<li><p><strong>Înscrierea se acceptă imediat</strong> – dacă locul este liber și nu sunteți deja înscris la acest atelier, cererea voastră se acceptă pe loc.</p></li>
+<li><p><strong>Veți primi o confirmare</strong> – după acceptare, vă trimitem imediat un mesaj de confirmare pe email, cu detaliile atelierului.</p></li>
+</ol>
+<p><strong>R3 (acceptare):</strong> o cerere nouă este acceptată exact când participantul nu este înscris și există loc. <strong>R4 (confirmare):</strong> după acceptare, registrul cere mesageriei trimiterea și înregistrează răspunsul; eșecul nu anulează înscrierea. <strong>R6 (graniță):</strong> presupunem doar că mesageria răspunde <code>trimis</code> sau <code>eșec</code>; <code>trimis</code> nu înseamnă că mesajul a ajuns.</p>
 <p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune și pe ce regulă se sprijină?</strong></p>
 </div>
 <div id="paragraful-promisiunile-3-și-4" class="slide section level1">
 <h1>Paragraful: promisiunile 3 și 4</h1>
 <p><strong>Aceeași rulare; fragmente:</strong></p>
-<blockquote>
-<p><strong>3. Nu veți fi <span class="nowrap">dublu-înscriși</span> dacă reîncercați.</strong> Dacă din orice motiv retrimiteti aceeași cerere (de exemplu, pentru a verifica răspunsul), sistemul vă va recunoaște: nu se va crea o a doua încriere și nu se va consuma un al doilea loc.</p>
-<p><strong>4. Eșecul confirmării nu vă anulează înscrierea.</strong> […] Chiar dacă confirmarea tehnică întârzie sau nu ajunge, veți rămâne înscris […]</p>
-</blockquote>
-<p><strong>R2 (cerere):</strong> <span class="nowrap">site-ul</span> generează identificatorul cererii; când reîncearcă, trimite același identificator, iar o cerere nouă primește altul. <strong>R3 (acceptare):</strong> o cerere nouă este acceptată numai dacă participantul nu este înscris și există loc; altfel <code>refuz</code>. <strong>R5 (reîncercare):</strong> o cerere cu identificatorul deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere.</p>
-<p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune?</strong> Participantul apasă din nou butonul, iar <span class="nowrap">site-ul</span> trimite o <strong>cerere nouă</strong>. Ce primește? Îl „recunoaște” sistemul?</p>
+<ol class="incremental" start="3" style="list-style-type: decimal">
+<li><p><strong>Nu vă veți înscrie de două ori din greșeală</strong> – dacă sistemul nu vi <span class="nowrap">s-a</span> afișat răspunsul și reîncercați, nu veți consuma un loc suplimentar; veți primi din nou răspunsul „acceptat”.</p></li>
+<li><p><strong>Rămâneți înscris chiar dacă confirmarea nu ajunge</strong> – […] Dacă mesajul de confirmare eșuează, echipa noastră va încerca din nou trimiterea, […]</p></li>
+</ol>
+<p><strong>R2 (cerere):</strong> la reîncercare, <span class="nowrap">site-ul</span> trimite același identificator; o cerere nouă primește altul. <strong>R3 (acceptare):</strong> o cerere nouă a unui participant înscris primește <code>refuz</code>. <strong>R5 (reîncercare):</strong> un identificator înregistrat primește același <code>acceptat</code>, fără alt loc. <strong>Varianta B:</strong> un operator apelează <span class="operatie">retrimite confirmările()</span>, care încearcă numai confirmările <code>netrimisă</code>.</p>
+<p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune?</strong> Ce primește participantul dacă <span class="nowrap">site-ul</span> trimite o <strong>cerere nouă</strong>? Cine reîncearcă după un <code>trimis</code> fără livrare?</p>
 </div>
-<div id="alte-rulări-nota-pentru-echipa-de-operare" class="slide section level1">
-<h1>Alte rulări: nota pentru echipa de operare</h1>
-<p><strong>Aceleași reguli; nota pentru echipa de operare, rularea 05; fragmente din lista de garanții:</strong></p>
+<div id="alte-rulări-atomicitate-pentru-acceptare" class="slide section level1">
+<h1>Alte rulări: „atomicitate pentru acceptare”</h1>
+<p><strong>Aceleași reguli; garanțiile pentru echipa de dezvoltare, rularea 04; două puncte din listă:</strong></p>
 <blockquote>
-<p><strong>Atomicitate pe participant</strong>: fiecare participant are maxim o înscriiere per atelier.</p>
-<p>[…]</p>
-<p><strong>Separare responsabilități</strong>: eșecurile de livrare a mesageriei nu compromit înscrierea; livrarea efectivă rămâne responsabilitatea serviciului extern.</p>
+<p><strong>Atomicitate pentru acceptare:</strong> înscrierea și apelul de confirmare formează o unitate; eșecul confirmării nu anulează înscrierea</p>
+<p><strong>Semnatică limitată:</strong> starea <code>trimisă</code> înregistrează doar răspunsul serviciului; livrarea efectivă și citirea nu sunt garantate. Starea <code>netrimisă</code> înseamnă: ultimul răspuns a fost <code>eșec</code>, nu că știm cu certitudine că mesajul nu a ajuns</p>
 </blockquote>
-<p><strong>R3 (acceptare):</strong> o cerere nouă a unui participant deja înscris este refuzată. <strong>R6 (graniță):</strong> despre mesagerie presupunem doar că răspunde <code>trimis</code> sau <code>eșec expediție</code>; <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns; livrarea efectivă nu este modelată.</p>
-<p><strong>Cine oferă fiecare garanție? Ce proprietate descrie, de fapt, „atomicitate pe participant”? Cine a promis livrarea?</strong></p>
+<p><strong>Atomicitatea</strong> unei operații: efectele ei se produc integral sau deloc. <strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea. <strong>R6 (graniță):</strong> <code>trimis</code> nu înseamnă că mesajul a ajuns; <code>eșec</code> nu înseamnă că nu a ajuns.</p>
+<p><strong>Este înscrierea, împreună cu confirmarea, atomică? Ce garanție corectă găsiți în al doilea punct?</strong></p>
 </div>
-<div id="alte-rulări-ce-spun-despre-livrare" class="slide section level1">
-<h1>Alte rulări: ce spun despre livrare?</h1>
-<p><strong>Aceleași reguli; garanțiile pentru echipa de dezvoltare, două rulări; fragmente:</strong></p>
-<p>Rularea 08:</p>
+<div id="alte-rulări-ce-promit-despre-mesagerie" class="slide section level1">
+<h1>Alte rulări: ce promit despre mesagerie?</h1>
+<p><strong>Garanțiile pentru echipa de dezvoltare, două rulări; fragmente:</strong></p>
+<p>Rularea 06:</p>
 <blockquote>
-<p>Confirmările nelivrate (răspunsul mesageriei este <code>eșec expediție</code>) sunt retrimitibile: operatorul poate recupera omisiunile temporare prin <span class="operatie">retrimite confirmările()</span>.</p>
+<p>Retrimiterea poate genera duplicate de mesaje; livrarea efectivă rămâne răspunderea mesageriei.</p>
+<p>Aceste garanții […] permit recuperarea confirmărilor pierdute fără a risca duplicarea locurilor.</p>
 </blockquote>
-<p>Rularea 01:</p>
+<p>Rularea 05:</p>
 <blockquote>
-<p>Nu garantăm că participantul a primit efectiv mesajul; garantăm doar răspunsurile mesageriei și ciclul de reapelare.</p>
+<p>Registrul garantează că răspunsul și comportamentul extern (apeluri mesagerie) sunt determinist și nu se modifică după prima acceptare.</p>
 </blockquote>
-<p><strong>R6 (graniță):</strong> despre mesagerie presupunem doar că răspunde <code>trimis</code> sau <code>eșec expediție</code>; <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns. <strong>Varianta B:</strong> operatorul apelează <span class="operatie">retrimite confirmările()</span>.</p>
-<p><strong>Ce presupune fiecare fragment despre mesagerie? Ce este garanție și ce este presupunere?</strong></p>
+<p><strong>Varianta B:</strong> la o reîncercare, <span class="operatie">înscrie</span> apelează din nou mesageria numai dacă confirmarea este <code>netrimisă</code>. <strong>R6 (graniță):</strong> mesageria răspunde <code>trimis</code> sau <code>eșec</code>; <code>eșec</code> nu înseamnă nelivrare.</p>
+<p><strong>Cine oferă fiecare afirmație? Ce presupune fiecare despre mesagerie?</strong></p>
 </div>
 <div id="comparația-noastră-cine-oferă-fiecare-garanție" class="slide section level1">
 <h1>Comparația noastră: cine oferă fiecare garanție</h1>
 <div class="table-wrap">
 <table>
 <colgroup>
-<col width="50%" />
-<col width="18%" />
-<col width="31%" />
+<col width="54%" />
+<col width="20%" />
+<col width="25%" />
 </colgroup>
 <thead>
 <tr>
@@ -1028,34 +1029,34 @@ break-inside: avoid;
 </thead>
 <tbody>
 <tr>
-<td align="left">locul rămâne la eșec; o singură înscriere</td>
+<td align="left">acceptarea; locul păstrat la eșec; fără loc în plus</td>
 <td align="left">registrul</td>
 <td align="left">R3, R4, R5</td>
 </tr>
 <tr>
-<td align="left">„sistemul vă va recunoaște”</td>
+<td align="left">„veți primi din nou răspunsul «acceptat»”</td>
 <td align="left">registrul, cu <span class="nowrap">site-ul</span></td>
-<td align="left">R5; R2 (cerere): același identificator</td>
+<td align="left">R5; R2 (cerere)</td>
 </tr>
 <tr>
-<td align="left">„atomicitate pe participant”</td>
-<td align="left">registrul; un invariant</td>
-<td align="left">R3</td>
+<td align="left">„atomicitate pentru acceptare”</td>
+<td align="left">registrul, fără atomicitate</td>
+<td align="left">R4 (confirmare)</td>
 </tr>
 <tr>
-<td align="left">„veți primi o confirmare”; livrarea, „responsabilitatea serviciului extern”</td>
+<td align="left">„veți primi o confirmare”; „răspunderea mesageriei”</td>
 <td align="left">nimeni</td>
-<td align="left">R6 (graniță): doar un răspuns</td>
+<td align="left">R6 (graniță)</td>
 </tr>
 <tr>
-<td align="left">„o vom reîncerca automat”</td>
-<td align="left">nimeni</td>
-<td align="left">R5: „poate”; B: un operator</td>
+<td align="left">„echipa noastră va încerca din nou”</td>
+<td align="left">nimeni; poate un operator</td>
+<td align="left">B: doar <code>netrimisă</code></td>
 </tr>
 <tr>
-<td align="left">„garantăm răspunsurile mesageriei”</td>
+<td align="left">apeluri „deterministe” ale mesageriei</td>
 <td align="left">nimeni</td>
-<td align="left">R6: o presupunere</td>
+<td align="left">B: după răspuns</td>
 </tr>
 </tbody>
 </table>
@@ -1063,9 +1064,9 @@ break-inside: avoid;
 </div>
 <div id="decizia-noastră" class="slide section level1">
 <h1>Decizia noastră</h1>
-<p><strong>Păstrăm</strong> promisiunile 1 și 4 și partea promisiunii 3 despre a doua înscriere: le oferă registrul.</p>
-<p><strong>Rescriem promisiunea 2:</strong> „După acceptare cerem trimiterea unei confirmări. Dacă nu o primiți, înscrierea rămâne valabilă.” Nu promitem livrarea, rapiditatea sau o retrimitere automată.</p>
-<p><strong>Corectăm termenii:</strong> ce nota 05 numește „atomicitate pe participant” este un <strong>invariant</strong> (unicitatea înscrierii). <strong>Atomicitatea</strong> înseamnă că efectele unei operații se produc integral sau deloc; nu o promitem între registru și mesagerie.</p>
+<p><strong>Păstrăm</strong> promisiunea 1, partea promisiunii 3 despre locul suplimentar și „rămâneți înscris” din promisiunea 4: le oferă registrul.</p>
+<p><strong>Rescriem promisiunea 2:</strong> „După acceptare cerem trimiterea unei confirmări. Dacă nu o primiți, înscrierea rămâne valabilă.” Nu promitem livrarea, rapiditatea sau o retrimitere.</p>
+<p><strong>Corectăm termenii:</strong> ce rularea 04 numește „atomicitate pentru acceptare” este garanția din R4. <strong>Atomicitatea</strong> înseamnă că efectele unei operații se produc integral sau deloc; nu o promitem între registru și mesagerie.</p>
 <p><strong>Pentru o garanție mai puternică</strong> (de exemplu, livrarea confirmată), o cerem furnizorului mesageriei, în interfața lui; nu o scriem noi în locul lui.</p>
 </div>
 <div id="transferăm-granița" class="slide section level1 transition">
@@ -1074,12 +1075,12 @@ break-inside: avoid;
 </div>
 <div id="diplomele-și-tipografia" class="slide section level1">
 <h1>Diplomele și tipografia</h1>
-<p><strong>Enunț nou:</strong> registrul secretariatului înregistrează diplomele aprobate și cere unei <strong>tipografii externe</strong> tipărirea fiecăreia, prin <span class="operatie">comandă(d)</span>, care întoarce <code>primit</code> sau <code>eșec comandă</code>. O diplomă aprobată rămâne aprobată, indiferent de tipărire. Registrul poate retrimite o comandă.</p>
+<p><strong>Enunț nou:</strong> registrul secretariatului înregistrează diplomele aprobate și cere unei <strong>tipografii externe</strong> tipărirea fiecăreia, prin <span class="operatie">comandă(d)</span>, care întoarce <code>primit</code> sau <code>eșec</code>. O diplomă aprobată rămâne aprobată, indiferent de tipărire. Registrul poate retrimite o comandă.</p>
 <p>Scrieți, în câte o propoziție:</p>
 <ol style="list-style-type: decimal">
 <li>Ce componentă proiectăm și ce componentă este în afara graniței?</li>
-<li>Ce presupunem despre tipografie și ce <strong>nu</strong> presupunem când răspunde <code>eșec comandă</code>?</li>
-<li>După un <code>eșec comandă</code>, registrul retrimite comanda. Ce îi trebuie ca diploma să nu fie tipărită de două ori? La confirmări acceptam un mesaj duplicat; de ce nu și aici?</li>
+<li>Ce presupunem despre tipografie și ce <strong>nu</strong> presupunem când răspunde <code>eșec</code>?</li>
+<li>După un <code>eșec</code>, registrul retrimite comanda. Ce îi trebuie ca diploma să nu fie tipărită de două ori? La confirmări acceptam un mesaj duplicat; de ce nu și aici?</li>
 </ol>
 </div>
 </main>

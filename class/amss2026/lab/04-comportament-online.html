@@ -478,7 +478,7 @@ break-inside: avoid;
 <p><strong>Stare și tranziție:</strong> starea (etapa cu nume a ciclului de viață) și datele păstrate decid ce evenimente sunt permise acum; o tranziție are stare curentă, eveniment, condiție, stare următoare și efect; un eveniment nepermis este <strong>refuzat</strong>, fără modificări; la succes se modifică numai datele precizate.</p>
 <p><strong>Interacțiune și graniță:</strong> cine apelează pe cine, ce se întoarce, ce se înregistrează la fiecare pas; despre un serviciu din afara graniței cunoaștem doar interfața și ce presupunem.</p>
 <p><strong>Reîncercare:</strong> aceeași cerere, trimisă din nou cu același identificator, primește același rezultat, iar efectul ei nu se repetă; o cerere nouă cu același conținut este judecată după reguli.</p>
-<p>Astăzi: rezervările au stările <strong><span class="stare">Rezervată</span></strong>, <strong><span class="stare">Ridicată</span></strong>, <strong><span class="stare">Anulată</span></strong>; apelurile sunt secvențiale; mesageria răspunde <code>trimis</code> sau <code>eșec expediție</code>. <code>netrimisă</code> consemnează <code>eșec expediție</code>, fără să stabilească dacă mesajul a ajuns.</p>
+<p>Astăzi: rezervările au stările <strong><span class="stare">Rezervată</span></strong>, <strong><span class="stare">Ridicată</span></strong>, <strong><span class="stare">Anulată</span></strong>; apelurile sunt secvențiale; mesageria răspunde <code>trimis</code> sau <code>eșec</code>. <code>netrimisă</code> consemnează <code>eșec</code>, fără să stabilească dacă mesajul a ajuns.</p>
 </div>
 <div id="ce-are-voie-să-se-întâmple-cu-o-rezervare" class="slide section level1 transition">
 <h1 class="transition">Ce are voie să se întâmple cu o rezervare?</h1>
@@ -508,16 +508,16 @@ break-inside: avoid;
 <div id="cine-coordonează-ridicarea" class="slide section level1 transition">
 <h1 class="transition">Cine coordonează ridicarea?</h1>
 <p><strong><span class="nowrap">28–50</span> min · Interacțiunea pas cu pas, apoi reîncercările</strong></p>
-<p>Mesageria a răspuns <code>eșec expediție</code>. Ce promite registrul ghișeului?</p>
+<p>Mesageria a răspuns <code>eșec</code>. Ce promite registrul ghișeului?</p>
 </div>
 <div id="interacțiunea-pentru-ridică" class="slide section level1">
 <h1>Interacțiunea pentru <span class="operatie">ridică</span></h1>
 <p><strong>Din I, independent:</strong> A este <span class="stare">Rezervată</span>, cu titularul T1; c1 este neînregistrat. <strong>R3 (ridicare):</strong> acceptarea trece A în <span class="stare">Ridicată</span> și înregistrează momentul ridicării și c1.</p>
-<p><strong>R4 (notificare):</strong> după o ridicare acceptată, registrul cere mesageriei <span class="operatie">trimite(mesaj)</span>, care răspunde <code>trimis</code> sau <code>eșec expediție</code>; registrul înregistrează notificarea <code>trimisă</code> sau <code>netrimisă</code>; <strong>eșecul nu anulează ridicarea</strong>, ghișeul primește <code>ridicat</code>. <strong>R7 (graniță):</strong> presupunem doar că mesageria răspunde; <code>eșec expediție</code> nu înseamnă că mesajul nu a ajuns. Refuzul nu apelează mesageria.</p>
+<p><strong>R4 (notificare):</strong> după o ridicare acceptată, registrul cere mesageriei <span class="operatie">trimite(mesaj)</span>, care răspunde <code>trimis</code> sau <code>eșec</code>; registrul înregistrează notificarea <code>trimisă</code> sau <code>netrimisă</code>; <strong>eșecul nu anulează ridicarea</strong>, ghișeul primește <code>ridicat</code>. <strong>R7 (graniță):</strong> presupunem doar că mesageria răspunde; <code>eșec</code> nu înseamnă că mesajul nu a ajuns, nici <code>trimis</code> că a ajuns. Refuzul nu apelează mesageria.</p>
 <p>În chat, la semnal, scrieți pașii (cine → cui, ce se trimite sau se întoarce, ce înregistrează registrul) pentru:</p>
 <ul>
 <li>scenariul S1 (ridicare notificată): <span class="operatie">ridică(c1, A, T1)</span>, răspuns <code>trimis</code>;</li>
-<li>scenariul S3 (notificare eșuată): <span class="operatie">ridică(c1, A, T1)</span>, răspuns <code>eșec expediție</code>.</li>
+<li>scenariul S3 (notificare eșuată): <span class="operatie">ridică(c1, A, T1)</span>, răspuns <code>eșec</code>.</li>
 </ul>
 <p>Apoi în ștafetă: un coleg explică S1, un coleg numit S3, apoi: <strong>în ce pas schimbă registrul starea: înainte sau după apelul mesageriei? Ce <span class="nowrap">s-ar</span> întâmpla cu S3 în ordinea inversă?</strong></p>
 </div>
@@ -570,7 +570,7 @@ break-inside: avoid;
 <div id="extensie-diagrama-de-secvență-a-lui-ridică" class="slide section level1">
 <h1>Extensie: diagrama de secvență a lui <span class="operatie">ridică</span></h1>
 <p>Pentru cine are diagrama de stări verificată: desenați diagrama de secvență UML a scenariului S3 (notificare eșuată), urmat de scenariul S4 (reîncercare după eșec). Ceilalți își corectează diagrama de stări.</p>
-<p><strong>Reguli:</strong> participanții sunt ghișeul, registrul rezervărilor (sistemul nostru) și mesageria (în afara graniței). R3 (ridicare): o ridicare acceptată trece A în <span class="stare">Ridicată</span> și înregistrează momentul și c1. R4 (notificare): apoi registrul cere <span class="operatie">trimite(mesaj)</span>; la <code>eșec expediție</code> înregistrează <code>netrimisă</code>, iar ghișeul primește tot <code>ridicat</code>. R5 (reîncercare): cu același c1, starea rămâne <span class="stare">Ridicată</span>, iar notificarea <code>netrimisă</code> se retrimite; la <code>trimis</code> devine <code>trimisă</code>. R7 (graniță): despre mesagerie presupunem doar că răspunde <code>trimis</code> sau <code>eșec expediție</code>.</p>
+<p><strong>Reguli:</strong> participanții sunt ghișeul, registrul rezervărilor (sistemul nostru) și mesageria (în afara graniței). R3 (ridicare): o ridicare acceptată trece A în <span class="stare">Ridicată</span> și înregistrează momentul și c1. R4 (notificare): apoi registrul cere <span class="operatie">trimite(mesaj)</span>; la <code>eșec</code> înregistrează <code>netrimisă</code>, iar ghișeul primește tot <code>ridicat</code>. R5 (reîncercare): cu același c1, starea rămâne <span class="stare">Ridicată</span>, iar notificarea <code>netrimisă</code> se retrimite; la <code>trimis</code> devine <code>trimisă</code>. R7 (graniță): despre mesagerie presupunem doar că răspunde <code>trimis</code> sau <code>eșec</code>.</p>
 <p><strong>Notația:</strong> mesaj sincron și răspuns; note pentru ce înregistrează registrul; granița în jurul registrului.</p>
 <p><a href="https://github.com/traiansf/traiansf.github.io/blob/main/class/amss-2026/lab/diagrame/secventa.md">Specificația diagramei de secvență: elemente, Mermaid, listă de verificare</a></p>
 </div>
