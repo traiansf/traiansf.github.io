@@ -32,8 +32,43 @@ npx puppeteer browsers install chrome-headless-shell
 ```
 
 Distribution pandoc/plantuml packages can be old; if `pandoc --version` is < 3.5
-or `plantuml -tpdf` fails, install the upstream release (pandoc `.deb`,
-`plantuml.jar` + a `plantuml` shell wrapper on `PATH`).
+or `plantuml -version` is older than the release used for the published site,
+install the upstream release (pandoc `.deb` or tarball, `plantuml.jar` + a
+`plantuml` shell wrapper on `PATH`).
+
+The build was checked on Ubuntu 24.04 on 20 November 2026 (`make`, `make
+notes`, the exam, and the reveal.js decks in `presentation/`), under the
+locales C, C.UTF-8 and ro_RO.UTF-8, which give the same output. What that
+machine needed beyond the list above:
+
+- **pandoc:** Ubuntu ships 3.1.3. With pandoc 3.6.3 the HTML decks come out
+  byte for byte as published (diagrams aside, see below) and the PDFs have the
+  same pages and text. From 3.6.4 on, the last word of an epigraph's original
+  wording is tied to the word before it and a prime in a formula becomes a
+  superscript; 3.14 writes formulas as MathML. A newer pandoc therefore
+  changes every deck a little; move to one deliberately, for all decks at once.
+- **PlantUML:** Ubuntu ships 1.2020.2, which draws the activity diagrams of
+  Lab 1 with another look. `plantuml-1.2026.10.jar` draws them as published.
+- **Mermaid:** `npm install -g` needs root or `--prefix <dir>`. npm ≥ 12 does
+  not run puppeteer's install script, so the `puppeteer browsers install` line
+  is what downloads Chrome; run it in the folder that holds
+  `node_modules/@mermaid-js`. Where Chrome cannot start its sandbox (`mmdc`
+  fails while launching the browser), use a wrapper, as the presentation
+  workflow does: a script that runs `mmdc -p <file> "$@"`, with
+  `{"args":["--no-sandbox"]}` in the file, installed as `mmdc` on `PATH` or
+  named by `MERMAID_BIN`.
+- **Arial:** the diagrams ask for it. Chrome takes Liberation Sans instead
+  (`fonts-liberation`, same metrics), so Mermaid diagrams differ from the
+  Windows build only by small layout shifts. Java does not substitute it, so
+  the PlantUML diagrams of Lab 1 are set in another sans-serif font and come
+  out about 3% wider; install Arial (`ttf-mscorefonts-installer`) for the same
+  look.
+- **The exam:** `exam/Makefile` runs `python3` where there is no `python`.
+  `mcexam` installs without a clone with
+  `uv tool install "git+https://github.com/traiansf/multiple_choice_exam#subdirectory=generator"`.
+
+On any system, Mermaid draws the boxes of a class diagram with random
+variation, so the HTML of Labs 2–3 differs from one build to the next.
 
 ## Windows (native, no WSL)
 

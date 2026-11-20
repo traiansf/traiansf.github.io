@@ -19,7 +19,9 @@ $(OUTDIR)/model-examen-barem.pdf: model-examen-barem.md Makefile $(DOC_PDF_DEPS)
 # The bank for multiple_choice_exam (mcexam), built from the paper and the
 # key's summary table; not published. Then: mcexam lint --input $(BANK)
 BANK = model-examen-mcexam.md
-PYTHON ?= python
+# `python`, as before, unless only `python3` is found: Debian and Ubuntu have
+# no `python` command without the package python-is-python3.
+PYTHON ?= $(if $(shell command -v python 2>/dev/null),python,$(if $(shell command -v python3 2>/dev/null),python3,python))
 
 .PHONY: bank
 bank: $(BANK)

@@ -21,7 +21,7 @@ npm.cmd run build
 npm.cmd start
 ```
 
-Pe Linux folosiți `npm` în loc de `npm.cmd`. Deschideți <http://127.0.0.1:3000>. Opriți serviciul cu `Ctrl+C`. După modificarea materialelor, executați din nou `npm.cmd run build`. Dacă se schimbă lista `RELEASED`, reporniți și serviciul.
+Pe Linux folosiți `npm` în loc de `npm.cmd`. Cu npm 12 sau ulterior, care nu mai descarcă implicit dependențe din depozite Git, instalați cu `npm ci --allow-git=root` (motorul reveal-classroom este o astfel de dependență). Deschideți <http://127.0.0.1:3000>. Opriți serviciul cu `Ctrl+C`. După modificarea materialelor, executați din nou `npm.cmd run build`. Dacă se schimbă lista `RELEASED`, reporniți și serviciul.
 
 ## Un calculator și un proiector
 

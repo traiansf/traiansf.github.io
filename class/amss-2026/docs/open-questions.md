@@ -35,13 +35,11 @@ When a point below is settled, change the materials it names and delete it from 
     - The `ridicat`/`refuz` result returned to the desk is left off the diagram.
     - „Ghișeul nu a primit răspunsul” became worksheet self-study.
   - The plenary check needs internet on the instructor's computer for mermaid.live; a drawing on the board is the fallback.
-  - The reveal.js build was not checked with PlantUML or with Lab 4's Mermaid `themeCSS` init.
+- **Which pandoc to build with (20 November 2026).** The published HTML is what pandoc 3.5–3.6.3 writes; the presentation workflow builds the reveal.js decks with 3.6.4, and `BUILD.md` asks only for 3.5 or later. From 3.6.4 on, the last word of an epigraph's original wording is tied to the word before it and a prime in a formula (Lecture 6) becomes a superscript; 3.14 writes formulas as MathML. Decide whether to name one version for the site and the workflow, and when to move to a newer one (every deck changes a little, so rebuild and check all of them together). Touches `BUILD.md` and `.github/workflows/amss-presentation.yml`.
 
 ## Checks nobody has done yet
 
 - **Meyer quotation link.** On 27 October 2026 the author's stable page `https://bertrandmeyer.com/OOSC2/` resolved, but both the earlier PDF URL and the current download returned 404. Courses 6 and Lab 3 preserve the quotation previously verified in indexed primary text (§25.3, p. 873), with that limit explicit in notes and `docs/quotations.md`; recheck the page when the PDF is available.
-
-- **A Linux build** of the theme: the locale-dependent parts of `theme/amss.lua` were tested by simulating the C locale on Windows.
 
 External links (Teams, forms.gle, the quotation sources, the tooling documentation) were all followed on 5 October 2026 and resolved (HTTP 200; the forms.gle link redirects to the live form). The page anchors of the PDF links were not checked.
 
@@ -51,3 +49,6 @@ External links (Teams, forms.gle, the quotation sources, the tooling documentati
 - The archived fallback decks in `archive/curs/fallback/` keep the look they were last built with; they are not rebuilt.
 
 - Printing the project page from a browser leaves the footer alone on a last sheet.
+
+- The Linux build (checked on Ubuntu 24.04 on 20 November 2026, see `BUILD.md`) differs from the published Windows build only in the diagrams. Arial is missing there: Mermaid diagrams are set in Liberation Sans, with small layout shifts (in Lecture 5's dependency diagram „Canalul ghișeului” stays on one line; Lab 2's reference diagram is about a tenth wider), and Lab 1's PlantUML diagrams in another sans-serif font, about 3% wider. All of them remain legible. With Arial installed, the two builds should agree; this was not tried.
+- Mermaid draws the boxes of a class diagram with random variation, so the HTML of Labs 2–3 changes at every rebuild even when nothing else did.
