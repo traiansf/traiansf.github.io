@@ -1,6 +1,6 @@
 # Diagrama de secvență
 
-Specificație pentru atelierul de diagrame din [Laboratorul 4](../04-comportament.md), după cursurile 7–8. Diagrama de secvență (în UML, *sequence diagram*) desenează o interacțiune: componentele care participă, mesajele dintre ele, în ordinea în care apar, și răspunsurile. Timpul curge de sus în jos. Conține aceleași informații ca tabelul interacțiunii din cursul 8 (cine apelează pe cine, ce se întoarce), iar ce se înregistrează la fiecare pas se scrie în note.
+Specificație pentru atelierul de diagrame din [Laboratorul 4](../04-comportament.md), după cursurile 7–8. Diagrama de secvență (în UML, *sequence diagram*) reprezintă o interacțiune: componentele care participă, mesajele dintre ele, în ordinea în care apar, și răspunsurile. Timpul curge de sus în jos. Diagrama conține mesajele din tabelele scenariilor din cursul 8 (cine apelează pe cine, ce se întoarce); pașii interni ai fluxului de lucru, adică ce se verifică și ce se înregistrează, se scriu în note.
 
 Puteți desena diagrama de mână, o puteți scrie în Mermaid sau o puteți genera cu un asistent AI și revizui. În toate cazurile, o verificați cu [lista de verificare](#lista-de-verificare), punct cu punct, față de enunț. Pentru ciclul de viață al unui singur obiect, folosiți [diagrama de stări](stari.md).
 
@@ -8,8 +8,8 @@ Puteți desena diagrama de mână, o puteți scrie în Mermaid sau o puteți gen
 
 - Ce componente participă la o operație și unde este granița sistemului nostru?
 - Cine apelează pe cine, cu ce operație și ce parametri, și în ce ordine?
-- Ce răspunde fiecare apel? Apelantul așteaptă răspunsul sau nu?
-- În ce pas se schimbă starea sau se înregistrează o dată: înainte sau după un apel către o componentă din afara graniței?
+- Ce răspuns primește fiecare apel? Apelantul așteaptă răspunsul sau nu?
+- În ce pas se schimbă starea sau se înregistrează datele: înainte sau după un apel către o componentă din afara graniței?
 - Ce ramuri are interacțiunea (acceptare, refuz, eșec al unei componente externe) și cu ce condiții?
 
 **Ce nu arată:** toate stările unui obiect (diagrama de stări), regulile pe care nu le parcurge scenariul desenat și ce se întâmplă în interiorul componentelor din afara graniței.
@@ -23,9 +23,9 @@ Puteți desena diagrama de mână, o puteți scrie în Mermaid sau o puteți gen
 | **Mesaj sincron** | săgeată plină, cu vârf plin | Un apel: apelantul așteaptă răspunsul înainte să continue. Eticheta este operația, cu parametrii: `trimite(mesaj)`. |
 | **Răspuns** | săgeată întreruptă, înapoi la apelant | Rezultatul apelului sincron, de exemplu `trimis`, `eșec`, `refuz`. |
 | **Mesaj asincron** | săgeată plină, cu vârf deschis | Apelantul trimite mesajul și continuă, fără să aștepte un răspuns. |
-| **Notă** | dreptunghi cu colțul îndoit, peste o linie de viață | Ce verifică sau înregistrează o componentă în acel pas (o schimbare de stare, o dată nouă), sau o presupunere. |
+| **Notă** | dreptunghi cu colțul îndoit, peste o linie de viață | Ce verifică sau înregistrează o componentă în acel pas (o schimbare de stare, o valoare nouă a datelor), sau o presupunere. |
 | **Fragmentul `alt`** | chenar etichetat `alt`, împărțit în ramuri, fiecare cu o condiție `[...]` | Exact una dintre ramuri are loc: prima a cărei condiție este adevărată. Ultima ramură poate fi `[altfel]`. |
-| **Fragmentul `opt`** | chenar etichetat `opt`, cu o condiție `[...]` | Secvența din chenar are loc numai dacă condiția este adevărată; altfel este sărită. |
+| **Fragmentul `opt`** | chenar etichetat `opt`, cu o condiție `[...]` | Secvența din chenar are loc numai când condiția este adevărată; altfel este sărită. |
 
 **Ordinea contează.** Două mesaje desenate unul sub altul au loc în această ordine. O notă scrisă între două mesaje spune că înregistrarea are loc între ele.
 
@@ -57,7 +57,7 @@ Mermaid adaugă singur parantezele drepte în jurul condiției unui fragment: sc
 **Limitele Mermaid pe care trebuie să le știți:**
 
 - **Mermaid nu verifică sensul.** Un mesaj trimis componentei greșite, un răspuns care lipsește sau o ramură fără condiție se randează curat.
-- **Punctul și virgula (`;`) încheie instrucțiunea.** Într-un mesaj, textul de după el produce o eroare de sintaxă; în diagrama de stări, aceeași greșeală trece fără eroare și creează o stare în plus. Despărțiți acțiunile prin virgulă sau prin `<br/>`.
+- **Punctul și virgula (`;`) încheie instrucțiunea.** Într-un mesaj, textul de după el produce o eroare de sintaxă; în diagrama de stări, aceeași greșeală trece fără eroare și creează stări în plus. Despărțiți acțiunile prin virgulă sau prin `<br/>`.
 - **Participanții nedeclarați** apar în ordinea primei folosiri; un nume scris greșit o dată (`Registru` în loc de `R`) creează un participant nou. Declarați toți participanții la început.
 - `box` grupează numai participanți declarați unul după altul; participanții din afara graniței se declară în afara lui.
 - Mermaid nu deosebește grafic un apel către o componentă de un apel către un om; actorul are doar alt desen.
@@ -68,11 +68,11 @@ Mermaid adaugă singur parantezele drepte în jurul condiției unui fragment: sc
 Fiecare punct se verifică față de enunț: căutați regula care îl susține. Numerele punctelor se folosesc la verificarea în plen.
 
 1. **Participanții** sunt componentele din enunț, cu numele lor; cele din sistemul nostru sunt în interiorul graniței, cele externe în afara ei. Niciun participant inventat (o bază de date, un serviciu de cozi).
-2. **Mesajele:** fiecare apel are apelantul și destinatarul cerute de enunț, cu operația și parametrii din enunț. Nicio componentă nu apelează o componentă pe care enunțul nu i-o dă de apelat.
+2. **Mesajele:** fiecare apel are apelantul și destinatarul ceruți de enunț, cu operația și parametrii din enunț. Nicio componentă nu apelează o componentă pe care enunțul nu i-o dă de apelat.
 3. **Răspunsurile:** fiecare apel sincron are răspunsul lui, cu una dintre valorile din enunț; apelurile asincrone nu au răspuns.
 4. **Ordinea:** schimbările de stare și înregistrările (în note) apar în pasul cerut de enunț, față de apelurile către componentele externe.
 5. **Ramurile:** fiecare `alt` și `opt` are o condiție din enunț; ramurile unui `alt` se exclud și acoperă cazurile enunțului. Pentru un singur scenariu, fără fragmente: valorile scenariului decid ramura.
-6. **Presupunerile:** nimic nu presupune despre o componentă externă mai mult decât enunțul (nicio confirmare de livrare, niciun termen-limită, nicio garanție „exact o dată”).
+6. **Presupunerile:** diagrama nu presupune despre o componentă externă nimic în plus față de enunț (nicio confirmare de livrare, niciun termen-limită, nicio garanție „exact o dată”).
 7. **Scenariul:** citită de sus în jos, diagrama dă, pentru scenariul desenat, rezultatele, starea și datele din enunț.
 
 ## Erori frecvente
@@ -94,7 +94,7 @@ Exemplu didactic, din alt domeniu decât laboratorul.
 - **P1 — plată:** casa apelează `plătește(k, sumă)` pentru comanda k.
 - **P2 — sumă:** dacă suma diferă de totalul comenzii k, sistemul întoarce `refuz`, fără alte apeluri și fără modificări.
 - **P3 — autorizare:** altfel, sistemul cere procesatorului `autorizează(sumă)` și așteaptă răspunsul `aprobată` sau `respinsă`. La `aprobată`, înregistrează plata la comanda k și întoarce `plătit`; la `respinsă`, nu înregistrează nimic și întoarce `respins`.
-- **P4 — la pachet:** după o plată aprobată, dacă comanda k este la pachet, sistemul trimite ecranului bucătăriei `ambalează(k)`, fără să aștepte un răspuns, înainte să întoarcă `plătit`.
+- **P4 — la pachet:** după o plată aprobată, când comanda k este la pachet, sistemul trimite ecranului bucătăriei `ambalează(k)`, fără să aștepte un răspuns, înainte să întoarcă `plătit`.
 - **P5 — graniță:** despre procesator presupunem doar că răspunde `aprobată` sau `respinsă` la fiecare apel.
 
 **Diagrama** (toate cazurile operației `plătește`):
@@ -133,7 +133,7 @@ sequenceDiagram
 2. Casa apelează numai sistemul (P1); numai sistemul apelează procesatorul (P3) și ecranul (P4).
 3. `plătește` și `autorizează` sunt sincrone și au răspunsuri din enunț; `ambalează` este asincron, fără răspuns (P4).
 4. Plata se înregistrează după `aprobată` (P3), iar `ambalează` este trimis înainte de `plătit` (P4).
-5. Primul `alt` desparte P2 de P3, al doilea pe cele două răspunsuri ale procesatorului; `opt` are condiția din P4. Ramurile se exclud și acoperă enunțul.
+5. Primul `alt` desparte P2 de P3, iar al doilea desparte cele două răspunsuri ale procesatorului; `opt` are condiția din P4. Ramurile se exclud și acoperă enunțul.
 6. Nu presupunem nimic despre ecranul bucătăriei: mesajul asincron nu promite că ambalarea are loc.
 7. Pentru scenariul „comandă la pachet, sumă corectă, plată aprobată”, citirea de sus în jos dă: autorizare, plata înregistrată, `ambalează(k)`, `plătit`.
 
@@ -157,7 +157,7 @@ ceva, spune ce lipsește.
 <această specificație>
 ```
 
-## Cum verificăm răspunsul AI
+## Cum verificăm răspunsul asistentului AI
 
 - **O randare curată nu arată că diagrama este corectă.** Mermaid randează la fel de curat un apel inventat sau un răspuns greșit.
 - Luați lista de verificare punct cu punct și căutați în enunț regula fiecărui participant, mesaj, răspuns, notă și condiție. Ce nu are o regulă (o bază de date, o coadă de mesaje, un termen-limită, o confirmare de livrare) se șterge sau devine o întrebare pentru beneficiar.

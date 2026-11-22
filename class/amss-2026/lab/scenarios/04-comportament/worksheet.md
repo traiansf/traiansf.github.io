@@ -6,9 +6,9 @@ Folosiți [enunțul](scenario.md) la lucrul individual și la discuția în plen
 
 Pentru fiecare rând: stare curentă → eveniment → condiție → stare următoare → efect. Un eveniment nepermis este refuzat, fără modificări. Întrebări de verificare: în ce stare sosește o reîncercare? Ce decide un refuz: starea sau condiția? Ce date rămân după anulare?
 
-**Repere:** `ridică` cu identificator nou numai din Rezervată, numai de titular; reîncercarea (același identificator) primește același `ridicat`; `anulează` numai din Rezervată; Anulată este finală intenționată; Ridicată permite reîncercarea și actualizarea notificării, fără o a doua ridicare.
+**Repere:** `ridică` cu identificator neînregistrat numai din Rezervată, numai pentru titular; reîncercarea (același identificator) primește același `ridicat`; `anulează` numai din Rezervată; Anulată este finală intenționată; Ridicată permite reîncercarea și actualizarea notificării, fără o a doua ridicare.
 
-## Interacțiunea
+## Fluxul de lucru
 
 Pentru `ridică`: cine apelează pe cine, ce se întoarce, ce înregistrează registrul la fiecare pas. Marcați pasul în care se schimbă starea și pasul în care este apelată mesageria; verificați ce rămâne înregistrat când mesageria răspunde `eșec`. Despre mesagerie presupunem numai că răspunde `trimis` sau `eșec`.
 
@@ -18,8 +18,8 @@ Fiecare scenariu S1–S7 din enunț repornește din I (A și B în Rezervată), 
 
 ## Atelierul de diagrame
 
-Desenați diagrama de stări a unei rezervări după [specificația diagramei de stări](../../diagrame/stari.md): de mână, în Mermaid sau generată cu un asistent AI și revizuită de voi. Verificați-o cu lista de verificare a specificației, punct cu punct, căutând în enunț regula fiecărui punct; o diagramă care se randează fără erori nu este, prin asta, corectă. Întrebări de verificare: unde pleacă bucla reîncercării? Există săgeți pentru evenimente refuzate? `trimisă` și `netrimisă` sunt stări sau date? Cine termină desenează diagrama de secvență a lui `ridică` pentru scenariile S3 (notificare eșuată) și S4 (reîncercare după eșec), după [specificația diagramei de secvență](../../diagrame/secventa.md).
+Realizați diagrama de stări a unei rezervări după [specificația diagramei de stări](../../diagrame/stari.md): desenată de mână, scrisă în Mermaid sau generată cu un asistent AI și revizuită de voi. Verificați-o cu lista de verificare a specificației, punct cu punct, căutând în enunț regula fiecărui punct; o diagramă care se randează fără erori nu este, numai prin aceasta, corectă. Întrebări de verificare: de unde pleacă bucla reîncercării? Există săgeți pentru evenimente refuzate? `trimisă` și `netrimisă` sunt stări sau date? Cine termină desenează diagrama de secvență a lui `ridică` pentru scenariile S3 (notificare eșuată) și S4 (reîncercare după eșec), după [specificația diagramei de secvență](../../diagrame/secventa.md).
 
 ## Exercițiu suplimentar, pentru studiu individual
 
-Din I, `ridică(c1, A, T1)` cu `trimis`; răspunsul registrului nu ajunge la ghișeu, care trimite `ridică(c8, A, T1)`, cu identificator nou. Explicați fiecare rezultat cu regula din enunț (R3 — ridicare, R5 — reîncercare). Apoi: ce știe operatorul după a doua cerere? Ce cereri mai sunt acceptate pentru rezervarea A? Ce responsabilitate a ghișeului ar fi evitat refuzul și ce ați întreba beneficiarul?
+În laborator, întrebările acestui exercițiu s-au pus la scenariul S5. Din I, `ridică(c1, A, T1)` cu `trimis`; răspunsul registrului nu ajunge la ghișeu, care trimite `ridică(c8, A, T1)`, cu identificator nou. Explicați fiecare rezultat cu regula din enunț (R3 — ridicare, R5 — reîncercare). Apoi: ce știe operatorul după a doua cerere? Ce cereri mai sunt acceptate pentru rezervarea A? Ce responsabilitate a ghișeului ar fi evitat refuzul și ce l-ați întreba pe beneficiar?

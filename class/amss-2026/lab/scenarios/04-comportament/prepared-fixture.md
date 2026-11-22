@@ -1,5 +1,7 @@
 # Capturi pregătite pentru discuție — ghișeul de echipamente
 
+**Arhivat la 19 noiembrie 2026:** etapa AI în plen a fost scoasă din laborator. Fișierul rămâne neschimbat, ca arhivă, cu denumirile de atunci („expeditor”, `esec`, mesajul trimis studentului).
+
 Material pentru etapa AI, condusă de profesor în plen, când nu folosim o rulare live. Răspunsuri reale Claude Haiku 4.5, din 12 noiembrie 2026 (Claude Code 2.1.322, fără unelte și fără contextul proiectului); enunțul este un exemplu didactic. Fragmentele sunt fidele, cu omisiunile marcate; răspunsurile integrale, metadatele și toate încercările sunt în [arhivă](captures/2026-11-12/README.md). Selecția nu descrie performanța tipică a modelului.
 
 ## Sarcina analistului AI

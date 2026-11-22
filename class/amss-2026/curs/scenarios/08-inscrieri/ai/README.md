@@ -2,7 +2,7 @@
 
 ## Garanțiile la graniță (de la 19 noiembrie 2026)
 
-Lecția AI a cursului, după decizia din 19 noiembrie 2026: **garanții pe care nu le oferă nimeni**. Studenții auditează afirmațiile unui text generat: pentru fiecare garanție, cine o oferă (registrul, site-ul, mesageria sau nimeni) și ce regulă a enunțului o susține.
+Lecția AI a cursului, după decizia din 19 noiembrie 2026: **garanții pe care nu le oferă nimeni**. Studenții auditează afirmațiile unui text generat: pentru fiecare garanție, cine o oferă (registrul, site-ul, operatorul centrului, mesageria sau nimeni) și ce regulă sau decizie o susține.
 
 `context-garantii.md` este enunțul curent (`../brief.md`, regulile R1–R7, starea inițială și scenariile, fără „Alegeri de proiectare” și „Sarcina de proiectare”) plus decizia B a cursului; hash-urile sunt în `context-garantii-metadata.json`. Trei instrucțiuni, fiecare urmată de context în fișierul `*-prompt.md` corespunzător:
 

@@ -485,14 +485,14 @@ break-inside: avoid;
 </div>
 <div id="aceeași-cerere-a-doua-oară" class="slide section level1">
 <h1>Aceeași cerere, a doua oară</h1>
-<p><strong>Reguli:</strong> atelierul A are un număr fix de locuri. O cerere de înscriere este acceptată dacă participantul nu este înscris și există loc; în celelalte cazuri este refuzată. După acceptare, registrul cere confirmarea mesageriei, care răspunde <code>trimis</code> sau <code>eșec</code>; eșecul confirmării nu anulează înscrierea.</p>
+<p><strong>Reguli:</strong> atelierul A are un număr fix de locuri. O cerere de înscriere este acceptată dacă participantul nu este înscris și există loc; în celelalte cazuri este refuzată. După acceptare, registrul cere mesageriei să trimită confirmarea; mesageria răspunde <code>trimis</code> sau <code>eșec</code>, iar eșecul confirmării nu anulează înscrierea.</p>
 <p><strong>Înainte:</strong> 2 locuri libere, nicio înscriere. <span class="nowrap">Site-ul</span> trimite <span class="operatie">înscrie(c1, P1, A)</span>, unde c1 este identificatorul cererii; registrul acceptă, iar mesageria răspunde <code>eșec</code>. <span class="nowrap">Site-ul</span> nu ajunge să afișeze răspunsul și trimite din nou <span class="operatie">înscrie(c1, P1, A)</span>.</p>
 <p>Individual, apoi discutăm: regulile de mai sus nu spun nimic despre o cerere primită a doua oară. <strong>Ce ar răspunde un registru care îi aplică regula de acceptare? Ce ar trebui să răspundă și ce ar trebui să rămână înregistrat?</strong></p>
 </div>
 <div id="interacțiune-graniță-coordonare" class="slide section level1">
 <h1>Interacțiune, graniță, coordonare</h1>
-<p>O <strong>interacțiune</strong> este schimbul de apeluri și răspunsuri prin care mai multe componente realizează o operație: cine apelează pe cine, ce trimite, ce primește. <strong>Fluxul de lucru</strong> al operației organizează toți pașii ei, apeluri și pași interni (decizii, înregistrări): ce pas trebuie <span class="nowrap">să-l</span> preceadă pe altul și ce pași sunt independenți.</p>
-<p><strong>Granița</strong> sistemului nostru separă componentele pe care le proiectăm de cele cu care doar comunicăm: unele ne apelează, pe altele le apelăm. Despre o componentă din exterior pe care o apelăm cunoaștem <strong>interfața</strong> ei și ce <strong>presupunem</strong> despre ea; nu îi cunoaștem pașii.</p>
+<p>O <strong>interacțiune</strong> este schimbul de apeluri și răspunsuri prin care mai multe componente realizează o operație: cine apelează pe cine, ce trimite, ce primește. <strong>Fluxul de lucru</strong> al operației organizează toți pașii ei, atât apelurile, cât și pașii interni (decizii, înregistrări): ce pas trebuie să îl preceadă pe altul și ce pași sunt independenți.</p>
+<p><strong>Granița</strong> sistemului nostru separă componentele pe care le proiectăm de cele cu care doar comunicăm: unele ne apelează, pe altele le apelăm. O componentă din exterior pe care o apelăm o cunoaștem numai prin <strong>interfața</strong> ei și prin ce <strong>presupunem</strong> despre ea; nu îi cunoaștem pașii.</p>
 <p><strong>Coordonarea</strong> este responsabilitatea de a conduce pașii unei operații: de a decide ordinea, de a înregistra rezultatul fiecărui pas și de a răspunde apelantului, inclusiv când un pas eșuează sau când cererea vine a doua oară.</p>
 <p>Pentru înscrieri le precizăm pe rând și le verificăm pe scenarii. Nu modelăm plata, lista de așteptare, concurența sau erorile tehnice din interiorul registrului.</p>
 </div>
@@ -517,19 +517,19 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td>R1 (context)</td>
-<td>Locurile atelierului A sunt limitate; câte sunt libere spune fiecare scenariu. Participanți cunoscuți, apeluri secvențiale. Fără plată, listă de așteptare, anulare, concurență sau erori tehnice în registru.</td>
+<td>Locurile atelierului A sunt limitate; fiecare scenariu spune câte sunt libere. Participanții sunt cunoscuți, iar apelurile sunt secvențiale. Nu modelăm plata, lista de așteptare, anularea, concurența sau erorile tehnice din registru.</td>
 </tr>
 <tr>
 <td>R2 (cerere)</td>
-<td><span class="operatie">înscrie(c, p, a)</span>: identificatorul cererii c este generat de site, unic pentru fiecare cerere nouă; o reîncercare trimite același c.</td>
+<td><span class="operatie">înscrie(c, p, a)</span>: identificatorul c al cererii este generat de site și este unic pentru fiecare cerere nouă; la reîncercare, <span class="nowrap">site-ul</span> trimite același c.</td>
 </tr>
 <tr>
 <td>R3 (acceptare)</td>
-<td>O cerere cu c neînregistrat este acceptată exact când p nu este înscris la a și există loc: registrul consumă locul și înregistrează (c, p, a). Altfel: <code>refuz</code>, fără modificări, fără apelul mesageriei.</td>
+<td>O cerere cu c neînregistrat este acceptată exact când p nu este înscris la a și există loc: registrul consumă locul și înregistrează (c, p, a). În celelalte cazuri întoarce <code>refuz</code>, fără modificări și fără să apeleze mesageria.</td>
 </tr>
 <tr>
 <td>R4 (confirmare)</td>
-<td>După acceptare, registrul cere mesageriei <span class="operatie">trimite(mesaj)</span>, care răspunde <code>trimis</code> sau <code>eșec</code>; registrul înregistrează confirmarea <code>trimisă</code> sau <code>netrimisă</code>, după ultimul răspuns al mesageriei. Eșecul confirmării nu anulează înscrierea; <span class="nowrap">site-ul</span> primește <code>acceptat</code>.</td>
+<td>După acceptare, registrul cere mesageriei <span class="operatie">trimite(mesaj)</span>; mesageria răspunde <code>trimis</code> sau <code>eșec</code>, iar registrul înregistrează confirmarea <code>trimisă</code> sau <code>netrimisă</code>, potrivit ultimului răspuns. Eșecul confirmării nu anulează înscrierea; <span class="nowrap">site-ul</span> primește <code>acceptat</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -552,7 +552,7 @@ break-inside: avoid;
 <tbody>
 <tr>
 <td>R5 (reîncercare)</td>
-<td>O cerere cu c deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere. Dacă confirmarea este <code>trimisă</code>, registrul nu apelează mesageria.</td>
+<td>O cerere cu c deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără o a doua înscriere. Dacă confirmarea este <code>trimisă</code>, registrul nu apelează mesageria.</td>
 </tr>
 <tr>
 <td>R6 (graniță)</td>
@@ -565,7 +565,7 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p>În afara regulilor: la o reîncercare cu confirmarea <code>netrimisă</code>, regulile nu cer și nu interzic o nouă trimitere; o alegem mai târziu.</p>
+<p>În afara regulilor: la o reîncercare cu confirmarea <code>netrimisă</code>, o nouă trimitere nu este nici cerută, nici interzisă; decidem mai târziu.</p>
 </div>
 <div id="granița-și-interfața-mesageriei" class="slide section level1">
 <h1>Granița și interfața mesageriei</h1>
@@ -574,7 +574,7 @@ break-inside: avoid;
 <ul>
 <li><strong>Interfața:</strong> <span class="operatie">trimite(mesaj)</span> întoarce <code>trimis</code> sau <code>eșec</code>.</li>
 <li><strong>R6 (graniță), ce presupunem:</strong> răspunde la fiecare apel.</li>
-<li><strong>Ce nu presupunem:</strong> că <code>eșec</code> înseamnă „mesajul nu a ajuns”; că <code>trimis</code> înseamnă „mesajul a ajuns” sau „a fost citit”; cât durează.</li>
+<li><strong>Ce nu presupunem:</strong> că <code>eșec</code> înseamnă „mesajul nu a ajuns” (mesajul poate pleca înainte ca mesageria să constate o eroare); că <code>trimis</code> înseamnă „mesajul a ajuns” sau „a fost citit”; nimic despre durata răspunsului.</li>
 </ul>
 </div>
 <div id="cine-coordonează" class="slide section level1">
@@ -607,40 +607,36 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p>Registrul <strong>coordonează</strong>: <span class="nowrap">site-ul</span> nu apelează mesageria; interfața mesageriei nu cere acces la locuri. <strong>R4 (confirmare):</strong> confirmarea se cere numai după o înscriere acceptată, iar eșecul ei nu anulează înscrierea. <strong>Dacă <span class="nowrap">site-ul</span> ar trimite el confirmarea, ce ar trebui să știe și ce ar putea merge prost?</strong></p>
+<p>Registrul <strong>coordonează</strong>: <span class="nowrap">site-ul</span> nu apelează mesageria; interfața mesageriei nu cere acces la locuri. <strong>R4 (confirmare):</strong> confirmarea se cere numai după o înscriere acceptată, iar eșecul ei nu anulează înscrierea. <strong>Dacă <span class="nowrap">site-ul</span> ar trimite el confirmarea, ce ar trebui să știe și ce greșeli ar deveni posibile?</strong></p>
 </div>
 <div id="aceeași-cerere-sau-o-cerere-nouă" class="slide section level1">
 <h1>Aceeași cerere sau o cerere nouă?</h1>
-<p><strong>R5 (reîncercare):</strong> o cerere cu c <strong>deja înregistrat</strong> primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere. <strong>R3 (acceptare):</strong> o cerere cu c nou se judecă după locuri și înscrieri.</p>
-<p><strong>Pornire:</strong> 2 locuri libere, nicio înscriere; <span class="operatie">înscrie(c1, P1, A)</span> este acceptată. <strong>După:</strong> 1 loc liber; înscrierea (c1, P1, A). Din această stare, două continuări independente:</p>
+<p><strong>R5 (reîncercare):</strong> o cerere cu c <strong>deja înregistrat</strong> primește același <code>acceptat</code>, fără alt loc și fără o a doua înscriere. <strong>R3 (acceptare):</strong> altfel, cererea se judecă după înscrieri și locuri.</p>
+<p><strong>Pornire:</strong> 2 locuri libere, nicio înscriere; <span class="operatie">înscrie(c1, P1, A)</span> este acceptată. <strong>După:</strong> 1 loc liber; înscrierea (c1, P1, A). De aici, două continuări independente:</p>
 <div class="table-wrap">
 <table>
 <colgroup>
 <col width="2%" />
-<col width="27%" />
-<col width="25%" />
-<col width="44%" />
+<col width="46%" />
+<col width="51%" />
 </colgroup>
 <thead>
 <tr>
 <th align="left"></th>
 <th align="left">Cererea</th>
-<th align="left">Ce este</th>
 <th align="left">Rezultat</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">1</td>
-<td align="left"><span class="operatie">înscrie(c1, P1, A)</span></td>
-<td align="left">reîncercare</td>
-<td align="left">același <code>acceptat</code>; tot 1 loc liber, o înscriere</td>
+<td align="left">reîncercarea <span class="operatie">înscrie(c1, P1, A)</span></td>
+<td align="left">același <code>acceptat</code>; 1 loc liber, o înscriere</td>
 </tr>
 <tr>
 <td align="left">2</td>
-<td align="left"><span class="operatie">înscrie(c9, P1, A)</span></td>
-<td align="left">cerere nouă</td>
-<td align="left"><code>refuz</code>: P1 este deja înscris</td>
+<td align="left">cererea nouă <span class="operatie">înscrie(c9, P1, A)</span></td>
+<td align="left"><code>refuz</code>: P1 este deja înscris (scenariul S5)</td>
 </tr>
 </tbody>
 </table>
@@ -649,44 +645,44 @@ break-inside: avoid;
 </div>
 <div id="ce-răspunde-registrul" class="slide section level1">
 <h1>Ce răspunde registrul?</h1>
-<p><strong>Reguli:</strong> cerere nouă: acceptată dacă participantul nu este înscris și există loc. Reîncercare: <code>acceptat</code>, fără alt loc; cu confirmarea <code>trimisă</code>, mesageria nu este apelată. <code>eșec</code> nu anulează înscrierea; refuzul nu modifică nimic și nu apelează mesageria.</p>
-<p><strong>Pornire (rândurile <span class="nowrap">1–3,</span> independente):</strong> 1 loc liber; (c1, P1, A), confirmare <code>netrimisă</code>.</p>
+<p><strong>R3 (acceptare):</strong> o cerere cu c neînregistrat este acceptată dacă participantul nu este înscris și există loc; altfel primește <code>refuz</code>, fără înregistrări și fără apelul mesageriei. <strong>R5 (reîncercare):</strong> o cerere cu c deja înregistrat primește același <code>acceptat</code>, fără alt loc; la <code>trimisă</code>, mesageria nu este apelată. <strong>R4 (confirmare):</strong> <code>eșec</code> nu anulează înscrierea.</p>
+<p><strong>Pornire:</strong> 1 loc liber; (c1, P1, A), confirmare <code>netrimisă</code>. Cererile sosesc în această ordine:</p>
 <div class="table-wrap">
 <table>
+<colgroup>
+<col width="2%" />
+<col width="44%" />
+<col width="13%" />
+<col width="10%" />
+<col width="28%" />
+</colgroup>
 <thead>
 <tr>
 <th align="left"></th>
 <th align="left">Cererea</th>
 <th align="left">Rezultat</th>
 <th align="left">Locuri</th>
-<th align="left">Mesageria?</th>
+<th align="left">Mesageria apelată?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">1</td>
-<td align="left"><span class="operatie">înscrie(c1, P1, A)</span></td>
-<td align="left">?</td>
-<td align="left">?</td>
-<td align="left">?</td>
-</tr>
-<tr>
-<td align="left">2</td>
-<td align="left"><span class="operatie">înscrie(c9, P1, A)</span></td>
-<td align="left">?</td>
-<td align="left">?</td>
-<td align="left">?</td>
-</tr>
-<tr>
-<td align="left">3</td>
 <td align="left"><span class="operatie">înscrie(c2, P2, A)</span>, cu <code>eșec</code></td>
 <td align="left">?</td>
 <td align="left">?</td>
 <td align="left">?</td>
 </tr>
 <tr>
-<td align="left">4</td>
-<td align="left">după 3: <span class="operatie">înscrie(c3, P3, A)</span></td>
+<td align="left">2</td>
+<td align="left"><span class="operatie">înscrie(c2, P2, A)</span>, din nou</td>
+<td align="left">?</td>
+<td align="left">?</td>
+<td align="left">?</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><span class="operatie">înscrie(c3, P3, A)</span>, de două ori</td>
 <td align="left">?</td>
 <td align="left">?</td>
 <td align="left">?</td>
@@ -694,11 +690,11 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p><strong>Individual, apoi discutăm:</strong> completați tabelul. La 1, retrimiterea este obligatorie?</p>
+<p><strong>Individual, apoi discutăm:</strong> completați tabelul. La rândul 2, contează câte locuri au mai rămas libere? La rândul 3, se aplică R5 celei <span class="nowrap">de-a</span> doua cereri?</p>
 </div>
 <div id="urmărim-fluxul" class="slide section level1 transition">
 <h1 class="transition">Urmărim fluxul</h1>
-<p>Înregistrăm înainte sau după ce apelăm mesageria?</p>
+<p>Înregistrăm înainte de a apela mesageria sau după aceea?</p>
 </div>
 <div id="scenariul-s1-înscriere-confirmată" class="slide section level1">
 <h1>Scenariul S1 (înscriere confirmată)</h1>
@@ -713,7 +709,7 @@ break-inside: avoid;
 <thead>
 <tr>
 <th align="left">Pas</th>
-<th align="left">Apel sau răspuns</th>
+<th align="left">Apel, răspuns sau pas intern</th>
 <th align="left">Ce înregistrează registrul</th>
 </tr>
 </thead>
@@ -725,7 +721,7 @@ break-inside: avoid;
 </tr>
 <tr>
 <td align="left">2</td>
-<td align="left">Registru: c1 nou, P1 neînscris, loc liber → <strong>acceptă</strong></td>
+<td align="left">Registru: c1 neînregistrat, P1 neînscris, loc liber → <strong>acceptă</strong></td>
 <td align="left">1 loc liber; (c1, P1, A); confirmare <code>în așteptare</code></td>
 </tr>
 <tr>
@@ -746,12 +742,12 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p>Decizia și înregistrarea (pasul 2) preced apelul mesageriei (pasul 3). Pasul 5 nu depinde de răspunsul mesageriei (R4), deci poate avea loc în paralel cu pașii <span class="nowrap">3–4.</span> <strong>Ce știe registrul între pașii 3 și 4?</strong></p>
+<p>Decizia și înregistrarea (pasul 2) precedă apelul mesageriei (pasul 3). Pasul 5 nu depinde de răspunsul mesageriei (R4, confirmare: <span class="nowrap">site-ul</span> primește <code>acceptat</code> și la <code>eșec</code>), deci poate avea loc în paralel cu pașii <span class="nowrap">3–4.</span> <strong>Ce știe registrul între pașii 3 și 4?</strong></p>
 </div>
 <div id="scenariul-s2-confirmare-eșuată" class="slide section level1">
 <h1>Scenariul S2 (confirmare eșuată)</h1>
 <p><strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea; <span class="nowrap">site-ul</span> primește <code>acceptat</code>.</p>
-<p><strong>Din I</strong> (2 locuri libere, nicio înscriere): <span class="operatie">înscrie(c1, P1, A)</span>; răspuns <code>eșec</code>.</p>
+<p><strong>Din I</strong> (2 locuri libere, nicio înscriere): <span class="operatie">înscrie(c1, P1, A)</span>; mesageria răspunde <code>eșec</code>.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -762,7 +758,7 @@ break-inside: avoid;
 <thead>
 <tr>
 <th align="left">Pas</th>
-<th align="left">Apel sau răspuns</th>
+<th align="left">Apel, răspuns sau pas intern</th>
 <th align="left">Ce înregistrează registrul</th>
 </tr>
 </thead>
@@ -795,19 +791,19 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p><strong>Față de S1, diferă numai confirmarea înregistrată; înscrierea rămâne acceptată.</strong></p>
+<p><strong>Poate <span class="nowrap">site-ul</span> deosebi scenariul S2 de scenariul S1 (înscriere confirmată)? Cine poate?</strong></p>
 </div>
 <div id="reîncercarea-după-eșec-și-după-succes" class="slide section level1">
 <h1>Reîncercarea după eșec și după succes</h1>
-<p><strong>R5 (reîncercare):</strong> o cerere cu identificator deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără a doua înscriere. La <code>trimisă</code>, mesageria nu este apelată. <strong>Alegerea noastră pentru acest exercițiu:</strong> la <code>netrimisă</code>, o apelăm o dată și înregistrăm rezultatul. Regulile nu cer și nu interzic această alegere.</p>
+<p><strong>R5 (reîncercare):</strong> o cerere cu identificator deja înregistrat primește același <code>acceptat</code>, fără alt loc și fără o a doua înscriere. La <code>trimisă</code>, mesageria nu este apelată. <strong>R6 (graniță):</strong> <code>eșec</code> nu înseamnă că mesajul nu a ajuns. <strong>Alegerea noastră pentru acest exercițiu:</strong> la <code>netrimisă</code>, apelăm mesageria o dată și înregistrăm rezultatul. Regulile nu cer și nu interzic această alegere.</p>
 <p><strong>Scenariul S3 (reîncercare după eșec):</strong> continuarea scenariului S2 (confirmare eșuată: 1 loc liber; (c1, P1, A) cu confirmare <code>netrimisă</code>): <span class="operatie">înscrie(c1, P1, A)</span>; mesageria răspunde <code>trimis</code>, dacă este apelată.</p>
 <p><strong>Scenariul S4 (reîncercare după succes):</strong> continuarea scenariului S1 (înscriere confirmată: 1 loc liber; (c1, P1, A) cu confirmare <code>trimisă</code>): <span class="operatie">înscrie(c1, P1, A)</span>.</p>
-<p>Pe hârtie, apoi discutăm: scrieți pașii fiecărui scenariu ca în tabelele anterioare. Ce pas din S1 lipsește din amândouă? <strong>Dacă în S3 mesageria ar răspunde din nou <code>eșec</code>, ce ar primi <span class="nowrap">site-ul</span> și câte mesaje ar fi putut primi P1?</strong></p>
+<p>Pe hârtie, apoi discutăm: scrieți pașii fiecărui scenariu, câte un rând pentru fiecare apel, răspuns sau pas intern, cu ce rămâne înregistrat. Ce verifică registrul întâi: identificatorul cererii sau înscrierea participantului? <strong>Dacă în S3 mesageria ar răspunde din nou <code>eșec</code>, ce ar primi <span class="nowrap">site-ul</span> și câte mesaje ar fi putut primi P1?</strong></p>
 </div>
 <div id="două-ordini-ale-pașilor" class="slide section level1">
 <h1>Două ordini ale pașilor</h1>
 <p><strong>R4 (confirmare):</strong> eșecul nu anulează înscrierea. <strong>R6 (graniță):</strong> <code>eșec</code> nu înseamnă nelivrare.</p>
-<p><strong>Pornire:</strong> c1 nou, P1 neînscris, un loc liber. <strong>Fluxul nostru:</strong> înregistrează, apoi apelează mesageria. <strong>Fluxul F (exemplu didactic):</strong> apelează întâi mesageria; înregistrează numai la <code>trimis</code>; la <code>eșec</code>, <code>refuz</code>.</p>
+<p><strong>Pornire:</strong> c1 neînregistrat, P1 neînscris, un loc liber. <strong>Fluxul nostru:</strong> înregistrează, apoi apelează mesageria. <strong>Fluxul F (exemplu didactic):</strong> apelează întâi mesageria și înregistrează numai la <code>trimis</code>; la <code>eșec</code> întoarce <code>refuz</code>.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -836,7 +832,7 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p>Ce încalcă F? Ce crede P1 dacă a primit totuși mesajul? <strong>Un flux care apelează întâi mesageria și înregistrează apoi oricum: prin ce diferă de al nostru?</strong></p>
+<p>Ce încalcă F? Ce crede P1 dacă a primit totuși mesajul? <strong>Un flux care apelează întâi mesageria și înregistrează apoi, oricare ar fi răspunsul: prin ce diferă de al nostru?</strong></p>
 </div>
 <div id="ce-garantează-registrul-și-ce-nu" class="slide section level1">
 <h1>Ce garantează registrul și ce nu</h1>
@@ -873,18 +869,18 @@ break-inside: avoid;
 </tbody>
 </table>
 </div>
-<p>Garanțiile depind de granița și presupunerile enunțului.</p>
+<p>Garanțiile depind de graniță și de presupunerile enunțului.</p>
 </div>
 <div id="comparăm-variante-de-recuperare" class="slide section level1 transition">
 <h1 class="transition">Comparăm variante de recuperare</h1>
-<p>Mesageria a răspuns <code>eșec</code>. Cine cere din nou trimiterea și când?</p>
+<p>Mesageria a răspuns <code>eșec</code>. Cine cere din nou trimiterea și când: <span class="nowrap">site-ul,</span> registrul sau un operator?</p>
 </div>
-<div id="un-flux-care-înregistrează-de-două-ori" class="slide section level1">
-<h1>Un flux care înregistrează de două ori</h1>
-<p><strong>Fluxul G (exemplu didactic, construit pentru verificare):</strong> registrul <strong>nu înregistrează identificatorul cererii</strong> și verifică numai dacă există loc liber; înregistrează, apoi apelează mesageria.</p>
-<p><strong>Reguli:</strong> o reîncercare (același identificator) nu consumă alt loc și primește același <code>acceptat</code>; o cerere nouă a unui participant înscris este refuzată.</p>
-<p><strong>Din I</strong> (2 locuri libere, nicio înscriere), sub G: <span class="operatie">înscrie(c1, P1, A)</span> cu <code>eșec</code>; apoi reîncercarea <span class="operatie">înscrie(c1, P1, A)</span>; apoi <span class="operatie">înscrie(c2, P2, A)</span>.</p>
-<p>Pe hârtie, apoi discutăm: după fiecare cerere, <strong>locurile libere, înscrierile și răspunsul</strong>. Ce regulă încalcă G și la care pas?</p>
+<div id="fluxul-propus-g" class="slide section level1">
+<h1>Fluxul propus G</h1>
+<p><strong>Fluxul G (exemplu didactic, construit pentru verificare):</strong> registrul nu înregistrează identificatorul cererii și nu verifică dacă participantul este deja înscris: acceptă ori de câte ori există loc liber. Înregistrează, apoi apelează mesageria.</p>
+<p><strong>R5 (reîncercare):</strong> o cerere cu identificator deja înregistrat nu consumă alt loc și primește același <code>acceptat</code>. <strong>R3 (acceptare):</strong> o cerere nouă a unui participant înscris este refuzată.</p>
+<p><strong>Din I</strong> (2 locuri libere, nicio înscriere), cu fluxul G: <span class="operatie">înscrie(c1, P1, A)</span>, cu <code>eșec</code>; apoi reîncercarea <span class="operatie">înscrie(c1, P1, A)</span>, cu <code>trimis</code>; apoi <span class="operatie">înscrie(c2, P2, A)</span>.</p>
+<p>Pe hârtie, apoi discutăm: notați, după fiecare cerere, <strong>locurile libere, înscrierile și răspunsul către site</strong>. Ce regulă încalcă G și la care cerere? <strong>G are două lipsuri: dacă reparăm numai una dintre ele, mai apare a doua înscriere?</strong></p>
 <p><strong>Fluxul G′:</strong> tot fără identificator, dar un participant deja înscris primește <code>acceptat</code>, fără alt loc. Prin ce diferă de regulile noastre la reîncercare? Dar la o cerere nouă a lui P1?</p>
 </div>
 <div id="trei-variante-după-eșec" class="slide section level1">
@@ -911,7 +907,7 @@ break-inside: avoid;
 <td align="left"><strong>A</strong></td>
 <td align="left">retrimite imediat, de cel mult două ori</td>
 <td align="left">eșecul poate fi trecător</td>
-<td align="left"><span class="nowrap">site-ul</span> așteaptă; mesajul se poate dubla</td>
+<td align="left"><span class="nowrap">site-ul</span> așteaptă; până la trei mesaje</td>
 </tr>
 <tr>
 <td align="left"><strong>B</strong></td>
@@ -936,7 +932,7 @@ break-inside: avoid;
 <p><strong>Variantele:</strong> A, retrimitere imediată; B, confirmare <code>netrimisă</code> și retrimitere <span class="nowrap">printr-o</span> operație separată; C, anularea înscrierii.</p>
 <p>Individual, apoi discutăm:</p>
 <ol style="list-style-type: decimal">
-<li>În A și în B, cum poate primi participantul două mesaje? Ce rezultat al confirmării rămâne atunci înregistrat?</li>
+<li>Mesageria răspunde <code>eșec</code> timp de o oră. Ce rămâne înregistrat în A și în B și cine mai poate cere trimiterea după aceea?</li>
 <li>În B, cine răspunde de retrimitere? Ce se întâmplă dacă nimeni nu apelează operația?</li>
 <li>Ce ați alege pentru centru și ce <span class="nowrap">l-ați</span> întreba pe beneficiar înainte de a alege?</li>
 </ol>
@@ -946,15 +942,15 @@ break-inside: avoid;
 <p><strong>R4 (confirmare):</strong> înscrierea rămâne acceptată la <code>eșec</code>. <strong>R5 (reîncercare):</strong> interzice apelul mesageriei numai la <code>trimisă</code>. <strong>R6 (graniță):</strong> nu cunoaștem livrarea efectivă.</p>
 <p><strong>Alegem B: retrimitere ulterioară</strong>, cu responsabilități explicite:</p>
 <ul>
-<li><span class="operatie">înscrie</span> apelează mesageria o dată la acceptare și o dată la reîncercare dacă rezultatul este <code>netrimisă</code>;</li>
-<li>propunem <span class="operatie">retrimite confirmările()</span>, apelată de un operator al centrului, care încearcă o dată fiecare confirmare <code>netrimisă</code> și actualizează rezultatul;</li>
+<li><span class="operatie">înscrie</span> apelează mesageria o dată la acceptare și o dată la o reîncercare, dacă rezultatul confirmării este <code>netrimisă</code>;</li>
+<li>propunem operația <span class="operatie">retrimite confirmările()</span>, care încearcă o dată trimiterea fiecărei confirmări <code>netrimisă</code> și îi actualizează rezultatul; o apelează un operator al centrului;</li>
 <li>păstrăm înscrierile și locurile; amânarea cere un operator și poate produce mesaje duplicate.</li>
 </ul>
-<p><strong>C contrazice R4.</strong> A rămâne o alternativă; ar cere precizarea numărului de încercări și noi trasări.</p>
+<p><strong>De ce B și nu A:</strong> varianta A ajută numai dacă eșecul trece în câteva clipe; altfel confirmarea rămâne <code>netrimisă</code> și tot trebuie cineva care să ceară retrimiterea mai târziu. <strong>C contrazice R4.</strong> Varianta A se poate adăuga peste B; ar cere precizarea numărului de încercări și trasări noi.</p>
 </div>
 <div id="cine-oferă-garanția" class="slide section level1 transition">
 <h1 class="transition">Cine oferă garanția?</h1>
-<p>Un text despre înscriere promite ceva. Cine se angajează să îl respecte?</p>
+<p>Un text despre înscriere promite ceva. Cine se angajează să respecte promisiunea?</p>
 </div>
 <div id="ce-cerem-asistentului-ai" class="slide section level1">
 <h1>Ce cerem asistentului AI?</h1>
@@ -963,75 +959,60 @@ break-inside: avoid;
 <p>Centrul cultural vrea să publice pe site un paragraf „Ce vă garantăm la înscriere”, pentru participanți, și ne cere, ca proiectanți ai registrului, textul lui. Scrie paragraful, apoi, separat, o scurtă justificare tehnică pentru centru: pe ce se sprijină fiecare promisiune din paragraf. Nu scrie cod. Răspunde în română, în maximum 300 de cuvinte.</p>
 </blockquote>
 <p><strong>Context:</strong> enunțul curent, <span class="nowrap">R1–R7</span> și scenariile <span class="nowrap">S1–S6,</span> plus varianta B aleasă mai devreme: <span class="operatie">înscrie</span> apelează mesageria o dată la acceptare și o dată la o reîncercare cu confirmarea <code>netrimisă</code>; un operator al centrului apelează <span class="operatie">retrimite confirmările()</span>.</p>
-<p><strong>Cum citim răspunsul:</strong> pentru fiecare promisiune, cine o oferă — <strong>registrul</strong>, <strong><span class="nowrap">site-ul</span></strong>, <strong>mesageria</strong> sau <strong>nimeni</strong>? Ce regulă a enunțului o susține?</p>
-<p><strong>Predicție:</strong> ce ar putea promite paragraful fără ca registrul să controleze?</p>
+<p><strong>Cum citim răspunsul:</strong> pentru fiecare promisiune, cine o garantează — <strong>registrul</strong>, <strong><span class="nowrap">site-ul</span></strong>, <strong>operatorul centrului</strong>, <strong>mesageria</strong> sau <strong>nimeni</strong>? Ce regulă sau ce decizie o susține?</p>
+<p><strong>Predicție:</strong> ce ar putea promite paragraful, deși registrul nu controlează acel lucru?</p>
 </div>
 <div id="paragraful-promisiunile-1-și-2" class="slide section level1">
 <h1>Paragraful: promisiunile 1 și 2</h1>
 <p><strong>Asistentul AI — Claude Haiku 4.5, 20 noiembrie 2026, una dintre șase rulări; fragmente:</strong></p>
-<ol class="incremental" style="list-style-type: decimal">
-<li><p><strong>Înscrierea se acceptă imediat</strong> – dacă locul este liber și nu sunteți deja înscris la acest atelier, cererea voastră se acceptă pe loc.</p></li>
-<li><p><strong>Veți primi o confirmare</strong> – după acceptare, vă trimitem imediat un mesaj de confirmare pe email, cu detaliile atelierului.</p></li>
-</ol>
+<blockquote>
+<p>1. <strong>Înscrierea se acceptă imediat</strong> – dacă locul este liber și nu sunteți deja înscris la acest atelier, cererea voastră se acceptă pe loc.</p>
+<p>2. <strong>Veți primi o confirmare</strong> – după acceptare, vă trimitem imediat un mesaj de confirmare pe email, cu detaliile atelierului.</p>
+</blockquote>
 <p><strong>R3 (acceptare):</strong> o cerere nouă este acceptată exact când participantul nu este înscris și există loc. <strong>R4 (confirmare):</strong> după acceptare, registrul cere mesageriei trimiterea și înregistrează răspunsul; eșecul nu anulează înscrierea. <strong>R6 (graniță):</strong> presupunem doar că mesageria răspunde <code>trimis</code> sau <code>eșec</code>; <code>trimis</code> nu înseamnă că mesajul a ajuns.</p>
-<p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune și pe ce regulă se sprijină?</strong></p>
+<p>Individual, apoi discutăm: <strong>cine garantează fiecare promisiune și pe ce regulă se sprijină?</strong></p>
 </div>
 <div id="paragraful-promisiunile-3-și-4" class="slide section level1">
 <h1>Paragraful: promisiunile 3 și 4</h1>
 <p><strong>Aceeași rulare; fragmente:</strong></p>
-<ol class="incremental" start="3" style="list-style-type: decimal">
-<li><p><strong>Nu vă veți înscrie de două ori din greșeală</strong> – dacă sistemul nu vi <span class="nowrap">s-a</span> afișat răspunsul și reîncercați, nu veți consuma un loc suplimentar; veți primi din nou răspunsul „acceptat”.</p></li>
-<li><p><strong>Rămâneți înscris chiar dacă confirmarea nu ajunge</strong> – […] Dacă mesajul de confirmare eșuează, echipa noastră va încerca din nou trimiterea, […]</p></li>
-</ol>
-<p><strong>R2 (cerere):</strong> la reîncercare, <span class="nowrap">site-ul</span> trimite același identificator; o cerere nouă primește altul. <strong>R3 (acceptare):</strong> o cerere nouă a unui participant înscris primește <code>refuz</code>. <strong>R5 (reîncercare):</strong> un identificator înregistrat primește același <code>acceptat</code>, fără alt loc. <strong>Varianta B:</strong> un operator apelează <span class="operatie">retrimite confirmările()</span>, care încearcă numai confirmările <code>netrimisă</code>.</p>
-<p>Individual, apoi discutăm: <strong>cine oferă fiecare promisiune?</strong> Ce primește participantul dacă <span class="nowrap">site-ul</span> trimite o <strong>cerere nouă</strong>? Cine reîncearcă după un <code>trimis</code> fără livrare?</p>
+<blockquote>
+<p>3. <strong>Nu vă veți înscrie de două ori din greșeală</strong> – dacă sistemul nu vi <span class="nowrap">s-a</span> afișat răspunsul și reîncercați, nu veți consuma un loc suplimentar; veți primi din nou răspunsul „acceptat”.</p>
+<p>4. <strong>Rămâneți înscris chiar dacă confirmarea nu ajunge</strong> – […] Dacă mesajul de confirmare eșuează, echipa noastră va încerca din nou trimiterea, […]</p>
+</blockquote>
+<p><strong>R2 (cerere):</strong> la reîncercare, <span class="nowrap">site-ul</span> trimite același identificator; o cerere nouă primește altul. <strong>R3 (acceptare):</strong> o cerere nouă a unui participant înscris primește <code>refuz</code>. <strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea. <strong>R5 (reîncercare):</strong> o cerere cu identificator deja înregistrat primește același <code>acceptat</code>, fără alt loc. <strong>Varianta B:</strong> un operator apelează <span class="operatie">retrimite confirmările()</span>, care încearcă numai confirmările <code>netrimisă</code>.</p>
+<p>Individual, apoi discutăm: <strong>cine garantează fiecare promisiune?</strong> Ce primește participantul dacă <span class="nowrap">site-ul</span> trimite o <strong>cerere nouă</strong>? Cine retrimite confirmarea după un <code>trimis</code> fără livrare?</p>
 </div>
-<div id="alte-rulări-atomicitate-pentru-acceptare" class="slide section level1">
-<h1>Alte rulări: „atomicitate pentru acceptare”</h1>
-<p><strong>Aceleași reguli; garanțiile pentru echipa de dezvoltare, rularea 04; două puncte din listă:</strong></p>
+<div id="altă-instrucțiune-atomicitate-pentru-acceptare" class="slide section level1">
+<h1>Altă instrucțiune: „atomicitate pentru acceptare”</h1>
+<p><strong>Asistentul AI, altă instrucțiune, același context — Claude Haiku 4.5, 20 noiembrie 2026, rularea 04 din opt:</strong> „[…] formulează garanțiile acestor operații […] pentru echipa de dezvoltare: consistența datelor, livrarea confirmărilor și comportamentul la repetarea cererilor. […]” <strong>Din răspuns, două puncte:</strong></p>
 <blockquote>
 <p><strong>Atomicitate pentru acceptare:</strong> înscrierea și apelul de confirmare formează o unitate; eșecul confirmării nu anulează înscrierea</p>
 <p><strong>Semnatică limitată:</strong> starea <code>trimisă</code> înregistrează doar răspunsul serviciului; livrarea efectivă și citirea nu sunt garantate. Starea <code>netrimisă</code> înseamnă: ultimul răspuns a fost <code>eșec</code>, nu că știm cu certitudine că mesajul nu a ajuns</p>
 </blockquote>
-<p><strong>Atomicitatea</strong> unei operații: efectele ei se produc integral sau deloc. <strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea. <strong>R6 (graniță):</strong> <code>trimis</code> nu înseamnă că mesajul a ajuns; <code>eșec</code> nu înseamnă că nu a ajuns.</p>
-<p><strong>Este înscrierea, împreună cu confirmarea, atomică? Ce garanție corectă găsiți în al doilea punct?</strong></p>
-</div>
-<div id="alte-rulări-ce-promit-despre-mesagerie" class="slide section level1">
-<h1>Alte rulări: ce promit despre mesagerie?</h1>
-<p><strong>Garanțiile pentru echipa de dezvoltare, două rulări; fragmente:</strong></p>
-<p>Rularea 06:</p>
-<blockquote>
-<p>Retrimiterea poate genera duplicate de mesaje; livrarea efectivă rămâne răspunderea mesageriei.</p>
-<p>Aceste garanții […] permit recuperarea confirmărilor pierdute fără a risca duplicarea locurilor.</p>
-</blockquote>
-<p>Rularea 05:</p>
-<blockquote>
-<p>Registrul garantează că răspunsul și comportamentul extern (apeluri mesagerie) sunt determinist și nu se modifică după prima acceptare.</p>
-</blockquote>
-<p><strong>Varianta B:</strong> la o reîncercare, <span class="operatie">înscrie</span> apelează din nou mesageria numai dacă confirmarea este <code>netrimisă</code>. <strong>R6 (graniță):</strong> mesageria răspunde <code>trimis</code> sau <code>eșec</code>; <code>eșec</code> nu înseamnă nelivrare.</p>
-<p><strong>Cine oferă fiecare afirmație? Ce presupune fiecare despre mesagerie?</strong></p>
+<p><strong>Atomicitate:</strong> efectele unei operații se produc integral sau deloc. <strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea. <strong>R6 (graniță):</strong> nici <code>trimis</code>, nici <code>eșec</code> nu spun dacă mesajul a ajuns.</p>
+<p><strong>Rularea 04 spune că înscrierea și apelul de confirmare „formează o unitate”. Ce parte a ei controlează registrul? Ce garanție corectă găsiți în al doilea punct?</strong></p>
 </div>
 <div id="comparația-noastră-cine-oferă-fiecare-garanție" class="slide section level1">
 <h1>Comparația noastră: cine oferă fiecare garanție</h1>
 <div class="table-wrap">
 <table>
 <colgroup>
-<col width="54%" />
-<col width="20%" />
-<col width="25%" />
+<col width="44%" />
+<col width="21%" />
+<col width="33%" />
 </colgroup>
 <thead>
 <tr>
 <th align="left">Afirmația</th>
-<th align="left">Cine o oferă</th>
-<th align="left">Sprijin în enunț</th>
+<th align="left">Cine o garantează</th>
+<th align="left">Ce o susține sau o limitează</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">acceptarea; locul păstrat la eșec; fără loc în plus</td>
 <td align="left">registrul</td>
-<td align="left">R3, R4, R5</td>
+<td align="left">R3 (acceptare), R4 (confirmare), R5 (reîncercare)</td>
 </tr>
 <tr>
 <td align="left">„veți primi din nou răspunsul «acceptat»”</td>
@@ -1041,22 +1022,17 @@ break-inside: avoid;
 <tr>
 <td align="left">„atomicitate pentru acceptare”</td>
 <td align="left">registrul, fără atomicitate</td>
-<td align="left">R4 (confirmare)</td>
+<td align="left">R4</td>
 </tr>
 <tr>
-<td align="left">„veți primi o confirmare”; „răspunderea mesageriei”</td>
+<td align="left">„veți primi o confirmare … imediat”</td>
 <td align="left">nimeni</td>
 <td align="left">R6 (graniță)</td>
 </tr>
 <tr>
 <td align="left">„echipa noastră va încerca din nou”</td>
-<td align="left">nimeni; poate un operator</td>
-<td align="left">B: doar <code>netrimisă</code></td>
-</tr>
-<tr>
-<td align="left">apeluri „deterministe” ale mesageriei</td>
-<td align="left">nimeni</td>
-<td align="left">B: după răspuns</td>
+<td align="left">operatorul centrului, nu registrul</td>
+<td align="left">varianta B: numai <code>netrimisă</code>; nu spune când</td>
 </tr>
 </tbody>
 </table>
@@ -1064,10 +1040,11 @@ break-inside: avoid;
 </div>
 <div id="decizia-noastră" class="slide section level1">
 <h1>Decizia noastră</h1>
-<p><strong>Păstrăm</strong> promisiunea 1, partea promisiunii 3 despre locul suplimentar și „rămâneți înscris” din promisiunea 4: le oferă registrul.</p>
-<p><strong>Rescriem promisiunea 2:</strong> „După acceptare cerem trimiterea unei confirmări. Dacă nu o primiți, înscrierea rămâne valabilă.” Nu promitem livrarea, rapiditatea sau o retrimitere.</p>
-<p><strong>Corectăm termenii:</strong> ce rularea 04 numește „atomicitate pentru acceptare” este garanția din R4. <strong>Atomicitatea</strong> înseamnă că efectele unei operații se produc integral sau deloc; nu o promitem între registru și mesagerie.</p>
-<p><strong>Pentru o garanție mai puternică</strong> (de exemplu, livrarea confirmată), o cerem furnizorului mesageriei, în interfața lui; nu o scriem noi în locul lui.</p>
+<p><strong>Păstrăm</strong> promisiunea 1, fără „imediat” și „pe loc”, partea promisiunii 3 despre locul suplimentar și „rămâneți înscris” din promisiunea 4: le garantează registrul.</p>
+<p><strong>Rescriem promisiunea 2:</strong> „După acceptare cerem trimiterea unei confirmări. Dacă nu o primiți, înscrierea rămâne valabilă.” Nu promitem livrarea sau rapiditatea.</p>
+<p><strong>Nu scriem în numele registrului</strong> ce depinde de alții: „veți primi din nou răspunsul «acceptat»” depinde de site (R2, cerere) și trece în documentația lui; „echipa noastră va încerca din nou” o poate promite numai centrul, dacă spune cine apelează <span class="operatie">retrimite confirmările()</span> și când.</p>
+<p><strong>Corectăm termenii:</strong> ce rularea 04 a garanțiilor numește „atomicitate pentru acceptare” este garanția din R4 (confirmare): eșecul confirmării nu anulează înscrierea. <strong>Atomicitatea</strong> înseamnă că efectele unei operații se produc integral sau deloc; nu o promitem între registru și mesagerie.</p>
+<p><strong>O garanție mai puternică</strong> (de exemplu, livrarea confirmată) o cerem furnizorului mesageriei, în interfața lui; nu o scriem noi în locul lui.</p>
 </div>
 <div id="transferăm-granița" class="slide section level1 transition">
 <h1 class="transition">Transferăm granița</h1>
@@ -1076,11 +1053,11 @@ break-inside: avoid;
 <div id="diplomele-și-tipografia" class="slide section level1">
 <h1>Diplomele și tipografia</h1>
 <p><strong>Enunț nou:</strong> registrul secretariatului înregistrează diplomele aprobate și cere unei <strong>tipografii externe</strong> tipărirea fiecăreia, prin <span class="operatie">comandă(d)</span>, care întoarce <code>primit</code> sau <code>eșec</code>. O diplomă aprobată rămâne aprobată, indiferent de tipărire. Registrul poate retrimite o comandă.</p>
-<p>Scrieți, în câte o propoziție:</p>
+<p>Răspundeți pe scurt, în scris:</p>
 <ol style="list-style-type: decimal">
-<li>Ce componentă proiectăm și ce componentă este în afara graniței?</li>
+<li>Cine coordonează tipărirea și ce înregistrează după fiecare răspuns al tipografiei? Enunțul spune că registrul poate retrimite: cine hotărăște când o face?</li>
 <li>Ce presupunem despre tipografie și ce <strong>nu</strong> presupunem când răspunde <code>eșec</code>?</li>
-<li>După un <code>eșec</code>, registrul retrimite comanda. Ce îi trebuie ca diploma să nu fie tipărită de două ori? La confirmări acceptam un mesaj duplicat; de ce nu și aici?</li>
+<li>După un <code>eșec</code>, registrul retrimite comanda. Ce îi trebuie ca diploma să nu fie tipărită de două ori și cum se numește proprietatea pe care ar trebui să o promită tipografia? La confirmări acceptam un mesaj duplicat; de ce nu și aici?</li>
 </ol>
 </div>
 </main>

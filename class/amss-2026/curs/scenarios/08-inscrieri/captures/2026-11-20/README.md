@@ -34,8 +34,8 @@ Toate s-au încheiat cu succes; 22 de rulări (șase pentru paragraf, câte opt 
 | `haiku45-garantii-02` | „Registrul nu garantează ca mesajul să ajungă participantului”. |
 | `haiku45-garantii-03` | „Atomicitate la acceptare” (loc și înscriere împreună). |
 | `haiku45-garantii-04` | „Atomicitate pentru acceptare: înscrierea și apelul de confirmare formează o unitate; eșecul confirmării nu anulează înscrierea”; limita livrării corect enunțată. **Selectat (două puncte).** |
-| `haiku45-garantii-05` | „Registrul garantează că răspunsul și comportamentul extern (apeluri mesagerie) sunt determinist”. **Selectat (o frază).** |
-| `haiku45-garantii-06` | „livrarea efectivă rămâne răspunderea mesageriei”; „recuperarea confirmărilor pierdute”. **Selectat (două fragmente).** |
+| `haiku45-garantii-05` | „Registrul garantează că răspunsul și comportamentul extern (apeluri mesagerie) sunt determinist”. Selectat inițial (o frază); scos de pe slide-uri la revizuirea din 20 noiembrie 2026. |
+| `haiku45-garantii-06` | „livrarea efectivă rămâne răspunderea mesageriei”; „recuperarea confirmărilor pierdute”. Selectat inițial (două fragmente); scos de pe slide-uri la revizuirea din 20 noiembrie 2026. |
 | `haiku45-garantii-07` | „Apeluri garantate”; „Atomicitate pe acceptare”; reîncercarea întoarce „același răspuns (`acceptat` sau `refuz`)”. |
 | `haiku45-garantii-08` | „Atomicitate a acceptării”; „Retrimiteri manuale” prin operator. |
 | `haiku45-promisiuni-01` | „Veți primi o confirmare … imediat”; „veți primi din nou răspunsul «acceptat»” la reîncercare; „echipa noastră va încerca din nou trimiterea”, iar justificarea spune „poate”. **Selectat (paragraful, promisiunile 1–4).** |
@@ -47,8 +47,10 @@ Toate s-au încheiat cu succes; 22 de rulări (șase pentru paragraf, câte opt 
 
 ## Selecție
 
-Am ales `promisiuni-01` pentru că paragraful are patru promisiuni numerotate, cu garanți diferiți: una a registrului (acceptarea), una pe care nu o oferă nimeni („Veți primi o confirmare … imediat”), una care depinde și de site („veți primi din nou răspunsul «acceptat»” la reîncercare, prin identificatorul din R2) și una pe jumătate a registrului („rămâneți înscris”) și pe jumătate a nimănui („echipa noastră va încerca din nou trimiterea”, unde justificarea spune „poate”, iar operația B încearcă numai confirmările `netrimisă`).
+Am ales `promisiuni-01` pentru că paragraful are patru promisiuni numerotate, cu garanți diferiți: una a registrului (acceptarea), una pe care nu o oferă nimeni („Veți primi o confirmare … imediat”), una care depinde și de site („veți primi din nou răspunsul «acceptat»” la reîncercare, prin identificatorul din R2) și una pe jumătate a registrului („rămâneți înscris”) și pe jumătate a nimănui (vezi precizarea de la sfârșit: comparația numește acum operatorul centrului; „echipa noastră va încerca din nou trimiterea”, unde justificarea spune „poate”, iar operația B încearcă numai confirmările `netrimisă`).
 
 Din celelalte rulări: `garantii-04`, „atomicitate” pentru o proprietate care o contrazice (eșecul confirmării nu anulează înscrierea), lângă o limită corect enunțată, ca auditul să nu devină „găsește greșeala”; `garantii-06`, livrarea atribuită mesageriei și „confirmările pierdute” pentru `netrimisă`, confuzia exclusă de R6; `garantii-05`, apeluri ale mesageriei declarate deterministe, deși varianta B apelează din nou mesageria la o reîncercare cu confirmarea `netrimisă`.
 
 Selecția a urmărit afirmații utile pentru audit, nu un rezultat tipic; nu descrie comportamentul obișnuit al modelului și nu este o evaluare statistică. Răspunsurile integrale sunt în fișierele `*-response.md`. Fragmentele de pe slide-uri sunt fidele, cu omisiunile marcate și cu greșelile de scriere ale răspunsurilor; comparația și decizia noastră apar separat.
+
+**După runda de revizuire din 20 noiembrie 2026:** fragmentele din `garantii-05` și `garantii-06` nu mai apar pe slide-uri: etapa avea șapte slide-uri în 15 minute, lecția lor este făcută la promisiunile 2 și 4, iar analiza frazei din `garantii-05` citea „determinist” ca „neschimbat” (registrul este determinist; falsă este partea „nu se modifică după prima acceptare”). Rămân aici și în referință. Slide-ul cu `garantii-04` arată acum și fragmentul instrucțiunii din care provine. Pentru „echipa noastră va încerca din nou trimiterea”, comparația noastră numește operatorul centrului, nu „nimeni”: contextul trimis îl dă ca apelant al operației; nici contextul, nici textul nu spun când o apelează.

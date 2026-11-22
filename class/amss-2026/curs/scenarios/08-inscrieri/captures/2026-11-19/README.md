@@ -51,4 +51,4 @@ Din celelalte rulări am ales fragmente scurte care pun aceeași întrebare în 
 
 Selecția a urmărit afirmații utile pentru audit, nu un rezultat tipic; nu descrie comportamentul obișnuit al modelului și nu este o evaluare statistică. Tabelul de mai sus rezumă rulările pentru pregătire; răspunsurile integrale sunt în fișierele `*-response.md`. Fragmentele de pe slide-uri sunt fidele, cu omisiunile marcate; comparația și decizia noastră apar separat.
 
-**Înlocuită pe slide-uri (19 noiembrie 2026):** după redenumirile din enunț (mesageria, `eșec expediție`, locuri ca parametru), aceleași prompturi au fost rulate din nou; slide-urile folosesc acum seria `../2026-11-19b/`. Această serie rămâne arhivată neschimbată.
+**Înlocuită pe slide-uri (19 noiembrie 2026):** după redenumirile din enunț (mesageria, `eșec expediție`, locuri ca parametru), aceleași prompturi au fost rulate din nou; slide-urile au folosit apoi seria `../2026-11-19b/`, iar din 20 noiembrie 2026 seria `../2026-11-20/`. Această serie rămâne arhivată neschimbată.

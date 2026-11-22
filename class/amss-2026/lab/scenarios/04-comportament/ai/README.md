@@ -1,6 +1,6 @@
 # Pregătirea demonstrației AI comune — ghișeul de echipamente
 
-**Prompturi pregătite.** Pe baza lor s-au obținut la 12 noiembrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri; vezi [arhiva capturilor](../captures/2026-11-12/README.md). Fișierele de aici păstrează intrarea istorică, anterioară corectării stării Ridicată; nu le folosim nemodificate la o rulare nouă. Enunțul trimis atunci numea rezervările R1 și R2, iar studenții S1 și S2; enunțul curent folosește A și B, respectiv T1 și T2, ca să nu se confunde cu etichetele regulilor și scenariilor.
+**Prompturi pregătite.** Pe baza lor s-au obținut la 12 noiembrie 2026 capturi reale Claude Haiku 4.5, folosite pe slide-uri până la 19 noiembrie 2026, când etapa AI în plen a fost scoasă din laborator; vezi [arhiva capturilor](../captures/2026-11-12/README.md). Fișierele de aici păstrează intrarea istorică, anterioară corectării stării Ridicată; nu le folosim nemodificate la o rulare nouă. Enunțul trimis atunci numea rezervările R1 și R2, iar studenții S1 și S2; enunțul curent folosește A și B, respectiv T1 și T2, ca să nu se confunde cu etichetele regulilor și scenariilor.
 
 ## Analiză
 
@@ -20,4 +20,4 @@ Folosiți [capturile pregătite](../prepared-fixture.md): răspunsuri reale Clau
 
 Pentru o analiză nouă, reuniți `analist-instructiune.md` cu [enunțul curent](../scenario.md). Furnizați evaluatorului AI exact aceeași versiune, sarcina și răspunsul integral. Salvați noul prompt și noul hash separat; nu suprascrieți metadatele capturilor existente.
 
-**Denumiri (19 noiembrie 2026):** enunțul curent numește serviciul extern „mesageria” și rezultatul de eșec `eșec expediție`; prompturile și capturile arhivate păstrează „expeditor” și `esec`.
+**Denumiri (20 noiembrie 2026):** enunțul curent numește serviciul extern „mesageria”, rezultatul de eșec `eșec` și trimite notificarea coordonatorului clubului; prompturile și capturile arhivate păstrează „expeditor”, `esec` și mesajul trimis studentului.

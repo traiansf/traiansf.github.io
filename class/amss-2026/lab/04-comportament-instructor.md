@@ -2,16 +2,16 @@
 
 **100 de minute, după cursurile 7–8; 17 slide-uri cu copertă.** [Prezentarea](04-comportament.md), [enunțul](scenarios/04-comportament/scenario.md), [referința](scenarios/04-comportament/reference.md), [sprijinul facultativ](scenarios/04-comportament/worksheet.md) și specificațiile [diagramei de stări](diagrame/stari.md) și [diagramei de secvență](diagrame/secventa.md) alcătuiesc pachetul. Exercițiile nu cer documente de predat, încărcări, o notă separată sau implementare.
 
-Din 19 noiembrie 2026 laboratorul are formatul cu atelier de diagrame (decizia din `docs/ai-lessons-and-lab-diagrams.md`): prima jumătate discută problema, a doua desenează diagrama de stări a rezervării. Analiza AI în plen, condusă de profesor, nu mai face parte din laborator; folosirea unui asistent AI trece în atelier, unde fiecare student decide dacă îl folosește.
+Din 19 noiembrie 2026 laboratorul are formatul cu atelier de diagrame (decizia din `docs/ai-lessons-and-lab-diagrams.md`): în prima jumătate se discută problema, în a doua se desenează diagrama de stări a rezervării. Analiza AI în plen, condusă de profesor, nu mai face parte din laborator; folosirea unui asistent AI trece în atelier, unde fiecare student decide dacă îl folosește.
 
 ## Parcurs
 
 | Minute | Activitate | Intervenția profesorului |
 |---|---|---|
 | 0–10 | Problema, citatul și recapitularea. | Clarificați: starea spune ce este permis acum; reîncercarea are același identificator. |
-| 10–28 | Predicții S2, S7, S6, 6 min; tabelul de tranziții, individual, apoi în plen, 12 min. | „În ce stare sosește reîncercarea?” |
-| 28–50 | Interacțiunea S1 și S3, 10 min; reîncercările S4 și S5, 12 min. | Cereți pasul în care se schimbă starea față de apelul mesageriei. |
-| 50–70 | Atelier: sarcina, 2 min; diagrama de stări, individual, 16 min; autoverificare cu lista, 2 min. | Treceți printre bănci; „ce regulă susține această săgeată?” Alegeți voluntarii. |
+| 10–28 | Predicții: S2, S7 și cererea din S2 trimisă din nou, 6 min; tabelul de tranziții, individual, apoi în plen, 12 min. | „În ce stare sosește o cerere cu c deja înregistrat?” |
+| 28–50 | Fluxul de lucru pentru S1 și S3, 10 min; reîncercările S4 și S5, cu răspunsul care nu a ajuns la operator, 12 min. | Cereți pasul în care se schimbă starea față de apelul mesageriei; la S5: „ce vede operatorul?”. |
+| 50–70 | Atelier: sarcina, 2 min; diagrama de stări, individual, 14 min; autoverificare cu lista pe ecran, 4 min. | Treceți printre bănci; „ce regulă susține această săgeată?” Alegeți voluntarii. |
 | 70–80 | Verificarea în plen a unei diagrame sau a două. | Un voluntar arată, un coleg verifică punct cu punct; fiecare observație numește punctul și regula. |
 | 80–87 | Corectare; extensia (diagrama de secvență) pentru cine a terminat. | Răspundeți la întrebări individuale. |
 | 87–95 | Diagrama de referință, comparată cu diagrama corectată în plen. | Variantele acceptabile față de greșeli. |
@@ -19,11 +19,11 @@ Din 19 noiembrie 2026 laboratorul are formatul cu atelier de diagrame (decizia d
 
 Studenții lucrează individual, apoi explică în plen: un voluntar explică, iar alt coleg verifică, fără prezentări formale. Nu cereți explorarea automată a stărilor, analiza formală sau concurența, care urmează în cursul 9.
 
-**Repere de timp:** minutul 10 (prima tranziție), 28 (interacțiunea), 50 (atelierul), 70 (verificarea în plen), 87 (referința), 95 (încheierea). Dacă discuția din prima jumătate întârzie, scurtați explicațiile S4/S5 (ascultați un singur coleg), nu atelierul: atelierul are nevoie de cel puțin 15 minute de lucru individual și de verificarea în plen.
+**Repere de timp:** minutul 10 (prima tranziție), 28 (fluxul de lucru), 50 (atelierul), 70 (verificarea în plen), 87 (referința), 95 (încheierea). Dacă discuția din prima jumătate întârzie, scurtați explicațiile S4/S5 (ascultați un singur coleg), nu atelierul: atelierul are nevoie de cel puțin 15 minute de lucru individual (desen și autoverificare) și de verificarea în plen.
 
 ## Răspunsuri și dificultăți de urmărit
 
-Starea inițială **I**: A (titular T1, proiector) și B (titular T2, cameră) în Rezervată; niciun identificator de cerere înregistrat. Majoritatea scenariilor repornesc din I; continuările sunt marcate explicit.
+Starea inițială **I**: A (titular T1, proiector) și B (titular T2, cameră video) în Rezervată; niciun identificator de cerere înregistrat. Majoritatea scenariilor repornesc din I; continuările sunt marcate explicit.
 
 | Scenariu | Rezultat |
 |---|---|
@@ -35,17 +35,23 @@ Starea inițială **I**: A (titular T1, proiector) și B (titular T2, cameră) �
 | S6 (după S1): `anulează(A)` | `refuz`; A rămâne Ridicată. |
 | S7: `anulează(B)`, apoi `ridică(c2, B, T2)` | Anulare acceptată, B Anulată; ridicare refuzată (stare finală); fără notificare. |
 
-Tabelul de tranziții așteptat are trei rânduri: Rezervată + `ridică` cu c nou și s titular → Ridicată; Ridicată + `ridică` cu c înregistrat → Ridicată (reîncercare; notificarea `netrimisă` se retrimite); Rezervată + `anulează` → Anulată. Orice altă combinație, sau o condiție neîndeplinită, este refuzată fără modificări. Dificultatea principală: reîncercarea este pusă în Rezervată, deși c se înregistrează numai la acceptare, deci sosește în Ridicată. A doua dificultate: cererea nouă cu același conținut (c7) confundată cu reîncercarea (c1); le deosebește numai identificatorul. Întrebarea „o refuză starea sau condiția?” pentru cererea nouă în Ridicată are două răspunsuri corecte, după rândul față de care o citim; acceptați-le pe amândouă, cu justificare.
+A treia predicție, cererea din S2 trimisă din nou (`ridică(c1, A, T2)`), primește tot `refuz`: refuzul nu înregistrează identificatorul, deci cererea este judecată din nou după R3, iar R5 nu se aplică. Pregătește întrebarea tabelului: un c este înregistrat numai după o ridicare acceptată, deci reîncercarea sosește în Ridicată. Scenariul S6 nu mai este printre predicții; revine la punctul 6 al listei de verificare.
+
+Tabelul de tranziții așteptat are trei rânduri: Rezervată + `ridică` cu c neînregistrat și s titular → Ridicată; Ridicată + `ridică` cu c înregistrat → Ridicată (reîncercare; notificarea `netrimisă` se retrimite); Rezervată + `anulează` → Anulată. Orice altă combinație, sau o condiție neîndeplinită, este refuzată fără modificări. Dificultatea principală: reîncercarea este pusă în Rezervată, deși c se înregistrează numai la acceptare, deci sosește în Ridicată. A doua dificultate: cererea nouă cu același conținut (c7) confundată cu reîncercarea (c1); le deosebește numai identificatorul. Întrebarea „o refuză starea sau condiția?” pentru cererea nouă în Ridicată are două răspunsuri corecte, după rândul față de care o citim; acceptați-le pe amândouă, cu justificare.
 
 Anulată este finală intenționată. Ridicată permite reîncercarea, deci nu este finală în sensul cursului 7; faptul că ridicarea fizică s-a încheiat nu încheie tratarea notificării.
 
-Interacțiunea: tranziția și înregistrarea lui c preced apelul mesageriei; la `eșec`, notificarea `netrimisă` este înregistrată, iar răspunsul rămâne `ridicat` (R4). Dacă cineva propune schimbarea stării numai la `trimis`, cereți S3 în acea ordine: studentul pleacă cu echipamentul, iar A rămâne Rezervată, deci registrul ar putea accepta încă o ridicare pentru aceeași rezervare. Despre mesagerie presupunem numai că răspunde `trimis` sau `eșec` (R7); nu presupunem că `eșec` înseamnă nelivrare.
+Fluxul de lucru: tranziția și înregistrarea lui c precedă apelul mesageriei; la `eșec`, notificarea `netrimisă` este înregistrată, iar răspunsul rămâne `ridicat` (R4). Întrebarea slide-ului cere S3 cu starea schimbată numai după `trimis`: fie ghișeul primește `refuz` (titularul pleacă fără echipament, deși R3 îi acceptă cererea; R4 este încălcată), fie primește `ridicat` fără schimbarea stării (studentul pleacă cu echipamentul, A rămâne Rezervată, deci registrul ar accepta încă o ridicare; R3 este încălcată). Apelul înaintea tranziției, cu tranziția făcută oricare ar fi răspunsul, dă în limitele lui R1 aceleași rezultate ca ordinea noastră, cum a arătat cursul 8. Despre mesagerie presupunem numai că răspunde `trimis` sau `eșec` (R7); nu presupunem că `eșec` înseamnă nelivrare.
+
+Reîncercările: în S4 și în S5, răspunsul `ridicat` nu a ajuns la operator. La S4, ghișeul reîncearcă cu c1 și abia apoi predă proiectorul. La S5 trimite un identificator nou: operatorul vede numai `refuz`, ca pentru alt student sau pentru o rezervare anulată; proiectorul este la ghișeu, registrul consemnează A ca Ridicată, iar pentru A mai este acceptată numai reîncercarea cu c1. Ghișeul, componentă din afara graniței, nu și-a îndeplinit responsabilitatea presupusă de R3: păstrează identificatorul până primește răspunsul. Ultima întrebare a slide-ului: dacă în S3 răspunsul ar fi ajuns la ghișeu, nimeni nu ar mai fi retrimis notificarea, fiindcă R5 o retrimite numai la o reîncercare. Sunt întrebările exercițiului „Ghișeul nu a primit răspunsul”; notați ce ar fi de întrebat beneficiarul, fără reguli noi.
 
 ## Atelierul de diagrame
 
-**Materiale:** enunțul și [specificația diagramei de stări](diagrame/stari.md) (ce întrebări acoperă diagrama, subsetul UML, notația Mermaid și limitele ei, lista de verificare în șapte puncte, erori frecvente, exemplul lucrat al unei comenzi la cantină, un prompt AI și revizuirea lui). Extensia folosește [specificația diagramei de secvență](diagrame/secventa.md). Diagramele de referință, cu justificarea fiecărui element față de reguli, sunt în [referință](scenarios/04-comportament/reference.md).
+**Materiale:** enunțul și [specificația diagramei de stări](diagrame/stari.md) (ce întrebări acoperă diagrama, subsetul UML, notația Mermaid și limitele ei, lista de verificare în șapte puncte, erori frecvente, exemplul rezolvat al unei comenzi la cantină, un prompt AI și revizuirea lui). Extensia folosește [specificația diagramei de secvență](diagrame/secventa.md). Diagramele de referință, cu justificarea fiecărui element față de reguli, sunt în [referință](scenarios/04-comportament/reference.md).
 
-**Moduri de lucru:** de mână, în Mermaid (mermaid.live sau previzualizarea GitHub) ori generată cu un asistent AI din enunț și specificație și revizuită. Nu impuneți un mod și nu un instrument; nu sunt necesare conturi AI. Cine folosește un asistent AI nu îi dă tabelul discutat sau referința: îi dă enunțul și specificația, apoi verifică fiecare punct al listei față de enunț și corectează direct, fără un prompt nou pentru fiecare corectură.
+**Moduri de lucru:** de mână, în Mermaid (mermaid.live sau previzualizarea GitHub) ori cu un asistent AI, din enunț și specificație, urmat de revizuire. Nu impuneți nici modul de lucru, nici instrumentul; nu sunt necesare conturi AI. Cine folosește un asistent AI nu îi dă tabelul discutat sau referința: îi dă enunțul și specificația, apoi verifică fiecare punct al listei față de enunț și corectează direct, fără un prompt nou pentru fiecare corectură.
+
+Slide-ul sarcinii spune ce face cine termină devreme: urmărește scenariile S1–S7 pe diagramă, apoi începe extensia. Arătați unde sunt, în specificație, tabelul elementelor, scheletul Mermaid, lista de verificare și promptul; nu le parcurgeți.
 
 **Ce urmăriți la bănci (50–70):**
 
@@ -59,17 +65,17 @@ Interacțiunea: tranziția și înregistrarea lui c preced apelul mesageriei; la
 
 **Erori frecvente ale diagramelor generate cu un asistent AI:** stări suplimentare pentru rezultatul notificării sau pentru erori; o stare finală UML după Anulată și, uneori, după Ridicată; bucle pentru refuzuri, scrise ca „/ refuz”; condiții sau efecte adăugate fără regulă (expirarea rezervării, un termen de ridicare, returnarea echipamentului, „livrare garantată”); punct și virgulă în etichete, care în Mermaid taie eticheta și creează o stare în plus, fără eroare. Acestea sunt erori posibile, nu un rezultat garantat; un răspuns corect este la fel de util, dacă studentul îl verifică punct cu punct. Întrebarea de pus: „ce regulă din enunț susține această stare sau săgeată?”.
 
-**Verificarea în plen (70–80):** alegeți la bănci unul sau doi voluntari, de preferință cu moduri de lucru diferite și cu o greșeală instructivă. Diagrama se arată pe tablă sau ca text Mermaid randat pe proiector. Un coleg o verifică după listă; fiecare observație numește punctul și regula. Slide-ul arată punctele cele mai discriminante, cu regulile lor, și scenariul S4 (reîncercare după eșec) ca test: o diagramă cu bucla pe Rezervată nu are săgeată pentru S4. Dacă diagrama voluntarului este corectă, confirmați-o punct cu punct; nu inventați o greșeală.
+**Verificarea în plen (70–80):** alegeți la bănci unul sau doi voluntari, de preferință cu moduri de lucru diferite și cu o greșeală instructivă. Diagrama se arată pe tablă sau ca text Mermaid randat pe proiector (voluntarul trimite textul profesorului într-un mesaj Teams). Un coleg o verifică după punctele de pe slide, iar ceilalți urmăresc restul listei; fiecare observație numește punctul și regula. Slide-ul arată punctele care deosebesc cel mai bine o diagramă corectă de una greșită, cu regulile lor, fără concluzii, și scenariul S4 (reîncercare după eșec) ca test: o diagramă cu bucla pe Rezervată nu are săgeată pentru S4. Dacă diagrama voluntarului este corectă, confirmați-o punct cu punct; nu inventați o greșeală.
 
 **Diagrama de referință (87–95):** comparați diagrama corectată în plen cu referința. Variante acceptabile: bucla reîncercării împărțită în două după notificare, efecte formulate mai scurt, tranziții numerotate cu tabel alăturat (ca în cursul 7). Neacceptabile: stări pentru notificare sau refuz, bucle pentru refuzuri, bucla pe Rezervată, starea finală UML după Anulată, efecte noi. Rezultatul `ridicat`/`refuz` întors ghișeului nu apare pe diagrama de stări.
 
-**Extensia (80–87):** diagrama de secvență a scenariului S3 urmat de S4: ghișeu, registru (în interiorul graniței), mesagerie. De urmărit: nota tranziției înaintea apelului `trimite`; `ridicat` după `eșec`; la reîncercare, nicio a doua tranziție; ghișeul nu apelează mesageria. Referința este în `reference.md`; o puteți arăta celor care termină.
+**Extensia (80–87):** diagrama de secvență a scenariului S3 urmat de S4: ghișeu, registru (în interiorul graniței), mesagerie. De urmărit: nota tranziției înaintea apelului `trimite`; `ridicat` după `eșec`; la reîncercare, nicio a doua tranziție; ghișeul nu apelează mesageria. Referința este în `reference.md`, cu link pe slide-ul diagramei de referință; o puteți arăta celor care termină.
 
 Nu se predau, nu se încarcă și nu se notează diagrame.
 
-## Exercițiu suplimentar (scos de pe slide-uri)
+## Exercițiul „Ghișeul nu a primit răspunsul”
 
-Exercițiul „Ghișeul nu a primit răspunsul” nu mai încape în 100 de minute; rămâne în [sprijinul facultativ](scenarios/04-comportament/worksheet.md), pentru studiu individual, cu răspunsurile în [referință](scenarios/04-comportament/reference.md). Pe scurt: din I, `ridică(c1, A, T1)` cu `trimis` produce `ridicat`; răspunsul nu ajunge la ghișeu, care trimite `ridică(c8, A, T1)`, cu identificator nou: `refuz`, fără apelul mesageriei. Operatorul vede numai `refuz`; pentru A mai este acceptată numai reîncercarea cu c1. Ghișeul, componentă din afara graniței, nu și-a îndeplinit responsabilitatea presupusă de R3: păstrează identificatorul până primește răspunsul. Dacă rămâne timp la încheiere, puteți pune întrebarea în plen.
+Exercițiul a fost scos de pe slide-uri la 19 noiembrie 2026. Din 20 noiembrie 2026, întrebările lui se pun în plen la scenariul S5 (slide-ul „Reîncercare sau cerere nouă?”), în aceleași 12 minute; rămâne și în [sprijinul facultativ](scenarios/04-comportament/worksheet.md), pentru studiu individual, cu răspunsurile în [referință](scenarios/04-comportament/reference.md). Pe scurt: din I, `ridică(c1, A, T1)` cu `trimis` produce `ridicat`; răspunsul nu ajunge la ghișeu, care trimite `ridică(c8, A, T1)`, cu identificator nou: `refuz`, fără apelul mesageriei. Operatorul vede numai `refuz`; pentru A mai este acceptată numai reîncercarea cu c1. Ghișeul, componentă din afara graniței, nu și-a îndeplinit responsabilitatea presupusă de R3: păstrează identificatorul până primește răspunsul.
 
 ## Materiale AI arhivate
 
@@ -79,10 +85,11 @@ Demonstrația AI în plen din versiunea de 12 noiembrie 2026 a fost scoasă de p
 
 [Prezentarea online](04-comportament-online.md) păstrează cele 17 slide-uri, regulile, scenariile, diagrama de referință și toate duratele. Întâlnirea Teams se desfășoară numai în plen, fără grupuri separate:
 
-- Predicțiile individuale se scriu în chat și se trimit la semnal.
+- Predicțiile individuale se scriu în chat și se trimit la semnal. Puneți în chat linkul prezentării.
+- La tabelul de tranziții și la fluxul de lucru, fiecare lucrează întâi individual și trimite în chat un singur răspuns scurt (starea în care sosește cererea cu c înregistrat; dacă registrul schimbă starea înainte sau după apelul mesageriei). Apoi un coleg dictează, profesorul scrie pe ecranul partajat, iar un coleg numit verifică.
 - Explicațiile se dau în ștafetă: un coleg propune, un coleg numit verifică regula și continuă cu următorul scenariu sau pas.
-- **Atelierul:** fiecare lucrează individual, cu aceleași trei moduri; întrebările se pun în chat și primesc răspuns în plen (nu puteți trece printre bănci). Cereți dinainte unui voluntar și unui coleg numit să se pregătească pentru verificare.
+- **Atelierul:** fiecare lucrează individual, cu aceleași trei moduri; întrebările se pun în chat și primesc răspuns în plen (nu puteți trece printre bănci). Puneți în chat linkurile enunțului și ale celor două specificații. Cereți dinainte unui voluntar și unui coleg numit să se pregătească pentru verificare.
 - **Verificarea în plen:** voluntarul își partajează ecranul cu diagrama (desen fotografiat, editor Mermaid sau răspunsul AI revizuit) sau trimite textul Mermaid în chat, iar profesorul îl randează în mermaid.live; colegul numit verifică punct cu punct. La diagrama de referință, colegii trimit în chat numărul punctului la care diagrama lor diferă.
 - Textul Mermaid și mesajele din chat nu se colectează; camera și partajarea ecranului de către studenți sunt facultative.
 
-Profesorul sau un student poate prezenta slide-urile. Nu faceți push pe `main` în timpul întâlnirii sincronizate: deploy-ul repornește serviciul. Dacă discuția online cere mai mult timp, ascultați mai puține explicații în prima jumătate, păstrând toate scenariile și cel puțin 15 minute de lucru individual în atelier.
+Profesorul sau un student poate prezenta slide-urile. Nu faceți push pe `main` în timpul întâlnirii sincronizate: deploy-ul repornește serviciul. Dacă discuția online cere mai mult timp, ascultați mai puține explicații în prima jumătate, păstrând toate scenariile și cel puțin 15 minute de lucru individual (desen și autoverificare) în atelier.
