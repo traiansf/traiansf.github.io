@@ -671,21 +671,21 @@ pre, table, blockquote, .site-footer { break-inside: avoid; }
 <p>D. Rotunjirea trebuie separată prima, pentru că afectează sumele afișate în ambele canale.</p>
 <hr />
 <h1 id="cazul-f-sasul-unui-laborator">Cazul F — Sasul unui laborator</h1>
-<p>Un sas are două uși: <strong>U1</strong>, spre hol, și <strong>U2</strong>, spre laborator. Fiecare ușă este închisă (Î) sau deschisă (D); starea sasului se scrie (U1, U2), iar starea inițială este (Î, Î). Modelul are numai aceste acțiuni, executate secvențial, și presupune că ușile execută comenzile:</p>
+<p>Un sas are două uși: <strong>U1</strong>, spre hol, și <strong>U2</strong>, spre laborator. Fiecare ușă este închisă (Î) sau deschisă (D); starea sasului se scrie (U1, U2), iar starea inițială este (Î, Î). Modelul are numai aceste evenimente, produse secvențial, și presupune că ușile execută comenzile:</p>
 <ul>
-<li><code>deschide(Ui)</code>: permisă numai dacă Ui este închisă <strong>și cealaltă ușă este închisă</strong>;</li>
-<li><code>inchide(Ui)</code>: permisă numai dacă Ui este deschisă.</li>
+<li><code>deschide(Ui)</code>: permis numai dacă Ui este închisă <strong>și cealaltă ușă este închisă</strong>;</li>
+<li><code>inchide(Ui)</code>: permis numai dacă Ui este deschisă.</li>
 </ul>
 <p><strong>Proprietatea P:</strong> în nicio stare accesibilă cele două uși nu sunt deschise simultan.</p>
-<p><strong>21.</strong> O versiune greșită a modelului permite <code>deschide(U2)</code> și când U1 este deschisă. Explorarea modelului găsește traseul (Î, Î) → <code>deschide(U1)</code> → (D, Î) → <code>deschide(U2)</code> → (D, D). Ce stabilește acest traseu?</p>
+<p><strong>21.</strong> O versiune greșită a modelului permite <code>deschide(U2)</code> și când U1 este deschisă. Explorarea modelului găsește secvența (Î, Î) → <code>deschide(U1)</code> → (D, Î) → <code>deschide(U2)</code> → (D, D). Ce stabilește această secvență?</p>
 <p>A. Că proprietatea P este încălcată în modelul greșit, <span class="nowrap">printr-o</span> execuție concretă.</p>
 <p>B. Că sasul real din laborator va avea accidente.</p>
 <p>C. Că modelul greșit are o stare de blocaj.</p>
 <p>D. Că proprietatea P este adevărată, pentru că starea inițială o respectă.</p>
-<p><strong>22.</strong> Modelului corect i se adaugă acțiunea <code>alarma()</code>, permisă în orice stare a ușilor: ambele uși se închid, iar sasul intră în starea <strong>Blocat</strong>, în care nu mai este permisă nicio acțiune. Specificația spune că sasul rămâne blocat până la o intervenție manuală, care nu face parte din model. Explorarea raportează: „Starea Blocat nu are acțiuni permise.” Ce concluzie este corectă?</p>
+<p><strong>22.</strong> Modelului corect i se adaugă evenimentul <code>alarma()</code>, permis în orice stare a ușilor: ambele uși se închid, iar sasul intră în starea <strong>Blocat</strong>, în care nu mai este permis niciun eveniment. Specificația spune că sasul rămâne blocat până la o intervenție manuală, care nu face parte din model. Explorarea raportează: „Starea Blocat nu are evenimente permise.” Ce concluzie este corectă?</p>
 <p>A. Este un blocaj neintenționat (deadlock); modelul trebuie corectat.</p>
 <p>B. Proprietatea P este încălcată în starea Blocat, deci alarma este greșită.</p>
-<p>C. Explorarea este greșită: orice stare a unui model trebuie să aibă o acțiune.</p>
+<p>C. Explorarea este greșită: orice stare a unui model trebuie să permită un eveniment.</p>
 <p>D. Este o stare finală intenționată; verificăm că se ajunge în ea numai prin <code>alarma()</code>.</p>
 <p><strong>23.</strong> Explorarea <strong>completă</strong> a modelului corect (fără <code>alarma()</code>) vizitează toate stările accesibile și nu găsește nicio încălcare a lui P. Ce stabilește această explorare, singură?</p>
 <p>A. Că ușile sasului real nu vor fi niciodată deschise simultan.</p>

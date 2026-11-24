@@ -50,6 +50,6 @@ Genuine captures, produced before class with the course's `capture.py` (Claude C
 | 2 | 3–4 | Conceptual class diagram: concepts, attributes, associations, multiplicities; no operations, no implementation identifiers | `lab/diagrame/clase-conceptuale.md` |
 | 3 | 5–6 | Class diagram with operations and constraints (preconditions, postconditions, invariants as notes) | `lab/diagrame/clase-operatii.md` |
 | 4 | 7–8 | UML state machine diagram; sequence diagram as an extension | `lab/diagrame/stari.md`, `lab/diagrame/secventa.md` |
-| 5 | 9–10 | Chosen when Lab 5 is written (state machine of the validated model, or the class structure of the abstraction) | — |
+| 5 | 9–10 | UML class diagram with an interface (chosen by the instructor on 24 November 2026) | `lab/diagrame/clase-interfata.md` |
 
 The labs' plenary AI analysis slides are removed; their prompts and captures stay archived under `lab/scenarios/NN-*/`. The online variants follow the same plan: diagrams shared on screen or as Mermaid text in chat, volunteers present, the class checks in plenary.

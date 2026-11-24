@@ -1,0 +1,3 @@
+**V1 — condiție pe format**
+
+Pentru 2 formate și fără cerințe de extensie anunțate, V1 este pragmatic. Un `if` e clar și suficient — nu vrei complexitate inutilă. Dar observ: R5 menționează "altele" implicit ("toate formatele"), iar beneficiarul poate cere viitor XML sau altceva. Atunci V1 devine fragil. Cu 15 ani experiență, știi când YAGNI învinge. Dacă ești sigur că rămân 2 formate, V1 e corect. Dacă există șansa extensiei, V3 e mai ieftin pe termen lung.

@@ -1,0 +1,55 @@
+$ python explorare.py sosire 2
+sosire, cel mult 2 bilete: 7 stări accesibile, 12 tranziții
+  A3 (așteptare limitată): respectată; depășiri maxime: 0
+$ python explorare.py prioritari 2
+prioritari, cel mult 2 bilete: 16 stări accesibile, 27 tranziții
+  A3 (așteptare limitată): încălcată, prin sosește(o), sosește(p), cheamă()=p, sosește(p), cheamă()=p, sosește(p), cheamă()=p
+    rămân: o depășit de 3
+$ python explorare.py doi_la_rand 2
+doi_la_rand, cel mult 2 bilete: 33 stări accesibile, 56 tranziții
+  A3 (așteptare limitată): respectată; depășiri maxime: 2
+$ python explorare.py limita 2
+limita, cel mult 2 bilete: 13 stări accesibile, 22 tranziții
+  A3 (așteptare limitată): respectată; depășiri maxime: 2
+$ python explorare.py sosire 3
+sosire, cel mult 3 bilete: 15 stări accesibile, 28 tranziții
+  A3 (așteptare limitată): respectată; depășiri maxime: 0
+$ python explorare.py prioritari 3
+prioritari, cel mult 3 bilete: 54 stări accesibile, 97 tranziții
+  A3 (așteptare limitată): încălcată, prin sosește(o), sosește(p), sosește(p), cheamă()=p, sosește(p), cheamă()=p, cheamă()=p
+    rămân: o depășit de 3
+$ python explorare.py doi_la_rand 3
+doi_la_rand, cel mult 3 bilete: 142 stări accesibile, 259 tranziții
+  A3 (așteptare limitată): încălcată, prin sosește(o), sosește(o), sosește(p), cheamă()=p, sosește(p), cheamă()=p, sosește(p), cheamă()=o, cheamă()=p
+    rămân: o depășit de 3
+$ python explorare.py limita 3
+limita, cel mult 3 bilete: 38 stări accesibile, 69 tranziții
+  A3 (așteptare limitată): respectată; depășiri maxime: 2
+$ python explorare.py sosire 4
+sosire, cel mult 4 bilete: 31 stări accesibile, 60 tranziții
+  A3 (așteptare limitată): respectată; depășiri maxime: 0
+$ python explorare.py prioritari 4
+prioritari, cel mult 4 bilete: 148 stări accesibile, 275 tranziții
+  A3 (așteptare limitată): încălcată, prin sosește(o), sosește(p), sosește(p), sosește(p), cheamă()=p, cheamă()=p, cheamă()=p
+    rămân: o depășit de 3
+$ python explorare.py doi_la_rand 4
+doi_la_rand, cel mult 4 bilete: 479 stări accesibile, 902 tranziții
+  A3 (așteptare limitată): încălcată, prin sosește(o), sosește(o), sosește(p), sosește(p), cheamă()=p, sosește(p), cheamă()=p, cheamă()=o, cheamă()=p
+    rămân: o depășit de 3
+$ python explorare.py limita 4
+limita, cel mult 4 bilete: 94 stări accesibile, 177 tranziții
+  A3 (așteptare limitată): respectată; depășiri maxime: 2
+$ python explorare.py sosire 5
+sosire, cel mult 5 bilete: 63 stări accesibile, 124 tranziții
+  A3 (așteptare limitată): respectată; depășiri maxime: 0
+$ python explorare.py prioritari 5
+prioritari, cel mult 5 bilete: 361 stări accesibile, 686 tranziții
+  A3 (așteptare limitată): încălcată, prin sosește(o), sosește(p), sosește(p), sosește(p), cheamă()=p, cheamă()=p, cheamă()=p
+    rămân: o depășit de 3
+$ python explorare.py doi_la_rand 5
+doi_la_rand, cel mult 5 bilete: 1302 stări accesibile, 2499 tranziții
+  A3 (așteptare limitată): încălcată, prin sosește(o), sosește(o), sosește(p), sosește(p), sosește(p), cheamă()=p, cheamă()=p, cheamă()=o, cheamă()=p
+    rămân: o depășit de 3
+$ python explorare.py limita 5
+limita, cel mult 5 bilete: 213 stări accesibile, 410 tranziții
+  A3 (așteptare limitată): respectată; depășiri maxime: 2

@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 52953,
+  "stop_reason": "end_turn",
+  "session_id": "c834e89c-c2c1-4402-a238-0539a7e6306f",
+  "total_cost_usd": 0.060318000000000004,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4622,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 10213,
+    "output_tokens_details": {
+      "thinking_tokens": 8528
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4622,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 10213,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4622,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4622
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 10213,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4622,
+      "webSearchRequests": 0,
+      "costUSD": 0.060318000000000004,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 8528,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4622,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Creez un explorator de stări care modelează sistemul și verifică proprietățile.\n\n```python\nfrom collections import deque\n\nJOBS = ('X', 'Y', 'Z')\nDEVICES = ('M', 'C', 'L')\n\nDEVICE_ORDER = {\n    'X': ['M', 'C'],\n    'Y': ['C', 'L'],\n    'Z': ['M', 'L']\n}\n\nclass State:\n    def __init__(self, job_status=None, device_owner=None, job_step=None):\n        if job_status is None:\n            self.job_status = {j: 'Neînceput' for j in JOBS}\n            self.device_owner = {d: None for d in DEVICES}\n            self.job_step = {j: 0 for j in JOBS}\n        else:\n            self.job_status = dict(job_status)\n            self.device_owner = dict(device_owner)\n            self.job_step = dict(job_step)\n    \n    def to_tuple(self):\n        return (\n            tuple(self.job_status[j] for j in JOBS),\n            tuple(self.device_owner[d] for d in DEVICES),\n            tuple(self.job_step[j] for j in JOBS)\n        )\n    \n    def copy(self):\n        return State(self.job_status, self.device_owner, self.job_step)\n    \n    def get_permitted_events(self):\n        events = []\n        for job in JOBS:\n            if self.job_status[job] != 'Încheiată':\n                step = self.job_step[job]\n                if step < 2:\n                    device = DEVICE_ORDER[job][step]\n                    if self.device_owner[device] is None:\n                        events.append(('occupy', job, device))\n        for job in JOBS:\n            if self.job_status[job] == 'În lucru':\n                events.append(('finish', job))\n        return events\n    \n    def apply_event(self, event):\n        new_state = self.copy()\n        if event[0] == 'occupy':\n            job, device = event[1], event[2]\n            new_state.device_owner[device] = job\n            new_state.job_step[job] += 1\n            if new_state.job_step[job] == 1:\n                new_state.job_status[job] = 'Pregătit'\n            elif new_state.job_step[job] == 2:\n                new_state.job_status[job] = 'În lucru'\n        elif event[0] == 'finish':\n            job = event[1]\n            new_state.job_status[job] = 'Încheiată'\n            for device in DEVICE_ORDER[job]:\n                new_state.device_owner[device] = None\n        return new_state\n\ndef explore():\n    initial = State()\n    visited = set()\n    queue = deque([(initial, [])])\n    states_list = []\n    transitions_count = 0\n    state_to_path = {}\n    \n    visited.add(initial.to_tuple())\n    state_to_path[initial.to_tuple()] = []\n    \n    while queue:\n        state, path = queue.popleft()\n        states_list.append(state)\n        \n        for event in state.get_permitted_events():\n            transitions_count += 1\n            new_state = state.apply_event(event)\n            new_tuple = new_state.to_tuple()\n            \n            if new_tuple not in visited:\n                visited.add(new_tuple)\n                new_path = path + [event]\n                queue.append((new_state, new_path))\n                state_to_path[new_tuple] = new_path\n    \n    return states_list, transitions_count, state_to_path\n\ndef check_p1(states_list):\n    for state in states_list:\n        for job in JOBS:\n            if sum(1 for d in DEVICES if state.device_owner[d] == job) > 2:\n                return False, state\n        for device in DEVICES:\n            if state.device_owner[device] is not None:\n                if sum(1 for d in DEVICES if state.device_owner[d] == state.device_owner[device]) > 2:\n                    return False, state\n    return True, None\n\ndef check_p2(states_list):\n    return any(all(state.job_status[j] == 'Încheiată' for j in JOBS) for state in states_list)\n\ndef check_p3(states_list):\n    for state in states_list:\n        if any(state.job_status[j] != 'Încheiată' for j in JOBS) and not state.get_permitted_events():\n            return False, state\n    return True, None\n\ndef format_event(event):\n    return f\"ocupă({event[1]}, {event[2]})\" if event[0] == 'occupy' else f\"încheie({event[1]})\"\n\nstates_list, transitions_count, state_to_path = explore()\n\nprint(f\"Stări accesibile: {len(states_list)}\")\nprint(f\"Tranziții: {transitions_count}\")\n\np1_ok, p1_state = check_p1(states_list)\nprint(f\"P1 (Exclusivitate): {'OK' if p1_ok else 'FAILED'}\")\nif not p1_ok:\n    print(\"Secvență:\", \" -> \".join(format_event(e) for e in state_to_path[p1_state.to_tuple()]))\n\np2_ok = check_p2(states_list)\nprint(f\"P2 (Încheiere posibilă): {'OK' if p2_ok else 'FAILED'}\")\n\np3_ok, p3_state = check_p3(states_list)\nprint(f\"P3 (Fără blocaj): {'OK' if p3_ok else 'FAILED'}\")\nif not p3_ok:\n    print(\"Secvență:\", \" -> \".join(format_event(e) for e in state_to_path[p3_state.to_tuple()]))\n```\n\nExploratorul execută o căutare în lățime prin stări accesibile pornind din configurația inițială (toate aparatele libere, lucrările neînceput). Pentru fiecare stare generează evenimente permise: ocupare dacă aparatul următor e liber, încheiere dacă lucrarea e în lucru. Verifica proprietățile pe mulțimea stărilor accesibile și raportează secvențe de evenimente pentru încălcări.",
+  "ttft_ms": 46507,
+  "type": "result",
+  "duration_ms": 53713,
+  "uuid": "a8c9f29d-935a-4833-81bf-6013ff10806b",
+  "ttft_stream_ms": 1327,
+  "time_to_request_ms": 761,
+  "first_content_frame_ms": 1327,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

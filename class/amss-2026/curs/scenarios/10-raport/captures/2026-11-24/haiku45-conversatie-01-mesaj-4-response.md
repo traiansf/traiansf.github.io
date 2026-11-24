@@ -1,0 +1,3 @@
+**V3 — interfață**
+
+Aceasta schimbă totul. V1 și V2 sunt morte — echipele externe nu pot modifica codul nostru pentru a adăuga formate. V3 este singura opțiune viabilă: interfața Formator permite echipelor să implementeze formatoarele lor fără să atingă codul nostru. `exportă(raport, formator)` rămâne neschimbat; fiecare echipă aduce propria implementare Formator. Aceasta e polimorfismul în acțiune: extensibilitate fără modificare. Nu e birocație, e arhitectură necesară.

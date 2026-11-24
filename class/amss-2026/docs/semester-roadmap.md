@@ -1,6 +1,6 @@
 # AMSS 2026/2027 — Instructor implementation roadmap
 
-This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 are released; Lab 1 has been refactored around collaboration and discussion. Courses 5–6 and Lab 3 were authored on 27 October 2026 and released on 29 October and 6 November 2026; Courses 7–8 and Lab 4 were authored on 12 November 2026 and released on 12 November (Course 7) and 19 November 2026 (Course 8 and Lab 4). Their AI sections use genuine Claude Haiku 4.5 captures (27 October and 12 November 2026; two attempts per role, selection rationale archived). Weeks 9–13 and Lab 5 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Lab 5 has a replacement topic outline; Labs 6–7 describe the confirmed project-session formats.
+This is a plan for developing the semester, grounded in the [confirmed redesign direction](redesign-2026-2027.md). Lecture 1 is administrative/motivational; Lecture 2 expands its former technical package. Lectures 3–4 and Lab 2 are released; Lab 1 has been refactored around collaboration and discussion. Courses 5–6 and Lab 3 were authored on 27 October 2026 and released on 29 October and 6 November 2026; Courses 7–8 and Lab 4 were authored on 12 November 2026 and released on 12 November (Course 7) and 19 November 2026 (Course 8 and Lab 4). Their AI sections use genuine Claude Haiku 4.5 captures (27 October and 12 November 2026; two attempts per role, selection rationale archived). Courses 9–10 and Lab 5 were authored on 24 November 2026 (not released). Weeks 11–13 below remain **proposed outlines, not completed teaching materials**. Earlier drafts are archived for deliberate reuse. Labs 6–7 describe the confirmed project-session formats.
 
 ## Rework of 19 November 2026: distinct AI lessons, lab diagram workshops
 
@@ -15,7 +15,7 @@ Decided by the instructor and implemented the same day; see [ai-lessons-and-lab-
 - **Lecture 8** (80–95): *guarantees nobody gives*, as a claim audit of an AI-written „Ce vă garantăm la înscriere” paragraph and excerpts from guarantees written for the development team: registru, site, the centre's operator, mesageria or nobody? Rerun on 20 November 2026 with the current enunț: 22 runs over three prompts, in `captures/2026-11-20/`; since the review round of the same day the slides quote the paragraph (`promisiuni-01`) and two points of `garantii-04`. 34 slides.
 - All new captures: Claude Code 2.1.328, `claude-haiku-4-5`, fresh context, in each scenario's `captures/2026-11-19/` with every attempt and the selection rationale; prompts in `ai/`. Lectures 6 and 8 were rerun the same day with the current names (`captures/2026-11-19b/`), and Lecture 8 again on 20 November 2026 (`captures/2026-11-20/`, Claude Code 2.1.329). Earlier captures are archived unchanged.
 - **Labs 1–4** (and online variants): opening 0–10, the lab's problem 10–50, diagram workshop 50–95, closing 95–100. Lab 1: UML activity diagram in PlantUML (`lab/diagrame/activitate.md`); Lab 2: conceptual class diagram (`clase-conceptuale.md`), pairs kept as taught; Lab 3: class diagram with operations and contract notes (`clase-operatii.md`); Lab 4: state machine diagram (`stari.md`), sequence diagram of `ridică` as the extension (`secventa.md`); Lab 4's final exercise moved to the worksheet as self-study (since 20 November 2026 its questions are asked in plenary at scenario S5). Reference diagrams with justification in each lab's `scenarios/*/reference.md`. The plenary AI phases are removed; their prompts and captures stay archived.
-- **Lectures 9–13 and Lab 5** are written with the lessons and the diagram workshop assigned in the decision document.
+- **Lectures 9–10 and Lab 5** were written this way on 24 November 2026; **Lectures 11–13** will be written with the lessons and the diagram workshop assigned in the decision document.
 
 ## Teaching commitments
 
@@ -45,7 +45,7 @@ All lecture demos below are prepared slide walkthroughs, not live tool use. AI p
 
 Durations below are instructor planning notes. Each full lecture in Weeks 3–13 totals **100 minutes**, including discussion and a short exit exercise. Keep these timings off student slides. New domains below are proposals except the authored Weeks 2–6 and Labs 1–3.
 
-**Teaching feedback, 10 October 2026:** Lecture 2 elicited good participation, examples, and comments, but almost all of its 45 slides (including the cover) were covered too quickly. The instructor requested approximately **30 slides for Lecture 3**, including the cover and transitions. Budget by activity rather than assuming two minutes per slide; reduce conceptual scope and protect discussion time instead of making slides denser. Later lectures should be calibrated from delivery feedback.
+**Teaching feedback, 10 October 2026:** Lecture 2 elicited good participation, examples, and comments, but almost all of its 45 slides (including the cover) were covered too quickly. The instructor requested approximately **30 slides for Lecture 3**, including the cover and transitions. Budget by activity rather than assuming two minutes per slide; reduce conceptual scope and protect discussion time instead of making slides denser. Later lectures should be calibrated from delivery feedback. **24 November 2026:** Lecture 8 reached slide 25 of 34 in 100 minutes; from Lecture 9 on, aim at about 25 slides including cover and transitions.
 
 ### Week 1 — Administration and motivation
 
@@ -151,6 +151,10 @@ The library request now has an operational outcome: requests for unavailable tit
 
 ### Week 9 — Model validation and analysis
 
+**Authored 24 November 2026, not released:** [lecture](../curs/09-validare.md), [guide](../curs/09-validare-demo.md), [brief](../curs/scenarios/09-microscop/brief.md), [reference](../curs/scenarios/09-microscop/reference.md), [explorer](../curs/scenarios/09-microscop/model/explorare.py) with [recorded output](../curs/scenarios/09-microscop/model/rezultate.txt). 26 slides including the cover. Minutes 8–22 reprise Lecture 8's undelivered promises audit. Two jobs X, Y need a microscope M and a camera C; V0 (different orders) has a reachable deadlock (M, C) among 13 states, V1 (common order, 12 states) and V2 (both at once, 8) have none, V3 (release) has none but a cycle, so P1–P3 do not give progress (P4). Two formal-modeling slides as planned. Checkpoints: 0, 8, 22, 42, 78, 95, 100.
+
+**AI status:** [genuine captures](../curs/scenarios/09-microscop/captures/2026-11-24/README.md) of 24 November 2026, six runs of one prompt without tools (three jobs, three devices); run 02 reports a deadlock through an impossible sequence and its own code, run by us, refutes the report; run 06 writes „Testez exploratorul” without running anything. The code was run before class (42 states, 62 transitions, no deadlock). The outline below is the plan it was written from.
+
 **Question:** What can a model check establish, and what counterexample would overturn our claim?
 
 **Observable outcomes:** state a checkable property and the model's bounds; interpret an invariant failure or deadlock trace; revise the model and explain the limits of the new result.
@@ -164,6 +168,10 @@ The library request now has an operational outcome: requests for unavailable tit
 **Formal introduction, exactly two planned slides:** (1) states, transitions, assumptions, and properties as an explicit model; (2) selected scenarios versus exhaustive exploration of this finite model versus a claim about a real system. Distinguish a completed terminal state from deadlock. No dedicated formal-methods tool is required.
 
 ### Week 10 — Abstraction and design for change
+
+**Authored 24 November 2026, not released:** [lecture](../curs/10-abstractizare.md), [guide](../curs/10-abstractizare-demo.md), [brief](../curs/scenarios/10-raport/brief.md), [reference](../curs/scenarios/10-raport/reference.md), [code](../curs/scenarios/10-raport/model/export.py) with [recorded output](../curs/scenarios/10-raport/model/rezultate.txt). 24 slides including the cover. Report export with hidden fields: V1 conditional (authored redaction inconsistency in the CSV header), V2 separate operations, V3 Formator interface; changes C1 (new format), C2 (partial hiding), C3 (total); what crosses the interface (V3 versus V3′); decision V2 with the fact that would change it. Checkpoints: 0, 16, 42, 70, 93, 100.
+
+**AI status:** [genuine conversations](../curs/scenarios/10-raport/captures/2026-11-24/README.md) of 24 November 2026, six four-message conversations with the same scripted pushback. The outline below is the plan it was written from.
 
 **Question:** Which variation justifies an abstraction, and what does that abstraction cost?
 
@@ -267,6 +275,8 @@ Use the dorm laundry-machine [student lab](../lab/01-specificare.md), [instructo
 
 ### Lab 5, after Courses 9–10 — Validation and abstraction
 
+**Authored 24 November 2026, not released, with the online variant:** [in-person deck](../lab/05-validare.md), [Teams deck](../lab/05-validare-online.md), [instructor guide](../lab/05-validare-instructor.md), [brief](../lab/scenarios/05-validare/scenario.md), [reference](../lab/scenarios/05-validare/reference.md), [optional discussion aid](../lab/scenarios/05-validare/worksheet.md), [explorer](../lab/scenarios/05-validare/model/explorare.py), [diagram specification](../lab/diagrame/clase-interfata.md). Both decks have 17 slides. The domain changed: queue tickets at a secretary's office, so that the lab does not repeat Lecture 10's report export. The rule „Doi la rând” respects the waiting limit A3 with two waiting places and violates it with three; putting the limit in the register makes A3 hold for every choosing rule and every N, with a short argument; the workshop draws the class diagram with the interface „Regulă de alegere”. Checkpoints: 0, 10, 34, 50, 70, 80, 87, 95, 100. The outline below is superseded where it differs.
+
 **Foundations:** Courses 9–10. Do not require Course 11 reconstruction or migration of an existing system.
 **Proposed domain/input:** export of an activity report in text and CSV, with a shared rule that redacted fields remain absent. Supply fields, redaction policy, format rules, representative records, and a possible third format; exclude streaming and external plugins.
 **Outcomes:** formulate validation properties and bounds, use scenarios or a small model to check them, compare a conditional with separate functions or a formatter abstraction, and justify costs under the stated variation.
@@ -303,7 +313,7 @@ These are reuse targets, not a claim that the old decks already teach the new se
 | [Lab 2](../archive/lab/Lab02.md), [Lab 3](../archive/lab/Lab03.md), [Lab 4](../archive/lab/Lab04.md), with instructor guides | Labs 2–4 | Reuse comparisons and prepared examples; replace notation-based defect hunts with explicit source rules and evidence. |
 | [Lab 5](../lab/05-validare.md), [Lab 6](../lab/06-proiect.md), [Lab 7](../lab/07-interviu.md), with instructor guides | Labs 5–7 | Lab 5 practices validation and abstraction on a supplied problem; Lab 6 is an open session for finishing the project and discussion; Lab 7 is the clarification interview finalizing the five-point dossier score. |
 
-Develop the next package in teaching order: review the authored Courses 7–8 and Lab 4, then develop Courses 9–10 with Lab 5. Prototype Course 9's small explorer early enough to validate its bounds and repair before writing its slides. For each session, finish the source brief and reference reasoning first, then the demo and labeled fallback, student exercise, deck with notes, and delivery checks. Keep unfinished sessions unpublished under the existing `RELEASED` mechanism; this roadmap does not change release state.
+Develop the next package in teaching order: review the authored Courses 9–10 and Lab 5, then develop Courses 11–12. For each session, finish the source brief and reference reasoning first, then the demo and labeled fallback, student exercise, deck with notes, and delivery checks. Keep unfinished sessions unpublished under the existing `RELEASED` mechanism; this roadmap does not change release state.
 
 ## Current course order and source identifiers
 

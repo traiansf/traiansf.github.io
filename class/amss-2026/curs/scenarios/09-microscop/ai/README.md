@@ -1,0 +1,3 @@
+# Pregătirea secțiunii AI — microscopul și camera
+
+Lecția AI a Cursului 9 (decizia din 19 noiembrie 2026): **verificare afirmată față de verificare executată**. `context-trei-lucrari.md` este enunțul cu trei lucrări și trei aparate; `explorator-instructiune.md` cere un explorator și raportul rezultatelor; `explorator-prompt.md` le reunește și este promptul trimis. Capturile, codul extras, rulările și motivul selecției sunt în [seria din 24 noiembrie 2026](../captures/2026-11-24/README.md). Pentru capturi noi, păstrați aceste fișiere sau salvați prompturi noi într-un dosar datat nou; după orice schimbare a denumirilor din enunț, rulați din nou.

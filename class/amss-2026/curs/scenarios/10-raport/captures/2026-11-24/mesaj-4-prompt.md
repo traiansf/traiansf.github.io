@@ -1,0 +1,1 @@
+Un fapt nou: beneficiarul a confirmat că, din luna viitoare, alte trei asociații vor adăuga fiecare formatul lor, scris de echipele lor, fără să ne modifice codul. Ce recomanzi? Începe cu numele variantei; maximum 100 de cuvinte.

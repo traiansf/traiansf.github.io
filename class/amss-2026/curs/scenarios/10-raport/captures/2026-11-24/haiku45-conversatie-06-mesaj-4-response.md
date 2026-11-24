@@ -1,0 +1,3 @@
+**V3 — interfață.**
+
+Acum V3 e singura alegere. Echipele externe trebuie să adauge formate fără a modifica codul nostru. Cu V1 sau V2, ar trebui acces la codul sursă și modificări constante. V3 permite ca fiecare echipă să implementeze interfața Formator independent. `exportă` nu se schimbă niciodată. E exact cazul pentru care interfețele au fost inventate. Nicio birocrație — e arhitectură practică și necesară.

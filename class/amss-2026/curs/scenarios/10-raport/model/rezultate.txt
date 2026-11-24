@@ -1,0 +1,21 @@
+--- V1, text
+voluntar: Ana; activitate: sortare, etichetare; ore: 3
+voluntar: Dan; activitate: atelier "Stejarul"; ore: 2
+--- V1, csv
+voluntar,activitate,ore,telefon
+Ana,"sortare, etichetare",3
+Dan,"atelier ""Stejarul""",2
+--- V2, text
+voluntar: Ana; activitate: sortare, etichetare; ore: 3
+voluntar: Dan; activitate: atelier "Stejarul"; ore: 2
+--- V2, csv
+voluntar,activitate,ore
+Ana,"sortare, etichetare",3
+Dan,"atelier ""Stejarul""",2
+--- V3, text
+voluntar: Ana; activitate: sortare, etichetare; ore: 3
+voluntar: Dan; activitate: atelier "Stejarul"; ore: 2
+--- V3, csv
+voluntar,activitate,ore
+Ana,"sortare, etichetare",3
+Dan,"atelier ""Stejarul""",2

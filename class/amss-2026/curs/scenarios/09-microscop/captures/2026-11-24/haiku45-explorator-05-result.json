@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 64886,
+  "stop_reason": "end_turn",
+  "session_id": "4ac78a04-ef75-44db-9a57-77eeb1dc8c3c",
+  "total_cost_usd": 0.067411,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4621,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 11632,
+    "output_tokens_details": {
+      "thinking_tokens": 9228
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4621,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 11632,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4621,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4621
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 11632,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4621,
+      "webSearchRequests": 0,
+      "costUSD": 0.067411,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 9228,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4621,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Scriu un explorator care parcurge stările via BFS și verifică proprietățile cerute.\n\n```python\nfrom collections import deque\n\nclass Explorator:\n    def __init__(self):\n        self.aparate_lucrare = {\n            'X': ['M', 'C'],\n            'Y': ['C', 'L'],\n            'Z': ['M', 'L']\n        }\n    \n    def stare_inițială(self):\n        return {\n            'X': {'stare': 'neinițiată', 'aparate': []},\n            'Y': {'stare': 'neinițiată', 'aparate': []},\n            'Z': {'stare': 'neinițiată', 'aparate': []},\n            'ocupare': {'M': None, 'C': None, 'L': None}\n        }\n    \n    def stare_hashabilă(self, stare):\n        lucrări = tuple(sorted([\n            (l, stare[l]['stare'], tuple(sorted(stare[l]['aparate'])))\n            for l in ['X', 'Y', 'Z']\n        ]))\n        ocupare = tuple(sorted(stare['ocupare'].items()))\n        return (lucrări, ocupare)\n    \n    def poate_ocupa(self, stare, lucrare, aparat):\n        if stare['ocupare'][aparat] is not None:\n            return False\n        \n        stare_lucrare = stare[lucrare]['stare']\n        aparate_dorite = self.aparate_lucrare[lucrare]\n        \n        if stare_lucrare == 'neinițiată':\n            return aparat == aparate_dorite[0]\n        elif stare_lucrare == 'pregătită':\n            return aparat == aparate_dorite[1]\n        else:\n            return False\n    \n    def ocupa(self, stare, lucrare, aparat):\n        if not self.poate_ocupa(stare, lucrare, aparat):\n            return None\n        \n        noua_stare = {\n            l: {'stare': stare[l]['stare'], 'aparate': stare[l]['aparate'][:]}\n            for l in ['X', 'Y', 'Z']\n        }\n        noua_stare['ocupare'] = {a: stare['ocupare'][a] for a in ['M', 'C', 'L']}\n        \n        noua_stare[lucrare]['aparate'].append(aparat)\n        \n        if len(noua_stare[lucrare]['aparate']) == 1:\n            noua_stare[lucrare]['stare'] = 'pregătită'\n        elif len(noua_stare[lucrare]['aparate']) == 2:\n            noua_stare[lucrare]['stare'] = 'în_lucru'\n        \n        noua_stare['ocupare'][aparat] = lucrare\n        \n        return noua_stare\n    \n    def incheie(self, stare, lucrare):\n        if stare[lucrare]['stare'] != 'în_lucru':\n            return None\n        \n        noua_stare = {\n            l: {'stare': stare[l]['stare'], 'aparate': stare[l]['aparate'][:]}\n            for l in ['X', 'Y', 'Z']\n        }\n        noua_stare['ocupare'] = {a: stare['ocupare'][a] for a in ['M', 'C', 'L']}\n        \n        for aparat in noua_stare[lucrare]['aparate']:\n            noua_stare['ocupare'][aparat] = None\n        \n        noua_stare[lucrare]['stare'] = 'încheiată'\n        noua_stare[lucrare]['aparate'] = []\n        \n        return noua_stare\n    \n    def tranziții(self, stare):\n        rezultat = []\n        \n        for lucrare in ['X', 'Y', 'Z']:\n            for aparat in ['M', 'C', 'L']:\n                noua_stare = self.ocupa(stare, lucrare, aparat)\n                if noua_stare is not None:\n                    rezultat.append((f'ocupă({lucrare}, {aparat})', noua_stare))\n        \n        for lucrare in ['X', 'Y', 'Z']:\n            noua_stare = self.incheie(stare, lucrare)\n            if noua_stare is not None:\n                rezultat.append((f'încheie({lucrare})', noua_stare))\n        \n        return rezultat\n    \n    def explorează(self):\n        stare_start = self.stare_inițială()\n        \n        coadă = deque([(stare_start, [])])\n        vizitate = {self.stare_hashabilă(stare_start): []}\n        stări = {}\n        stări[self.stare_hashabilă(stare_start)] = stare_start\n        \n        tranziții_all = []\n        \n        while coadă:\n            stare_actuală, cale = coadă.popleft()\n            hash_actual = self.stare_hashabilă(stare_actuală)\n            \n            for eveniment, noua_stare in self.tranziții(stare_actuală):\n                hash_noua = self.stare_hashabilă(noua_stare)\n                noua_cale = cale + [eveniment]\n                \n                tranziții_all.append((hash_actual, eveniment, hash_noua))\n                \n                if hash_noua not in vizitate:\n                    vizitate[hash_noua] = noua_cale\n                    stări[hash_noua] = noua_stare\n                    coadă.append((noua_stare, noua_cale))\n        \n        return stări, vizitate, tranziții_all\n    \n    def verifică_P1(self, stări):\n        for stare in stări.values():\n            ocupare_contor = {}\n            for aparat, lucrare in stare['ocupare'].items():\n                if lucrare is not None:\n                    ocupare_contor[lucrare] = ocupare_contor.get(lucrare, 0) + 1\n                    if ocupare_contor[lucrare] > 1:\n                        return False, None\n        \n        return True, None\n    \n    def verifică_P2(self, stări, vizitate):\n        for hash_stare, stare in stări.items():\n            dacă_finale = all(stare[l]['stare'] == 'încheiată' for l in ['X', 'Y', 'Z'])\n            if dacă_finale:\n                return True, vizitate[hash_stare]\n        \n        return False, None\n    \n    def verifică_P3(self, stări, vizitate):\n        for hash_stare, stare in stări.items():\n            are_neîncheiată = any(stare[l]['stare'] != 'încheiată' for l in ['X', 'Y', 'Z'])\n            \n            if are_neîncheiată:\n                tranziții = self.tranziții(stare)\n                if len(tranziții) == 0:\n                    return False, vizitate[hash_stare]\n        \n        return True, None\n\ndef main():\n    explorator = Explorator()\n    stări, vizitate, tranziții_all = explorator.explorează()\n    \n    p1_ok, _ = explorator.verifică_P1(stări)\n    p2_ok, p2_cale = explorator.verifică_P2(stări, vizitate)\n    p3_ok, p3_cale = explorator.verifică_P3(stări, vizitate)\n    \n    print(f\"Stări accesibile: {len(stări)}\")\n    print(f\"Tranziții: {len(tranziții_all)}\")\n    print(f\"P1 (Exclusivitate): {'OK' if p1_ok else 'INCALCAT'}\")\n    print(f\"P2 (Încheiere posibilă): {'OK' if p2_ok else 'INCALCAT'}\")\n    if not p2_ok:\n        print(f\"  Starea finală nu este accesibilă\")\n    else:\n        print(f\"  Secvență: {' -> '.join(p2_cale)}\")\n    print(f\"P3 (Fără blocaj): {'OK' if p3_ok else 'INCALCAT'}\")\n    if not p3_ok:\n        print(f\"  Blocaj la secvența: {' -> '.join(p3_cale)}\")\n\nif __name__ == '__main__':\n    main()\n```\n\nExploratorul construiește graful de stări accesibile prin BFS, apoi verifică proprietățile. Starea codifică pentru fiecare lucrare starea ei (neinițiată/pregătită/în_lucru/încheiată) și care aparate ocupă, plus ocuparea globală. Tranziții valide sunt ocupări în ordinea cerută și încheierea lucrărilor în lucru. P1 e structurală (niciodată încălcată dacă codul e corect). P2 și P3 se verifică prin explorare completă.",
+  "ttft_ms": 55028,
+  "type": "result",
+  "duration_ms": 65431,
+  "uuid": "7b4c77cc-c9dc-44e8-b2c8-24512e7fa630",
+  "ttft_stream_ms": 1162,
+  "time_to_request_ms": 546,
+  "first_content_frame_ms": 1163,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-15T13:47:04.745Z"
+}

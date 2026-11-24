@@ -1,0 +1,8 @@
+$ python -I -X utf8 haiku45-explorator-05.py   (Python 3.10.11)
+Stări accesibile: 42
+Tranziții: 62
+P1 (Exclusivitate): INCALCAT
+P2 (Încheiere posibilă): OK
+  Secvență: ocupă(X, M) -> ocupă(X, C) -> încheie(X) -> ocupă(Y, C) -> ocupă(Y, L) -> ocupă(Z, M) -> încheie(Y) -> ocupă(Z, L) -> încheie(Z)
+P3 (Fără blocaj): OK
+[cod de ieșire 0]

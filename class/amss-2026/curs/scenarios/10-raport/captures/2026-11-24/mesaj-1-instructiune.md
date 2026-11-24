@@ -1,0 +1,1 @@
+Echipa noastră trebuie să aleagă una dintre variantele V1–V3 de mai jos. Pe care o recomanzi și de ce? Nu scrie cod. Răspunde în română, în maximum 150 de cuvinte, și începe cu numele variantei recomandate.

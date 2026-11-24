@@ -205,23 +205,23 @@ Două organizări sunt în discuție:
 
 ### Sasul unui laborator
 
-Un sas are două uși: **U1**, spre hol, și **U2**, spre laborator. Fiecare ușă este închisă (Î) sau deschisă (D); starea sasului se scrie (U1, U2), iar starea inițială este (Î, Î). Modelul are numai aceste acțiuni, executate secvențial, și presupune că ușile execută comenzile:
+Un sas are două uși: **U1**, spre hol, și **U2**, spre laborator. Fiecare ușă este închisă (Î) sau deschisă (D); starea sasului se scrie (U1, U2), iar starea inițială este (Î, Î). Modelul are numai aceste evenimente, produse secvențial, și presupune că ușile execută comenzile:
 
-- `deschide(Ui)`: permisă numai dacă Ui este închisă **și cealaltă ușă este închisă**;
-- `inchide(Ui)`: permisă numai dacă Ui este deschisă.
+- `deschide(Ui)`: permis numai dacă Ui este închisă **și cealaltă ușă este închisă**;
+- `inchide(Ui)`: permis numai dacă Ui este deschisă.
 
 **Proprietatea P:** în nicio stare accesibilă cele două uși nu sunt deschise simultan.
 
-#### O versiune greșită a modelului permite `deschide(U2)` și când U1 este deschisă. Explorarea modelului găsește traseul (Î, Î) → `deschide(U1)` → (D, Î) → `deschide(U2)` → (D, D). Ce stabilește acest traseu?
+#### O versiune greșită a modelului permite `deschide(U2)` și când U1 este deschisă. Explorarea modelului găsește secvența (Î, Î) → `deschide(U1)` → (D, Î) → `deschide(U2)` → (D, D). Ce stabilește această secvență?
 - [x] Că proprietatea P este încălcată în modelul greșit, printr-o execuție concretă.
 - [ ] Că sasul real din laborator va avea accidente.
 - [ ] Că modelul greșit are o stare de blocaj.
 - [ ] Că proprietatea P este adevărată, pentru că starea inițială o respectă.
 
-#### Modelului corect i se adaugă acțiunea `alarma()`, permisă în orice stare a ușilor: ambele uși se închid, iar sasul intră în starea **Blocat**, în care nu mai este permisă nicio acțiune. Specificația spune că sasul rămâne blocat până la o intervenție manuală, care nu face parte din model. Explorarea raportează: „Starea Blocat nu are acțiuni permise.” Ce concluzie este corectă?
+#### Modelului corect i se adaugă evenimentul `alarma()`, permis în orice stare a ușilor: ambele uși se închid, iar sasul intră în starea **Blocat**, în care nu mai este permis niciun eveniment. Specificația spune că sasul rămâne blocat până la o intervenție manuală, care nu face parte din model. Explorarea raportează: „Starea Blocat nu are evenimente permise.” Ce concluzie este corectă?
 - [ ] Este un blocaj neintenționat (deadlock); modelul trebuie corectat.
 - [ ] Proprietatea P este încălcată în starea Blocat, deci alarma este greșită.
-- [ ] Explorarea este greșită: orice stare a unui model trebuie să aibă o acțiune.
+- [ ] Explorarea este greșită: orice stare a unui model trebuie să permită un eveniment.
 - [x] Este o stare finală intenționată; verificăm că se ajunge în ea numai prin `alarma()`.
 
 #### Explorarea **completă** a modelului corect (fără `alarma()`) vizitează toate stările accesibile și nu găsește nicio încălcare a lui P. Ce stabilește această explorare, singură?

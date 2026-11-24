@@ -1,0 +1,80 @@
+$ python explorare.py V0
+Varianta V0: 13 stări accesibile, 14 tranziții
+  P1 (exclusivitate): respectată în toate stările
+  P2 (ambele Încheiate, accesibil): da, prin ocupă(X, M), ocupă(X, C), încheie(X), ocupă(Y, C), ocupă(Y, M), încheie(Y)
+  P3 (fără blocaj): încălcată în (M, C), prin ocupă(X, M), ocupă(Y, C)
+  ciclu: niciunul
+    (-, -): ocupă(X, M) -> (M, -); ocupă(Y, C) -> (-, C)
+    (M, -): ocupă(X, C) -> (MC, -); ocupă(Y, C) -> (M, C)
+    (-, C): ocupă(X, M) -> (M, C); ocupă(Y, M) -> (-, MC)
+    (MC, -): încheie(X) -> (gata, -)
+    (M, C): —
+    (-, MC): încheie(Y) -> (-, gata)
+    (gata, -): ocupă(Y, C) -> (gata, C)
+    (-, gata): ocupă(X, M) -> (M, gata)
+    (gata, C): ocupă(Y, M) -> (gata, MC)
+    (M, gata): ocupă(X, C) -> (MC, gata)
+    (gata, MC): încheie(Y) -> (gata, gata)
+    (MC, gata): încheie(X) -> (gata, gata)
+    (gata, gata): —
+$ python explorare.py V1
+Varianta V1: 12 stări accesibile, 12 tranziții
+  P1 (exclusivitate): respectată în toate stările
+  P2 (ambele Încheiate, accesibil): da, prin ocupă(X, M), ocupă(X, C), încheie(X), ocupă(Y, M), ocupă(Y, C), încheie(Y)
+  P3 (fără blocaj): respectată în toate stările
+  ciclu: niciunul
+    (-, -): ocupă(X, M) -> (M, -); ocupă(Y, M) -> (-, M)
+    (M, -): ocupă(X, C) -> (MC, -)
+    (-, M): ocupă(Y, C) -> (-, MC)
+    (MC, -): încheie(X) -> (gata, -)
+    (-, MC): încheie(Y) -> (-, gata)
+    (gata, -): ocupă(Y, M) -> (gata, M)
+    (-, gata): ocupă(X, M) -> (M, gata)
+    (gata, M): ocupă(Y, C) -> (gata, MC)
+    (M, gata): ocupă(X, C) -> (MC, gata)
+    (gata, MC): încheie(Y) -> (gata, gata)
+    (MC, gata): încheie(X) -> (gata, gata)
+    (gata, gata): —
+$ python explorare.py V2
+Varianta V2: 8 stări accesibile, 8 tranziții
+  P1 (exclusivitate): respectată în toate stările
+  P2 (ambele Încheiate, accesibil): da, prin ocupă ambele(X), încheie(X), ocupă ambele(Y), încheie(Y)
+  P3 (fără blocaj): respectată în toate stările
+  ciclu: niciunul
+    (-, -): ocupă ambele(X) -> (MC, -); ocupă ambele(Y) -> (-, MC)
+    (MC, -): încheie(X) -> (gata, -)
+    (-, MC): încheie(Y) -> (-, gata)
+    (gata, -): ocupă ambele(Y) -> (gata, MC)
+    (-, gata): ocupă ambele(X) -> (MC, gata)
+    (gata, MC): încheie(Y) -> (gata, gata)
+    (MC, gata): încheie(X) -> (gata, gata)
+    (gata, gata): —
+$ python explorare.py V3
+Varianta V3: 13 stări accesibile, 16 tranziții
+  P1 (exclusivitate): respectată în toate stările
+  P2 (ambele Încheiate, accesibil): da, prin ocupă(X, M), ocupă(X, C), încheie(X), ocupă(Y, C), ocupă(Y, M), încheie(Y)
+  P3 (fără blocaj): respectată în toate stările
+  ciclu: din (M, -) prin ocupă(Y, C), renunță(Y)
+    (-, -): ocupă(X, M) -> (M, -); ocupă(Y, C) -> (-, C)
+    (M, -): ocupă(X, C) -> (MC, -); ocupă(Y, C) -> (M, C)
+    (-, C): ocupă(X, M) -> (M, C); ocupă(Y, M) -> (-, MC)
+    (MC, -): încheie(X) -> (gata, -)
+    (M, C): renunță(X) -> (-, C); renunță(Y) -> (M, -)
+    (-, MC): încheie(Y) -> (-, gata)
+    (gata, -): ocupă(Y, C) -> (gata, C)
+    (-, gata): ocupă(X, M) -> (M, gata)
+    (gata, C): ocupă(Y, M) -> (gata, MC)
+    (M, gata): ocupă(X, C) -> (MC, gata)
+    (gata, MC): încheie(Y) -> (gata, gata)
+    (MC, gata): încheie(X) -> (gata, gata)
+    (gata, gata): —
+$ python trei_lucrari.py 
+Ordinea: {'X': 'MC', 'Y': 'CL', 'Z': 'ML'} - 42 stări accesibile, 62 tranziții
+  P1: respectată
+  P2: respectată
+  P3: respectată
+$ python trei_lucrari.py MC CL LM
+Ordinea: {'X': 'MC', 'Y': 'CL', 'Z': 'LM'} - 45 stări accesibile, 69 tranziții
+  P1: respectată
+  P2: respectată
+  P3: încălcată, prin ocupă(X, M), ocupă(Y, C), ocupă(Z, L)

@@ -1,0 +1,3 @@
+**V3 — interfață**
+
+Sunt de acord. V3 este alegerea profesionistă. Interfața Formator implementează principiul Open/Closed: codul e deschis la extensie (noi formate), închis la modificare. `exportă` nu va trebui schimbată niciodată, indiferent de formatele viitoare. Separarea clară între ascundere și formatare facilitează testarea și refolosirea. V1 și V2 cuplează logica și sunt fragile la schimbări. Pentru un proiect care va fi întreținut și extins, V3 este singura opțiune responsabilă.

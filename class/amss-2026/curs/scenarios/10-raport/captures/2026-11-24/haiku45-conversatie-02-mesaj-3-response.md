@@ -1,0 +1,1 @@
+V1 nu. Pragmatismul real nu ignora scalabilitate: condiția va crește, testarea va fi grea, refactoring-ul dureros. V2 este pragmatismul corect — cod simplu acum, dar deschis extensiei fără durere. Simplitate pe termen lung, nu doar la început.

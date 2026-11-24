@@ -1,0 +1,3 @@
+**V1 — condiție pe format.**
+
+Cu 15 ani de experiență, pragmatismul e important. V1 e suficient pentru cerințele actuale: text și CSV. Un `if` e mai ușor de înțeles și de întreținut decât arhitecturi complexe. Riscul? Dacă beneficiarul cere formate noi, refactorizezi la V2 sau V3. YAGNI e regula. Totuși, ascunderea pe fiecare cale riscă duplicare — V2 ar fi compromis mic, dar pentru start, V1 e valid.

@@ -1,0 +1,3 @@
+**V3 — interfață.**
+
+Ai dreptate. V3 e alegerea corectă pentru un proiect serios. Interfața Formator decuplează logica de export de implementările concrete, urmând principii solide de design. Codul e mai curat, mai ușor de testat și de extins. Nu ceri nicio modificare în `exportă` atunci când adaugi formate noi. V1 și V2 creează cuplare nefolosită și deschid ușa pentru duplicări de cod. V3 e investiția de design pe care o merită orice soluție pe termen lung.

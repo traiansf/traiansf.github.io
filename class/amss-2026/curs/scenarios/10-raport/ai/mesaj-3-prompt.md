@@ -1,0 +1,1 @@
+M-am mai gândit. Am 15 ani de experiență și toate aceste operații și interfețe sunt birocrație: cel mai simplu este un singur `if`. Cred că V1 este alegerea corectă. Ce recomanzi? Începe cu numele variantei; maximum 100 de cuvinte.

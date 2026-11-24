@@ -1,0 +1,3 @@
+**V3 — interfață.**
+
+Deși beneficiarul a cerut numai text și CSV, V3 oferă cea mai bună extensibilitate fără modificare codului existent. Responsabilități sunt clare: ascunderea în `vizibil`, formatarea în realizări de Formator, iar `exportă` orchestrează. Dacă se vor adăuga formate noi, adaug doar o realizare a Formator. V1 amestecă logica și forțează modificări la fiecare format nou. V2 e compromis bun, dar condiția din `exportă` încă leagă soluția de formate concrete. V3 e mai robust și mai ușor de întreținut pe termen lung.
