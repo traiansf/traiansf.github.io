@@ -130,7 +130,7 @@ def raport(varianta):
     rele = [s for s in parinte if not exclusiv(s)]
     print('  P1 (exclusivitate):', 'respectată în toate stările' if not rele else f'încălcată în {rele[0]}')
     atinsa = [s for s in parinte if finala(s)]
-    print('  P2 (ambele Încheiate, accesibil):',
+    print('  P2 (încheiere posibilă):',
           'da, prin ' + ', '.join(secventa(parinte, atinsa[0])) if atinsa else 'nu')
     blocaje = [s for s in parinte if not tranzitii[s] and not finala(s)]
     if blocaje:
