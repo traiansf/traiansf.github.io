@@ -6,93 +6,14 @@ operation-names: [ocupă, "ocupă ambele", încheie, renunță, intră, iese]
 state-names: [Neîncepută, Pregătită, "În lucru", Încheiată]
 ---
 
-# Cine oferă garanția? {.transition}
-
-Reluăm din cursul 8: un text despre înscriere promite ceva. Cine se angajează să respecte promisiunea?
-
-::: notes
-Reluăm, pe scurt, partea cursului 8 la care nu am ajuns; ea duce la întrebarea de azi. La o graniță, un text de proiectare poate promite lucruri pe care componenta noastră nu le controlează. Pentru fiecare promisiune întrebăm cine o garantează și ce regulă o susține; la sfârșit întrebăm cum se verifică o garanție, iar de aici începe tema de azi. Atomicitatea, comparația completă și transferul la tipografie rămân în prezentarea cursului 8 (slide-urile 30–34), pentru studiu individual.
-
-Captură reală, obținută înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.329, la 20 noiembrie 2026, într-un context nou, fără unelte; una dintre șase rulări. Selecția nu descrie comportamentul tipic al modelului AI.
-
-**Organizare:** minutul 0 din 100; interval 0–14 (14 min): promisiunile 1–2 (5), promisiunile 3–4 (5), decizia (4). Deschiderea cursului 9 (citatul și întrebarea deschisă) urmează după reluare. 25 de slide-uri cu copertă, după ritmul real al cursului 8 (25 de slide-uri parcurse în 100 de minute). []{.pace at=0 of=100}
-:::
-
----
-
-# Paragraful: promisiunile 1 și 2
-
-Registrul de locuri acceptă sau refuză cereri de înscriere, apoi cere mesageriei să trimită confirmarea; mesageria răspunde `trimis` sau `eșec`. Am cerut un paragraf „Ce vă garantăm la înscriere”. **Asistentul AI, Claude Haiku 4.5, 20 noiembrie 2026, fragmente:**
-
-> 1\. **Înscrierea se acceptă imediat** – dacă locul este liber și nu sunteți deja înscris la acest atelier, cererea voastră se acceptă pe loc.
->
-> 2\. **Veți primi o confirmare** – după acceptare, vă trimitem imediat un mesaj de confirmare pe email, cu detaliile atelierului.
-
-**R3 (acceptare):** o cerere cu identificator neînregistrat este acceptată dacă participantul nu este înscris și există loc. **R6 (graniță):** `trimis` nu înseamnă că mesajul a ajuns.
-
-Individual, apoi discutăm: **cine garantează fiecare promisiune: registrul, site-ul, operatorul centrului, mesageria sau nimeni?**
-
-::: notes
-Promisiunea 1 este a registrului: R3 decide acceptarea, iar condițiile sunt redate corect. „Imediat” și „pe loc” nu sunt susținute de enunț: durata nu este modelată. Promisiunea 2 nu o garantează nimeni: „veți primi” ar fi o promisiune a mesageriei, iar R6 nu i-o atribuie; nici `trimis` nu spune că mesajul a ajuns. „Cu detaliile atelierului” nu apare nicăieri în enunț. Promptul exact și celelalte fragmente sunt în prezentarea cursului 8.
-
-**Sursă:** răspunsul integral `haiku45-promisiuni-01`, arhiva `08-inscrieri/captures/2026-11-20`; omise titlul și fraza introductivă.
-
-**Organizare:** 5 min: 2 individual, 3 discuție. []{.pace dur=5}
-:::
-
----
-
-# Paragraful: promisiunile 3 și 4
-
-**Aceeași rulare; fragmente:**
-
-> 3\. **Nu vă veți înscrie de două ori din greșeală** – dacă sistemul nu vi s-a afișat răspunsul și reîncercați, nu veți consuma un loc suplimentar; veți primi din nou răspunsul „acceptat".
->
-> 4\. **Rămâneți înscris chiar dacă confirmarea nu ajunge** – […] Dacă mesajul de confirmare eșuează, echipa noastră va încerca din nou trimiterea, […]
-
-**R2 (cerere):** la reîncercare, site-ul trimite același identificator. **R3 (acceptare):** cu identificator neînregistrat, cererea unui participant înscris primește `refuz`. **R4 (confirmare):** eșecul confirmării nu anulează înscrierea. **R5 (reîncercare):** cu identificator înregistrat, cererea primește același `acceptat`, fără alt loc. **Varianta B:** un operator al centrului retrimite confirmările `netrimisă`.
-
-Individual, apoi discutăm: **cine garantează fiecare promisiune?** Se respectă promisiunea 3 dacă site-ul trimite o cerere nouă, cu alt identificator?
-
-::: notes
-Promisiunea 3 are două părți. „Nu veți consuma un loc suplimentar” o garantează registrul pentru orice cerere (R3, R5). „Veți primi din nou răspunsul «acceptat»” depinde și de site: registrul recunoaște reîncercarea numai după identificator (R2); la o cerere nouă, răspunsul este `refuz`, deși participantul este înscris. Promisiunea 4: „rămâneți înscris” este a registrului (R4); „echipa noastră va încerca din nou” o poate promite numai centrul, prin operator, și nici textul, nici varianta B nu spun când. Operația retrimite numai confirmările `netrimisă`, deci o confirmare cu `trimis` care nu a ajuns nu se mai trimite. Greșelile de scriere sunt ale răspunsului.
-
-**Sursă:** răspunsul integral `haiku45-promisiuni-01`, arhiva `08-inscrieri/captures/2026-11-20`; omisiuni marcate.
-
-**Organizare:** 5 min: 2 individual, 3 discuție. []{.pace dur=5}
-:::
-
----
-
-# Decizia noastră: fiecare garanție are un garant
-
-| Afirmația | Garant | Ce o susține sau o limitează |
-|:-------------------------------------|:------------------|:-------------------------------------------|
-| acceptarea; niciun loc în plus; înscrierea rămâne | registrul | R3 (acceptare), R4 (confirmare), R5 (reîncercare) |
-| „veți primi din nou răspunsul «acceptat»” | registrul, cu site-ul | R5; R2 (cerere), presupunere |
-| „veți primi o confirmare” | nimeni | R6 (graniță) |
-| „echipa noastră va încerca din nou” | operatorul centrului | varianta B; nu se spune când |
-
-**Promisiunea 2, rescrisă:** „După acceptare cerem trimiterea unei confirmări. Dacă nu o primiți, înscrierea rămâne valabilă.”
-
-Registrul garantează „niciun loc în plus” în **orice** secvență de cereri. **Cum verificăm?**
-
-::: notes
-Regula de lucru: lângă fiecare garanție scriem cine o oferă și pe ce se sprijină; o garanție fără garant este o speranță. O garanție mai puternică, despre livrare, o cerem furnizorului mesageriei, în interfața lui. Întrebarea de la sfârșit face legătura cu tema de azi: „registrul garantează” este o afirmație despre toate secvențele de cereri, iar cu scenariile cursului 8 am urmărit numai câteva. Răspunsuri posibile: un argument (un invariant păstrat de fiecare operație, cursul 6) sau explorarea tuturor stărilor unui model cu puțini participanți și puține locuri. Pe a doua o facem azi, pe alt exemplu; la registrul de locuri revenim la slide-ul „Trei afirmații, trei justificări”.
-
-**Organizare:** 4 min; ajungem la minutul 14. []{.pace dur=4}
-:::
-
----
-
 # De unde știm că o proiectare are proprietățile cerute? {.transition}
 
 Am urmărit câteva scenarii și toate s-au încheiat bine. Este suficient?
 
 ::: notes
-În cursurile 7–8 am verificat tabele și fluxuri prin trasare: alegem un scenariu și îl urmărim pas cu pas. Azi întrebăm ce stabilește o trasare, ce stabilește explorarea tuturor stărilor accesibile ale unui model și ce rămâne nestabilit în ambele cazuri. Este întrebarea cu care am încheiat reluarea: cum verificăm o afirmație despre orice secvență?
+În cursurile 7–8 am verificat tabele și fluxuri prin trasare: alegem un scenariu și îl urmărim pas cu pas. Azi întrebăm ce stabilește o trasare, ce stabilește explorarea tuturor stărilor accesibile ale unui model și ce rămâne nestabilit în ambele cazuri. La cursul 8 am spus ce garantează registrul în orice secvență de cereri; azi întrebăm cum se verifică o asemenea afirmație.
 
-**Organizare:** minutul 14 din 100; interval 14–22 (8 min): întrebarea de orientare și citatul (3), întrebarea deschisă (5). []{.pace at=14}
+**Organizare:** minutul 0 din 100; interval 0–8 (8 min): întrebarea de orientare și citatul (3), întrebarea deschisă (5). 21 de slide-uri cu copertă; planul are 86 de minute și lasă 14 minute de rezervă. Etapa AI nepredată a cursului 8 nu se reia: rămâne în prezentarea publicată a cursului 8 (slide-urile 26–34), pentru studiu individual. []{.pace at=0 of=100}
 :::
 
 ---
@@ -136,7 +57,7 @@ Luată separat, fiecare lucrare se încheie bine. Dar amândouă, în același l
 ::: notes
 Trecem la exemplul zilei: problema, modelul și proprietățile cerute.
 
-**Organizare:** minutul 22 din 100; interval 22–39 (17 min): predicția (7), modelul (5), proprietățile (5). []{.pace at=22}
+**Organizare:** minutul 8 din 100; interval 8–25 (17 min): predicția (7), modelul (5), proprietățile (5). []{.pace at=8}
 :::
 
 ---
@@ -198,7 +119,7 @@ O execuție care ajunge într-o stare ce încalcă P1 sau P3 este un **contraexe
 ::: notes
 P1 este un invariant, ca în cursul 6. P2 este accesibilitate, ca în cursul 7: o secvență ajunge acolo. P3 interzice blocajul, definit la cursul 7: o stare în care niciun eveniment nu mai este permis, fără să fie finală intenționată. S1 sau S2 stabilește singur P2: este suficientă o execuție. Despre P1 și P3, fiecare scenariu arată numai că stările lui nu le încalcă. A doua întrebare nu are ca răspuns un număr: pentru P3 trebuie să trecem prin toate stările accesibile, iar scenariile alese nu ne spun care sunt acestea și nici dacă le-am epuizat; „nu există contraexemplu” nu se vede în niciun scenariu. În plus, un scenariu încheiat cu bine nu trece niciodată printr-un blocaj. De aici explorarea. Coloanele a doua și a treia sunt inversate la P2: observația contează pentru lectura rezultatelor și, la sfârșit, pentru afirmațiile asistentului AI.
 
-**Organizare:** 5 min: 2 individual, 3 discuție; ajungem la minutul 39. []{.pace dur=5}
+**Organizare:** 5 min: 2 individual, 3 discuție; ajungem la minutul 25. []{.pace dur=5}
 :::
 
 ---
@@ -210,7 +131,7 @@ Nu mai alegem scenarii: pornim din starea inițială și nu omitem nimic.
 ::: notes
 Explorarea exhaustivă: pornim din (–, –), aplicăm toate evenimentele permise și continuăm din fiecare stare nouă, până când nu mai apar stări noi. Continuăm cu reparațiile, reverificarea lor și cele două slide-uri despre modelarea formală.
 
-**Organizare:** minutul 39 din 100; interval 39–78 (39 min): explorarea pe hârtie (10), rezultatul (5), reparațiile (6), reverificarea (7), modelul privit formal (5), cele trei afirmații (6). []{.pace at=39}
+**Organizare:** minutul 25 din 100; interval 25–64 (39 min): explorarea pe hârtie (10), rezultatul (5), reparațiile (6), reverificarea (7), modelul privit formal (5), cele trei afirmații (6). []{.pace at=25}
 :::
 
 ---
@@ -300,7 +221,7 @@ S1 și S2 sunt drumul de sus și cel de jos din graf: împreună trec prin 12 di
 Individual, apoi discutăm: **pentru fiecare variantă, de ce nu mai este acesta un contraexemplu pentru P3? Am stabilit astfel P3? Cine face ceva în plus: registrul sau lucrările?**
 
 ::: notes
-V1: secvența nu mai este o execuție, pentru că `ocupă(Y, C)` nu mai este permis; cine are C are deja M. V2: nu există stare cu un singur aparat. V3: aceeași secvență rămâne o execuție și ajunge tot în (M, C), dar acolo sunt permise două evenimente, deci nu mai este blocaj. Nu am stabilit P3: am eliminat un contraexemplu, nu am stabilit proprietatea; P3 privește toate stările accesibile, deci explorăm din nou (slide-ul următor). Cine face ceva în plus, adică întrebarea garantului din cursul 8: V1, cum este scrisă, este o regulă pentru lucrări; Y își schimbă ordinea, deși își calibra camera înainte de montare. Registrul o poate garanta numai dacă verifică el ordinea: refuză camera unei lucrări care nu are microscopul. Altfel, „ordinea comună” rămâne o presupunere despre oameni. V2: registrul oferă o operație care le ocupă pe amândouă și nu mai oferă `ocupă`; garantul este registrul, iar un aparat liber nu mai poate fi ocupat cât timp celălalt lipsește. V3: lucrările trebuie să renunțe; registrul nu le poate obliga. Predicțiile studenților despre V3 contează pe slide-ul următor. Nu spunem încă rezultatul explorării.
+V1: secvența nu mai este o execuție, pentru că `ocupă(Y, C)` nu mai este permis; cine are C are deja M. V2: nu există stare cu un singur aparat. V3: aceeași secvență rămâne o execuție și ajunge tot în (M, C), dar acolo sunt permise două evenimente, deci nu mai este blocaj. Nu am stabilit P3: am eliminat un contraexemplu, nu am stabilit proprietatea; P3 privește toate stările accesibile, deci explorăm din nou (slide-ul următor). Cine face ceva în plus, adică cine garantează varianta (la cursul 8: ce garantează registrul și ce nu): V1, cum este scrisă, este o regulă pentru lucrări; Y își schimbă ordinea, deși își calibra camera înainte de montare. Registrul o poate garanta numai dacă verifică el ordinea: refuză camera unei lucrări care nu are microscopul. Altfel, „ordinea comună” rămâne o presupunere despre oameni. V2: registrul oferă o operație care le ocupă pe amândouă și nu mai oferă `ocupă`; garantul este registrul, iar un aparat liber nu mai poate fi ocupat cât timp celălalt lipsește. V3: lucrările trebuie să renunțe; registrul nu le poate obliga. Predicțiile studenților despre V3 contează pe slide-ul următor. Nu spunem încă rezultatul explorării.
 
 **Organizare:** 6 min: 3 individual, 3 discuție. []{.pace dur=6}
 :::
@@ -366,7 +287,7 @@ Individual, apoi discutăm: **ce ar trebui să facem ca să putem afirma că:** 
 ::: notes
 Al doilea slide despre modelarea formală: scenarii alese, explorarea exhaustivă a unui model finit, afirmația despre sistemul real. Pentru „orice alt model” sunt două căi: altă explorare (trei lucrări, `python trei_lucrari.py MC MC MC`: 32 de stări, niciun blocaj) sau un argument pentru orice număr de lucrări și de aparate: dintre aparatele ocupate, îl luăm pe ultimul din ordinea comună; lucrarea care îl ocupă fie are toate aparatele și poate încheia, fie așteaptă un aparat aflat după el, deci liber; dacă niciun aparat nu este ocupat, oricare lucrare neîncheiată poate începe. Pe slide, argumentul apare la decizia etapei AI. Ultimul rând nu se stabilește prin model: trebuie să știm dacă modelul descrie laboratorul și dacă toate ocupările trec prin registru; V3 a arătat că și lista proprietăților se validează. (1): întâi precizăm modelul, adică starea în care ajunge lucrarea anulată: o stare finală nouă cere completarea listei stărilor finale intenționate (altfel P3 este încălcată prin definiție), iar Neîncepută aduce un ciclu, deci P4 este încălcată; apoi explorăm din nou. (2): explorarea unui model cu doi participanți și două locuri stabilește afirmația pentru acel model; pentru orice număr de cereri și de locuri, un argument de invariant (cursul 6).
 
-**Organizare:** 6 min: 2 individual, 4 discuție; ajungem la minutul 78. []{.pace dur=6}
+**Organizare:** 6 min: 2 individual, 4 discuție; ajungem la minutul 64. []{.pace dur=6}
 :::
 
 ---
@@ -380,7 +301,7 @@ Lecția: o verificare **afirmată** nu este o verificare **executată**, iar o v
 
 Capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.331, la 24 noiembrie 2026, șase rulări ale aceluiași prompt, fiecare într-un context nou, **fără unelte**: sesiunea nu putea rula cod. Am ales două rulări; selecția nu descrie comportamentul tipic al modelului AI. Toate rulările, codul extras și ieșirile lui sunt în arhivă. La curs nu rulăm instrumente.
 
-**Organizare:** minutul 78 din 100; interval 78–95 (17 min): cererea (3), cele două rapoarte (6), rularea (5), decizia (3). []{.pace at=78}
+**Organizare:** minutul 64 din 100; interval 64–81 (17 min): cererea (3), cele două rapoarte (6), rularea (5), decizia (3). []{.pace at=64}
 :::
 
 ---
@@ -457,7 +378,7 @@ if state.device_owner[device] is not None:
 
 # Decizia noastră
 
-**Nu acceptăm** un rezultat fără rularea care l-a produs: comanda, varianta modelului explorat, ieșirea. „Am verificat”, scris într-un răspuns AI, este o afirmație, nu un rezultat: ca o garanție fără garant (cursul 8).
+**Nu acceptăm** un rezultat fără rularea care l-a produs: comanda, varianta modelului explorat, ieșirea. „Am verificat”, scris într-un răspuns AI, este o afirmație, nu un rezultat.
 
 **Un contraexemplu** îl verificăm pas cu pas, pe reguli, oricine l-ar fi propus. În cel din rularea 02, primul pas al lui Z nu este permis.
 
@@ -468,11 +389,11 @@ if state.device_owner[device] is not None:
 **La proiect:** lângă „verificat”, dosarul arată ce s-a rulat sau urmărit și ce rămâne neacoperit.
 
 ::: notes
-Proba exploratorului pe o variantă greșită: cu ordinea L, M pentru Z, exploratorul nostru găsește blocajul în trei pași, `ocupă(X, M)`, `ocupă(Y, C)`, `ocupă(Z, L)` (45 de stări, P3 încălcată). Este exact secvența pretinsă de rularea 02, pentru alt enunț decât cel dat. Dacă un explorator nu găsește nici măcar o eroare introdusă intenționat, rezultatul „OK” nu spune nimic. Legătura cu cursul 6 (verificarea circulară): acolo testele veneau din cod, aici raportul nu vine de nicăieri. Legătura cu reluarea de la început: și „verificat” are nevoie de cineva care să răspundă pentru el, cu rularea sau cu argumentul. Feedback pentru proiect se poate cere oricând.
+Proba exploratorului pe o variantă greșită: cu ordinea L, M pentru Z, exploratorul nostru găsește blocajul în trei pași, `ocupă(X, M)`, `ocupă(Y, C)`, `ocupă(Z, L)` (45 de stări, P3 încălcată). Este exact secvența pretinsă de rularea 02, pentru alt enunț decât cel dat. Dacă un explorator nu găsește nici măcar o eroare introdusă intenționat, rezultatul „OK” nu spune nimic. Legătura cu cursul 6 (verificarea circulară): acolo testele veneau din cod, aici raportul nu vine de nicăieri. Feedback pentru proiect se poate cere oricând.
 
 **Sursă:** `python trei_lucrari.py MC CL LM`, 24 noiembrie 2026.
 
-**Organizare:** 3 min; ajungem la minutul 95. []{.pace dur=3}
+**Organizare:** 3 min; ajungem la minutul 81. []{.pace dur=3}
 :::
 
 ---
@@ -492,5 +413,5 @@ Răspundeți pe scurt, în scris:
 
 **Sursă:** `python muzeu.py` și `python muzeu.py AB AB`, 26 noiembrie 2026, în `model/rezultate.txt`.
 
-**Organizare:** minutul 95 din 100; 5 min; încheiere la minutul 100. []{.pace at=95 dur=5}
+**Organizare:** minutul 81 din 100; 5 min; încheiere la minutul 86, cu 14 minute de rezervă. []{.pace at=81 dur=5}
 :::

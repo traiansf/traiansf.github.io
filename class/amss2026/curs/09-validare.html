@@ -523,73 +523,6 @@ break-inside: avoid;
     <p class="author">Traian-Florin Șerbănuță</p>
   </div>
 </div>
-<div id="cine-oferă-garanția" class="slide section level1 transition">
-<h1 class="transition">Cine oferă garanția?</h1>
-<p>Reluăm din cursul 8: un text despre înscriere promite ceva. Cine se angajează să respecte promisiunea?</p>
-</div>
-<div id="paragraful-promisiunile-1-și-2" class="slide section level1">
-<h1>Paragraful: promisiunile 1 și 2</h1>
-<p>Registrul de locuri acceptă sau refuză cereri de înscriere, apoi cere mesageriei să trimită confirmarea; mesageria răspunde <code>trimis</code> sau <code>eșec</code>. Am cerut un paragraf „Ce vă garantăm la înscriere”. <strong>Asistentul AI, Claude Haiku 4.5, 20 noiembrie 2026, fragmente:</strong></p>
-<blockquote>
-<p>1. <strong>Înscrierea se acceptă imediat</strong> – dacă locul este liber și nu sunteți deja înscris la acest atelier, cererea voastră se acceptă pe loc.</p>
-<p>2. <strong>Veți primi o confirmare</strong> – după acceptare, vă trimitem imediat un mesaj de confirmare pe email, cu detaliile atelierului.</p>
-</blockquote>
-<p><strong>R3 (acceptare):</strong> o cerere cu identificator neînregistrat este acceptată dacă participantul nu este înscris și există loc. <strong>R6 (graniță):</strong> <code>trimis</code> nu înseamnă că mesajul a ajuns.</p>
-<p>Individual, apoi discutăm: <strong>cine garantează fiecare promisiune: registrul, <span class="nowrap">site-ul,</span> operatorul centrului, mesageria sau nimeni?</strong></p>
-</div>
-<div id="paragraful-promisiunile-3-și-4" class="slide section level1">
-<h1>Paragraful: promisiunile 3 și 4</h1>
-<p><strong>Aceeași rulare; fragmente:</strong></p>
-<blockquote>
-<p>3. <strong>Nu vă veți înscrie de două ori din greșeală</strong> – dacă sistemul nu vi <span class="nowrap">s-a</span> afișat răspunsul și reîncercați, nu veți consuma un loc suplimentar; veți primi din nou răspunsul „acceptat”.</p>
-<p>4. <strong>Rămâneți înscris chiar dacă confirmarea nu ajunge</strong> – […] Dacă mesajul de confirmare eșuează, echipa noastră va încerca din nou trimiterea, […]</p>
-</blockquote>
-<p><strong>R2 (cerere):</strong> la reîncercare, <span class="nowrap">site-ul</span> trimite același identificator. <strong>R3 (acceptare):</strong> cu identificator neînregistrat, cererea unui participant înscris primește <code>refuz</code>. <strong>R4 (confirmare):</strong> eșecul confirmării nu anulează înscrierea. <strong>R5 (reîncercare):</strong> cu identificator înregistrat, cererea primește același <code>acceptat</code>, fără alt loc. <strong>Varianta B:</strong> un operator al centrului retrimite confirmările <code>netrimisă</code>.</p>
-<p>Individual, apoi discutăm: <strong>cine garantează fiecare promisiune?</strong> Se respectă promisiunea 3 dacă <span class="nowrap">site-ul</span> trimite o cerere nouă, cu alt identificator?</p>
-</div>
-<div id="decizia-noastră-fiecare-garanție-are-un-garant" class="slide section level1">
-<h1>Decizia noastră: fiecare garanție are un garant</h1>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="37%" />
-<col width="18%" />
-<col width="43%" />
-</colgroup>
-<thead>
-<tr>
-<th align="left">Afirmația</th>
-<th align="left">Garant</th>
-<th align="left">Ce o susține sau o limitează</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">acceptarea; niciun loc în plus; înscrierea rămâne</td>
-<td align="left">registrul</td>
-<td align="left">R3 (acceptare), R4 (confirmare), R5 (reîncercare)</td>
-</tr>
-<tr>
-<td align="left">„veți primi din nou răspunsul «acceptat»”</td>
-<td align="left">registrul, cu <span class="nowrap">site-ul</span></td>
-<td align="left">R5; R2 (cerere), presupunere</td>
-</tr>
-<tr>
-<td align="left">„veți primi o confirmare”</td>
-<td align="left">nimeni</td>
-<td align="left">R6 (graniță)</td>
-</tr>
-<tr>
-<td align="left">„echipa noastră va încerca din nou”</td>
-<td align="left">operatorul centrului</td>
-<td align="left">varianta B; nu se spune când</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Promisiunea 2, rescrisă:</strong> „După acceptare cerem trimiterea unei confirmări. Dacă nu o primiți, înscrierea rămâne valabilă.”</p>
-<p>Registrul garantează „niciun loc în plus” în <strong>orice</strong> secvență de cereri. <strong>Cum verificăm?</strong></p>
-</div>
 <div id="de-unde-știm-că-o-proiectare-are-proprietățile-cerute" class="slide section level1 transition">
 <h1 class="transition">De unde știm că o proiectare are proprietățile cerute?</h1>
 <p>Am urmărit câteva scenarii și toate <span class="nowrap">s-au</span> încheiat bine. Este suficient?</p>
@@ -970,7 +903,7 @@ Varianta V0: 13 stări accesibile, 14 tranziții
 </div>
 <div id="decizia-noastră" class="slide section level1">
 <h1>Decizia noastră</h1>
-<p><strong>Nu acceptăm</strong> un rezultat fără rularea care <span class="nowrap">l-a</span> produs: comanda, varianta modelului explorat, ieșirea. „Am verificat”, scris <span class="nowrap">într-un</span> răspuns AI, este o afirmație, nu un rezultat: ca o garanție fără garant (cursul 8).</p>
+<p><strong>Nu acceptăm</strong> un rezultat fără rularea care <span class="nowrap">l-a</span> produs: comanda, varianta modelului explorat, ieșirea. „Am verificat”, scris <span class="nowrap">într-un</span> răspuns AI, este o afirmație, nu un rezultat.</p>
 <p><strong>Un contraexemplu</strong> îl verificăm pas cu pas, pe reguli, oricine <span class="nowrap">l-ar</span> fi propus. În cel din rularea 02, primul pas al lui Z nu este permis.</p>
 <p><strong>Afirmația „nu există contraexemplu”</strong> o acceptăm numai cu o explorare rulată sau cu un argument. Aici le avem pe amândouă: 42 de stări explorate (<code>python trei_lucrari.py</code>) și ordinea comună M, C, L: lucrarea cu ultimul aparat ocupat din ordine poate încheia sau găsește liber următorul.</p>
 <p><strong>Citim verificarea înainte de rezultat:</strong> codul care o face poate verifica altceva decât proprietatea. Probăm verificarea pe o variantă despre care știm că încalcă proprietatea.</p>

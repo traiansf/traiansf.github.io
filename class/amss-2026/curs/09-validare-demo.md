@@ -1,31 +1,23 @@
 # Cursul 9 — ghid de predare
 
-[Prezentarea](09-validare.md) are **25 de slide-uri cu copertă** și un parcurs de **100 de minute**. [Enunțul](scenarios/09-microscop/brief.md), [referința](scenarios/09-microscop/reference.md) și [modelul executabil](scenarios/09-microscop/model/explorare.py) cu [rezultatele rulărilor](scenarios/09-microscop/model/rezultate.txt) fixează regulile și răspunsurile. Toate datele folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți și nu se rulează nimic în timpul cursului.
+[Prezentarea](09-validare.md) are **21 de slide-uri cu copertă** și un parcurs planificat de **86 de minute** din 100, cu 14 minute de rezervă. [Enunțul](scenarios/09-microscop/brief.md), [referința](scenarios/09-microscop/reference.md) și [modelul executabil](scenarios/09-microscop/model/explorare.py) cu [rezultatele rulărilor](scenarios/09-microscop/model/rezultate.txt) fixează regulile și răspunsurile. Toate datele folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți și nu se rulează nimic în timpul cursului.
 
 ## Calibrare după cursul 8
 
-La cursul 8 s-au parcurs 25 din 34 de slide-uri în 100 de minute (feedbackul titularului, 24 noiembrie 2026): 19 slide-uri de conținut (fără copertă, citat și tranziții), adică peste 5 minute pe slide, deși planul prevedea 80 de minute pentru ele. Cursul 9 are 18 slide-uri de conținut (25 cu coperta, citatul și cele cinci tranziții), pentru 100 de minute; planul nu are rezervă.
+La cursul 8 s-au parcurs 25 din 34 de slide-uri în 100 de minute (feedbackul titularului, 24 noiembrie 2026): 19 slide-uri de conținut (fără copertă, citat și tranziții), adică peste 5 minute pe slide, deși planul prevedea 80 de minute pentru ele. Cursul 9 are 15 slide-uri de conținut (21 cu coperta, citatul și cele patru tranziții), planificate la 86 de minute; la ritmul măsurat, de peste 5 minute pe slide, cele 14 minute de rezervă sunt necesare, nu un spațiu pentru conținut nou.
 
-**Reper:** la minutul 60 ar trebui să fie încheiat slide-ul „Trei reparații”. Dacă apar întârzieri, ordinea tăierilor este: slide-ul „Modelul, privit formal” se citește, fără discuție (numai P4 și decizia); la „Trei afirmații, trei justificări” rămâne numai întrebarea despre registrul de locuri, care încheie reluarea din cursul 8; la „Rezultatul explorării” dăm noi răspunsul; la „Decizia noastră” citim; la transfer rămân întrebările 1 și 2, iar a treia rămâne pentru studiu individual. Nu tăiem explorarea pe hârtie, ciclul din V3 și rularea codului primit. Etapa AI începe cel târziu la minutul 80.
+**Reper:** la minutul 46 ar trebui să fie încheiat slide-ul „Trei reparații”; etapa AI poate începe cel târziu la minutul 78 (planul o pune la 64). Dacă rezerva nu ajunge, ordinea tăierilor este: slide-ul „Modelul, privit formal” se citește, fără discuție (numai P4 și decizia); la „Trei afirmații, trei justificări” rămâne numai întrebarea despre registrul de locuri; la „Rezultatul explorării” dăm noi răspunsul; la „Decizia noastră” citim; la transfer rămân întrebările 1 și 2, iar a treia rămâne pentru studiu individual. Nu tăiem explorarea pe hârtie, ciclul din V3 și rularea codului primit.
 
 ## Parcurs
 
 | Minute | Activitate |
 |---|---|
-| 0–14 | Reluarea etapei AI nepredate a cursului 8, pe scurt: promisiunile 1–2 (5); promisiunile 3–4 (5); decizia (4). |
-| 14–22 | Deschiderea cursului 9: întrebarea de orientare și citatul (3); întrebarea deschisă despre erori apărute după verificări reușite (5). |
-| 22–39 | Microscopul și camera: predicția (7); model, stare, execuție (5); cele trei proprietăți (5). |
-| 39–78 | Explorarea pe hârtie (10); rezultatul (5); trei reparații (6); reverificarea (7); modelul privit formal, cu P4 și decizia (5); trei afirmații și validarea (6). |
-| 78–95 | Lecția AI: cererea (3); cele două rapoarte (6); rularea codului (5); decizia (3). |
-| 95–100 | Transfer la două grupuri și două săli. |
-
-## Reluarea din cursul 8
-
-Titularul a ales o reluare de 14 minute: auditul promisiunilor, fără slide-urile despre atomicitate și fără transferul la tipografie, care rămân pentru studiu individual în prezentarea publicată a cursului 8 (slide-urile 30–34). Reluarea stă la început, înaintea deschiderii cursului 9 (runda de revizuire din 26 noiembrie 2026): se încheie cu întrebarea „cum verificăm?”, la care răspund tranziția, citatul și tot cursul. De aceea deschiderea obișnuită (întrebare de orientare, citat, întrebare deschisă, exemplu, concept) începe la minutul 14 și are opt minute până la exemplu.
-
-Fragmentele sunt cele din cursul 8, din [seria din 20 noiembrie 2026](scenarios/08-inscrieri/captures/2026-11-20/README.md); regulile necesare sunt pe slide-uri. Răspunsurile: promisiunea 1 este a registrului (fără „imediat”); promisiunea 2 nu o garantează nimeni; promisiunea 3 este a registrului în partea despre loc și a registrului împreună cu site-ul în partea despre răspuns; promisiunea 4 este a registrului în „rămâneți înscris” și a operatorului centrului în „echipa noastră va încerca din nou”.
-
-Reluarea este folosită de trei ori mai târziu: la „Trei reparații” (cine garantează ordinea: registrul sau lucrările?), la „Trei afirmații, trei justificări” (registrul de locuri nu dă niciodată un loc în plus) și la decizia etapei AI („verificat” fără rulare este ca o garanție fără garant).
+| 0–8 | Deschiderea: întrebarea de orientare și citatul (3); întrebarea deschisă despre erori apărute după verificări reușite (5). |
+| 8–25 | Microscopul și camera: predicția (7); model, stare, execuție (5); cele trei proprietăți (5). |
+| 25–64 | Explorarea pe hârtie (10); rezultatul (5); trei reparații (6); reverificarea (7); modelul privit formal, cu P4 și decizia (5); trei afirmații și validarea (6). |
+| 64–81 | Lecția AI: cererea (3); cele două rapoarte (6); rularea codului (5); decizia (3). |
+| 81–86 | Transfer la două grupuri și două săli. |
+| 86–100 | Rezervă. |
 
 ## Distincțiile importante
 
@@ -55,6 +47,8 @@ Transferul (două grupuri, două săli) pornește cu ambele grupuri afară, ca s
 
 ## Feedback aplicat
 
-**24 noiembrie 2026 (titularul):** cursul 8 a fost prea încărcat; predare până la slide-ul 25 („Decizia noastră: varianta B”). Cursul 9 reia pe scurt auditul promisiunilor și are mai puține slide-uri și exerciții mai lungi. Exercițiile au lucru individual și discuție cu toată clasa, fără lucru în pereche; regulile necesare sunt pe slide-urile care le folosesc, cu cuvintele-cheie ale enunțului.
+**24 noiembrie 2026 (titularul):** cursul 8 a fost prea încărcat; predare până la slide-ul 25 („Decizia noastră: varianta B”). Cursul 9 are mai puține slide-uri și exerciții mai lungi; a fost scris cu o reluare scurtă a auditului promisiunilor din cursul 8. Exercițiile au lucru individual și discuție cu toată clasa, fără lucru în pereche; regulile necesare sunt pe slide-urile care le folosesc, cu cuvintele-cheie ale enunțului.
 
-**26 noiembrie 2026 (rundă de revizuire):** trei lecturi independente (consistența cu cursurile 4–8, studiul de caz și exercițiile, limba) și lectura proprie. Reluarea a trecut la început; slide-ul „Ce evenimente sunt permise?” a fost contopit cu explorarea pe hârtie (25 de slide-uri); „validare” și „verificare” sunt definite pe slide; întrebările la care slide-ul răspundea singur au fost înlocuite (în câte feluri se pot succeda evenimentele, câte scenarii reușite ar stabili P3, prin câte stări trec S1 și S2, cine face ceva în plus la fiecare reparație, cine are dreptate la P1 și la P3); transferul nu mai pornește din blocaj; R3 are aceeași formulare în enunț, pe slide-ul care introduce regulile și în enunțul trimis asistentului AI, iar rezumatele de pe slide-urile de lucru nu mai sunt telegrafice. Reverificarea independentă a textului revizuit a confirmat numerele și timpii; observațiile ei de formulare sunt aplicate.
+**26 noiembrie 2026 (rundă de revizuire):** trei lecturi independente (consistența cu cursurile 4–8, studiul de caz și exercițiile, limba) și lectura proprie. Slide-ul „Ce evenimente sunt permise?” a fost contopit cu explorarea pe hârtie; „validare” și „verificare” sunt definite pe slide; întrebările la care slide-ul răspundea singur au fost înlocuite (în câte feluri se pot succeda evenimentele, câte scenarii reușite ar stabili P3, prin câte stări trec S1 și S2, cine face ceva în plus la fiecare reparație, cine are dreptate la P1 și la P3); transferul nu mai pornește din blocaj; R3 are aceeași formulare în enunț, pe slide-ul care introduce regulile și în enunțul trimis asistentului AI, iar rezumatele de pe slide-urile de lucru nu mai sunt telegrafice. Reverificarea independentă a textului revizuit a confirmat numerele și timpii; observațiile ei de formulare sunt aplicate.
+
+**26 noiembrie 2026 (titularul), după rundă:** reluarea din cursul 8 a fost scoasă, fără alt conținut în loc: 21 de slide-uri, 86 de minute planificate și 14 minute de rezervă. Etapa AI nepredată a cursului 8 (slide-urile 26–34 ale prezentării publicate) rămâne pentru studiu individual.
