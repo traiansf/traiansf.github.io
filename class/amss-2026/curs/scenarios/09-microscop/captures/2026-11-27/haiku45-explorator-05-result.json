@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 81469,
+  "stop_reason": "end_turn",
+  "session_id": "d10b5f7d-72b8-44dd-90db-bd44e41358a5",
+  "total_cost_usd": 0.091059,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4620,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 16362,
+    "output_tokens_details": {
+      "thinking_tokens": 14627
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4620,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 16362,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4620,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4620
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 16362,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4620,
+      "webSearchRequests": 0,
+      "costUSD": 0.091059,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 14627,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4620,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Voi construi un explorator de stări care parcurge toate configurațiile accesibile ale sistemului, apoi verific proprietățile.\n\n```python\nfrom collections import deque\n\ndef get_order(job):\n    return {'X': ['M', 'C'], 'Y': ['C', 'L'], 'Z': ['M', 'L']}[job]\n\ndef state_tuple(jobs, devices):\n    items = []\n    for job in ['X', 'Y', 'Z']:\n        status, devs = jobs[job]\n        items.append((job, status, tuple(sorted(devs))))\n    for dev in ['M', 'C', 'L']:\n        items.append((dev, devices[dev]))\n    return tuple(items)\n\ndef get_events(jobs, devices):\n    events = []\n    for job in ['X', 'Y', 'Z']:\n        status, devs = jobs[job]\n        \n        if status in ['NotStarted', 'Ready']:\n            order = get_order(job)\n            if len(devs) < len(order):\n                dev = order[len(devs)]\n                if devices[dev] is None:\n                    events.append(('occupy', job, dev))\n        \n        if status == 'Working':\n            events.append(('finish', job))\n    \n    return events\n\ndef apply(jobs, devices, event):\n    if event[0] == 'occupy':\n        _, job, dev = event\n        status, devs = jobs[job]\n        order = get_order(job)\n        \n        if len(devs) >= len(order) or order[len(devs)] != dev or devices[dev] is not None:\n            return None\n        \n        new_jobs = {j: (s, set(d)) for j, (s, d) in jobs.items()}\n        new_devices = dict(devices)\n        \n        new_devs = new_jobs[job][1]\n        new_devs.add(dev)\n        new_devices[dev] = job\n        \n        if len(new_devs) == 1:\n            new_jobs[job] = ('Ready', new_devs)\n        else:\n            new_jobs[job] = ('Working', new_devs)\n        \n        return new_jobs, new_devices\n    \n    elif event[0] == 'finish':\n        _, job = event\n        status, devs = jobs[job]\n        \n        if status != 'Working':\n            return None\n        \n        new_jobs = {j: (s, set(d)) for j, (s, d) in jobs.items()}\n        new_devices = dict(devices)\n        \n        for dev in new_jobs[job][1]:\n            new_devices[dev] = None\n        new_jobs[job] = ('Done', set())\n        \n        return new_jobs, new_devices\n    \n    return None\n\ndef explore():\n    init_jobs = {'X': ('NotStarted', set()), 'Y': ('NotStarted', set()), 'Z': ('NotStarted', set())}\n    init_devices = {'M': None, 'C': None, 'L': None}\n    \n    visited = {}\n    q = deque([(init_jobs, init_devices, [])])\n    trans = 0\n    \n    while q:\n        jobs, devices, path = q.popleft()\n        \n        t = state_tuple(jobs, devices)\n        if t in visited:\n            continue\n        visited[t] = (jobs, devices, path)\n        \n        for evt in get_events(jobs, devices):\n            result = apply(jobs, devices, evt)\n            if result is not None:\n                trans += 1\n                new_jobs, new_devices = result\n                nt = state_tuple(new_jobs, new_devices)\n                if nt not in visited:\n                    q.append((new_jobs, new_devices, path + [evt]))\n    \n    return visited, trans\n\ndef main():\n    visited, trans = explore()\n    \n    print(f\"Stari accesibile: {len(visited)}\")\n    print(f\"Tranzitii: {trans}\")\n    \n    # P1: Exclusivitate\n    p1_ok, p1_path = True, None\n    for t, (jobs, devices, path) in visited.items():\n        for dev in ['M', 'C', 'L']:\n            cnt = sum(1 for job in ['X', 'Y', 'Z'] if dev in jobs[job][1])\n            if cnt > 1:\n                p1_ok, p1_path = False, path\n                break\n        if not p1_ok:\n            break\n    \n    print(f\"P1 (Exclusivitate): {'OK' if p1_ok else 'VIOLAT'}\")\n    if not p1_ok:\n        print(\"  Secventa catre violatie:\")\n        for evt in p1_path:\n            print(f\"    {evt[0]}({evt[1]}, {evt[2] if len(evt) > 2 else ''})\")\n    \n    # P2: Finalizare posibilă\n    p2_ok = any(all(jobs[j][0] == 'Done' for j in ['X', 'Y', 'Z']) \n                 for t, (jobs, devices, path) in visited.items())\n    print(f\"P2 (Finalizare posibila): {'OK' if p2_ok else 'IMPOSIBIL'}\")\n    \n    # P3: Fără blocaj\n    p3_ok, p3_path = True, None\n    for t, (jobs, devices, path) in visited.items():\n        if any(jobs[j][0] != 'Done' for j in ['X', 'Y', 'Z']):\n            if not get_events(jobs, devices):\n                p3_ok, p3_path = False, path\n                break\n    \n    print(f\"P3 (Fara blocaj): {'OK' if p3_ok else 'BLOCARE'}\")\n    if not p3_ok:\n        print(\"  Secventa catre blocare:\")\n        for evt in p3_path:\n            print(f\"    {evt[0]}({evt[1]}, {evt[2] if len(evt) > 2 else ''})\")\n\nif __name__ == '__main__':\n    main()\n```\n\nExploratorul construiește graful de stări accesibile pornind din configurația inițială (toate aparatele libere, lucrările neinceput). Pentru fiecare stare, determină evenimentele permise și generează stări succesoare. Verică apoi proprietățile: P1 asigură că nicio aparat nu e ocupată de mai mult de o lucrare; P2 verifică existența unei stări finale unde toate sunt Finalizate; P3 testează absența blocajelor. Dacă o proprietate e violată, raportează secvența de evenimente care duce acolo.",
+  "ttft_ms": 74862,
+  "type": "result",
+  "duration_ms": 81945,
+  "uuid": "42322be4-579f-4927-b1aa-7f41e77fce69",
+  "ttft_stream_ms": 1291,
+  "time_to_request_ms": 497,
+  "first_content_frame_ms": 1292,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-25T18:07:28.095Z"
+}

@@ -7,7 +7,7 @@ O stare a modelului este o pereche (x, y): ce are fiecare lucrare.
   '-'     nimic (Neîncepută)
   'M','C' un singur aparat (Pregătită)
   'MC'    ambele aparate (În lucru)
-  'gata'  lucrare încheiată (Încheiată), fără aparate
+  'gata'  lucrare finalizată (Finalizată), fără aparate
 """
 import sys
 from collections import deque
@@ -38,7 +38,7 @@ def evenimente(varianta, stare):
             return tuple(noua)
 
         if a_mea == 'MC':
-            rezultat.append((f'încheie({nume})', pune('gata')))
+            rezultat.append((f'finalizează({nume})', pune('gata')))
         elif a_mea != 'gata':
             if varianta == 'V2':
                 if a_mea == '-' and not ocupate:
@@ -130,7 +130,7 @@ def raport(varianta):
     rele = [s for s in parinte if not exclusiv(s)]
     print('  P1 (exclusivitate):', 'respectată în toate stările' if not rele else f'încălcată în {rele[0]}')
     atinsa = [s for s in parinte if finala(s)]
-    print('  P2 (încheiere posibilă):',
+    print('  P2 (finalizare posibilă):',
           'da, prin ' + ', '.join(secventa(parinte, atinsa[0])) if atinsa else 'nu')
     blocaje = [s for s in parinte if not tranzitii[s] and not finala(s)]
     if blocaje:

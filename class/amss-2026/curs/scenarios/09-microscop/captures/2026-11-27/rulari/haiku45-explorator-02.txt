@@ -1,0 +1,8 @@
+$ python -I -X utf8 haiku45-explorator-02.py   (Python 3.10.11)
+Stări accesibile: 42
+Tranziții: 62
+
+✓ P1 (Exclusivitate): Respectată
+✓ P2 (Finalizare posibilă): Respectată
+✓ P3 (Fără blocaj): Respectată
+[cod de ieșire 0]

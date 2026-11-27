@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 78062,
+  "stop_reason": "end_turn",
+  "session_id": "c7504ba7-32b0-4675-bf3f-bbca0b380958",
+  "total_cost_usd": 0.083759,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4620,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 14902,
+    "output_tokens_details": {
+      "thinking_tokens": 13430
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4620,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 14902,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4620,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4620
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 14902,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4620,
+      "webSearchRequests": 0,
+      "costUSD": 0.083759,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 13430,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4620,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Voi scrie un explorator complet care modelează sistemul ca un graf de stări accesibile și verifică proprietățile cerute.\n\n```python\nfrom collections import deque\n\nclass State:\n    def __init__(self):\n        self.state = {'X': 0, 'Y': 0, 'Z': 0}\n        self.occupied = {'X': set(), 'Y': set(), 'Z': set()}\n    \n    def __hash__(self):\n        return hash((tuple(sorted(self.state.items())),\n                     tuple(sorted((k, tuple(sorted(v))) for k, v in self.occupied.items()))))\n    \n    def __eq__(self, other):\n        return self.state == other.state and self.occupied == other.occupied\n    \n    def copy(self):\n        s = State()\n        s.state = self.state.copy()\n        s.occupied = {k: v.copy() for k, v in self.occupied.items()}\n        return s\n    \n    def get_free_devices(self):\n        occupied = set()\n        for devices in self.occupied.values():\n            occupied.update(devices)\n        return {'M', 'C', 'L'} - occupied\n    \n    def get_next_device(self, lucrare):\n        order = {'X': ['M', 'C'], 'Y': ['C', 'L'], 'Z': ['M', 'L']}\n        idx = len(self.occupied[lucrare])\n        return order[lucrare][idx] if idx < 2 else None\n    \n    def can_occupy(self, lucrare):\n        if self.state[lucrare] > 1:\n            return False\n        dev = self.get_next_device(lucrare)\n        return dev and dev in self.get_free_devices()\n    \n    def can_finalize(self, lucrare):\n        return self.state[lucrare] == 2\n    \n    def occupy(self, lucrare):\n        if not self.can_occupy(lucrare):\n            return False\n        dev = self.get_next_device(lucrare)\n        self.occupied[lucrare].add(dev)\n        self.state[lucrare] = 1 if len(self.occupied[lucrare]) == 1 else 2\n        return True\n    \n    def finalize(self, lucrare):\n        if not self.can_finalize(lucrare):\n            return False\n        self.state[lucrare] = 3\n        self.occupied[lucrare].clear()\n        return True\n\ndef get_events(state):\n    events = []\n    for l in ['X', 'Y', 'Z']:\n        if state.can_occupy(l):\n            events.append(f\"occupa({l})\")\n        if state.can_finalize(l):\n            events.append(f\"finalize({l})\")\n    return events\n\ndef apply_event(state, event):\n    new_state = state.copy()\n    lucrare = event.split('(')[1][0]\n    if event.startswith(\"occupa\"):\n        new_state.occupy(lucrare)\n    else:\n        new_state.finalize(lucrare)\n    return new_state\n\ndef explore():\n    start = State()\n    q = deque([start])\n    visited = {start}\n    parent = {start: None}\n    \n    while q:\n        curr = q.popleft()\n        for evt in get_events(curr):\n            nxt = apply_event(curr, evt)\n            if nxt not in visited:\n                visited.add(nxt)\n                q.append(nxt)\n                parent[nxt] = (curr, evt)\n    \n    return visited, parent\n\ndef get_path(state, parent):\n    path = []\n    while parent[state]:\n        p, evt = parent[state]\n        path.append(evt)\n        state = p\n    return list(reversed(path))\n\nstates, parent_map = explore()\ntransitions = sum(1 for p in parent_map.values() if p)\n\nprint(f\"Stări accesibile: {len(states)}\")\nprint(f\"Tranziții: {transitions}\")\n\np1_ok = all(sum(1 for l in ['X', 'Y', 'Z'] if d in s.occupied[l]) <= 1\n            for s in states for d in ['M', 'C', 'L'])\nprint(f\"\\nP1 - Exclusivitate: {'OK' if p1_ok else 'VIOLATĂ'}\")\n\np2_ok = any(all(s.state[l] == 3 for l in ['X', 'Y', 'Z']) for s in states)\nprint(f\"P2 - Finalizare posibilă: {'OK' if p2_ok else 'NU'}\")\n\ndeadlock = next((s for s in states if any(s.state[l] != 3 for l in ['X', 'Y', 'Z'])\n                 and not get_events(s)), None)\nprint(f\"P3 - Fără blocaj: {'OK' if not deadlock else 'VIOLATĂ'}\")\nif deadlock:\n    path = get_path(deadlock, parent_map)\n    print(f\"  Secvență: {' -> '.join(path)}\")\n```\n\nExploratorul modelează stările cu starea fiecărei lucrări (0=neînceput, 1=pregătit, 2=în lucru, 3=finalizat) și aparatele ocupate. Folosind BFS, explorează toate stările accesibile din starea inițială, unde toate sunt neînceput și aparatele libere. Pentru fiecare proprietate, raportează dacă e satisfăcută; dacă e încălcată, afișează secvența de evenimente care duce la încălcare (ciclu de deadlock pentru P3).",
+  "ttft_ms": 71175,
+  "type": "result",
+  "duration_ms": 78468,
+  "uuid": "80b8ef12-9979-43d4-a39f-67714445fefa",
+  "ttft_stream_ms": 1463,
+  "time_to_request_ms": 408,
+  "first_content_frame_ms": 1463,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-25T18:07:28.095Z"
+}

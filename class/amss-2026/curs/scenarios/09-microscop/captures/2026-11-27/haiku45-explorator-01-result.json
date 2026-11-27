@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 43971,
+  "stop_reason": "end_turn",
+  "session_id": "6d7846ce-30ee-46a5-a43e-ccbd9026bfca",
+  "total_cost_usd": 0.047076,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4621,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 7565,
+    "output_tokens_details": {
+      "thinking_tokens": 6105
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4621,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 7565,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4621,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4621
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 7565,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4621,
+      "webSearchRequests": 0,
+      "costUSD": 0.047076,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 6105,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4621,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Voi crea un explorator care parcurge toate stările accesibile și verifică proprietățile.\n\n```python\nfrom collections import deque\n\n# Ordinea ocupării: X(M,C), Y(C,L), Z(M,L)\nordinea = {'X': ['M', 'C'], 'Y': ['C', 'L'], 'Z': ['M', 'L']}\n\ndef initial_state():\n    # (stare_X, stare_Y, stare_Z, aparat_M, aparat_C, aparat_L)\n    # stare: Initiata, Pregatita, In_lucru, Finalizata\n    # aparat: X, Y, Z, None\n    return ('Initiata', 'Initiata', 'Initiata', None, None, None)\n\ndef get_moves(state):\n    moves = []\n    lucrari_idx = {'X': 0, 'Y': 1, 'Z': 2}\n    aparate_idx = {'M': 3, 'C': 4, 'L': 5}\n    aparate = {'M': state[3], 'C': state[4], 'L': state[5]}\n    \n    for lucrare in ['X', 'Y', 'Z']:\n        L_idx = lucrari_idx[lucrare]\n        L_state = state[L_idx]\n        \n        # Ocupă următorul aparat\n        if L_state == 'Initiata':\n            aparat = ordinea[lucrare][0]\n            if state[aparate_idx[aparat]] is None:\n                moves.append(('ocupa', lucrare, aparat, 'Pregatita'))\n        elif L_state == 'Pregatita':\n            aparat = ordinea[lucrare][1]\n            if state[aparate_idx[aparat]] is None:\n                moves.append(('ocupa', lucrare, aparat, 'In_lucru'))\n        \n        # Finalizează\n        if L_state == 'In_lucru':\n            moves.append(('finalizeaza', lucrare))\n    \n    return moves\n\ndef apply_move(state, move):\n    new_state = list(state)\n    lucrari_idx = {'X': 0, 'Y': 1, 'Z': 2}\n    aparate_idx = {'M': 3, 'C': 4, 'L': 5}\n    \n    if move[0] == 'ocupa':\n        lucrare, aparat, new_L_state = move[1], move[2], move[3]\n        new_state[lucrari_idx[lucrare]] = new_L_state\n        new_state[aparate_idx[aparat]] = lucrare\n    elif move[0] == 'finalizeaza':\n        lucrare = move[1]\n        new_state[lucrari_idx[lucrare]] = 'Finalizata'\n        for aparat in ordinea[lucrare]:\n            new_state[aparate_idx[aparat]] = None\n    \n    return tuple(new_state)\n\n# BFS explorator\nvisited = set()\nqueue = deque()\ninitial = initial_state()\nqueue.append(initial)\nvisited.add(initial)\nparent = {initial: None}\ntransitions = 0\n\nwhile queue:\n    state = queue.popleft()\n    \n    for move in get_moves(state):\n        next_state = apply_move(state, move)\n        transitions += 1\n        \n        if next_state not in visited:\n            visited.add(next_state)\n            queue.append(next_state)\n            parent[next_state] = (state, move)\n\n# Raportare\nprint(f\"Stări accesibile: {len(visited)}\")\nprint(f\"Tranziții: {transitions}\")\n\n# P1: exclusivitate (garantată de reprezentare)\nprint(f\"P1 (exclusivitate): OK\")\n\n# P2: finalizare posibilă\nfinal_state = ('Finalizata', 'Finalizata', 'Finalizata', None, None, None)\np2_ok = final_state in visited\nprint(f\"P2 (finalizare posibilă): {'OK' if p2_ok else 'INCALCATA'}\")\n\n# P3: fără blocaj\np3_ok = True\nblocked = None\nfor state in visited:\n    if any(state[i] != 'Finalizata' for i in [0, 1, 2]):\n        if not get_moves(state):\n            p3_ok = False\n            blocked = state\n            break\n\nprint(f\"P3 (fără blocaj): {'OK' if p3_ok else 'INCALCATA'}\")\n\nif not p3_ok:\n    path = []\n    current = blocked\n    while parent[current]:\n        state, move = parent[current]\n        path.append(f\"{move[0]}({move[1]}{',' + move[2] if len(move) > 2 else ''})\")\n        current = state\n    path.reverse()\n    print(f\"  Secvență: {' → '.join(path)}\")\n    print(f\"  Stare blocată: {blocked}\")\n```\n\nCodul parcurge toate stările cu BFS din starea inițială, construind graful accesibil. Pentru fiecare stare, generează mișcările valide conform regulilor (ocupă cu verif. aparat liber și ordine, finalizează din In_lucru). P1 e garantată de reprezentare (aparat = lucrare sau None). P2 verific dacă starea finală existe. P3 detectează stări fără mișcări valide și reconstruiește secvența pentru ele. Rezultatele se raportează conform cererii.",
+  "ttft_ms": 36818,
+  "type": "result",
+  "duration_ms": 44385,
+  "uuid": "1b5c2414-baa8-47b4-ba72-5d5dcc7b3f95",
+  "ttft_stream_ms": 1048,
+  "time_to_request_ms": 392,
+  "first_content_frame_ms": 1049,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-25T18:07:28.095Z"
+}

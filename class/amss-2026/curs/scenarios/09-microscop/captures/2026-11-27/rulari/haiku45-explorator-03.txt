@@ -1,0 +1,12 @@
+$ python -I -X utf8 haiku45-explorator-03.py   (Python 3.10.11)
+=== EXPLORATOR DE STĂRI ===
+
+Stări accesibile: 42
+Tranziții: 62
+
+=== VERIFICARE PROPRIETĂȚI ===
+
+P1 (Exclusivitate): ÎNCĂLCATĂ ✗
+P2 (Finalizare posibilă): RESPECTATĂ ✓
+P3 (Fără blocaj): RESPECTATĂ ✓
+[cod de ieșire 0]

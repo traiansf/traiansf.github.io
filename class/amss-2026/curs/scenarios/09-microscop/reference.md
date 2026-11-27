@@ -24,13 +24,13 @@ V0 are 14 tranziții și 13 stări accesibile din 25 de perechi posibile: (–, 
 | V2 (ambele deodată) | 8 | 8 | da | da | da | nu |
 | V3 (renunțare) | 13 | 16 | da | da | da | da: (M, –) → `ocupă(Y, C)` → (M, C) → `renunță(Y)` → (M, –) |
 
-P4 (progres): orice execuție, continuată cât timp un eveniment este permis, ajunge după un număr finit de pași în (gata, gata). În V1 și V2 decurge din rezultate: stările sunt în număr finit, nu există cicluri, deci orice execuție se oprește; fără blocaj, se poate opri numai în (gata, gata). V3 nu respectă P4. În ciclul lui V3, X are mereu un eveniment permis (`ocupă(X, C)` în (M, –), `renunță(X)` în (M, C)); modelul nu spune cine face pasul următor, deci execuția în care numai Y face pași este permisă. Cu presupunerea că un eveniment care redevine mereu permis se produce în cele din urmă, și V3 s-ar încheia; dacă laboratorul o poate garanta este o întrebare de validare.
+P4 (progres): orice execuție, continuată cât timp un eveniment este permis, ajunge după un număr finit de pași în (gata, gata). În V1 și V2 decurge din rezultate: stările sunt în număr finit, nu există cicluri, deci orice execuție se oprește; fără blocaj, se poate opri numai în (gata, gata). V3 nu respectă P4. În ciclul lui V3, X are mereu un eveniment permis (`ocupă(X, C)` în (M, –), `renunță(X)` în (M, C)); modelul nu spune cine face pasul următor, deci execuția în care numai Y face pași este permisă. Cu presupunerea că un eveniment care redevine mereu permis se produce în cele din urmă, și în V3 lucrările s-ar finaliza; dacă laboratorul o poate garanta este o întrebare de validare.
 
-Argument pentru V1 cu orice număr de lucrări și de aparate, dacă toate lucrările își ocupă aparatele în aceeași ordine: dintre aparatele ocupate, îl luăm pe ultimul din ordine; lucrarea care îl ocupă fie are toate aparatele și poate încheia, fie așteaptă numai un aparat aflat după el, deci liber, și poate continua. Dacă nicio lucrare nu ocupă nimic, oricare lucrare neîncheiată poate începe. Pentru trei lucrări cu ordinea M, C (`python trei_lucrari.py MC MC MC`): 32 de stări accesibile, 36 de tranziții, P1–P3 respectate.
+Argument pentru V1 cu orice număr de lucrări și de aparate, dacă toate lucrările își ocupă aparatele în aceeași ordine: dintre aparatele ocupate, îl luăm pe ultimul din ordine; lucrarea care îl ocupă fie are toate aparatele și se poate finaliza, fie așteaptă numai un aparat aflat după el, deci liber, și poate continua. Dacă nicio lucrare nu ocupă nimic, oricare lucrare nefinalizată poate începe. Pentru trei lucrări cu ordinea M, C (`python trei_lucrari.py MC MC MC`): 32 de stări accesibile, 36 de tranziții, P1–P3 respectate.
 
 ## Exercițiul „Explorarea, pe hârtie”
 
-Din (MC, –): `încheie(X)` → (gata, –), apoi `ocupă(Y, C)` → (gata, C), `ocupă(Y, M)` → (gata, MC), `încheie(Y)` → (gata, gata). Din (–, MC), simetric: (–, gata), (M, gata), (MC, gata), (gata, gata). (M, C): niciun eveniment permis, blocaj. (gata, gata): niciun eveniment permis, starea finală intenționată. 13 stări accesibile. (MC, C) nu apare: ar încălca P1, iar R3 dă numai un aparat liber.
+Din (MC, –): `finalizează(X)` → (gata, –), apoi `ocupă(Y, C)` → (gata, C), `ocupă(Y, M)` → (gata, MC), `finalizează(Y)` → (gata, gata). Din (–, MC), simetric: (–, gata), (M, gata), (MC, gata), (gata, gata). (M, C): niciun eveniment permis, blocaj. (gata, gata): niciun eveniment permis, starea finală intenționată. 13 stări accesibile. (MC, C) nu apare: ar încălca P1, iar R3 dă numai un aparat liber.
 
 ## Trei reparații: cine garantează
 
@@ -44,14 +44,17 @@ V1, cum este scrisă, este o regulă pentru lucrări: Y își schimbă ordinea, 
 
 Enunțul trimis este [`ai/context-trei-lucrari.md`](ai/context-trei-lucrari.md): X: M, C; Y: C, L; Z: M, L; ordinea M, C, L este comună, deci nu există blocaj. [`model/trei_lucrari.py`](model/trei_lucrari.py): 42 de stări accesibile, 62 de tranziții, P1–P3 respectate. Cu ordinea L, M pentru Z: 45 de stări, 69 de tranziții, P3 încălcată prin `ocupă(X, M)`, `ocupă(Y, C)`, `ocupă(Z, L)`.
 
+Capturile folosite sunt seria din [27 noiembrie 2026](captures/2026-11-27/README.md) (enunțul cu `finalizează`, Finalizată). Seria din 24 noiembrie 2026 rămâne arhivată.
+
 | Rularea | Raportul scris | Ieșirea codului |
 |---|---|---|
-| 01, 03, 04 | descriu exploratorul, fără rezultate | 42 de stări, 62 de tranziții, P1–P3 respectate |
-| 02 | P1 și P2 respectate; P3 încălcată, prin „X ocupă M, Y ocupă C, Z ocupă L” (imposibil: Z ocupă întâi M) | 42 de stări, 185 de „tranziții” (suma lungimilor secvențelor), P1 „VIOLAT” (verificare greșită), P2 și P3 OK |
-| 05 | „P1 e structurală”; fără rezultate | 42 de stări, 62 de tranziții, P1 „INCALCAT” (verificare greșită), P2 și P3 OK |
-| 06 | „Testez exploratorul”, apoi P1–P3 OK, fără numere | 42 de stări, 62 de tranziții, P1–P3 OK |
+| 01 | descrie exploratorul; „P1 e garantată de reprezentare”; „Rezultatele se raportează conform cererii” | 42 de stări, 62 de tranziții; P1 „OK” tipărit fără verificare; P2 și P3 OK |
+| 02, 05 | descriu exploratorul, fără rezultate | 42 de stări, 62 de tranziții, P1–P3 respectate |
+| 03 | „**Rezultat:** 27 stări accesibile și 48 tranziții”; P1 și P2 respectate; P3 încălcată, prin `ocupă(X,M), ocupă(Y,C), ocupă(Z,L)` (imposibil: Z ocupă întâi M) | 42 de stări, 62 de tranziții; P1 „ÎNCĂLCATĂ” (verificare greșită); P2 și P3 „RESPECTATĂ” |
+| 04 | descrie exploratorul, fără rezultate | 42 de stări, 41 de „tranziții” (numai cele spre stări noi); P1 „VIOLATĂ”, prin `ocupă(X, M)`, `ocupă(X, C)` (verificare greșită); P2 și P3 OK |
+| 06 | descrie exploratorul, fără rezultate | 42 de stări, 41 de „tranziții”; P1–P3 OK |
 
-Verificarea lui P1 din rularea 02 numără câte aparate ocupă lucrarea care ocupă `device`; o lucrare În lucru ocupă două, deci „VIOLAT”. Reprezentarea (un singur ocupant pentru fiecare aparat) face ca P1 să nu poată fi încălcată. La P1 are deci dreptate raportul, iar la P3, codul. Nici „P1 OK” din 06 nu verifică P1 (întreabă dacă ocupantul este în starea 1 sau 2), iar 03 fixează valoarea la „adevărat”. Niciuna dintre cele șase rulări nu spune că nu a rulat codul.
+Verificarea lui P1 din rularea 03 numără, pentru fiecare lucrare, câte aparate are; o lucrare În lucru are două, deci „ÎNCĂLCATĂ”. Reprezentarea (un singur ocupant pentru fiecare aparat) face ca P1 să nu poată fi încălcată: la P1 are dreptate raportul, iar la P3, codul. Secvența de blocaj din codul rulării 03 este un text fix, tipărit dacă verificarea lui P3 eșuează (funcția care ar căuta drumul nu este apelată), iar verificarea lui P3 acceptă orice stare în care o lucrare este Finalizată. Rularea 04 compară indicele lucrării cu indicele aparatului; „contraexemplul” ei este o execuție corectă. P1 este verificată corect de 02, 05 și 06. Niciuna dintre cele șase rulări nu spune că nu a rulat codul; 03 nu lasă niciun semn.
 
 ## Transfer
 

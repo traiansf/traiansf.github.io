@@ -1,0 +1,102 @@
+{
+  "duration_api_ms": 94344,
+  "stop_reason": "end_turn",
+  "session_id": "5285b814-9137-4441-8edb-a51fbebd72b3",
+  "total_cost_usd": 0.104045,
+  "usage": {
+    "input_tokens": 9,
+    "cache_creation_input_tokens": 4618,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 18960,
+    "output_tokens_details": {
+      "thinking_tokens": 17408
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4618,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 9,
+        "output_tokens": 18960,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 4618,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4618
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-haiku-4-5": {
+      "inputTokens": 9,
+      "outputTokens": 18960,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 4618,
+      "webSearchRequests": 0,
+      "costUSD": 0.104045,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 17408,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 4618,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 1,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Voi crea un explorator care parcurge toate stările accesibile folosind BFS, verific proprietățile cerute și raportez rezultatele.\n\n```python\nfrom collections import deque\n\nNESTART, PREGATITA, IN_LUCRU, FINALIZATA = 0, 1, 2, 3\nM, C, L = \"M\", \"C\", \"L\"\n\nNECESARE = {\"X\": [M, C], \"Y\": [C, L], \"Z\": [M, L]}\n\nclass State:\n    def __init__(self):\n        self.aparate = {M: None, C: None, L: None}\n        self.lucrari = {\"X\": NESTART, \"Y\": NESTART, \"Z\": NESTART}\n        self.ocupate = {\"X\": [], \"Y\": [], \"Z\": []}\n    \n    def __hash__(self):\n        return hash((tuple(sorted(self.aparate.items())),\n                     tuple(sorted(self.lucrari.items())),\n                     tuple((l, tuple(sorted(self.ocupate[l]))) for l in sorted(self.ocupate))))\n    \n    def __eq__(self, other):\n        return self.aparate == other.aparate and self.lucrari == other.lucrari and self.ocupate == other.ocupate\n    \n    def copy(self):\n        s = State()\n        s.aparate = self.aparate.copy()\n        s.lucrari = self.lucrari.copy()\n        s.ocupate = {l: self.ocupate[l].copy() for l in self.ocupate}\n        return s\n\ndef next_aparat(state, lucrare):\n    if state.lucrari[lucrare] == FINALIZATA:\n        return None\n    idx = len(state.ocupate[lucrare])\n    return NECESARE[lucrare][idx] if idx < len(NECESARE[lucrare]) else None\n\ndef get_moves(state):\n    moves = []\n    for lucrare in [\"X\", \"Y\", \"Z\"]:\n        aparat = next_aparat(state, lucrare)\n        if aparat and state.aparate[aparat] is None:\n            moves.append((\"ocupa\", lucrare, aparat))\n    for lucrare in [\"X\", \"Y\", \"Z\"]:\n        if state.lucrari[lucrare] == IN_LUCRU:\n            moves.append((\"finalizeaza\", lucrare))\n    return moves\n\ndef apply(state, move):\n    s = state.copy()\n    if move[0] == \"ocupa\":\n        l, a = move[1], move[2]\n        s.aparate[a] = l\n        s.ocupate[l].append(a)\n        s.lucrari[l] = PREGATITA if len(s.ocupate[l]) == 1 else IN_LUCRU\n    else:\n        l = move[1]\n        s.lucrari[l] = FINALIZATA\n        for a in s.ocupate[l]:\n            s.aparate[a] = None\n        s.ocupate[l] = []\n    return s\n\ndef explore():\n    visited = {}\n    queue = deque([(State(), [])])\n    \n    while queue:\n        state, path = queue.popleft()\n        h = hash(state)\n        if h in visited:\n            continue\n        visited[h] = (state, path)\n        for move in get_moves(state):\n            new_state = apply(state, move)\n            if hash(new_state) not in visited:\n                queue.append((new_state, path + [move]))\n    \n    return visited\n\ndef format_event(event):\n    if event[0] == \"ocupa\":\n        return f\"ocupă({event[1]}, {event[2]})\"\n    else:\n        return f\"finalizează({event[1]})\"\n\ndef main():\n    visited = explore()\n    states = [s for s, _ in visited.values()]\n    \n    print(f\"Stări accesibile: {len(states)}\")\n    print(f\"Tranziții: {sum(len(get_moves(s)) for s in states)}\")\n    print()\n    \n    p1_ok = all(sum(1 for l in [\"X\", \"Y\", \"Z\"] if a in s.ocupate[l]) <= 1 for s in states for a in [M, C, L])\n    print(f\"{'✓' if p1_ok else '✗'} P1 (Exclusivitate): {'Respectată' if p1_ok else 'Încălcată'}\")\n    \n    p2_ok = any(all(s.lucrari[l] == FINALIZATA for l in [\"X\", \"Y\", \"Z\"]) for s in states)\n    print(f\"{'✓' if p2_ok else '✗'} P2 (Finalizare posibilă): {'Respectată' if p2_ok else 'Încălcată'}\")\n    \n    blocked = None\n    for s in states:\n        if any(s.lucrari[l] != FINALIZATA for l in [\"X\", \"Y\", \"Z\"]) and not get_moves(s):\n            blocked = s\n            break\n    \n    if blocked:\n        print(f\"✗ P3 (Fără blocaj): Încălcată\")\n        for state, path in visited.values():\n            if state == blocked:\n                print(f\"  Secvență: {[format_event(e) for e in path]}\")\n                break\n    else:\n        print(f\"✓ P3 (Fără blocaj): Respectată\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\nCodul modelează stările aparatelor și lucrărilor, explorează toate stările accesibile prin BFS, și verifică cele trei proprietăți: exclusivitate (un aparat la o lucrare), finalizare (există stare cu toate finalizate), și fără blocaj (din orice stare cu lucrări neFinalizate, cel puțin un event permis). Pentru proprietăți încălcate, raportează secvența de evenimente care duce la contraexemplu.",
+  "ttft_ms": 88364,
+  "type": "result",
+  "duration_ms": 94707,
+  "uuid": "f836d412-eaba-4a22-8a46-40c2969c5e48",
+  "ttft_stream_ms": 1010,
+  "time_to_request_ms": 372,
+  "first_content_frame_ms": 1011,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "credential_expires_at": "2026-12-25T18:07:28.095Z"
+}

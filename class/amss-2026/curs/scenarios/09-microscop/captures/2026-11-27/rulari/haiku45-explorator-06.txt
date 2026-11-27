@@ -1,0 +1,8 @@
+$ python -I -X utf8 haiku45-explorator-06.py   (Python 3.10.11)
+Stări accesibile: 42
+Tranziții: 41
+
+P1 - Exclusivitate: OK
+P2 - Finalizare posibilă: OK
+P3 - Fără blocaj: OK
+[cod de ieșire 0]

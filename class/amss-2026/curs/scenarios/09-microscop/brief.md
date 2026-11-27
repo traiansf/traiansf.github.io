@@ -7,14 +7,14 @@ Exemplu didactic pentru Cursul 9, versiunea 26 noiembrie 2026. Laboratorul de mi
 - **R1 — context:** două lucrări, X și Y; două aparate, microscopul M și camera C, la început libere. Evenimentele se produc secvențial, în orice ordine. Nu modelăm durata, defecțiunile, anularea sau alte lucrări.
 - **R2 — nevoi:** fiecare lucrare are nevoie de ambele aparate în același timp.
 - **R3 — ocupare:** `ocupă(l, a)` este permis numai dacă aparatul a este liber și este următorul în ordinea lucrării l (ordinea o stabilește varianta de proiectare); aparatul devine ocupat de l. Cu un singur aparat, lucrarea este **Pregătită**; cu ambele, este **În lucru**.
-- **R4 — încheiere:** `încheie(l)` este permis numai pentru o lucrare În lucru: ambele aparate devin libere, iar lucrarea trece în **Încheiată**, starea ei finală.
+- **R4 — finalizare:** `finalizează(l)` este permis numai pentru o lucrare În lucru: ambele aparate devin libere, iar lucrarea trece în **Finalizată**, starea ei finală.
 - **R5 — refuz:** un eveniment nepermis este refuzat, fără modificări.
 
 ## Proprietăți cerute
 
 - **P1 — exclusivitate:** un aparat este ocupat de cel mult o lucrare.
-- **P2 — încheiere posibilă:** starea în care ambele lucrări sunt Încheiate este accesibilă.
-- **P3 — fără blocaj:** din orice stare accesibilă în care cel puțin o lucrare nu este Încheiată, cel puțin un eveniment este permis.
+- **P2 — finalizare posibilă:** starea în care ambele lucrări sunt Finalizate este accesibilă.
+- **P3 — fără blocaj:** din orice stare accesibilă în care cel puțin o lucrare nu este Finalizată, cel puțin un eveniment este permis.
 
 ## Variante de proiectare
 
@@ -29,7 +29,7 @@ Enunțul nu spune cine asigură ordinea unei variante: lucrările, din obișnuin
 
 ## Starea modelului
 
-Starea modelului cuprinde ce are fiecare lucrare și se scrie ca pereche (X, Y): `–` pentru Neîncepută, `M` sau `C` pentru Pregătită, `MC` pentru În lucru, `gata` pentru Încheiată. Cine ocupă un aparat se citește din pereche. Starea inițială I0 este (–, –); starea finală intenționată a modelului este (gata, gata).
+Starea modelului cuprinde ce are fiecare lucrare și se scrie ca pereche (X, Y): `–` pentru Neîncepută, `M` sau `C` pentru Pregătită, `MC` pentru În lucru, `gata` pentru Finalizată. Cine ocupă un aparat se citește din pereche. Starea inițială I0 este (–, –); starea finală intenționată a modelului este (gata, gata).
 
 ## Scenarii
 
@@ -37,7 +37,7 @@ Toate pornesc din I0, în varianta V0.
 
 | Scenariu | Evenimente |
 |---|---|
-| S1 — X, apoi Y | `ocupă(X, M)`, `ocupă(X, C)`, `încheie(X)`, `ocupă(Y, C)`, `ocupă(Y, M)`, `încheie(Y)` |
-| S2 — Y, apoi X | `ocupă(Y, C)`, `ocupă(Y, M)`, `încheie(Y)`, `ocupă(X, M)`, `ocupă(X, C)`, `încheie(X)` |
+| S1 — X, apoi Y | `ocupă(X, M)`, `ocupă(X, C)`, `finalizează(X)`, `ocupă(Y, C)`, `ocupă(Y, M)`, `finalizează(Y)` |
+| S2 — Y, apoi X | `ocupă(Y, C)`, `ocupă(Y, M)`, `finalizează(Y)`, `ocupă(X, M)`, `ocupă(X, C)`, `finalizează(X)` |
 | S3 — ocupare refuzată | `ocupă(X, M)`, `ocupă(X, C)`, `ocupă(Y, C)` |
 | S4 — câte un aparat | `ocupă(X, M)`, `ocupă(Y, C)`, apoi orice eveniment |

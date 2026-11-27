@@ -1,5 +1,7 @@
 # Capturi AI — verificare afirmată, verificare executată (Cursul 9), 24 noiembrie 2026
 
+**Arhivată la 27 noiembrie 2026:** enunțul a fost redenumit (`încheie` → `finalizează`, R4 încheiere → finalizare, P2 încheiere posibilă → finalizare posibilă, Încheiată → Finalizată), iar prezentarea folosește [seria din 27 noiembrie 2026](../2026-11-27/README.md). Această serie rămâne neschimbată.
+
 Instrument: Claude Code 2.1.331, `claude -p --model claude-haiku-4-5 --safe-mode`, fără unelte, fără contextul proiectului, fără sesiuni salvate (vezi `argv` în metadate). `capture.py` este copia neschimbată a celui din `../../../08-inscrieri/captures/2026-11-20/`; fiecare încercare pornește un context nou. Temperatura nu este raportată; efortul nu a fost setat explicit. Răspunsurile sunt păstrate octet cu octet (terminatori CRLF, cum le-a scris scriptul pe Windows).
 
 ## Intrări

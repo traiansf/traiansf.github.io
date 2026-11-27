@@ -543,14 +543,14 @@ break-inside: avoid;
 </div>
 <div id="două-lucrări-două-aparate" class="slide section level1 transition">
 <h1 class="transition">Două lucrări, două aparate</h1>
-<p>Luată separat, fiecare lucrare se încheie bine. Dar amândouă, în același laborator?</p>
+<p>Luată separat, fiecare lucrare se finalizează. Dar amândouă, în același laborator?</p>
 </div>
 <div id="microscopul-și-camera" class="slide section level1">
 <h1>Microscopul și camera</h1>
 <p>Lucrările <strong>X</strong> și <strong>Y</strong> au nevoie, fiecare, de microscopul <strong>M</strong> și de camera <strong>C</strong>, în același timp. <strong>Registrul aparatelor</strong>, componenta pe care o proiectăm, acceptă sau refuză evenimentele:</p>
 <ul>
 <li><strong>R3 (ocupare):</strong> <span class="operatie">ocupă(l, a)</span> este permis numai dacă aparatul a este liber și este următorul în ordinea lucrării l.</li>
-<li><strong>R4 (încheiere):</strong> <span class="operatie">încheie(l)</span> este permis numai dacă l are ambele aparate; le eliberează.</li>
+<li><strong>R4 (finalizare):</strong> <span class="operatie">finalizează(l)</span> este permis numai dacă l are ambele aparate; le eliberează.</li>
 <li><strong>V0 (ordini diferite), practica actuală:</strong> X ocupă întâi M, apoi C; Y ocupă întâi C, apoi M. Fiecare păstrează ce a ocupat.</li>
 </ul>
 <p><strong>S1 (X, apoi Y)</strong> și <strong>S2 (Y, apoi X)</strong> se încheie bine: o lucrare face toți pașii, apoi cealaltă. Individual, apoi discutăm: <strong>ce scenariu ați mai încerca? În câte feluri se pot succeda evenimentele?</strong></p>
@@ -575,7 +575,7 @@ break-inside: avoid;
 <th align="left"><span class="stare">Neîncepută</span></th>
 <th align="left"><span class="stare">Pregătită</span></th>
 <th align="left"><span class="stare">În lucru</span></th>
-<th align="left"><span class="stare">Încheiată</span></th>
+<th align="left"><span class="stare">Finalizată</span></th>
 </tr>
 </thead>
 <tbody>
@@ -615,7 +615,7 @@ break-inside: avoid;
 <td align="left">parcurgerea tuturor stărilor accesibile</td>
 </tr>
 <tr>
-<td align="left"><strong>P2 (încheiere posibilă):</strong> (gata, gata) este accesibilă.</td>
+<td align="left"><strong>P2 (finalizare posibilă):</strong> (gata, gata) este accesibilă.</td>
 <td align="left">parcurgerea tuturor stărilor accesibile</td>
 <td align="left">o execuție care ajunge în (gata, gata)</td>
 </tr>
@@ -637,7 +637,7 @@ break-inside: avoid;
 <div id="explorarea-pe-hârtie" class="slide section level1">
 <h1>Explorarea, pe hârtie</h1>
 <p><strong>Pașii:</strong> luăm o stare din lista „de vizitat” (la început, numai (–, –)); îi notăm toate evenimentele permise; stările noi intră în listă; ne oprim când lista este goală.</p>
-<p><strong>V0 (ordini diferite):</strong> X: M, apoi C; Y: C, apoi M. <strong>R3 (ocupare):</strong> o lucrare ocupă numai un aparat liber, următorul în ordinea ei. <strong>R4 (încheiere):</strong> cu MC, poate încheia; le eliberează („gata”).</p>
+<p><strong>V0 (ordini diferite):</strong> X: M, apoi C; Y: C, apoi M. <strong>R3 (ocupare):</strong> o lucrare ocupă numai un aparat liber, următorul în ordinea ei. <strong>R4 (finalizare):</strong> cu MC, lucrarea se poate finaliza; le eliberează („gata”).</p>
 <div class="table-wrap">
 <table>
 <thead>
@@ -673,7 +673,7 @@ break-inside: avoid;
 Varianta V0: 13 stări accesibile, 14 tranziții
   P1 (exclusivitate): respectată
       în toate stările
-  P2 (încheiere posibilă): da, prin …
+  P2 (finalizare posibilă): da, prin …
   P3 (fără blocaj): încălcată în (M, C),
       prin ocupă(X, M), ocupă(Y, C)</code></pre>
 </div><div class="column" style="width:37%;">
@@ -763,7 +763,7 @@ Varianta V0: 13 stări accesibile, 14 tranziții
 </div>
 <p><strong>V3:</strong> ordinile din V0 (X: M, apoi C; Y: C, apoi M) și <span class="operatie">renunță(l)</span>: o lucrare <span class="stare">Pregătită</span> al cărei al doilea aparat este ocupat îl eliberează pe primul și redevine <span class="stare">Neîncepută</span>. Un <strong>ciclu</strong> este o secvență de evenimente care revine în starea din care a pornit.</p>
 <p>Individual, apoi discutăm: <strong>găsiți un ciclu în V3. Ce înseamnă el pentru lucrări?</strong></p>
-<p>V3 respectă P1 (exclusivitate), P2 (încheiere posibilă) și P3 (fără blocaj). <strong>Ce proprietate lipsește?</strong></p>
+<p>V3 respectă P1 (exclusivitate), P2 (finalizare posibilă) și P3 (fără blocaj). <strong>Ce proprietate lipsește?</strong></p>
 </div>
 <div id="modelul-privit-formal" class="slide section level1">
 <h1>Modelul, privit formal</h1>
@@ -786,7 +786,7 @@ Varianta V0: 13 stări accesibile, 14 tranziții
 </tr>
 <tr>
 <td align="left"><strong>Tranziții</strong></td>
-<td align="left"><span class="operatie">ocupă</span>, <span class="operatie">încheie</span> (și <span class="operatie">renunță</span>), cu condițiile lor</td>
+<td align="left"><span class="operatie">ocupă</span>, <span class="operatie">finalizează</span> (și <span class="operatie">renunță</span>), cu condițiile lor</td>
 </tr>
 <tr>
 <td align="left"><strong>Presupuneri</strong></td>
@@ -794,7 +794,7 @@ Varianta V0: 13 stări accesibile, 14 tranziții
 </tr>
 <tr>
 <td align="left"><strong>Proprietăți</strong></td>
-<td align="left">despre stări: P1 (exclusivitate), P2 (încheiere posibilă), P3 (fără blocaj); despre execuții: P4 (progres)</td>
+<td align="left">despre stări: P1 (exclusivitate), P2 (finalizare posibilă), P3 (fără blocaj); despre execuții: P4 (progres)</td>
 </tr>
 </tbody>
 </table>
@@ -842,10 +842,10 @@ Varianta V0: 13 stări accesibile, 14 tranziții
 </div>
 <div id="dincolo-de-modelul-explorat-anulări-și-date" class="slide section level1">
 <h1>Dincolo de modelul explorat: anulări și date</h1>
-<p><strong>(1) V1 (ordine comună) cu anulare.</strong> Ambele lucrări ocupă întâi M, apoi C. Un eveniment nou, <span class="operatie">anulează(l)</span>, este permis pentru o lucrare <span class="stare">Pregătită</span>: eliberează microscopul.</p>
+<p><strong>(1) V1 (ordine comună) cu anulare.</strong> Ambele lucrări ocupă întâi M, apoi C. Un eveniment nou, <span class="operatie">anulează(l)</span>, este permis pentru o lucrare <span class="stare">Pregătită</span>: eliberează microscopul. <strong>Afirmația:</strong> nici cu anulare, V1 nu are blocaj.</p>
 <p><strong>(2) Registrul de locuri din cursul 8.</strong> Atelierul are n locuri; <span class="nowrap">site-ul</span> trimite <span class="operatie">înscrie(c, p, a)</span>, cu identificatorul c al cererii. <strong>R3 (acceptare):</strong> o cerere cu c neînregistrat este acceptată exact când p nu este înscris și există loc liber: registrul consumă un loc și înregistrează (c, p, a); altfel întoarce <code>refuz</code>, fără modificări. <strong>R5 (reîncercare):</strong> o cerere cu c deja înregistrat primește același <code>acceptat</code>, fără alt loc. <strong>Afirmația:</strong> registrul nu acceptă niciodată mai multe înscrieri decât n.</p>
 <p>Starea registrului nu mai este o pereche de etape: are <strong>date</strong> (locurile libere, identificatorii înregistrați, înscrierile), iar evenimentele au <strong>condiții</strong> care citesc datele („există loc liber”, „c neînregistrat”).</p>
-<p>Individual, apoi discutăm: <strong>ce ar trebui să facem ca să putem afirma (1)? Dar (2), pentru orice n și orice secvență de cereri? Ce poate stabili aici o explorare?</strong></p>
+<p>Individual, apoi discutăm: <strong>ce ar trebui să facem ca să putem susține afirmația (1)? Dar afirmația (2), pentru orice n și orice secvență de cereri? Ce poate stabili aici o explorare?</strong></p>
 </div>
 <div id="instrumente-pentru-modele-formale" class="slide section level1">
 <h1>Instrumente pentru modele formale</h1>
@@ -891,7 +891,7 @@ Varianta V0: 13 stări accesibile, 14 tranziții
 </div>
 <div id="ce-cerem-asistentului-ai" class="slide section level1">
 <h1>Ce cerem asistentului AI?</h1>
-<p><strong>Enunțul trimis, pe scurt:</strong> trei aparate, M, C și lampa L; trei lucrări, fiecare cu ordinea ei: <strong>X ocupă întâi M, apoi C; Y, întâi C, apoi L; Z, întâi M, apoi L</strong>. O lucrare păstrează aparatele până la încheiere. P1 (exclusivitate), P2 (încheiere posibilă) și P3 (fără blocaj) sunt cele de până acum.</p>
+<p><strong>Enunțul trimis, pe scurt:</strong> trei aparate, M, C și lampa L; trei lucrări, fiecare cu ordinea ei: <strong>X ocupă întâi M, apoi C; Y, întâi C, apoi L; Z, întâi M, apoi L</strong>. O lucrare păstrează aparatele până la finalizare. P1 (exclusivitate), P2 (finalizare posibilă) și P3 (fără blocaj) sunt cele de până acum.</p>
 <p><strong>Instrucțiunea exactă:</strong></p>
 <blockquote>
 <p>Verifică modelul de mai jos: scrie un explorator în Python care parcurge toate stările accesibile, apoi raportează rezultatul verificării: câte stări accesibile are modelul, câte tranziții și, pentru fiecare dintre <span class="nowrap">P1–P3,</span> dacă este respectată; pentru o proprietate încălcată, dă secvența de evenimente. Codul trebuie să fie complet și să ruleze cu <code>python fisier.py</code>. Răspunde în română; în afara codului, maximum 200 de cuvinte.</p>
@@ -901,59 +901,76 @@ Varianta V0: 13 stări accesibile, 14 tranziții
 <div id="două-rapoarte-același-prompt" class="slide section level1">
 <h1>Două rapoarte, același prompt</h1>
 <p><strong>R3 (ocupare):</strong> o lucrare ocupă numai un aparat liber, următorul în ordinea ei: <strong>X: M, C; Y: C, L; Z: M, L.</strong></p>
-<p><strong>Asistentul AI, Claude Haiku 4.5, 24 noiembrie 2026, rularea 02; fragment:</strong></p>
+<p><strong>Asistentul AI, Claude Haiku 4.5, 27 noiembrie 2026, rularea 03:</strong></p>
 <blockquote>
-<p><strong>Rezultate așteptate:</strong> […] <strong>P3</strong> (fără blocaj): Încălcată — se poate ajunge <span class="nowrap">într-o</span> stare de impas: de exemplu, X ocupă M, Y ocupă C, Z ocupă L; fiecare așteptă al doilea aparat care e ținut de altcineva</p>
+<p><strong>Rezultat:</strong> Modelul are <strong>27 stări accesibile</strong> și <strong>48 tranziții</strong>. P1 și P2 sunt <strong>respectate</strong>, dar <strong>P3 este încălcată</strong>—deadlock la secvența <span class="operatie">ocupă(X,M), ocupă(Y,C), ocupă(Z,L)</span>: fiecare lucrare ocupă un aparat și așteaptă al doilea, care aparține altei lucrări.</p>
 </blockquote>
-<p><strong>Rularea 06; fragmente</strong> (primul […]: un apel de unealtă scris ca text):</p>
+<p><strong>Rularea 01; fragment:</strong></p>
 <blockquote>
-<p>Testez exploratorul: […] <strong>Rezultate</strong> […] <strong>P3 (Fără blocaj)</strong>: OK — din orice stare cu lucrări neincheiete, ceva e permis; ordinea flexibilă a ocupării și lipsa dependențelor ciclice evită <span class="nowrap">deadlock-ul</span></p>
+<p>P1 e garantată de reprezentare (aparat = lucrare sau None). […] Rezultatele se raportează conform cererii.</p>
 </blockquote>
-<p>Individual, apoi discutăm: <strong>verificați pe reguli secvența din rularea 02: este permis fiecare pas? Puteți verifica la fel raportul rulării 06? Ce înseamnă „Testez exploratorul” <span class="nowrap">într-o</span> sesiune fără unelte?</strong></p>
+<p>Individual, apoi discutăm: <strong>verificați pe reguli secvența din rularea 03: este permis fiecare pas? De unde pot veni 27 și 48 <span class="nowrap">într-o</span> sesiune fără unelte? Ce rezultat dă rularea 01?</strong></p>
 </div>
 <div id="rulăm-codul-primit" class="slide section level1">
 <h1>Rulăm codul primit</h1>
 <div class="table-wrap">
 <table>
 <colgroup>
-<col width="3%" />
-<col width="55%" />
-<col width="40%" />
+<col width="31%" />
+<col width="8%" />
+<col width="12%" />
+<col width="24%" />
+<col width="24%" />
 </colgroup>
 <thead>
 <tr>
 <th align="left"></th>
-<th align="left">Raportul AI</th>
-<th align="left">Codul primit, rulat de noi</th>
+<th align="left">Stări</th>
+<th align="left">Tranziții</th>
+<th align="left">P1 (exclusivitate)</th>
+<th align="left">P3 (fără blocaj)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">02</td>
-<td align="left">P1 (exclusivitate) respectată; P3 (fără blocaj) <strong>încălcată</strong></td>
-<td align="left">42 de stări, 185 de tranziții; P1 <strong>încălcată</strong>; P3 respectată</td>
+<td align="left">Raportul rulării 03</td>
+<td align="left">27</td>
+<td align="left">48</td>
+<td align="left">respectată</td>
+<td align="left"><strong>încălcată</strong></td>
 </tr>
 <tr>
-<td align="left">06</td>
-<td align="left">P1 respectată; P3 respectată</td>
-<td align="left">42 de stări, 62 de tranziții; <span class="nowrap">P1–P3</span> respectate, ca la exploratorul nostru</td>
+<td align="left">Codul ei, rulat de noi</td>
+<td align="left">42</td>
+<td align="left">62</td>
+<td align="left"><strong>încălcată</strong></td>
+<td align="left">respectată</td>
+</tr>
+<tr>
+<td align="left">Exploratorul nostru</td>
+<td align="left">42</td>
+<td align="left">62</td>
+<td align="left">respectată</td>
+<td align="left">respectată</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>P1 în codul rulării 02 (<code>device_owner[d]</code> este lucrarea care ocupă d); fragment:</strong></p>
-<div class="sourceCode" id="cb2" tabindex="0"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="cf">if</span> state.device_owner[device] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>    count <span class="op">=</span> <span class="bu">sum</span>(<span class="dv">1</span> <span class="cf">for</span> d <span class="kw">in</span> [<span class="st">&#39;M&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;L&#39;</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>                <span class="cf">if</span> state.device_owner[d] <span class="op">==</span> state.device_owner[device])</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">1</span>: […]  <span class="co"># aici: P1 încălcată</span></span></code></pre></div>
-<p><strong>Ce numără <code>count</code>? Cine are dreptate la P1: raportul sau codul? Dar la P3?</strong></p>
+<p><strong>Codul rulării 03</strong> (<code>s.ocupare[a]</code> este lucrarea care ocupă aparatul a); <strong>fragmente:</strong></p>
+<div class="sourceCode" id="cb2" tabindex="0"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>p1_ok <span class="op">=</span> <span class="bu">all</span>(<span class="bu">sum</span>(<span class="dv">1</span> <span class="cf">for</span> a <span class="kw">in</span> APARATE <span class="cf">if</span> s.ocupare[a] <span class="op">==</span> l) <span class="op">&lt;=</span> <span class="dv">1</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>            <span class="cf">for</span> s <span class="kw">in</span> stari <span class="cf">for</span> l <span class="kw">in</span> LUCRARI <span class="cf">if</span> l)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>[…]</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> p3_ok:</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;P3 (Fără blocaj): ÎNCĂLCATĂ ✗&quot;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;  Secvență de blocaj: ocupă(X, M), ocupă(Y, C), ocupă(Z, L)&quot;</span>)</span></code></pre></div>
+<p><strong>Ce numără <code>p1_ok</code>? De unde vine secvența de blocaj? Cine are dreptate la P1 și la P3?</strong></p>
 </div>
 <div id="decizia-noastră-cine-verifică-verificatorul" class="slide section level1">
 <h1>Decizia noastră: cine verifică verificatorul?</h1>
 <p><strong>„Am verificat”</strong>, fără comanda, varianta modelului explorat și ieșirea, este o afirmație, nu un rezultat.</p>
-<p><strong>Un contraexemplu</strong> îl credem numai după ce îl verificăm pas cu pas, pe reguli, oricine <span class="nowrap">l-ar</span> fi propus. În cel din rularea 02, primul pas al lui Z nu este permis.</p>
-<p><strong>„Nu există contraexemplu”</strong>, spus de un explorator, îl credem numai dacă am citit codul care verifică proprietatea și <span class="nowrap">l-am</span> probat pe o variantă despre care știm că o încalcă. Verificarea lui P1 din rularea 02 numără altceva.</p>
-<p><strong>Un argument în proză</strong> îl credem numai după ce îl refacem noi. „Lipsa dependențelor ciclice” (rularea 06) devine argument abia cu ordinea comună M, C, L: lucrarea cu ultimul aparat ocupat din ordine poate încheia sau găsește liber următorul.</p>
+<p><strong>Un contraexemplu</strong> îl credem numai după ce îl verificăm pas cu pas, pe reguli, oricine <span class="nowrap">l-ar</span> fi propus, chiar și un program rulat. În cel din rularea 03, primul pas al lui Z nu este permis.</p>
+<p><strong>„Nu există contraexemplu”</strong>, spus de un explorator, îl credem numai dacă am citit codul care verifică proprietatea și <span class="nowrap">l-am</span> probat pe o variantă despre care știm că o încalcă. Verificarea lui P1 din rularea 03 numără altceva, iar secvența ei de blocaj este un text fix.</p>
+<p><strong>Un argument în proză</strong> îl credem numai după ce îl refacem noi: „fiecare lucrare … așteaptă al doilea” (03) descrie o stare inaccesibilă. Al nostru, cu ordinea comună M, C, L: lucrarea cu ultimul aparat ocupat din ordine se poate finaliza sau găsește liber următorul.</p>
 <p><strong>La proiect:</strong> lângă „verificat”, dosarul arată ce <span class="nowrap">s-a</span> rulat sau urmărit și ce rămâne neacoperit.</p>
 <p><strong>Cine a verificat exploratorul nostru?</strong></p>
 </div>
@@ -961,8 +978,8 @@ Varianta V0: 13 stări accesibile, 14 tranziții
 <h1>Modelul scris pentru un instrument</h1>
 <p><em>Pentru studiu individual.</em></p>
 <p><strong>În loc de un explorator în Python</strong>, greu de citit integral, putem cere asistentului AI să scrie modelul și proprietățile în limbajul unui instrument (TLA+, Promela, Lean). Noi citim codificarea (stările, condițiile evenimentelor, proprietățile), scurtă și apropiată de reguli, apoi rulăm noi instrumentul. Instrumentul este verificat de mulți ani; rămâne de verificat codificarea, deci trebuie <span class="nowrap">să-i</span> cunoaștem limbajul.</p>
-<p><strong>Un agent AI care poate rula cod</strong> poate raporta o rulare reală: cerem comanda și ieșirea și le refacem. Dar verifică tot ce a scris el (vezi <code>count</code> la P1) și poate schimba codul până când rularea „trece”: citim verificarea, o probăm pe o variantă greșită și refacem contraexemplele pe reguli.</p>
-<p><strong>Ce ați citi întâi <span class="nowrap">într-un</span> model TLA+ primit de la asistentul AI, înainte să credeți „nu există blocaj”?</strong></p>
+<p><strong>Un agent AI care poate rula cod</strong> poate raporta o rulare reală: cerem comanda și ieșirea și le refacem. Dar verifică tot ce a scris el (vezi P1 în rularea 03) și poate schimba codul până când rularea „trece”: citim verificarea, o probăm pe o variantă greșită și refacem contraexemplele pe reguli.</p>
+<p><strong>Ce ați citi întâi <span class="nowrap">într-un</span> model scris de asistentul AI pentru un instrument, înainte să credeți „nu există blocaj”?</strong></p>
 </div>
 <div id="transferăm-întrebările-două-grupuri-două-săli" class="slide section level1">
 <h1>Transferăm întrebările: două grupuri, două săli</h1>
