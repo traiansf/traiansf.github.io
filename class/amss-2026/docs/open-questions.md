@@ -43,7 +43,6 @@ When a point below is settled, change the materials it names and delete it from 
   - `lab/diagrame/stari.md` and `secventa.md` suggest a prompt for an AI assistant; nobody has run it on Lab 4's enunț, so the guide's list of typical errors of generated diagrams rests on experience, not on a kept run.
   - Lecture 7, already taught, has „precede” on a slide (`curs/07-stare.md`, „Fișierul precede trimiterea; raportul precede acceptarea.”) and „sub P” in notes; the norm is „precedă”. Left alone, since rebuilding a taught deck on Linux would also change its diagrams slightly; fix at the next rebuild.
 - **Lectures 9–10 and Lab 5 (24 November 2026): remaining points.** Settled by the instructor the same day: Lecture 8's published deck gets no mark for its undelivered slides; case F of the exam sample uses „eveniment” and „secvență”; P4 (progres) stays in Lecture 9; Lab 5's suggested prompt was run (five runs, `lab/scenarios/05-validare/captures/2026-11-24/`).
-  - Lecture 9 names TLA+, Alloy and SPIN only in speaker notes.
   - Lab 5's R5 says that the secretary sets the choosing rule at the desk, so that the diagram can show who fixes the realization.
   - Lab 5's reference slide puts the contracts under the diagram as text, for legibility; the reference document has them as notes, as the specification asks.
 - **Lecture 9, review-fix round of 26 November 2026: points for the instructor** (fit-check scripts in the local `notes/review-2026-11-26/`; files: `curs/09-validare.md`, `curs/09-validare-demo.md`, `curs/scenarios/09-microscop/`).

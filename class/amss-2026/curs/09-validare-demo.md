@@ -1,12 +1,12 @@
 # Cursul 9 — ghid de predare
 
-[Prezentarea](09-validare.md) are **21 de slide-uri cu copertă** și un parcurs planificat de **86 de minute** din 100, cu 14 minute de rezervă. [Enunțul](scenarios/09-microscop/brief.md), [referința](scenarios/09-microscop/reference.md) și [modelul executabil](scenarios/09-microscop/model/explorare.py) cu [rezultatele rulărilor](scenarios/09-microscop/model/rezultate.txt) fixează regulile și răspunsurile. Toate datele folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți și nu se rulează nimic în timpul cursului.
+[Prezentarea](09-validare.md) are **24 de slide-uri cu copertă**, dintre care trei pentru studiu individual, marcate pe slide („Instrumente pentru modele formale”, „Modelul scris pentru un instrument” și transferul), și un parcurs planificat de **86 de minute** din 100, cu 14 minute de rezervă. [Enunțul](scenarios/09-microscop/brief.md), [referința](scenarios/09-microscop/reference.md) și [modelul executabil](scenarios/09-microscop/model/explorare.py) cu [rezultatele rulărilor](scenarios/09-microscop/model/rezultate.txt) fixează regulile și răspunsurile. Toate datele folosite la curs apar pe slide-uri; nu sunt necesare calculatoare sau fișe pentru studenți și nu se rulează nimic în timpul cursului.
 
 ## Calibrare după cursul 8
 
-La cursul 8 s-au parcurs 25 din 34 de slide-uri în 100 de minute (feedbackul titularului, 24 noiembrie 2026): 19 slide-uri de conținut (fără copertă, citat și tranziții), adică peste 5 minute pe slide, deși planul prevedea 80 de minute pentru ele. Cursul 9 are 15 slide-uri de conținut (21 cu coperta, citatul și cele patru tranziții), planificate la 86 de minute; la ritmul măsurat, de peste 5 minute pe slide, cele 14 minute de rezervă sunt necesare, nu un spațiu pentru conținut nou.
+La cursul 8 s-au parcurs 25 din 34 de slide-uri în 100 de minute (feedbackul titularului, 24 noiembrie 2026): 19 slide-uri de conținut (fără copertă, citat și tranziții), adică peste 5 minute pe slide, deși planul prevedea 80 de minute pentru ele. Cursul 9 are 15 slide-uri de conținut în plan (21 cu coperta, citatul și cele patru tranziții; plus trei de studiu individual), planificate la 86 de minute; la ritmul măsurat, de peste 5 minute pe slide, cele 14 minute de rezervă sunt necesare, nu un spațiu pentru conținut nou.
 
-**Reper:** la minutul 46 ar trebui să fie încheiat slide-ul „Trei reparații”; etapa AI poate începe cel târziu la minutul 78 (planul o pune la 64). Dacă rezerva nu ajunge, ordinea tăierilor este: slide-ul „Modelul, privit formal” se citește, fără discuție (numai P4 și decizia); la „Trei afirmații, trei justificări” rămâne numai întrebarea despre registrul de locuri; la „Rezultatul explorării” dăm noi răspunsul; la „Decizia noastră” citim; la transfer rămân întrebările 1 și 2, iar a treia rămâne pentru studiu individual. Nu tăiem explorarea pe hârtie, ciclul din V3 și rularea codului primit.
+**Reper:** la minutul 46 ar trebui să fie încheiat slide-ul „Trei reparații”; etapa AI poate începe cel târziu la minutul 82 (planul o pune la 68). Dacă rezerva nu ajunge, ordinea tăierilor este: slide-ul „Modelul, privit formal” se citește, fără discuție (numai P4 și decizia); la „Dincolo de modelul explorat” rămâne numai întrebarea despre registrul de locuri; la „Rezultatul explorării” dăm noi răspunsul; la „Decizia noastră” citim, fără întrebare. Slide-urile de studiu individual se anunță și se sar. Nu tăiem explorarea pe hârtie, ciclul din V3 și rularea codului primit.
 
 ## Parcurs
 
@@ -14,10 +14,9 @@ La cursul 8 s-au parcurs 25 din 34 de slide-uri în 100 de minute (feedbackul ti
 |---|---|
 | 0–8 | Deschiderea: întrebarea de orientare și citatul (3); întrebarea deschisă despre erori apărute după verificări reușite (5). |
 | 8–25 | Microscopul și camera: predicția (7); model, stare, execuție (5); cele trei proprietăți (5). |
-| 25–64 | Explorarea pe hârtie (10); rezultatul (5); trei reparații (6); reverificarea (7); modelul privit formal, cu P4 și decizia (5); trei afirmații și validarea (6). |
-| 64–81 | Lecția AI: cererea (3); cele două rapoarte (6); rularea codului (5); decizia (3). |
-| 81–86 | Transfer la două grupuri și două săli. |
-| 86–100 | Rezervă. |
+| 25–68 | Explorarea pe hârtie (10); rezultatul (5); trei reparații (6); reverificarea (7); modelul privit formal, cu P4 și decizia (5); trei afirmații și validarea (3); dincolo de modelul explorat: anulări, registrul de locuri, date și condiții (7). Slide-ul „Instrumente pentru modele formale” este pentru studiu individual. |
+| 68–86 | Lecția AI: cererea (3); cele două rapoarte (6); rularea codului (5); decizia: cine verifică verificatorul (4). Slide-ul „Modelul scris pentru un instrument” este pentru studiu individual. |
+| 86–100 | Rezervă. Transferul (două grupuri, două săli) este pentru studiu individual; dacă rămân 5 minute, îl parcurgem în plen. |
 
 ## Distincțiile importante
 
@@ -31,6 +30,8 @@ La cursul 8 s-au parcurs 25 din 34 de slide-uri în 100 de minute (feedbackul ti
 
 **Formal** înseamnă aici numai scris explicit; cele două slide-uri cerute de foaia de parcurs sunt „Modelul, privit formal” și „Trei afirmații, trei justificări”. **Verificarea** întreabă dacă modelul respectă proprietatea; **validarea**, dacă modelul și proprietățile sunt cele potrivite. Amândouă definițiile sunt pe al doilea slide. Nu predăm un instrument.
 
+**Date și condiții:** registrul de locuri din cursul 8 are date (locuri libere, identificatori, înscrieri) și condiții pe evenimente; stările accesibile sunt infinit de multe, deci explorarea cere un model mărginit sau o abstracție, iar afirmația pentru orice n cere un argument de invariant. Slide-ul de studiu individual care urmează numește instrumentele (TLA+, SPIN, Alloy pentru explorare; Lean, Isabelle, Rocq pentru demonstrații); nu le predăm.
+
 **Argumentul** pentru orice număr de lucrări și de aparate, cu o ordine comună: lucrarea cu ultimul aparat ocupat din ordine poate încheia sau găsește liber următorul. Îl dăm oral la „Trei afirmații, trei justificări”, studenții îl aplică la predicția etapei AI (ordinea comună M, C, L), iar pe slide apare la decizia etapei AI.
 
 ## Pregătirea AI și proveniența
@@ -39,16 +40,20 @@ Lecția AI (decizia din 19 noiembrie 2026): **verificare afirmată față de ver
 
 Capturi reale Claude Haiku 4.5, prin Claude Code 2.1.331, la 24 noiembrie 2026: șase rulări ale aceluiași prompt, fără unelte, în [arhivă](scenarios/09-microscop/captures/2026-11-24/README.md), cu codul extras neschimbat și ieșirile lui. Rularea 02 raportează un blocaj printr-o secvență imposibilă (Z ocupă întâi M, deci nu poate ocupa L), iar codul ei, rulat, contrazice raportul și conține o verificare greșită a lui P1: la P1 are dreptate raportul, la P3 are dreptate codul. Rularea 06 scrie „Testez exploratorul” și raportează „OK”, corect, fără să fi rulat ceva. Celelalte patru nu raportează rezultate inventate, dar niciuna nu spune că nu a rulat codul. Selecția nu descrie comportamentul tipic al modelului AI; o spun notele tranziției.
 
+Decizia etapei AI se citește ca „cine verifică verificatorul?”: un contraexemplu îl credem după ce îl refacem pe reguli; „nu există contraexemplu” al unui explorator, numai după ce i-am citit verificarea și l-am probat pe o variantă greșită; un argument în proză, numai după ce îl refacem noi. Slide-ul de studiu individual „Modelul scris pentru un instrument” propune alternativa (asistentul AI scrie modelul în TLA+, Promela sau Lean, noi citim codificarea și rulăm instrumentul) și spune ce se schimbă cu un agent AI care rulează cod: ieșirea poate fi reală, dar verifică tot ce a scris el. Nu am rulat o astfel de captură.
+
 Enunțul cu trei lucrări și ordinea comună M, C, L nu are blocaj: 42 de stări accesibile, 62 de tranziții, confirmate de exploratorul nostru și de cinci dintre cele șase programe primite (al șaselea numără greșit tranzițiile). Cu ordinea L, M pentru Z, blocajul există și este găsit în trei pași: proba exploratorului pe o variantă greșită.
 
 ## Încheiere
 
-Transferul (două grupuri, două săli) pornește cu ambele grupuri afară, ca să rămână ceva de explorat: cere execuția care susține „ambele grupuri pot ieși” și ce stabilește ea, o stare accesibilă fără evenimente permise, cu deosebirea dintre blocaj și starea finală intenționată, apoi ce ar trebui rulat sau argumentat după trecerea la sens unic. Rezultatele sunt rulate (`model/muzeu.py`): 13 stări și un blocaj cu trasee opuse, 14 stări și niciun blocaj cu sens unic. După curs, notați dacă studenții spun „am verificat” pentru un scenariu și „nu există” pentru o explorare mărginită; folosiți observația la Laboratorul 5.
+Transferul (două grupuri, două săli), de studiu individual din 27 noiembrie 2026, pornește cu ambele grupuri afară, ca să rămână ceva de explorat: cere execuția care susține „ambele grupuri pot ieși” și ce stabilește ea, o stare accesibilă fără evenimente permise, cu deosebirea dintre blocaj și starea finală intenționată, apoi ce ar trebui rulat sau argumentat după trecerea la sens unic. Rezultatele sunt rulate (`model/muzeu.py`): 13 stări și un blocaj cu trasee opuse, 14 stări și niciun blocaj cu sens unic. După curs, notați dacă studenții spun „am verificat” pentru un scenariu și „nu există” pentru o explorare mărginită; folosiți observația la Laboratorul 5.
 
 ## Feedback aplicat
 
 **24 noiembrie 2026 (titularul):** cursul 8 a fost prea încărcat; predare până la slide-ul 25 („Decizia noastră: varianta B”). Cursul 9 are mai puține slide-uri și exerciții mai lungi; a fost scris cu o reluare scurtă a auditului promisiunilor din cursul 8. Exercițiile au lucru individual și discuție cu toată clasa, fără lucru în pereche; regulile necesare sunt pe slide-urile care le folosesc, cu cuvintele-cheie ale enunțului.
 
 **26 noiembrie 2026 (rundă de revizuire):** trei lecturi independente (consistența cu cursurile 4–8, studiul de caz și exercițiile, limba) și lectura proprie. Slide-ul „Ce evenimente sunt permise?” a fost contopit cu explorarea pe hârtie; „validare” și „verificare” sunt definite pe slide; întrebările la care slide-ul răspundea singur au fost înlocuite (în câte feluri se pot succeda evenimentele, câte scenarii reușite ar stabili P3, prin câte stări trec S1 și S2, cine face ceva în plus la fiecare reparație, cine are dreptate la P1 și la P3); transferul nu mai pornește din blocaj; R3 are aceeași formulare în enunț, pe slide-ul care introduce regulile și în enunțul trimis asistentului AI, iar rezumatele de pe slide-urile de lucru nu mai sunt telegrafice. Reverificarea independentă a textului revizuit a confirmat numerele și timpii; observațiile ei de formulare sunt aplicate.
+
+**27 noiembrie 2026 (comentariile titularului, `curs/comentarii/09-validare.md`):** slide nou „Dincolo de modelul explorat: anulări și date”, cu întrebările mutate de la „Trei afirmații” și cu regulile registrului de locuri pe slide; discuție despre date și condiții pe tranziții; „Decizia noastră” devine „cine verifică verificatorul?”; două slide-uri noi de studiu individual (instrumente; modelul scris pentru un instrument și agenții AI care rulează cod); transferul devine studiu individual. „Ce proprietate lipsește?” este o întrebare separată; în tabelul rulărilor, „VIOLAT” devine „încălcată” (ieșirea programului rămâne în note), iar exploratorul nostru are rândul lui; fragmentul de cod arată linia `p1_ok = False`, cu un comentariu al nostru. Planul rămâne 86 de minute: +4 la etapa 25–68, +1 la decizie, −5 prin transfer.
 
 **26 noiembrie 2026 (titularul), după rundă:** reluarea din cursul 8 a fost scoasă, fără alt conținut în loc: 21 de slide-uri, 86 de minute planificate și 14 minute de rezervă. Etapa AI nepredată a cursului 8 (slide-urile 26–34 ale prezentării publicate) rămâne pentru studiu individual.

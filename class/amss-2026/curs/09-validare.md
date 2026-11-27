@@ -2,7 +2,7 @@
 title: "AMSS 2026/2027 — Cursul 9: Validarea și analiza modelelor"
 author: "Traian-Florin Șerbănuță"
 lang: ro-RO
-operation-names: [ocupă, "ocupă ambele", încheie, renunță, intră, iese]
+operation-names: [ocupă, "ocupă ambele", încheie, renunță, anulează, înscrie, intră, iese]
 state-names: [Neîncepută, Pregătită, "În lucru", Încheiată]
 ---
 
@@ -13,7 +13,7 @@ Am urmărit câteva scenarii și toate s-au încheiat bine. Este suficient?
 ::: notes
 În cursurile 7–8 am verificat tabele și fluxuri prin trasare: alegem un scenariu și îl urmărim pas cu pas. Azi întrebăm ce stabilește o trasare, ce stabilește explorarea tuturor stărilor accesibile ale unui model și ce rămâne nestabilit în ambele cazuri. La cursul 8 am spus ce garantează registrul în orice secvență de cereri; azi întrebăm cum se verifică o asemenea afirmație.
 
-**Organizare:** minutul 0 din 100; interval 0–8 (8 min): întrebarea de orientare și citatul (3), întrebarea deschisă (5). 21 de slide-uri cu copertă; planul are 86 de minute și lasă 14 minute de rezervă. Etapa AI nepredată a cursului 8 nu se reia: rămâne în prezentarea publicată a cursului 8 (slide-urile 26–34), pentru studiu individual. []{.pace at=0 of=100}
+**Organizare:** minutul 0 din 100; interval 0–8 (8 min): întrebarea de orientare și citatul (3), întrebarea deschisă (5). 24 de slide-uri cu copertă, dintre care trei pentru studiu individual, marcate pe slide și lăsate în afara planului: instrumentele pentru modele formale, modelul scris pentru un instrument (cu agenții AI care rulează cod) și transferul. Planul are 86 de minute și lasă 14 minute de rezervă. Etapa AI nepredată a cursului 8 nu se reia: rămâne în prezentarea publicată a cursului 8 (slide-urile 26–34), pentru studiu individual. []{.pace at=0 of=100}
 :::
 
 ---
@@ -129,9 +129,9 @@ P1 este un invariant, ca în cursul 6. P2 este accesibilitate, ca în cursul 7: 
 Nu mai alegem scenarii: pornim din starea inițială și nu omitem nimic.
 
 ::: notes
-Explorarea exhaustivă: pornim din (–, –), aplicăm toate evenimentele permise și continuăm din fiecare stare nouă, până când nu mai apar stări noi. Continuăm cu reparațiile, reverificarea lor și cele două slide-uri despre modelarea formală.
+Explorarea exhaustivă: pornim din (–, –), aplicăm toate evenimentele permise și continuăm din fiecare stare nouă, până când nu mai apar stări noi. Continuăm cu reparațiile, reverificarea lor, cele două slide-uri despre modelarea formală și modelele cu date.
 
-**Organizare:** minutul 25 din 100; interval 25–64 (39 min): explorarea pe hârtie (10), rezultatul (5), reparațiile (6), reverificarea (7), modelul privit formal (5), cele trei afirmații (6). []{.pace at=25}
+**Organizare:** minutul 25 din 100; interval 25–68 (43 min): explorarea pe hârtie (10), rezultatul (5), reparațiile (6), reverificarea (7), modelul privit formal (5), cele trei afirmații (3), dincolo de modelul explorat (7). []{.pace at=25}
 :::
 
 ---
@@ -239,10 +239,12 @@ V1: secvența nu mai este o execuție, pentru că `ocupă(Y, C)` nu mai este per
 
 **V3:** ordinile din V0 (X: M, apoi C; Y: C, apoi M) și `renunță(l)`: o lucrare Pregătită al cărei al doilea aparat este ocupat îl eliberează pe primul și redevine Neîncepută. Un **ciclu** este o secvență de evenimente care revine în starea din care a pornit.
 
-Individual, apoi discutăm: **găsiți un ciclu în V3. Ce înseamnă el pentru lucrări? V3 respectă P1 (exclusivitate), P2 (încheiere posibilă) și P3: ce proprietate lipsea?**
+Individual, apoi discutăm: **găsiți un ciclu în V3. Ce înseamnă el pentru lucrări?**
+
+V3 respectă P1 (exclusivitate), P2 (încheiere posibilă) și P3 (fără blocaj). **Ce proprietate lipsește?**
 
 ::: notes
-P1 și P2 sunt respectate în toate variantele; tabelul arată ce diferă. Ciclul găsit de explorator: din (M, –), `ocupă(Y, C)` → (M, C), apoi `renunță(Y)` → (M, –); cel simetric, cu X, este la fel de bun. V3 nu are blocaj, dar o execuție poate continua la nesfârșit: Y ocupă și eliberează camera, iar X nu face niciun pas. Studenții vor obiecta că X ia camera când Y o lasă. În ciclu, X are într-adevăr mereu un eveniment permis (`ocupă(X, C)` în (M, –), `renunță(X)` în (M, C)), dar modelul nu spune cine face pasul următor, deci și această execuție este permisă. Cu o presupunere mai tare (un eveniment care redevine mereu permis se produce în cele din urmă), și V3 s-ar încheia; dacă laboratorul o poate garanta este o întrebare pentru beneficiar. P1–P3 nu interzic execuția fără sfârșit; lipsea P4 (progres), pe slide-ul următor. O proprietate respectată nu este neapărat cea de care aveam nevoie: alegerea proprietăților se face împreună cu beneficiarul.
+P1 și P2 sunt respectate în toate variantele; tabelul arată ce diferă. Ciclul găsit de explorator: din (M, –), `ocupă(Y, C)` → (M, C), apoi `renunță(Y)` → (M, –); cel simetric, cu X, este la fel de bun. V3 nu are blocaj, dar o execuție poate continua la nesfârșit: Y ocupă și eliberează camera, iar X nu face niciun pas. Studenții vor obiecta că X ia camera când Y o lasă. În ciclu, X are într-adevăr mereu un eveniment permis (`ocupă(X, C)` în (M, –), `renunță(X)` în (M, C)), dar modelul nu spune cine face pasul următor, deci și această execuție este permisă. Cu o presupunere mai tare (un eveniment care redevine mereu permis se produce în cele din urmă), și V3 s-ar încheia; dacă laboratorul o poate garanta este o întrebare pentru beneficiar. P1–P3 nu interzic execuția fără sfârșit; lipsește P4 (progres), pe slide-ul următor. O proprietate respectată nu este neapărat cea de care aveam nevoie: alegerea proprietăților se face împreună cu beneficiarul.
 
 **Sursă:** `python explorare.py`, 26 noiembrie 2026; ieșirea completă este în `curs/scenarios/09-microscop/model/rezultate.txt`.
 
@@ -265,7 +267,7 @@ P1 și P2 sunt respectate în toate variantele; tabelul arată ce diferă. Ciclu
 **Decizia noastră:** V1 sau V2, cu regula aplicată de registru.
 
 ::: notes
-Primul dintre cele două slide-uri despre modelarea formală. „Formal” înseamnă aici numai că fiecare element este scris explicit, fără loc de interpretare; exploratorul nostru are circa 150 de rânduri de Python. Există instrumente care fac astfel de explorări pentru modele mult mai mari, de exemplu TLA+ (al lui Lamport, citat la cursul 7), Alloy sau SPIN; nu le cerem și nu le predăm. P4 este răspunsul la întrebarea de pe slide-ul anterior. P1–P3 se citesc din stări, una câte una; P4 privește execuții întregi, de aceea am avut nevoie de cicluri, nu numai de stări. În V1 și V2, P4 decurge din rezultate: stările sunt în număr finit și nu există cicluri, deci orice execuție se oprește, iar fără blocaj se poate opri numai în (gata, gata). Presupunerea că, dacă un eveniment este permis, în cele din urmă se produce unul leagă P4 de laborator: modelul nu obligă pe nimeni să facă pasul următor. Decizia: V1, dacă Y poate monta camera după ce a ocupat microscopul; V2, dacă registrul poate ocupa ambele aparate printr-o singură operație. În ambele, garantul este registrul, nu obiceiul lucrărilor. Dacă beneficiarul ar considera (M, C) acceptabilă (de exemplu, ședința se închide și aparatele se adună seara), aceasta ar fi în lista stărilor finale intenționate, iar P3 nu ar mai fi încălcată.
+Primul dintre cele două slide-uri despre modelarea formală. „Formal” înseamnă aici numai că fiecare element este scris explicit, fără loc de interpretare; exploratorul nostru are circa 150 de rânduri de Python. Există instrumente care fac astfel de explorări pentru modele mult mai mari, de exemplu TLA+ (al lui Lamport, citat la cursul 7), Alloy sau SPIN; le numim, iar slide-ul de studiu individual „Instrumente pentru modele formale” le descrie pe scurt. Nu le cerem și nu le predăm. P4 este răspunsul la întrebarea de pe slide-ul anterior. P1–P3 se citesc din stări, una câte una; P4 privește execuții întregi, de aceea am avut nevoie de cicluri, nu numai de stări. În V1 și V2, P4 decurge din rezultate: stările sunt în număr finit și nu există cicluri, deci orice execuție se oprește, iar fără blocaj se poate opri numai în (gata, gata). Presupunerea că, dacă un eveniment este permis, în cele din urmă se produce unul leagă P4 de laborator: modelul nu obligă pe nimeni să facă pasul următor. Decizia: V1, dacă Y poate monta camera după ce a ocupat microscopul; V2, dacă registrul poate ocupa ambele aparate printr-o singură operație. În ambele, garantul este registrul, nu obiceiul lucrărilor. Dacă beneficiarul ar considera (M, C) acceptabilă (de exemplu, ședința se închide și aparatele se adună seara), aceasta ar fi în lista stărilor finale intenționate, iar P3 nu ar mai fi încălcată.
 
 **Organizare:** 5 min. []{.pace dur=5}
 :::
@@ -282,12 +284,53 @@ Primul dintre cele două slide-uri despre modelarea formală. „Formal” înse
 
 **Verificarea** întreabă dacă modelul respectă proprietatea. **Validarea** întreabă, împreună cu beneficiarul, dacă modelul și proprietățile sunt cele potrivite; de ea depinde a treia afirmație.
 
-Individual, apoi discutăm: **ce ar trebui să facem ca să putem afirma că:** (1) V1 nu are blocaj nici dacă o lucrare Pregătită poate fi anulată; (2) registrul de locuri din cursul 8 nu dă niciodată un loc în plus?
+**Pe cine întrebăm despre a treia afirmație?**
 
 ::: notes
-Al doilea slide despre modelarea formală: scenarii alese, explorarea exhaustivă a unui model finit, afirmația despre sistemul real. Pentru „orice alt model” sunt două căi: altă explorare (trei lucrări, `python trei_lucrari.py MC MC MC`: 32 de stări, niciun blocaj) sau un argument pentru orice număr de lucrări și de aparate: dintre aparatele ocupate, îl luăm pe ultimul din ordinea comună; lucrarea care îl ocupă fie are toate aparatele și poate încheia, fie așteaptă un aparat aflat după el, deci liber; dacă niciun aparat nu este ocupat, oricare lucrare neîncheiată poate începe. Pe slide, argumentul apare la decizia etapei AI. Ultimul rând nu se stabilește prin model: trebuie să știm dacă modelul descrie laboratorul și dacă toate ocupările trec prin registru; V3 a arătat că și lista proprietăților se validează. (1): întâi precizăm modelul, adică starea în care ajunge lucrarea anulată: o stare finală nouă cere completarea listei stărilor finale intenționate (altfel P3 este încălcată prin definiție), iar Neîncepută aduce un ciclu, deci P4 este încălcată; apoi explorăm din nou. (2): explorarea unui model cu doi participanți și două locuri stabilește afirmația pentru acel model; pentru orice număr de cereri și de locuri, un argument de invariant (cursul 6).
+Al doilea slide despre modelarea formală: scenarii alese, explorarea exhaustivă a unui model finit, afirmația despre sistemul real. Pentru „orice alt model” sunt două căi: altă explorare (trei lucrări, `python trei_lucrari.py MC MC MC`: 32 de stări, niciun blocaj) sau un argument pentru orice număr de lucrări și de aparate: dintre aparatele ocupate, îl luăm pe ultimul din ordinea comună; lucrarea care îl ocupă fie are toate aparatele și poate încheia, fie așteaptă un aparat aflat după el, deci liber; dacă niciun aparat nu este ocupat, oricare lucrare neîncheiată poate începe. Pe slide, argumentul apare la decizia etapei AI. Ultimul rând nu se stabilește prin model: trebuie să știm dacă modelul descrie laboratorul și dacă toate ocupările trec prin registru; V3 a arătat că și lista proprietăților se validează. Întrebarea: pe beneficiar (șeful laboratorului) și pe cei care lucrează acolo; despre a treia afirmație nu decide nicio rulare.
 
-**Organizare:** 6 min: 2 individual, 4 discuție; ajungem la minutul 64. []{.pace dur=6}
+**Organizare:** 3 min. []{.pace dur=3}
+:::
+
+---
+
+# Dincolo de modelul explorat: anulări și date
+
+**(1) V1 (ordine comună) cu anulare.** Ambele lucrări ocupă întâi M, apoi C. Un eveniment nou, `anulează(l)`, este permis pentru o lucrare Pregătită: eliberează microscopul.
+
+**(2) Registrul de locuri din cursul 8.** Atelierul are n locuri; site-ul trimite `înscrie(c, p, a)`, cu identificatorul c al cererii. **R3 (acceptare):** o cerere cu c neînregistrat este acceptată exact când p nu este înscris și există loc liber: registrul consumă un loc și înregistrează (c, p, a); altfel întoarce `refuz`, fără modificări. **R5 (reîncercare):** o cerere cu c deja înregistrat primește același `acceptat`, fără alt loc. **Afirmația:** registrul nu acceptă niciodată mai multe înscrieri decât n.
+
+Starea registrului nu mai este o pereche de etape: are **date** (locurile libere, identificatorii înregistrați, înscrierile), iar evenimentele au **condiții** care citesc datele („există loc liber”, „c neînregistrat”).
+
+Individual, apoi discutăm: **ce ar trebui să facem ca să putem afirma (1)? Dar (2), pentru orice n și orice secvență de cereri? Ce poate stabili aici o explorare?**
+
+::: notes
+(1): întâi precizăm modelul, adică starea în care ajunge lucrarea anulată: o stare finală nouă cere completarea listei stărilor finale intenționate (altfel P3 este încălcată prin definiție), iar Neîncepută aduce un ciclu, deci P4 este încălcată; apoi explorăm din nou. (2): cu date, stările se înmulțesc: locurile libere pot fi 0…n, iar identificatorii nu au o limită, deci stările accesibile sunt infinit de multe și explorarea nu se mai oprește. Trei căi: mărginim modelul (n = 2, trei participanți, trei identificatori; explorarea stabilește afirmația numai pentru acele valori), abstractizăm datele (de exemplu, numai „niciun loc liber / cel puțin unul”; verificăm că abstracția nu pierde cazul care ne interesează) sau dăm un argument de invariant, ca la cursul 6: locurile libere plus înscrierile fac n, iar locurile libere nu scad sub 0. Fiecare eveniment îl păstrează: o acceptare consumă un loc numai dacă există unul și adaugă o înscriere; reîncercarea și `refuz` nu schimbă nimic. Argumentul acoperă orice n și orice secvență; pentru demonstrații mari există asistenți de demonstrare (slide-ul următor, de studiu individual).
+
+**Organizare:** 7 min: 2 individual, 5 discuție; ajungem la minutul 68. []{.pace dur=7}
+:::
+
+---
+
+# Instrumente pentru modele formale
+
+*Pentru studiu individual.*
+
+| Instrument | Ce face |
+|:--------------------|:----------------------------------------------------------------------|
+| **TLA+** (cu TLC) | parcurge toate stările accesibile ale unui model finit; dă contraexemplul ca secvență de pași |
+| **SPIN** (Promela) | parcurge toate ordinile pașilor unor procese; găsește blocaje |
+| **Alloy** | caută contraexemple până la o mărime dată (de exemplu, 4 lucrări) |
+| **Lean**, **Isabelle**, **Rocq** | verifică o demonstrație, valabilă pentru orice mărime |
+
+Exploratorul nostru face, în mic, ce face TLC. Primele trei stabilesc proprietatea numai pentru modelul mărginit parcurs; o demonstrație, pentru orice mărime, dar o scrie cineva.
+
+**Cu ce instrument ați verifica afirmația despre registrul de locuri, pentru orice n?**
+
+::: notes
+Răspunsul: cu un argument de invariant; scris complet, el poate fi verificat de Lean, Isabelle sau Rocq. TLC sau Alloy ar stabili afirmația pentru n = 2 sau n = 3, cu un număr mărginit de cereri. Nu cerem aceste instrumente la proiect; le numim ca să știe ce există și ce stabilește fiecare.
+
+**Organizare:** studiu individual. []{.pace dur=0}
 :::
 
 ---
@@ -301,7 +344,7 @@ Lecția: o verificare **afirmată** nu este o verificare **executată**, iar o v
 
 Capturi reale, obținute înaintea cursului: Claude Haiku 4.5, prin Claude Code 2.1.331, la 24 noiembrie 2026, șase rulări ale aceluiași prompt, fiecare într-un context nou, **fără unelte**: sesiunea nu putea rula cod. Am ales două rulări; selecția nu descrie comportamentul tipic al modelului AI. Toate rulările, codul extras și ieșirile lui sunt în arhivă. La curs nu rulăm instrumente.
 
-**Organizare:** minutul 64 din 100; interval 64–81 (17 min): cererea (3), cele două rapoarte (6), rularea (5), decizia (3). []{.pace at=64}
+**Organizare:** minutul 68 din 100; interval 68–86 (18 min): cererea (3), cele două rapoarte (6), rularea (5), decizia (4). []{.pace at=68}
 :::
 
 ---
@@ -328,11 +371,13 @@ Ce poate raporta onest: codul și cum îl rulăm; eventual un raționament, prez
 
 # Două rapoarte, același prompt
 
-**R3 (ocupare):** o lucrare ocupă numai un aparat liber, următorul în ordinea ei: **X: M, C; Y: C, L; Z: M, L.** **Asistentul AI, Claude Haiku 4.5, 24 noiembrie 2026, rularea 02, după cod; fragment:**
+**R3 (ocupare):** o lucrare ocupă numai un aparat liber, următorul în ordinea ei: **X: M, C; Y: C, L; Z: M, L.**
+
+**Asistentul AI, Claude Haiku 4.5, 24 noiembrie 2026, rularea 02; fragment:**
 
 > **Rezultate așteptate:** […] **P3** (fără blocaj): Încălcată — se poate ajunge într-o stare de impas: de exemplu, X ocupă M, Y ocupă C, Z ocupă L; fiecare așteptă al doilea aparat care e ținut de altcineva
 
-**Rularea 06, după cod; fragmente** (primul […] este un apel de unealtă scris ca text):
+**Rularea 06; fragmente** (primul […]: un apel de unealtă scris ca text):
 
 > Testez exploratorul: […] **Rezultate** […] **P3 (Fără blocaj)**: OK — din orice stare cu lucrări neincheiete, ceva e permis; ordinea flexibilă a ocupării și lipsa dependențelor ciclice evită deadlock-ul
 
@@ -341,7 +386,7 @@ Individual, apoi discutăm: **verificați pe reguli secvența din rularea 02: es
 ::: notes
 Secvența din 02 nu este o execuție: Z ocupă întâi M, deci `ocupă(Z, L)` nu este permis; iar M este deja ocupat de X. Un contraexemplu pretins se verifică în trei pași, pe hârtie. „P3: OK” din 06 nu se poate verifica așa: privește toate stările. Concluzia este totuși corectă; justificarea, numai în parte: ordinea nu este „flexibilă”, ci fixă, iar lipsa dependențelor ciclice este argumentul bun. „Stare de impas” și „deadlock” sunt blocajul nostru. „Testez exploratorul” este urmat în răspuns de un apel de unealtă scris ca text, pe care nimeni nu l-a executat; raportul nu dă numărul de stări cerut. În 02 apar tot apeluri scrise ca text, apoi „Rezultate așteptate”: cuvântul „așteptate” și apelurile rămase fără răspuns sunt singurele semne că nu s-a rulat nimic. Celelalte patru rulări descriu exploratorul și nu raportează rezultate inventate; niciuna nu spune însă că nu a rulat codul.
 
-**Sursă:** răspunsurile integrale `haiku45-explorator-02` și `-06`, arhiva `09-microscop/captures/2026-11-24`; omisiunile sunt marcate, punctele listelor și titlul „Rezultate” sunt redate pe un singur rând, greșelile de scriere sunt ale răspunsurilor.
+**Sursă:** răspunsurile integrale `haiku45-explorator-02` și `-06`, arhiva `09-microscop/captures/2026-11-24`; în ambele, fragmentele urmează codului; omisiunile sunt marcate, punctele listelor și titlul „Rezultate” sunt redate pe un singur rând, greșelile de scriere sunt ale răspunsurilor.
 
 **Organizare:** 6 min: 2 individual, 4 discuție. []{.pace dur=6}
 :::
@@ -350,10 +395,10 @@ Secvența din 02 nu este o execuție: Z ocupă întâi M, deci `ocupă(Z, L)` nu
 
 # Rulăm codul primit
 
-| | Raportul AI | Codul, rulat de noi |
-|:------|:--------------------------------|:------------------------------------------|
-| 02 | P1 (exclusivitate) respectată; P3 (fără blocaj) **încălcată** | 42 de stări, 185 de tranziții; P1 **VIOLAT**; P3 **OK** |
-| 06, noi | 06: P1 OK; P3 OK | 42 de stări, 62 de tranziții; P1–P3 respectate |
+| | Raportul AI | Codul primit, rulat de noi |
+|:---|:------------------------------------------------------------|:--------------------------------------------|
+| 02 | P1 (exclusivitate) respectată; P3 (fără blocaj) **încălcată** | 42 de stări, 185 de tranziții; P1 **încălcată**; P3 respectată |
+| 06 | P1 respectată; P3 respectată | 42 de stări, 62 de tranziții; P1–P3 respectate, ca la exploratorul nostru |
 
 **P1 în codul rulării 02 (`device_owner[d]` este lucrarea care ocupă d); fragment:**
 
@@ -361,7 +406,7 @@ Secvența din 02 nu este o execuție: Z ocupă întâi M, deci `ocupă(Z, L)` nu
 if state.device_owner[device] is not None:
     count = sum(1 for d in ['M', 'C', 'L']
                 if state.device_owner[d] == state.device_owner[device])
-    if count > 1: […]
+    if count > 1: […]  # aici: P1 încălcată
 ```
 
 **Ce numără `count`? Cine are dreptate la P1: raportul sau codul? Dar la P3?**
@@ -369,31 +414,51 @@ if state.device_owner[device] is not None:
 ::: notes
 `count` numără câte aparate are aceeași lucrare, nu câte lucrări ocupă același aparat; o lucrare În lucru are două, deci verificarea eșuează la prima astfel de stare. La P1 are dreptate raportul, iar codul verifică altceva; la P3 are dreptate codul, iar raportul dă un contraexemplu care nu este o execuție: niciunul nu se poate crede fără verificare. Cu un singur ocupant pentru fiecare aparat, P1 nici nu poate fi încălcată. 185 este suma lungimilor secvențelor, nu numărul tranzițiilor. Concordanța exploratorului nostru cu cinci dintre cele șase programe (42 de stări, 62 de tranziții) sporește încrederea, dar nu este o demonstrație: pot greși la fel. Nici „P1 OK” din 06 nu verifică P1 (întreabă numai dacă ocupantul unui aparat are aparate); 05 o verifică greșit, iar 03 deloc (valoarea este fixată la „adevărat”).
 
-**Sursă:** `rulari/haiku45-explorator-02.txt`, `-06.txt` și `model/trei_lucrari.py`, Python 3.10.11, 24 noiembrie 2026. În fragment, rândul lung este împărțit în două, indentarea este redusă, iar `[…]` ține locul instrucțiunilor `p1_ok = False` și `break`.
+**Sursă:** `rulari/haiku45-explorator-02.txt`, `-06.txt` și `model/trei_lucrari.py`, Python 3.10.11, 24 noiembrie 2026. În fragment, rândul lung este împărțit în două, indentarea este redusă, `[…]` ține locul instrucțiunilor `p1_ok = False` și `break`, iar comentariul `# aici: P1 încălcată` este al nostru. În tabel rezumăm ieșirile: codul rulării 02 tipărește „VIOLAT” și „OK”, iar raportul rulării 06, „OK”.
 
 **Organizare:** 5 min: 2 individual, 3 discuție. []{.pace dur=5}
 :::
 
 ---
 
-# Decizia noastră
+# Decizia noastră: cine verifică verificatorul?
 
-**Nu acceptăm** un rezultat fără rularea care l-a produs: comanda, varianta modelului explorat, ieșirea. „Am verificat”, scris într-un răspuns AI, este o afirmație, nu un rezultat.
+**„Am verificat”**, fără comanda, varianta modelului explorat și ieșirea, este o afirmație, nu un rezultat.
 
-**Un contraexemplu** îl verificăm pas cu pas, pe reguli, oricine l-ar fi propus. În cel din rularea 02, primul pas al lui Z nu este permis.
+**Un contraexemplu** îl credem numai după ce îl verificăm pas cu pas, pe reguli, oricine l-ar fi propus. În cel din rularea 02, primul pas al lui Z nu este permis.
 
-**Afirmația „nu există contraexemplu”** o acceptăm numai cu o explorare rulată sau cu un argument. Aici le avem pe amândouă: 42 de stări explorate (`python trei_lucrari.py`) și ordinea comună M, C, L: lucrarea cu ultimul aparat ocupat din ordine poate încheia sau găsește liber următorul.
+**„Nu există contraexemplu”**, spus de un explorator, îl credem numai dacă am citit codul care verifică proprietatea și l-am probat pe o variantă despre care știm că o încalcă. Verificarea lui P1 din rularea 02 numără altceva.
 
-**Citim verificarea înainte de rezultat:** codul care o face poate verifica altceva decât proprietatea. Probăm verificarea pe o variantă despre care știm că încalcă proprietatea.
+**Un argument în proză** îl credem numai după ce îl refacem noi. „Lipsa dependențelor ciclice” (rularea 06) devine argument abia cu ordinea comună M, C, L: lucrarea cu ultimul aparat ocupat din ordine poate încheia sau găsește liber următorul.
 
 **La proiect:** lângă „verificat”, dosarul arată ce s-a rulat sau urmărit și ce rămâne neacoperit.
 
+**Cine a verificat exploratorul nostru?**
+
 ::: notes
-Proba exploratorului pe o variantă greșită: cu ordinea L, M pentru Z, exploratorul nostru găsește blocajul în trei pași, `ocupă(X, M)`, `ocupă(Y, C)`, `ocupă(Z, L)` (45 de stări, P3 încălcată). Este exact secvența pretinsă de rularea 02, pentru alt enunț decât cel dat. Dacă un explorator nu găsește nici măcar o eroare introdusă intenționat, rezultatul „OK” nu spune nimic. Legătura cu cursul 6 (verificarea circulară): acolo testele veneau din cod, aici raportul nu vine de nicăieri. Feedback pentru proiect se poate cere oricând.
+Răspunsul la întrebare: noi, în trei feluri, niciunul complet: i-am citit codul (circa 150 de rânduri), l-am probat pe o variantă greșită și am comparat rezultatele cu cele ale programelor primite; concordanța sporește încrederea, dar nu este o demonstrație. Pentru „nu există blocaj” avem aici și explorarea (42 de stări, `python trei_lucrari.py`), și argumentul. Proba exploratorului pe o variantă greșită: cu ordinea L, M pentru Z, exploratorul nostru găsește blocajul în trei pași, `ocupă(X, M)`, `ocupă(Y, C)`, `ocupă(Z, L)` (45 de stări, P3 încălcată). Este exact secvența pretinsă de rularea 02, pentru alt enunț decât cel dat. Dacă un explorator nu găsește nici măcar o eroare introdusă intenționat, rezultatul „OK” nu spune nimic. Legătura cu cursul 6 (verificarea circulară): acolo testele veneau din cod, aici raportul nu vine de nicăieri. Feedback pentru proiect se poate cere oricând.
 
 **Sursă:** `python trei_lucrari.py MC CL LM`, 24 noiembrie 2026.
 
-**Organizare:** 3 min; ajungem la minutul 81. []{.pace dur=3}
+**Organizare:** 4 min; ajungem la minutul 86. []{.pace dur=4}
+:::
+
+---
+
+# Modelul scris pentru un instrument
+
+*Pentru studiu individual.*
+
+**În loc de un explorator în Python**, greu de citit integral, putem cere asistentului AI să scrie modelul și proprietățile în limbajul unui instrument (TLA+, Promela, Lean). Noi citim codificarea (stările, condițiile evenimentelor, proprietățile), scurtă și apropiată de reguli, apoi rulăm noi instrumentul. Instrumentul este verificat de mulți ani; rămâne de verificat codificarea, deci trebuie să-i cunoaștem limbajul.
+
+**Un agent AI care poate rula cod** poate raporta o rulare reală: cerem comanda și ieșirea și le refacem. Dar verifică tot ce a scris el (vezi `count` la P1) și poate schimba codul până când rularea „trece”: citim verificarea, o probăm pe o variantă greșită și refacem contraexemplele pe reguli.
+
+**Ce ați citi întâi într-un model TLA+ primit de la asistentul AI, înainte să credeți „nu există blocaj”?**
+
+::: notes
+Răspunsul: lista stărilor finale intenționate (altfel „blocajul” poate fi definit greșit), condiția fiecărui eveniment, comparată cu regulile (R3 (ocupare): aparat liber, următorul în ordine), și formularea proprietății; apoi o probă: schimbăm ordinea lui Z în L, M și cerem instrumentului să găsească blocajul. Agentul AI care rulează cod nu mai poate inventa o ieșire fără să fie prins, dacă cerem comanda și o refacem; dar poate rula altă variantă a modelului decât cea din enunț, deci comparăm și versiunea rulată cu enunțul.
+
+**Organizare:** studiu individual. []{.pace dur=0}
 :::
 
 ---
@@ -402,7 +467,7 @@ Proba exploratorului pe o variantă greșită: cu ordinea L, M pentru Z, explora
 
 **Enunț nou:** un muzeu are două săli mici, A și B, legate printr-o ușă; în fiecare încape un singur grup. Grupul G1 intră prin A, trece în B și iese din muzeu; grupul G2 intră prin B, trece în A și iese. `intră(g, s)` este permis numai dacă sala s este liberă; grupul eliberează atunci sala în care era. Ieșirea din a doua sală a traseului este mereu permisă. La început, ambele grupuri sunt afară.
 
-Răspundeți pe scurt, în scris:
+*Pentru studiu individual.* Răspundeți pe scurt, în scris:
 
 1. Un coleg scrie: „Am verificat: ambele grupuri pot ieși.” Ce execuție v-ar putea arăta? Ce a stabilit și ce nu?
 2. Două stări accesibile nu permit niciun eveniment. Scrieți-le, cu execuțiile lor. Care este un blocaj și care, o stare finală intenționată?
@@ -413,5 +478,5 @@ Răspundeți pe scurt, în scris:
 
 **Sursă:** `python muzeu.py` și `python muzeu.py AB AB`, 26 noiembrie 2026, în `model/rezultate.txt`.
 
-**Organizare:** minutul 81 din 100; 5 min; încheiere la minutul 86, cu 14 minute de rezervă. []{.pace at=81 dur=5}
+**Organizare:** studiu individual, anunțat la încheiere, la minutul 86 din 100, cu 14 minute de rezervă; dacă rezerva rămâne, îl parcurgem în plen (5 min). []{.pace at=86 dur=0}
 :::
